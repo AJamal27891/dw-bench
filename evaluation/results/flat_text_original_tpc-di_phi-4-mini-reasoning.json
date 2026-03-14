@@ -1,0 +1,3928 @@
+{
+  "baseline": "flat_text",
+  "dataset": "tpc-di",
+  "obfuscated": false,
+  "model": "microsoft/phi-4-mini-reasoning",
+  "model_tag": "phi-4-mini-reasoning",
+  "metrics": {
+    "total": 181,
+    "exact_match": 0.0663,
+    "avg_f1": 0.0722,
+    "by_type": {
+      "lineage_impact": {
+        "total": 47,
+        "exact_match": 0.0426,
+        "avg_f1": 0.0426
+      },
+      "silo_detection": {
+        "total": 22,
+        "exact_match": 0.0455,
+        "avg_f1": 0.0455
+      },
+      "schema_routing": {
+        "total": 112,
+        "exact_match": 0.0804,
+        "avg_f1": 0.0899
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "total": 115,
+        "exact_match": 0.0957,
+        "avg_f1": 0.1049
+      },
+      "hard": {
+        "total": 13,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "medium": {
+        "total": 53,
+        "exact_match": 0.0189,
+        "avg_f1": 0.0189
+      }
+    },
+    "by_subtype": {
+      "forward": {
+        "total": 19,
+        "exact_match": 0.0526,
+        "avg_f1": 0.0526
+      },
+      "reverse": {
+        "total": 17,
+        "exact_match": 0.0588,
+        "avg_f1": 0.0588
+      },
+      "transitive": {
+        "total": 2,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "combined_impact": {
+        "total": 9,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "count": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "membership": {
+        "total": 9,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "isolation": {
+        "total": 10,
+        "exact_match": 0.1,
+        "avg_f1": 0.1
+      },
+      "connected": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "join_path": {
+        "total": 76,
+        "exact_match": 0.0263,
+        "avg_f1": 0.0404
+      },
+      "hop_count": {
+        "total": 20,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "direct_fk": {
+        "total": 16,
+        "exact_match": 0.4375,
+        "avg_f1": 0.4375
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "tpc-di_lineage_fwd_000",
+      "question": "Which tables in the data warehouse are directly derived from SRC.FINWIRE_FIN?",
+      "gold_answer": [
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from SRC.FINWIRE_FIN. Alright, first I need to understand the relationships between the tables based on the provided context.\n\nLooking at the derived_from relationships listed, each line show",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_001",
+      "question": "Which tables in the data warehouse are directly derived from SRC.CashTransaction?",
+      "gold_answer": [
+        "FactCashBalances"
+      ],
+      "predicted_answer": [
+        "FACTCASHBALANCES"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "The DERIVED_FROM relationships were analyzed to identify tables directly derived from SRC.CASH_TRANSACTION. Only one entry explicitly lists SRC.CASH_TRANSACTION as a parent, pointing to FACTCASHBALANCES. Other related tables (e.g., Trade, FactHoldings) are indirectly connected but not direct descendants.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_002",
+      "question": "Which tables in the data warehouse are directly derived from SRC.FINWIRE_SEC?",
+      "gold_answer": [
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from SRC.FINWIRE_SEC. First, I need to understand the relationships between the tables based on the provided context.\n\nLooking at the derived_from relationships listed, each line shows a DERI",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_003",
+      "question": "Which tables in the data warehouse are directly derived from SRC.HoldingHistory?",
+      "gold_answer": [
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": ": \"The DERIVED_FROM relationships specify which tables each record originates from. For SRC.HoldingHistory",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_004",
+      "question": "Which tables in the data warehouse are directly derived from SRC.WatchHistory?",
+      "gold_answer": [
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from \"SRC.WatchHistory\" based on the provided database schema and relationships.\n\nFirst, I need to recall how derived (or dependent) relationships work in a data warehouse context. Derived ta",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_005",
+      "question": "Which tables in the data warehouse are directly derived from SRC.Industry?",
+      "gold_answer": [
+        "Industry"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from SRC.Industry based on the provided database schema and relationships.\n\nFirst, I need to recall the derived-from relationships listed. Let me go through each relationship mentioned in the",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_006",
+      "question": "Which tables in the data warehouse are directly derived from SRC.Time?",
+      "gold_answer": [
+        "DimTime"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from the table SRC.Time. First, I need to understand the relationships and dependencies outlined in the context.\n\nLooking at the derived_from relationships listed, I should go through each on",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_007",
+      "question": "Which tables in the data warehouse are directly derived from SRC.HR?",
+      "gold_answer": [
+        "DimBroker"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from \"SRC.HR\". From the context provided, we have a list of derived relationships.\n\nFirst, I need to recall the rules section. It says that for questions about shortest path or direct derivat",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_008",
+      "question": "Which tables in the data warehouse are directly derived from SRC.CustomerMgmt?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimCustomer"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "Examined the 'DERived_FROM' relationships for SRC.CustomerMgmt. Identified explicit links to DimCustomer and DimAccount. Confirmed no indirect derivations were specified, ensuring only direct connections count.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_009",
+      "question": "Which tables in the data warehouse are directly derived from SRC.Date?",
+      "gold_answer": [
+        "DimDate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables in the data warehouse are directly derived from SRC.Date. \n\nFirst, I need to recall the relationships outlined in the context provided. Looking at the DERIVED_FROM section, each line shows a parent table that der",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_010",
+      "question": "Which tables in the data warehouse are directly derived from SRC.Trade?",
+      "gold_answer": [
+        "DimTrade",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from SRC.Trade. First, I need to understand the relationships between the tables based on the provided context.\n\nLooking at the derived_from relationships listed, each DERIVED_FROM line shows",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_011",
+      "question": "Which tables in the data warehouse are directly derived from SRC.DailyMarket?",
+      "gold_answer": [
+        "FactMarketHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_012",
+      "question": "Which tables in the data warehouse are directly derived from SRC.StatusType?",
+      "gold_answer": [
+        "StatusType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_013",
+      "question": "Which tables in the data warehouse are directly derived from SRC.FINWIRE_CMP?",
+      "gold_answer": [
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from the table SRC.FINWIRE_CMP. From the context provided, we have a list of derived relationships, so I need to look through them carefully.\n\nFirst, I'll scan all the DERIVED_FROM relationsh",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_014",
+      "question": "Which tables in the data warehouse are directly derived from SRC.TaxRate?",
+      "gold_answer": [
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from the SRC.TaxRate table. First, I need to understand the relationships between the tables based on the provided context.\n\nLooking at the list of derived-from relationships (edges), each DE",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_015",
+      "question": "Which tables in the data warehouse are directly derived from SRC.TradeType?",
+      "gold_answer": [
+        "TradeType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from \"SRC.TradeType\". Wait, first I need to make sure I'm interpreting the context correctly.\n\nLooking at the list of derived-from relationships provided in the context. Let me go through eac",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_016",
+      "question": "Which tables in the data warehouse are directly derived from SRC.TradeHistory?",
+      "gold_answer": [
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from \"SRC.TradeHistory\". First, I need to understand the relationships and derivation rules provided in the context.\n\nLooking at the derived-from relationships listed under the edges, each DE",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_017",
+      "question": "Which tables in the data warehouse are directly derived from DimCompany?",
+      "gold_answer": [
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables in the data warehouse are directly derived from DimCompany. \n\nFirst, I need to recall the relationships outlined in the context provided. The key here is understanding what \"directly derived\" means. From database",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_fwd_018",
+      "question": "Which tables in the data warehouse are directly derived from TaxRate?",
+      "gold_answer": [
+        "DimCustomer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are directly derived from the TaxRate table. From the context provided, we have a list of relationships and derived-from links between various tables.\n\nFirst, I need to recall that in data warehousing, derived (o",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_019",
+      "question": "What are all the source tables that DimBroker is derived from?",
+      "gold_answer": [
+        "SRC.HR"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that DimBroker is derived from based on the provided database schema context.\n\nFirst, I need to recall the relationships outlined. Looking at the \"Relationships (50 edges)\" section, there's a line th",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_020",
+      "question": "What are all the source tables that DimCustomer is derived from?",
+      "gold_answer": [
+        "SRC.CustomerMgmt",
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that DimCustomer is derived from based on the provided database schema context.\n\nFirst, I need to recall the relationships outlined. Derived objects typically have a \"DERIVED_FROM\" relationship point",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_021",
+      "question": "What are all the source tables that DimAccount is derived from?",
+      "gold_answer": [
+        "SRC.CustomerMgmt"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that DimAccount is derived from based on the provided database schema context.\n\nFirst, I need to recall the relationships outlined. Let's look at the edges mentioned. The key here is to find where Di",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_022",
+      "question": "What are all the source tables that DimCompany is derived from?",
+      "gold_answer": [
+        "SRC.FINWIRE_CMP"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that DimCompany is derived from based on the provided database schema context.\n\nFirst, I need to recall the relationships listed under \"Relationships (50 edges)\" and the derived_from section. Let me ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_023",
+      "question": "What are all the source tables that DimDate is derived from?",
+      "gold_answer": [
+        "SRC.Date"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user wants to know all the source tables that DimDate is derived from based on the provided database schema context.\n\nFirst, I need to recall the relationships listed. Let me go through each relationship involving DimDate. The key here is t",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_024",
+      "question": "What are all the source tables that DimSecurity is derived from?",
+      "gold_answer": [
+        "DimCompany",
+        "SRC.FINWIRE_SEC"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user wants to know all the source tables that DimSecurity is derived from based on the provided database schema context.\n\nFirst, I need to recall the relationships and derived-from (DERIVED_FROM) links mentioned in the context. Let me go th",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_025",
+      "question": "What are all the source tables that DimTime is derived from?",
+      "gold_answer": [
+        "SRC.Time"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user wants to know all the source tables that DimTime is derived from based on the provided database schema context.\n\nFirst, I need to recall the relationships and derived_from clauses mentioned in the context. Let me go through each derive",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_026",
+      "question": "What are all the source tables that DimTrade is derived from?",
+      "gold_answer": [
+        "SRC.Trade",
+        "SRC.TradeHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user wants to know all the source tables that DimTrade is derived from based on the provided database schema context.\n\nFirst, I need to recall how derived (or virtual) tables work in databases. Derived tables are usually created using SQL c",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_027",
+      "question": "What are all the source tables that FactCashBalances is derived from?",
+      "gold_answer": [
+        "SRC.CashTransaction"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that FactCashBalances is derived from. First, I need to understand the relationships between the tables based on the provided context.\n\nLooking at the relationships listed under \"50 edges,\" I should ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_028",
+      "question": "What are all the source tables that FactHoldings is derived from?",
+      "gold_answer": [
+        "SRC.HoldingHistory",
+        "SRC.Trade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_029",
+      "question": "What are all the source tables that FactMarketHistory is derived from?",
+      "gold_answer": [
+        "SRC.DailyMarket"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that FactMarketHistory is derived from, based on the provided database schema context.\n\nFirst, I need to locate where FactMarketHistory is mentioned in the relationships section. Scanning through the",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_030",
+      "question": "What are all the source tables that FactWatches is derived from?",
+      "gold_answer": [
+        "SRC.WatchHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that FactWatches is derived from based on the provided database schema context.\n\nFirst, I need to recall how derived (or virtual) tables work in databases. Derived tables are usually created using a ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_031",
+      "question": "What are all the source tables that Financial is derived from?",
+      "gold_answer": [
+        "SRC.FINWIRE_FIN"
+      ],
+      "predicted_answer": [
+        "SRC.FINWIRE_FIN"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "Examined the DERIVED_FROM relationships in the schema context. Identified the edge `SRC.FINWIRE_FIN --DERIVED_FROM--> Financial`, confirming Financial is derived from SRC.FINWIRE_FIN. No other edges mention Financial as a derived table.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_032",
+      "question": "What are all the source tables that Industry is derived from?",
+      "gold_answer": [
+        "SRC.Industry"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking about the source tables that the \"Industry\" table in the database schema is derived from. \n\nFirst, I need to look at the provided context to find the relationships between tables. Specifically, I'm looking for any lines that ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_033",
+      "question": "What are all the source tables that StatusType is derived from?",
+      "gold_answer": [
+        "SRC.StatusType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking for all the source tables that the \"StatusType\" table is derived from based on the provided database schema context.\n\nFirst, I need to look through the relationships listed to find where StatusType is mentioned. Scanning thro",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_034",
+      "question": "What are all the source tables that TaxRate is derived from?",
+      "gold_answer": [
+        "SRC.TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "The DERIVED_FROM relationships were analyzed to identify which tables contribute to TaxRate. The specific edge 'SRC.TaxRate --DERIVED_FROM--> DimCustomer' indicates that TaxRate is derived from DimCustomer.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_rev_035",
+      "question": "What are all the source tables that TradeType is derived from?",
+      "gold_answer": [
+        "SRC.TradeType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking about the source tables that TradeType is derived from. First, I need to recall the relationships and dependencies outlined in the context provided.\n\nLooking at the list of derived-from relationships, each derived entity has ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_trans_036",
+      "question": "If the schema of SRC.FINWIRE_CMP changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "DimCompany",
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question. The user wants to know which tables are directly or indirectly affected if the schema of SRC.FINWIRE_CMP changes. First, I need to understand the relationships here based on the provided context.\n\nSo, looking at the derived_from relationships: SRC.FINWIRE_C",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_trans_037",
+      "question": "If the schema of SRC.TaxRate changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "DimCustomer",
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_038",
+      "question": "If SRC.FINWIRE_SEC changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are affected if SRC.FINWIRE_SEC changes. They want to know both directly and indirectly through data lineage or foreign key dependencies.\n\nFirst, I need to recall the relationships between tables. From the contex",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_039",
+      "question": "If SRC.Time changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking about the effect of changing the SRC.Time table in their database schema. Specifically, we need to identify all tables that are directly or indirectly connected through data lineage or foreign key dependencies.\n\nFirst, I shou",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_040",
+      "question": "If SRC.HR changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "s: either SRC.HR is derived from another table (so changing it would require changes in DimBroker)",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_041",
+      "question": "If SRC.CustomerMgmt changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question. The user wants to know which tables are affected if there's a change in the SRC.CustomerMgmt table. They need to consider both direct and indirect dependencies via data lineage or foreign key relationships.\n\nFirst, I should look at the relationships provide",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_042",
+      "question": "If SRC.Date changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are affected when the SRC.Date table changes. This could be due to direct relationships or indirect dependencies via foreign keys.\n\nFirst, I need to look at the relationships provided. Let's start with the direct",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_043",
+      "question": "If SRC.FINWIRE_CMP changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimCompany",
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_044",
+      "question": "If SRC.TaxRate changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches",
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking about the impact of changing the SRC.TaxRate table. We need to figure out which other tables are directly or indirectly affected due to data lineage or foreign key dependencies.\n\nFirst, I'll start by recalling the relationshi",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_045",
+      "question": "If DimCompany changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking which tables are affected if \"DimCompany\" changes. They want to know about both direct and indirect dependencies based on the relationships provided.\n\nFirst, I need to recall the schema context given. There are 35 tables in t",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_lineage_combined_046",
+      "question": "If TaxRate changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking about the impact of changing the TaxRate table on other tables in terms of data lineage and foreign key dependencies.\n\nFirst, I need to recall the relationships between the tables. From the context provided, TaxRate has a der",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_count_000",
+      "question": "How many disconnected data silos (connected components) exist in this schema?",
+      "gold_answer": 5,
+      "predicted_answer": 13,
+      "answer_type": "integer",
+      "type": "silo_detection",
+      "subtype": "count",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_001",
+      "question": "Which tables are in the same connected component (data silo) as SRC.CashTransaction?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as SRC.CashTransaction. Hmm, first I need to understand what a connected component or data silo means here. From the context, it seems like it's about the relationships between tables based on foreign keys and de",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_002",
+      "question": "Which tables are in the same connected component (data silo) as FactWatches?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as FactWatches. Hmm, first I need to understand what a connected component means here. From the context, it seems like each table is part of a data silo based on their relationships defined by the edges.\n\nSo, the",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_003",
+      "question": "Which tables are in the same connected component (data silo) as SRC.HR?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as SRC.HR. Hmm, first I need to understand what a connected component means here. From the context, it looks like it's about the relationships between tables based on the FK and DERIVED_FROM edges.\n\nSo, SRC.HR is",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_004",
+      "question": "Which tables are in the same connected component (data silo) as SRC.Industry?",
+      "gold_answer": [
+        "Industry"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as SRC.Industry. Hmm, first I need to understand what a connected component means here. From the context, it seems like each table is part of a data silo based on their relationships defined by the edges.\n\nThe qu",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_005",
+      "question": "Which tables are in the same connected component (data silo) as Industry?",
+      "gold_answer": [
+        "SRC.Industry"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": ".\n\nWait but according to the user's provided context",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_006",
+      "question": "Which tables are in the same connected component (data silo) as SRC.StatusType?",
+      "gold_answer": [
+        "StatusType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as SRC.StatusType. Hmm, first I need to understand what a connected component or data silo means here. From the relationships given, it looks like each table is part of a group where they are linked through forei",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_007",
+      "question": "Which tables are in the same connected component (data silo) as StatusType?",
+      "gold_answer": [
+        "SRC.StatusType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as StatusType. Hmm, first I need to understand what a connected component or data silo means here. From the context, it seems like it's about the relationships between tables based on foreign keys and derived-fro",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_008",
+      "question": "Which tables are in the same connected component (data silo) as TradeType?",
+      "gold_answer": [
+        "SRC.TradeType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as TradeType. Hmm, first I need to understand what a connected component means here. From the context, it looks like it's referring to the ER model's strongly connected components based on the relationships defin",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_member_009",
+      "question": "Which tables are in the same connected component (data silo) as SRC.TradeType?",
+      "gold_answer": [
+        "TradeType"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as SRC.TradeType. Hmm, first I need to understand what a connected component or data silo means here. From the relationships given, it looks like each table is part of a network where edges connect them if there'",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_018",
+      "question": "Are DimSecurity and DimTrade connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking if DimSecurity and DimTrade are connected via any foreign key relationships in the given database schema context.\n\nFirst, I need to recall how foreign keys work in relational databases. A direct connection exists when one tab",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_017",
+      "question": "Are SRC.CashTransaction and SRC.TradeHistory connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is whether SRC.CashTransaction and SRC.TradeHistory are connected via any FK relationships. Hmm.\n\nFirst, I need to recall the schema details. Both tables are under the SRC namespace, so they're probably in the same schema but different tables. Let's check their",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_019",
+      "question": "Are DimCompany and DimTrade connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": ": \"To determine if DimCompany and DimTrade are connected via foreign key (FK) relationships",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_013",
+      "question": "Are Industry and SRC.TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_014",
+      "question": "Are SRC.Prospect and StatusType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out if SRC.Prospect and StatusType are connected via any FK relationships. Hmm.\n\nFirst, I need to recall the schema context provided. The tables mentioned include SRC.Prospect and StatusType. Let's look at their relationships based on the edges listed.\n\nLooking at ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_011",
+      "question": "Are SRC.Industry and SRC.StatusType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "To determine if SRC.Industry and SRC.StatusType are connected via foreign key (FK) relationships, we analyze the provided schema's FKEY edges. SRC.Industry is derived from the Industry table (DERIVED_FROM), and SRC.StatusType is derived from StatusType. The FKEY relationships list shows no direct or indirect connections between these tables through FK links. Financial and DimCompany are involved in DERIVED_FROM but not as FKEYs. Thus, there is no path linking Industry to StatusType via FKEYs.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_010",
+      "question": "Are SRC.StatusType and TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out if SRC.StatusType and TradeType are connected via any FK relationships. Hmm.\n\nFirst, I remember that Foreign Key (FK) relationships link tables directly. So the question is whether there's a path where StatusType points to some table, which then connects to Tra",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_012",
+      "question": "Are SRC.Trade and SRC.Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out if SRC.Trade and SRC.Industry are connected via any FK relationships. Hmm.\n\nFirst, I need to recall the schema details. The tables involved are SRC.TRAD and SRC.INDUSTRY. Let's see their derived_from fields. \n\nSRC.TRADE's DERIVED_FROM is DimTrade. So whatever c",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_015",
+      "question": "Are DimCompany and FactCashBalances connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out if Dimensional Company (DimCompany) and Fact Cash Balances (FactCashBalances) are connected via any FK relationships. Hmm.\n\nFirst, I need to map out the relationships between these two tables based on the provided schema and dependencies. Let's start by looking",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_isolated_016",
+      "question": "Are SRC.CashTransaction and SRC.WatchHistory connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": ": \"SRC.CashTransaction derives from FactCashBalances",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_connected_020",
+      "question": "Are SRC.FINWIRE_SEC and SRC.CustomerMgmt connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "easy",
+      "reasoning": ".\n\nWait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_silo_enumerate_021",
+      "question": "List ALL tables that belong to the largest connected component in this schema.",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's see. The user is asking for all tables that belong to the largest connected component in the given database schema. Hmm, so first I need to understand what a connected component means here. In graph theory terms, each table can be a node, and each foreign key relationship is an ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_path_000",
+      "question": "What is the shortest chain of foreign key joins that connects DimSecurity to FactWatches?",
+      "gold_answer": [
+        "DimSecurity",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_001",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to DimCustomer?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimCustomer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "FactCashBalances directly references DimCustomer through a foreign key relationship (FactCashBalances --FK--> DimCustomer). This direct link constitutes the shortest possible chain with one join.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_002",
+      "question": "What is the shortest chain of foreign key joins that connects DimTime to DimTrade?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects DimTime to DimTrade. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. Looking at the edges listed:\n\nDimTrad",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_003",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to DimAccount?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimAccount"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "FactCashBalances has direct foreign key relationships with DimCustomer, DimDate, and DimAccount. Since the target is DimAccount, the shortest path is a direct link (1 join). No longer paths exist through other tables, as they would require additional joins (e.g., FactCashBalances -> DimCustomer -> ... -> DimAccount).",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_004",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to FactWatches?",
+      "gold_answer": [
+        "DimDate",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimDate to FactWatches using the foreign key relationships provided. Hmm, first I need to recall which tables have FK or PK relationships here.\n\nSo, looking at the relationships: DimDate is connected via FK to DimTrade. Because in the lis",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_005",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to DimTrade?",
+      "gold_answer": [
+        "DimBroker",
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimBroker to DimTrade. So I need to figure out how these two tables are related based on the provided relationships.\n\nFirst, let me recall the relationship between DimBroker and other tables. From",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_006",
+      "question": "What is the shortest chain of foreign key joins that connects DimCustomer to DimAccount?",
+      "gold_answer": [
+        "DimCustomer",
+        "DimAccount"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimCustomer to DimAccount. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. Looking at the edges listed:\n\nDimA",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_007",
+      "question": "What is the shortest chain of foreign key joins that connects DimAccount to DimTrade?",
+      "gold_answer": [
+        "DimAccount",
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimAccount to DimTrade. So I need to figure out how these two tables are related based on the provided relationships.\n\nFirst, let me recall the relationship between DimAccount and other tables. Fr",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_008",
+      "question": "What is the shortest chain of foreign key joins that connects FactHoldings to DimCustomer?",
+      "gold_answer": [
+        "FactHoldings",
+        "DimCustomer"
+      ],
+      "predicted_answer": [
+        "FactHoldings",
+        "DimCustomer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-di_route_path_009",
+      "question": "What is the shortest chain of foreign key joins that connects DimTrade to DimSecurity?",
+      "gold_answer": [
+        "DimTrade",
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimTrade to DimSecurity. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. From the context, DimTrade has sever",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_010",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to DimDate?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimDate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "FactCashBalances directly references DimDate through a foreign key (FK), as indicated in the relationships. This direct connection constitutes the shortest possible chain (length 1).",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_011",
+      "question": "What is the shortest chain of foreign key joins that connects DimCompany to FactHoldings?",
+      "gold_answer": [
+        "DimCompany",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimCompany to FactHoldings. Hmm, first I need to recall how the relationships are set up here.\n\nSo, starting with DimCompany. The context says that Financial --FK--> DimCompany. So DimCompany is a foreign key in some table. Looking at the",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_012",
+      "question": "What is the shortest chain of foreign key joins that connects DimTrade to DimCompany?",
+      "gold_answer": [
+        "DimTrade",
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects DimTrade to DimCompany. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. Looking at the list of edges:\n\nDim",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_013",
+      "question": "What is the shortest chain of foreign key joins that connects DimCompany to FactMarketHistory?",
+      "gold_answer": [
+        "DimCompany",
+        "FactMarketHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimCompany to FactMarketHistory. Hmm, first I need to recall how the relationships are set up here.\n\nSo, starting with DimCompany. The context says that Financial --FK--> DimCompany. So DimCompany is a foreign key in some table. Looking a",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_014",
+      "question": "What is the shortest chain of foreign key joins that connects FactHoldings to DimAccount?",
+      "gold_answer": [
+        "FactHoldings",
+        "DimAccount"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "FactHoldings directly references DimAccount via a FOREIGN KEY relationship (FactCashBalances --FK--> DimCustomer, FactHoldings --FK--> DimCustomer, FactHoldings --FK--> DimAccount). No intermediate tables are required for this connection. Thus, the shortest chain is one direct join from FactHoldings to DimAccount.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_015",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to DimAccount?",
+      "gold_answer": [
+        "DimBroker",
+        "DimAccount"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_016",
+      "question": "What is the shortest chain of foreign key joins that connects FactMarketHistory to DimDate?",
+      "gold_answer": [
+        "FactMarketHistory",
+        "DimDate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "FactMarketHistory directly references DimDate via a foreign key relationship, as indicated by the edge 'FactMarketHistory --FK--> DimDate'. This establishes a direct chain of length 1.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_017",
+      "question": "What is the shortest chain of foreign key joins that connects DimSecurity to DimCompany?",
+      "gold_answer": [
+        "DimSecurity",
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The Relationships section explicitly lists an edge from DimSecurity to DimCompany (DimSecurity --FK--> DimCompany), indicating a direct foreign key relationship. No indirect paths or additional joins are required through derived tables or other intermediary structures.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_018",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to DimTrade?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimDate to DimTrade. So I need to figure out how these two tables are related through their foreign keys and find the most direct path.\n\nFirst, I'll recall the relationships provided. Looking at t",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_019",
+      "question": "What is the shortest chain of foreign key joins that connects DimSecurity to FactMarketHistory?",
+      "gold_answer": [
+        "DimSecurity",
+        "FactMarketHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimSecurity to FactMarketHistory. Hmm, first I need to recall how the relationships are set up here.\n\nSo, starting with DimSecurity. From the context, DIMSEC is connected via a FK to DIMCOMPANY. Wait, right: DimSecurity --FK--> DimCompany",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_020",
+      "question": "What is the shortest chain of foreign key joins that connects Financial to DimCompany?",
+      "gold_answer": [
+        "Financial",
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting the Financial table to the DimCompany table. Alright, so first I need to understand the relationships between these tables based on the provided context.\n\nFrom the Relationships section, there's a",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_021",
+      "question": "What is the shortest chain of foreign key joins that connects DimTime to FactHoldings?",
+      "gold_answer": [
+        "DimTime",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimTime to FactHoldings. Hmm, first I need to recall how the relationships are set up here. Let's start by listing all the tables and their connections based on the context provided.\n\nDimTime is a dimension table, right? And FactHoldings ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_022",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to FactHoldings?",
+      "gold_answer": [
+        "DimDate",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimDate to FactHoldings. Hmm, first I need to recall how the relationships are set up here. Let's start by looking at where DimDate and FactHoldings are connected through foreign keys.\n\nDimDate is a Dimension table, right? And FactHolding",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_023",
+      "question": "What is the shortest chain of foreign key joins that connects DimSecurity to FactHoldings?",
+      "gold_answer": [
+        "DimSecurity",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key (FK) joins connecting DimSecurity to FactHoldings. Hmm. Let me start by understanding the relationships between these tables.\n\nFirst, looking at DimSecurity. The context says DimSecurity is connected to DimCompany via a FK re",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_024",
+      "question": "What is the shortest chain of foreign key joins that connects FactWatches to DimCustomer?",
+      "gold_answer": [
+        "FactWatches",
+        "DimCustomer"
+      ],
+      "predicted_answer": [
+        "FactWatches",
+        "DimCustomer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "FactWatches directly references DimCustomer via a foreign key relationship (FactWatches --FK--> DimCustomer). This direct link constitutes the shortest possible chain with one join step. Alternative paths through intermediate tables like DimDate or DimAccount would require additional joins, resulting in longer chains.\n",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-di_route_path_025",
+      "question": "What is the shortest chain of foreign key joins that connects DimCustomer to DimTrade?",
+      "gold_answer": [
+        "DimCustomer",
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimCustomer to DimTrade. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. From the context, DimAccount is conn",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_026",
+      "question": "What is the shortest chain of foreign key joins that connects DimTime to DimSecurity?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade",
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimTime to DimSecurity. Hmm. Let me start by recalling the relationships between tables.\n\nFirst, looking at the FactWatches table. Its FK is connected to DimCustomer, DimSecurity, and DimDate. Wait, so if the",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_027",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to DimCustomer?",
+      "gold_answer": [
+        "DimBroker",
+        "DimTrade",
+        "DimCustomer"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimCustomer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_028",
+      "question": "What is the shortest chain of foreign key joins that connects DimTime to DimAccount?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade",
+        "DimAccount"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimTime to DimAccount using the foreign key relationships provided. Hmm, first I need to recall which tables have FK or PK relationships here.\n\nLooking at the relationships list: DimAccount is connected to DimBroker and DimCustomer via FK",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_029",
+      "question": "What is the shortest chain of foreign key joins that connects Financial to DimAccount?",
+      "gold_answer": [
+        "Financial",
+        "DimCompany",
+        "DimTrade",
+        "DimAccount"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects the Financial table to the DimAccount table. Hmm.\n\nFirst, I need to recall the relationships between tables. Let me start by looking at the Foreign Key (FK) connections. Financial is connected ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_030",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to FactWatches?",
+      "gold_answer": [
+        "DimBroker",
+        "DimTrade",
+        "DimCustomer",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimBroker to FactWatches. Hmm, first I need to recall how the relationships are set up here. The database schema has various tables with FK and parent-child relationships.\n\nSo, starting with DimBroker. From the context, SRC.HR --DERIVED_F",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_031",
+      "question": "What is the shortest chain of foreign key joins that connects DimTime to Financial?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimTime to Financial. Alright, first step is to understand the relationships between these two entities based on the provided schema and edges.\n\nSo, starting with DimTime. From the context, DimTime has severa",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_032",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to FactHoldings?",
+      "gold_answer": [
+        "DimBroker",
+        "DimAccount",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimBroker to FactHoldings. Hmm, first I need to understand the relationships between these tables based on the given edges.\n\nDimBroker is a Dimension table in the DimAccount hierarchy because there's an FK from DimAccount to DimBroker and",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_033",
+      "question": "What is the shortest chain of foreign key joins that connects DimCompany to DimCustomer?",
+      "gold_answer": [
+        "DimCompany",
+        "DimTrade",
+        "DimCustomer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimCompany to DimAccount, right? Wait, no, wait. The question says DimCompany to DimCustomer. Hmm. Let me start by understanding the relationships here.\n\nFirst, looking at the tables and their relationships. ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_034",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to DimTime?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade",
+        "DimTime"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimDate to DimTime. So I need to figure out how these two tables are related through their foreign keys and find the most direct path possible.\n\nFirst, I'll recall that DimDate appears in several ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_035",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to DimSecurity?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimCustomer",
+        "DimTrade",
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from FactCashBalances to DimSecurity. Hmm, first I need to recall how the relationships are set up here.\n\nSo, starting with FactCashBalances. The FK relationships say that FactCashBalances is connected to DimCustomer (two FK links) and DimAcco",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_036",
+      "question": "What is the shortest chain of foreign key joins that connects DimAccount to FactMarketHistory?",
+      "gold_answer": [
+        "DimAccount",
+        "DimTrade",
+        "DimCompany",
+        "FactMarketHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimAccount to FactMarketHistory. Hmm. Let me start by understanding the relationships between these tables.\n\nFirst, DimAccount is a base table here. From the context, DimAccount has FK connections to both Dim",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_037",
+      "question": "What is the shortest chain of foreign key joins that connects DimTrade to FactCashBalances?",
+      "gold_answer": [
+        "DimTrade",
+        "DimCustomer",
+        "FactCashBalances"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects DimTrade to FactCashBalances. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. DimTrade has several foreign",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_038",
+      "question": "What is the shortest chain of foreign key joins that connects DimCustomer to DimTime?",
+      "gold_answer": [
+        "DimCustomer",
+        "DimTrade",
+        "DimTime"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_039",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to DimTime?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimCustomer",
+        "DimTrade",
+        "DimTime"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting FactCashBalances to DimTime. Let me start by understanding the relationships here.\n\nFirst, looking at FactCashBalances. The context says it's connected via FK to three tables: DimCustomer, DimAccount, and Dim",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_040",
+      "question": "What is the shortest chain of foreign key joins that connects FactHoldings to Financial?",
+      "gold_answer": [
+        "FactHoldings",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting FactHoldings to Financial. Alright, first step is to understand where FactHoldings is linked and how it can reach Financial through these relationships.\n\nSo, looking at the tables and their relationships. The",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_041",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to DimCustomer?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade",
+        "DimCustomer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimDate to DimCustomer. So I need to figure out how these two tables are related through their foreign keys and find the most direct path possible.\n\nFirst, I'll recall the relationships provided. ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_042",
+      "question": "What is the shortest chain of foreign key joins that connects Financial to FactMarketHistory?",
+      "gold_answer": [
+        "Financial",
+        "DimCompany",
+        "FactMarketHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects the Financial table to the FactMarketHistory table. Hmm.\n\nFirst, I need to recall the relationships between these tables. Let me start by looking at where Financial and FactMarketHistory are co",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_043",
+      "question": "What is the shortest chain of foreign key joins that connects FactMarketHistory to DimCustomer?",
+      "gold_answer": [
+        "FactMarketHistory",
+        "DimCompany",
+        "DimTrade",
+        "DimCustomer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_044",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to DimBroker?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimAccount",
+        "DimBroker"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting FactCashBalances to DimBroker. Let me start by understanding the relationships here.\n\nFirst, looking at the tables involved. The FactCashBalances table has foreign keys pointing to DimCustomer, DimAccount, an",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_045",
+      "question": "What is the shortest chain of foreign key joins that connects DimAccount to FactWatches?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "FactWatches"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "FactWakes"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "To determine the shortest chain of foreign key joins connecting DimAccount to FactWatches, analyze their relationships. DimAccount is linked via FK to DimCustomer. FactWatches is connected via FK to DimCustomer. The path DimAccount → DimCustomer (FK) → FactWatches (FK) involves two joins, which is the shortest possible given no direct or alternative shorter paths exist.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_046",
+      "question": "What is the shortest chain of foreign key joins that connects DimTrade to FactMarketHistory?",
+      "gold_answer": [
+        "DimTrade",
+        "DimCompany",
+        "FactMarketHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects DimTrade to FactMarketHistory. Hmm. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. DimTrade has several f",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_047",
+      "question": "What is the shortest chain of foreign key joins that connects FactMarketHistory to DimTime?",
+      "gold_answer": [
+        "FactMarketHistory",
+        "DimCompany",
+        "DimTrade",
+        "DimTime"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "FactMarketHistory has a direct foreign key relationship with DimTime, as indicated by the FK link in its definition. This establishes a single-step connection between the two tables.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_048",
+      "question": "What is the shortest chain of foreign key joins that connects DimTrade to FactHoldings?",
+      "gold_answer": [
+        "DimTrade",
+        "DimCustomer",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects DimTrade to FactHoldings. Hmm. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. From the context, DimTrade ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_049",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to Financial?",
+      "gold_answer": [
+        "DimBroker",
+        "DimTrade",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimBroker to Financial. First, I need to recall all the relationships between the tables based on the provided context.\n\nStarting with DimBroker. The question mentions connecting DimBroker to Financial. Let's look at the relationships giv",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_050",
+      "question": "What is the shortest chain of foreign key joins that connects FactMarketHistory to FactCashBalances?",
+      "gold_answer": [
+        "FactMarketHistory",
+        "DimDate",
+        "FactCashBalances"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from FactMarketHistory to FactCashBalances. Hmm, first I need to recall which tables have foreign keys and their relationships.\n\nLooking at the relationships listed under \"Relationships (50 edges)\", both FactCashBalances and FactMarketHistory ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_051",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to DimAccount?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade",
+        "DimAccount"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimDate to DimAccount using the foreign key relationships provided. Hmm, first I need to recall which tables have FK or PK relationships here.\n\nLooking at the relationships list: DimDate is connected via FK to FactMarketHistory and FactHo",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_052",
+      "question": "What is the shortest chain of foreign key joins that connects Financial to FactCashBalances?",
+      "gold_answer": [
+        "Financial",
+        "DimCompany",
+        "DimTrade",
+        "DimCustomer",
+        "FactCashBalances"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects the Financial table to the FactCashBalances table. Hmm.\n\nFirst, I need to recall the relationships between these tables. Let me start by looking at where each of these tables is connected throu",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_053",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to DimDate?",
+      "gold_answer": [
+        "DimBroker",
+        "DimTrade",
+        "DimDate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimBroker to DimDate. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. Looking at the edges:\n\nDimAccount is co",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_054",
+      "question": "What is the shortest chain of foreign key joins that connects FactMarketHistory to FactHoldings?",
+      "gold_answer": [
+        "FactMarketHistory",
+        "DimCompany",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from FactMarketHistory to FactHoldings. Hmm, first I need to recall which tables have foreign keys and their relationships.\n\nLooking at the relationships listed, FactCashBalances is linked to DimCustomer, DimAccount, and DimDate. FactHoldings ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_055",
+      "question": "What is the shortest chain of foreign key joins that connects DimSecurity to DimDate?",
+      "gold_answer": [
+        "DimSecurity",
+        "DimTrade",
+        "DimDate"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimSecurity to DimDate. Alright, first I'll recall the relationships between these tables.\n\nDimSecurity is a dimension table, right? And DimDate is another dimension table. The question is about how they are ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_056",
+      "question": "What is the shortest chain of foreign key joins that connects FactWatches to FactHoldings?",
+      "gold_answer": [
+        "FactWatches",
+        "DimCustomer",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from FactWatches to FactHoldings. Hmm, first I need to recall which tables have foreign keys and their relationships.\n\nFrom the context, FactWatches is connected to several tables via FK: DimCustomer, DimDate, DimSecurity, and DimCompany. Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_057",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to DimCompany?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade",
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimDate to DimCompany. So I need to figure out how these two tables are related through their foreign keys and find the most direct path possible.\n\nFirst, I'll recall the relationships listed. Let",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_058",
+      "question": "What is the shortest chain of foreign key joins that connects FactMarketHistory to DimBroker?",
+      "gold_answer": [
+        "FactMarketHistory",
+        "DimCompany",
+        "DimTrade",
+        "DimBroker"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from FactMarketHistory to DimBroker. First, I need to recall how foreign keys and derived tables are connected here.\n\nStarting with FactMarketHistory. The context says it's linked to several dimensions: DimSecurity, DimCompany, DimDate, and Di",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_059",
+      "question": "What is the shortest chain of foreign key joins that connects DimTime to DimBroker?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade",
+        "DimBroker"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimTime to DimBroker using the foreign keys. Hmm, first I need to understand how these tables are connected through their relationships.\n\nSo, starting with DimTime. Looking at the derived_from relationships, which ones point to DimTime? L",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_060",
+      "question": "What is the shortest chain of foreign key joins that connects DimCustomer to DimSecurity?",
+      "gold_answer": [
+        "DimCustomer",
+        "DimTrade",
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from DimCustomer to DimSecurity using the foreign key relationships provided. Hmm, first I need to recall which tables have FK or PK relationships between them.\n\nLooking at the relationships listed: DimAccount is connected to both DimBroker an",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects DimBroker to DimSecurity?",
+      "gold_answer": [
+        "DimBroker",
+        "DimTrade",
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimBroker to DimSecurity. Let me start by understanding the relationships here.\n\nFirst, looking at the tables and their relationships. The DimAccount table has two foreign keys: FK to DimBroker and FK to DimC",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_062",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to FactWatches?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimCustomer",
+        "FactWatches"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from FactCashBalances to FactWatches. First, I need to recall how the tables are connected through foreign keys.\n\nStarting with FactCashBalances. The relationships show that FactCashBalances is linked to DimCustomer (two FK:FactCashBalances--F",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_063",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to FactHoldings?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimCustomer",
+        "FactHoldings"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from FactCashBalances to FactHoldings. First, I need to recall how these tables are connected through foreign keys.\n\nStarting with FactCashBalances. The relationships say that FactCashBalances is linked to DimCustomer (FactCashBalances --FK-->",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_064",
+      "question": "What is the shortest chain of foreign key joins that connects FactWatches to DimCompany?",
+      "gold_answer": [
+        "FactWatches",
+        "DimSecurity",
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects FactWatches to DimCompany. Hmm. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. From the context, FactWatc",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_065",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to DimCompany?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimCustomer",
+        "DimTrade",
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest path from FactCashBalances to DimCompany using the foreign key relationships provided. Let me start by mapping out all possible connections.\n\nFirst, looking at FactCashBalances. The context says FactCashBalances is connected via FK to three table",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_066",
+      "question": "What is the shortest chain of foreign key joins that connects DimDate to Financial?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting DimDate to Financial. Hmm. So first, I need to figure out how DimDate and Financial are related in this schema based on the relationships provided.\n\nLooking at the derived-from relationships: SRC.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_067",
+      "question": "What is the shortest chain of foreign key joins that connects FactWatches to DimTrade?",
+      "gold_answer": [
+        "FactWatches",
+        "DimCustomer",
+        "DimTrade"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects FactWatches to DimTrade. Hmm. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships provided. From the context, FactWatche",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_068",
+      "question": "What is the shortest chain of foreign key joins that connects Financial to DimCustomer?",
+      "gold_answer": [
+        "Financial",
+        "DimCompany",
+        "DimTrade",
+        "DimCustomer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting the Financial table to the DimCustomer table. Hmm.\n\nFirst, I need to recall the relationships between tables. Let me start by looking at where Financial is connected. From the derived-from relatio",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_069",
+      "question": "What is the shortest chain of foreign key joins that connects DimTrade to Financial?",
+      "gold_answer": [
+        "DimTrade",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimTrade to Financial. Alright, first step is to understand the relationships between these two tables.\n\nDimTrade is a table that's connected via FK to several other tables: DimBroker, DimCustomer, DimDate, D",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_070",
+      "question": "What is the shortest chain of foreign key joins that connects FactWatches to FactMarketHistory?",
+      "gold_answer": [
+        "FactWatches",
+        "DimDate",
+        "FactMarketHistory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_071",
+      "question": "What is the shortest chain of foreign key joins that connects DimCompany to DimBroker?",
+      "gold_answer": [
+        "DimCompany",
+        "DimTrade",
+        "DimBroker"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimCompany to DimBroker. Let me start by understanding the relationships between these tables.\n\nFirst, looking at the DimAccount table because both DimBroker and DimCompany are connected through DimAccount. T",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_072",
+      "question": "What is the shortest chain of foreign key joins that connects FactWatches to Financial?",
+      "gold_answer": [
+        "FactWatches",
+        "DimSecurity",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins connecting FactWatches to Financial. Hmm. Let me start by recalling the relationships between tables.\n\nFirst, looking at FactWatches. From the context, FactWatches has a foreign key relationship with several",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_073",
+      "question": "What is the shortest chain of foreign key joins that connects DimTime to DimCompany?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade",
+        "DimCompany"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimTime to DimCompany. Hmm. Let me start by recalling the relationships between tables.\n\nFirst, looking at the FK edges provided. Let's list out all the connections for both DimTime and DimCompany.\n\nStarting ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_074",
+      "question": "What is the shortest chain of foreign key joins that connects DimAccount to DimSecurity?",
+      "gold_answer": [
+        "DimAccount",
+        "DimTrade",
+        "DimSecurity"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimAccount to DimSecurity. Hmm. Let me start by understanding the relationships between these tables.\n\nFirst, looking at the FK relationships provided. DimAccount is connected to DimBroker and DimCustomer via",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_path_075",
+      "question": "What is the shortest chain of foreign key joins that connects DimSecurity to Financial?",
+      "gold_answer": [
+        "DimSecurity",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. I need to find the shortest chain of foreign key joins connecting DimSecurity to Financial. Let me start by understanding the relationships between these two tables.\n\nFirst, looking at DimSecurity. From the context, DimSecurity is connected to DimCompany via a foreign key r",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_076",
+      "question": "What is the minimum number of foreign key joins needed to connect FactWatches to Financial?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect FactWatches to Financial based on the given database schema and relationships. \n\nFirst, I need to understand how FactWatches relates to other tables. From the context, FactWatches has foreign keys conn",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_077",
+      "question": "What is the minimum number of foreign key joins needed to connect DimTime to DimAccount?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimTime to DimAccount. Hmm, first I need to understand the relationships between these tables based on the given context.\n\nSo, looking at the Dim tables: DimBroker, DimCustomer, DimAccount, DimDate, Di",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_078",
+      "question": "What is the minimum number of foreign key joins needed to connect DimDate to DimTrade?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimDate to DimTrade. Hmm, first I need to understand the relationships between these tables based on the given context.\n\nSo, looking at the relationships listed under \"Relationships (50 edges)\". Let me",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_079",
+      "question": "What is the minimum number of foreign key joins needed to connect DimTime to DimTrade?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user wants to know the minimum number of foreign key (FK) joins required to connect DimTime to DimTrade. \n\nFirst, I need to recall the relationships provided in the context. Let's look at the edges listed under Relationships. Scanning throu",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_080",
+      "question": "What is the minimum number of foreign key joins needed to connect DimCompany to DimCustomer?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key (FK) joins required to connect DimCompany to DimCustomer in this database schema. Hmm.\n\nFirst, I need to recall how the relationships are set up here. From the context provided, there are several FK and parent-",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_081",
+      "question": "What is the minimum number of foreign key joins needed to connect FactWatches to FactMarketHistory?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect FactWatches to FactMarketHistory based on the given database schema and relationships. \n\nFirst, I need to recall what a foreign key join is. A foreign key join occurs when one table's primary key or un",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_082",
+      "question": "What is the minimum number of foreign key joins needed to connect DimBroker to DimDate?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key (FK) joins required to connect DimBroker to DimDate in this database schema. Hmm.\n\nFirst, I need to recall how foreign keys work here. Each FK relationship creates a link between two tables. So, connecting DimB",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_083",
+      "question": "What is the minimum number of foreign key joins needed to connect DimTrade to FactCashBalances?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimTrade to FactCashBalances. Hmm, first I need to understand the relationships between these tables based on the provided context.\n\nSo, looking at the DimTrade table: its FK relationships are listed h",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_084",
+      "question": "What is the minimum number of foreign key joins needed to connect DimSecurity to FactMarketHistory?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimSecurity to FactMarketHistory. Hmm, first I need to understand the relationships between these two tables based on the provided context.\n\nSo, starting with DimSecurity. From the relationships listed",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_085",
+      "question": "What is the minimum number of foreign key joins needed to connect DimCustomer to DimTrade?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimCustomer to DimTrade. Hmm, first I need to understand the relationships between these tables based on the given context.\n\nSo, looking at the relationships listed under \"50 edges\". Let's scan through",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_086",
+      "question": "What is the minimum number of foreign key joins needed to connect Financial to FactMarketHistory?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": ", but according to the data given here",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_087",
+      "question": "What is the minimum number of foreign key joins needed to connect Financial to DimAccount?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key joins required to connect the Financial table to the DimAccount table based on the given database schema and relationships.\n\nFirst, I need to recall how foreign keys work here. Foreign keys create connections b",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_088",
+      "question": "What is the minimum number of foreign key joins needed to connect DimTrade to FactHoldings?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimTrade to FactHoldings. Hmm, first I need to understand the relationships between these tables based on the provided context.\n\nSo, looking at the DimTrade table: its FK relationships are listed here.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_089",
+      "question": "What is the minimum number of foreign key joins needed to connect DimAccount to FactMarketHistory?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimAccount to FactMarketHistory. Hmm, first I need to understand the relationships between these two tables based on the provided schema and edges.\n\nSo, DimAccount is a dimension table, right? And Fact",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_090",
+      "question": "What is the minimum number of foreign key joins needed to connect DimTrade to Financial?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key joins required to connect DimTrade to Financial in this database schema. Hmm.\n\nFirst, I need to recall how DimTrade and Financial are related based on the relationships provided. Let me start by tracing the con",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_091",
+      "question": "What is the minimum number of foreign key joins needed to connect DimBroker to DimAccount?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key (FK) joins required to connect DimBroker to DimAccount. Hmm.\n\nFirst, I need to recall the relationships provided in the context. Let me look at the edges listed. \n\nLooking at the list of relationships: \n\nDimAcc",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_092",
+      "question": "What is the minimum number of foreign key joins needed to connect DimTime to Financial?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key joins required to connect DimTime to Financial in this database schema. Hmm.\n\nFirst, I need to recall the relationships between tables. Let's start by looking at where DimTime and Financial are connected via fo",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_093",
+      "question": "What is the minimum number of foreign key joins needed to connect FactCashBalances to DimSecurity?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect FactCashBalances to DimSecurity. Hmm, first I need to understand the relationships between these tables based on the provided context.\n\nSo, from the relationships listed, FactCashBalances is connected ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_094",
+      "question": "What is the minimum number of foreign key joins needed to connect DimDate to DimCustomer?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect DimDate to DimCustomer. Hmm, first I need to understand the relationships between these tables based on the given context.\n\nSo, looking at the relationships listed under \"Relationships (50 edges)\". Let",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_hops_095",
+      "question": "What is the minimum number of foreign key joins needed to connect FactMarketHistory to DimCustomer?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect FactMarketHistory to DimCustomer. Hmm, first I need to understand the relationships between these tables.\n\nSo, from the context, FactMarketHistory is connected to several Dim* tables via FK. Looking at",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_101",
+      "question": "Does FactHoldings have a direct foreign key relationship to DimAccount?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if FactHoldings has a direct FK relationship to DimAccount, review the Relationships (50 edges) section. The entry 'FactHoldings --FK--> DimAccount' explicitly indicates a direct foreign key relationship from FactHoldings to DimAccount.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_108",
+      "question": "Does DimCustomer have a direct foreign key relationship to DimDate?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking whether DimCustomer has a direct foreign key relationship to DimDate. To answer this, I need to look at the relationships provided in the context.\n\nFirst, I'll recall that foreign key relationships are defined by which column",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_110",
+      "question": "Does DimCustomer have a direct foreign key relationship to FactCashBalances?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if DimCustomer has a direct FK relationship to FactCashBalances, we examine the provided relationships. FactCashBalances explicitly lists FK connections to DimCustomer, DimAccount, and DimDate. No reverse edges indicate DimCustomer referencing FactCashBalances. Foreign keys are unidirectional from child to parent.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_104",
+      "question": "Does DimCompany have a direct foreign key relationship to FactMarketHistory?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": ": \"To determine if DimCompany has a direct foreign key (FK) relationship to FactMarketHistory",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_105",
+      "question": "Does DimCompany have a direct foreign key relationship to DimCustomer?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking whether DimCompany has a direct foreign key relationship to DimCustomer. To answer this, I need to look at the relationships provided in the context.\n\nFirst, I'll recall that foreign key relationships are defined by which tab",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_103",
+      "question": "Does FactCashBalances have a direct foreign key relationship to DimAccount?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Examined the list of foreign key (FK) constraints for Table FactCashBalances. It explicitly lists `--FK--> DimAccount` as a direct FK relationship. Confirmed no indirect or derived relationships affect this FK. DERIVED_FROM relationships are navigable associations, not FKs.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_100",
+      "question": "Does FactWatches have a direct foreign key relationship to DimDate?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if FactWatches has a direct foreign key (FK) relationship to DimDate, we examine the provided relationships. The line 'FactWatches --FK--> DimDate' explicitly indicates that FactWatches references DimDate via an FK. This confirms a direct connection between their primary keys.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_107",
+      "question": "Does DimDate have a direct foreign key relationship to DimCustomer?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Examined the list of relationships provided in the context. Checked for edges where `DimDate` points to another table via a foreign key (FK). Found no such edge; all connections involving `DimDate` are derived (`DERIVED_FROM`). Confirmed that `DimCustomer` is referenced by other tables like `DimAccount` and `FactCashBalances`, but not by `DimDate`.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_111",
+      "question": "Does DimCustomer have a direct foreign key relationship to DimBroker?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_109",
+      "question": "Does DimBroker have a direct foreign key relationship to FactHoldings?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": ": \"To determine if DimBroker has a direct foreign key (FK) relationship to FactHoldings",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_097",
+      "question": "Does DimTrade have a direct foreign key relationship to DimSecurity?",
+      "gold_answer": true,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Examined the Relationships (50 edges) section for a FOREIGN KEY from DimTrade to DimSecurity. Found no such FK. Confirmed that all FKs related to DimTrade point to other dimensions (e.g., DimDate, DimTime, DimCustomer), but not DimSecurity. DERIVED_FROM relationships indicate inheritance, not FKs.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_099",
+      "question": "Does FactMarketHistory have a direct foreign key relationship to DimDate?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if FactMarketHistory has a direct FK relationship to DimDate, reviewed the Relationships section. FactMarketHistory --FK--> DimDate is explicitly listed among three FK connections for FactMarketHistory: FK to DimSecurity, DimCompany, and DimDate.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_106",
+      "question": "Does Financial have a direct foreign key relationship to DimTrade?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "<think>\nOkay, let's see. The question is whether the Financial table has a direct foreign key relationship to DimTrade. Hmm.\n\nFirst, I need to recall the relationships listed. The derived-from (DERIVED_FROM) relationships are important here because they define which tables point to others. Foreign k",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_098",
+      "question": "Does FactHoldings have a direct foreign key relationship to DimCompany?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Examined the Relationships section for foreign key ('FK') edges involving 'FactHoldings'. Identified the edge 'FactHoldings --FK--> DimCompany', confirming a direct FK relationship.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_102",
+      "question": "Does DimTrade have a direct foreign key relationship to DimAccount?",
+      "gold_answer": true,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if DimTrade has a direct FK relationship to DimAccount, we examine the provided Relationships (edges). DimTrade's FK connections are listed as pointing to DimCustomer, DimDate, DimTime, DimSecurity, and DimCompany. No edge indicates a foreign key from DimTrade to DimAccount. Additionally, DimAccount's FKs are defined to other tables (DimBroker and DimCustomer), but not referenced by DimTrade.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_route_direct_096",
+      "question": "Does FactCashBalances have a direct foreign key relationship to DimCustomer?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    }
+  ]
+}

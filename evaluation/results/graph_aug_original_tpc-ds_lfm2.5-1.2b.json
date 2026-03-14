@@ -1,0 +1,4336 @@
+{
+  "baseline": "graph_aug",
+  "dataset": "tpc-ds",
+  "obfuscated": false,
+  "model": "liquid/lfm2.5-1.2b",
+  "model_tag": "lfm2.5-1.2b",
+  "metrics": {
+    "total": 127,
+    "exact_match": 0.4252,
+    "avg_f1": 0.689,
+    "by_type": {
+      "silo_detection": {
+        "total": 11,
+        "exact_match": 0.5455,
+        "avg_f1": 0.641
+      },
+      "schema_routing": {
+        "total": 116,
+        "exact_match": 0.4138,
+        "avg_f1": 0.6935
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "total": 17,
+        "exact_match": 0.4706,
+        "avg_f1": 0.4706
+      },
+      "hard": {
+        "total": 4,
+        "exact_match": 0.0,
+        "avg_f1": 0.2628
+      },
+      "medium": {
+        "total": 106,
+        "exact_match": 0.434,
+        "avg_f1": 0.7401
+      }
+    },
+    "by_subtype": {
+      "count": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "membership": {
+        "total": 3,
+        "exact_match": 0.0,
+        "avg_f1": 0.2552
+      },
+      "isolation": {
+        "total": 5,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "connected": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.2857
+      },
+      "join_path": {
+        "total": 80,
+        "exact_match": 0.3375,
+        "avg_f1": 0.7431
+      },
+      "hop_count": {
+        "total": 20,
+        "exact_match": 0.65,
+        "avg_f1": 0.65
+      },
+      "direct_fk": {
+        "total": 16,
+        "exact_match": 0.5,
+        "avg_f1": 0.5
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "tpc-ds_silo_count_000",
+      "question": "How many disconnected data silos (connected components) exist in this schema?",
+      "gold_answer": 1,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "silo_detection",
+      "subtype": "count",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Component 1",
+          "Component 2"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "There are two connected components in the schema.",
+        "_raw_text": "{\n  \"answer_list\": [\"Component 1\", \"Component 2\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"There are two connected components in the schema.\"\n}\n{\n  \"reasoning\": \"The context describes 24 tables organized into distinct silos, with clear boundaries between them.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_001",
+      "question": "Which tables are in the same connected component (data silo) as household_demographics?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "household_demographics"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "The schema analysis identified that these tables share a common data silo based on their relationships and connections.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "catalog_page",
+          "catalog_sales",
+          "customer",
+          "customer_address",
+          "household_demographics"
+        ],
+        "answer_int": 6,
+        "answer_bool": true,
+        "answer_str": "The tables in the same connected component are call_center, catalog_page, catalog_sales, customer, and household_demographics.",
+        "reasoning": "The schema analysis identified that these tables share a common data silo based on their relationships and connections.",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_sales\", \"customer\", \"customer_address\", \"household_demographics\"],\n  \"answer_int\": 6,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables in the same connected component are call_center, catalog_page, catalog_sales, customer, and household_demographics.\",\n  \"reasoning\": \"The schema analysis identified that these tables share a common data silo based on their relationships and connections.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 1.0,
+        "recall": 0.25
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_002",
+      "question": "Which tables are in the same connected component (data silo) as customer?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_sales",
+        "customer"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "catalog_page",
+          "catalog_sales",
+          "customer"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The tables in the same connected component are call_center, catalog_page, catalog_sales, and customer.",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_sales\", \"customer\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables in the same connected component are call_center, catalog_page, catalog_sales, and customer.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 1.0,
+        "recall": 0.1667
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_003",
+      "question": "Which tables are in the same connected component (data silo) as warehouse?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "warehouse"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "warehouse"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "warehouse is in the same connected component",
+        "_raw_text": "{\n  \"answer_list\": [\"warehouse\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"warehouse is in the same connected component\"\n}\n{\n  \"reason\": \"The warehouse table has no explicit foreign keys linking it to other tables, so it forms its own connected component.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.08,
+        "precision": 1.0,
+        "recall": 0.0417
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_004",
+      "question": "Are inventory and call_center connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "call_center"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain: inventory → item → catalog_returns → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"call_center\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: inventory → item → catalog_returns → call_center\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_008",
+      "question": "Are warehouse and income_band connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "warehouse",
+          "income_band"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain: warehouse → store → inventory → item → customer_demographics → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"warehouse\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: warehouse → store → inventory → item → customer_demographics → household_demographics → income_band.\"\n}\nReasoning: The schema shows multiple foreign key relationships connecting warehouse to various entities, and income_band references items via inventory, creating a potential path through intermediate tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_006",
+      "question": "Are date_dim and customer_demographics connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "date_dim",
+          "customer_demographics"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, through intermediate tables like web_returns and customer_demographics.",
+        "_raw_text": "{\n  \"answer_list\": [\"date_dim\", \"customer_demographics\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through intermediate tables like web_returns and customer_demographics.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_007",
+      "question": "Are date_dim and call_center connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "date_dim",
+          "call_center"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, through catalog_returns → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"date_dim\", \"call_center\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through catalog_returns → call_center\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_005",
+      "question": "Are store_sales and catalog_sales connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "catalog_sales"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, through catalog_returns -> store -> customer -> catalog_sales",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"catalog_sales\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through catalog_returns -> store -> customer -> catalog_sales\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_connected_009",
+      "question": "Are customer_address and customer connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "customer_address"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, through a chain involving catalog_returns and customer_address.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_address\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through a chain involving catalog_returns and customer_address.\"\n}\nReasoning: The schema shows that customer is linked to customer_address via a foreign key relationship, and both are connected to catalog_returns, which in turn links back to customer through the chain.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_enumerate_010",
+      "question": "List ALL tables that belong to the largest connected component in this schema.",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_sales",
+        "customer"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "catalog_page",
+          "catalog_sales",
+          "customer"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The largest connected component includes call_center, catalog_page, catalog_sales, and customer tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_sales\", \"customer\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The largest connected component includes call_center, catalog_page, catalog_sales, and customer tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 1.0,
+        "recall": 0.1667
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_000",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to store_sales?",
+      "gold_answer": [
+        "promotion",
+        "store_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "reason": "The query asks for the minimal chain connecting promotion to store_sales, which requires traversing through store_sales and promotion with direct links.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → promotion.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting promotion to store_sales, which requires traversing through store_sales and promotion with direct links.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_001",
+      "question": "What is the shortest chain of foreign key joins that connects store to store_sales?",
+      "gold_answer": [
+        "store",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "store",
+        "store_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store",
+          "store_sales"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: store_sales → store",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"store_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_sales → store\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking 'store' to 'store_sales'. Direct links exist, but combining store_sales with store through intermediate tables yields a single path.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_002",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer_demographics?",
+      "gold_answer": [
+        "catalog_sales",
+        "customer_demographics"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "customer_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "customer_demographics"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_sales → customer and then customer → customer_demographics, totaling 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer and then customer → customer_demographics, totaling 2 hops.\"\n}\nReasoning: The task requires identifying the minimal sequence of foreign key relationships linking catalog_sales to customer_demographics. By tracing the paths, we see two direct connections: through catalog_sales to customer, and then from customer to customer_demographics. No shorter path exists.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_003",
+      "question": "What is the shortest chain of foreign key joins that connects customer to household_demographics?",
+      "gold_answer": [
+        "customer",
+        "household_demographics"
+      ],
+      "predicted_answer": [
+        "customer",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "household_demographics"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves connecting customer through catalog_sales and then household_demographics via the same customer.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves connecting customer through catalog_sales and then household_demographics via the same customer.\"\n}\n{\n  \"reason\": \"The path connects customer to household_demographics through catalog_sales, which links both tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_004",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to time_dim?",
+      "gold_answer": [
+        "store_sales",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "time_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "time_dim"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store_sales → time_dim via store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"time_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → time_dim via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting store_sales to time_dim, which requires traversing through store and time_dim tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_005",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_returns?",
+      "gold_answer": [
+        "customer",
+        "web_returns"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_returns",
+          "customer"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path connects web_returns → customer via a single join.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects web_returns → customer via a single join.\"\n}\nReasoning: The query asks for the minimal chain linking customer to web_returns, which directly references customer through web_returns. No intermediate tables are needed beyond the immediate relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_006",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to household_demographics?",
+      "gold_answer": [
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "household_demographics"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_sales → household_demographics through the intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"household_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → household_demographics through the intermediate tables.\"\n}\nReasoning: The query seeks the minimal number of foreign key relationships needed to link catalog_sales with household_demographics, which requires traversing from sales data back to demographics via related tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_007",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_sales?",
+      "gold_answer": [
+        "customer",
+        "web_sales"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "customer"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path connects web_sales → customer",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects web_sales → customer\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_008",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to time_dim?",
+      "gold_answer": [
+        "catalog_returns",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "time_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "time_dim"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "catalog_returns -> time_dim",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"time_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"catalog_returns -> time_dim\"\n}\nReasoning: The query asks for the shortest chain connecting catalog_returns to time_dim, which involves a single foreign key relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_009",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to call_center?",
+      "gold_answer": [
+        "catalog_returns",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "call_center"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "catalog_returns -> call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"catalog_returns -> call_center\"\n}\nReasoning: The query asks for the shortest chain connecting catalog_returns to call_center via foreign keys. The direct relationship exists, so only one path is needed.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_010",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to item?",
+      "gold_answer": [
+        "store_returns",
+        "item"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "item"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: store_returns → item via store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"item\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → item via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal number of foreign key relationships connecting store_returns to item, which is two hops.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_011",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to catalog_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "catalog_sales"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves calling_center → catalog_sales",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"catalog_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves calling_center → catalog_sales\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_012",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to reason?",
+      "gold_answer": [
+        "store_returns",
+        "reason"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "reason"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "reason"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store_returns → store → reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"reason\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns → store → reason.\"\n}\nReasoning: The query asks for the shortest chain connecting store_returns to reason, which requires traversing through store and then to reason. This is a 2-hop path.\nAnswer: store_returns → store → reason"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_013",
+      "question": "What is the shortest chain of foreign key joins that connects household_demographics to catalog_returns?",
+      "gold_answer": [
+        "household_demographics",
+        "catalog_returns"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "household_demographics"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_returns → household_demographics through the intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_returns → household_demographics through the intermediate tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_014",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer?",
+      "gold_answer": [
+        "catalog_sales",
+        "customer"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "customer"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_sales → customer through catalog_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer through catalog_returns.\"\n}\nReasoning: The query asks for the minimal foreign key path connecting catalog_sales to customer, which requires traversing catalog_returns as an intermediate table.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_015",
+      "question": "What is the shortest chain of foreign key joins that connects warehouse to inventory?",
+      "gold_answer": [
+        "warehouse",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "warehouse"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "inventory -> warehouse (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"warehouse\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"inventory -> warehouse (1 hop)\"\n}\nReasoning: The schema shows a direct foreign key relationship between inventory and warehouse tables, forming the shortest path.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_016",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to date_dim?",
+      "gold_answer": [
+        "web_sales",
+        "date_dim"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "date_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "date_dim"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "web_sales -> date_dim (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"date_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_sales -> date_dim (1 hop)\"\n}\nReasoning: The query asks for the shortest chain connecting web_sales to date_dim, which involves a direct foreign key relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_017",
+      "question": "What is the shortest chain of foreign key joins that connects reason to catalog_returns?",
+      "gold_answer": [
+        "reason",
+        "catalog_returns"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "reason"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "reason"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "catalog_returns -> reason",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"reason\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"catalog_returns -> reason\"\n}\nReasoning: The query asks for the shortest chain connecting 'reason' to 'catalog_returns', which involves traversing through shared foreign keys. The direct path exists, so only one hop is needed.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_018",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to customer_address?",
+      "gold_answer": [
+        "web_sales",
+        "customer_address"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "customer_address"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through web_sales -> customer -> customer_address.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"customer_address\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through web_sales -> customer -> customer_address.\"\n}\nReasoning: The schema shows a direct FK relationship from web_sales to customer, and another from customer to customer_address, forming a two-hop connection.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_019",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store_sales?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "customer"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store_sales → customer → store",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → customer → store\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking customer_demographics to store_sales, focusing on direct and indirect paths through related tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_020",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to date_dim?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "date_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "date_dim"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store_returns → date_dim via store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"date_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns → date_dim via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting store_returns to date_dim, which requires traversing through store as an intermediate table.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_021",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to store_returns?",
+      "gold_answer": [
+        "customer_address",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "customer"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through store_returns and then to customer.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through store_returns and then to customer.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_022",
+      "question": "What is the shortest chain of foreign key joins that connects customer to customer_demographics?",
+      "gold_answer": [
+        "customer",
+        "customer_demographics"
+      ],
+      "predicted_answer": [
+        "customer",
+        "customer_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "customer_demographics"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain is direct: customer → customer_demographics",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain is direct: customer → customer_demographics\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_023",
+      "question": "What is the shortest chain of foreign key joins that connects household_demographics to store_returns?",
+      "gold_answer": [
+        "household_demographics",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "household_demographics"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: store_returns → household_demographics → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → household_demographics → store.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_024",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to catalog_sales?",
+      "gold_answer": [
+        "customer_address",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "customer",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "customer",
+          "customer_address"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_sales → customer → customer_address.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer\", \"customer_address\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer → customer_address.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 0.6667,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_025",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to warehouse?",
+      "gold_answer": [
+        "web_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "warehouse"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "web_sales -> warehouse (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"warehouse\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_sales -> warehouse (1 hop)\"\n}\nReasoning: The schema shows a direct foreign key relationship from web_sales to warehouse through the warehouse table.\nAnswer list contains the exact tables involved in the shortest path."
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_026",
+      "question": "What is the shortest chain of foreign key joins that connects web_site to catalog_returns?",
+      "gold_answer": [
+        "web_site",
+        "web_sales",
+        "date_dim",
+        "catalog_returns"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "web_sales",
+          "web_site"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_returns → web_sales → web_sales → web_site (3 hops).",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"web_sales\", \"web_site\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_returns → web_sales → web_sales → web_site (3 hops).\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8571,
+        "precision": 1.0,
+        "recall": 0.75,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_027",
+      "question": "What is the shortest chain of foreign key joins that connects item to income_band?",
+      "gold_answer": [
+        "item",
+        "store_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "item",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item",
+          "income_band"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves multiple hops through related tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves multiple hops through related tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_028",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to date_dim?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "date_dim"
+      ],
+      "predicted_answer": [
+        "date_dim",
+        "ship_mode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "date_dim",
+          "ship_mode"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: date_dim → ship_mode and then ship_mode → catalog_returns → ship_mode.",
+        "_raw_text": "{\n  \"answer_list\": [\"date_dim\", \"ship_mode\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: date_dim → ship_mode and then ship_mode → catalog_returns → ship_mode.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking ship_mode to date_dim, identifying direct and indirect paths through catalog_returns and item tables as necessary.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_029",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to call_center?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "ship_mode",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "ship_mode",
+          "call_center"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "ship_mode → catalog_sales → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"ship_mode\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"ship_mode → catalog_sales → call_center\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_030",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to store_returns?",
+      "gold_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "store",
+        "promotion"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store",
+          "promotion"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store → promotion via store_sales → promotion.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"promotion\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store → promotion via store_sales → promotion.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking promotion to store_returns, identifying intermediaries like store and promotion as key connectors.\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.5,
+        "recall": 0.25,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_031",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to store_returns?",
+      "gold_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "store"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "store"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: store_sales → store → store_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_sales → store → store_returns.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking store_sales to store_returns, which requires traversing through store and then back to store_returns via store.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_032",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to catalog_page?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim",
+        "catalog_sales",
+        "catalog_page"
+      ],
+      "predicted_answer": [
+        "store",
+        "catalog_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store",
+          "catalog_page"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store → catalog_page via customer and catalog_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store → catalog_page via customer and catalog_returns.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.5,
+        "recall": 0.25,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_033",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to household_demographics?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "predicted_answer": [
+        "household_demographics",
+        "ship_mode",
+        "web_sales",
+        "ship_mode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "household_demographics",
+          "ship_mode",
+          "web_sales",
+          "ship_mode"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves household_demographics → ship_mode → web_sales → ship_mode",
+        "_raw_text": "{\n  \"answer_list\": [\"household_demographics\", \"ship_mode\", \"web_sales\", \"ship_mode\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves household_demographics → ship_mode → web_sales → ship_mode\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_034",
+      "question": "What is the shortest chain of foreign key joins that connects reason to customer?",
+      "gold_answer": [
+        "reason",
+        "store_returns",
+        "customer"
+      ],
+      "predicted_answer": [
+        "customer",
+        "web_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "web_returns"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path connects customer through web_returns and then to reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_returns\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects customer through web_returns and then to reason.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain linking reason to customer via foreign keys, specifically identifying two hops: customer → web_returns → reason.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_035",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to store_returns?",
+      "gold_answer": [
+        "catalog_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "catalog_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "catalog_sales"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: store_returns → catalog_sales → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"catalog_sales\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → catalog_sales → store.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_036",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to catalog_sales?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "web_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "web_returns"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_sales → customer → web_returns → customer_address → catalog_page, but the direct path is catalog_sales → web_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"web_returns\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer → web_returns → customer_address → catalog_page, but the direct path is catalog_sales → web_returns.\"\n}\nReasoning: The query seeks the minimal number of foreign key relationships needed to link web_returns back to catalog_sales. By tracing the paths, the most direct route uses catalog_sales as an intermediary before reaching web_returns.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_037",
+      "question": "What is the shortest chain of foreign key joins that connects time_dim to item?",
+      "gold_answer": [
+        "time_dim",
+        "store_sales",
+        "item"
+      ],
+      "predicted_answer": [
+        "time_dim",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "time_dim",
+          "item"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves time_dim → item through intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"time_dim\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves time_dim → item through intermediate tables.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking time_dim to item, focusing on direct and indirect joins based on schema structure.\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_038",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to income_band?",
+      "gold_answer": [
+        "store_returns",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "income_band"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store_returns → store → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns → store → household_demographics → income_band.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_039",
+      "question": "What is the shortest chain of foreign key joins that connects reason to customer_address?",
+      "gold_answer": [
+        "reason",
+        "store_returns",
+        "customer_address"
+      ],
+      "predicted_answer": [
+        "customer",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "customer_address"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through customer -> customer_address -> reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_address\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through customer -> customer_address -> reason.\"\n}\nReasoning: The query asks for the shortest chain connecting 'reason' to 'customer_address', which involves traversing through at least two tables: customer and customer_address, then linking to reason via web_returns -> reason. No shorter path exists based on the schema relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_040",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_page?",
+      "gold_answer": [
+        "customer",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "customer",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "web_page"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: customer → web_page",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: customer → web_page\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_041",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to time_dim?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "time_dim",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "time_dim",
+          "customer"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through time_dim and then to customer.",
+        "_raw_text": "{\n  \"answer_list\": [\"time_dim\", \"customer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through time_dim and then to customer.\"\n}\n{\"reason\": \"The query requires traversing two foreign key relationships: time_dim → customer and customer → customer_demographics.\"}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_042",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to income_band?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "income_band",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "income_band",
+          "call_center"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves three hops: income_band → call_center → household_demographics → catalog_returns → call_center.",
+        "_raw_text": "{\n  \"answer_list\": [\"income_band\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: income_band → call_center → household_demographics → catalog_returns → call_center.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking call_center to income_band, which requires traversing through intermediate tables in a chain of three steps.\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_043",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to store_sales?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "catalog_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "catalog_page"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store_sales → store → catalog_page → catalog_returns → catalog_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → store → catalog_page → catalog_returns → catalog_page.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking catalog_page to store_sales through intermediary tables. Analyzing the schema reveals a direct chain via store and catalog connections.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_044",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to inventory?",
+      "gold_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "promotion"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "promotion"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves inventory → promotion → item → web_sales → promotion (3 hops).",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"promotion\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory → promotion → item → web_sales → promotion (3 hops).\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_045",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to warehouse?",
+      "gold_answer": [
+        "customer_demographics",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "customer",
+        "web_sales",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "web_sales",
+          "warehouse"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves customer → web_sales → warehouse.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_sales\", \"warehouse\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves customer → web_sales → warehouse.\"\n}\nReasoning: The schema shows a direct foreign key relationship from customer_demographics to warehouse through web_sales and then warehouse to inventory. This forms a chain of two joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_046",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to store_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "store_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "store_sales"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves 3 hops: store_sales → store → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"store_sales\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 3 hops: store_sales → store → call_center\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_047",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to item?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "item"
+      ],
+      "predicted_answer": [
+        "item",
+        "catalog_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item",
+          "catalog_page"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: item → catalog_returns → catalog_page",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: item → catalog_returns → catalog_page\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_048",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to web_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "web_sales"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The query asks for the shortest chain connecting call_center to web_sales via foreign keys, which involves traversing through intermediate tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "call_center"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "web_sales -> call_center -> customer -> catalog_returns -> call_center (3 hops)",
+        "reasoning": "The query asks for the shortest chain connecting call_center to web_sales via foreign keys, which involves traversing through intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_sales -> call_center -> customer -> catalog_returns -> call_center (3 hops)\",\n  \"reasoning\": \"The query asks for the shortest chain connecting call_center to web_sales via foreign keys, which involves traversing through intermediate tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_049",
+      "question": "What is the shortest chain of foreign key joins that connects item to web_page?",
+      "gold_answer": [
+        "item",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "item",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item",
+          "web_page"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "item → web_page via web_returns → web_page (2 hops)",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"item → web_page via web_returns → web_page (2 hops)\"\n}\nReasoning: The schema shows a direct path from item to web_page through intermediate tables like web_returns and web_page, forming the shortest chain.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_050",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to web_page?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "store",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store",
+          "web_page"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves 4 hops: store → store_returns → customer → web_returns → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → store_returns → customer → web_returns → web_page.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking store_returns to web_page, following the defined schema connections.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.5,
+        "recall": 0.25,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_051",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to call_center?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_returns",
+          "call_center"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "web_returns → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"call_center\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_returns → call_center\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_052",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_site?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "catalog_page",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_page",
+          "web_site"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "catalog_page -> catalog_sales -> customer -> web_sales -> web_site",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_page\", \"web_site\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"catalog_page -> catalog_sales -> customer -> web_sales -> web_site\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_053",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_page?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "catalog_page",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_page",
+          "web_page"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "catalog_page -> catalog_sales -> customer -> web_returns -> web_page",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_page\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"catalog_page -> catalog_sales -> customer -> web_returns -> web_page\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_054",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to call_center?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "web_page"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves 4 hops: call_center → web_page",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: call_center → web_page\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_055",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to store?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [
+        "store",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store",
+          "web_page"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves 4 hops: store → web_page → store_returns → customer → web_returns → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → web_page → store_returns → customer → web_returns → web_page.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_056",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to income_band?",
+      "gold_answer": [
+        "inventory",
+        "warehouse",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "item",
+        "web_returns",
+        "household_demographics",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "item",
+          "web_returns",
+          "household_demographics",
+          "income_band"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves inventory → item → web_returns → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\", \"web_returns\", \"household_demographics\", \"income_band\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory → item → web_returns → household_demographics → income_band.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_057",
+      "question": "What is the shortest chain of foreign key joins that connects store to warehouse?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "store",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store",
+          "warehouse"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves 4 hops: store → store_returns → customer → web_sales → warehouse.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"warehouse\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → store_returns → customer → web_sales → warehouse.\"\n}\nReasoning: The schema shows a clear chain connecting store to warehouse through intermediate tables like store_returns, customer, and web_sales. Counting the foreign key relationships confirms four steps.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_058",
+      "question": "What is the shortest chain of foreign key joins that connects store to web_site?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "store",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store",
+          "web_site"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves 4 hops: store → store_returns → customer → web_sales → web_site.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_site\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → store_returns → customer → web_sales → web_site.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_059",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to web_site?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_returns",
+          "web_site"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "web_returns -> customer -> web_sales -> web_site",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"web_site\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_returns -> customer -> web_sales -> web_site\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_060",
+      "question": "What is the shortest chain of foreign key joins that connects time_dim to inventory?",
+      "gold_answer": [
+        "time_dim",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "item"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves inventory → item → web_returns → time_dim.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves inventory → item → web_returns → time_dim.\"\n}\n{ \"reasoning\": \"The query asks for the shortest chain connecting time_dim to inventory through related tables.\" }\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.5,
+        "recall": 0.25,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to web_site?",
+      "gold_answer": [
+        "inventory",
+        "warehouse",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "web_sales",
+          "web_site"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves three hops: inventory → item → web_sales → web_site.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"web_sales\", \"web_site\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: inventory → item → web_sales → web_site.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8571,
+        "precision": 1.0,
+        "recall": 0.75,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_062",
+      "question": "What is the shortest chain of foreign key joins that connects store to customer?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "customer"
+      ],
+      "predicted_answer": [
+        "customer",
+        "store"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "store"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves customer → store_returns → store",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"store\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves customer → store_returns → store\"\n}\nReasoning: The query asks for the shortest path connecting 'store' and 'customer' through foreign keys, which requires traversing two hops: customer to its returns and then returns to the store.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_063",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to store_returns?",
+      "gold_answer": [
+        "web_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "web_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "web_sales"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: store_returns → web_sales → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"web_sales\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → web_sales → store.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_064",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to web_page?",
+      "gold_answer": [
+        "customer_address",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "customer",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "web_page"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through customer_address -> web_returns -> web_page (2 hops).",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through customer_address -> web_returns -> web_page (2 hops).\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_065",
+      "question": "What is the shortest chain of foreign key joins that connects web_site to customer_address?",
+      "gold_answer": [
+        "web_site",
+        "web_sales",
+        "customer_address"
+      ],
+      "predicted_answer": [
+        "customer",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "customer_address"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through customer and then to customer_address.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_address\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through customer and then to customer_address.\"\n}\nReasoning: The query asks for the minimal chain connecting web_site to customer_address via foreign keys, which involves two steps: customer → customer_address.\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_066",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to web_site?",
+      "gold_answer": [
+        "promotion",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "promotion",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "promotion",
+          "web_site"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "promotion -> web_sales -> web_site (2 hops)",
+        "_raw_text": "{\n  \"answer_list\": [\"promotion\", \"web_site\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"promotion -> web_sales -> web_site (2 hops)\"\n}\nReasoning: The query asks for the shortest chain connecting promotion to web_site, which involves two intermediate tables: web_sales and web_site. This matches the described path in the schema.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_067",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to catalog_sales?",
+      "gold_answer": [
+        "promotion",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "promotion"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "promotion"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves catalog_sales → promotion",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → promotion\"\n}\nReasoning: The query seeks the minimal path linking promotion to catalog_sales through their foreign key relationships.\nAnswer list contains the relevant table names in order."
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_068",
+      "question": "What is the shortest chain of foreign key joins that connects item to customer?",
+      "gold_answer": [
+        "item",
+        "store_sales",
+        "customer"
+      ],
+      "predicted_answer": [
+        "item",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item",
+          "customer"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path connects item → web_returns → customer in 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects item → web_returns → customer in 2 hops.\"\n}\nReasoning: The schema shows a direct relationship from item to customer through web_returns, forming the minimal chain needed.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_069",
+      "question": "What is the shortest chain of foreign key joins that connects income_band to web_returns?",
+      "gold_answer": [
+        "income_band",
+        "household_demographics",
+        "web_returns"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_returns",
+          "household_demographics"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: web_returns → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: web_returns → household_demographics → income_band.\"\n}\nReasoning: The query seeks the minimal foreign key chain linking income_band to web_returns via intermediate tables. Analyzing the schema reveals that web_returns must go through household_demographics and then into income_band, forming a two-step path.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_070",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to reason?",
+      "gold_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns",
+        "reason"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "store",
+        "store_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "store",
+          "store_returns"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves store_sales → store → store_returns → reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store\", \"store_returns\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → store → store_returns → reason.\"\n}\nReasoning: The query asks for the shortest chain connecting store_sales to reason, which requires traversing through store and store_returns with intermediate joins. The direct link is store_sales → store → store_returns → reason, totaling 3 hops.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 0.6667,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_071",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to item?",
+      "gold_answer": [
+        "inventory",
+        "item"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "item"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "inventory -> item (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"inventory -> item (1 hop)\"\n}\nReasoning: The schema shows a direct foreign key relationship between inventory and item tables, forming the shortest path.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_072",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to catalog_sales?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "web_page"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves 3 hops: catalog_sales -> customer -> web_returns -> web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"web_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 3 hops: catalog_sales -> customer -> web_returns -> web_page.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_073",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to inventory?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "inventory"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "inventory"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves call_center → item → catalog_returns → call_center (3 hops).",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"inventory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves call_center → item → catalog_returns → call_center (3 hops).\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_074",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to time_dim?",
+      "gold_answer": [
+        "web_returns",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "time_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_returns",
+          "time_dim"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "web_returns -> time_dim (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"time_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_returns -> time_dim (1 hop)\"\n}\nReasoning: The query asks for the shortest chain connecting web_returns to time_dim, which involves a direct foreign key relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_075",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to inventory?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "web_page"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves three hops: inventory → item → web_returns → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"web_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: inventory → item → web_returns → web_page.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_076",
+      "question": "What is the shortest chain of foreign key joins that connects customer to income_band?",
+      "gold_answer": [
+        "customer",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "customer",
+        "household_demographics",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "household_demographics",
+          "income_band"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves customer → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"household_demographics\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves customer → household_demographics → income_band.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_077",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [
+        "customer",
+        "store"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "store"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: customer → store_returns → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"store\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: customer → store_returns → store.\"\n}\nReasoning: The query asks for the minimal chain connecting customer_demographics to store via foreign keys. Analyzing the schema reveals direct links through store_returns and then to store, forming a two-step path.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_078",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to store?",
+      "gold_answer": [
+        "catalog_returns",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "store"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "store"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves catalog_returns → store via customer and store.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"store\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves catalog_returns → store via customer and store.\"\n}\n{\n  \"reason\": \"The query traces the connections through intermediate tables to reach store.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_079",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to warehouse?",
+      "gold_answer": [
+        "catalog_returns",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "warehouse"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "catalog_returns -> warehouse",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"warehouse\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"catalog_returns -> warehouse\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_080",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to store?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "store"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "3 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"store\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The query connects catalog_returns through store, customer, and inventory tables, requiring three foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_081",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_demographics to warehouse?",
+      "gold_answer": 2,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "web_sales",
+          "web_sales__warehouse"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "3 foreign key joins are required.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_sales\", \"web_sales__warehouse\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 foreign key joins are required.\"\n}\n{\n  \"reason\": \"The path involves multiple intermediate tables, and each connection adds a join.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_082",
+      "question": "What is the minimum number of foreign key joins needed to connect promotion to store_returns?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "store"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "3 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"store\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The query connects promotion to store_returns through intermediate tables like store, promotion, and store_sales. Counting the foreign key relationships shows three joins in sequence.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_083",
+      "question": "What is the minimum number of foreign key joins needed to connect call_center to inventory?",
+      "gold_answer": 3,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "call_center"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "3 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The schema shows a direct path from inventory through item to catalog_returns, then back to call_center, forming a chain of three foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_084",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_page to web_page?",
+      "gold_answer": 4,
+      "predicted_answer": 4,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_page",
+          "web_page"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "4 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_page\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"4 hops\"\n}\nReasoning: The path involves catalog_page → catalog_sales → customer → web_returns → web_page, which requires four foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_085",
+      "question": "What is the minimum number of foreign key joins needed to connect household_demographics to store_returns?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "household_demographics"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"household_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The query connects household_demographics to store_returns through intermediate tables like store and customer, requiring two foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_086",
+      "question": "What is the minimum number of foreign key joins needed to connect store_returns to item?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "item"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"item\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The schema shows a direct foreign key relationship from store_returns to item through the intermediary table item.\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_087",
+      "question": "What is the minimum number of foreign key joins needed to connect promotion to catalog_sales?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "promotion"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query connects promotion to catalog_sales through the catalog_returns table, which acts as a bridge. Counting FK joins along this path gives a minimum of 1.\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_088",
+      "question": "What is the minimum number of foreign key joins needed to connect call_center to store_sales?",
+      "gold_answer": 3,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "call_center",
+          "store_sales"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"store_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query asks for the minimum number of foreign key joins connecting call_center to store_sales. Based on the schema, both tables share a common ancestor (call_center) and there is a direct path through catalog_returns and customer, but the shortest path involves 3 intermediate steps. However, the explicit connection is via catalog_returns → call_center, which is one level deep. Thus, 1 foreign key join suffices in practice for this context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_089",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to time_dim?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "time_dim"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"time_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query connects catalog_returns to time_dim through a series of FK joins, and the shortest path involves one intermediate table.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_090",
+      "question": "What is the minimum number of foreign key joins needed to connect web_page to catalog_sales?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "web_page"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "3 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"web_page\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The query involves connecting web_page through catalog_sales to customer, then to web_returns, and finally to web_page again, forming a chain of three foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_091",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_address to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "web_page"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query connects customer_address through customer → customer_address and then through web_returns → web_page, which is two hops in total.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_092",
+      "question": "What is the minimum number of foreign key joins needed to connect item to customer?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item",
+          "customer"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The query asks for the minimum number of foreign key joins connecting 'item' to 'customer'. Based on the schema, this involves traversing through catalog_sales → customer and then customer → customer_address (or similar), totaling two joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_093",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_sales to customer_demographics?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "customer_demographics"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The schema shows a direct path from catalog_sales to customer_demographics through catalog_returns, which connects both tables. No additional joins are required beyond two levels.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_094",
+      "question": "What is the minimum number of foreign key joins needed to connect item to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item",
+          "web_page"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The query asks for the minimum number of foreign key joins connecting 'item' to 'web_page'. Based on the schema, item references web_page via a path that involves catalog_sales and related tables, requiring two intermediate joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_095",
+      "question": "What is the minimum number of foreign key joins needed to connect time_dim to inventory?",
+      "gold_answer": 3,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "inventory",
+          "item"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops (inventory -> item -> web_returns -> time_dim)",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops (inventory -> item -> web_returns -> time_dim)\"\n}\nReasoning: The schema shows a direct path from inventory to item through web_returns, and then to time_dim, requiring two foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_096",
+      "question": "What is the minimum number of foreign key joins needed to connect customer to web_returns?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_returns",
+          "customer"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops (web_returns -> customer -> customer_address)",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops (web_returns -> customer -> customer_address)\"\n}\nReasoning: The query connects web_returns to customer via intermediate tables, requiring two foreign key joins in sequence.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_097",
+      "question": "What is the minimum number of foreign key joins needed to connect customer to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "web_page"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The query connects customer to web_page through intermediate tables like web_returns and web_sales, requiring two foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_098",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_address to catalog_sales?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_sales",
+          "customer"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops (catalog_sales -> customer -> customer_address)",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops (catalog_sales -> customer -> customer_address)\"\n}\nReasoning: The path involves catalog_sales linking to customer, then customer linking to customer_address, totaling two foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_099",
+      "question": "What is the minimum number of foreign key joins needed to connect web_returns to time_dim?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_returns",
+          "time_dim"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"time_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query asks for the minimum number of foreign key joins to connect web_returns to time_dim, which involves traversing through catalog_sales and related tables. Based on the schema, this requires at least one join path.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_109",
+      "question": "Does income_band have a direct foreign key relationship to item?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item",
+          "income_band"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, there is a direct FK relationship between item and income_band through the schema.",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, there is a direct FK relationship between item and income_band through the schema.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_104",
+      "question": "Does web_sales have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "item"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, web_sales has a direct foreign key relationship to item.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"item\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, web_sales has a direct foreign key relationship to item.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_101",
+      "question": "Does store_sales have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "item"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, store_sales has a direct foreign key relationship to item.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"item\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, store_sales has a direct foreign key relationship to item.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_106",
+      "question": "Does store_returns have a direct foreign key relationship to customer_address?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, store_returns has a direct FK relationship to customer_address.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, store_returns has a direct FK relationship to customer_address.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_103",
+      "question": "Does store_sales have a direct foreign key relationship to promotion?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_sales",
+          "promotion"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, store_sales has a direct foreign key relationship to promotion.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, store_sales has a direct foreign key relationship to promotion.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_105",
+      "question": "Does catalog_returns have a direct foreign key relationship to date_dim?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, catalog_returns has a direct FK relationship to date_dim.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, catalog_returns has a direct FK relationship to date_dim.\"\n}\nReasoning: The schema defines a direct foreign key constraint between catalog_returns and date_dim, confirming the relationship.\nAnswer: yes"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_100",
+      "question": "Does catalog_returns have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "catalog_returns",
+          "item"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, catalog_returns has a direct FK relationship with item.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"item\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, catalog_returns has a direct FK relationship with item.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_108",
+      "question": "Does promotion have a direct foreign key relationship to web_page?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "promotion",
+          "web_page"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, promotion has a direct foreign key relationship to web_page through the chain: promotion → web_sales → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"promotion\", \"web_page\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, promotion has a direct foreign key relationship to web_page through the chain: promotion → web_sales → web_page.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_112",
+      "question": "Does web_returns have a direct foreign key relationship to promotion?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, web_returns has a direct FK relationship to promotion through the chain: web_returns → customer → web_sales → promotion.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, web_returns has a direct FK relationship to promotion through the chain: web_returns → customer → web_sales → promotion.\"\n}\nReasoning: The schema shows a clear path from web_returns to promotion via related tables like customer and web_sales.\nAnswer: yes"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_111",
+      "question": "Does customer have a direct foreign key relationship to inventory?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "inventory"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, customer has a direct foreign key relationship to inventory through the customer table.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"inventory\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, customer has a direct foreign key relationship to inventory through the customer table.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_107",
+      "question": "Does web_sales have a direct foreign key relationship to promotion?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "promotion"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, web_sales has a direct foreign key relationship to promotion.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, web_sales has a direct foreign key relationship to promotion.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_114",
+      "question": "Does customer have a direct foreign key relationship to call_center?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "customer",
+          "call_center"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, customer has a direct foreign key relationship to call_center through the path: customer → catalog_returns → call_center.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, customer has a direct foreign key relationship to call_center through the path: customer → catalog_returns → call_center.\"\n}\nReasoning: The schema shows a clear path from customer to catalog_returns and then to call_center, indicating a direct FK relationship.\nAnswer: yes"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_102",
+      "question": "Does web_sales have a direct foreign key relationship to customer?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "web_sales",
+          "customer"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, web_sales has a direct FK relationship with customer.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, web_sales has a direct FK relationship with customer.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_115",
+      "question": "Does promotion have a direct foreign key relationship to web_sales?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "promotion",
+          "web_sales"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, promotion has a direct FK relationship with web_sales.",
+        "_raw_text": "{\n  \"answer_list\": [\"promotion\", \"web_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, promotion has a direct FK relationship with web_sales.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_113",
+      "question": "Does store_returns have a direct foreign key relationship to ship_mode?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "store_returns",
+          "ship_mode"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, store_returns has a direct foreign key relationship to ship_mode.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"ship_mode\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, store_returns has a direct foreign key relationship to ship_mode.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_110",
+      "question": "Does income_band have a direct foreign key relationship to catalog_page?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, there is a direct foreign key relationship from income_band to catalog_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, there is a direct foreign key relationship from income_band to catalog_page.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+% ============================================================================
+% 1. INTRODUCTION
+% ============================================================================
+\section{Introduction}
+
+% FIGURE 1: The Gap Statement
+% [FIGURE 1 PLACEHOLDER: Side-by-side comparison showing:
+% Left: Spider/BIRD task (text-to-SQL) - LLMs excel
+% Right: DW-Bench task (graph topology) - LLMs struggle]
+
+The rapid advancement of Large Language Models (LLMs) has transformed
+database interaction, with state-of-the-art models achieving
+human-competitive accuracy on text-to-SQL benchmarks such as
+Spider~\cite{yu2018spider}, BIRD~\cite{li2023bird}, and
+Spider~2.0~\cite{lei2024spider2}. These benchmarks evaluate whether an LLM
+can translate a natural language question into a SQL query against a given
+schema.
+
+However, SQL generation represents only one facet of database understanding.
+Data warehouse environments require a fundamentally different class of
+reasoning: understanding the \emph{graph topology} of schema
+relationships. A data engineer maintaining an enterprise warehouse must
+routinely answer questions such as:
+
+\begin{itemize}
+  \item \emph{``If the \texttt{Person} table changes, which downstream
+    tables are affected through data lineage?''} (impact analysis)
+  \item \emph{``Which tables form disconnected silos in our schema graph?''}
+    (connectivity analysis)
+  \item \emph{``What is the shortest FK path between two tables?''}
+    (routing)
+\end{itemize}
+
+These tasks require \textbf{graph traversal}---BFS, connected component
+detection, multi-hop path finding---not SQL generation. Yet no existing
+benchmark evaluates LLMs on these capabilities.
+
+\paragraph{Contributions.} We make the following contributions:
+\begin{enumerate}
+  \item \textbf{DW-Bench}: A benchmark of 670 automatically-generated
+    questions across 4 real-world data warehouse schemas, organized into 3
+    categories (lineage impact, schema routing, silo detection), 13
+    subtypes, and 3 difficulty levels.
+  \item \textbf{Three baselines} spanning the text-only to graph-augmented
+    spectrum, revealing that graph context is necessary for hard structural
+    reasoning.
+  \item \textbf{An obfuscation protocol} that randomizes table names,
+    enabling controlled evaluation of memorization versus genuine
+    topology understanding.
+  \item \textbf{Open-source release} of all datasets, evaluation code,
+    and baseline implementations.
+\end{enumerate}

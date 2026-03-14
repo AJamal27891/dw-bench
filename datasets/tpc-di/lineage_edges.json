@@ -1,0 +1,117 @@
+[
+  {
+    "source": "SRC.CustomerMgmt",
+    "target": "DimCustomer",
+    "evidence": "TPC-DI Spec: CustomerMgmt.xml contains customer demographics, addresses, phones"
+  },
+  {
+    "source": "SRC.CustomerMgmt",
+    "target": "DimAccount",
+    "evidence": "TPC-DI Spec: CustomerMgmt.xml contains account creation and updates"
+  },
+  {
+    "source": "SRC.HR",
+    "target": "DimBroker",
+    "evidence": "TPC-DI Spec: HR.csv is the sole source for broker data"
+  },
+  {
+    "source": "SRC.FINWIRE_CMP",
+    "target": "DimCompany",
+    "evidence": "TPC-DI Spec: FINWIRE CMP records contain company information"
+  },
+  {
+    "source": "SRC.FINWIRE_SEC",
+    "target": "DimSecurity",
+    "evidence": "TPC-DI Spec: FINWIRE SEC records contain security/stock information"
+  },
+  {
+    "source": "SRC.FINWIRE_FIN",
+    "target": "Financial",
+    "evidence": "TPC-DI Spec: FINWIRE FIN records contain quarterly financial data"
+  },
+  {
+    "source": "SRC.Date",
+    "target": "DimDate",
+    "evidence": "TPC-DI Spec: Date.txt provides pre-generated date dimension data"
+  },
+  {
+    "source": "SRC.Time",
+    "target": "DimTime",
+    "evidence": "TPC-DI Spec: Time.txt provides pre-generated time dimension data"
+  },
+  {
+    "source": "SRC.Trade",
+    "target": "DimTrade",
+    "evidence": "TPC-DI Spec: Trade.txt and TradeHistory.txt contain trade lifecycle events"
+  },
+  {
+    "source": "SRC.TradeHistory",
+    "target": "DimTrade",
+    "evidence": "TPC-DI Spec: TradeHistory.txt contains historical trade status changes"
+  },
+  {
+    "source": "SRC.Trade",
+    "target": "FactHoldings",
+    "evidence": "TPC-DI Spec: Trade executions create/update holdings positions"
+  },
+  {
+    "source": "SRC.HoldingHistory",
+    "target": "FactHoldings",
+    "evidence": "TPC-DI Spec: HoldingHistory.txt tracks position changes"
+  },
+  {
+    "source": "SRC.CashTransaction",
+    "target": "FactCashBalances",
+    "evidence": "TPC-DI Spec: CashTransaction.txt contains cash deposits/withdrawals"
+  },
+  {
+    "source": "SRC.DailyMarket",
+    "target": "FactMarketHistory",
+    "evidence": "TPC-DI Spec: DailyMarket.txt contains daily stock prices and volumes"
+  },
+  {
+    "source": "SRC.WatchHistory",
+    "target": "FactWatches",
+    "evidence": "TPC-DI Spec: WatchHistory.txt tracks customer watch list events"
+  },
+  {
+    "source": "SRC.Prospect",
+    "target": "Prospect",
+    "evidence": "TPC-DI Spec: Prospect.csv contains prospective customer demographics"
+  },
+  {
+    "source": "SRC.StatusType",
+    "target": "StatusType",
+    "evidence": "TPC-DI Spec: StatusType.txt provides status code reference data"
+  },
+  {
+    "source": "SRC.TaxRate",
+    "target": "TaxRate",
+    "evidence": "TPC-DI Spec: TaxRate.txt provides tax rate reference data"
+  },
+  {
+    "source": "SRC.TradeType",
+    "target": "TradeType",
+    "evidence": "TPC-DI Spec: TradeType.txt provides trade type reference data"
+  },
+  {
+    "source": "SRC.Industry",
+    "target": "Industry",
+    "evidence": "TPC-DI Spec: Industry.txt provides industry classification reference data"
+  },
+  {
+    "source": "DimCustomer",
+    "target": "Prospect",
+    "evidence": "TPC-DI Spec: Prospect.IsCustomer is derived by matching against DimCustomer"
+  },
+  {
+    "source": "DimCompany",
+    "target": "DimSecurity",
+    "evidence": "TPC-DI Spec: DimSecurity.SK_CompanyID is looked up from DimCompany"
+  },
+  {
+    "source": "TaxRate",
+    "target": "DimCustomer",
+    "evidence": "TPC-DI Spec: DimCustomer.NationalTaxRate/LocalTaxRate looked up from TaxRate"
+  }
+]

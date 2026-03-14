@@ -1,0 +1,4003 @@
+{
+  "baseline": "oracle",
+  "dataset": "omop_cdm",
+  "obfuscated": false,
+  "model": "gemini-2.5-flash",
+  "model_tag": "gemini-2.5-flash",
+  "metrics": {
+    "total": 158,
+    "micro_em": 0.9684,
+    "micro_f1": 0.9684,
+    "macro_em": 0.9226,
+    "macro_f1": 0.9226,
+    "exact_match": 0.9684,
+    "avg_f1": 0.9684,
+    "by_type": {
+      "lineage_impact": {
+        "total": 26,
+        "exact_match": 0.8846,
+        "avg_f1": 0.8846
+      },
+      "silo_detection": {
+        "total": 16,
+        "exact_match": 0.875,
+        "avg_f1": 0.875
+      },
+      "schema_routing": {
+        "total": 116,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "total": 110,
+        "exact_match": 0.9818,
+        "avg_f1": 0.9818
+      },
+      "hard": {
+        "total": 7,
+        "exact_match": 0.8571,
+        "avg_f1": 0.8571
+      },
+      "medium": {
+        "total": 41,
+        "exact_match": 0.9512,
+        "avg_f1": 0.9512
+      }
+    },
+    "by_subtype": {
+      "forward": {
+        "total": 6,
+        "exact_match": 0.8333,
+        "avg_f1": 0.8333
+      },
+      "reverse": {
+        "total": 16,
+        "exact_match": 0.9375,
+        "avg_f1": 0.9375
+      },
+      "transitive": {
+        "total": 2,
+        "exact_match": 0.5,
+        "avg_f1": 0.5
+      },
+      "combined_impact": {
+        "total": 2,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "count": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "membership": {
+        "total": 3,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "isolation": {
+        "total": 10,
+        "exact_match": 0.8,
+        "avg_f1": 0.8
+      },
+      "connected": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "join_path": {
+        "total": 80,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "hop_count": {
+        "total": 20,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "direct_fk": {
+        "total": 16,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "omop_cdm_lineage_fwd_000",
+      "question": "Which tables in the data warehouse are directly derived from condition_occurrence?",
+      "gold_answer": [
+        "condition_era"
+      ],
+      "predicted_answer": [
+        "condition_era"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly states that 'condition_era' is derived from the source. This directly answers the question about which tables are directly derived from 'condition_occurrence'.\",\n  \"answer\": [\n    \"condition_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_001",
+      "question": "Which tables in the data warehouse are directly derived from drug_exposure?",
+      "gold_answer": [
+        "dose_era",
+        "drug_era"
+      ],
+      "predicted_answer": [
+        "dose_era",
+        "drug_era"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of tables derived from 'drug_exposure', which are 'dose_era' and 'drug_era'.\",\n  \"answer\": [\n    \"dose_era\",\n    \"drug_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_002",
+      "question": "Which tables in the data warehouse are directly derived from note?",
+      "gold_answer": [
+        "note_nlp"
+      ],
+      "predicted_answer": [
+        "note_nlp"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of tables derived from 'note', which is ['note_nlp'].\",\n  \"answer\": [\n    \"note_nlp\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_003",
+      "question": "Which tables in the data warehouse are directly derived from episode?",
+      "gold_answer": [
+        "episode_event"
+      ],
+      "predicted_answer": [
+        "episode_event"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of tables derived from 'episode', which is ['episode_event'].\",\n  \"answer\": [\n    \"episode_event\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_004",
+      "question": "Which tables in the data warehouse are directly derived from concept?",
+      "gold_answer": [
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "drug_exposure",
+        "episode",
+        "measurement",
+        "observation",
+        "procedure_occurrence",
+        "specimen",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "drug_exposure",
+        "episode",
+        "measurement",
+        "observation",
+        "procedure_occurrence",
+        "specimen",
+        "visit_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of tables that are derived from 'concept'.\",\n  \"answer\": [\n    \"condition_occurrence\",\n    \"death\",\n    \"device_exposure\",\n    \"drug_exposure\",\n    \"episode\",\n    \"measurement\",\n    \"observation\",\n    \"procedure_occurrence\",\n    \"specimen\",\n    \"visit_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_005",
+      "question": "Which tables in the data warehouse are directly derived from source_to_concept_map?",
+      "gold_answer": [
+        "condition_occurrence",
+        "drug_exposure",
+        "measurement",
+        "observation",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no tables were found to be directly derived from 'source_to_concept_map' based on the graph analysis.\",\n  \"answer\": []\n}\n```",
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_006",
+      "question": "What are all the source tables that person is derived from?",
+      "gold_answer": [
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "source_to_concept_map"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly provides the list of 'Source tables that feed into the target' which, for a reverse question asking what 'person' is derived from, corresponds to the source tables from which 'person' is derived.\",\n  \"answer\": [\n    \"source_to_concept_map\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_007",
+      "question": "What are all the source tables that visit_occurrence is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "concept"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly states the source tables that feed into 'visit_occurrence' as `['concept']`.\",\n  \"answer\": [\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_008",
+      "question": "What are all the source tables that condition_occurrence is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly provides the 'Source tables that feed into the target' for 'condition_occurrence', which are the tables it is derived from.\",\n  \"answer\": [\n    \"concept\",\n    \"source_to_concept_map\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_009",
+      "question": "What are all the source tables that drug_exposure is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Source tables that feed into the target'. In the context of the question, 'drug_exposure' is the target for which we are seeking derivation sources. Therefore, the tables listed in the oracle output are the source tables from which 'drug_exposure' is derived.\",\n  \"answer\": [\n    \"concept\",\n    \"source_to_concept_map\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_010",
+      "question": "What are all the source tables that procedure_occurrence is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Source tables that feed into the target' which, in the context of the question, refers to the tables from which 'procedure_occurrence' is derived. The provided list `['concept', 'source_to_concept_map']` is the direct answer.\",\n  \"answer\": [\n    \"concept\",\n    \"source_to_concept_map\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_011",
+      "question": "What are all the source tables that device_exposure is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence, which is the output of the graph algorithm, is empty. This indicates that no source tables were found from which 'device_exposure' is derived.\",\n  \"answer\": []\n}\n```",
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_012",
+      "question": "What are all the source tables that measurement is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables from which 'measurement' is derived, which are 'concept' and 'source_to_concept_map'.\",\n  \"answer\": [\n    \"concept\",\n    \"source_to_concept_map\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_013",
+      "question": "What are all the source tables that observation is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables from which 'observation' is derived, which are 'concept' and 'source_to_concept_map'.\",\n  \"answer\": [\n    \"concept\",\n    \"source_to_concept_map\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_014",
+      "question": "What are all the source tables that death is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "concept"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables from which 'death' is derived, which is 'concept'.\",\n  \"answer\": [\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_015",
+      "question": "What are all the source tables that note_nlp is derived from?",
+      "gold_answer": [
+        "note"
+      ],
+      "predicted_answer": [
+        "note"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Source tables that feed into the target: ['note']'. In the context of the question 'What are all the source tables that note_nlp is derived from?', 'note_nlp' is the target. Therefore, 'note' is the source table.\",\n  \"answer\": [\n    \"note\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_016",
+      "question": "What are all the source tables that specimen is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "concept"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables from which 'specimen' is derived, which is ['concept'].\",\n  \"answer\": [\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_017",
+      "question": "What are all the source tables that episode is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "concept"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables from which 'episode' is derived, which is ['concept'].\",\n  \"answer\": [\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_018",
+      "question": "What are all the source tables that episode_event is derived from?",
+      "gold_answer": [
+        "episode"
+      ],
+      "predicted_answer": [
+        "episode"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly states the 'Source tables that feed into the target', where the target is 'episode_event'. The provided list `['episode']` is the answer.\",\n  \"answer\": [\n    \"episode\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_019",
+      "question": "What are all the source tables that drug_era is derived from?",
+      "gold_answer": [
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "drug_exposure"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the source tables that feed into the target 'drug_era' as 'drug_exposure'.\",\n  \"answer\": [\n    \"drug_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_020",
+      "question": "What are all the source tables that dose_era is derived from?",
+      "gold_answer": [
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "drug_exposure"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Source tables that feed into the target', which in this reverse question context, refers to the tables from which 'dose_era' is derived. The evidence explicitly lists 'drug_exposure' as the source table.\",\n  \"answer\": [\n    \"drug_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_021",
+      "question": "What are all the source tables that condition_era is derived from?",
+      "gold_answer": [
+        "condition_occurrence"
+      ],
+      "predicted_answer": [
+        "condition_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables from which 'condition_era' is derived, which is ['condition_occurrence'].\",\n  \"answer\": [\n    \"condition_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_trans_022",
+      "question": "If the schema of concept changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "episode",
+        "episode_event",
+        "measurement",
+        "observation",
+        "procedure_occurrence",
+        "specimen",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "episode",
+        "episode_event",
+        "measurement",
+        "observation",
+        "procedure_occurrence",
+        "specimen",
+        "visit_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence provides the 'Full transitive lineage chain' which directly lists all tables affected, directly or indirectly, by changes to the 'concept' table.\",\n  \"answer\": [\n    \"condition_era\",\n    \"condition_occurrence\",\n    \"death\",\n    \"device_exposure\",\n    \"dose_era\",\n    \"drug_era\",\n    \"drug_exposure\",\n    \"episode\",\n    \"episode_event\",\n    \"measurement\",\n    \"observation\",\n    \"procedure_occurrence\",\n    \"specimen\",\n    \"visit_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_trans_023",
+      "question": "If the schema of source_to_concept_map changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "measurement",
+        "observation",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": null,
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The provided oracle evidence gives a transitive lineage chain starting from 'condition_era'. However, the question asks about the lineage chain for 'source_to_concept_map'. The oracle output does not contain any information related to 'source_to_concept_map', therefore it cannot be used to answer the question.\",\n  \"answer\": null\n}\n```",
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_combined_024",
+      "question": "If concept changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "care_site",
+        "concept_ancestor",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept_ancestor",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of all tables affected by a change in the 'concept' table, considering both data lineage and foreign key dependencies.\",\n  \"answer\": [\n    \"care_site\",\n    \"concept_ancestor\",\n    \"concept_relationship\",\n    \"concept_synonym\",\n    \"condition_era\",\n    \"condition_occurrence\",\n    \"cost\",\n    \"death\",\n    \"device_exposure\",\n    \"dose_era\",\n    \"drug_era\",\n    \"drug_exposure\",\n    \"drug_strength\",\n    \"episode\",\n    \"episode_event\",\n    \"fact_relationship\",\n    \"measurement\",\n    \"note\",\n    \"note_nlp\",\n    \"observation\",\n    \"payer_plan_period\",\n    \"person\",\n    \"procedure_occurrence\",\n    \"provider\",\n    \"source_to_concept_map\",\n    \"specimen\",\n    \"visit_detail\",\n    \"visit_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_combined_025",
+      "question": "If source_to_concept_map changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "episode",
+        "measurement",
+        "note",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "episode",
+        "measurement",
+        "note",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the complete list of tables affected by changes to `source_to_concept_map`, considering both data lineage and foreign key dependencies.\",\n  \"answer\": [\n    \"condition_era\",\n    \"condition_occurrence\",\n    \"death\",\n    \"device_exposure\",\n    \"dose_era\",\n    \"drug_era\",\n    \"drug_exposure\",\n    \"episode\",\n    \"measurement\",\n    \"note\",\n    \"observation\",\n    \"observation_period\",\n    \"payer_plan_period\",\n    \"person\",\n    \"procedure_occurrence\",\n    \"specimen\",\n    \"visit_detail\",\n    \"visit_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_count_000",
+      "question": "How many disconnected data silos (connected components) exist in this schema?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "silo_detection",
+      "subtype": "count",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Number of connected components' which corresponds to the number of disconnected data silos.\",\n  \"answer\": 3\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_member_001",
+      "question": "Which tables are in the same connected component (data silo) as concept_synonym?",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly provides the 'Component membership result', which is the list of tables in a connected component. As per the instructions, this output is the computed answer.\",\n  \"answer\": [\n    \"care_site\",\n    \"concept\",\n    \"concept_ancestor\",\n    \"concept_class\",\n    \"concept_relationship\",\n    \"condition_era\",\n    \"condition_occurrence\",\n    \"cost\",\n    \"death\",\n    \"device_exposure\",\n    \"domain\",\n    \"dose_era\",\n    \"drug_era\",\n    \"drug_exposure\",\n    \"drug_strength\",\n    \"episode\",\n    \"episode_event\",\n    \"fact_relationship\",\n    \"location\",\n    \"measurement\",\n    \"note\",\n    \"note_nlp\",\n    \"observation\",\n    \"observation_period\",\n    \"payer_plan_period\",\n    \"person\",\n    \"procedure_occurrence\",\n    \"provider\",\n    \"relationship\",\n    \"source_to_concept_map\",\n    \"specimen\",\n    \"visit_detail\",\n    \"visit_occurrence\",\n    \"vocabulary\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_member_002",
+      "question": "Which tables are in the same connected component (data silo) as observation_period?",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of all tables that are in the same connected component as 'observation_period' under 'Component membership result'.\",\n  \"answer\": [\n    \"care_site\",\n    \"concept\",\n    \"concept_ancestor\",\n    \"concept_class\",\n    \"concept_relationship\",\n    \"concept_synonym\",\n    \"condition_era\",\n    \"condition_occurrence\",\n    \"cost\",\n    \"death\",\n    \"device_exposure\",\n    \"domain\",\n    \"dose_era\",\n    \"drug_era\",\n    \"drug_exposure\",\n    \"drug_strength\",\n    \"episode\",\n    \"episode_event\",\n    \"fact_relationship\",\n    \"location\",\n    \"measurement\",\n    \"note\",\n    \"note_nlp\",\n    \"observation\",\n    \"payer_plan_period\",\n    \"person\",\n    \"procedure_occurrence\",\n    \"provider\",\n    \"relationship\",\n    \"source_to_concept_map\",\n    \"specimen\",\n    \"visit_detail\",\n    \"visit_occurrence\",\n    \"vocabulary\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_member_003",
+      "question": "Which tables are in the same connected component (data silo) as person?",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of all tables that are in the same connected component as 'person' under 'Component membership result'.\",\n  \"answer\": [\n    \"care_site\",\n    \"concept\",\n    \"concept_ancestor\",\n    \"concept_class\",\n    \"concept_relationship\",\n    \"concept_synonym\",\n    \"condition_era\",\n    \"condition_occurrence\",\n    \"cost\",\n    \"death\",\n    \"device_exposure\",\n    \"domain\",\n    \"dose_era\",\n    \"drug_era\",\n    \"drug_exposure\",\n    \"drug_strength\",\n    \"episode\",\n    \"episode_event\",\n    \"fact_relationship\",\n    \"location\",\n    \"measurement\",\n    \"note\",\n    \"note_nlp\",\n    \"observation\",\n    \"observation_period\",\n    \"payer_plan_period\",\n    \"procedure_occurrence\",\n    \"provider\",\n    \"relationship\",\n    \"source_to_concept_map\",\n    \"specimen\",\n    \"visit_detail\",\n    \"visit_occurrence\",\n    \"vocabulary\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_011",
+      "question": "Are measurement and note connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: True', which directly answers the question about whether 'measurement' and 'note' are connected through any chain of foreign key relationships.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_012",
+      "question": "Are procedure_occurrence and fact_relationship connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: True', which directly indicates that the two tables, procedure_occurrence and fact_relationship, are connected through a chain of foreign key relationships.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_005",
+      "question": "Are source_to_concept_map and metadata connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: False', which indicates that the two tables, source_to_concept_map and metadata, are indeed connected through a chain of foreign key relationships. If they were isolated, the result would be True.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_006",
+      "question": "Are drug_strength and cdm_source connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: False', which directly answers the question about whether drug_strength and cdm_source are connected through any chain of foreign key relationships. 'False' indicates they are not connected.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_004",
+      "question": "Are cdm_source and metadata connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm directly provides the 'Isolation check result' as False, indicating that 'cdm_source' and 'metadata' are not connected through any chain of foreign key relationships.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_007",
+      "question": "Are observation_period and metadata connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence states 'Isolation check result: False'. This indicates that the two tables, observation_period and metadata, are not isolated from each other, meaning they are connected through foreign key relationships.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_010",
+      "question": "Are condition_occurrence and domain connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: True', which directly indicates that 'condition_occurrence' and 'domain' are connected through a chain of foreign key relationships.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_013",
+      "question": "Are dose_era and drug_strength connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: True', which directly answers the question about whether 'dose_era' and 'drug_strength' are connected through any chain of foreign key relationships.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_009",
+      "question": "Are dose_era and concept_synonym connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: True', which directly answers the question about connectivity between 'dose_era' and 'concept_synonym'.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_008",
+      "question": "Are vocabulary and cdm_source connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states 'Isolation check result: False', indicating that the two tables are not connected through any chain of foreign key relationships.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_connected_014",
+      "question": "Are episode and fact_relationship connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm explicitly states that the connectivity check result is 'True', indicating that 'episode' and 'fact_relationship' are connected.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_enumerate_015",
+      "question": "List ALL tables that belong to the largest connected component in this schema.",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output explicitly lists all tables that belong to the largest connected component in the schema, which directly answers the question.\",\n  \"answer\": [\n    \"care_site\",\n    \"concept\",\n    \"concept_ancestor\",\n    \"concept_class\",\n    \"concept_relationship\",\n    \"concept_synonym\",\n    \"condition_era\",\n    \"condition_occurrence\",\n    \"cost\",\n    \"death\",\n    \"device_exposure\",\n    \"domain\",\n    \"dose_era\",\n    \"drug_era\",\n    \"drug_exposure\",\n    \"drug_strength\",\n    \"episode\",\n    \"episode_event\",\n    \"fact_relationship\",\n    \"location\",\n    \"measurement\",\n    \"note\",\n    \"note_nlp\",\n    \"observation\",\n    \"observation_period\",\n    \"payer_plan_period\",\n    \"person\",\n    \"procedure_occurrence\",\n    \"provider\",\n    \"relationship\",\n    \"source_to_concept_map\",\n    \"specimen\",\n    \"visit_detail\",\n    \"visit_occurrence\",\n    \"vocabulary\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_000",
+      "question": "What is the shortest chain of foreign key joins that connects care_site to location?",
+      "gold_answer": [
+        "care_site",
+        "location"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "location"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest foreign key path found between 'care_site' and 'location' as 'care_site -> location'. This translates to an ordered list of tables in the join path.\",\n  \"answer\": [\n    \"care_site\",\n    \"location\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_001",
+      "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to provider?",
+      "gold_answer": [
+        "condition_occurrence",
+        "provider"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly states the shortest foreign key path found between 'condition_occurrence' and 'provider' as 'condition_occurrence -> provider'.\",\n  \"answer\": [\n    \"condition_occurrence\",\n    \"provider\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_002",
+      "question": "What is the shortest chain of foreign key joins that connects measurement to provider?",
+      "gold_answer": [
+        "measurement",
+        "provider"
+      ],
+      "predicted_answer": [
+        "measurement",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly states the shortest foreign key path found is 'measurement -> provider'. This path consists of a single join from the 'measurement' table to the 'provider' table.\",\n  \"answer\": [\n    \"measurement\",\n    \"provider\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_003",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to drug_exposure?",
+      "gold_answer": [
+        "visit_occurrence",
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "drug_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest foreign key path found as 'visit_occurrence -> drug_exposure'. This directly answers the question by providing the ordered list of tables in the join path.\",\n  \"answer\": [\n    \"visit_occurrence\",\n    \"drug_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_004",
+      "question": "What is the shortest chain of foreign key joins that connects concept to device_exposure?",
+      "gold_answer": [
+        "concept",
+        "device_exposure"
+      ],
+      "predicted_answer": [
+        "concept",
+        "device_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept' to 'device_exposure' as 'concept -> device_exposure'.\",\n  \"answer\": [\n    \"concept\",\n    \"device_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_005",
+      "question": "What is the shortest chain of foreign key joins that connects payer_plan_period to concept?",
+      "gold_answer": [
+        "payer_plan_period",
+        "concept"
+      ],
+      "predicted_answer": [
+        "payer_plan_period",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the 'Shortest FK path found' as 'payer_plan_period -> concept'. This directly answers the question by providing the ordered list of tables in the shortest join path.\",\n  \"answer\": [\n    \"payer_plan_period\",\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_006",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to concept?",
+      "gold_answer": [
+        "visit_occurrence",
+        "concept"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly states the shortest foreign key path found is 'visit_occurrence -> concept'.\",\n  \"answer\": [\n    \"visit_occurrence\",\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_007",
+      "question": "What is the shortest chain of foreign key joins that connects device_exposure to person?",
+      "gold_answer": [
+        "device_exposure",
+        "person"
+      ],
+      "predicted_answer": [
+        "device_exposure",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'device_exposure' to 'person' as 'device_exposure -> person'.\",\n  \"answer\": [\n    \"device_exposure\",\n    \"person\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_008",
+      "question": "What is the shortest chain of foreign key joins that connects concept to concept_synonym?",
+      "gold_answer": [
+        "concept",
+        "concept_synonym"
+      ],
+      "predicted_answer": [
+        "concept",
+        "concept_synonym"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output explicitly states the shortest foreign key path found is 'concept -> concept_synonym', which directly answers the question.\",\n  \"answer\": [\n    \"concept\",\n    \"concept_synonym\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_009",
+      "question": "What is the shortest chain of foreign key joins that connects visit_detail to person?",
+      "gold_answer": [
+        "visit_detail",
+        "person"
+      ],
+      "predicted_answer": [
+        "visit_detail",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the shortest foreign key path found between 'visit_detail' and 'person' as 'visit_detail -> person'. This directly answers the question.\",\n  \"answer\": [\n    \"visit_detail\",\n    \"person\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_010",
+      "question": "What is the shortest chain of foreign key joins that connects concept to provider?",
+      "gold_answer": [
+        "concept",
+        "provider"
+      ],
+      "predicted_answer": [
+        "concept",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept' to 'provider' as 'concept -> provider'.\",\n  \"answer\": [\n    \"concept\",\n    \"provider\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_011",
+      "question": "What is the shortest chain of foreign key joins that connects care_site to visit_detail?",
+      "gold_answer": [
+        "care_site",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "visit_detail"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly states the shortest foreign key path found between 'care_site' and 'visit_detail' as 'care_site -> visit_detail'.\",\n  \"answer\": [\n    \"care_site\",\n    \"visit_detail\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_012",
+      "question": "What is the shortest chain of foreign key joins that connects drug_era to person?",
+      "gold_answer": [
+        "drug_era",
+        "person"
+      ],
+      "predicted_answer": [
+        "drug_era",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_era' to 'person' as 'drug_era -> person'.\",\n  \"answer\": [\n    \"drug_era\",\n    \"person\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_013",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to person?",
+      "gold_answer": [
+        "visit_occurrence",
+        "person"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'visit_occurrence -> person'. This path consists of a single join.\",\n  \"answer\": [\n    \"visit_occurrence\",\n    \"person\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_014",
+      "question": "What is the shortest chain of foreign key joins that connects episode_event to episode?",
+      "gold_answer": [
+        "episode_event",
+        "episode"
+      ],
+      "predicted_answer": [
+        "episode_event",
+        "episode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'episode_event' to 'episode' as 'episode_event -> episode'.\",\n  \"answer\": [\n    \"episode_event\",\n    \"episode\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_015",
+      "question": "What is the shortest chain of foreign key joins that connects concept to condition_occurrence?",
+      "gold_answer": [
+        "concept",
+        "condition_occurrence"
+      ],
+      "predicted_answer": [
+        "concept",
+        "condition_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept' to 'condition_occurrence' as 'concept -> condition_occurrence'.\",\n  \"answer\": [\n    \"concept\",\n    \"condition_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_016",
+      "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to person?",
+      "gold_answer": [
+        "procedure_occurrence",
+        "person"
+      ],
+      "predicted_answer": [
+        "procedure_occurrence",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest foreign key path found is 'procedure_occurrence -> person'. This path connects the two specified tables.\",\n  \"answer\": [\n    \"procedure_occurrence\",\n    \"person\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_017",
+      "question": "What is the shortest chain of foreign key joins that connects note to provider?",
+      "gold_answer": [
+        "note",
+        "provider"
+      ],
+      "predicted_answer": [
+        "note",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'note -> provider'. This path connects the 'note' table to the 'provider' table.\",\n  \"answer\": [\n    \"note\",\n    \"provider\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_018",
+      "question": "What is the shortest chain of foreign key joins that connects cost to concept?",
+      "gold_answer": [
+        "cost",
+        "concept"
+      ],
+      "predicted_answer": [
+        "cost",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'cost' to 'concept' as 'cost -> concept'.\",\n  \"answer\": [\n    \"cost\",\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_019",
+      "question": "What is the shortest chain of foreign key joins that connects drug_exposure to person?",
+      "gold_answer": [
+        "drug_exposure",
+        "person"
+      ],
+      "predicted_answer": [
+        "drug_exposure",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest foreign key path found is 'drug_exposure -> person'. This path connects the two specified tables.\",\n  \"answer\": [\n    \"drug_exposure\",\n    \"person\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_020",
+      "question": "What is the shortest chain of foreign key joins that connects visit_detail to provider?",
+      "gold_answer": [
+        "visit_detail",
+        "provider"
+      ],
+      "predicted_answer": [
+        "visit_detail",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'visit_detail -> provider'. This path is a direct join between the two tables.\",\n  \"answer\": [\n    \"visit_detail\",\n    \"provider\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_021",
+      "question": "What is the shortest chain of foreign key joins that connects concept to concept_ancestor?",
+      "gold_answer": [
+        "concept",
+        "concept_ancestor"
+      ],
+      "predicted_answer": [
+        "concept",
+        "concept_ancestor"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output explicitly states the shortest foreign key path found is 'concept -> concept_ancestor'. This directly answers the question.\",\n  \"answer\": [\n    \"concept\",\n    \"concept_ancestor\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_022",
+      "question": "What is the shortest chain of foreign key joins that connects episode to concept?",
+      "gold_answer": [
+        "episode",
+        "concept"
+      ],
+      "predicted_answer": [
+        "episode",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'episode' to 'concept' as 'episode -> concept'.\",\n  \"answer\": [\n    \"episode\",\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_023",
+      "question": "What is the shortest chain of foreign key joins that connects provider to visit_occurrence?",
+      "gold_answer": [
+        "provider",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "provider",
+        "visit_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly states the shortest foreign key path found, which is 'provider -> visit_occurrence'. This path represents a direct foreign key relationship between the two tables.\",\n  \"answer\": [\n    \"provider\",\n    \"visit_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_024",
+      "question": "What is the shortest chain of foreign key joins that connects person to measurement?",
+      "gold_answer": [
+        "person",
+        "measurement"
+      ],
+      "predicted_answer": [
+        "person",
+        "measurement"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'person -> measurement'. This path is a single join, which is the shortest possible.\",\n  \"answer\": [\n    \"person\",\n    \"measurement\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_025",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to procedure_occurrence?",
+      "gold_answer": [
+        "visit_occurrence",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "procedure_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly states the shortest foreign key path found, which is 'visit_occurrence -> procedure_occurrence'. This path represents the direct foreign key join between the two tables.\",\n  \"answer\": [\n    \"visit_occurrence\",\n    \"procedure_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_026",
+      "question": "What is the shortest chain of foreign key joins that connects dose_era to provider?",
+      "gold_answer": [
+        "dose_era",
+        "person",
+        "provider"
+      ],
+      "predicted_answer": [
+        "dose_era",
+        "person",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'dose_era' to 'provider' as 'dose_era -> person -> provider'.\",\n  \"answer\": [\n    \"dose_era\",\n    \"person\",\n    \"provider\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_027",
+      "question": "What is the shortest chain of foreign key joins that connects location to vocabulary?",
+      "gold_answer": [
+        "location",
+        "person",
+        "concept",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "location",
+        "person",
+        "concept",
+        "vocabulary"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'location' to 'vocabulary' as 'location -> person -> concept -> vocabulary'.\",\n  \"answer\": [\n    \"location\",\n    \"person\",\n    \"concept\",\n    \"vocabulary\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_028",
+      "question": "What is the shortest chain of foreign key joins that connects concept_class to episode?",
+      "gold_answer": [
+        "concept_class",
+        "concept",
+        "episode"
+      ],
+      "predicted_answer": [
+        "concept_class",
+        "concept",
+        "episode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept_class' to 'episode' as 'concept_class -> concept -> episode'.\",\n  \"answer\": [\n    \"concept_class\",\n    \"concept\",\n    \"episode\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_029",
+      "question": "What is the shortest chain of foreign key joins that connects note to payer_plan_period?",
+      "gold_answer": [
+        "note",
+        "person",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "note",
+        "person",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'note -> person -> payer_plan_period'.\",\n  \"answer\": [\n    \"note\",\n    \"person\",\n    \"payer_plan_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_030",
+      "question": "What is the shortest chain of foreign key joins that connects drug_exposure to measurement?",
+      "gold_answer": [
+        "drug_exposure",
+        "person",
+        "measurement"
+      ],
+      "predicted_answer": [
+        "drug_exposure",
+        "person",
+        "measurement"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_exposure' to 'measurement' as 'drug_exposure -> person -> measurement'.\",\n  \"answer\": [\n    \"drug_exposure\",\n    \"person\",\n    \"measurement\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_031",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to visit_detail?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "person",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "concept_ancestor",
+        "concept",
+        "person",
+        "visit_detail"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept_ancestor' to 'visit_detail' as 'concept_ancestor -> concept -> person -> visit_detail'.\",\n  \"answer\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"person\",\n    \"visit_detail\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_032",
+      "question": "What is the shortest chain of foreign key joins that connects location to concept_class?",
+      "gold_answer": [
+        "location",
+        "person",
+        "concept",
+        "concept_class"
+      ],
+      "predicted_answer": [
+        "location",
+        "person",
+        "concept",
+        "concept_class"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'location' to 'concept_class' as 'location -> person -> concept -> concept_class'.\",\n  \"answer\": [\n    \"location\",\n    \"person\",\n    \"concept\",\n    \"concept_class\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_033",
+      "question": "What is the shortest chain of foreign key joins that connects drug_strength to observation_period?",
+      "gold_answer": [
+        "drug_strength",
+        "concept",
+        "person",
+        "observation_period"
+      ],
+      "predicted_answer": [
+        "drug_strength",
+        "concept",
+        "person",
+        "observation_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_strength' to 'observation_period' as 'drug_strength -> concept -> person -> observation_period'.\",\n  \"answer\": [\n    \"drug_strength\",\n    \"concept\",\n    \"person\",\n    \"observation_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_034",
+      "question": "What is the shortest chain of foreign key joins that connects cost to condition_era?",
+      "gold_answer": [
+        "cost",
+        "concept",
+        "condition_era"
+      ],
+      "predicted_answer": [
+        "cost",
+        "concept",
+        "condition_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly provides the shortest foreign key path from 'cost' to 'condition_era' as 'cost -> concept -> condition_era'.\",\n  \"answer\": [\n    \"cost\",\n    \"concept\",\n    \"condition_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_035",
+      "question": "What is the shortest chain of foreign key joins that connects cost to concept_class?",
+      "gold_answer": [
+        "cost",
+        "concept",
+        "concept_class"
+      ],
+      "predicted_answer": [
+        "cost",
+        "concept",
+        "concept_class"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'cost' to 'concept_class' as 'cost -> concept -> concept_class'.\",\n  \"answer\": [\n    \"cost\",\n    \"concept\",\n    \"concept_class\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_036",
+      "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to concept_class?",
+      "gold_answer": [
+        "condition_occurrence",
+        "concept",
+        "concept_class"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "concept",
+        "concept_class"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'condition_occurrence' to 'concept_class' as 'condition_occurrence -> concept -> concept_class'.\",\n  \"answer\": [\n    \"condition_occurrence\",\n    \"concept\",\n    \"concept_class\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_037",
+      "question": "What is the shortest chain of foreign key joins that connects specimen to drug_exposure?",
+      "gold_answer": [
+        "specimen",
+        "person",
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "specimen",
+        "person",
+        "drug_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'specimen' to 'drug_exposure' as 'specimen -> person -> drug_exposure'.\",\n  \"answer\": [\n    \"specimen\",\n    \"person\",\n    \"drug_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_038",
+      "question": "What is the shortest chain of foreign key joins that connects concept to observation_period?",
+      "gold_answer": [
+        "concept",
+        "person",
+        "observation_period"
+      ],
+      "predicted_answer": [
+        "concept",
+        "person",
+        "observation_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept' to 'observation_period' as 'concept -> person -> observation_period'.\",\n  \"answer\": [\n    \"concept\",\n    \"person\",\n    \"observation_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_039",
+      "question": "What is the shortest chain of foreign key joins that connects drug_exposure to cost?",
+      "gold_answer": [
+        "drug_exposure",
+        "concept",
+        "cost"
+      ],
+      "predicted_answer": [
+        "drug_exposure",
+        "concept",
+        "cost"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_exposure' to 'cost' as 'drug_exposure -> concept -> cost'.\",\n  \"answer\": [\n    \"drug_exposure\",\n    \"concept\",\n    \"cost\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_040",
+      "question": "What is the shortest chain of foreign key joins that connects drug_strength to episode?",
+      "gold_answer": [
+        "drug_strength",
+        "concept",
+        "episode"
+      ],
+      "predicted_answer": [
+        "drug_strength",
+        "concept",
+        "episode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_strength' to 'episode' as 'drug_strength -> concept -> episode'.\",\n  \"answer\": [\n    \"drug_strength\",\n    \"concept\",\n    \"episode\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_041",
+      "question": "What is the shortest chain of foreign key joins that connects episode to visit_occurrence?",
+      "gold_answer": [
+        "episode",
+        "person",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "episode",
+        "person",
+        "visit_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'episode' to 'visit_occurrence' as 'episode -> person -> visit_occurrence'.\",\n  \"answer\": [\n    \"episode\",\n    \"person\",\n    \"visit_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_042",
+      "question": "What is the shortest chain of foreign key joins that connects payer_plan_period to device_exposure?",
+      "gold_answer": [
+        "payer_plan_period",
+        "person",
+        "device_exposure"
+      ],
+      "predicted_answer": [
+        "payer_plan_period",
+        "person",
+        "device_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'payer_plan_period' to 'device_exposure' as 'payer_plan_period -> person -> device_exposure'.\",\n  \"answer\": [\n    \"payer_plan_period\",\n    \"person\",\n    \"device_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_043",
+      "question": "What is the shortest chain of foreign key joins that connects relationship to dose_era?",
+      "gold_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "dose_era"
+      ],
+      "predicted_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "dose_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly provides the shortest foreign key path from 'relationship' to 'dose_era' as a sequence of tables.\",\n  \"answer\": [\n    \"relationship\",\n    \"concept_relationship\",\n    \"concept\",\n    \"dose_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_044",
+      "question": "What is the shortest chain of foreign key joins that connects provider to death?",
+      "gold_answer": [
+        "provider",
+        "person",
+        "death"
+      ],
+      "predicted_answer": [
+        "provider",
+        "person",
+        "death"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'provider' to 'death' as 'provider -> person -> death'.\",\n  \"answer\": [\n    \"provider\",\n    \"person\",\n    \"death\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_045",
+      "question": "What is the shortest chain of foreign key joins that connects payer_plan_period to episode?",
+      "gold_answer": [
+        "payer_plan_period",
+        "person",
+        "episode"
+      ],
+      "predicted_answer": [
+        "payer_plan_period",
+        "person",
+        "episode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'payer_plan_period -> person -> episode'.\",\n  \"answer\": [\n    \"payer_plan_period\",\n    \"person\",\n    \"episode\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_046",
+      "question": "What is the shortest chain of foreign key joins that connects vocabulary to fact_relationship?",
+      "gold_answer": [
+        "vocabulary",
+        "concept",
+        "fact_relationship"
+      ],
+      "predicted_answer": [
+        "vocabulary",
+        "concept",
+        "fact_relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'vocabulary' to 'fact_relationship' as 'vocabulary -> concept -> fact_relationship'.\",\n  \"answer\": [\n    \"vocabulary\",\n    \"concept\",\n    \"fact_relationship\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_047",
+      "question": "What is the shortest chain of foreign key joins that connects visit_detail to fact_relationship?",
+      "gold_answer": [
+        "visit_detail",
+        "person",
+        "concept",
+        "fact_relationship"
+      ],
+      "predicted_answer": [
+        "visit_detail",
+        "person",
+        "concept",
+        "fact_relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'visit_detail' to 'fact_relationship' as 'visit_detail -> person -> concept -> fact_relationship'.\",\n  \"answer\": [\n    \"visit_detail\",\n    \"person\",\n    \"concept\",\n    \"fact_relationship\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_048",
+      "question": "What is the shortest chain of foreign key joins that connects device_exposure to domain?",
+      "gold_answer": [
+        "device_exposure",
+        "concept",
+        "domain"
+      ],
+      "predicted_answer": [
+        "device_exposure",
+        "concept",
+        "domain"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'device_exposure' to 'domain' as 'device_exposure -> concept -> domain'.\",\n  \"answer\": [\n    \"device_exposure\",\n    \"concept\",\n    \"domain\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_049",
+      "question": "What is the shortest chain of foreign key joins that connects person to cost?",
+      "gold_answer": [
+        "person",
+        "concept",
+        "cost"
+      ],
+      "predicted_answer": [
+        "person",
+        "concept",
+        "cost"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'person' to 'cost' as 'person -> concept -> cost'.\",\n  \"answer\": [\n    \"person\",\n    \"concept\",\n    \"cost\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_050",
+      "question": "What is the shortest chain of foreign key joins that connects death to condition_era?",
+      "gold_answer": [
+        "death",
+        "person",
+        "condition_era"
+      ],
+      "predicted_answer": [
+        "death",
+        "person",
+        "condition_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'death' to 'condition_era' as 'death -> person -> condition_era'.\",\n  \"answer\": [\n    \"death\",\n    \"person\",\n    \"condition_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_051",
+      "question": "What is the shortest chain of foreign key joins that connects concept_class to visit_detail?",
+      "gold_answer": [
+        "concept_class",
+        "concept",
+        "person",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "concept_class",
+        "concept",
+        "person",
+        "visit_detail"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly provides the shortest foreign key path from 'concept_class' to 'visit_detail' as 'concept_class -> concept -> person -> visit_detail'.\",\n  \"answer\": [\n    \"concept_class\",\n    \"concept\",\n    \"person\",\n    \"visit_detail\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_052",
+      "question": "What is the shortest chain of foreign key joins that connects relationship to location?",
+      "gold_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "person",
+        "location"
+      ],
+      "predicted_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "person",
+        "location"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'relationship' to 'location' as requested by the question.\",\n  \"answer\": [\n    \"relationship\",\n    \"concept_relationship\",\n    \"concept\",\n    \"person\",\n    \"location\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_053",
+      "question": "What is the shortest chain of foreign key joins that connects relationship to visit_detail?",
+      "gold_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "person",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "person",
+        "visit_detail"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'relationship' to 'visit_detail' as 'relationship -> concept_relationship -> concept -> person -> visit_detail'.\",\n  \"answer\": [\n    \"relationship\",\n    \"concept_relationship\",\n    \"concept\",\n    \"person\",\n    \"visit_detail\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_054",
+      "question": "What is the shortest chain of foreign key joins that connects observation to payer_plan_period?",
+      "gold_answer": [
+        "observation",
+        "person",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "observation",
+        "person",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'observation' to 'payer_plan_period' as 'observation -> person -> payer_plan_period'.\",\n  \"answer\": [\n    \"observation\",\n    \"person\",\n    \"payer_plan_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_055",
+      "question": "What is the shortest chain of foreign key joins that connects drug_strength to concept_ancestor?",
+      "gold_answer": [
+        "drug_strength",
+        "concept",
+        "concept_ancestor"
+      ],
+      "predicted_answer": [
+        "drug_strength",
+        "concept",
+        "concept_ancestor"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_strength' to 'concept_ancestor' as 'drug_strength -> concept -> concept_ancestor'.\",\n  \"answer\": [\n    \"drug_strength\",\n    \"concept\",\n    \"concept_ancestor\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_056",
+      "question": "What is the shortest chain of foreign key joins that connects condition_era to payer_plan_period?",
+      "gold_answer": [
+        "condition_era",
+        "person",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "person",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'condition_era' to 'payer_plan_period' as 'condition_era -> person -> payer_plan_period'.\",\n  \"answer\": [\n    \"condition_era\",\n    \"person\",\n    \"payer_plan_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_057",
+      "question": "What is the shortest chain of foreign key joins that connects drug_strength to dose_era?",
+      "gold_answer": [
+        "drug_strength",
+        "concept",
+        "dose_era"
+      ],
+      "predicted_answer": [
+        "drug_strength",
+        "concept",
+        "dose_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_strength' to 'dose_era' as 'drug_strength -> concept -> dose_era'.\",\n  \"answer\": [\n    \"drug_strength\",\n    \"concept\",\n    \"dose_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_058",
+      "question": "What is the shortest chain of foreign key joins that connects person to specimen?",
+      "gold_answer": [
+        "person",
+        "specimen"
+      ],
+      "predicted_answer": [
+        "person",
+        "specimen"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output explicitly states the 'Shortest FK path found' as 'person -> specimen', which directly answers the question about the shortest chain of foreign key joins.\",\n  \"answer\": [\n    \"person\",\n    \"specimen\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_059",
+      "question": "What is the shortest chain of foreign key joins that connects concept_synonym to domain?",
+      "gold_answer": [
+        "concept_synonym",
+        "concept",
+        "domain"
+      ],
+      "predicted_answer": [
+        "concept_synonym",
+        "concept",
+        "domain"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'concept_synonym -> concept -> domain'. This path is an ordered list of tables representing the join chain.\",\n  \"answer\": [\n    \"concept_synonym\",\n    \"concept\",\n    \"domain\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_060",
+      "question": "What is the shortest chain of foreign key joins that connects person to dose_era?",
+      "gold_answer": [
+        "person",
+        "dose_era"
+      ],
+      "predicted_answer": [
+        "person",
+        "dose_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'person -> dose_era'. This path consists of a single join from the 'person' table to the 'dose_era' table.\",\n  \"answer\": [\n    \"person\",\n    \"dose_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects observation to condition_occurrence?",
+      "gold_answer": [
+        "observation",
+        "person",
+        "condition_occurrence"
+      ],
+      "predicted_answer": [
+        "observation",
+        "person",
+        "condition_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'observation' to 'condition_occurrence' as 'observation -> person -> condition_occurrence'.\",\n  \"answer\": [\n    \"observation\",\n    \"person\",\n    \"condition_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_062",
+      "question": "What is the shortest chain of foreign key joins that connects drug_exposure to procedure_occurrence?",
+      "gold_answer": [
+        "drug_exposure",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "drug_exposure",
+        "person",
+        "procedure_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_exposure' to 'procedure_occurrence' as 'drug_exposure -> person -> procedure_occurrence'.\",\n  \"answer\": [\n    \"drug_exposure\",\n    \"person\",\n    \"procedure_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_063",
+      "question": "What is the shortest chain of foreign key joins that connects episode to source_to_concept_map?",
+      "gold_answer": [
+        "episode",
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "episode",
+        "concept",
+        "source_to_concept_map"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'episode -> concept -> source_to_concept_map'.\",\n  \"answer\": [\n    \"episode\",\n    \"concept\",\n    \"source_to_concept_map\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_064",
+      "question": "What is the shortest chain of foreign key joins that connects person to concept?",
+      "gold_answer": [
+        "person",
+        "concept"
+      ],
+      "predicted_answer": [
+        "person",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output explicitly states the shortest foreign key path found is 'person -> concept'. This directly answers the question by providing the ordered list of tables in the join path.\",\n  \"answer\": [\n    \"person\",\n    \"concept\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_065",
+      "question": "What is the shortest chain of foreign key joins that connects death to payer_plan_period?",
+      "gold_answer": [
+        "death",
+        "person",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "death",
+        "person",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'death -> person -> payer_plan_period'.\",\n  \"answer\": [\n    \"death\",\n    \"person\",\n    \"payer_plan_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_066",
+      "question": "What is the shortest chain of foreign key joins that connects concept_relationship to concept_synonym?",
+      "gold_answer": [
+        "concept_relationship",
+        "concept",
+        "concept_synonym"
+      ],
+      "predicted_answer": [
+        "concept_relationship",
+        "concept",
+        "concept_synonym"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept_relationship' to 'concept_synonym' as 'concept_relationship -> concept -> concept_synonym'.\",\n  \"answer\": [\n    \"concept_relationship\",\n    \"concept\",\n    \"concept_synonym\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_067",
+      "question": "What is the shortest chain of foreign key joins that connects provider to drug_exposure?",
+      "gold_answer": [
+        "provider",
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "provider",
+        "drug_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'provider' to 'drug_exposure' as 'provider -> drug_exposure'.\",\n  \"answer\": [\n    \"provider\",\n    \"drug_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_068",
+      "question": "What is the shortest chain of foreign key joins that connects drug_era to death?",
+      "gold_answer": [
+        "drug_era",
+        "person",
+        "death"
+      ],
+      "predicted_answer": [
+        "drug_era",
+        "person",
+        "death"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_era' to 'death' as 'drug_era -> person -> death'.\",\n  \"answer\": [\n    \"drug_era\",\n    \"person\",\n    \"death\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_069",
+      "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to payer_plan_period?",
+      "gold_answer": [
+        "procedure_occurrence",
+        "person",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "procedure_occurrence",
+        "person",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'procedure_occurrence' to 'payer_plan_period' as 'procedure_occurrence -> person -> payer_plan_period'.\",\n  \"answer\": [\n    \"procedure_occurrence\",\n    \"person\",\n    \"payer_plan_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_070",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to vocabulary?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "concept_ancestor",
+        "concept",
+        "vocabulary"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept_ancestor' to 'vocabulary' as 'concept_ancestor -> concept -> vocabulary'.\",\n  \"answer\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"vocabulary\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_071",
+      "question": "What is the shortest chain of foreign key joins that connects specimen to payer_plan_period?",
+      "gold_answer": [
+        "specimen",
+        "person",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "specimen",
+        "person",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'specimen -> person -> payer_plan_period'.\",\n  \"answer\": [\n    \"specimen\",\n    \"person\",\n    \"payer_plan_period\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_072",
+      "question": "What is the shortest chain of foreign key joins that connects drug_era to visit_detail?",
+      "gold_answer": [
+        "drug_era",
+        "person",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "drug_era",
+        "person",
+        "visit_detail"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_era' to 'visit_detail' as 'drug_era -> person -> visit_detail'.\",\n  \"answer\": [\n    \"drug_era\",\n    \"person\",\n    \"visit_detail\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_073",
+      "question": "What is the shortest chain of foreign key joins that connects concept_class to dose_era?",
+      "gold_answer": [
+        "concept_class",
+        "concept",
+        "dose_era"
+      ],
+      "predicted_answer": [
+        "concept_class",
+        "concept",
+        "dose_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path as 'concept_class -> concept -> dose_era'. This path connects the two specified tables.\",\n  \"answer\": [\n    \"concept_class\",\n    \"concept\",\n    \"dose_era\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_074",
+      "question": "What is the shortest chain of foreign key joins that connects concept_relationship to concept_ancestor?",
+      "gold_answer": [
+        "concept_relationship",
+        "concept",
+        "concept_ancestor"
+      ],
+      "predicted_answer": [
+        "concept_relationship",
+        "concept",
+        "concept_ancestor"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'concept_relationship' to 'concept_ancestor' as 'concept_relationship -> concept -> concept_ancestor'.\",\n  \"answer\": [\n    \"concept_relationship\",\n    \"concept\",\n    \"concept_ancestor\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_075",
+      "question": "What is the shortest chain of foreign key joins that connects dose_era to procedure_occurrence?",
+      "gold_answer": [
+        "dose_era",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "dose_era",
+        "person",
+        "procedure_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'dose_era' to 'procedure_occurrence' as 'dose_era -> person -> procedure_occurrence'.\",\n  \"answer\": [\n    \"dose_era\",\n    \"person\",\n    \"procedure_occurrence\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_076",
+      "question": "What is the shortest chain of foreign key joins that connects provider to concept_relationship?",
+      "gold_answer": [
+        "provider",
+        "concept",
+        "concept_relationship"
+      ],
+      "predicted_answer": [
+        "provider",
+        "concept",
+        "concept_relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'provider' to 'concept_relationship' as 'provider -> concept -> concept_relationship'.\",\n  \"answer\": [\n    \"provider\",\n    \"concept\",\n    \"concept_relationship\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_077",
+      "question": "What is the shortest chain of foreign key joins that connects location to drug_strength?",
+      "gold_answer": [
+        "location",
+        "person",
+        "concept",
+        "drug_strength"
+      ],
+      "predicted_answer": [
+        "location",
+        "person",
+        "concept",
+        "drug_strength"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'location' to 'drug_strength' as 'location -> person -> concept -> drug_strength'.\",\n  \"answer\": [\n    \"location\",\n    \"person\",\n    \"concept\",\n    \"drug_strength\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_078",
+      "question": "What is the shortest chain of foreign key joins that connects drug_strength to drug_exposure?",
+      "gold_answer": [
+        "drug_strength",
+        "concept",
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "drug_strength",
+        "concept",
+        "drug_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest foreign key path from 'drug_strength' to 'drug_exposure' as 'drug_strength -> concept -> drug_exposure'.\",\n  \"answer\": [\n    \"drug_strength\",\n    \"concept\",\n    \"drug_exposure\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_079",
+      "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to person?",
+      "gold_answer": [
+        "condition_occurrence",
+        "person"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the shortest foreign key path found is 'condition_occurrence -> person'. This directly answers the question.\",\n  \"answer\": [\n    \"condition_occurrence\",\n    \"person\"\n  ]\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_080",
+      "question": "What is the minimum number of foreign key joins needed to connect measurement to provider?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest path length in hops between 'measurement' and 'provider' as 1. In the context of a database schema, each 'hop' represents a foreign key join.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_081",
+      "question": "What is the minimum number of foreign key joins needed to connect cost to concept?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' between 'cost' and 'concept' is 1, which corresponds to the minimum number of foreign key joins needed.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_082",
+      "question": "What is the minimum number of foreign key joins needed to connect dose_era to procedure_occurrence?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' between the two tables is 2. In the context of foreign key joins, each hop represents one join.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_083",
+      "question": "What is the minimum number of foreign key joins needed to connect drug_strength to drug_exposure?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' which corresponds to the minimum number of foreign key joins needed to connect the two tables. The value provided is 2.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_084",
+      "question": "What is the minimum number of foreign key joins needed to connect episode_event to episode?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest path length in hops between 'episode_event' and 'episode' is 1. This corresponds to the minimum number of foreign key joins required.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_085",
+      "question": "What is the minimum number of foreign key joins needed to connect provider to drug_exposure?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' is 1, which corresponds to the minimum number of foreign key joins needed to connect 'provider' to 'drug_exposure'.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_086",
+      "question": "What is the minimum number of foreign key joins needed to connect vocabulary to fact_relationship?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' between 'vocabulary' and 'fact_relationship' is 2, which corresponds to the minimum number of foreign key joins needed.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_087",
+      "question": "What is the minimum number of foreign key joins needed to connect visit_detail to person?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest path length in terms of hops between `visit_detail` and `person` is 1. This corresponds to the minimum number of foreign key joins required.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_088",
+      "question": "What is the minimum number of foreign key joins needed to connect visit_detail to fact_relationship?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' which corresponds to the minimum number of foreign key joins needed to connect the two tables. The value provided is 3.\",\n  \"answer\": 3\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_089",
+      "question": "What is the minimum number of foreign key joins needed to connect death to condition_era?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the shortest path length in terms of hops, which corresponds to the minimum number of foreign key joins needed to connect 'death' to 'condition_era'. The output states this value is 2.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_090",
+      "question": "What is the minimum number of foreign key joins needed to connect drug_era to person?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest path length in hops between 'drug_era' and 'person' is 1. This corresponds to the minimum number of foreign key joins required.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_091",
+      "question": "What is the minimum number of foreign key joins needed to connect relationship to dose_era?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' which corresponds to the minimum number of foreign key joins needed to connect the two tables. The value provided is 3.\",\n  \"answer\": 3\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_092",
+      "question": "What is the minimum number of foreign key joins needed to connect concept to observation_period?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' between 'concept' and 'observation_period' is 2. This value represents the minimum number of foreign key joins required.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_093",
+      "question": "What is the minimum number of foreign key joins needed to connect episode to visit_occurrence?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' between the two tables is 2. In the context of a database schema graph, each hop represents a foreign key join.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_094",
+      "question": "What is the minimum number of foreign key joins needed to connect note to provider?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly states the shortest path length (hops) between 'note' and 'provider' is 1. In the context of a database schema, each hop represents a foreign key join.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_095",
+      "question": "What is the minimum number of foreign key joins needed to connect visit_detail to provider?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the shortest path length in terms of hops between `visit_detail` and `provider` is 1. In the context of a database schema, 'hops' represent foreign key joins.\",\n  \"answer\": 1\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_096",
+      "question": "What is the minimum number of foreign key joins needed to connect drug_strength to concept_ancestor?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' between 'drug_strength' and 'concept_ancestor' is 2. In the context of database schemas, the number of hops in a foreign key graph corresponds to the minimum number of foreign key joins required.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_097",
+      "question": "What is the minimum number of foreign key joins needed to connect concept_ancestor to vocabulary?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly states the 'Shortest path length (hops)' between the two tables is 2. In the context of database schemas and foreign keys, the number of hops in the shortest path corresponds to the minimum number of foreign key joins required.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_098",
+      "question": "What is the minimum number of foreign key joins needed to connect drug_strength to episode?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' between 'drug_strength' and 'episode' is 2. This value represents the minimum number of foreign key joins required.\",\n  \"answer\": 2\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_099",
+      "question": "What is the minimum number of foreign key joins needed to connect concept_ancestor to visit_detail?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly states the 'Shortest path length (hops)' which corresponds to the minimum number of foreign key joins needed to connect the two tables. The value provided is 3.\",\n  \"answer\": 3\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_111",
+      "question": "Does person have a direct foreign key relationship to condition_occurrence?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states that the FK adjacency check result between 'person' and 'condition_occurrence' is 'False', which directly answers the question.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_104",
+      "question": "Does device_exposure have a direct foreign key relationship to provider?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output explicitly states 'FK adjacency check result: True', which directly confirms the existence of a direct foreign key relationship.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_113",
+      "question": "Does visit_occurrence have a direct foreign key relationship to drug_exposure?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: False', which directly answers whether there is a direct foreign key relationship between visit_occurrence and drug_exposure.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_100",
+      "question": "Does note have a direct foreign key relationship to concept?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: True', which directly confirms the existence of a direct foreign key relationship between 'note' and 'concept'.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_108",
+      "question": "Does provider have a direct foreign key relationship to death?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: False', which directly answers whether there is a direct foreign key relationship between 'provider' and 'death'.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_106",
+      "question": "Does episode have a direct foreign key relationship to person?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: True', which directly confirms a direct foreign key relationship between 'episode' and 'person'.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_114",
+      "question": "Does note_nlp have a direct foreign key relationship to device_exposure?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: False', which directly indicates that there is no direct foreign key relationship between note_nlp and device_exposure.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_103",
+      "question": "Does specimen have a direct foreign key relationship to person?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: True', which directly confirms a direct foreign key relationship between 'specimen' and 'person'.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_112",
+      "question": "Does concept have a direct foreign key relationship to episode?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: False', which directly answers whether there is a direct foreign key relationship between 'concept' and 'episode'.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_105",
+      "question": "Does source_to_concept_map have a direct foreign key relationship to vocabulary?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: True', which directly confirms the existence of a direct foreign key relationship.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_102",
+      "question": "Does source_to_concept_map have a direct foreign key relationship to concept?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: True', which directly confirms the existence of a direct foreign key relationship between 'source_to_concept_map' and 'concept'.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_115",
+      "question": "Does payer_plan_period have a direct foreign key relationship to concept_relationship?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states that the FK adjacency check result is 'False', which directly answers whether there is a direct foreign key relationship.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_101",
+      "question": "Does procedure_occurrence have a direct foreign key relationship to concept?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: True', which directly confirms a direct foreign key relationship exists.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_109",
+      "question": "Does measurement have a direct foreign key relationship to cost?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: False', which directly answers whether there is a direct foreign key relationship between 'measurement' and 'cost'.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_110",
+      "question": "Does note have a direct foreign key relationship to source_to_concept_map?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: False', which directly indicates that there is no direct foreign key relationship between 'note' and 'source_to_concept_map'.\",\n  \"answer\": false\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_107",
+      "question": "Does note have a direct foreign key relationship to person?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'FK adjacency check result: True', which directly confirms a direct foreign key relationship between 'note' and 'person'.\",\n  \"answer\": true\n}\n```",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    }
+  ]
+}

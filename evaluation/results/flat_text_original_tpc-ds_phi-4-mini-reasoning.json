@@ -1,0 +1,2794 @@
+{
+  "baseline": "flat_text",
+  "dataset": "tpc-ds",
+  "obfuscated": false,
+  "model": "microsoft/phi-4-mini-reasoning",
+  "model_tag": "phi-4-mini-reasoning",
+  "metrics": {
+    "total": 127,
+    "exact_match": 0.126,
+    "avg_f1": 0.126,
+    "by_type": {
+      "silo_detection": {
+        "total": 11,
+        "exact_match": 0.0909,
+        "avg_f1": 0.0909
+      },
+      "schema_routing": {
+        "total": 116,
+        "exact_match": 0.1293,
+        "avg_f1": 0.1293
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "total": 72,
+        "exact_match": 0.1667,
+        "avg_f1": 0.1667
+      },
+      "medium": {
+        "total": 47,
+        "exact_match": 0.0851,
+        "avg_f1": 0.0851
+      },
+      "hard": {
+        "total": 8,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      }
+    },
+    "by_subtype": {
+      "count": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "membership": {
+        "total": 3,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "isolation": {
+        "total": 5,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "connected": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "join_path": {
+        "total": 80,
+        "exact_match": 0.0375,
+        "avg_f1": 0.0375
+      },
+      "hop_count": {
+        "total": 20,
+        "exact_match": 0.2,
+        "avg_f1": 0.2
+      },
+      "direct_fk": {
+        "total": 16,
+        "exact_match": 0.5,
+        "avg_f1": 0.5
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "tpc-ds_silo_count_000",
+      "question": "How many disconnected data silos (connected components) exist in this schema?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "silo_detection",
+      "subtype": "count",
+      "difficulty": "easy",
+      "reasoning": ", income_band",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_001",
+      "question": "Which tables are in the same connected component (data silo) as household_demographics?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": ". Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_002",
+      "question": "Which tables are in the same connected component (data silo) as customer?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as the customer table. Hmm, so a connected component here would mean all tables that are directly or indirectly linked through foreign keys to each other. The question is asking for all those tables grouped into ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_003",
+      "question": "Which tables are in the same connected component (data silo) as warehouse?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out which tables are in the same connected component as the warehouse table. Hmm, first I need to understand how these tables are linked through foreign keys. The question is about data silos, so each connected component should be a group of tables that are interco",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_004",
+      "question": "Are inventory and call_center connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\nOkay, let's see. The question is whether inventory and call_center are connected via any chain of foreign key relationships. Hmm.\n\nFirst, I need to recall the relationships between the tables. Let me list out the relevant FK links from both sides for each table involved.\n\nStarting with Inven",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_008",
+      "question": "Are warehouse and income_band connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out if Warehouse and Income Band are connected via foreign keys. Hmm, first I need to recall the schema provided. Let me list out the tables and their relationships again.\n\nSo the tables involved here would be Warehouse, Income Band (which is in household_demograph",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_006",
+      "question": "Are date_dim and customer_demographics connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out if date_dim and customer_demographics are connected via any FK chains. Hmm, first I need to recall the relationships between the tables based on the provided context.\n\nLooking at the schema, each sales table (like store_sales, catalog_sales, web_sales) has FKs ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_007",
+      "question": "Are date_dim and call_center connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user is asking if date_dim and call_center are connected via any chain of foreign key relationships based on the provided database schema context.\n\nFirst, I need to recall all the tables and their relationships. Let me list out the relevant",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_005",
+      "question": "Are store_sales and catalog_sales connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's tackle this question. The user is asking if store_sales and catalog_sales are connected via any chain of foreign key relationships based on the provided database schema context.\n\nFirst, I need to recall the relationships between the tables. Let me list out the relevant tables he",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_connected_009",
+      "question": "Are customer_address and customer connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "easy",
+      "reasoning": "The 'customer' table explicitly references 'customer_address' via a foreign key (customer --FK--> customer_address). This direct relationship establishes a connection between the two tables, regardless of any additional indirect paths. The presence of this single FK link is sufficient to answer the question affirmatively.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_enumerate_010",
+      "question": "List ALL tables that belong to the largest connected component in this schema.",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "reasoning": "20. income_band\n21. call_center\n22. catalog_page\n23. web_site\n24. web_page\n\nNow",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_000",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to store_sales?",
+      "gold_answer": [
+        "promotion",
+        "store_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from Promotion to Store Sales. Hmm, first I need to recall which tables have Foreign Key (FK) relationships. The context mentions there are 70 edges, but maybe some of them are FK and others are references. Wait, in SQL databases, typically wh",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_001",
+      "question": "What is the shortest chain of foreign key joins that connects store to store_sales?",
+      "gold_answer": [
+        "store",
+        "store_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user wants the shortest chain of foreign key (FK) joins connecting \"store\" to \"store_sales\". \n\nFirst, I need to recall the relationships between tables. From the context provided, looking at the edges listed. Let's see: store is connected v",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_002",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer_demographics?",
+      "gold_answer": [
+        "catalog_sales",
+        "customer_demographics"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "customer_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The `catalog_sales` table has a direct foreign key (FK) relationship with the `customer_demographics` table, as indicated by the listed FK relationships under `catalog_sales`. This eliminates the need for any intermediate joins.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_003",
+      "question": "What is the shortest chain of foreign key joins that connects customer to household_demographics?",
+      "gold_answer": [
+        "customer",
+        "household_demographics"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key (FK) joins that connects the customer table to the household_demographics table. So I need to figure out how these two tables are related through their FK relationships.\n\nFirst, let me recall the relationships giv",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_004",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to time_dim?",
+      "gold_answer": [
+        "store_sales",
+        "time_dim"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects store_sales to time_dim. Hmm.\n\nFirst, I need to recall the relationships between tables. From the context, store_sales is related to date_dim and time_dim directly via FK. Let me check the edge",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_005",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_returns?",
+      "gold_answer": [
+        "customer",
+        "web_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "? Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_006",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to household_demographics?",
+      "gold_answer": [
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from catalog_sales to household_demographics. Hmm, first I need to remember how the relationships between tables work here. Foreign keys create links between tables.\n\nSo, starting with catalog_sales. The FK in catalog_sales is date_dim, time_d",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_007",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_sales?",
+      "gold_answer": [
+        "customer",
+        "web_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from Customer to Web_Sales through foreign keys. Hmm, first I need to recall all the relationships between the tables based on the given context.\n\nSo, the question is about connecting Customer to Web_Sales using the FKs. Let me start by lookin",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_008",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to time_dim?",
+      "gold_answer": [
+        "catalog_returns",
+        "time_dim"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ". Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_009",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to call_center?",
+      "gold_answer": [
+        "catalog_returns",
+        "call_center"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from catalog_returns to call_center using the given database schema and relationships. Hmm, first I need to recall how foreign keys work here. Each table has a column that points to another table's primary key.\n\nSo, starting with catalog_retur",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_010",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to item?",
+      "gold_answer": [
+        "store_returns",
+        "item"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ". Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_011",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to catalog_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from call_center to catalog_sales using the foreign keys. Hmm, first I need to remember how foreign keys work in relational databases. Each FK points to a primary key in another table. So, if A.FK is B.PK, then you can go from A to B via that ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_012",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to reason?",
+      "gold_answer": [
+        "store_returns",
+        "reason"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ". First",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_013",
+      "question": "What is the shortest chain of foreign key joins that connects household_demographics to catalog_returns?",
+      "gold_answer": [
+        "household_demographics",
+        "catalog_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from household_demographics to catalog_returns using the given database schema and relationships. Hmm, first I need to recall which tables are involved here.\n\nSo, starting with household_demographics. Looking at the relationships, customer is ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_014",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer?",
+      "gold_answer": [
+        "catalog_sales",
+        "customer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The `catalog_sales` table has a direct FOREIGN KEY (FK) relationship to the `customer` table. This FK establishes an immediate link between `catalog_sales` and `customer` without requiring intermediate tables. No additional joins are necessary through other relationships, as the FK directly connects the two entities.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_015",
+      "question": "What is the shortest chain of foreign key joins that connects warehouse to inventory?",
+      "gold_answer": [
+        "warehouse",
+        "inventory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from Warehouse to Inventory using the foreign keys. First, I need to recall which tables have a FOREIGN KEY relationship pointing to Warehouse. Looking at the relationships listed, under catalog_sales there's an FK to warehouse. Similarly, web",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_016",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to date_dim?",
+      "gold_answer": [
+        "web_sales",
+        "date_dim"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects web_sales to date_dim. Hmm. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships between the tables. From the context pro",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_017",
+      "question": "What is the shortest chain of foreign key joins that connects reason to catalog_returns?",
+      "gold_answer": [
+        "reason",
+        "catalog_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "to \"catalog_returns\". Hmm. First",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_018",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to customer_address?",
+      "gold_answer": [
+        "web_sales",
+        "customer_address"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_019",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store_sales?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from customer_demographics to store_sales using the foreign keys. Hmm, first I need to remember how foreign keys work in relational databases. Each FK points to a primary key in another table.\n\nSo, starting with customer_demographics. Let's se",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_020",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to date_dim?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The relationship 'store_returns --FK--> date_dim' explicitly defines a direct FOREIGN KEY link from store_returns to date_dim. This indicates a single-level foreign key association, requiring no intermediate tables for traversal.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_021",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to store_returns?",
+      "gold_answer": [
+        "customer_address",
+        "store_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ". Oh right",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_022",
+      "question": "What is the shortest chain of foreign key joins that connects customer to customer_demographics?",
+      "gold_answer": [
+        "customer",
+        "customer_demographics"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects the customer table to the customer_demographics table. So I need to figure out how these two tables are related through their foreign keys and find the minimal path.\n\nFirst, let me recall the r",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_023",
+      "question": "What is the shortest chain of foreign key joins that connects household_demographics to store_returns?",
+      "gold_answer": [
+        "household_demographics",
+        "store_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from household_demographics to store_returns using the given database schema and relationships. Hmm, first I need to recall which tables are involved here.\n\nSo, the question is about connecting household_demographics (which is a FK in some tab",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_024",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to catalog_sales?",
+      "gold_answer": [
+        "customer_address",
+        "catalog_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from customer_address to catalog_sales using the foreign keys. Hmm, first I need to recall which tables have foreign keys pointing to each other.\n\nSo, starting with customer_address. The context says that customer is connected to customer_addr",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_025",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to warehouse?",
+      "gold_answer": [
+        "web_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects web_sales to warehouse. Hmm. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships between the tables. Web_sales is part o",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_026",
+      "question": "What is the shortest chain of foreign key joins that connects web_site to catalog_returns?",
+      "gold_answer": [
+        "web_site",
+        "web_sales",
+        "date_dim",
+        "catalog_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ". For returns: FK to date_dim",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_027",
+      "question": "What is the shortest chain of foreign key joins that connects item to income_band?",
+      "gold_answer": [
+        "item",
+        "store_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects the item table to the income_band table. Hmm.\n\nFirst, I need to recall the relationships between these tables. Let's start by looking at where item and income_band are connected through foreign",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_028",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to date_dim?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "date_dim"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from ship_mode to date_dim using the given database schema and relationships. Hmm, first I need to recall which tables have foreign keys pointing to each other.\n\nShip_mode is a table here. Let's see where its foreign keys are referenced. From ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_029",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to call_center?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from ship_mode to call_center using the foreign keys. Hmm, first I need to recall all the relationships between these tables based on the given context.\n\nSo, starting with ship_mode. Let's see which tables have a foreign key pointing to ship_m",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_030",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to store_returns?",
+      "gold_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ", call_center",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_031",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to store_returns?",
+      "gold_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ", call_center",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_032",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to catalog_page?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim",
+        "catalog_sales",
+        "catalog_page"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ". Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_033",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to household_demographics?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "19. catalog_sales --FK--> date_dim\n\n20. catalog_sales --FK--> time_dim\n\n21. catalog_sales --FK--> item\n\n22. catalog_sales --FK--> customer\n\n23. catalog_sales --FK--> customer_demographics\n\n24. catalog",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_034",
+      "question": "What is the shortest chain of foreign key joins that connects reason to customer?",
+      "gold_answer": [
+        "reason",
+        "store_returns",
+        "customer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "to \"customer\". Hmm. First",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_035",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to store_returns?",
+      "gold_answer": [
+        "catalog_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ". So I need to find how catalog_sales can link to store_returns through these relationships.\n\nLet me list out possible paths step by step. Let's see:\n\n1. Catalog Sales (catalog_sales) is linked via FK",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_036",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to catalog_sales?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ", web_page",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_037",
+      "question": "What is the shortest chain of foreign key joins that connects time_dim to item?",
+      "gold_answer": [
+        "time_dim",
+        "store_sales",
+        "item"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the shortest chain of foreign key (FK) joins that connects time_dim to item. So I need to figure out how these two tables are related through their FKs.\n\nFirst, let me recall the relationships between the tables based on the context provided. L",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_038",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to income_band?",
+      "gold_answer": [
+        "store_returns",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ". And income_band is connected via household_demographics through the FK relationship. Let me map this out step by step.\n\nStarting with store_returns. The foreign keys in store_returns are date_dim",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_039",
+      "question": "What is the shortest chain of foreign key joins that connects reason to customer_address?",
+      "gold_answer": [
+        "reason",
+        "store_returns",
+        "customer_address"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "to \"customer_address\". Hmm. First",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_040",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_page?",
+      "gold_answer": [
+        "customer",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from Customer to Web_Page using the foreign keys. Hmm, first I need to recall all the relationships between these tables based on the given context.\n\nSo, the Customer table has a primary key that's referenced by other tables. Specifically, cus",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_041",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to time_dim?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales",
+        "time_dim"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_042",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to income_band?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "19. catalog_sales --FK--> date_dim\n20. catalog_sales --FK--> time_dim\n21. catalog_sales --FK--> item\n22. catalog_sales --FK--> customer\n23. catalog_sales --FK--> customer",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_043",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to store_sales?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from catalog_page to store_sales using the foreign keys. Hmm, first I need to recall all the relationships between the tables based on the given context.\n\nSo, the question is about joining through FK relationships. Catalog_Page is connected to",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_044",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to inventory?",
+      "gold_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_045",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to warehouse?",
+      "gold_answer": [
+        "customer_demographics",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from customer_demographics to warehouse through the foreign keys. Hmm, first I need to recall all the relationships between the tables based on the given context.\n\nSo, the question is about connecting customer_demographics to warehouse using t",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_046",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to store_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "19. catalog_sales --FK--> date_dim\n\n20. catalog_sales --FK--> time_dim\n\n21. catalog_sales --FK--> item\n\n22. catalog_sales --FK--> customer_demographics (Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_047",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to item?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "item"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from catalog_page to item using the foreign keys. Hmm, first I need to recall all the relationships between the tables based on the context provided.\n\nSo, the question is about a FOREIGN KEY join chain connecting catalog_page to item. The goal",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_048",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to web_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "web_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from call_center to web_sales using the foreign keys. Hmm, first I need to recall all the relationships between the tables based on the given context.\n\nSo, starting with call_center. Looking at the relationships listed under catalog_sales and ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_049",
+      "question": "What is the shortest chain of foreign key joins that connects item to web_page?",
+      "gold_answer": [
+        "item",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "19. catalog_sales --FK--> date_dim\n\n20. catalog_sales --FK--> time_dim\n\n21. catalog_sales --FK--> item\n\n22. catalog_sales --FK--> customer\n\n23. catalog_sales --FK--> customer_demographics\n\n24. catalog",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_050",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to web_page?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ", and ship_mode. Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_051",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to call_center?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ", and warehouse? Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_052",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_site?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from catalog_page to web_site using the foreign keys. Hmm, first I need to recall all the relationships between the tables based on the given context.\n\nSo, starting with catalog_page. Let's look at its foreign key connections. From the relatio",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_053",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_page?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from catalog_page to web_page using the foreign keys. Hmm, first I need to recall all the relationships between the tables based on the given context.\n\nSo, starting with catalog_page. Let's look at its foreign keys. From the relationships list",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_054",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to call_center?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from web_page to call_center using the foreign keys. Hmm, first I need to recall which tables have FK relationships and how they connect.\n\nSo, starting with web_page. Looking at the relationships, web_sales has a FOREIGN KEY to web_page. So we",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_055",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to store?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": ". So in",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_056",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to income_band?",
+      "gold_answer": [
+        "inventory",
+        "warehouse",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from the Inventory table to the Income Band table. Hmm, first I need to remember all the relationships between the tables based on the given context.\n\nSo, starting with the Inventory table. The primary keys for foreign keys pointing to Invento",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_057",
+      "question": "What is the shortest chain of foreign key joins that connects store to warehouse?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from the Store table to the Warehouse table using the foreign keys. Hmm, first I need to recall all the relationships between these tables based on the given context.\n\nSo, the Store table has a foreign key relationship with several other table",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_058",
+      "question": "What is the shortest chain of foreign key joins that connects store to web_site?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from the Store table to Web Site. Hmm, first I need to remember all the relationships between the tables based on the given context.\n\nSo, the Store table has a foreign key relationship with which other tables? Looking back at the relationships",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_059",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to web_site?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ". Then",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_060",
+      "question": "What is the shortest chain of foreign key joins that connects time_dim to inventory?",
+      "gold_answer": [
+        "time_dim",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from time_dim to inventory using the foreign keys. Hmm, first I need to recall all the relationships between these tables based on the provided context.\n\nSo, starting with time_dim. Which tables have a FOREIGN KEY pointing to time_dim? Let me ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to web_site?",
+      "gold_answer": [
+        "inventory",
+        "warehouse",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects inventory to web_site. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, let me recall the relationships between the tables. Inventory is connected to",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_062",
+      "question": "What is the shortest chain of foreign key joins that connects store to customer?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "customer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's see. The question is asking for the shortest chain of foreign key joins that connects the \"store\" table to the \"customer\" table. So I need to figure out how these two tables are related through their foreign keys.\n\nFirst, looking at the relationships provided. From the context, ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_063",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to store_returns?",
+      "gold_answer": [
+        "web_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ", call_center",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_064",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to web_page?",
+      "gold_answer": [
+        "customer_address",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from customer_address to web_Page. Hmm, first I need to remember all the relationships between the tables based on the context provided.\n\nSo, starting with customer_address. The Customer table has a foreign key to customer_address, right? So e",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_065",
+      "question": "What is the shortest chain of foreign key joins that connects web_site to customer_address?",
+      "gold_answer": [
+        "web_site",
+        "web_sales",
+        "customer_address"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from web_site to customer_address using the foreign keys. Hmm, first I need to recall all the relationships between the tables based on the given context.\n\nSo, starting with web_site. Web sales are connected to web_site via FK. So any web sale",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_066",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to web_site?",
+      "gold_answer": [
+        "promotion",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from Promotion to Web Site using the foreign keys. Hmm, first I need to recall all the relationships between these tables based on the given context.\n\nSo, Promotion is connected to several other tables via FK. Looking at the edges listed under",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_067",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to catalog_sales?",
+      "gold_answer": [
+        "promotion",
+        "catalog_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's tackle this question step by step. The user wants the shortest chain of foreign key (FK) joins connecting 'promotion' to 'catalog_sales'. \n\nFirst, I need to recall the relationships between the tables. From the context provided, looking at how 'promotion' is linked. Let's see: b",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_068",
+      "question": "What is the shortest chain of foreign key joins that connects item to customer?",
+      "gold_answer": [
+        "item",
+        "store_sales",
+        "customer"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "19. catalog_sales --FK--> date_dim\n20. catalog_sales --FK--> time_dim\n21. catalog_sales --FK--> item\n22.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_069",
+      "question": "What is the shortest chain of foreign key joins that connects income_band to web_returns?",
+      "gold_answer": [
+        "income_band",
+        "household_demographics",
+        "web_returns"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ", ship_mode",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_070",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to reason?",
+      "gold_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns",
+        "reason"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ". So I need to figure out how these two tables are related through their foreign keys.\n\nFirst",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_071",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to item?",
+      "gold_answer": [
+        "inventory",
+        "item"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The relationship between 'inventory' and 'item' is explicitly defined as an FK in the provided schema (edge: inventory --FK--> item). This direct connection implies no intermediate tables are required for a join. No other paths exist through shared foreign keys.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_072",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to catalog_sales?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "- income_band\n- call_center\n- catalog_page\n- web_site\n\nRelationships (edges) are the FKs between these tables. The question is about connecting web_page to catalog_sales.\n\nSo",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_073",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to inventory?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from call_center to inventory using the foreign keys. Hmm, first I need to remember all the relationships here. Let me list them again based on the context.\n\nSo, starting with call_center. Looking at the tables and their relationships. The web",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_074",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to time_dim?",
+      "gold_answer": [
+        "web_returns",
+        "time_dim"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from web_returns to time_dim using the given database schema and relationships. Hmm, first I need to recall how foreign keys work here. Each table has certain foreign key columns pointing to another table's primary key.\n\nSo, starting with web_",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_075",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to inventory?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from web_page to inventory using the foreign keys. Hmm, first I need to recall which tables have FK relationships and how they connect.\n\nSo, starting with web_page. Looking at the relationships, web_sales has a FOREIGN KEY to web_page. Also, w",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_076",
+      "question": "What is the shortest chain of foreign key joins that connects customer to income_band?",
+      "gold_answer": [
+        "customer",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from Customer to Income_Band. Hmm, first I need to remember how foreign keys work here. So, each table has a column that's a foreign key in another table.\n\nStarting with the Customer table. The customer's address is customer_address, which lin",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_077",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the shortest path from customer_demographics to store. Hmm, first I need to understand the relationships between these tables based on the given schema and edges.\n\nSo, starting with customer_demographics. Let's see which tables have foreign keys pointing to it.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_078",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to store?",
+      "gold_answer": [
+        "catalog_returns",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": ". Wait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_079",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to warehouse?",
+      "gold_answer": [
+        "catalog_returns",
+        "warehouse"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": ". Then",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_080",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to store?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "17. catalog_sales --FK--> date_dim\n18. catalog_sales --FK--> time_dim\n19. catalog_sales --FK--> item\n20. catalog_sales --FK--> customer\n21. catalog_sales --FK--> customer_demographics\n22. catalog_sale",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_081",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_demographics to warehouse?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\nOkay, let's see. The question is asking for the minimum number of foreign key joins required to connect customer_demographics to warehouse. Hmm.\n\nFirst, I need to map out the relationships between these two entities based on the provided schema and edges. Let's start by breaking down each en",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_082",
+      "question": "What is the minimum number of foreign key joins needed to connect promotion to store_returns?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "(but not sure about others)\nWait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_083",
+      "question": "What is the minimum number of foreign key joins needed to connect call_center to inventory?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out how to answer this question. The user wants the minimum number of foreign key (FK) joins required to connect 'call_center' to 'inventory'. \n\nFirst, I need to recall the relationships between tables as described. Let me list out all the FK connections related to",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_084",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_page to web_page?",
+      "gold_answer": 4,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key (FK) joins required to connect a catalog page to a web page. Hmm, first I need to understand how these two tables are related through FKs.\n\nLooking at the relationships provided, both catalog_page and web_page are part of their",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_085",
+      "question": "What is the minimum number of foreign key joins needed to connect household_demographics to store_returns?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": ", call_center",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_086",
+      "question": "What is the minimum number of foreign key joins needed to connect store_returns to item?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The store_returns table has a direct foreign key (FK) relationship with the item table. This FK eliminates the need for additional joins to connect store_returns to item.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_087",
+      "question": "What is the minimum number of foreign key joins needed to connect promotion to catalog_sales?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key joins required to connect 'promotion' to 'catalog_sales'. Hmm.\n\nFirst, I need to recall the relationships between tables. From the context, looking at the relationships (edges) listed. Let's go through each rel",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_088",
+      "question": "What is the minimum number of foreign key joins needed to connect call_center to store_sales?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out how to answer this question. The user wants the minimum number of foreign key joins required to connect \"call_center\" to \"store_sales\". \n\nFirst, I need to recall the relationships between tables. Let me look back at the schema and edges provided.\n\nFrom the cont",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_089",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to time_dim?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The relationship between catalog_returns and time_dim is explicitly defined by a direct foreign key (FK) from catalog_returns to time_dim. This requires only one join operation.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_090",
+      "question": "What is the minimum number of foreign key joins needed to connect web_page to catalog_sales?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect web_page to catalog_sales. Hmm, first I need to understand the relationships between these tables based on the given schema and edges.\n\nSo, the question is about connecting web_page (which is part of w",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_091",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_address to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out how many foreign key joins are required to connect customer_address to web_page. Hmm, first I need to understand the relationships between these tables based on the given schema and edges.\n\nSo, starting with customer_address. From the context, there's a relatio",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_092",
+      "question": "What is the minimum number of foreign key joins needed to connect item to customer?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect an item to a customer. Hmm, first I need to understand how items and customers are linked in this database schema.\n\nFrom the context provided, looking at the relationships (edges), each sales table (li",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_093",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_sales to customer_demographics?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's see. The question is about finding the minimum number of foreign key joins required to connect catalog_sales to customer_demographics. Hmm.\n\nFirst, I need to recall the relationships between tables. From the context, each sales table (like catalog_sales) has several foreign keys",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_094",
+      "question": "What is the minimum number of foreign key joins needed to connect item to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\nOkay, let's see. The question is about finding the minimum number of foreign key (FK) joins required to connect an item to a web_page in this database schema. Hmm.\n\nFirst, I need to recall how items and web_pages are related based on the relationships provided. Let me start by looking at the",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_095",
+      "question": "What is the minimum number of foreign key joins needed to connect time_dim to inventory?",
+      "gold_answer": 3,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\nOkay, let's see. The question is about finding the minimum number of foreign key joins required to connect time_dim to inventory. Hmm.\n\nFirst, I need to recall the relationships between tables. From the context, there are several edges listed. Let me go through them step by step.\n\nLooking at",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_096",
+      "question": "What is the minimum number of foreign key joins needed to connect customer to web_returns?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "To determine the minimum foreign key joins connecting `customer` to `web_returns`, we analyze their direct relationships. The schema explicitly defines a foreign key from `web_returns` to `customer` (via `web_returns --FK--> customer`). This direct link eliminates the need for intermediate joins through other tables like `item`, `inventory`, or `web_sales`. Thus, only one join is required.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_097",
+      "question": "What is the minimum number of foreign key joins needed to connect customer to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "<think>\n\nOkay, let's try to figure out the minimum number of foreign key joins required to connect a customer to a web_page. Hmm, first I need to understand how these tables are related based on the given context.\n\nSo, looking at the relationships: The customer table is connected to several other ta",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_098",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_address to catalog_sales?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "To determine the minimum foreign key joins between customer_address and catalog_sales, we analyze their relationships. The 'catalog_sales' table explicitly includes a foreign key relationship to 'customer_address', indicating a direct linkage via one join operation.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_099",
+      "question": "What is the minimum number of foreign key joins needed to connect web_returns to time_dim?",
+      "gold_answer": 1,
+      "predicted_answer": null,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "web_returns --FK--> ship_mode\nweb_returns --FK--> warehouse\nweb_returns --FK--> promotion\n\nWait",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_109",
+      "question": "Does income_band have a direct foreign key relationship to item?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "<think>\nOkay, let's see. The question is whether income_band has a direct foreign key relationship to the item table. Hmm.\n\nFirst, I need to recall the relationships between tables as listed in the context. Let me go through them one by one. \n\nLooking at the customer_demographics table first because",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_104",
+      "question": "Does web_sales have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Reviewing the relationships listed under 'web_sales', it explicitly includes an FK to 'item' (third relationship: 'web_sales --FK--> item'). This confirms a direct foreign key connection.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_101",
+      "question": "Does store_sales have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The relationships section lists 'store_sales --FK--> item' directly, indicating a foreign key relationship.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_106",
+      "question": "Does store_returns have a direct foreign key relationship to customer_address?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The relationships context lists an edge 'store_returns --FK--> customer_address', indicating that store_returns has a direct foreign key relationship to customer_address.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_103",
+      "question": "Does store_sales have a direct foreign key relationship to promotion?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The relationships section lists 'store_sales --FK--> promotion', indicating that store_sales directly references the promotion table via a foreign key.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_105",
+      "question": "Does catalog_returns have a direct foreign key relationship to date_dim?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if catalog_returns has a direct FK to date_dim, we examine the provided relationships. The edge 'catalog_returns --FK--> date_dim' explicitly indicates that catalog_returns directly references date_dim via a foreign key.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_100",
+      "question": "Does catalog_returns have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if catalog_returns has a direct FK to item, review the relationships listed. The edge 'catalog_returns --FK--> item' explicitly shows catalog_returns referencing item with a foreign key.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_108",
+      "question": "Does promotion have a direct foreign key relationship to web_page?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "<think>\nOkay, let's see. The question is whether Promotion has a direct foreign key relationship to web_page. I need to check the relationships listed between the tables.\n\nLooking at the relationships provided, each FK connection is listed with an arrow and the direction. Let me go through them one ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_112",
+      "question": "Does web_returns have a direct foreign key relationship to promotion?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if web_returns has a direct foreign key (FK) relationship to Promotion, we examine the provided relationships. Specifically, the edge 'web_returns --FK--> promotion' indicates that web_returns's primary key column references Promotion's primary key column directly.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_111",
+      "question": "Does customer have a direct foreign key relationship to inventory?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "<think>\nOkay, let's see. The question is whether the customer table has a direct foreign key relationship to the inventory table. Hmm.\n\nFirst, I need to recall the relationships between tables. Let me go through the list of foreign keys mentioned in the context. \n\nLooking at the customer's FK relati",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_107",
+      "question": "Does web_sales have a direct foreign key relationship to promotion?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "19. catalog_sales --FK--> date_dim\n\n20. catalog_sales --FK--> time_dim\n\n21. catalog_sales --FK--> item\n\n22. catalog_sales --FK--> customer\n\n23. catalog_sales --FK--> customer_demographics\n\n24. catalog",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_114",
+      "question": "Does customer have a direct foreign key relationship to call_center?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Checked all relationships involving 'customer' and other tables. None show 'customer' referencing 'call_center' via a foreign key.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_102",
+      "question": "Does web_sales have a direct foreign key relationship to customer?",
+      "gold_answer": true,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "<think>\nOkay, let's see. The question is whether web_sales has a direct foreign key relationship to customer. Hmm.\n\nFirst, I need to recall the relationships between tables. Let me go through the list of edges provided. Let's look at the web_sales table's relationships. From the context, each sales ",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_115",
+      "question": "Does promotion have a direct foreign key relationship to web_sales?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": ", income_band",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_113",
+      "question": "Does store_returns have a direct foreign key relationship to ship_mode?",
+      "gold_answer": false,
+      "predicted_answer": null,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "So",
+      "api_failure": false,
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_110",
+      "question": "Does income_band have a direct foreign key relationship to catalog_page?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "To determine if income_band has a direct FK relationship to catalog_page, we examine the relationships listed. The edge household_demographics --FK--> income_band indicates income_band is referenced by household_demographics. Catalog_page is directly referenced by catalog_sales and catalog_returns through their FKs. There is no edge connecting income_band to catalog_page.",
+      "api_failure": false,
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    }
+  ]
+}

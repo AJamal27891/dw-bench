@@ -1,0 +1,114 @@
+% neurips_2026.sty
+% NeurIPS 2026 style file for preprint/submission
+% Based on the standard NeurIPS LaTeX template format
+%
+% Usage: \usepackage[preprint]{neurips_2026}
+%        \usepackage[final]{neurips_2026}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_2026}[2026/01/15 NeurIPS 2026 Style]
+
+% ── Options ──────────────────────────────────────────────────────
+\newif\if@neuripsfinal   \@neuripsfinalfalse
+\newif\if@neuripspreprint \@neuripspreprintfalse
+\newif\if@neuripsnonatbib \@neuripsnonatbibfalse
+
+\DeclareOption{final}{\@neuripsfinaltrue}
+\DeclareOption{preprint}{\@neuripspreprinttrue}
+\DeclareOption{nonatbib}{\@neuripsnonatbibtrue}
+\ProcessOptions\relax
+
+% ── Page geometry ────────────────────────────────────────────────
+\RequirePackage[
+  letterpaper,
+  textwidth=5.5in,
+  textheight=9in,
+  left=1.5in,
+  top=1in
+]{geometry}
+
+% ── Fonts (mathptmx instead of times — more widely available) ───
+\RequirePackage{mathptmx}
+
+% ── Natbib ───────────────────────────────────────────────────────
+\if@neuripsnonatbib\else
+  \RequirePackage[numbers,sort&compress]{natbib}
+\fi
+
+% ── Paragraph and line spacing ───────────────────────────────────
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+\linespread{1.0}
+
+% ── Float parameters ────────────────────────────────────────────
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+
+% ── Running header for preprint mode ────────────────────────────
+\if@neuripspreprint
+  \RequirePackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[C]{\small Preprint. Under review.}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+\fi
+
+% ── Title ────────────────────────────────────────────────────────
+\renewcommand{\maketitle}{%
+  \par
+  \begingroup
+    \def\thefootnote{\fnsymbol{footnote}}%
+    \def\@makefnmark{\hbox to 0pt{$^{\@thefnmark}$\hss}}%
+    \@maketitle%
+    \@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \let\maketitle\relax
+  \let\@maketitle\relax
+}
+
+\def\@maketitle{%
+  \vbox{%
+    \vspace*{0.2in}%
+    \begin{center}%
+      {\LARGE\bfseries \@title \par}%
+      \vskip 0.3in%
+      {\large\lineskip .5em%
+        \begin{tabular}[t]{c}%
+          \@author
+        \end{tabular}\par}%
+    \end{center}%
+    \vskip 0.3in%
+  }%
+}
+
+% ── Abstract ─────────────────────────────────────────────────────
+\renewenvironment{abstract}{%
+  \centerline{\large\bfseries Abstract}%
+  \vspace{0.5ex}%
+  \begin{quote}\small
+}{%
+  \par\end{quote}%
+  \vskip 1ex%
+}
+
+% ── Section formatting ───────────────────────────────────────────
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus .2ex}%
+  {\normalfont\large\bfseries}}
+
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex \@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+  {-3.25ex \@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\itshape}}
+
+\endinput

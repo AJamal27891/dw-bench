@@ -1,0 +1,5430 @@
+{
+  "baseline": "graph_aug",
+  "dataset": "omop_cdm",
+  "obfuscated": false,
+  "model": "liquid/lfm2.5-1.2b",
+  "model_tag": "lfm2.5-1.2b",
+  "metrics": {
+    "total": 158,
+    "exact_match": 0.2911,
+    "avg_f1": 0.5555,
+    "by_type": {
+      "lineage_impact": {
+        "total": 26,
+        "exact_match": 0.0,
+        "avg_f1": 0.0528
+      },
+      "silo_detection": {
+        "total": 16,
+        "exact_match": 0.375,
+        "avg_f1": 0.4083
+      },
+      "schema_routing": {
+        "total": 116,
+        "exact_match": 0.3448,
+        "avg_f1": 0.6884
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "total": 39,
+        "exact_match": 0.2051,
+        "avg_f1": 0.2346
+      },
+      "hard": {
+        "total": 8,
+        "exact_match": 0.0,
+        "avg_f1": 0.0944
+      },
+      "medium": {
+        "total": 111,
+        "exact_match": 0.3423,
+        "avg_f1": 0.7014
+      }
+    },
+    "by_subtype": {
+      "forward": {
+        "total": 6,
+        "exact_match": 0.0,
+        "avg_f1": 0.0417
+      },
+      "reverse": {
+        "total": 16,
+        "exact_match": 0.0,
+        "avg_f1": 0.0563
+      },
+      "transitive": {
+        "total": 2,
+        "exact_match": 0.0,
+        "avg_f1": 0.0588
+      },
+      "combined_impact": {
+        "total": 2,
+        "exact_match": 0.0,
+        "avg_f1": 0.0527
+      },
+      "count": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.0
+      },
+      "membership": {
+        "total": 3,
+        "exact_match": 0.0,
+        "avg_f1": 0.1247
+      },
+      "isolation": {
+        "total": 10,
+        "exact_match": 0.5,
+        "avg_f1": 0.5
+      },
+      "connected": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 0.0,
+        "avg_f1": 0.1579
+      },
+      "join_path": {
+        "total": 80,
+        "exact_match": 0.2625,
+        "avg_f1": 0.7607
+      },
+      "hop_count": {
+        "total": 20,
+        "exact_match": 0.55,
+        "avg_f1": 0.55
+      },
+      "direct_fk": {
+        "total": 16,
+        "exact_match": 0.5,
+        "avg_f1": 0.5
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "omop_cdm_lineage_fwd_000",
+      "question": "Which tables in the data warehouse are directly derived from condition_occurrence?",
+      "gold_answer": [
+        "condition_era"
+      ],
+      "predicted_answer": [
+        "condition_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes\"\n}\nReasoning: The schema defines a direct FK relationship from condition_occurrence to multiple tables, indicating derivation.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_001",
+      "question": "Which tables in the data warehouse are directly derived from drug_exposure?",
+      "gold_answer": [
+        "dose_era",
+        "drug_era"
+      ],
+      "predicted_answer": [
+        "drug_exposure"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "drug_exposure"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "directly derived",
+        "_raw_text": "{\n  \"answer_list\": [\"drug_exposure\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"directly derived\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_002",
+      "question": "Which tables in the data warehouse are directly derived from note?",
+      "gold_answer": [
+        "note_nlp"
+      ],
+      "predicted_answer": [
+        "note",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "person"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "note and person",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"person\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"note and person\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_003",
+      "question": "Which tables in the data warehouse are directly derived from episode?",
+      "gold_answer": [
+        "episode_event"
+      ],
+      "predicted_answer": [
+        "episode"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "episode"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "episode",
+        "_raw_text": "{\n  \"answer_list\": [\"episode\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"episode\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_004",
+      "question": "Which tables in the data warehouse are directly derived from concept?",
+      "gold_answer": [
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "drug_exposure",
+        "episode",
+        "measurement",
+        "observation",
+        "procedure_occurrence",
+        "specimen",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "concept",
+        "concept_ancestor"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "concept_ancestor"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The tables 'concept' and 'concept_ancestor' are directly derived from concept.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"concept_ancestor\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables 'concept' and 'concept_ancestor' are directly derived from concept.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_fwd_005",
+      "question": "Which tables in the data warehouse are directly derived from source_to_concept_map?",
+      "gold_answer": [
+        "condition_occurrence",
+        "drug_exposure",
+        "measurement",
+        "observation",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "concept",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "forward",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "person"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "concept and person",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"person\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"concept and person\"\n}\n  \nReasoning: The question asks about tables directly derived from source_to_concept_map. By examining the schema, concept maps to both concept and person, so these are the relevant tables.\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.25,
+        "precision": 0.5,
+        "recall": 0.1667
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_006",
+      "question": "What are all the source tables that person is derived from?",
+      "gold_answer": [
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "location",
+        "provider"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "location",
+          "provider",
+          "concept"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "The person is derived from care_site, location, provider, and concept tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"location\", \"provider\", \"concept\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The person is derived from care_site, location, provider, and concept tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_007",
+      "question": "What are all the source tables that visit_occurrence is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "person",
+        "visit_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "The question asks for all source tables that 'visit_occurrence' is derived from, which are explicitly listed in the schema.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "visit_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "person, visit_occurrence",
+        "reasoning": "The question asks for all source tables that 'visit_occurrence' is derived from, which are explicitly listed in the schema.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"visit_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"person, visit_occurrence\",\n  \"reasoning\": \"The question asks for all source tables that 'visit_occurrence' is derived from, which are explicitly listed in the schema.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_008",
+      "question": "What are all the source tables that condition_occurrence is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "drug_exposure"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "The question asks for all source tables that 'condition_occurrence' depends on, which are explicitly listed in the schema.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence",
+          "drug_exposure",
+          "condition_era"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "condition_occurrence, drug_exposure, condition_era",
+        "reasoning": "The question asks for all source tables that 'condition_occurrence' depends on, which are explicitly listed in the schema.",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"drug_exposure\", \"condition_era\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"condition_occurrence, drug_exposure, condition_era\",\n  \"reasoning\": \"The question asks for all source tables that 'condition_occurrence' depends on, which are explicitly listed in the schema.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_009",
+      "question": "What are all the source tables that drug_exposure is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "dose_era",
+        "drug_era"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "drug_era",
+          "dose_era",
+          "condition_era"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "drug_exposure is derived from drug_era, dose_era, and condition_era.",
+        "_raw_text": "{\n  \"answer_list\": [\"drug_era\", \"dose_era\", \"condition_era\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"drug_exposure is derived from drug_era, dose_era, and condition_era.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_010",
+      "question": "What are all the source tables that procedure_occurrence is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "person",
+        "visit_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "visit_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "person and visit_occurrence",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"visit_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"person and visit_occurrence\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_011",
+      "question": "What are all the source tables that device_exposure is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "The schema defines multiple FK relationships linking device_exposure to other tables. Extracting all direct sources confirms these.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "condition_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "person, condition_occurrence",
+        "reasoning": "The schema defines multiple FK relationships linking device_exposure to other tables. Extracting all direct sources confirms these.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"condition_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"person, condition_occurrence\",\n  \"reasoning\": \"The schema defines multiple FK relationships linking device_exposure to other tables. Extracting all direct sources confirms these.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_012",
+      "question": "What are all the source tables that measurement is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "measurement"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "measurement",
+          "condition_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "measurement and condition_occurrence",
+        "_raw_text": "{\n  \"answer_list\": [\"measurement\", \"condition_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"measurement and condition_occurrence\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_013",
+      "question": "What are all the source tables that observation is derived from?",
+      "gold_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "person",
+        "visit_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "visit_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "observation is derived from person, visit_occurrence",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"visit_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"observation is derived from person, visit_occurrence\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_014",
+      "question": "What are all the source tables that death is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "death"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "death",
+          "condition_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "death and condition_occurrence",
+        "_raw_text": "{\n  \"answer_list\": [\"death\", \"condition_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"death and condition_occurrence\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_015",
+      "question": "What are all the source tables that note_nlp is derived from?",
+      "gold_answer": [
+        "note"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "condition_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "note_nlp is derived from person, condition_occurrence",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"condition_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"note_nlp is derived from person, condition_occurrence\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_016",
+      "question": "What are all the source tables that specimen is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "location",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "location"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "person and location",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"location\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"person and location\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_017",
+      "question": "What are all the source tables that episode is derived from?",
+      "gold_answer": [
+        "concept"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "The schema defines multiple FK relationships connecting episode to its source tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "condition_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "person, condition_occurrence",
+        "reasoning": "The schema defines multiple FK relationships connecting episode to its source tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"condition_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"person, condition_occurrence\",\n  \"reasoning\": \"The schema defines multiple FK relationships connecting episode to its source tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_018",
+      "question": "What are all the source tables that episode_event is derived from?",
+      "gold_answer": [
+        "episode"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "care_site"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "person, care_site",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"care_site\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"person, care_site\"\n}\nReasoning: The question asks for all source tables that episode_event is derived from, which are explicitly listed in the schema as 'person' and 'care_site'. These are the only tables with non-zero in_degree pointing to episode_event.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_019",
+      "question": "What are all the source tables that drug_era is derived from?",
+      "gold_answer": [
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "dose_era",
+        "drug_exposure"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "The schema defines multiple FK relationships linking drug_era to other tables. Extracting these explicitly gives the sources.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "drug_exposure",
+          "dose_era",
+          "condition_occurrence"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "drug_exposure, dose_era, condition_occurrence",
+        "reasoning": "The schema defines multiple FK relationships linking drug_era to other tables. Extracting these explicitly gives the sources.",
+        "_raw_text": "{\n  \"answer_list\": [\"drug_exposure\", \"dose_era\", \"condition_occurrence\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"drug_exposure, dose_era, condition_occurrence\",\n  \"reasoning\": \"The schema defines multiple FK relationships linking drug_era to other tables. Extracting these explicitly gives the sources.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.3333,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_020",
+      "question": "What are all the source tables that dose_era is derived from?",
+      "gold_answer": [
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "dose_era"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "dose_era",
+          "condition_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "dose_era and condition_occurrence",
+        "_raw_text": "{\n  \"answer_list\": [\"dose_era\", \"condition_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"dose_era and condition_occurrence\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_rev_021",
+      "question": "What are all the source tables that condition_era is derived from?",
+      "gold_answer": [
+        "condition_occurrence"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "drug_exposure"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "reverse",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence",
+          "drug_exposure",
+          "condition_era",
+          "death"
+        ],
+        "answer_int": 4,
+        "answer_bool": true,
+        "answer_str": "condition_occurrence, drug_exposure, condition_era, death",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"drug_exposure\", \"condition_era\", \"death\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"condition_occurrence, drug_exposure, condition_era, death\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.25,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_trans_022",
+      "question": "If the schema of concept changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "episode",
+        "episode_event",
+        "measurement",
+        "observation",
+        "procedure_occurrence",
+        "specimen",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "condition_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "concept",
+          "condition_occurrence"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The schema changes in concept impact care_site, condition_occurrence, and concept tables through data lineage.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"concept\", \"condition_occurrence\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema changes in concept impact care_site, condition_occurrence, and concept tables through data lineage.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.1176,
+        "precision": 0.3333,
+        "recall": 0.0714
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_trans_023",
+      "question": "If the schema of source_to_concept_map changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "measurement",
+        "observation",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The tables care_site and concept are directly or indirectly affected through data lineage.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables care_site and concept are directly or indirectly affected through data lineage.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_combined_024",
+      "question": "If concept changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "episode",
+        "episode_event",
+        "measurement",
+        "note",
+        "observation",
+        "procedure_occurrence",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "condition_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "concept",
+          "condition_occurrence"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The tables affected are care_site, concept, and condition_occurrence due to direct or indirect data lineage and foreign key dependencies.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"concept\", \"condition_occurrence\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables affected are care_site, concept, and condition_occurrence due to direct or indirect data lineage and foreign key dependencies.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.1053,
+        "precision": 0.3333,
+        "recall": 0.0625
+      }
+    },
+    {
+      "id": "omop_cdm_lineage_combined_025",
+      "question": "If source_to_concept_map changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "condition_era",
+        "condition_occurrence",
+        "death",
+        "device_exposure",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "episode",
+        "measurement",
+        "note",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The tables care_site and concept are affected through direct or indirect data lineage, as well as foreign key dependencies.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables care_site and concept are affected through direct or indirect data lineage, as well as foreign key dependencies.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_count_000",
+      "question": "How many disconnected data silos (connected components) exist in this schema?",
+      "gold_answer": 3,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "silo_detection",
+      "subtype": "count",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Component 1",
+          "Component 2"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The schema contains 2 connected components.",
+        "_raw_text": "{\n  \"answer_list\": [\"Component 1\", \"Component 2\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema contains 2 connected components.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_member_001",
+      "question": "Which tables are in the same connected component (data silo) as device_exposure?",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "condition_occurrence"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "concept",
+          "condition_occurrence"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "The tables care_site, concept, and condition_occurrence are in the same connected component.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"concept\", \"condition_occurrence\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables care_site, concept, and condition_occurrence are in the same connected component.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.1579,
+        "precision": 1.0,
+        "recall": 0.0857
+      }
+    },
+    {
+      "id": "omop_cdm_silo_member_002",
+      "question": "Which tables are in the same connected component (data silo) as observation_period?",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "observation",
+        "person"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "observation",
+          "person"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "observation and person are in the same connected component.",
+        "_raw_text": "{\n  \"answer_list\": [\"observation\", \"person\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"observation and person are in the same connected component.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.1081,
+        "precision": 1.0,
+        "recall": 0.0571
+      }
+    },
+    {
+      "id": "omop_cdm_silo_member_003",
+      "question": "Which tables are in the same connected component (data silo) as location?",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "concept"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The tables care_site and concept are in the same connected component.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"concept\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The tables care_site and concept are in the same connected component.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.1081,
+        "precision": 1.0,
+        "recall": 0.0571
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_012",
+      "question": "Are episode_event and drug_era connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "episode",
+          "drug_era"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain: episode → concept → concept_relationship → relationship → drug_era",
+        "_raw_text": "{\n  \"answer_list\": [\"episode\", \"drug_era\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: episode → concept → concept_relationship → relationship → drug_era\"\n}\nReasoning: The query checks for foreign key connections between 'episode_event' and 'drug_era' by tracing relationships through the defined schema.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_013",
+      "question": "Are device_exposure and episode_event connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "The schema shows multiple FK links connecting these tables, forming a connected path.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "device_exposure",
+          "episode_event"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain involving device_exposure, episode, and concept.",
+        "reasoning": "The schema shows multiple FK links connecting these tables, forming a connected path.",
+        "_raw_text": "{\n  \"answer_list\": [\"device_exposure\", \"episode_event\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain involving device_exposure, episode, and concept.\",\n  \"reasoning\": \"The schema shows multiple FK links connecting these tables, forming a connected path.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_009",
+      "question": "Are concept_class and concept_relationship connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "concept_relationship"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, they are connected through the concept_relationship chain.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"concept_relationship\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, they are connected through the concept_relationship chain.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_006",
+      "question": "Are drug_strength and metadata connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "drug_strength",
+          "metadata"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain involving concept_relationship and concept_synonym.",
+        "_raw_text": "{\n  \"answer_list\": [\"drug_strength\", \"metadata\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain involving concept_relationship and concept_synonym.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_007",
+      "question": "Are procedure_occurrence and metadata connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "metadata"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the relationship chain involving concept and concept_relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"metadata\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the relationship chain involving concept and concept_relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_005",
+      "question": "Are cdm_source and metadata connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the relationship table.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the relationship table.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_010",
+      "question": "Are procedure_occurrence and cost connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "The tables are linked via foreign key relationships, forming a connected path.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "cost"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain involving cost, relationship, and concept.",
+        "reasoning": "The tables are linked via foreign key relationships, forming a connected path.",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"cost\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain involving cost, relationship, and concept.\",\n  \"reasoning\": \"The tables are linked via foreign key relationships, forming a connected path.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_004",
+      "question": "Are episode and cdm_source connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "episode",
+          "cdm_source"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain involving person, visit_occurrence, and concept.",
+        "_raw_text": "{\n  \"answer_list\": [\"episode\", \"cdm_source\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain involving person, visit_occurrence, and concept.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_008",
+      "question": "Are fact_relationship and cdm_source connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "fact_relationship",
+          "cdm_source"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain involving concept and relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"fact_relationship\", \"cdm_source\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain involving concept and relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_isolated_011",
+      "question": "Are concept and drug_strength connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "The schema defines a clear path connecting 'concept' to 'drug_strength' via intermediate tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "drug_strength"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain: concept → concept_relationship → relationship → drug_strength.",
+        "reasoning": "The schema defines a clear path connecting 'concept' to 'drug_strength' via intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"drug_strength\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: concept → concept_relationship → relationship → drug_strength.\",\n  \"reasoning\": \"The schema defines a clear path connecting 'concept' to 'drug_strength' via intermediate tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_connected_014",
+      "question": "Are specimen and cost connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "specimen",
+          "cost"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, through the chain involving concept and concept_relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"specimen\", \"cost\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain involving concept and concept_relationship.\"\n}\nReasoning: The schema shows specimen linked to cost via a foreign key relationship, and both are connected through concept and its relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_silo_enumerate_015",
+      "question": "List ALL tables that belong to the largest connected component in this schema.",
+      "gold_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor",
+        "concept_class",
+        "concept_relationship",
+        "concept_synonym",
+        "condition_era",
+        "condition_occurrence",
+        "cost",
+        "death",
+        "device_exposure",
+        "domain",
+        "dose_era",
+        "drug_era",
+        "drug_exposure",
+        "drug_strength",
+        "episode",
+        "episode_event",
+        "fact_relationship",
+        "location",
+        "measurement",
+        "note",
+        "note_nlp",
+        "observation",
+        "observation_period",
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence",
+        "provider",
+        "relationship",
+        "source_to_concept_map",
+        "specimen",
+        "visit_detail",
+        "visit_occurrence",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "concept",
+        "concept_ancestor"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "concept",
+          "concept_ancestor"
+        ],
+        "answer_int": 3,
+        "answer_bool": true,
+        "answer_str": "The largest connected component includes care_site, concept and concept_ancestor.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"concept\", \"concept_ancestor\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The largest connected component includes care_site, concept and concept_ancestor.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.1579,
+        "precision": 1.0,
+        "recall": 0.0857
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_000",
+      "question": "What is the shortest chain of foreign key joins that connects person to condition_era?",
+      "gold_answer": [
+        "person",
+        "condition_era"
+      ],
+      "predicted_answer": [
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain connects person → condition_era through a single join.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain connects person → condition_era through a single join.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_001",
+      "question": "What is the shortest chain of foreign key joins that connects concept to concept_relationship?",
+      "gold_answer": [
+        "concept",
+        "concept_relationship"
+      ],
+      "predicted_answer": [
+        "concept",
+        "concept_relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "concept_relationship"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves connecting concept → concept_relationship via concept → relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"concept_relationship\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves connecting concept → concept_relationship via concept → relationship.\"\n}\nReasoning: The query asks for the minimal foreign key path between 'concept' and 'concept_relationship'. Analyzing the schema reveals a direct relationship through intermediate steps, resulting in a simple chain.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_002",
+      "question": "What is the shortest chain of foreign key joins that connects concept to drug_strength?",
+      "gold_answer": [
+        "concept",
+        "drug_strength"
+      ],
+      "predicted_answer": [
+        "concept",
+        "drug_strength"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "drug_strength"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path connects concept through concept_ancestor and then to drug_strength via the derived relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"drug_strength\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects concept through concept_ancestor and then to drug_strength via the derived relationship.\"\n}\nReasoning: The schema shows a direct FK relationship from concept to concept_ancestor, which in turn has a foreign key to drug_strength. This forms a single chain of two joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_003",
+      "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to person?",
+      "gold_answer": [
+        "condition_occurrence",
+        "person"
+      ],
+      "predicted_answer": [
+        "condition_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves a direct FK relationship from person to condition_occurrence.",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves a direct FK relationship from person to condition_occurrence.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_004",
+      "question": "What is the shortest chain of foreign key joins that connects note to provider?",
+      "gold_answer": [
+        "note",
+        "provider"
+      ],
+      "predicted_answer": [
+        "note",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The relationship table directly links note and provider through a foreign key.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "provider"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "note -> provider",
+        "reasoning": "The relationship table directly links note and provider through a foreign key.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"provider\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"note -> provider\",\n  \"reasoning\": \"The relationship table directly links note and provider through a foreign key.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_005",
+      "question": "What is the shortest chain of foreign key joins that connects payer_plan_period to concept?",
+      "gold_answer": [
+        "payer_plan_period",
+        "concept"
+      ],
+      "predicted_answer": [
+        "payer_plan_period",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The query asks for the shortest chain of foreign key joins from payer_plan_period to concept, which involves direct or indirect relationships through intermediate tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "payer_plan_period",
+          "concept"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "payer_plan_period -> concept",
+        "reasoning": "The query asks for the shortest chain of foreign key joins from payer_plan_period to concept, which involves direct or indirect relationships through intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"payer_plan_period\", \"concept\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"payer_plan_period -> concept\",\n  \"reasoning\": \"The query asks for the shortest chain of foreign key joins from payer_plan_period to concept, which involves direct or indirect relationships through intermediate tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_006",
+      "question": "What is the shortest chain of foreign key joins that connects concept to death?",
+      "gold_answer": [
+        "concept",
+        "death"
+      ],
+      "predicted_answer": [
+        "death",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "death",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "death -> concept",
+        "_raw_text": "{\n  \"answer_list\": [\"death\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"death -> concept\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_007",
+      "question": "What is the shortest chain of foreign key joins that connects concept to dose_era?",
+      "gold_answer": [
+        "concept",
+        "dose_era"
+      ],
+      "predicted_answer": [
+        "concept",
+        "dose_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "dose_era"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves concept → condition_occurrence → drug_exposure → concept.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"dose_era\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves concept → condition_occurrence → drug_exposure → concept.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_008",
+      "question": "What is the shortest chain of foreign key joins that connects note_nlp to concept?",
+      "gold_answer": [
+        "note_nlp",
+        "concept"
+      ],
+      "predicted_answer": [
+        "note",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves note → note_nlp and then note_nlp → concept.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves note → note_nlp and then note_nlp → concept.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_009",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to visit_detail?",
+      "gold_answer": [
+        "visit_occurrence",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "visit_detail"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence",
+          "visit_detail"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "visit_occurrence -> visit_detail (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\", \"visit_detail\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_occurrence -> visit_detail (1 hop)\"\n}\nReasoning: The task asks for the shortest chain of FK joins between visit_occurrence and visit_detail, which involves a direct relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_010",
+      "question": "What is the shortest chain of foreign key joins that connects condition_era to concept?",
+      "gold_answer": [
+        "condition_era",
+        "concept"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_era",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "condition_era -> concept",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_era\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"condition_era -> concept\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_011",
+      "question": "What is the shortest chain of foreign key joins that connects person to device_exposure?",
+      "gold_answer": [
+        "person",
+        "device_exposure"
+      ],
+      "predicted_answer": [
+        "person",
+        "device_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The schema shows a direct foreign key relationship between person and device_exposure through the person table.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "device_exposure"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "person → device_exposure",
+        "reasoning": "The schema shows a direct foreign key relationship between person and device_exposure through the person table.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"device_exposure\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"person → device_exposure\",\n  \"reasoning\": \"The schema shows a direct foreign key relationship between person and device_exposure through the person table.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_012",
+      "question": "What is the shortest chain of foreign key joins that connects concept to episode?",
+      "gold_answer": [
+        "concept",
+        "episode"
+      ],
+      "predicted_answer": [
+        "episode",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "episode",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "episode -> concept",
+        "_raw_text": "{\n  \"answer_list\": [\"episode\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"episode -> concept\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_013",
+      "question": "What is the shortest chain of foreign key joins that connects provider to procedure_occurrence?",
+      "gold_answer": [
+        "provider",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "provider",
+        "procedure_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "provider",
+          "procedure_occurrence"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "provider -> procedure_occurrence -> provider (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"provider\", \"procedure_occurrence\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"provider -> procedure_occurrence -> provider (1 hop)\"\n}\nReasoning: The schema shows a direct FK relationship from provider to procedure_occurrence through the chain of tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_014",
+      "question": "What is the shortest chain of foreign key joins that connects concept to person?",
+      "gold_answer": [
+        "concept",
+        "person"
+      ],
+      "predicted_answer": [
+        "person",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "person → concept",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"person → concept\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_015",
+      "question": "What is the shortest chain of foreign key joins that connects person to payer_plan_period?",
+      "gold_answer": [
+        "person",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "person → payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person → payer_plan_period"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves a single join from person to payer_plan_period.",
+        "_raw_text": "{\n  \"answer_list\": [\"person → payer_plan_period\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves a single join from person to payer_plan_period.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_016",
+      "question": "What is the shortest chain of foreign key joins that connects care_site to visit_occurrence?",
+      "gold_answer": [
+        "care_site",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "care_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence",
+          "care_site"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "visit_occurrence -> care_site",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\", \"care_site\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_occurrence -> care_site\"\n}\nReasoning: The task asks for the shortest chain of foreign key joins connecting care_site to visit_occurrence. By analyzing the schema, the direct relationship is through visit_occurrence referencing care_site, making it a single hop.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_017",
+      "question": "What is the shortest chain of foreign key joins that connects concept_synonym to concept?",
+      "gold_answer": [
+        "concept_synonym",
+        "concept"
+      ],
+      "predicted_answer": [
+        "concept",
+        "concept_synonym"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "concept_synonym"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves connecting concept_synonym back to concept through its synonym relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"concept_synonym\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves connecting concept_synonym back to concept through its synonym relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_018",
+      "question": "What is the shortest chain of foreign key joins that connects measurement to provider?",
+      "gold_answer": [
+        "measurement",
+        "provider"
+      ],
+      "predicted_answer": [
+        "measurement",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "measurement",
+          "provider"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "measurement -> provider",
+        "_raw_text": "{\n  \"answer_list\": [\"measurement\", \"provider\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"measurement -> provider\"\n}\nReasoning: The schema shows a direct FK relationship between measurement and provider through the 'measurement' table's foreign key constraint on provider.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_019",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to procedure_occurrence?",
+      "gold_answer": [
+        "visit_occurrence",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "procedure_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence",
+          "procedure_occurrence"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves visiting_occurrence → procedure_occurrence via a single join.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\", \"procedure_occurrence\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves visiting_occurrence → procedure_occurrence via a single join.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_020",
+      "question": "What is the shortest chain of foreign key joins that connects concept to device_exposure?",
+      "gold_answer": [
+        "concept",
+        "device_exposure"
+      ],
+      "predicted_answer": [
+        "device_exposure",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "device_exposure",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "device_exposure -> concept -> concept",
+        "_raw_text": "{\n  \"answer_list\": [\"device_exposure\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"device_exposure -> concept -> concept\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_021",
+      "question": "What is the shortest chain of foreign key joins that connects measurement to visit_occurrence?",
+      "gold_answer": [
+        "measurement",
+        "visit_occurrence"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "measurement"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The query asks for the shortest chain of FK joins between measurement and visit_occurrence, which involves traversing through intermediate tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence",
+          "measurement"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "visit_occurrence -> measurement -> visit_occurrence",
+        "reasoning": "The query asks for the shortest chain of FK joins between measurement and visit_occurrence, which involves traversing through intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\", \"measurement\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_occurrence -> measurement -> visit_occurrence\",\n  \"reasoning\": \"The query asks for the shortest chain of FK joins between measurement and visit_occurrence, which involves traversing through intermediate tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_022",
+      "question": "What is the shortest chain of foreign key joins that connects person to procedure_occurrence?",
+      "gold_answer": [
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "person → procedure_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person → procedure_occurrence"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves a single join through person to procedure_occurrence.",
+        "_raw_text": "{\n  \"answer_list\": [\"person → procedure_occurrence\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves a single join through person to procedure_occurrence.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_023",
+      "question": "What is the shortest chain of foreign key joins that connects device_exposure to provider?",
+      "gold_answer": [
+        "device_exposure",
+        "provider"
+      ],
+      "predicted_answer": [
+        "device_exposure",
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "device_exposure",
+          "provider"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "device_exposure -> provider",
+        "_raw_text": "{\n  \"answer_list\": [\"device_exposure\", \"provider\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"device_exposure -> provider\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_024",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to note?",
+      "gold_answer": [
+        "visit_occurrence",
+        "note"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "note"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence",
+          "note"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves visiting_occurrence → note through person.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\", \"note\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves visiting_occurrence → note through person.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_025",
+      "question": "What is the shortest chain of foreign key joins that connects person to drug_era?",
+      "gold_answer": [
+        "person",
+        "drug_era"
+      ],
+      "predicted_answer": [
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain connects person → drug_era through a single join.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain connects person → drug_era through a single join.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_026",
+      "question": "What is the shortest chain of foreign key joins that connects death to visit_detail?",
+      "gold_answer": [
+        "death",
+        "person",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "visit_detail",
+        "death"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The query asks for the shortest chain of FK joins from death to visit_detail, which involves traversing through person and concept tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_detail",
+          "death"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "visit_detail -> death -> person -> death (indirect path via person)",
+        "reasoning": "The query asks for the shortest chain of FK joins from death to visit_detail, which involves traversing through person and concept tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_detail\", \"death\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_detail -> death -> person -> death (indirect path via person)\",\n  \"reasoning\": \"The query asks for the shortest chain of FK joins from death to visit_detail, which involves traversing through person and concept tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_027",
+      "question": "What is the shortest chain of foreign key joins that connects domain to device_exposure?",
+      "gold_answer": [
+        "domain",
+        "concept",
+        "device_exposure"
+      ],
+      "predicted_answer": [
+        "device_exposure",
+        "domain"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "device_exposure",
+          "domain"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves device_exposure → concept → domain.",
+        "_raw_text": "{\n  \"answer_list\": [\"device_exposure\", \"domain\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves device_exposure → concept → domain.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_028",
+      "question": "What is the shortest chain of foreign key joins that connects death to concept_class?",
+      "gold_answer": [
+        "death",
+        "concept",
+        "concept_class"
+      ],
+      "predicted_answer": [
+        "death",
+        "concept_class"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "death",
+          "concept_class"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "death -> concept -> concept_class",
+        "_raw_text": "{\n  \"answer_list\": [\"death\", \"concept_class\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"death -> concept -> concept_class\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_029",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to relationship?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "concept_relationship",
+        "relationship"
+      ],
+      "predicted_answer": [
+        "concept",
+        "relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "relationship"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves going through concept_ancestor -> concept_relationship -> relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"relationship\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves going through concept_ancestor -> concept_relationship -> relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_030",
+      "question": "What is the shortest chain of foreign key joins that connects condition_era to cost?",
+      "gold_answer": [
+        "condition_era",
+        "concept",
+        "cost"
+      ],
+      "predicted_answer": [
+        "condition_era",
+        "cost"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_era",
+          "cost"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves condition_era → concept → condition_era",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_era\", \"cost\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves condition_era → concept → condition_era\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_031",
+      "question": "What is the shortest chain of foreign key joins that connects observation to observation_period?",
+      "gold_answer": [
+        "observation",
+        "person",
+        "observation_period"
+      ],
+      "predicted_answer": [
+        "observation",
+        "observation_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "observation",
+          "observation_period"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves observation → observation_period via person.",
+        "_raw_text": "{\n  \"answer_list\": [\"observation\", \"observation_period\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves observation → observation_period via person.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_032",
+      "question": "What is the shortest chain of foreign key joins that connects concept_class to provider?",
+      "gold_answer": [
+        "concept_class",
+        "concept",
+        "provider"
+      ],
+      "predicted_answer": [
+        "provider",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "provider",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "provider → concept",
+        "_raw_text": "{\n  \"answer_list\": [\"provider\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"provider → concept\"\n}\nReasoning: The schema shows a direct FK relationship from provider to concept, and then concept to concept_class. To connect concept_class to provider, we traverse through these two levels.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_033",
+      "question": "What is the shortest chain of foreign key joins that connects episode_event to concept_relationship?",
+      "gold_answer": [
+        "episode_event",
+        "episode",
+        "concept",
+        "concept_relationship"
+      ],
+      "predicted_answer": [
+        "episode",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "episode",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves linking episode → concept → concept_relationship → relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"episode\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves linking episode → concept → concept_relationship → relationship.\"\n}\nReasoning: The query asks for the minimal sequence of FK joins connecting episode_event to concept_relationship, which requires traversing through concept and its relationship to concept_relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_034",
+      "question": "What is the shortest chain of foreign key joins that connects provider to concept_ancestor?",
+      "gold_answer": [
+        "provider",
+        "concept",
+        "concept_ancestor"
+      ],
+      "predicted_answer": [
+        "provider",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "provider",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "provider -> concept -> concept_ancestor",
+        "_raw_text": "{\n  \"answer_list\": [\"provider\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"provider -> concept -> concept_ancestor\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_035",
+      "question": "What is the shortest chain of foreign key joins that connects relationship to vocabulary?",
+      "gold_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "vocabulary",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "vocabulary",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves connecting vocabulary through its relationship to concept, then to concept_relationship, and finally to relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"vocabulary\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves connecting vocabulary through its relationship to concept, then to concept_relationship, and finally to relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_036",
+      "question": "What is the shortest chain of foreign key joins that connects concept_relationship to condition_era?",
+      "gold_answer": [
+        "concept_relationship",
+        "concept",
+        "condition_era"
+      ],
+      "predicted_answer": [
+        "condition_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_era"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "condition_era -> concept -> concept_relationship -> relationship",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_era\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"condition_era -> concept -> concept_relationship -> relationship\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_037",
+      "question": "What is the shortest chain of foreign key joins that connects concept_synonym to observation?",
+      "gold_answer": [
+        "concept_synonym",
+        "concept",
+        "observation"
+      ],
+      "predicted_answer": [
+        "observation",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "observation",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "observation -> concept -> concept_synonym",
+        "_raw_text": "{\n  \"answer_list\": [\"observation\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"observation -> concept -> concept_synonym\"\n}\nReasoning: The query asks for the shortest chain connecting concept_synonym to observation, which involves traversing through concept and its synonyms sequentially.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_038",
+      "question": "What is the shortest chain of foreign key joins that connects observation to location?",
+      "gold_answer": [
+        "observation",
+        "person",
+        "location"
+      ],
+      "predicted_answer": [
+        "observation",
+        "location"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "observation",
+          "location"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "observation -> person -> location (2 hops)",
+        "_raw_text": "{\n  \"answer_list\": [\"observation\", \"location\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"observation -> person -> location (2 hops)\"\n}\nReasoning: The schema shows a direct FK relationship from observation to location through the person table, which acts as an intermediary.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_039",
+      "question": "What is the shortest chain of foreign key joins that connects drug_exposure to fact_relationship?",
+      "gold_answer": [
+        "drug_exposure",
+        "concept",
+        "fact_relationship"
+      ],
+      "predicted_answer": [
+        "drug_exposure",
+        "fact_relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "drug_exposure",
+          "fact_relationship"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves two foreign key joins: drug_exposure → concept → fact_relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"drug_exposure\", \"fact_relationship\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two foreign key joins: drug_exposure → concept → fact_relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_040",
+      "question": "What is the shortest chain of foreign key joins that connects death to episode_event?",
+      "gold_answer": [
+        "death",
+        "person",
+        "episode",
+        "episode_event"
+      ],
+      "predicted_answer": [
+        "death",
+        "episode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "death",
+          "episode"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "death -> person -> episode -> episode_event",
+        "_raw_text": "{\n  \"answer_list\": [\"death\", \"episode\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"death -> person -> episode -> episode_event\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_041",
+      "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to drug_era?",
+      "gold_answer": [
+        "procedure_occurrence",
+        "person",
+        "drug_era"
+      ],
+      "predicted_answer": [
+        "procedure_occurrence",
+        "drug_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "drug_era"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves procedure_occurrence → person → drug_era.",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"drug_era\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves procedure_occurrence → person → drug_era.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_042",
+      "question": "What is the shortest chain of foreign key joins that connects care_site to death?",
+      "gold_answer": [
+        "care_site",
+        "person",
+        "death"
+      ],
+      "predicted_answer": [
+        "care_site",
+        "death"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "Analyzing the schema, death is linked to person, who is connected to care_site through multiple levels.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "death"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves death → person → care_site (2 hops).",
+        "reasoning": "Analyzing the schema, death is linked to person, who is connected to care_site through multiple levels.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"death\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves death → person → care_site (2 hops).\",\n  \"reasoning\": \"Analyzing the schema, death is linked to person, who is connected to care_site through multiple levels.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_043",
+      "question": "What is the shortest chain of foreign key joins that connects location to source_to_concept_map?",
+      "gold_answer": [
+        "location",
+        "person",
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "location",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "location",
+          "person"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves location → person → concept",
+        "_raw_text": "{\n  \"answer_list\": [\"location\", \"person\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves location → person → concept\"\n}\nReasoning: The schema shows a direct FK relationship from location to person, and then person to source_to_concept_map through the person table.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_044",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to drug_strength?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "drug_strength"
+      ],
+      "predicted_answer": [
+        "concept",
+        "drug_strength"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "drug_strength"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves going through concept_ancestor and then to drug_strength via the derived relationships.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"drug_strength\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves going through concept_ancestor and then to drug_strength via the derived relationships.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_045",
+      "question": "What is the shortest chain of foreign key joins that connects fact_relationship to note_nlp?",
+      "gold_answer": [
+        "fact_relationship",
+        "concept",
+        "note_nlp"
+      ],
+      "predicted_answer": [
+        "note",
+        "fact_relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "fact_relationship"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through note → note_nlp → fact_relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"fact_relationship\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through note → note_nlp → fact_relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_046",
+      "question": "What is the shortest chain of foreign key joins that connects vocabulary to concept_synonym?",
+      "gold_answer": [
+        "vocabulary",
+        "concept",
+        "concept_synonym"
+      ],
+      "predicted_answer": [
+        "vocabulary",
+        "concept_synonym"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "vocabulary",
+          "concept_synonym"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves connecting vocabulary through its FK relationship to concept_synonym via the source_to_concept_map.",
+        "_raw_text": "{\n  \"answer_list\": [\"vocabulary\", \"concept_synonym\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves connecting vocabulary through its FK relationship to concept_synonym via the source_to_concept_map.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_047",
+      "question": "What is the shortest chain of foreign key joins that connects drug_era to episode_event?",
+      "gold_answer": [
+        "drug_era",
+        "person",
+        "episode",
+        "episode_event"
+      ],
+      "predicted_answer": [
+        "episode",
+        "episode_event"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "episode",
+          "episode_event"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path connects episode → episode_event through person.",
+        "_raw_text": "{\n  \"answer_list\": [\"episode\", \"episode_event\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects episode → episode_event through person.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_048",
+      "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to drug_exposure?",
+      "gold_answer": [
+        "procedure_occurrence",
+        "person",
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "procedure_occurrence",
+        "drug_exposure"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "drug_exposure"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves two foreign key joins: procedure_occurrence ↔ person ↔ procedure_occurrence.",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"drug_exposure\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two foreign key joins: procedure_occurrence ↔ person ↔ procedure_occurrence.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_049",
+      "question": "What is the shortest chain of foreign key joins that connects specimen to visit_detail?",
+      "gold_answer": [
+        "specimen",
+        "person",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "visit_detail",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The schema shows a direct FK relationship from visit_detail to person, and person to specimen, forming the shortest path.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_detail",
+          "person"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "visit_detail -> person -> specimen",
+        "reasoning": "The schema shows a direct FK relationship from visit_detail to person, and person to specimen, forming the shortest path.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_detail\", \"person\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_detail -> person -> specimen\",\n  \"reasoning\": \"The schema shows a direct FK relationship from visit_detail to person, and person to specimen, forming the shortest path.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_050",
+      "question": "What is the shortest chain of foreign key joins that connects cost to note?",
+      "gold_answer": [
+        "cost",
+        "concept",
+        "note"
+      ],
+      "predicted_answer": [
+        "cost",
+        "note"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "cost",
+          "note"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves cost → concept → cost",
+        "_raw_text": "{\n  \"answer_list\": [\"cost\", \"note\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves cost → concept → cost\"\n}\nReasoning: The schema shows a direct foreign key relationship from cost to note through the concept table.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_051",
+      "question": "What is the shortest chain of foreign key joins that connects note to condition_occurrence?",
+      "gold_answer": [
+        "note",
+        "person",
+        "condition_occurrence"
+      ],
+      "predicted_answer": [
+        "note",
+        "condition_occurrence"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "condition_occurrence"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain connects note through person → condition_occurrence → provider → note.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"condition_occurrence\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain connects note through person → condition_occurrence → provider → note.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_052",
+      "question": "What is the shortest chain of foreign key joins that connects relationship to observation_period?",
+      "gold_answer": [
+        "relationship",
+        "concept_relationship",
+        "concept",
+        "person",
+        "observation_period"
+      ],
+      "predicted_answer": [
+        "observation",
+        "observation_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "observation",
+          "observation_period"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves observation → observation_period via person.",
+        "_raw_text": "{\n  \"answer_list\": [\"observation\", \"observation_period\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves observation → observation_period via person.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 0.5,
+        "recall": 0.2,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_053",
+      "question": "What is the shortest chain of foreign key joins that connects visit_detail to relationship?",
+      "gold_answer": [
+        "visit_detail",
+        "person",
+        "concept",
+        "concept_relationship",
+        "relationship"
+      ],
+      "predicted_answer": [
+        "visit_detail",
+        "relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_detail",
+          "relationship"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "visit_detail -> relationship -> person -> concept -> concept_relationship",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_detail\", \"relationship\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_detail -> relationship -> person -> concept -> concept_relationship\"\n}\nReasoning: The query asks for the shortest chain of FK joins connecting visit_detail to relationship, which involves traversing through person, concept, and concept_relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 1.0,
+        "recall": 0.4,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_054",
+      "question": "What is the shortest chain of foreign key joins that connects death to procedure_occurrence?",
+      "gold_answer": [
+        "death",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "procedure_occurrence",
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "person"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "procedure_occurrence -> person -> death",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"person\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"procedure_occurrence -> person -> death\"\n}\nReasoning: The schema shows a direct FK relationship from procedure_occurrence to person, and another from person to death. To connect them, we traverse through person to person, then to procedure_occurrence.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_055",
+      "question": "What is the shortest chain of foreign key joins that connects concept_relationship to source_to_concept_map?",
+      "gold_answer": [
+        "concept_relationship",
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "concept",
+        "relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "relationship"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two hops: concept → relationship → source_to_concept_map.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"relationship\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: concept → relationship → source_to_concept_map.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_056",
+      "question": "What is the shortest chain of foreign key joins that connects cost to payer_plan_period?",
+      "gold_answer": [
+        "cost",
+        "concept",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "cost",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "cost",
+          "payer_plan_period"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves cost → concept → cost",
+        "_raw_text": "{\n  \"answer_list\": [\"cost\", \"payer_plan_period\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves cost → concept → cost\"\n}\nReasoning: The schema shows a direct foreign key relationship from cost to concept, and then concept back to cost, forming a loop. To connect cost to payer_plan_period, we traverse through concept and then to cost, requiring two hops.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_057",
+      "question": "What is the shortest chain of foreign key joins that connects concept_relationship to payer_plan_period?",
+      "gold_answer": [
+        "concept_relationship",
+        "concept",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "payer_plan_period",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "payer_plan_period",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "payer_plan_period -> concept -> concept_relationship -> relationship",
+        "_raw_text": "{\n  \"answer_list\": [\"payer_plan_period\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"payer_plan_period -> concept -> concept_relationship -> relationship\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_058",
+      "question": "What is the shortest chain of foreign key joins that connects source_to_concept_map to payer_plan_period?",
+      "gold_answer": [
+        "source_to_concept_map",
+        "concept",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "payer_plan_period",
+        "source_to_concept_map"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "payer_plan_period",
+          "source_to_concept_map"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "payer_plan_period -> source_to_concept_map -> concept",
+        "_raw_text": "{\n  \"answer_list\": [\"payer_plan_period\", \"source_to_concept_map\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"payer_plan_period -> source_to_concept_map -> concept\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_059",
+      "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to care_site?",
+      "gold_answer": [
+        "condition_occurrence",
+        "person",
+        "care_site"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "care_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence",
+          "care_site"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "condition_occurrence -> care_site -> provider -> care_site (2 hops)",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"care_site\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"condition_occurrence -> care_site -> provider -> care_site (2 hops)\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_060",
+      "question": "What is the shortest chain of foreign key joins that connects concept_relationship to provider?",
+      "gold_answer": [
+        "concept_relationship",
+        "concept",
+        "provider"
+      ],
+      "predicted_answer": [
+        "provider"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "provider"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "provider",
+        "_raw_text": "{\n  \"answer_list\": [\"provider\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"provider\"\n}\n  \nReasoning: The query asks for the shortest chain connecting concept_relationship to provider, which involves traversing through intermediate tables like concept and relationship. The direct FK path is provider → concept → concept_relationship → relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to domain?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "domain"
+      ],
+      "predicted_answer": [
+        "concept",
+        "domain"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "domain"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves two steps: concept → concept_ancestor → domain.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"domain\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two steps: concept → concept_ancestor → domain.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_062",
+      "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to observation?",
+      "gold_answer": [
+        "procedure_occurrence",
+        "person",
+        "observation"
+      ],
+      "predicted_answer": [
+        "procedure_occurrence",
+        "observation"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "observation"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves procedure_occurrence → provider → observation.",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"observation\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves procedure_occurrence → provider → observation.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_063",
+      "question": "What is the shortest chain of foreign key joins that connects note_nlp to concept_relationship?",
+      "gold_answer": [
+        "note_nlp",
+        "concept",
+        "concept_relationship"
+      ],
+      "predicted_answer": [
+        "note",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves connecting note_nlp → concept → concept_relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves connecting note_nlp → concept → concept_relationship.\"\n}\nReasoning: The query asks for the minimal sequence of FK joins linking note_nlp to concept_relationship, which requires traversing through concept and then concept_relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_064",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to drug_exposure?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "drug_exposure"
+      ],
+      "predicted_answer": [
+        "drug_exposure",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "drug_exposure",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves connecting drug_exposure through concept_ancestor to concept, then to concept again.",
+        "_raw_text": "{\n  \"answer_list\": [\"drug_exposure\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves connecting drug_exposure through concept_ancestor to concept, then to concept again.\"\n}\nReasoning: The schema shows a direct FK relationship from concept_ancestor to concept, and concept_ancestor links back to concept. To reach drug_exposure, we traverse concept_ancestor → concept → concept_ancestor → drug_exposure, which is 3 hops.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_065",
+      "question": "What is the shortest chain of foreign key joins that connects cost to observation_period?",
+      "gold_answer": [
+        "cost",
+        "concept",
+        "person",
+        "observation_period"
+      ],
+      "predicted_answer": [
+        "observation",
+        "cost"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "observation",
+          "cost"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves observation → concept → cost.",
+        "_raw_text": "{\n  \"answer_list\": [\"observation\", \"cost\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves observation → concept → cost.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.5,
+        "recall": 0.25,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_066",
+      "question": "What is the shortest chain of foreign key joins that connects device_exposure to dose_era?",
+      "gold_answer": [
+        "device_exposure",
+        "person",
+        "dose_era"
+      ],
+      "predicted_answer": [
+        "device_exposure",
+        "dose_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The schema shows a direct foreign key relationship from device_exposure to person, and then person to dose_era through the person table.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "device_exposure",
+          "dose_era"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves device_exposure → person → dose_era (2 hops).",
+        "reasoning": "The schema shows a direct foreign key relationship from device_exposure to person, and then person to dose_era through the person table.",
+        "_raw_text": "{\n  \"answer_list\": [\"device_exposure\", \"dose_era\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves device_exposure → person → dose_era (2 hops).\",\n  \"reasoning\": \"The schema shows a direct foreign key relationship from device_exposure to person, and then person to dose_era through the person table.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_067",
+      "question": "What is the shortest chain of foreign key joins that connects cost to drug_era?",
+      "gold_answer": [
+        "cost",
+        "concept",
+        "drug_era"
+      ],
+      "predicted_answer": [
+        "cost",
+        "drug_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "cost",
+          "drug_era"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves cost → concept → drug_era with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"cost\", \"drug_era\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves cost → concept → drug_era with 2 hops.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_068",
+      "question": "What is the shortest chain of foreign key joins that connects fact_relationship to condition_occurrence?",
+      "gold_answer": [
+        "fact_relationship",
+        "concept",
+        "condition_occurrence"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "fact_relationship"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence",
+          "fact_relationship"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves two foreign key joins: condition_occurrence → fact_relationship → concept → fact_relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"fact_relationship\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two foreign key joins: condition_occurrence → fact_relationship → concept → fact_relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_069",
+      "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to vocabulary?",
+      "gold_answer": [
+        "condition_occurrence",
+        "concept",
+        "vocabulary"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "vocabulary"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence",
+          "vocabulary"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves condition_occurrence → concept → vocabulary.",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"vocabulary\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves condition_occurrence → concept → vocabulary.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_070",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to concept_synonym?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "concept_synonym"
+      ],
+      "predicted_answer": [
+        "concept",
+        "concept_synonym"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "concept_synonym"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves two steps: concept → concept_ancestor → concept_synonym.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"concept_synonym\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two steps: concept → concept_ancestor → concept_synonym.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_071",
+      "question": "What is the shortest chain of foreign key joins that connects fact_relationship to person?",
+      "gold_answer": [
+        "fact_relationship",
+        "concept",
+        "person"
+      ],
+      "predicted_answer": [
+        "person"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves person → concept → fact_relationship → relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves person → concept → fact_relationship → relationship.\"\n}\nReasoning: The query asks for the minimal foreign key path from fact_relationship back to person, which requires traversing through concept and fact_relationship relationships sequentially.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_072",
+      "question": "What is the shortest chain of foreign key joins that connects episode_event to visit_detail?",
+      "gold_answer": [
+        "episode_event",
+        "episode",
+        "person",
+        "visit_detail"
+      ],
+      "predicted_answer": [
+        "visit_detail",
+        "episode"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_detail",
+          "episode"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path involves visiting_detail and then episode.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_detail\", \"episode\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves visiting_detail and then episode.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_073",
+      "question": "What is the shortest chain of foreign key joins that connects payer_plan_period to procedure_occurrence?",
+      "gold_answer": [
+        "payer_plan_period",
+        "person",
+        "procedure_occurrence"
+      ],
+      "predicted_answer": [
+        "procedure_occurrence",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "payer_plan_period"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves procedure_occurrence → payer_plan_period via person.",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"payer_plan_period\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves procedure_occurrence → payer_plan_period via person.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_074",
+      "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to dose_era?",
+      "gold_answer": [
+        "visit_occurrence",
+        "person",
+        "dose_era"
+      ],
+      "predicted_answer": [
+        "visit_occurrence",
+        "dose_era"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The relationship path clearly shows the necessary foreign key connections.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence",
+          "dose_era"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves visiting_occurrence → person → dose_era (2 hops).",
+        "reasoning": "The relationship path clearly shows the necessary foreign key connections.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\", \"dose_era\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves visiting_occurrence → person → dose_era (2 hops).\",\n  \"reasoning\": \"The relationship path clearly shows the necessary foreign key connections.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_075",
+      "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to concept?",
+      "gold_answer": [
+        "condition_occurrence",
+        "concept"
+      ],
+      "predicted_answer": [
+        "condition_occurrence",
+        "concept"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence",
+          "concept"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "condition_occurrence -> concept",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"condition_occurrence -> concept\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_076",
+      "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to source_to_concept_map?",
+      "gold_answer": [
+        "concept_ancestor",
+        "concept",
+        "source_to_concept_map"
+      ],
+      "predicted_answer": [
+        "concept",
+        "source_to_concept_map"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "concept",
+          "source_to_concept_map"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves connecting concept_ancestor directly to source_to_concept_map through the derived relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept\", \"source_to_concept_map\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves connecting concept_ancestor directly to source_to_concept_map through the derived relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_077",
+      "question": "What is the shortest chain of foreign key joins that connects domain to provider?",
+      "gold_answer": [
+        "domain",
+        "concept",
+        "provider"
+      ],
+      "predicted_answer": [
+        "provider",
+        "domain"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "provider",
+          "domain"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves provider → concept → domain.",
+        "_raw_text": "{\n  \"answer_list\": [\"provider\", \"domain\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves provider → concept → domain.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_078",
+      "question": "What is the shortest chain of foreign key joins that connects condition_era to note_nlp?",
+      "gold_answer": [
+        "condition_era",
+        "concept",
+        "note_nlp"
+      ],
+      "predicted_answer": [
+        "note",
+        "note_nlp"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "note_nlp"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest path goes through 'note' and then 'note_nlp'.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"note_nlp\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through 'note' and then 'note_nlp'.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_path_079",
+      "question": "What is the shortest chain of foreign key joins that connects note_nlp to payer_plan_period?",
+      "gold_answer": [
+        "note_nlp",
+        "concept",
+        "payer_plan_period"
+      ],
+      "predicted_answer": [
+        "note",
+        "payer_plan_period"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "payer_plan_period"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "The shortest chain involves note → note_nlp → payer_plan_period.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"payer_plan_period\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves note → note_nlp → payer_plan_period.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "order_correct": false
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_080",
+      "question": "What is the minimum number of foreign key joins needed to connect procedure_occurrence to drug_exposure?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "procedure_occurrence",
+          "drug_exposure"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"procedure_occurrence\", \"drug_exposure\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The schema shows a direct FK relationship between procedure_occurrence and person, and another between person and concept. To connect these two, we need at least one join through person to bridge the two paths.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_081",
+      "question": "What is the minimum number of foreign key joins needed to connect specimen to visit_detail?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_detail",
+          "person"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "visit_detail and person are connected through multiple FK relationships, requiring at least two joins.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_detail\", \"person\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_detail and person are connected through multiple FK relationships, requiring at least two joins.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_082",
+      "question": "What is the minimum number of foreign key joins needed to connect visit_occurrence to procedure_occurrence?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence",
+          "procedure_occurrence"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\", \"procedure_occurrence\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query asks for the minimum number of foreign key joins between visit_occurrence and procedure_occurrence, which involves traversing through related tables like person, care_site, concept, etc., but the direct path is a single join.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_083",
+      "question": "What is the minimum number of foreign key joins needed to connect note_nlp to concept_relationship?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The relationship chain involves multiple FK joins across several tables to connect note_nlp to concept_relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "concept"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "2",
+        "reasoning": "The relationship chain involves multiple FK joins across several tables to connect note_nlp to concept_relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"concept\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"2\",\n  \"reasoning\": \"The relationship chain involves multiple FK joins across several tables to connect note_nlp to concept_relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_084",
+      "question": "What is the minimum number of foreign key joins needed to connect note to provider?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The schema shows a direct FK relationship between note and provider through the 'note' table.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "note",
+          "provider"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "one",
+        "reasoning": "The schema shows a direct FK relationship between note and provider through the 'note' table.",
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"provider\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"one\",\n  \"reasoning\": \"The schema shows a direct FK relationship between note and provider through the 'note' table.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_085",
+      "question": "What is the minimum number of foreign key joins needed to connect care_site to visit_occurrence?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "visit_occurrence"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "visit_occurrence -> care_site (1 hop)",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_occurrence\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"visit_occurrence -> care_site (1 hop)\"\n}\nReasoning: The schema shows a direct FK relationship between visit_occurrence and care_site through the visit_detail table. No intermediate joins are required.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_086",
+      "question": "What is the minimum number of foreign key joins needed to connect concept_ancestor to drug_exposure?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The schema shows a direct foreign key relationship between concept_ancestor and drug_exposure through the lineage_degree path.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "minimum"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1",
+        "reasoning": "The schema shows a direct foreign key relationship between concept_ancestor and drug_exposure through the lineage_degree path.",
+        "_raw_text": "{\n  \"answer_list\": [\"minimum\"],  \n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1\",\n  \"reasoning\": \"The schema shows a direct foreign key relationship between concept_ancestor and drug_exposure through the lineage_degree path.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_087",
+      "question": "What is the minimum number of foreign key joins needed to connect care_site to death?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site",
+          "death"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\", \"death\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The schema shows death is connected via person → care_site and then through the relationship chain to care_site, requiring two foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_088",
+      "question": "What is the minimum number of foreign key joins needed to connect concept to episode?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "episode",
+          "concept"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"episode\", \"concept\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The schema shows a direct relationship between episode and concept through the 'episode' table, requiring one foreign key join.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_089",
+      "question": "What is the minimum number of foreign key joins needed to connect cost to payer_plan_period?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "cost"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"cost\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The schema shows a direct foreign key relationship from cost to payer_plan_period through the concept table.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_090",
+      "question": "What is the minimum number of foreign key joins needed to connect fact_relationship to person?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The connection involves two intermediate steps through concept and relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "fact_relationship",
+          "relationship"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "reasoning": "The connection involves two intermediate steps through concept and relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"fact_relationship\", \"relationship\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\",\n  \"reasoning\": \"The connection involves two intermediate steps through concept and relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_091",
+      "question": "What is the minimum number of foreign key joins needed to connect cost to drug_era?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "cost",
+          "drug_era"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"cost\", \"drug_era\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The schema shows a direct foreign key relationship from cost to concept, and then from concept to drug_era, requiring two joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_092",
+      "question": "What is the minimum number of foreign key joins needed to connect source_to_concept_map to payer_plan_period?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The schema shows a direct path from payer_plan_period to concept through source_to_concept_map.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "payer_plan_period",
+          "source_to_concept_map"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "payer_plan_period -> source_to_concept_map -> concept",
+        "reasoning": "The schema shows a direct path from payer_plan_period to concept through source_to_concept_map.",
+        "_raw_text": "{\n  \"answer_list\": [\"payer_plan_period\", \"source_to_concept_map\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"payer_plan_period -> source_to_concept_map -> concept\",\n  \"reasoning\": \"The schema shows a direct path from payer_plan_period to concept through source_to_concept_map.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_093",
+      "question": "What is the minimum number of foreign key joins needed to connect concept to concept_relationship?",
+      "gold_answer": 1,
+      "predicted_answer": 5,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "item1",
+          "item2"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "The schema requires multiple FK joins to establish the relationship between concepts and their relationships.",
+        "_raw_text": "{\n  \"answer_list\": [\"item1\", \"item2\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema requires multiple FK joins to establish the relationship between concepts and their relationships.\"\n}\nReasoning: The question asks about the minimum number of foreign key joins for a specific connection, which involves traversing through intermediate tables like concept_relationship and relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_094",
+      "question": "What is the minimum number of foreign key joins needed to connect measurement to provider?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The schema shows a direct FK relationship between measurement and provider through the table structure.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "measurement",
+          "provider"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "one",
+        "reasoning": "The schema shows a direct FK relationship between measurement and provider through the table structure.",
+        "_raw_text": "{\n  \"answer_list\": [\"measurement\", \"provider\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"one\",\n  \"reasoning\": \"The schema shows a direct FK relationship between measurement and provider through the table structure.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_095",
+      "question": "What is the minimum number of foreign key joins needed to connect relationship to observation_period?",
+      "gold_answer": 4,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The schema connects observation_period through intermediate tables like person and concept, requiring two foreign key joins.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "observation",
+          "observation_period"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "two",
+        "reasoning": "The schema connects observation_period through intermediate tables like person and concept, requiring two foreign key joins.",
+        "_raw_text": "{\n  \"answer_list\": [\"observation\", \"observation_period\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"two\",\n  \"reasoning\": \"The schema connects observation_period through intermediate tables like person and concept, requiring two foreign key joins.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_096",
+      "question": "What is the minimum number of foreign key joins needed to connect domain to provider?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "provider",
+          "domain"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"provider\", \"domain\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The schema shows a direct FK relationship from provider to concept, and another from concept to domain. To connect domain to provider, we need two joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_097",
+      "question": "What is the minimum number of foreign key joins needed to connect condition_occurrence to concept?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_occurrence",
+          "concept"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "1 hop",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"concept\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query asks for the minimum number of foreign key joins between condition_occurrence and concept, which involves tracing the path through the schema.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_098",
+      "question": "What is the minimum number of foreign key joins needed to connect condition_era to cost?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "condition_era",
+          "cost"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "2 hops",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_era\", \"cost\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The schema shows a direct FK relationship from condition_era to cost through concept, and another path via concept. Thus two joins are needed in sequence.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_hops_099",
+      "question": "What is the minimum number of foreign key joins needed to connect cost to note?",
+      "gold_answer": 2,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "cost"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "The connection involves multiple FK joins through intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"cost\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves multiple FK joins through intermediate tables.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_103",
+      "question": "Does visit_detail have a direct foreign key relationship to provider?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, visit_detail has a direct FK relationship with provider.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, visit_detail has a direct FK relationship with provider.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_109",
+      "question": "Does drug_strength have a direct foreign key relationship to vocabulary?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, drug_strength has a direct foreign key relationship to vocabulary through the concept_relationship path.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, drug_strength has a direct foreign key relationship to vocabulary through the concept_relationship path.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_115",
+      "question": "Does procedure_occurrence have a direct foreign key relationship to condition_occurrence?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, there is a direct foreign key relationship between procedure_occurrence and condition_occurrence through the intermediate steps.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, there is a direct foreign key relationship between procedure_occurrence and condition_occurrence through the intermediate steps.\"\n}\nReasoning: The schema defines a clear path connecting these tables via related entities.\nAnswer list contains the relevant component names. The answer is true based on the defined relationships."
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_105",
+      "question": "Does concept_relationship have a direct foreign key relationship to relationship?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The schema defines direct FK links between concept and relationship via their respective foreign keys.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, the tables are connected through a foreign key relationship.",
+        "reasoning": "The schema defines direct FK links between concept and relationship via their respective foreign keys.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, the tables are connected through a foreign key relationship.\",\n  \"reasoning\": \"The schema defines direct FK links between concept and relationship via their respective foreign keys.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_108",
+      "question": "Does concept_synonym have a direct foreign key relationship to fact_relationship?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The schema defines a direct FK relationship between concept_synonym and fact_relationship through the source_to_concept_map.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, concept_synonym is directly linked via a foreign key to fact_relationship.",
+        "reasoning": "The schema defines a direct FK relationship between concept_synonym and fact_relationship through the source_to_concept_map.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, concept_synonym is directly linked via a foreign key to fact_relationship.\",\n  \"reasoning\": \"The schema defines a direct FK relationship between concept_synonym and fact_relationship through the source_to_concept_map.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_106",
+      "question": "Does episode have a direct foreign key relationship to person?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "person",
+          "episode"
+        ],
+        "answer_int": 2,
+        "answer_bool": true,
+        "answer_str": "Yes, episode has a direct foreign key relationship to person.",
+        "_raw_text": "{\n  \"answer_list\": [\"person\", \"episode\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, episode has a direct foreign key relationship to person.\"\n}\nReasoning: The schema defines a direct FK link between 'episode' and 'person' through the 'person' table's foreign key constraint.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_100",
+      "question": "Does observation have a direct foreign key relationship to person?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, observation is directly linked to person through the relationship table.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, observation is directly linked to person through the relationship table.\"\n}\nReasoning: The schema defines a direct FK connection between 'observation' and 'person' via the 'person' table's foreign key constraint.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_104",
+      "question": "Does note have a direct foreign key relationship to provider?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, the note is directly linked to the provider through a foreign key relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, the note is directly linked to the provider through a foreign key relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_102",
+      "question": "Does episode_event have a direct foreign key relationship to episode?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, episode_event is directly linked to episode through the FK relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, episode_event is directly linked to episode through the FK relationship.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_107",
+      "question": "Does note have a direct foreign key relationship to concept?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, the note is directly linked to the concept through the concept_relationship FK relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, the note is directly linked to the concept through the concept_relationship FK relationship.\"\n}\nReasoning: The schema defines a direct foreign key connection between 'note' and 'concept' via the 'concept_relationship' table.\"\nAnswer: yes"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_114",
+      "question": "Does episode have a direct foreign key relationship to condition_occurrence?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, the relationship exists through the chain of FK links.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, the relationship exists through the chain of FK links.\"\n}\nReasoning: The schema defines a direct FK connection from episode to condition_occurrence via intermediate tables like concept and concept_relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_111",
+      "question": "Does condition_occurrence have a direct foreign key relationship to cost?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The schema defines a direct FK connection between condition_occurrence and cost via the source_to_concept_map path.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, condition_occurrence is directly linked to cost through the derived foreign key relationship.",
+        "reasoning": "The schema defines a direct FK connection between condition_occurrence and cost via the source_to_concept_map path.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, condition_occurrence is directly linked to cost through the derived foreign key relationship.\",\n  \"reasoning\": \"The schema defines a direct FK connection between condition_occurrence and cost via the source_to_concept_map path.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_110",
+      "question": "Does visit_occurrence have a direct foreign key relationship to note_nlp?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, visit_occurrence has a direct FK relationship to note_nlp.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, visit_occurrence has a direct FK relationship to note_nlp.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_112",
+      "question": "Does episode have a direct foreign key relationship to payer_plan_period?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The schema defines a direct FK link from episode to payer_plan_period via person.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, the relationship exists through the chain: episode → person → payer_plan_period.",
+        "reasoning": "The schema defines a direct FK link from episode to payer_plan_period via person.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, the relationship exists through the chain: episode → person → payer_plan_period.\",\n  \"reasoning\": \"The schema defines a direct FK link from episode to payer_plan_period via person.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_101",
+      "question": "Does note_nlp have a direct foreign key relationship to concept?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "yes"
+        ],
+        "answer_int": 5,
+        "answer_bool": true,
+        "answer_str": "Yes, note_nlp has a direct FK relationship to concept.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, note_nlp has a direct FK relationship to concept.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "omop_cdm_route_direct_113",
+      "question": "Does care_site have a direct foreign key relationship to relationship?",
+      "gold_answer": false,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "care_site"
+        ],
+        "answer_int": 1,
+        "answer_bool": true,
+        "answer_str": "Yes, care_site is directly linked to relationship through the relationship table.",
+        "_raw_text": "{\n  \"answer_list\": [\"care_site\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, care_site is directly linked to relationship through the relationship table.\"\n}\n"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    }
+  ]
+}

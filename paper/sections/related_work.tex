@@ -1,0 +1,35 @@
+% ============================================================================
+% 2. RELATED WORK
+% ============================================================================
+\section{Related Work}
+
+\paragraph{Text-to-SQL Benchmarks.}
+Spider~\cite{yu2018spider} introduced cross-database text-to-SQL evaluation
+with 10,181 questions across 200 databases. BIRD~\cite{li2023bird} extended
+this with noisy real-world schemas. Spider~2.0~\cite{lei2024spider2} further
+increased difficulty with enterprise-scale schemas. ScienceBenchmark
+evaluates SQL generation on scientific databases. All focus exclusively on
+\emph{query generation}, not structural understanding.
+
+\paragraph{Schema Understanding.}
+BEAVER~\cite{beaver2024} evaluates LLMs on database knowledge including
+schema matching and entity resolution, but does not evaluate graph topology
+reasoning. SchemaDB benchmarks schema-related tasks but again focuses on
+metadata understanding rather than graph algorithms.
+
+\paragraph{Graph Reasoning in LLMs.}
+Recent work has explored LLM capabilities on graph tasks.
+NLGraph~\cite{wang2023nlgraph} evaluates LLMs on basic graph problems
+(connectivity, shortest path). GraphQA~\cite{fatemi2023talk} further
+explores graph reasoning. However, these use synthetic random graphs, not
+real-world database schemas with heterogeneous edge types (FK vs.\ lineage).
+GraCoRe~\cite{gracore2024} provides a comprehensive taxonomy of graph
+reasoning tasks, and GraphArena~\cite{grapharena2024} benchmarks graph
+algorithms at scale---but neither addresses the domain-specific challenges
+of data warehouse schemas with mixed FK and lineage edge types.
+
+\paragraph{Positioning.}
+DW-Bench uniquely combines: (1) \emph{real-world} schemas from industry
+standards, (2) \emph{heterogeneous} edge types (FK + lineage), (3)
+\emph{practical} question types from data engineering workflows, and (4)
+\emph{obfuscation} for contamination control.

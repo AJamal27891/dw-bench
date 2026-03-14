@@ -1,0 +1,30 @@
+\begin{abstract}
+Large Language Models (LLMs) have demonstrated remarkable capabilities on
+text-to-SQL benchmarks such as Spider and BIRD. However, these benchmarks
+evaluate \emph{query generation}, not \emph{structural understanding} of
+database schemas. We introduce \textbf{DW-Bench}, the first benchmark
+specifically designed to evaluate LLMs on \emph{graph topology reasoning}
+over data warehouse schemas. DW-Bench contains \textbf{670 questions} across
+\textbf{4 real-world datasets} (AdventureWorks, TPC-DS, TPC-DI, OMOP~CDM)
+spanning \textbf{198 tables}, \textbf{13 question subtypes}, and \textbf{3
+difficulty levels}. Questions require reasoning about foreign key paths,
+data lineage chains, transitive impact analysis, and connected component
+detection---tasks that demand graph traversal rather than SQL generation.
+
+We evaluate three baseline approaches: \emph{Flat Text} (full schema as
+text), \emph{Vector-RAG} (embedding-based retrieval), and
+\emph{Graph-Augmented} (explicit graph algorithm context). Using Gemini~2.5
+Flash, we find that Flat Text achieves the highest overall exact match
+(\textbf{74.0\%}), but \emph{collapses on hard structural tasks}
+(\textbf{14.8\%} EM). Graph-Augmented improves hard task performance by
+\textbf{+2.8\%} over Flat Text, achieving \textbf{100\%} on count and
+full enumeration subtypes. Critically, \texttt{combined\_impact}---requiring
+simultaneous lineage and FK traversal---remains unsolved by all methods
+($\leq$6.5\% EM), establishing a clear frontier for future GNN-augmented
+approaches.
+
+DW-Bench includes an obfuscation protocol that replaces table names with
+random identifiers, enabling controlled evaluation of memorization versus
+genuine structural reasoning. Obfuscation reduces Graph-Augmented EM by
+\textbf{21.3\%}, revealing significant reliance on schema name recognition.
+\end{abstract}

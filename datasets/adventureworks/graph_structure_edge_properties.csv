@@ -1,0 +1,14 @@
+Type,Properties
+CONTAINS,[]
+HAS_COLUMN,[]
+REFERENCES,"['parent_table', 'parent_schema', 'fk_name', 'cascade_rule']"
+REFERENCES,"['cascade_rule', 'fk_name', 'parent_schema', 'parent_table']"
+REFERENCES,"['fk_name', 'cascade_rule', 'parent_schema', 'parent_table']"
+REFERENCES,"['parent_table', 'cascade_rule', 'parent_schema', 'fk_name']"
+REFERENCES,"['fk_name', 'parent_schema', 'parent_table', 'cascade_rule']"
+REFERENCES,"['cascade_rule', 'parent_schema', 'fk_name', 'parent_table']"
+REFERENCES,"['referenced_table', 'fk_name', 'referenced_column']"
+REFERENCES,"['referenced_table', 'referenced_column', 'fk_name']"
+REFERENCES,"['referenced_column', 'referenced_table', 'fk_name']"
+DERIVED_FROM,"['transformation_details', 'schedule', 'job_id']"
+DERIVED_FROM,"['transformation_details', 'is_aggregated']"

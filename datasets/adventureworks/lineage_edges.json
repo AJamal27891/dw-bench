@@ -1,0 +1,197 @@
+[
+  {
+    "dw_table": "DW.dbo.FactResellerSales",
+    "oltp_source": "OLTP.Sales.SalesOrderHeader",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactResellerSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactResellerSales",
+    "oltp_source": "OLTP.Sales.SalesOrderDetail",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactResellerSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactResellerSales",
+    "oltp_source": "OLTP.Sales.Customer",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactResellerSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactResellerSales",
+    "oltp_source": "OLTP.Production.Product",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactResellerSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactInternetSales",
+    "oltp_source": "OLTP.Sales.SalesOrderHeader",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactOnlineSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactInternetSales",
+    "oltp_source": "OLTP.Sales.SalesOrderDetail",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactOnlineSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactInternetSales",
+    "oltp_source": "OLTP.Sales.Customer",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactOnlineSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactInternetSales",
+    "oltp_source": "OLTP.Production.Product",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactOnlineSales]"
+  },
+  {
+    "dw_table": "DW.dbo.FactProductInventory",
+    "oltp_source": "OLTP.Purchasing.PurchaseOrderDetail",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactPurchaseOrder]"
+  },
+  {
+    "dw_table": "DW.dbo.FactProductInventory",
+    "oltp_source": "OLTP.Purchasing.PurchaseOrderHeader",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactPurchaseOrder]"
+  },
+  {
+    "dw_table": "DW.dbo.FactProductInventory",
+    "oltp_source": "OLTP.Purchasing.Vendor",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[FactPurchaseOrder]"
+  },
+  {
+    "dw_table": "DW.dbo.DimReseller",
+    "oltp_source": "OLTP.Sales.Customer",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[vw_DimReseller]"
+  },
+  {
+    "dw_table": "DW.dbo.DimReseller",
+    "oltp_source": "OLTP.Sales.Store",
+    "evidence": "complete_etl_sql_metadata.json: staging view [dbo].[vw_DimReseller]"
+  },
+  {
+    "dw_table": "DW.dbo.DimCustomer",
+    "oltp_source": "OLTP.Person.Person",
+    "evidence": "Microsoft docs: DimCustomer derives from Person + Sales.Customer + contact info tables"
+  },
+  {
+    "dw_table": "DW.dbo.DimCustomer",
+    "oltp_source": "OLTP.Sales.Customer",
+    "evidence": "Microsoft docs: DimCustomer derives from Person + Sales.Customer + contact info tables"
+  },
+  {
+    "dw_table": "DW.dbo.DimCustomer",
+    "oltp_source": "OLTP.Person.EmailAddress",
+    "evidence": "Microsoft docs: DimCustomer derives from Person + Sales.Customer + contact info tables"
+  },
+  {
+    "dw_table": "DW.dbo.DimCustomer",
+    "oltp_source": "OLTP.Person.BusinessEntityAddress",
+    "evidence": "Microsoft docs: DimCustomer derives from Person + Sales.Customer + contact info tables"
+  },
+  {
+    "dw_table": "DW.dbo.DimCustomer",
+    "oltp_source": "OLTP.Person.Address",
+    "evidence": "Microsoft docs: DimCustomer derives from Person + Sales.Customer + contact info tables"
+  },
+  {
+    "dw_table": "DW.dbo.DimProduct",
+    "oltp_source": "OLTP.Production.Product",
+    "evidence": "Microsoft docs: DimProduct joins Product + Subcategory + Category + Model"
+  },
+  {
+    "dw_table": "DW.dbo.DimProduct",
+    "oltp_source": "OLTP.Production.ProductSubcategory",
+    "evidence": "Microsoft docs: DimProduct joins Product + Subcategory + Category + Model"
+  },
+  {
+    "dw_table": "DW.dbo.DimProduct",
+    "oltp_source": "OLTP.Production.ProductCategory",
+    "evidence": "Microsoft docs: DimProduct joins Product + Subcategory + Category + Model"
+  },
+  {
+    "dw_table": "DW.dbo.DimProduct",
+    "oltp_source": "OLTP.Production.ProductModel",
+    "evidence": "Microsoft docs: DimProduct joins Product + Subcategory + Category + Model"
+  },
+  {
+    "dw_table": "DW.dbo.DimEmployee",
+    "oltp_source": "OLTP.HumanResources.Employee",
+    "evidence": "Microsoft docs: DimEmployee joins Employee + Person + SalesPerson"
+  },
+  {
+    "dw_table": "DW.dbo.DimEmployee",
+    "oltp_source": "OLTP.Person.Person",
+    "evidence": "Microsoft docs: DimEmployee joins Employee + Person + SalesPerson"
+  },
+  {
+    "dw_table": "DW.dbo.DimEmployee",
+    "oltp_source": "OLTP.Sales.SalesPerson",
+    "evidence": "Microsoft docs: DimEmployee joins Employee + Person + SalesPerson"
+  },
+  {
+    "dw_table": "DW.dbo.DimGeography",
+    "oltp_source": "OLTP.Person.Address",
+    "evidence": "Microsoft docs: DimGeography from Address + StateProvince + CountryRegion"
+  },
+  {
+    "dw_table": "DW.dbo.DimGeography",
+    "oltp_source": "OLTP.Person.StateProvince",
+    "evidence": "Microsoft docs: DimGeography from Address + StateProvince + CountryRegion"
+  },
+  {
+    "dw_table": "DW.dbo.DimGeography",
+    "oltp_source": "OLTP.Person.CountryRegion",
+    "evidence": "Microsoft docs: DimGeography from Address + StateProvince + CountryRegion"
+  },
+  {
+    "dw_table": "DW.dbo.DimSalesTerritory",
+    "oltp_source": "OLTP.Sales.SalesTerritory",
+    "evidence": "Microsoft docs: direct mapping from Sales.SalesTerritory"
+  },
+  {
+    "dw_table": "DW.dbo.DimCurrency",
+    "oltp_source": "OLTP.Sales.Currency",
+    "evidence": "Microsoft docs: direct mapping from Sales.Currency"
+  },
+  {
+    "dw_table": "DW.dbo.DimPromotion",
+    "oltp_source": "OLTP.Sales.SpecialOffer",
+    "evidence": "Microsoft docs: DimPromotion from Sales.SpecialOffer"
+  },
+  {
+    "dw_table": "DW.dbo.FactInternetSalesReason",
+    "oltp_source": "OLTP.Sales.SalesOrderHeaderSalesReason",
+    "evidence": "Column match: SalesReasonKey -> Sales.SalesReason.SalesReasonID"
+  },
+  {
+    "dw_table": "DW.dbo.FactInternetSalesReason",
+    "oltp_source": "OLTP.Sales.SalesReason",
+    "evidence": "Column match: SalesReasonKey -> Sales.SalesReason.SalesReasonID"
+  },
+  {
+    "dw_table": "DW.dbo.DimSalesReason",
+    "oltp_source": "OLTP.Sales.SalesReason",
+    "evidence": "Dataedo: DimSalesReason direct mapping from Sales.SalesReason"
+  },
+  {
+    "dw_table": "DW.dbo.FactCurrencyRate",
+    "oltp_source": "OLTP.Sales.CurrencyRate",
+    "evidence": "Dataedo: FactCurrencyRate derives from Sales.CurrencyRate"
+  },
+  {
+    "dw_table": "DW.dbo.FactSalesQuota",
+    "oltp_source": "OLTP.Sales.SalesPersonQuotaHistory",
+    "evidence": "Dataedo: FactSalesQuota derives from Sales.SalesPersonQuotaHistory"
+  },
+  {
+    "dw_table": "DW.dbo.DimDepartmentGroup",
+    "oltp_source": "OLTP.HumanResources.Department",
+    "evidence": "Column match: DepartmentGroupName <-> Department hierarchy"
+  },
+  {
+    "dw_table": "DW.dbo.DimProductCategory",
+    "oltp_source": "OLTP.Production.ProductCategory",
+    "evidence": "Column match: direct mapping from Production.ProductCategory"
+  },
+  {
+    "dw_table": "DW.dbo.DimProductSubcategory",
+    "oltp_source": "OLTP.Production.ProductSubcategory",
+    "evidence": "Column match: direct mapping from Production.ProductSubcategory"
+  }
+]

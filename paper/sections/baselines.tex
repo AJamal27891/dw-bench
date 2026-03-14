@@ -1,0 +1,27 @@
+% ============================================================================
+% 4. BASELINES
+% ============================================================================
+\section{Baselines}
+
+We implement three baselines spanning the text-to-graph-augmented spectrum:
+
+\paragraph{Flat Text (FT).}
+The complete schema is serialized as a text document listing all tables,
+FK relationships, and lineage edges. This forms the strongest
+``memorize everything'' baseline, as the LLM receives the complete graph.
+
+\paragraph{Vector RAG (VR).}
+Tables are chunked with their local FK and lineage edges, embedded using
+Sentence-BERT, and retrieved via cosine similarity ($k=15$). A global
+lineage summary is appended to provide cross-chunk edge visibility.
+
+\paragraph{Graph-Augmented (GA).}
+Explicit graph algorithms---BFS subgraph extraction (3-hop), connected
+component detection, shortest path computation---provide structured
+context. GA uses NetworkX graph algorithms to extract relevant subgraph
+neighborhoods; it is \emph{not} a trained GNN. The LLM receives
+algorithm output as text context. A learned graph encoder represents
+future work.
+
+All baselines use the same LLM (Gemini 2.5 Flash) and system prompt
+requiring JSON-formatted answers with reasoning.

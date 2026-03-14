@@ -1,0 +1,4599 @@
+{
+  "baseline": "graph_aug",
+  "dataset": "tpc-ds",
+  "obfuscated": true,
+  "model": "gemini-2.5-flash",
+  "model_tag": "gemini-2.5-flash",
+  "metrics": {
+    "total": 127,
+    "exact_match": 0.5591,
+    "avg_f1": 0.7524,
+    "by_type": {
+      "silo_detection": {
+        "total": 11,
+        "exact_match": 0.7273,
+        "avg_f1": 0.9942
+      },
+      "schema_routing": {
+        "total": 116,
+        "exact_match": 0.5431,
+        "avg_f1": 0.7295
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "total": 72,
+        "exact_match": 0.6111,
+        "avg_f1": 0.7315
+      },
+      "medium": {
+        "total": 47,
+        "exact_match": 0.5532,
+        "avg_f1": 0.8018
+      },
+      "hard": {
+        "total": 8,
+        "exact_match": 0.125,
+        "avg_f1": 0.65
+      }
+    },
+    "by_subtype": {
+      "count": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "membership": {
+        "total": 3,
+        "exact_match": 0.0,
+        "avg_f1": 0.9787
+      },
+      "isolation": {
+        "total": 5,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "connected": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "join_path": {
+        "total": 80,
+        "exact_match": 0.3375,
+        "avg_f1": 0.6077
+      },
+      "hop_count": {
+        "total": 20,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "direct_fk": {
+        "total": 16,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "tpc-ds_silo_count_000",
+      "question": "How many disconnected data silos (connected components) exist in this schema?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "silo_detection",
+      "subtype": "count",
+      "difficulty": "easy",
+      "reasoning": "The context explicitly states 'GRAPH STRUCTURE (24 tables, 1 connected components)' and lists 'Component 1 (24 tables)'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context explicitly states 'GRAPH STRUCTURE (24 tables, 1 connected components)' and lists 'Component 1 (24 tables)'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states 'GRAPH STRUCTURE (24 tables, 1 connected components)' and lists 'Component 1 (24 tables)'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_001",
+      "question": "Which tables are in the same connected component (data silo) as Table_D?",
+      "gold_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_J",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_V",
+        "Table_W",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_D",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_J",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_V",
+        "Table_W",
+        "Table_X"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "Table_D is part of Component 1, which includes all 24 tables listed in the graph structure.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_A",
+          "Table_B",
+          "Table_C",
+          "Table_D",
+          "Table_E",
+          "Table_F",
+          "Table_G",
+          "Table_H",
+          "Table_I",
+          "Table_J",
+          "Table_K",
+          "Table_L",
+          "Table_M",
+          "Table_N",
+          "Table_O",
+          "Table_P",
+          "Table_Q",
+          "Table_R",
+          "Table_S",
+          "Table_T",
+          "Table_U",
+          "Table_V",
+          "Table_W",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Table_D is part of Component 1, which includes all 24 tables listed in the graph structure.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_B\",\n    \"Table_C\",\n    \"Table_D\",\n    \"Table_E\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_H\",\n    \"Table_I\",\n    \"Table_J\",\n    \"Table_K\",\n    \"Table_L\",\n    \"Table_M\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_P\",\n    \"Table_Q\",\n    \"Table_R\",\n    \"Table_S\",\n    \"Table_T\",\n    \"Table_U\",\n    \"Table_V\",\n    \"Table_W\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_D is part of Component 1, which includes all 24 tables listed in the graph structure.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9787,
+        "precision": 0.9583,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_002",
+      "question": "Which tables are in the same connected component (data silo) as Table_V?",
+      "gold_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_D",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_J",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_W",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_D",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_J",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_V",
+        "Table_W",
+        "Table_X"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "The schema indicates there is only one connected component (Component 1) which includes all 24 tables, meaning all tables are in the same silo as Table_V.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_A",
+          "Table_B",
+          "Table_C",
+          "Table_D",
+          "Table_E",
+          "Table_F",
+          "Table_G",
+          "Table_H",
+          "Table_I",
+          "Table_J",
+          "Table_K",
+          "Table_L",
+          "Table_M",
+          "Table_N",
+          "Table_O",
+          "Table_P",
+          "Table_Q",
+          "Table_R",
+          "Table_S",
+          "Table_T",
+          "Table_U",
+          "Table_V",
+          "Table_W",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The schema indicates there is only one connected component (Component 1) which includes all 24 tables, meaning all tables are in the same silo as Table_V.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_B\",\n    \"Table_C\",\n    \"Table_D\",\n    \"Table_E\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_H\",\n    \"Table_I\",\n    \"Table_J\",\n    \"Table_K\",\n    \"Table_L\",\n    \"Table_M\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_P\",\n    \"Table_Q\",\n    \"Table_R\",\n    \"Table_S\",\n    \"Table_T\",\n    \"Table_U\",\n    \"Table_V\",\n    \"Table_W\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema indicates there is only one connected component (Component 1) which includes all 24 tables, meaning all tables are in the same silo as Table_V.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9787,
+        "precision": 0.9583,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_003",
+      "question": "Which tables are in the same connected component (data silo) as Table_J?",
+      "gold_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_D",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_V",
+        "Table_W",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_D",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_J",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_V",
+        "Table_W",
+        "Table_X"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "reasoning": "All tables belong to a single connected component (Component 1), which includes Table_J.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_A",
+          "Table_B",
+          "Table_C",
+          "Table_D",
+          "Table_E",
+          "Table_F",
+          "Table_G",
+          "Table_H",
+          "Table_I",
+          "Table_J",
+          "Table_K",
+          "Table_L",
+          "Table_M",
+          "Table_N",
+          "Table_O",
+          "Table_P",
+          "Table_Q",
+          "Table_R",
+          "Table_S",
+          "Table_T",
+          "Table_U",
+          "Table_V",
+          "Table_W",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "All tables belong to a single connected component (Component 1), which includes Table_J.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_B\",\n    \"Table_C\",\n    \"Table_D\",\n    \"Table_E\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_H\",\n    \"Table_I\",\n    \"Table_J\",\n    \"Table_K\",\n    \"Table_L\",\n    \"Table_M\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_P\",\n    \"Table_Q\",\n    \"Table_R\",\n    \"Table_S\",\n    \"Table_T\",\n    \"Table_U\",\n    \"Table_V\",\n    \"Table_W\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"All tables belong to a single connected component (Component 1), which includes Table_J.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9787,
+        "precision": 0.9583,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_004",
+      "question": "Are Table_X and Table_I connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "A shortest path from Table_X to Table_I is provided in the context, indicating they are connected.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "A shortest path from Table_X to Table_I is provided in the context, indicating they are connected.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path from Table_X to Table_I is provided in the context, indicating they are connected.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_008",
+      "question": "Are Table_J and Table_L connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "A shortest path from Table_J to Table_L is provided in the context, indicating they are connected.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "A shortest path from Table_J to Table_L is provided in the context, indicating they are connected.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path from Table_J to Table_L is provided in the context, indicating they are connected.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_006",
+      "question": "Are Table_B and Table_S connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "A shortest path from Table_B to Table_S is provided in the context, indicating they are connected.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "A shortest path from Table_B to Table_S is provided in the context, indicating they are connected.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path from Table_B to Table_S is provided in the context, indicating they are connected.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_007",
+      "question": "Are Table_B and Table_I connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "A shortest path from Table_B to Table_I is provided in the context, indicating they are connected.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "A shortest path from Table_B to Table_I is provided in the context, indicating they are connected.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path from Table_B to Table_I is provided in the context, indicating they are connected.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_005",
+      "question": "Are Table_C and Table_O connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "The provided shortest path explicitly shows a connection: Table_C → Table_A → Table_O.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The provided shortest path explicitly shows a connection: Table_C → Table_A → Table_O.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path explicitly shows a connection: Table_C → Table_A → Table_O.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_connected_009",
+      "question": "Are Table_M and Table_V connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "easy",
+      "reasoning": "A direct foreign key relationship exists from Table_V to Table_M, as indicated by the shortest path.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "A direct foreign key relationship exists from Table_V to Table_M, as indicated by the shortest path.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"A direct foreign key relationship exists from Table_V to Table_M, as indicated by the shortest path.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_enumerate_010",
+      "question": "List ALL tables that belong to the largest connected component in this schema.",
+      "gold_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_D",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_J",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_V",
+        "Table_W",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_A",
+        "Table_B",
+        "Table_C",
+        "Table_D",
+        "Table_E",
+        "Table_F",
+        "Table_G",
+        "Table_H",
+        "Table_I",
+        "Table_J",
+        "Table_K",
+        "Table_L",
+        "Table_M",
+        "Table_N",
+        "Table_O",
+        "Table_P",
+        "Table_Q",
+        "Table_R",
+        "Table_S",
+        "Table_T",
+        "Table_U",
+        "Table_V",
+        "Table_W",
+        "Table_X"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "reasoning": "The schema has only one connected component, which is also the largest. All 24 tables belong to this component.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_A",
+          "Table_B",
+          "Table_C",
+          "Table_D",
+          "Table_E",
+          "Table_F",
+          "Table_G",
+          "Table_H",
+          "Table_I",
+          "Table_J",
+          "Table_K",
+          "Table_L",
+          "Table_M",
+          "Table_N",
+          "Table_O",
+          "Table_P",
+          "Table_Q",
+          "Table_R",
+          "Table_S",
+          "Table_T",
+          "Table_U",
+          "Table_V",
+          "Table_W",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The schema has only one connected component, which is also the largest. All 24 tables belong to this component.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_B\",\n    \"Table_C\",\n    \"Table_D\",\n    \"Table_E\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_H\",\n    \"Table_I\",\n    \"Table_J\",\n    \"Table_K\",\n    \"Table_L\",\n    \"Table_M\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_P\",\n    \"Table_Q\",\n    \"Table_R\",\n    \"Table_S\",\n    \"Table_T\",\n    \"Table_U\",\n    \"Table_V\",\n    \"Table_W\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema has only one connected component, which is also the largest. All 24 tables belong to this component.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_000",
+      "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_C?",
+      "gold_answer": [
+        "Table_C",
+        "Table_T"
+      ],
+      "predicted_answer": [
+        "Table_T",
+        "Table_C"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The context shows a direct foreign key relationship where Table_C references Table_T (`Table_C --FK--> Table_T`). To connect Table_T to Table_C, you would join Table_C to Table_T, forming the path Table_T -> Table_C.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_T",
+          "Table_C"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context shows a direct foreign key relationship where Table_C references Table_T (`Table_C --FK--> Table_T`). To connect Table_T to Table_C, you would join Table_C to Table_T, forming the path Table_T -> Table_C.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_C\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context shows a direct foreign key relationship where Table_C references Table_T (`Table_C --FK--> Table_T`). To connect Table_T to Table_C, you would join Table_C to Table_T, forming the path Table_T -> Table_C.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_001",
+      "question": "What is the shortest chain of foreign key joins that connects Table_R to Table_C?",
+      "gold_answer": [
+        "Table_C",
+        "Table_R"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The provided FK relationships show Table_C --FK--> Table_R, meaning Table_C references Table_R. There is no direct or indirect path provided from Table_R to Table_C in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The provided FK relationships show Table_C --FK--> Table_R, meaning Table_C references Table_R. There is no direct or indirect path provided from Table_R to Table_C in the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided FK relationships show Table_C --FK--> Table_R, meaning Table_C references Table_R. There is no direct or indirect path provided from Table_R to Table_C in the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_002",
+      "question": "What is the shortest chain of foreign key joins that connects Table_O to Table_S?",
+      "gold_answer": [
+        "Table_O",
+        "Table_S"
+      ],
+      "predicted_answer": [
+        "Table_O",
+        "Table_S"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_O and Table_S is directly provided in the context as a 1-hop connection.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_O",
+          "Table_S"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_O and Table_S is directly provided in the context as a 1-hop connection.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_S\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_O and Table_S is directly provided in the context as a 1-hop connection.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_003",
+      "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_D?",
+      "gold_answer": [
+        "Table_D",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_V",
+        "Table_D"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_V and Table_D is directly given in the context as 'Table_V → Table_D'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_V",
+          "Table_D"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_V and Table_D is directly given in the context as 'Table_V → Table_D'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_D\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_V and Table_D is directly given in the context as 'Table_V → Table_D'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_004",
+      "question": "What is the shortest chain of foreign key joins that connects Table_C to Table_P?",
+      "gold_answer": [
+        "Table_C",
+        "Table_P"
+      ],
+      "predicted_answer": [
+        "Table_C",
+        "Table_P"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_C and Table_P is directly connected via a foreign key relationship, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_C",
+          "Table_P"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_C and Table_P is directly connected via a foreign key relationship, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_C\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_C and Table_P is directly connected via a foreign key relationship, as indicated in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_005",
+      "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_E?",
+      "gold_answer": [
+        "Table_E",
+        "Table_V"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The provided shortest path is 'Table_E → Table_V', indicating Table_E references Table_V. There is no explicit path listed or derivable from Table_V to Table_E following foreign key directions.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The provided shortest path is 'Table_E → Table_V', indicating Table_E references Table_V. There is no explicit path listed or derivable from Table_V to Table_E following foreign key directions.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided shortest path is 'Table_E → Table_V', indicating Table_E references Table_V. There is no explicit path listed or derivable from Table_V to Table_E following foreign key directions.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_006",
+      "question": "What is the shortest chain of foreign key joins that connects Table_O to Table_D?",
+      "gold_answer": [
+        "Table_D",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_O",
+        "Table_D"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_O and Table_D is directly from Table_O to Table_D, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_O",
+          "Table_D"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_O and Table_D is directly from Table_O to Table_D, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_D\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_O and Table_D is directly from Table_O to Table_D, as indicated in the 'Shortest Paths Between Mentioned Tables' section.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_007",
+      "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_Q?",
+      "gold_answer": [
+        "Table_Q",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_V",
+        "Table_Q"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Table_Q has a foreign key referencing Table_V (Table_Q --FK--> Table_V). This allows a direct foreign key join from Table_V to Table_Q.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_V",
+          "Table_Q"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Table_Q has a foreign key referencing Table_V (Table_Q --FK--> Table_V). This allows a direct foreign key join from Table_V to Table_Q.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_Q\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_Q has a foreign key referencing Table_V (Table_Q --FK--> Table_V). This allows a direct foreign key join from Table_V to Table_Q.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_008",
+      "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_P?",
+      "gold_answer": [
+        "Table_N",
+        "Table_P"
+      ],
+      "predicted_answer": [
+        "Table_N",
+        "Table_P"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_N and Table_P is directly given in the context as 'Table_N → Table_P'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_N",
+          "Table_P"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_N and Table_P is directly given in the context as 'Table_N → Table_P'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_N and Table_P is directly given in the context as 'Table_N → Table_P'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_009",
+      "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_I?",
+      "gold_answer": [
+        "Table_I",
+        "Table_N"
+      ],
+      "predicted_answer": [
+        "Table_N",
+        "Table_I"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_N and Table_I is directly given in the context as 'Table_N → Table_I (1 hops)'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_N",
+          "Table_I"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_N and Table_I is directly given in the context as 'Table_N → Table_I (1 hops)'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N\",\n    \"Table_I\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_N and Table_I is directly given in the context as 'Table_N → Table_I (1 hops)'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_010",
+      "question": "What is the shortest chain of foreign key joins that connects Table_F to Table_A?",
+      "gold_answer": [
+        "Table_A",
+        "Table_F"
+      ],
+      "predicted_answer": [
+        "Table_F",
+        "Table_A"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_F and Table_A is directly provided in the context as 'Table_F → Table_A'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_F",
+          "Table_A"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_F and Table_A is directly provided in the context as 'Table_F → Table_A'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F\",\n    \"Table_A\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F and Table_A is directly provided in the context as 'Table_F → Table_A'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_011",
+      "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_O?",
+      "gold_answer": [
+        "Table_I",
+        "Table_O"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The provided shortest paths only show a connection from Table_O to Table_I (Table_O → Table_I), not from Table_I to Table_O.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The provided shortest paths only show a connection from Table_O to Table_I (Table_O → Table_I), not from Table_I to Table_O.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided shortest paths only show a connection from Table_O to Table_I (Table_O → Table_I), not from Table_I to Table_O.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_012",
+      "question": "What is the shortest chain of foreign key joins that connects Table_F to Table_W?",
+      "gold_answer": [
+        "Table_F",
+        "Table_W"
+      ],
+      "predicted_answer": [
+        "Table_F",
+        "Table_W"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_F and Table_W is directly provided in the context as 'Table_F -> Table_W'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_F",
+          "Table_W"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_F and Table_W is directly provided in the context as 'Table_F -> Table_W'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F\",\n    \"Table_W\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F and Table_W is directly provided in the context as 'Table_F -> Table_W'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_013",
+      "question": "What is the shortest chain of foreign key joins that connects Table_D to Table_N?",
+      "gold_answer": [
+        "Table_D",
+        "Table_N"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The context provides a shortest path from Table_N to Table_D (Table_N → Table_D), indicating Table_N has a foreign key referencing Table_D. It does not provide a path from Table_D to Table_N, implying no direct or indirect foreign key chain exists in that direction.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The context provides a shortest path from Table_N to Table_D (Table_N → Table_D), indicating Table_N has a foreign key referencing Table_D. It does not provide a path from Table_D to Table_N, implying no direct or indirect foreign key chain exists in that direction.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The context provides a shortest path from Table_N to Table_D (Table_N → Table_D), indicating Table_N has a foreign key referencing Table_D. It does not provide a path from Table_D to Table_N, implying no direct or indirect foreign key chain exists in that direction.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_014",
+      "question": "What is the shortest chain of foreign key joins that connects Table_O to Table_V?",
+      "gold_answer": [
+        "Table_O",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_O",
+        "Table_V"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_O and Table_V is directly provided in the context as 'Table_O → Table_V (1 hops)'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_O",
+          "Table_V"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_O and Table_V is directly provided in the context as 'Table_O → Table_V (1 hops)'.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_V\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_O and Table_V is directly provided in the context as 'Table_O → Table_V (1 hops)'.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_015",
+      "question": "What is the shortest chain of foreign key joins that connects Table_J to Table_X?",
+      "gold_answer": [
+        "Table_J",
+        "Table_X"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Table_J has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Thus, no foreign key join path can originate from Table_J.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Table_J has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Thus, no foreign key join path can originate from Table_J.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Table_J has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Thus, no foreign key join path can originate from Table_J.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_016",
+      "question": "What is the shortest chain of foreign key joins that connects Table_Q to Table_B?",
+      "gold_answer": [
+        "Table_B",
+        "Table_Q"
+      ],
+      "predicted_answer": [
+        "Table_Q",
+        "Table_B"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_Q and Table_B is directly provided in the context as a 1-hop foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_Q",
+          "Table_B"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_Q and Table_B is directly provided in the context as a 1-hop foreign key relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_Q\",\n    \"Table_B\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_Q and Table_B is directly provided in the context as a 1-hop foreign key relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_017",
+      "question": "What is the shortest chain of foreign key joins that connects Table_W to Table_N?",
+      "gold_answer": [
+        "Table_N",
+        "Table_W"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The provided context only shows a foreign key relationship from Table_N to Table_W (Table_N --FK--> Table_W), and the shortest path listed is Table_N → Table_W. There is no path from Table_W to Table_N in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The provided context only shows a foreign key relationship from Table_N to Table_W (Table_N --FK--> Table_W), and the shortest path listed is Table_N → Table_W. There is no path from Table_W to Table_N in the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided context only shows a foreign key relationship from Table_N to Table_W (Table_N --FK--> Table_W), and the shortest path listed is Table_N → Table_W. There is no path from Table_W to Table_N in the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_018",
+      "question": "What is the shortest chain of foreign key joins that connects Table_Q to Table_M?",
+      "gold_answer": [
+        "Table_M",
+        "Table_Q"
+      ],
+      "predicted_answer": [
+        "Table_Q",
+        "Table_M"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_Q and Table_M is directly given in the context as 'Table_Q → Table_M'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_Q",
+          "Table_M"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_Q and Table_M is directly given in the context as 'Table_Q → Table_M'.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_Q\",\n    \"Table_M\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_Q and Table_M is directly given in the context as 'Table_Q → Table_M'.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_019",
+      "question": "What is the shortest chain of foreign key joins that connects Table_S to Table_C?",
+      "gold_answer": [
+        "Table_C",
+        "Table_S"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Foreign key relationships are directional. While Table_C has an FK to Table_S, there is no FK relationship originating from Table_S that points to Table_C or any intermediate table leading to Table_C.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Foreign key relationships are directional. While Table_C has an FK to Table_S, there is no FK relationship originating from Table_S that points to Table_C or any intermediate table leading to Table_C.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Foreign key relationships are directional. While Table_C has an FK to Table_S, there is no FK relationship originating from Table_S that points to Table_C or any intermediate table leading to Table_C.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_020",
+      "question": "What is the shortest chain of foreign key joins that connects Table_F to Table_B?",
+      "gold_answer": [
+        "Table_B",
+        "Table_F"
+      ],
+      "predicted_answer": [
+        "Table_F",
+        "Table_B"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_F and Table_B is directly given in the context as a 1-hop foreign key join.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_F",
+          "Table_B"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_F and Table_B is directly given in the context as a 1-hop foreign key join.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_F\",\n    \"Table_B\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F and Table_B is directly given in the context as a 1-hop foreign key join.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_021",
+      "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_F?",
+      "gold_answer": [
+        "Table_F",
+        "Table_M"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Table_M does not have any outgoing foreign key relationships listed in the provided context, meaning it cannot initiate a chain of foreign key joins to any other table, including Table_F.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Table_M does not have any outgoing foreign key relationships listed in the provided context, meaning it cannot initiate a chain of foreign key joins to any other table, including Table_F.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Table_M does not have any outgoing foreign key relationships listed in the provided context, meaning it cannot initiate a chain of foreign key joins to any other table, including Table_F.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_022",
+      "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_S?",
+      "gold_answer": [
+        "Table_S",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_V",
+        "Table_S"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_V and Table_S is directly from Table_V to Table_S, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_V",
+          "Table_S"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_V and Table_S is directly from Table_V to Table_S, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_S\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_V and Table_S is directly from Table_V to Table_S, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_023",
+      "question": "What is the shortest chain of foreign key joins that connects Table_D to Table_F?",
+      "gold_answer": [
+        "Table_D",
+        "Table_F"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The provided FK relationships show Table_F referencing Table_D (Table_F --FK--> Table_D). There is no foreign key relationship or path listed that connects Table_D to Table_F in the specified direction.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The provided FK relationships show Table_F referencing Table_D (Table_F --FK--> Table_D). There is no foreign key relationship or path listed that connects Table_D to Table_F in the specified direction.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided FK relationships show Table_F referencing Table_D (Table_F --FK--> Table_D). There is no foreign key relationship or path listed that connects Table_D to Table_F in the specified direction.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_024",
+      "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_O?",
+      "gold_answer": [
+        "Table_M",
+        "Table_O"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Based on the 'FK Relationships' section, Table_M does not have any outgoing foreign keys. Therefore, it cannot initiate a chain of foreign key joins to Table_O or any other table.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Based on the 'FK Relationships' section, Table_M does not have any outgoing foreign keys. Therefore, it cannot initiate a chain of foreign key joins to Table_O or any other table.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Based on the 'FK Relationships' section, Table_M does not have any outgoing foreign keys. Therefore, it cannot initiate a chain of foreign key joins to Table_O or any other table.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_025",
+      "question": "What is the shortest chain of foreign key joins that connects Table_Q to Table_J?",
+      "gold_answer": [
+        "Table_J",
+        "Table_Q"
+      ],
+      "predicted_answer": [
+        "Table_Q",
+        "Table_J"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_Q and Table_J is directly given in the context as 'Table_Q → Table_J'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_Q",
+          "Table_J"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_Q and Table_J is directly given in the context as 'Table_Q → Table_J'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_Q\",\n    \"Table_J\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_Q and Table_J is directly given in the context as 'Table_Q → Table_J'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_026",
+      "question": "What is the shortest chain of foreign key joins that connects Table_K to Table_N?",
+      "gold_answer": [
+        "Table_B",
+        "Table_K",
+        "Table_N",
+        "Table_Q"
+      ],
+      "predicted_answer": [
+        "Table_K",
+        "Table_Q",
+        "Table_A",
+        "Table_N"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The context provides the shortest path from Table_N to Table_K as 'Table_N → Table_A → Table_Q → Table_K'. Reversing this path gives the shortest chain from Table_K to Table_N.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_K",
+          "Table_Q",
+          "Table_A",
+          "Table_N"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context provides the shortest path from Table_N to Table_K as 'Table_N → Table_A → Table_Q → Table_K'. Reversing this path gives the shortest chain from Table_K to Table_N.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_K\",\n    \"Table_Q\",\n    \"Table_A\",\n    \"Table_N\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from Table_N to Table_K as 'Table_N → Table_A → Table_Q → Table_K'. Reversing this path gives the shortest chain from Table_K to Table_N.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_027",
+      "question": "What is the shortest chain of foreign key joins that connects Table_A to Table_L?",
+      "gold_answer": [
+        "Table_A",
+        "Table_C",
+        "Table_D",
+        "Table_L"
+      ],
+      "predicted_answer": [
+        "Table_A",
+        "Table_E",
+        "Table_D",
+        "Table_L"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_A to Table_L is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_A",
+          "Table_E",
+          "Table_D",
+          "Table_L"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_A to Table_L is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_E\",\n    \"Table_D\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_A to Table_L is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_028",
+      "question": "What is the shortest chain of foreign key joins that connects Table_G to Table_B?",
+      "gold_answer": [
+        "Table_B",
+        "Table_G",
+        "Table_O"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Based on the 'FK Relationships' section, there are no foreign keys originating from Table_G. Therefore, no directed chain of foreign key joins can start from Table_G.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Based on the 'FK Relationships' section, there are no foreign keys originating from Table_G. Therefore, no directed chain of foreign key joins can start from Table_G.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Based on the 'FK Relationships' section, there are no foreign keys originating from Table_G. Therefore, no directed chain of foreign key joins can start from Table_G.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_029",
+      "question": "What is the shortest chain of foreign key joins that connects Table_G to Table_I?",
+      "gold_answer": [
+        "Table_G",
+        "Table_I",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_G",
+        "Table_N",
+        "Table_I"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_G and Table_I is explicitly provided in the context as Table_G → Table_N → Table_I.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_G",
+          "Table_N",
+          "Table_I"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_G and Table_I is explicitly provided in the context as Table_G → Table_N → Table_I.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_N\",\n    \"Table_I\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_G and Table_I is explicitly provided in the context as Table_G → Table_N → Table_I.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_030",
+      "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_F?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_F",
+        "Table_T"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The provided 'FK Relationships' section does not list the specific foreign keys originating from Table_T, which are necessary to construct a path. The 'Shortest Paths Between Mentioned Tables' section only provides a path from Table_F to Table_T, not the reverse.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The provided 'FK Relationships' section does not list the specific foreign keys originating from Table_T, which are necessary to construct a path. The 'Shortest Paths Between Mentioned Tables' section only provides a path from Table_F to Table_T, not the reverse.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided 'FK Relationships' section does not list the specific foreign keys originating from Table_T, which are necessary to construct a path. The 'Shortest Paths Between Mentioned Tables' section only provides a path from Table_F to Table_T, not the reverse.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_031",
+      "question": "What is the shortest chain of foreign key joins that connects Table_C to Table_F?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_F"
+      ],
+      "predicted_answer": [
+        "Table_C",
+        "Table_A",
+        "Table_F"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_C and Table_F is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_C",
+          "Table_A",
+          "Table_F"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_C and Table_F is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_C\",\n    \"Table_A\",\n    \"Table_F\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_C and Table_F is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_032",
+      "question": "What is the shortest chain of foreign key joins that connects Table_F to Table_H?",
+      "gold_answer": [
+        "Table_B",
+        "Table_F",
+        "Table_H",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_F",
+        "Table_W",
+        "Table_N",
+        "Table_H"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_F and Table_H is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_F",
+          "Table_W",
+          "Table_N",
+          "Table_H"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_F and Table_H is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F\",\n    \"Table_W\",\n    \"Table_N\",\n    \"Table_H\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F and Table_H is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_033",
+      "question": "What is the shortest chain of foreign key joins that connects Table_G to Table_D?",
+      "gold_answer": [
+        "Table_D",
+        "Table_G",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_G",
+        "Table_N",
+        "Table_D"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_D to Table_G is Table_D → Table_N → Table_G. Reversing this path gives the shortest chain from Table_G to Table_D.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_G",
+          "Table_N",
+          "Table_D"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_D to Table_G is Table_D → Table_N → Table_G. Reversing this path gives the shortest chain from Table_G to Table_D.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_N\",\n    \"Table_D\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_D to Table_G is Table_D → Table_N → Table_G. Reversing this path gives the shortest chain from Table_G to Table_D.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_034",
+      "question": "What is the shortest chain of foreign key joins that connects Table_W to Table_V?",
+      "gold_answer": [
+        "Table_F",
+        "Table_V",
+        "Table_W"
+      ],
+      "predicted_answer": [
+        "Table_W",
+        "Table_N",
+        "Table_V"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_W to Table_V can be inferred by reversing the provided shortest path from Table_V to Table_W.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_W",
+          "Table_N",
+          "Table_V"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_W to Table_V can be inferred by reversing the provided shortest path from Table_V to Table_W.",
+        "_raw_text": "{\n  \"answer_list\": [\"Table_W\", \"Table_N\", \"Table_V\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_W to Table_V can be inferred by reversing the provided shortest path from Table_V to Table_W.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_035",
+      "question": "What is the shortest chain of foreign key joins that connects Table_O to Table_F?",
+      "gold_answer": [
+        "Table_B",
+        "Table_F",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_O",
+        "Table_A",
+        "Table_F"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The context provides the shortest path from Table_F to Table_O as 'Table_F → Table_A → Table_O'. Reversing this path gives the shortest chain from Table_O to Table_F.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_O",
+          "Table_A",
+          "Table_F"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context provides the shortest path from Table_F to Table_O as 'Table_F → Table_A → Table_O'. Reversing this path gives the shortest chain from Table_O to Table_F.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_A\",\n    \"Table_F\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from Table_F to Table_O as 'Table_F → Table_A → Table_O'. Reversing this path gives the shortest chain from Table_O to Table_F.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_036",
+      "question": "What is the shortest chain of foreign key joins that connects Table_E to Table_O?",
+      "gold_answer": [
+        "Table_B",
+        "Table_E",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_O",
+        "Table_A",
+        "Table_E"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_O to Table_E is explicitly provided in the context as Table_O → Table_A → Table_E.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_O",
+          "Table_A",
+          "Table_E"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_O to Table_E is explicitly provided in the context as Table_O → Table_A → Table_E.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_A\",\n    \"Table_E\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_O to Table_E is explicitly provided in the context as Table_O → Table_A → Table_E.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_037",
+      "question": "What is the shortest chain of foreign key joins that connects Table_P to Table_A?",
+      "gold_answer": [
+        "Table_A",
+        "Table_C",
+        "Table_P"
+      ],
+      "predicted_answer": [
+        "Table_P",
+        "Table_E",
+        "Table_A"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_P to Table_A is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_P",
+          "Table_E",
+          "Table_A"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_P to Table_A is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_P\",\n    \"Table_E\",\n    \"Table_A\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_P to Table_A is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_038",
+      "question": "What is the shortest chain of foreign key joins that connects Table_F to Table_L?",
+      "gold_answer": [
+        "Table_D",
+        "Table_F",
+        "Table_L"
+      ],
+      "predicted_answer": [
+        "Table_F",
+        "Table_D",
+        "Table_L"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_F and Table_L is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_F",
+          "Table_D",
+          "Table_L"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_F and Table_L is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F\",\n    \"Table_D\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F and Table_L is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_039",
+      "question": "What is the shortest chain of foreign key joins that connects Table_W to Table_M?",
+      "gold_answer": [
+        "Table_F",
+        "Table_M",
+        "Table_W"
+      ],
+      "predicted_answer": [
+        "Table_W",
+        "Table_E",
+        "Table_M"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_M to Table_W is Table_M → Table_E → Table_W. Reversing this path gives the shortest chain from Table_W to Table_M.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_W",
+          "Table_E",
+          "Table_M"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_M to Table_W is Table_M → Table_E → Table_W. Reversing this path gives the shortest chain from Table_W to Table_M.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_W\",\n    \"Table_E\",\n    \"Table_M\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_M to Table_W is Table_M → Table_E → Table_W. Reversing this path gives the shortest chain from Table_W to Table_M.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_040",
+      "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_U?",
+      "gold_answer": [
+        "Table_Q",
+        "Table_U",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_V",
+        "Table_Q",
+        "Table_U"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_V and Table_U is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_V",
+          "Table_Q",
+          "Table_U"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_V and Table_U is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_Q\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_V and Table_U is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_041",
+      "question": "What is the shortest chain of foreign key joins that connects Table_S to Table_P?",
+      "gold_answer": [
+        "Table_C",
+        "Table_P",
+        "Table_S"
+      ],
+      "predicted_answer": [
+        "Table_S",
+        "Table_E",
+        "Table_P"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Table_E has foreign keys referencing both Table_S and Table_P. Therefore, a path from Table_S to Table_P can be formed by joining Table_S to Table_E, and then Table_E to Table_P, resulting in a 2-hop path: Table_S → Table_E → Table_P.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_S",
+          "Table_E",
+          "Table_P"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Table_E has foreign keys referencing both Table_S and Table_P. Therefore, a path from Table_S to Table_P can be formed by joining Table_S to Table_E, and then Table_E to Table_P, resulting in a 2-hop path: Table_S → Table_E → Table_P.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_S\",\n    \"Table_E\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_E has foreign keys referencing both Table_S and Table_P. Therefore, a path from Table_S to Table_P can be formed by joining Table_S to Table_E, and then Table_E to Table_P, resulting in a 2-hop path: Table_S → Table_E → Table_P.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_042",
+      "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_L?",
+      "gold_answer": [
+        "Table_D",
+        "Table_I",
+        "Table_L",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_I",
+        "Table_N",
+        "Table_D",
+        "Table_L"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_L to Table_I is given as Table_L → Table_D → Table_N → Table_I. Reversing this path gives the shortest chain from Table_I to Table_L.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_I",
+          "Table_N",
+          "Table_D",
+          "Table_L"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_L to Table_I is given as Table_L → Table_D → Table_N → Table_I. Reversing this path gives the shortest chain from Table_I to Table_L.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_I\",\n    \"Table_N\",\n    \"Table_D\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_L to Table_I is given as Table_L → Table_D → Table_N → Table_I. Reversing this path gives the shortest chain from Table_I to Table_L.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_043",
+      "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_C?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_H",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_H",
+        "Table_N",
+        "Table_A",
+        "Table_C"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The context provides the shortest path from Table_C to Table_H as 'Table_C → Table_A → Table_N → Table_H'. To find the shortest path from Table_H to Table_C, this path is reversed.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_H",
+          "Table_N",
+          "Table_A",
+          "Table_C"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context provides the shortest path from Table_C to Table_H as 'Table_C → Table_A → Table_N → Table_H'. To find the shortest path from Table_H to Table_C, this path is reversed.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_N\",\n    \"Table_A\",\n    \"Table_C\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from Table_C to Table_H as 'Table_C → Table_A → Table_N → Table_H'. To find the shortest path from Table_H to Table_C, this path is reversed.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_044",
+      "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_X?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_T",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_T",
+        "Table_Q",
+        "Table_J",
+        "Table_X"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_X to Table_T is given as Table_X → Table_J → Table_Q → Table_T. Reversing this path gives the shortest chain from Table_T to Table_X.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_T",
+          "Table_Q",
+          "Table_J",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_X to Table_T is given as Table_X → Table_J → Table_Q → Table_T. Reversing this path gives the shortest chain from Table_T to Table_X.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_Q\",\n    \"Table_J\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_X to Table_T is given as Table_X → Table_J → Table_Q → Table_T. Reversing this path gives the shortest chain from Table_T to Table_X.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_045",
+      "question": "What is the shortest chain of foreign key joins that connects Table_S to Table_J?",
+      "gold_answer": [
+        "Table_J",
+        "Table_O",
+        "Table_S"
+      ],
+      "predicted_answer": [
+        "Table_S",
+        "Table_N",
+        "Table_J"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_S to Table_J is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_S",
+          "Table_N",
+          "Table_J"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_S to Table_J is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_S\",\n    \"Table_N\",\n    \"Table_J\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_S to Table_J is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_046",
+      "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_C?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_I",
+        "Table_O"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "Table_I has an out_degree of 2, but no outgoing foreign key relationships are explicitly listed for Table_I in the 'FK Relationships' section. Without explicit outgoing FKs from Table_I, a 'chain of foreign key joins' cannot be initiated from it.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Table_I has an out_degree of 2, but no outgoing foreign key relationships are explicitly listed for Table_I in the 'FK Relationships' section. Without explicit outgoing FKs from Table_I, a 'chain of foreign key joins' cannot be initiated from it.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Table_I has an out_degree of 2, but no outgoing foreign key relationships are explicitly listed for Table_I in the 'FK Relationships' section. Without explicit outgoing FKs from Table_I, a 'chain of foreign key joins' cannot be initiated from it.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_047",
+      "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_A?",
+      "gold_answer": [
+        "Table_A",
+        "Table_H",
+        "Table_O"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Based on the 'FK Relationships' section, Table_H is never the source of a foreign key (it never appears on the left side of '--FK-->'). Therefore, Table_H cannot initiate a chain of foreign key joins.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Based on the 'FK Relationships' section, Table_H is never the source of a foreign key (it never appears on the left side of '--FK-->'). Therefore, Table_H cannot initiate a chain of foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Based on the 'FK Relationships' section, Table_H is never the source of a foreign key (it never appears on the left side of '--FK-->'). Therefore, Table_H cannot initiate a chain of foreign key joins.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_048",
+      "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_Q?",
+      "gold_answer": [
+        "Table_B",
+        "Table_I",
+        "Table_O",
+        "Table_Q"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "Table_I has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Therefore, it cannot initiate a chain of foreign key joins.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Table_I has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Therefore, it cannot initiate a chain of foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Table_I has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Therefore, it cannot initiate a chain of foreign key joins.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_049",
+      "question": "What is the shortest chain of foreign key joins that connects Table_A to Table_U?",
+      "gold_answer": [
+        "Table_A",
+        "Table_Q",
+        "Table_U"
+      ],
+      "predicted_answer": [
+        "Table_A",
+        "Table_E",
+        "Table_U"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_A and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_A",
+          "Table_E",
+          "Table_U"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_A and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_E\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_A and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_050",
+      "question": "What is the shortest chain of foreign key joins that connects Table_F to Table_U?",
+      "gold_answer": [
+        "Table_B",
+        "Table_F",
+        "Table_Q",
+        "Table_U"
+      ],
+      "predicted_answer": [
+        "Table_F",
+        "Table_W",
+        "Table_E",
+        "Table_U"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_F and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_F",
+          "Table_W",
+          "Table_E",
+          "Table_U"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_F and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F\",\n    \"Table_W\",\n    \"Table_E\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_051",
+      "question": "What is the shortest chain of foreign key joins that connects Table_E to Table_I?",
+      "gold_answer": [
+        "Table_B",
+        "Table_E",
+        "Table_I",
+        "Table_O"
+      ],
+      "predicted_answer": [
+        "Table_E",
+        "Table_W",
+        "Table_N",
+        "Table_I"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_E and Table_I is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_E",
+          "Table_W",
+          "Table_N",
+          "Table_I"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_E and Table_I is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_E\",\n    \"Table_W\",\n    \"Table_N\",\n    \"Table_I\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_E and Table_I is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_052",
+      "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_K?",
+      "gold_answer": [
+        "Table_B",
+        "Table_H",
+        "Table_K",
+        "Table_O",
+        "Table_Q"
+      ],
+      "predicted_answer": [
+        "Table_H",
+        "Table_N",
+        "Table_A",
+        "Table_Q",
+        "Table_K"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The shortest path between Table_H and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_H",
+          "Table_N",
+          "Table_A",
+          "Table_Q",
+          "Table_K"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_H and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_N\",\n    \"Table_A\",\n    \"Table_Q\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_H and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_053",
+      "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_U?",
+      "gold_answer": [
+        "Table_B",
+        "Table_H",
+        "Table_O",
+        "Table_Q",
+        "Table_U"
+      ],
+      "predicted_answer": [
+        "Table_H",
+        "Table_N",
+        "Table_W",
+        "Table_E",
+        "Table_U"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The shortest path between Table_H and Table_U is directly provided in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_H",
+          "Table_N",
+          "Table_W",
+          "Table_E",
+          "Table_U"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_H and Table_U is directly provided in the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_N\",\n    \"Table_W\",\n    \"Table_E\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_H and Table_U is directly provided in the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.4,
+        "recall": 0.4,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_054",
+      "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_I?",
+      "gold_answer": [
+        "Table_B",
+        "Table_I",
+        "Table_O",
+        "Table_Q",
+        "Table_U"
+      ],
+      "predicted_answer": [
+        "Table_U",
+        "Table_E",
+        "Table_W",
+        "Table_N",
+        "Table_I"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The shortest path from Table_I to Table_U is provided, so the reverse path connects Table_U to Table_I.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_U",
+          "Table_E",
+          "Table_W",
+          "Table_N",
+          "Table_I"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_I to Table_U is provided, so the reverse path connects Table_U to Table_I.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_E\",\n    \"Table_W\",\n    \"Table_N\",\n    \"Table_I\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_I to Table_U is provided, so the reverse path connects Table_U to Table_I.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.4,
+        "recall": 0.4,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_055",
+      "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_R?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_Q",
+        "Table_R",
+        "Table_U"
+      ],
+      "predicted_answer": [
+        "Table_U",
+        "Table_E",
+        "Table_A",
+        "Table_C",
+        "Table_R"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The shortest path from Table_U to Table_R is the reverse of the provided path from Table_R to Table_U.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_U",
+          "Table_E",
+          "Table_A",
+          "Table_C",
+          "Table_R"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_U to Table_R is the reverse of the provided path from Table_R to Table_U.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_E\",\n    \"Table_A\",\n    \"Table_C\",\n    \"Table_R\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_U to Table_R is the reverse of the provided path from Table_R to Table_U.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_056",
+      "question": "What is the shortest chain of foreign key joins that connects Table_X to Table_L?",
+      "gold_answer": [
+        "Table_D",
+        "Table_J",
+        "Table_L",
+        "Table_O",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_X",
+        "Table_J",
+        "Table_Q",
+        "Table_D",
+        "Table_L"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The shortest path between Table_X and Table_L is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_X",
+          "Table_J",
+          "Table_Q",
+          "Table_D",
+          "Table_L"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_X and Table_L is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_X\",\n    \"Table_J\",\n    \"Table_Q\",\n    \"Table_D\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_X and Table_L is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 0.8,
+        "recall": 0.8,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_057",
+      "question": "What is the shortest chain of foreign key joins that connects Table_R to Table_J?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_J",
+        "Table_O",
+        "Table_R"
+      ],
+      "predicted_answer": [
+        "Table_R",
+        "Table_C",
+        "Table_A",
+        "Table_N",
+        "Table_J"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The shortest path between Table_R and Table_J is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_R",
+          "Table_C",
+          "Table_A",
+          "Table_N",
+          "Table_J"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_R and Table_J is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_R\",\n    \"Table_C\",\n    \"Table_A\",\n    \"Table_N\",\n    \"Table_J\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_R and Table_J is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_058",
+      "question": "What is the shortest chain of foreign key joins that connects Table_R to Table_K?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_K",
+        "Table_Q",
+        "Table_R"
+      ],
+      "predicted_answer": [
+        "Table_R",
+        "Table_C",
+        "Table_A",
+        "Table_Q",
+        "Table_K"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The shortest path from Table_R to Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_R",
+          "Table_C",
+          "Table_A",
+          "Table_Q",
+          "Table_K"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_R to Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_R\",\n    \"Table_C\",\n    \"Table_A\",\n    \"Table_Q\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_R to Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 0.8,
+        "recall": 0.8,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_059",
+      "question": "What is the shortest chain of foreign key joins that connects Table_E to Table_K?",
+      "gold_answer": [
+        "Table_B",
+        "Table_E",
+        "Table_K",
+        "Table_Q"
+      ],
+      "predicted_answer": [
+        "Table_E",
+        "Table_A",
+        "Table_Q",
+        "Table_K"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_E and Table_K is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_E",
+          "Table_A",
+          "Table_Q",
+          "Table_K"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_E and Table_K is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_E\",\n    \"Table_A\",\n    \"Table_Q\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_E and Table_K is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_060",
+      "question": "What is the shortest chain of foreign key joins that connects Table_P to Table_X?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_P",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_P",
+        "Table_Q",
+        "Table_J",
+        "Table_X"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_X to Table_P is given as Table_X → Table_J → Table_Q → Table_P. Reversing this path gives the shortest chain from Table_P to Table_X.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_P",
+          "Table_Q",
+          "Table_J",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_X to Table_P is given as Table_X → Table_J → Table_Q → Table_P. Reversing this path gives the shortest chain from Table_P to Table_X.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_P\",\n    \"Table_Q\",\n    \"Table_J\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_X to Table_P is given as Table_X → Table_J → Table_Q → Table_P. Reversing this path gives the shortest chain from Table_P to Table_X.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects Table_X to Table_K?",
+      "gold_answer": [
+        "Table_J",
+        "Table_K",
+        "Table_Q",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_X",
+        "Table_J",
+        "Table_Q",
+        "Table_K"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_X and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_X",
+          "Table_J",
+          "Table_Q",
+          "Table_K"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_X and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_X\",\n    \"Table_J\",\n    \"Table_Q\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_X and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_062",
+      "question": "What is the shortest chain of foreign key joins that connects Table_R to Table_V?",
+      "gold_answer": [
+        "Table_C",
+        "Table_R",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_R",
+        "Table_C",
+        "Table_V"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The context provides the shortest path from Table_V to Table_R as 'Table_V → Table_C → Table_R'. To find the shortest path from Table_R to Table_V, this path is reversed.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_R",
+          "Table_C",
+          "Table_V"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context provides the shortest path from Table_V to Table_R as 'Table_V → Table_C → Table_R'. To find the shortest path from Table_R to Table_V, this path is reversed.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_R\",\n    \"Table_C\",\n    \"Table_V\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from Table_V to Table_R as 'Table_V → Table_C → Table_R'. To find the shortest path from Table_R to Table_V, this path is reversed.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_063",
+      "question": "What is the shortest chain of foreign key joins that connects Table_Q to Table_F?",
+      "gold_answer": [
+        "Table_B",
+        "Table_F",
+        "Table_Q"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Based on the 'FK Relationships' section, Table_F is never the target of a foreign key. This means no table has an FK pointing to Table_F, making it impossible to form a chain of FK joins that ends at Table_F.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Based on the 'FK Relationships' section, Table_F is never the target of a foreign key. This means no table has an FK pointing to Table_F, making it impossible to form a chain of FK joins that ends at Table_F.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Based on the 'FK Relationships' section, Table_F is never the target of a foreign key. This means no table has an FK pointing to Table_F, making it impossible to form a chain of FK joins that ends at Table_F.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_064",
+      "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_U?",
+      "gold_answer": [
+        "Table_M",
+        "Table_Q",
+        "Table_U"
+      ],
+      "predicted_answer": [
+        "Table_M",
+        "Table_E",
+        "Table_U"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_M and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_M",
+          "Table_E",
+          "Table_U"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_M and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_M\",\n    \"Table_E\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_M and Table_U is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_065",
+      "question": "What is the shortest chain of foreign key joins that connects Table_K to Table_M?",
+      "gold_answer": [
+        "Table_K",
+        "Table_M",
+        "Table_Q"
+      ],
+      "predicted_answer": [
+        "Table_K",
+        "Table_Q",
+        "Table_M"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The context provides the shortest path from Table_M to Table_K as 'Table_M → Table_Q → Table_K'. To connect Table_K to Table_M, the path is reversed, using Table_Q as the intermediary.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_K",
+          "Table_Q",
+          "Table_M"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context provides the shortest path from Table_M to Table_K as 'Table_M → Table_Q → Table_K'. To connect Table_K to Table_M, the path is reversed, using Table_Q as the intermediary.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_K\",\n    \"Table_Q\",\n    \"Table_M\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from Table_M to Table_K as 'Table_M → Table_Q → Table_K'. To connect Table_K to Table_M, the path is reversed, using Table_Q as the intermediary.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_066",
+      "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_K?",
+      "gold_answer": [
+        "Table_K",
+        "Table_Q",
+        "Table_T"
+      ],
+      "predicted_answer": [
+        "Table_T",
+        "Table_Q",
+        "Table_K"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_T and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_T",
+          "Table_Q",
+          "Table_K"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_T and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_Q\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_T and Table_K is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_067",
+      "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_O?",
+      "gold_answer": [
+        "Table_O",
+        "Table_T"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The provided FK relationships show a path from Table_O to Table_T (Table_O --FK--> Table_T), but no direct or indirect foreign key path from Table_T to Table_O.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "The provided FK relationships show a path from Table_O to Table_T (Table_O --FK--> Table_T), but no direct or indirect foreign key path from Table_T to Table_O.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided FK relationships show a path from Table_O to Table_T (Table_O --FK--> Table_T), but no direct or indirect foreign key path from Table_T to Table_O.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_068",
+      "question": "What is the shortest chain of foreign key joins that connects Table_A to Table_V?",
+      "gold_answer": [
+        "Table_A",
+        "Table_C",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_A",
+        "Table_E",
+        "Table_V"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_A to Table_V is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_A",
+          "Table_E",
+          "Table_V"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_A to Table_V is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_E\",\n    \"Table_V\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_A to Table_V is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_069",
+      "question": "What is the shortest chain of foreign key joins that connects Table_L to Table_E?",
+      "gold_answer": [
+        "Table_D",
+        "Table_E",
+        "Table_L"
+      ],
+      "predicted_answer": [],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "Table_L has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Therefore, no chain of foreign key joins can start from Table_L.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": "no path",
+        "reasoning": "Table_L has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Therefore, no chain of foreign key joins can start from Table_L.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Table_L has an out_degree of 0, meaning it does not have any foreign keys referencing other tables. Therefore, no chain of foreign key joins can start from Table_L.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_070",
+      "question": "What is the shortest chain of foreign key joins that connects Table_C to Table_W?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_F",
+        "Table_W"
+      ],
+      "predicted_answer": [
+        "Table_C",
+        "Table_A",
+        "Table_E",
+        "Table_W"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_C and Table_W is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_C",
+          "Table_A",
+          "Table_E",
+          "Table_W"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_C and Table_W is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_C\",\n    \"Table_A\",\n    \"Table_E\",\n    \"Table_W\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_C and Table_W is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_071",
+      "question": "What is the shortest chain of foreign key joins that connects Table_X to Table_A?",
+      "gold_answer": [
+        "Table_A",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_X",
+        "Table_A"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_X and Table_A is directly given in the context as Table_X → Table_A.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_X",
+          "Table_A"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_X and Table_A is directly given in the context as Table_X → Table_A.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_X\",\n    \"Table_A\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_X and Table_A is directly given in the context as Table_X → Table_A.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_072",
+      "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_O?",
+      "gold_answer": [
+        "Table_B",
+        "Table_O",
+        "Table_Q",
+        "Table_U"
+      ],
+      "predicted_answer": [
+        "Table_U",
+        "Table_E",
+        "Table_A",
+        "Table_O"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The provided context states the shortest path from Table_O to Table_U is 'Table_O → Table_A → Table_E → Table_U'. Reversing this path gives the shortest chain from Table_U to Table_O, which is 'Table_U → Table_E → Table_A → Table_O'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_U",
+          "Table_E",
+          "Table_A",
+          "Table_O"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The provided context states the shortest path from Table_O to Table_U is 'Table_O → Table_A → Table_E → Table_U'. Reversing this path gives the shortest chain from Table_U to Table_O, which is 'Table_U → Table_E → Table_A → Table_O'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_E\",\n    \"Table_A\",\n    \"Table_O\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context states the shortest path from Table_O to Table_U is 'Table_O → Table_A → Table_E → Table_U'. Reversing this path gives the shortest chain from Table_U to Table_O, which is 'Table_U → Table_E → Table_A → Table_O'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_073",
+      "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_X?",
+      "gold_answer": [
+        "Table_B",
+        "Table_I",
+        "Table_O",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_I",
+        "Table_N",
+        "Table_J",
+        "Table_X"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_X to Table_I is given as Table_X → Table_J → Table_N → Table_I. Reversing this path gives the shortest chain from Table_I to Table_X.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_I",
+          "Table_N",
+          "Table_J",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_X to Table_I is given as Table_X → Table_J → Table_N → Table_I. Reversing this path gives the shortest chain from Table_I to Table_X.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_I\",\n    \"Table_N\",\n    \"Table_J\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_X to Table_I is given as Table_X → Table_J → Table_N → Table_I. Reversing this path gives the shortest chain from Table_I to Table_X.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_074",
+      "question": "What is the shortest chain of foreign key joins that connects Table_E to Table_P?",
+      "gold_answer": [
+        "Table_E",
+        "Table_P"
+      ],
+      "predicted_answer": [
+        "Table_E",
+        "Table_P"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_E and Table_P is directly provided in the context as a 1-hop connection.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_E",
+          "Table_P"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_E and Table_P is directly provided in the context as a 1-hop connection.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_E\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_E and Table_P is directly provided in the context as a 1-hop connection.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_075",
+      "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_X?",
+      "gold_answer": [
+        "Table_B",
+        "Table_Q",
+        "Table_U",
+        "Table_X"
+      ],
+      "predicted_answer": [
+        "Table_U",
+        "Table_Q",
+        "Table_J",
+        "Table_X"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_X to Table_U is given as Table_X → Table_J → Table_Q → Table_U. Reversing this path gives the shortest chain from Table_U to Table_X.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_U",
+          "Table_Q",
+          "Table_J",
+          "Table_X"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_X to Table_U is given as Table_X → Table_J → Table_Q → Table_U. Reversing this path gives the shortest chain from Table_U to Table_X.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_Q\",\n    \"Table_J\",\n    \"Table_X\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_X to Table_U is given as Table_X → Table_J → Table_Q → Table_U. Reversing this path gives the shortest chain from Table_U to Table_X.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_076",
+      "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_L?",
+      "gold_answer": [
+        "Table_D",
+        "Table_L",
+        "Table_V"
+      ],
+      "predicted_answer": [
+        "Table_V",
+        "Table_D",
+        "Table_L"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_V and Table_L is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_V",
+          "Table_D",
+          "Table_L"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_V and Table_L is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_D\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_V and Table_L is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_077",
+      "question": "What is the shortest chain of foreign key joins that connects Table_S to Table_R?",
+      "gold_answer": [
+        "Table_C",
+        "Table_R",
+        "Table_S"
+      ],
+      "predicted_answer": [
+        "Table_S",
+        "Table_C",
+        "Table_R"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from Table_S to Table_R is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_S",
+          "Table_C",
+          "Table_R"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_S to Table_R is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_S\",\n    \"Table_C\",\n    \"Table_R\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_S to Table_R is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_078",
+      "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_R?",
+      "gold_answer": [
+        "Table_B",
+        "Table_C",
+        "Table_N",
+        "Table_R"
+      ],
+      "predicted_answer": [
+        "Table_N",
+        "Table_W",
+        "Table_F",
+        "Table_R"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_N and Table_R is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_N",
+          "Table_W",
+          "Table_F",
+          "Table_R"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_N and Table_R is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N\",\n    \"Table_W\",\n    \"Table_F\",\n    \"Table_R\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_N and Table_R is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_079",
+      "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_J?",
+      "gold_answer": [
+        "Table_J",
+        "Table_N"
+      ],
+      "predicted_answer": [
+        "Table_N",
+        "Table_J"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between Table_N and Table_J is directly provided in the context as 'Table_N → Table_J (1 hops)'.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "Table_N",
+          "Table_J"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_N and Table_J is directly provided in the context as 'Table_N → Table_J (1 hops)'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N\",\n    \"Table_J\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_N and Table_J is directly provided in the context as 'Table_N → Table_J (1 hops)'.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_080",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_N to Table_R?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_N to Table_R is given as 3 hops, which directly translates to 3 foreign key joins.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 3,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_N to Table_R is given as 3 hops, which directly translates to 3 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_N to Table_R is given as 3 hops, which directly translates to 3 foreign key joins.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_081",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_S to Table_J?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_S to Table_J is Table_S → Table_N → Table_J, which involves 2 hops (foreign key joins).",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 2,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_S to Table_J is Table_S → Table_N → Table_J, which involves 2 hops (foreign key joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_S to Table_J is Table_S → Table_N → Table_J, which involves 2 hops (foreign key joins).\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_082",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_T to Table_F?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The provided context states that the shortest path from Table_F to Table_T is 3 hops. Assuming 'connect' implies an undirected path, the minimum number of joins to connect Table_T to Table_F would also be 3.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 3,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The provided context states that the shortest path from Table_F to Table_T is 3 hops. Assuming 'connect' implies an undirected path, the minimum number of joins to connect Table_T to Table_F would also be 3.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context states that the shortest path from Table_F to Table_T is 3 hops. Assuming 'connect' implies an undirected path, the minimum number of joins to connect Table_T to Table_F would also be 3.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_083",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_I to Table_X?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_X to Table_I is Table_X → Table_J → Table_N → Table_I, which involves 3 hops (foreign key joins).",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 3,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_X to Table_I is Table_X → Table_J → Table_N → Table_I, which involves 3 hops (foreign key joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_X to Table_I is Table_X → Table_J → Table_N → Table_I, which involves 3 hops (foreign key joins).\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_084",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_H to Table_U?",
+      "gold_answer": 4,
+      "predicted_answer": 4,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_H to Table_U is provided as 4 hops in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 4,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_H to Table_U is provided as 4 hops in the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_H to Table_U is provided as 4 hops in the context.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_085",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_D to Table_F?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_D to Table_F is not directly provided, but the path from Table_F to Table_D is 1 hop, meaning 1 foreign key join.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_D to Table_F is not directly provided, but the path from Table_F to Table_D is 1 hop, meaning 1 foreign key join.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_D to Table_F is not directly provided, but the path from Table_F to Table_D is 1 hop, meaning 1 foreign key join.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_086",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_F to Table_A?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_F to Table_A is given as 'Table_F → Table_A', which is 1 hop.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_F to Table_A is given as 'Table_F → Table_A', which is 1 hop.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_F to Table_A is given as 'Table_F → Table_A', which is 1 hop.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_087",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_T to Table_O?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path information explicitly states that Table_O connects to Table_T in 1 hop.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path information explicitly states that Table_O connects to Table_T in 1 hop.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path information explicitly states that Table_O connects to Table_T in 1 hop.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_088",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_I to Table_C?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The provided shortest path from Table_C to Table_I is 'Table_C → Table_A → Table_N → Table_I' with 3 hops. This implies an undirected path of 3 joins, which would be the same length in reverse.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 3,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The provided shortest path from Table_C to Table_I is 'Table_C → Table_A → Table_N → Table_I' with 3 hops. This implies an undirected path of 3 joins, which would be the same length in reverse.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path from Table_C to Table_I is 'Table_C → Table_A → Table_N → Table_I' with 3 hops. This implies an undirected path of 3 joins, which would be the same length in reverse.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_089",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_N to Table_P?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_N to Table_P is 1 hop, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_N to Table_P is 1 hop, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_N to Table_P is 1 hop, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_090",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_U to Table_O?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The context explicitly states the shortest path between Table_O and Table_U is 'Table_O → Table_A → Table_E → Table_U (3 hops)'. The number of hops directly corresponds to the number of foreign key joins needed to connect the tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 3,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context explicitly states the shortest path between Table_O and Table_U is 'Table_O → Table_A → Table_E → Table_U (3 hops)'. The number of hops directly corresponds to the number of foreign key joins needed to connect the tables.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states the shortest path between Table_O and Table_U is 'Table_O → Table_A → Table_E → Table_U (3 hops)'. The number of hops directly corresponds to the number of foreign key joins needed to connect the tables.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_091",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_M to Table_U?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_M to Table_U is Table_M → Table_E → Table_U, which involves 2 foreign key joins.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 2,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_M to Table_U is Table_M → Table_E → Table_U, which involves 2 foreign key joins.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_M to Table_U is Table_M → Table_E → Table_U, which involves 2 foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_092",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_A to Table_V?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_A to Table_V is Table_A → Table_E → Table_V, which requires 2 hops.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 2,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_A to Table_V is Table_A → Table_E → Table_V, which requires 2 hops.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_A to Table_V is Table_A → Table_E → Table_V, which requires 2 hops.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_093",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_O to Table_S?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path between Table_O and Table_S is 1 hop, which means 1 foreign key join.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path between Table_O and Table_S is 1 hop, which means 1 foreign key join.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_O and Table_S is 1 hop, which means 1 foreign key join.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_094",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_A to Table_U?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_A to Table_U is Table_A → Table_E → Table_U, which involves 2 foreign key joins.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 2,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_A to Table_U is Table_A → Table_E → Table_U, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_A to Table_U is Table_A → Table_E → Table_U, which involves 2 foreign key joins.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_095",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_P to Table_X?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The context provides a shortest path from Table_X to Table_P as 3 hops. Assuming 'connect' implies an undirected path for the purpose of counting joins, the number of joins from Table_P to Table_X would also be 3.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 3,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context provides a shortest path from Table_X to Table_P as 3 hops. Assuming 'connect' implies an undirected path for the purpose of counting joins, the number of joins from Table_P to Table_X would also be 3.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides a shortest path from Table_X to Table_P as 3 hops. Assuming 'connect' implies an undirected path for the purpose of counting joins, the number of joins from Table_P to Table_X would also be 3.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_096",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_V to Table_E?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_E to Table_V is 1 hop, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_E to Table_V is 1 hop, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E to Table_V is 1 hop, as indicated in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_097",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_V to Table_U?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_V to Table_U is Table_V → Table_Q → Table_U, which requires 2 foreign key joins.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 2,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_V to Table_U is Table_V → Table_Q → Table_U, which requires 2 foreign key joins.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_V to Table_U is Table_V → Table_Q → Table_U, which requires 2 foreign key joins.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_098",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_M to Table_O?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_O to Table_M is 1 hop, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_O to Table_M is 1 hop, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_O to Table_M is 1 hop, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_099",
+      "question": "What is the minimum number of foreign key joins needed to connect Table_E to Table_P?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "reasoning": "The shortest path from Table_E to Table_P is 1 hop, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": 1,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The shortest path from Table_E to Table_P is 1 hop, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E to Table_P is 1 hop, as indicated in the 'Shortest Paths Between Mentioned Tables' section.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_109",
+      "question": "Does Table_L have a direct foreign key relationship to Table_A?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "There is no direct foreign key relationship listed where Table_L references Table_A.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "There is no direct foreign key relationship listed where Table_L references Table_A.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed where Table_L references Table_A.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_104",
+      "question": "Does Table_Q have a direct foreign key relationship to Table_A?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships explicitly state 'Table_Q --FK--> Table_A', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships explicitly state 'Table_Q --FK--> Table_A', indicating a direct foreign key relationship.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships explicitly state 'Table_Q --FK--> Table_A', indicating a direct foreign key relationship.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_101",
+      "question": "Does Table_C have a direct foreign key relationship to Table_A?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships section explicitly lists 'Table_C --FK--> Table_A', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships section explicitly lists 'Table_C --FK--> Table_A', indicating a direct foreign key relationship.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships section explicitly lists 'Table_C --FK--> Table_A', indicating a direct foreign key relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_106",
+      "question": "Does Table_F have a direct foreign key relationship to Table_M?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships section explicitly lists 'Table_F --FK--> Table_M', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships section explicitly lists 'Table_F --FK--> Table_M', indicating a direct foreign key relationship.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships section explicitly lists 'Table_F --FK--> Table_M', indicating a direct foreign key relationship.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_103",
+      "question": "Does Table_C have a direct foreign key relationship to Table_T?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships section explicitly lists 'Table_C --FK--> Table_T', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships section explicitly lists 'Table_C --FK--> Table_T', indicating a direct foreign key relationship.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships section explicitly lists 'Table_C --FK--> Table_T', indicating a direct foreign key relationship.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_105",
+      "question": "Does Table_N have a direct foreign key relationship to Table_B?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships section explicitly states 'Table_N --FK--> Table_B', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships section explicitly states 'Table_N --FK--> Table_B', indicating a direct foreign key relationship.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships section explicitly states 'Table_N --FK--> Table_B', indicating a direct foreign key relationship.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_100",
+      "question": "Does Table_N have a direct foreign key relationship to Table_A?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships section explicitly lists 'Table_N --FK--> Table_A', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships section explicitly lists 'Table_N --FK--> Table_A', indicating a direct foreign key relationship.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships section explicitly lists 'Table_N --FK--> Table_A', indicating a direct foreign key relationship.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_108",
+      "question": "Does Table_T have a direct foreign key relationship to Table_U?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The provided FK relationships do not show a direct foreign key from Table_T to Table_U. The shortest path indicates an indirect relationship via Table_Q.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "The provided FK relationships do not show a direct foreign key from Table_T to Table_U. The shortest path indicates an indirect relationship via Table_Q.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided FK relationships do not show a direct foreign key from Table_T to Table_U. The shortest path indicates an indirect relationship via Table_Q.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_112",
+      "question": "Does Table_E have a direct foreign key relationship to Table_T?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Table_E has foreign keys to Table_B, Table_P, Table_A, Table_V, Table_S, Table_D, Table_M, Table_W, Table_U, but not directly to Table_T.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "Table_E has foreign keys to Table_B, Table_P, Table_A, Table_V, Table_S, Table_D, Table_M, Table_W, Table_U, but not directly to Table_T.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_E has foreign keys to Table_B, Table_P, Table_A, Table_V, Table_S, Table_D, Table_M, Table_W, Table_U, but not directly to Table_T.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_111",
+      "question": "Does Table_V have a direct foreign key relationship to Table_X?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Table_V has FK relationships to Table_M, Table_S, and Table_D, but not directly to Table_X.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "Table_V has FK relationships to Table_M, Table_S, and Table_D, but not directly to Table_X.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_V has FK relationships to Table_M, Table_S, and Table_D, but not directly to Table_X.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_107",
+      "question": "Does Table_Q have a direct foreign key relationship to Table_T?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships section explicitly lists 'Table_Q --FK--> Table_T', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships section explicitly lists 'Table_Q --FK--> Table_T', indicating a direct foreign key relationship.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships section explicitly lists 'Table_Q --FK--> Table_T', indicating a direct foreign key relationship.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_114",
+      "question": "Does Table_V have a direct foreign key relationship to Table_I?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The provided FK relationships do not show a direct foreign key from Table_V to Table_I.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "The provided FK relationships do not show a direct foreign key from Table_V to Table_I.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided FK relationships do not show a direct foreign key from Table_V to Table_I.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_102",
+      "question": "Does Table_Q have a direct foreign key relationship to Table_V?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The FK Relationships explicitly state 'Table_Q --FK--> Table_V', indicating a direct foreign key relationship.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The FK Relationships explicitly state 'Table_Q --FK--> Table_V', indicating a direct foreign key relationship.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The FK Relationships explicitly state 'Table_Q --FK--> Table_V', indicating a direct foreign key relationship.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_115",
+      "question": "Does Table_T have a direct foreign key relationship to Table_Q?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The provided FK relationships show 'Table_Q --FK--> Table_T', indicating Table_Q has a foreign key to Table_T, not the other way around.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "The provided FK relationships show 'Table_Q --FK--> Table_T', indicating Table_Q has a foreign key to Table_T, not the other way around.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided FK relationships show 'Table_Q --FK--> Table_T', indicating Table_Q has a foreign key to Table_T, not the other way around.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_113",
+      "question": "Does Table_F have a direct foreign key relationship to Table_G?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "Table_F has foreign keys to Table_B, Table_P, Table_A, Table_V, Table_S, Table_D, Table_M, Table_R, and Table_W, but not directly to Table_G.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "Table_F has foreign keys to Table_B, Table_P, Table_A, Table_V, Table_S, Table_D, Table_M, Table_R, and Table_W, but not directly to Table_G.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_F has foreign keys to Table_B, Table_P, Table_A, Table_V, Table_S, Table_D, Table_M, Table_R, and Table_W, but not directly to Table_G.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_110",
+      "question": "Does Table_L have a direct foreign key relationship to Table_H?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "reasoning": "The provided FK relationships do not show a direct foreign key from Table_L to Table_H. Table_L only has an FK to Table_D.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "The provided FK relationships do not show a direct foreign key from Table_L to Table_H. Table_L only has an FK to Table_D.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided FK relationships do not show a direct foreign key from Table_L to Table_H. Table_L only has an FK to Table_D.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    }
+  ]
+}

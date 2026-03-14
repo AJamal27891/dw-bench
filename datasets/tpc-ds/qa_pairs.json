@@ -1,0 +1,1692 @@
+[
+  {
+    "id": "tpc-ds_silo_count_000",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "count",
+    "question": "How many disconnected data silos (connected components) exist in this schema?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_silo_member_001",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as household_demographics?",
+    "answer": [
+      "call_center",
+      "catalog_page",
+      "catalog_returns",
+      "catalog_sales",
+      "customer",
+      "customer_address",
+      "customer_demographics",
+      "date_dim",
+      "income_band",
+      "inventory",
+      "item",
+      "promotion",
+      "reason",
+      "ship_mode",
+      "store",
+      "store_returns",
+      "store_sales",
+      "time_dim",
+      "warehouse",
+      "web_page",
+      "web_returns",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_member_002",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as customer?",
+    "answer": [
+      "call_center",
+      "catalog_page",
+      "catalog_returns",
+      "catalog_sales",
+      "customer_address",
+      "customer_demographics",
+      "date_dim",
+      "household_demographics",
+      "income_band",
+      "inventory",
+      "item",
+      "promotion",
+      "reason",
+      "ship_mode",
+      "store",
+      "store_returns",
+      "store_sales",
+      "time_dim",
+      "warehouse",
+      "web_page",
+      "web_returns",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_member_003",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as warehouse?",
+    "answer": [
+      "call_center",
+      "catalog_page",
+      "catalog_returns",
+      "catalog_sales",
+      "customer",
+      "customer_address",
+      "customer_demographics",
+      "date_dim",
+      "household_demographics",
+      "income_band",
+      "inventory",
+      "item",
+      "promotion",
+      "reason",
+      "ship_mode",
+      "store",
+      "store_returns",
+      "store_sales",
+      "time_dim",
+      "web_page",
+      "web_returns",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_isolated_004",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "isolation",
+    "question": "Are inventory and call_center connected through any chain of foreign key relationships?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_isolated_008",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "isolation",
+    "question": "Are warehouse and income_band connected through any chain of foreign key relationships?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_isolated_006",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "isolation",
+    "question": "Are date_dim and customer_demographics connected through any chain of foreign key relationships?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_isolated_007",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "isolation",
+    "question": "Are date_dim and call_center connected through any chain of foreign key relationships?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_isolated_005",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "isolation",
+    "question": "Are store_sales and catalog_sales connected through any chain of foreign key relationships?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_silo_connected_009",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "connected",
+    "question": "Are customer_address and customer connected through any chain of foreign key relationships?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_silo_enumerate_010",
+    "dataset": "tpc-ds",
+    "type": "silo_detection",
+    "subtype": "full_enumeration",
+    "question": "List ALL tables that belong to the largest connected component in this schema.",
+    "answer": [
+      "call_center",
+      "catalog_page",
+      "catalog_returns",
+      "catalog_sales",
+      "customer",
+      "customer_address",
+      "customer_demographics",
+      "date_dim",
+      "household_demographics",
+      "income_band",
+      "inventory",
+      "item",
+      "promotion",
+      "reason",
+      "ship_mode",
+      "store",
+      "store_returns",
+      "store_sales",
+      "time_dim",
+      "warehouse",
+      "web_page",
+      "web_returns",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_000",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects promotion to store_sales?",
+    "answer": [
+      "promotion",
+      "store_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_001",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store to store_sales?",
+    "answer": [
+      "store",
+      "store_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_002",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer_demographics?",
+    "answer": [
+      "catalog_sales",
+      "customer_demographics"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_003",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer to household_demographics?",
+    "answer": [
+      "customer",
+      "household_demographics"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_004",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_sales to time_dim?",
+    "answer": [
+      "store_sales",
+      "time_dim"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_005",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer to web_returns?",
+    "answer": [
+      "customer",
+      "web_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_006",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_sales to household_demographics?",
+    "answer": [
+      "catalog_sales",
+      "household_demographics"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_007",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer to web_sales?",
+    "answer": [
+      "customer",
+      "web_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_008",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_returns to time_dim?",
+    "answer": [
+      "catalog_returns",
+      "time_dim"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_009",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_returns to call_center?",
+    "answer": [
+      "catalog_returns",
+      "call_center"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_010",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_returns to item?",
+    "answer": [
+      "store_returns",
+      "item"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_011",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects call_center to catalog_sales?",
+    "answer": [
+      "call_center",
+      "catalog_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_012",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_returns to reason?",
+    "answer": [
+      "store_returns",
+      "reason"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_013",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects household_demographics to catalog_returns?",
+    "answer": [
+      "household_demographics",
+      "catalog_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_014",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer?",
+    "answer": [
+      "catalog_sales",
+      "customer"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_015",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects warehouse to inventory?",
+    "answer": [
+      "warehouse",
+      "inventory"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_016",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_sales to date_dim?",
+    "answer": [
+      "web_sales",
+      "date_dim"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_017",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects reason to catalog_returns?",
+    "answer": [
+      "reason",
+      "catalog_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_018",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_sales to customer_address?",
+    "answer": [
+      "web_sales",
+      "customer_address"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_019",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store_sales?",
+    "answer": [
+      "customer_demographics",
+      "store_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_020",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_returns to date_dim?",
+    "answer": [
+      "store_returns",
+      "date_dim"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_021",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer_address to store_returns?",
+    "answer": [
+      "customer_address",
+      "store_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_022",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer to customer_demographics?",
+    "answer": [
+      "customer",
+      "customer_demographics"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_023",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects household_demographics to store_returns?",
+    "answer": [
+      "household_demographics",
+      "store_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_024",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer_address to catalog_sales?",
+    "answer": [
+      "customer_address",
+      "catalog_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_025",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_sales to warehouse?",
+    "answer": [
+      "web_sales",
+      "warehouse"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_026",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_site to catalog_returns?",
+    "answer": [
+      "web_site",
+      "web_sales",
+      "date_dim",
+      "catalog_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_027",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects item to income_band?",
+    "answer": [
+      "item",
+      "store_sales",
+      "household_demographics",
+      "income_band"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_028",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects ship_mode to date_dim?",
+    "answer": [
+      "ship_mode",
+      "catalog_sales",
+      "date_dim"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_029",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects ship_mode to call_center?",
+    "answer": [
+      "ship_mode",
+      "catalog_sales",
+      "call_center"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_030",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects promotion to store_returns?",
+    "answer": [
+      "promotion",
+      "store_sales",
+      "date_dim",
+      "store_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_031",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_sales to store_returns?",
+    "answer": [
+      "store_sales",
+      "date_dim",
+      "store_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_032",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_returns to catalog_page?",
+    "answer": [
+      "store_returns",
+      "date_dim",
+      "catalog_sales",
+      "catalog_page"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_033",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects ship_mode to household_demographics?",
+    "answer": [
+      "ship_mode",
+      "catalog_sales",
+      "household_demographics"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_034",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects reason to customer?",
+    "answer": [
+      "reason",
+      "store_returns",
+      "customer"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_035",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_sales to store_returns?",
+    "answer": [
+      "catalog_sales",
+      "date_dim",
+      "store_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_036",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_returns to catalog_sales?",
+    "answer": [
+      "web_returns",
+      "date_dim",
+      "catalog_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_037",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects time_dim to item?",
+    "answer": [
+      "time_dim",
+      "store_sales",
+      "item"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_038",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_returns to income_band?",
+    "answer": [
+      "store_returns",
+      "household_demographics",
+      "income_band"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_039",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects reason to customer_address?",
+    "answer": [
+      "reason",
+      "store_returns",
+      "customer_address"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_040",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer to web_page?",
+    "answer": [
+      "customer",
+      "web_sales",
+      "web_page"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_041",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer_demographics to time_dim?",
+    "answer": [
+      "customer_demographics",
+      "store_sales",
+      "time_dim"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_042",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects call_center to income_band?",
+    "answer": [
+      "call_center",
+      "catalog_sales",
+      "household_demographics",
+      "income_band"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_043",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_page to store_sales?",
+    "answer": [
+      "catalog_page",
+      "catalog_sales",
+      "date_dim",
+      "store_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_044",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects promotion to inventory?",
+    "answer": [
+      "promotion",
+      "store_sales",
+      "date_dim",
+      "inventory"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_045",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer_demographics to warehouse?",
+    "answer": [
+      "customer_demographics",
+      "catalog_sales",
+      "warehouse"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_046",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects call_center to store_sales?",
+    "answer": [
+      "call_center",
+      "catalog_sales",
+      "date_dim",
+      "store_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_047",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_page to item?",
+    "answer": [
+      "catalog_page",
+      "catalog_sales",
+      "item"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_048",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects call_center to web_sales?",
+    "answer": [
+      "call_center",
+      "catalog_sales",
+      "date_dim",
+      "web_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_049",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects item to web_page?",
+    "answer": [
+      "item",
+      "web_sales",
+      "web_page"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_050",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_returns to web_page?",
+    "answer": [
+      "store_returns",
+      "date_dim",
+      "web_sales",
+      "web_page"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_051",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_returns to call_center?",
+    "answer": [
+      "web_returns",
+      "date_dim",
+      "catalog_sales",
+      "call_center"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_052",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_site?",
+    "answer": [
+      "catalog_page",
+      "catalog_sales",
+      "date_dim",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_053",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_page?",
+    "answer": [
+      "catalog_page",
+      "catalog_sales",
+      "date_dim",
+      "web_sales",
+      "web_page"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_054",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_page to call_center?",
+    "answer": [
+      "web_page",
+      "web_sales",
+      "date_dim",
+      "catalog_sales",
+      "call_center"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_055",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_page to store?",
+    "answer": [
+      "web_page",
+      "web_sales",
+      "date_dim",
+      "store_sales",
+      "store"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_056",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects inventory to income_band?",
+    "answer": [
+      "inventory",
+      "warehouse",
+      "catalog_sales",
+      "household_demographics",
+      "income_band"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_057",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store to warehouse?",
+    "answer": [
+      "store",
+      "store_sales",
+      "date_dim",
+      "catalog_sales",
+      "warehouse"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_058",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store to web_site?",
+    "answer": [
+      "store",
+      "store_sales",
+      "date_dim",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tpc-ds_route_path_059",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_returns to web_site?",
+    "answer": [
+      "web_returns",
+      "date_dim",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_060",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects time_dim to inventory?",
+    "answer": [
+      "time_dim",
+      "store_sales",
+      "date_dim",
+      "inventory"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_061",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects inventory to web_site?",
+    "answer": [
+      "inventory",
+      "warehouse",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_062",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store to customer?",
+    "answer": [
+      "store",
+      "store_sales",
+      "customer"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_063",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_sales to store_returns?",
+    "answer": [
+      "web_sales",
+      "date_dim",
+      "store_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_064",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer_address to web_page?",
+    "answer": [
+      "customer_address",
+      "web_sales",
+      "web_page"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_065",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_site to customer_address?",
+    "answer": [
+      "web_site",
+      "web_sales",
+      "customer_address"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_066",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects promotion to web_site?",
+    "answer": [
+      "promotion",
+      "web_sales",
+      "web_site"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_067",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects promotion to catalog_sales?",
+    "answer": [
+      "promotion",
+      "catalog_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_068",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects item to customer?",
+    "answer": [
+      "item",
+      "store_sales",
+      "customer"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_069",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects income_band to web_returns?",
+    "answer": [
+      "income_band",
+      "household_demographics",
+      "web_returns"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_070",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects store_sales to reason?",
+    "answer": [
+      "store_sales",
+      "date_dim",
+      "store_returns",
+      "reason"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_071",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects inventory to item?",
+    "answer": [
+      "inventory",
+      "item"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_072",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_page to catalog_sales?",
+    "answer": [
+      "web_page",
+      "web_sales",
+      "date_dim",
+      "catalog_sales"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_073",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects call_center to inventory?",
+    "answer": [
+      "call_center",
+      "catalog_sales",
+      "date_dim",
+      "inventory"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_074",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_returns to time_dim?",
+    "answer": [
+      "web_returns",
+      "time_dim"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_075",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects web_page to inventory?",
+    "answer": [
+      "web_page",
+      "web_sales",
+      "date_dim",
+      "inventory"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_076",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer to income_band?",
+    "answer": [
+      "customer",
+      "household_demographics",
+      "income_band"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_077",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store?",
+    "answer": [
+      "customer_demographics",
+      "store_sales",
+      "store"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_path_078",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_returns to store?",
+    "answer": [
+      "catalog_returns",
+      "date_dim",
+      "store_sales",
+      "store"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_path_079",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "join_path",
+    "question": "What is the shortest chain of foreign key joins that connects catalog_returns to warehouse?",
+    "answer": [
+      "catalog_returns",
+      "warehouse"
+    ],
+    "answer_type": "ordered_list",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_hops_080",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to store?",
+    "answer": 3,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_081",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect customer_demographics to warehouse?",
+    "answer": 2,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_082",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect promotion to store_returns?",
+    "answer": 3,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_083",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect call_center to inventory?",
+    "answer": 3,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_084",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect catalog_page to web_page?",
+    "answer": 4,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_085",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect household_demographics to store_returns?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_086",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect store_returns to item?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_087",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect promotion to catalog_sales?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_088",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect call_center to store_sales?",
+    "answer": 3,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_089",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to time_dim?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_090",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect web_page to catalog_sales?",
+    "answer": 3,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_091",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect customer_address to web_page?",
+    "answer": 2,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_092",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect item to customer?",
+    "answer": 2,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_093",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect catalog_sales to customer_demographics?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_094",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect item to web_page?",
+    "answer": 2,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_095",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect time_dim to inventory?",
+    "answer": 3,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_096",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect customer to web_returns?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_097",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect customer to web_page?",
+    "answer": 2,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_098",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect customer_address to catalog_sales?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_hops_099",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of foreign key joins needed to connect web_returns to time_dim?",
+    "answer": 1,
+    "answer_type": "integer",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tpc-ds_route_direct_109",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does income_band have a direct foreign key relationship to item?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_104",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does web_sales have a direct foreign key relationship to item?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_101",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does store_sales have a direct foreign key relationship to item?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_106",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does store_returns have a direct foreign key relationship to customer_address?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_103",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does store_sales have a direct foreign key relationship to promotion?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_105",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does catalog_returns have a direct foreign key relationship to date_dim?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_100",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does catalog_returns have a direct foreign key relationship to item?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_108",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does promotion have a direct foreign key relationship to web_page?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_112",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does web_returns have a direct foreign key relationship to promotion?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_111",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does customer have a direct foreign key relationship to inventory?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_107",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does web_sales have a direct foreign key relationship to promotion?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_114",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does customer have a direct foreign key relationship to call_center?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_102",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does web_sales have a direct foreign key relationship to customer?",
+    "answer": true,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_115",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does promotion have a direct foreign key relationship to web_sales?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_113",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does store_returns have a direct foreign key relationship to ship_mode?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tpc-ds_route_direct_110",
+    "dataset": "tpc-ds",
+    "type": "schema_routing",
+    "subtype": "direct_fk",
+    "question": "Does income_band have a direct foreign key relationship to catalog_page?",
+    "answer": false,
+    "answer_type": "boolean",
+    "difficulty": "easy"
+  }
+]

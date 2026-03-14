@@ -1,0 +1,121 @@
+% ============================================================================
+% 5. EXPERIMENTS
+% ============================================================================
+\section{Experiments}
+
+\subsection{Setup}
+
+We evaluate using Gemini 2.5 Flash via API. Each question receives the
+baseline-specific context and returns a JSON response with reasoning and
+answer. We measure:
+
+\begin{itemize}
+  \item \textbf{Exact Match (EM)}: Binary correctness. For list answers,
+    we compare sorted sets.
+  \item \textbf{F1 Score}: Token-level overlap for partial credit on list
+    answers.
+\end{itemize}
+
+\subsection{Main Results}
+
+% TABLE 3: Main Results
+\begin{table}[t]
+\centering
+\caption{Main results: Exact Match (\%) across datasets and baselines
+using Gemini 2.5 Flash. \textbf{Bold} = best per column.}
+\label{tab:main-results}
+\begin{tabular}{lccccc}
+\toprule
+Baseline & AW & TPC-DS & TPC-DI & OMOP & \textbf{Avg} \\
+\midrule
+Flat Text   & 76.0 & \textbf{81.9} & \textbf{76.2} & \textbf{62.0} & \textbf{74.0} \\
+Vector RAG  & 68.1 & 69.3 & 74.6 & 60.8 & 68.2 \\
+Graph-Aug   & \textbf{77.5} & 70.1 & 71.8 & 60.1 & 69.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% FIGURE 3: Bar chart grouped by difficulty
+% [FIGURE 3 PLACEHOLDER: Three-group bar chart (Easy/Medium/Hard)
+% with FT, VR, GA bars in each group. The Hard group should show
+% GA clearly ahead.]
+
+\subsection{Results by Difficulty}
+
+% TABLE 4: By difficulty
+\begin{table}[t]
+\centering
+\caption{Exact Match (\%) by difficulty level. All baselines
+\textbf{collapse on hard} questions ($\leq$17.5\% EM).}
+\label{tab:difficulty}
+\begin{tabular}{lcccc}
+\toprule
+Difficulty & $n$ & FT & VR & GA \\
+\midrule
+Easy    & 226 & \textbf{83.2} & 81.9 & 78.4 \\
+Medium  & 383 & \textbf{77.8} & 71.3 & 74.2 \\
+Hard    &  61 & 14.8 & 5.3 & \textbf{17.5} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Key Finding 1: All baselines collapse on hard tasks.}
+While Flat Text achieves the highest overall EM (74.0\%), all baselines
+collapse on hard structural reasoning: FT drops to 14.8\%, VR to 5.3\%,
+and GA to 17.5\%. Graph-Aug provides a modest +2.8\% improvement over FT
+on hard tasks, but the absolute performance remains critically low.
+
+\subsection{Per-Subtype Analysis}
+
+% FIGURE 4: Heatmap of EM by subtype x baseline
+% [FIGURE 4 PLACEHOLDER: 13-row x 3-column heatmap
+% Rows = subtypes (sorted by difficulty), Cols = FT/VR/GA
+% Color: green (100%) to red (0%)]
+
+\paragraph{Key Finding 2: Specific subtypes reveal graph reasoning gaps.}
+Both FT and GA achieve 100\% on \texttt{count}, \texttt{full\_enumeration},
+and \texttt{multi\_source}---structurally simple tasks. GA achieves
+50\% on \texttt{transitive} (multi-hop lineage) where FT scores 0\%,
+and 50\% on \texttt{connected} where FT scores 25\%. FT leads on
+\texttt{join\_path} (77.8\% vs.\ GA's 69.3\%) due to its complete FK
+context.
+
+\paragraph{Key Finding 3: Combined impact remains unsolved.}
+The \texttt{combined\_impact} subtype---requiring simultaneous traversal
+of lineage chains AND FK dependency trees---achieves $\leq$6.5\% EM across
+all baselines (FT: 6.5\%, GA: 3.2\%). This establishes a clear frontier
+for future work on learned graph representations.
+
+\subsection{Obfuscation Results}
+
+% TABLE 5: Original vs Obfuscated
+\begin{table}[t]
+\centering
+\caption{Original vs.\ obfuscated exact match (\%). Large deltas indicate
+reliance on schema name memorization rather than structural reasoning.}
+\label{tab:obfuscation}
+\begin{tabular}{lccc}
+\toprule
+Baseline & Original & Obfuscated & $\Delta$ \\
+\midrule
+Flat Text   & 73.9 & 64.9 & $-$9.0 \\
+Vector RAG  & 68.4 & 50.1 & $-$18.2 \\
+Graph-Aug   & 70.4 & 49.1 & $-$21.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Key Finding 4: Obfuscation reveals a dissociation.}
+Easy question performance drops 25--33\% when table names are scrambled,
+confirming that models rely on name recognition for routine structural
+tasks (forward lineage, FK adjacency). In contrast, hard structural
+subtypes score near 0\% \emph{regardless} of obfuscation, confirming
+these failures reflect structural reasoning impossibilities rather than
+knowledge gaps. The model cannot perform multi-hop traversal even when
+it knows the real table names.
+
+Graph-Aug suffers the largest obfuscation penalty ($-$21.3\%), suggesting
+that its graph algorithm output is easier to interpret when table names
+carry semantic meaning. Vector RAG's large penalty ($-$18.2\%) reflects
+that embedding-based retrieval degrades when table name semantics are
+removed.

@@ -1,0 +1,2651 @@
+{
+  "baseline": "graph_aug",
+  "dataset": "tpc-di",
+  "obfuscated": false,
+  "model": "deepseek-chat",
+  "model_tag": "deepseek-chat",
+  "metrics": {
+    "total": 60,
+    "micro_em": 0.6667,
+    "micro_f1": 0.9034,
+    "macro_em": 0.65,
+    "macro_f1": 0.8901,
+    "exact_match": 0.6667,
+    "avg_f1": 0.9034,
+    "by_type": {
+      "silo_detection": {
+        "total": 44,
+        "exact_match": 0.7955,
+        "avg_f1": 0.974
+      },
+      "lineage_impact": {
+        "total": 15,
+        "exact_match": 0.2667,
+        "avg_f1": 0.6898
+      },
+      "schema_routing": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    },
+    "by_difficulty": {
+      "hard": {
+        "total": 21,
+        "exact_match": 0.1429,
+        "avg_f1": 0.7874
+      },
+      "medium": {
+        "total": 39,
+        "exact_match": 0.9487,
+        "avg_f1": 0.9658
+      }
+    },
+    "by_subtype": {
+      "membership": {
+        "total": 8,
+        "exact_match": 0.0,
+        "avg_f1": 0.9818
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "connected": {
+        "total": 20,
+        "exact_match": 0.95,
+        "avg_f1": 0.95
+      },
+      "isolation": {
+        "total": 15,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "transitive": {
+        "total": 2,
+        "exact_match": 0.5,
+        "avg_f1": 0.6818
+      },
+      "multi_source": {
+        "total": 4,
+        "exact_match": 0.75,
+        "avg_f1": 0.9167
+      },
+      "combined_impact": {
+        "total": 9,
+        "exact_match": 0.0,
+        "avg_f1": 0.5908
+      },
+      "join_path": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "tpc-di_ext_membership_001",
+      "question": "Which tables are in the same connected component (data silo) as FactMarketHistory?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "FactMarketHistory is in Component 1, which includes all 28 tables listed in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "FactMarketHistory is in Component 1, which includes all 28 tables listed in the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"FactMarketHistory is in Component 1, which includes all 28 tables listed in the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_membership_002",
+      "question": "Which tables are in the same connected component (data silo) as SRC.TaxRate?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "SRC.TaxRate is listed in Component 1, which includes 28 tables as per the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.TaxRate is listed in Component 1, which includes 28 tables as per the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.TaxRate is listed in Component 1, which includes 28 tables as per the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_membership_003",
+      "question": "Which tables are in the same connected component (data silo) as SRC.Trade?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "SRC.Trade is listed in Component 1, which includes 28 tables as per the connected components description.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.Trade is listed in Component 1, which includes 28 tables as per the connected components description.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Trade is listed in Component 1, which includes 28 tables as per the connected components description.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_membership_004",
+      "question": "Which tables are in the same connected component (data silo) as SRC.FINWIRE_SEC?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "SRC.FINWIRE_SEC is listed in Component 1, which includes 28 tables as per the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.FINWIRE_SEC is listed in Component 1, which includes 28 tables as per the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.FINWIRE_SEC is listed in Component 1, which includes 28 tables as per the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_membership_005",
+      "question": "Which tables are in the same connected component (data silo) as SRC.FINWIRE_FIN?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "SRC.FINWIRE_FIN is listed in Component 1, which includes 28 tables as specified in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.FINWIRE_FIN is listed in Component 1, which includes 28 tables as specified in the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.FINWIRE_FIN is listed in Component 1, which includes 28 tables as specified in the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_membership_006",
+      "question": "Which tables are in the same connected component (data silo) as SRC.HoldingHistory?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "SRC.HoldingHistory is listed in Component 1, which includes 28 tables as specified in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.HoldingHistory is listed in Component 1, which includes 28 tables as specified in the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.HoldingHistory is listed in Component 1, which includes 28 tables as specified in the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_membership_007",
+      "question": "Which tables are in the same connected component (data silo) as DimDate?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "DimDate is in Component 1, which includes 28 tables as listed in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "DimDate is in Component 1, which includes 28 tables as listed in the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"DimDate is in Component 1, which includes 28 tables as listed in the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_membership_008",
+      "question": "Which tables are in the same connected component (data silo) as Financial?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "hard",
+      "reasoning": "Financial is in Component 1, which includes all 28 tables listed in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Financial is in Component 1, which includes all 28 tables listed in the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Financial is in Component 1, which includes all 28 tables listed in the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9818,
+        "precision": 0.9643,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_full_enum_009",
+      "question": "List ALL tables that belong to the connected component containing SRC.Date.",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "reasoning": "SRC.Date is in Component 1, which includes all 28 tables listed in the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimAccount",
+          "DimBroker",
+          "DimCompany",
+          "DimCustomer",
+          "DimDate",
+          "DimSecurity",
+          "DimTime",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "Financial",
+          "SRC.CashTransaction",
+          "SRC.CustomerMgmt",
+          "SRC.DailyMarket",
+          "SRC.Date",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_FIN",
+          "SRC.FINWIRE_SEC",
+          "SRC.HR",
+          "SRC.HoldingHistory",
+          "SRC.TaxRate",
+          "SRC.Time",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.WatchHistory",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.Date is in Component 1, which includes all 28 tables listed in the context.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\", \"DimCompany\", \"DimCustomer\", \"DimDate\", \"DimSecurity\", \"DimTime\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"Financial\", \"SRC.CashTransaction\", \"SRC.CustomerMgmt\", \"SRC.DailyMarket\", \"SRC.Date\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_FIN\", \"SRC.FINWIRE_SEC\", \"SRC.HR\", \"SRC.HoldingHistory\", \"SRC.TaxRate\", \"SRC.Time\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.WatchHistory\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Date is in Component 1, which includes all 28 tables listed in the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_010",
+      "question": "Are DimCompany and TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "DimCompany and TradeType are in different connected components (Component 1 and Component 5), so there is no path between them via foreign keys.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "DimCompany and TradeType are in different connected components (Component 1 and Component 5), so there is no path between them via foreign keys.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"DimCompany and TradeType are in different connected components (Component 1 and Component 5), so there is no path between them via foreign keys.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_011",
+      "question": "Are SRC.TradeType and TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "The context states there is a direct lineage relationship from SRC.TradeType to TradeType, indicating they are connected.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The context states there is a direct lineage relationship from SRC.TradeType to TradeType, indicating they are connected.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The context states there is a direct lineage relationship from SRC.TradeType to TradeType, indicating they are connected.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_012",
+      "question": "Are DimCustomer and SRC.StatusType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "DimCustomer and SRC.StatusType are in different connected components (Component 1 and Component 4), so there is no path between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "DimCustomer and SRC.StatusType are in different connected components (Component 1 and Component 4), so there is no path between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"DimCustomer and SRC.StatusType are in different connected components (Component 1 and Component 4), so there is no path between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_013",
+      "question": "Are SRC.Prospect and SRC.Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "SRC.Prospect is in Component 2 (isolated), SRC.Industry is in Component 3, and the shortest paths section explicitly states 'no path exists' between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "SRC.Prospect is in Component 2 (isolated), SRC.Industry is in Component 3, and the shortest paths section explicitly states 'no path exists' between them.",
+        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": false,\n    \"answer_str\": null,\n    \"reasoning\": \"SRC.Prospect is in Component 2 (isolated), SRC.Industry is in Component 3, and the shortest paths section explicitly states 'no path exists' between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_014",
+      "question": "Are DimSecurity and Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "DimSecurity and Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "DimSecurity and Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"DimSecurity and Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_015",
+      "question": "Are DimSecurity and SRC.Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "DimSecurity and SRC.Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign keys.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "DimSecurity and SRC.Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign keys.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"DimSecurity and SRC.Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign keys.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_016",
+      "question": "Are SRC.HR and SRC.StatusType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "SRC.HR and SRC.StatusType are in different connected components (Component 1 and Component 4), so no path exists between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "SRC.HR and SRC.StatusType are in different connected components (Component 1 and Component 4), so no path exists between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.HR and SRC.StatusType are in different connected components (Component 1 and Component 4), so no path exists between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_017",
+      "question": "Are FactWatches and SRC.Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "FactWatches and SRC.Industry are in different connected components (Component 1 vs Component 3), so no foreign key relationship chain exists between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "FactWatches and SRC.Industry are in different connected components (Component 1 vs Component 3), so no foreign key relationship chain exists between them.",
+        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": false,\n    \"answer_str\": null,\n    \"reasoning\": \"FactWatches and SRC.Industry are in different connected components (Component 1 vs Component 3), so no foreign key relationship chain exists between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_018",
+      "question": "Are DimCustomer and StatusType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "DimCustomer and StatusType are in different connected components (Component 1 and Component 4), and the context explicitly states 'no path exists' between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "DimCustomer and StatusType are in different connected components (Component 1 and Component 4), and the context explicitly states 'no path exists' between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"DimCustomer and StatusType are in different connected components (Component 1 and Component 4), and the context explicitly states 'no path exists' between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_019",
+      "question": "Are DimTime and SRC.Prospect connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "DimTime is in Component 1 and SRC.Prospect is in Component 2, with no FK relationships between components, so they are not connected.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "DimTime is in Component 1 and SRC.Prospect is in Component 2, with no FK relationships between components, so they are not connected.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"DimTime is in Component 1 and SRC.Prospect is in Component 2, with no FK relationships between components, so they are not connected.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_020",
+      "question": "Are Financial and TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "Financial and TradeType are in different connected components (Component 1 and Component 5), and the context states there is no path between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "Financial and TradeType are in different connected components (Component 1 and Component 5), and the context states there is no path between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Financial and TradeType are in different connected components (Component 1 and Component 5), and the context states there is no path between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_021",
+      "question": "Are SRC.Prospect and Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "SRC.Prospect is in a separate connected component with no foreign key relationships to Industry, as indicated by the shortest path result.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "SRC.Prospect is in a separate connected component with no foreign key relationships to Industry, as indicated by the shortest path result.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Prospect is in a separate connected component with no foreign key relationships to Industry, as indicated by the shortest path result.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_022",
+      "question": "Are FactWatches and Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "FactWatches and Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "FactWatches and Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"FactWatches and Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_023",
+      "question": "Are StatusType and SRC.StatusType connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "The context shows they are connected via a lineage relationship (DERIVED_FROM), not through foreign key relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "The context shows they are connected via a lineage relationship (DERIVED_FROM), not through foreign key relationships.",
+        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": false,\n    \"answer_str\": null,\n    \"reasoning\": \"The context shows they are connected via a lineage relationship (DERIVED_FROM), not through foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_024",
+      "question": "Are SRC.Industry and StatusType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "The context states there is no path between SRC.Industry and StatusType, indicating they are not connected via foreign key relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "The context states there is no path between SRC.Industry and StatusType, indicating they are not connected via foreign key relationships.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The context states there is no path between SRC.Industry and StatusType, indicating they are not connected via foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_025",
+      "question": "Are SRC.Prospect and SRC.TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "SRC.Prospect is in component 2 and SRC.TradeType is in component 5, with no foreign key relationships between them as per the context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "SRC.Prospect is in component 2 and SRC.TradeType is in component 5, with no foreign key relationships between them as per the context.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Prospect is in component 2 and SRC.TradeType is in component 5, with no foreign key relationships between them as per the context.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_026",
+      "question": "Are StatusType and TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "StatusType and TradeType are in different connected components (Component 4 and Component 5 respectively) with no foreign key relationships between them, and the shortest path analysis confirms no path exists.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "StatusType and TradeType are in different connected components (Component 4 and Component 5 respectively) with no foreign key relationships between them, and the shortest path analysis confirms no path exists.",
+        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": false,\n    \"answer_str\": null,\n    \"reasoning\": \"StatusType and TradeType are in different connected components (Component 4 and Component 5 respectively) with no foreign key relationships between them, and the shortest path analysis confirms no path exists.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_027",
+      "question": "Are SRC.Industry and TradeType connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "The context states there is no path between SRC.Industry and TradeType, indicating they are not connected through any chain of relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "The context states there is no path between SRC.Industry and TradeType, indicating they are not connected through any chain of relationships.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The context states there is no path between SRC.Industry and TradeType, indicating they are not connected through any chain of relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_028",
+      "question": "Are DimCompany and SRC.Industry connected through any chain of foreign key relationships?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "DimCompany and SRC.Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "DimCompany and SRC.Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"DimCompany and SRC.Industry are in different connected components (Component 1 and Component 3), so there is no path between them via foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_connected_029",
+      "question": "Are SRC.TaxRate and DimAccount connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "medium",
+      "reasoning": "The context shows a shortest path from SRC.TaxRate to DimAccount via TaxRate and DimCustomer, indicating connectivity through foreign key relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "The context shows a shortest path from SRC.TaxRate to DimAccount via TaxRate and DimCustomer, indicating connectivity through foreign key relationships.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The context shows a shortest path from SRC.TaxRate to DimAccount via TaxRate and DimCustomer, indicating connectivity through foreign key relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_031",
+      "question": "Are DimAccount and SRC.Industry in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "DimAccount is in Component 1 and SRC.Industry is in Component 3, which are separate connected components, indicating they are in different disconnected silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "DimAccount is in Component 1 and SRC.Industry is in Component 3, which are separate connected components, indicating they are in different disconnected silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"DimAccount is in Component 1 and SRC.Industry is in Component 3, which are separate connected components, indicating they are in different disconnected silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_036",
+      "question": "Are SRC.Prospect and SRC.TradeType in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "SRC.Prospect is in Component 2 and SRC.TradeType is in Component 5, which are separate connected components (silos).",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "SRC.Prospect is in Component 2 and SRC.TradeType is in Component 5, which are separate connected components (silos).",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Prospect is in Component 2 and SRC.TradeType is in Component 5, which are separate connected components (silos).\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_041",
+      "question": "Are DimCompany and TaxRate in different disconnected data silos?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "Both DimCompany and TaxRate are in Component 1, which is the same connected component, so they are not in different disconnected silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "Both DimCompany and TaxRate are in Component 1, which is the same connected component, so they are not in different disconnected silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Both DimCompany and TaxRate are in Component 1, which is the same connected component, so they are not in different disconnected silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_033",
+      "question": "Are SRC.DailyMarket and TradeType in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "SRC.DailyMarket is in Component 1 and TradeType is in Component 5, which are separate connected components (silos).",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "SRC.DailyMarket is in Component 1 and TradeType is in Component 5, which are separate connected components (silos).",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.DailyMarket is in Component 1 and TradeType is in Component 5, which are separate connected components (silos).\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_039",
+      "question": "Are StatusType and SRC.TradeType in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "StatusType is in Component 4 and SRC.TradeType is in Component 5, which are separate connected components (silos) with no path between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "StatusType is in Component 4 and SRC.TradeType is in Component 5, which are separate connected components (silos) with no path between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"StatusType is in Component 4 and SRC.TradeType is in Component 5, which are separate connected components (silos) with no path between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_045",
+      "question": "Are SRC.TradeType and TradeType in different disconnected data silos?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "SRC.TradeType and TradeType are in the same connected component (Component 5), as listed in the context, so they are not in different disconnected silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "SRC.TradeType and TradeType are in the same connected component (Component 5), as listed in the context, so they are not in different disconnected silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.TradeType and TradeType are in the same connected component (Component 5), as listed in the context, so they are not in different disconnected silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_044",
+      "question": "Are StatusType and SRC.StatusType in different disconnected data silos?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "StatusType and SRC.StatusType are in the same connected component (Component 4), as shown in the context, so they are not in different disconnected silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "StatusType and SRC.StatusType are in the same connected component (Component 4), as shown in the context, so they are not in different disconnected silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"StatusType and SRC.StatusType are in the same connected component (Component 4), as shown in the context, so they are not in different disconnected silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_034",
+      "question": "Are SRC.Prospect and Industry in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "SRC.Prospect is in Component 2 and Industry is in Component 3, which are separate connected components with no path between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "SRC.Prospect is in Component 2 and Industry is in Component 3, which are separate connected components with no path between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Prospect is in Component 2 and Industry is in Component 3, which are separate connected components with no path between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_032",
+      "question": "Are DimTime and SRC.StatusType in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "DimTime is in Component 1 and SRC.StatusType is in Component 4, which are separate connected components, indicating they are in different disconnected data silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "DimTime is in Component 1 and SRC.StatusType is in Component 4, which are separate connected components, indicating they are in different disconnected data silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"DimTime is in Component 1 and SRC.StatusType is in Component 4, which are separate connected components, indicating they are in different disconnected data silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_043",
+      "question": "Are SRC.Industry and Industry in different disconnected data silos?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "SRC.Industry and Industry are both in Component 3, which is a connected component of 2 tables, so they are not in different disconnected silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "SRC.Industry and Industry are both in Component 3, which is a connected component of 2 tables, so they are not in different disconnected silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Industry and Industry are both in Component 3, which is a connected component of 2 tables, so they are not in different disconnected silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_030",
+      "question": "Are FactMarketHistory and SRC.Prospect in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "FactMarketHistory is in Component 1 and SRC.Prospect is in Component 2, which are separate connected components with no path between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "FactMarketHistory is in Component 1 and SRC.Prospect is in Component 2, which are separate connected components with no path between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"FactMarketHistory is in Component 1 and SRC.Prospect is in Component 2, which are separate connected components with no path between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_040",
+      "question": "Are SRC.FINWIRE_SEC and FactWatches in different disconnected data silos?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "Both tables are in Component 1, which is a single connected component, so they are not in different disconnected silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "Both tables are in Component 1, which is a single connected component, so they are not in different disconnected silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Both tables are in Component 1, which is a single connected component, so they are not in different disconnected silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_038",
+      "question": "Are SRC.Industry and TradeType in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "SRC.Industry is in Component 3 and TradeType is in Component 5, which are separate connected components.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "SRC.Industry is in Component 3 and TradeType is in Component 5, which are separate connected components.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Industry is in Component 3 and TradeType is in Component 5, which are separate connected components.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_037",
+      "question": "Are SRC.Industry and StatusType in different disconnected data silos?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "SRC.Industry is in Component 3 and StatusType is in Component 4, which are separate connected components (silos) with no path between them.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": true,
+        "answer_str": null,
+        "reasoning": "SRC.Industry is in Component 3 and StatusType is in Component 4, which are separate connected components (silos) with no path between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Industry is in Component 3 and StatusType is in Component 4, which are separate connected components (silos) with no path between them.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_isolation_042",
+      "question": "Are SRC.HoldingHistory and SRC.FINWIRE_CMP in different disconnected data silos?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "reasoning": "Both tables are in Component 1, as shown in the connected components list, so they are not in different disconnected silos.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": null,
+        "answer_int": null,
+        "answer_bool": false,
+        "answer_str": null,
+        "reasoning": "Both tables are in Component 1, as shown in the connected components list, so they are not in different disconnected silos.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Both tables are in Component 1, as shown in the connected components list, so they are not in different disconnected silos.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_transitive_046",
+      "question": "If the schema of SRC.FINWIRE_CMP changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "DimCompany",
+        "DimSecurity"
+      ],
+      "predicted_answer": [
+        "DimCompany",
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "SRC.DailyMarket",
+        "SRC.HoldingHistory",
+        "SRC.Trade",
+        "SRC.TradeHistory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "reasoning": "SRC.FINWIRE_CMP has lineage to DimCompany, which connects to DimSecurity, DimTrade, FactHoldings, FactMarketHistory, and their derived tables via FK and lineage relationships in Component 1.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimCompany",
+          "DimSecurity",
+          "DimTrade",
+          "FactHoldings",
+          "FactMarketHistory",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.HoldingHistory",
+          "SRC.DailyMarket"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.FINWIRE_CMP has lineage to DimCompany, which connects to DimSecurity, DimTrade, FactHoldings, FactMarketHistory, and their derived tables via FK and lineage relationships in Component 1.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimSecurity\", \"DimTrade\", \"FactHoldings\", \"FactMarketHistory\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.HoldingHistory\", \"SRC.DailyMarket\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.FINWIRE_CMP has lineage to DimCompany, which connects to DimSecurity, DimTrade, FactHoldings, FactMarketHistory, and their derived tables via FK and lineage relationships in Component 1.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.3636,
+        "precision": 0.2222,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_transitive_047",
+      "question": "If the schema of SRC.TaxRate changes, which tables are directly or indirectly affected through data lineage?",
+      "gold_answer": [
+        "DimCustomer",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimCustomer",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "transitive",
+      "difficulty": "hard",
+      "reasoning": "From lineage relationships, SRC.TaxRate directly affects TaxRate, which then indirectly affects DimCustomer via its lineage.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "TaxRate",
+          "DimCustomer"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "From lineage relationships, SRC.TaxRate directly affects TaxRate, which then indirectly affects DimCustomer via its lineage.",
+        "_raw_text": "{\n  \"answer_list\": [\"TaxRate\", \"DimCustomer\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"From lineage relationships, SRC.TaxRate directly affects TaxRate, which then indirectly affects DimCustomer via its lineage.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_multi_source_048",
+      "question": "DimCustomer integrates data from multiple sources. List ALL source tables that feed into DimCustomer.",
+      "gold_answer": [
+        "SRC.CustomerMgmt",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "SRC.CustomerMgmt"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "medium",
+      "reasoning": "The context shows only SRC.CustomerMgmt has a DERIVED_FROM relationship to DimCustomer, indicating it is the source table feeding into DimCustomer.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "SRC.CustomerMgmt"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context shows only SRC.CustomerMgmt has a DERIVED_FROM relationship to DimCustomer, indicating it is the source table feeding into DimCustomer.",
+        "_raw_text": "{\n  \"answer_list\": [\"SRC.CustomerMgmt\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context shows only SRC.CustomerMgmt has a DERIVED_FROM relationship to DimCustomer, indicating it is the source table feeding into DimCustomer.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5
+      }
+    },
+    {
+      "id": "tpc-di_ext_multi_source_049",
+      "question": "DimSecurity integrates data from multiple sources. List ALL source tables that feed into DimSecurity.",
+      "gold_answer": [
+        "DimCompany",
+        "SRC.FINWIRE_SEC"
+      ],
+      "predicted_answer": [
+        "DimCompany",
+        "SRC.FINWIRE_SEC"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "medium",
+      "reasoning": "DimSecurity has lineage relationships from SRC.FINWIRE_SEC and DimCompany as per the provided context.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "SRC.FINWIRE_SEC",
+          "DimCompany"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "DimSecurity has lineage relationships from SRC.FINWIRE_SEC and DimCompany as per the provided context.",
+        "_raw_text": "{\n  \"answer_list\": [\"SRC.FINWIRE_SEC\", \"DimCompany\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"DimSecurity has lineage relationships from SRC.FINWIRE_SEC and DimCompany as per the provided context.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_multi_source_050",
+      "question": "DimTrade integrates data from multiple sources. List ALL source tables that feed into DimTrade.",
+      "gold_answer": [
+        "SRC.Trade",
+        "SRC.TradeHistory"
+      ],
+      "predicted_answer": [
+        "SRC.Trade",
+        "SRC.TradeHistory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "medium",
+      "reasoning": "The lineage relationships show SRC.Trade and SRC.TradeHistory both have DERIVED_FROM connections to DimTrade, indicating they are source tables feeding into it.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "SRC.Trade",
+          "SRC.TradeHistory"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The lineage relationships show SRC.Trade and SRC.TradeHistory both have DERIVED_FROM connections to DimTrade, indicating they are source tables feeding into it.",
+        "_raw_text": "{\n  \"answer_list\": [\"SRC.Trade\", \"SRC.TradeHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage relationships show SRC.Trade and SRC.TradeHistory both have DERIVED_FROM connections to DimTrade, indicating they are source tables feeding into it.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_multi_source_051",
+      "question": "FactHoldings integrates data from multiple sources. List ALL source tables that feed into FactHoldings.",
+      "gold_answer": [
+        "SRC.HoldingHistory",
+        "SRC.Trade"
+      ],
+      "predicted_answer": [
+        "SRC.HoldingHistory",
+        "SRC.Trade"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "medium",
+      "reasoning": "The lineage relationships show SRC.Trade and SRC.HoldingHistory both have DERIVED_FROM connections to FactHoldings.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "SRC.Trade",
+          "SRC.HoldingHistory"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The lineage relationships show SRC.Trade and SRC.HoldingHistory both have DERIVED_FROM connections to FactHoldings.",
+        "_raw_text": "{\n  \"answer_list\": [\"SRC.Trade\", \"SRC.HoldingHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage relationships show SRC.Trade and SRC.HoldingHistory both have DERIVED_FROM connections to FactHoldings.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_052",
+      "question": "If SRC.FINWIRE_SEC changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches"
+      ],
+      "predicted_answer": [
+        "DimCompany",
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "SRC.DailyMarket",
+        "SRC.HoldingHistory",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "SRC.FINWIRE_SEC has lineage to DimSecurity, which affects tables via FK dependencies and further lineage, including DimCompany, FactHoldings, FactMarketHistory, FactWatches, DimTrade, and derived tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimSecurity",
+          "DimCompany",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "DimTrade",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.HoldingHistory",
+          "SRC.DailyMarket",
+          "SRC.WatchHistory"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.FINWIRE_SEC has lineage to DimSecurity, which affects tables via FK dependencies and further lineage, including DimCompany, FactHoldings, FactMarketHistory, FactWatches, DimTrade, and derived tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimSecurity\", \"DimCompany\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"DimTrade\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.HoldingHistory\", \"SRC.DailyMarket\", \"SRC.WatchHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.FINWIRE_SEC has lineage to DimSecurity, which affects tables via FK dependencies and further lineage, including DimCompany, FactHoldings, FactMarketHistory, FactWatches, DimTrade, and derived tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.625,
+        "precision": 0.4545,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_053",
+      "question": "If SRC.Time changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimTime",
+        "DimTrade",
+        "FactHoldings"
+      ],
+      "predicted_answer": [
+        "DimTime",
+        "DimTrade",
+        "FactHoldings",
+        "SRC.HoldingHistory",
+        "SRC.Trade",
+        "SRC.TradeHistory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "SRC.Time has a lineage relationship to DimTime, which has foreign key dependencies to DimTrade and FactHoldings, and these have further lineage to SRC tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimTime",
+          "DimTrade",
+          "FactHoldings",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.HoldingHistory"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.Time has a lineage relationship to DimTime, which has foreign key dependencies to DimTrade and FactHoldings, and these have further lineage to SRC tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimTime\", \"DimTrade\", \"FactHoldings\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.HoldingHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Time has a lineage relationship to DimTime, which has foreign key dependencies to DimTrade and FactHoldings, and these have further lineage to SRC tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_054",
+      "question": "If SRC.HR changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimTrade"
+      ],
+      "predicted_answer": [
+        "DimBroker",
+        "DimTrade",
+        "SRC.HR"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "SRC.HR has a lineage relationship to DimBroker, and DimBroker has a foreign key relationship to DimTrade, so both are affected.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimBroker",
+          "DimTrade",
+          "SRC.HR"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.HR has a lineage relationship to DimBroker, and DimBroker has a foreign key relationship to DimTrade, so both are affected.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"DimTrade\", \"SRC.HR\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.HR has a lineage relationship to DimBroker, and DimBroker has a foreign key relationship to DimTrade, so both are affected.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_055",
+      "question": "If SRC.CustomerMgmt changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches"
+      ],
+      "predicted_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches",
+        "SRC.CashTransaction",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "SRC.CustomerMgmt has lineage to DimCustomer and DimAccount, which have FK dependencies to other tables, propagating effects through the connected component.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimCustomer",
+          "DimAccount",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactWatches",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.HoldingHistory",
+          "SRC.CashTransaction",
+          "SRC.WatchHistory",
+          "SRC.TaxRate",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.CustomerMgmt has lineage to DimCustomer and DimAccount, which have FK dependencies to other tables, propagating effects through the connected component.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCustomer\", \"DimAccount\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactWatches\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.HoldingHistory\", \"SRC.CashTransaction\", \"SRC.WatchHistory\", \"SRC.TaxRate\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.CustomerMgmt has lineage to DimCustomer and DimAccount, which have FK dependencies to other tables, propagating effects through the connected component.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6316,
+        "precision": 0.4615,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_056",
+      "question": "If SRC.Date changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimDate",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches"
+      ],
+      "predicted_answer": [
+        "DimDate",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "SRC.Date"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "SRC.Date has a lineage relationship to DimDate, and DimDate has foreign key dependencies to DimTrade, FactCashBalances, FactHoldings, FactMarketHistory, and FactWatches, affecting these tables indirectly.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimDate",
+          "DimTrade",
+          "FactCashBalances",
+          "FactHoldings",
+          "FactMarketHistory",
+          "FactWatches",
+          "SRC.Date"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.Date has a lineage relationship to DimDate, and DimDate has foreign key dependencies to DimTrade, FactCashBalances, FactHoldings, FactMarketHistory, and FactWatches, affecting these tables indirectly.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimDate\", \"DimTrade\", \"FactCashBalances\", \"FactHoldings\", \"FactMarketHistory\", \"FactWatches\", \"SRC.Date\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.Date has a lineage relationship to DimDate, and DimDate has foreign key dependencies to DimTrade, FactCashBalances, FactHoldings, FactMarketHistory, and FactWatches, affecting these tables indirectly.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.9231,
+        "precision": 0.8571,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_057",
+      "question": "If SRC.FINWIRE_CMP changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimCompany",
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches",
+        "Financial"
+      ],
+      "predicted_answer": [
+        "DimCompany",
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "Financial",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HoldingHistory",
+        "SRC.Trade",
+        "SRC.TradeHistory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "SRC.FINWIRE_CMP directly affects DimCompany via lineage, which then propagates to tables with FK dependencies or lineage from DimCompany, DimSecurity, and related tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimCompany",
+          "DimSecurity",
+          "DimTrade",
+          "FactHoldings",
+          "FactMarketHistory",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.HoldingHistory",
+          "SRC.FINWIRE_SEC",
+          "SRC.FINWIRE_FIN",
+          "Financial"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.FINWIRE_CMP directly affects DimCompany via lineage, which then propagates to tables with FK dependencies or lineage from DimCompany, DimSecurity, and related tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimSecurity\", \"DimTrade\", \"FactHoldings\", \"FactMarketHistory\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.HoldingHistory\", \"SRC.FINWIRE_SEC\", \"SRC.FINWIRE_FIN\", \"Financial\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.FINWIRE_CMP directly affects DimCompany via lineage, which then propagates to tables with FK dependencies or lineage from DimCompany, DimSecurity, and related tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.5455,
+        "recall": 0.8571
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_058",
+      "question": "If SRC.TaxRate changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches",
+        "TaxRate"
+      ],
+      "predicted_answer": [
+        "DimCustomer",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "SRC.TaxRate has a direct lineage to TaxRate, and TaxRate has a lineage to DimCustomer, affecting both tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "TaxRate",
+          "DimCustomer"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "SRC.TaxRate has a direct lineage to TaxRate, and TaxRate has a lineage to DimCustomer, affecting both tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"TaxRate\", \"DimCustomer\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"SRC.TaxRate has a direct lineage to TaxRate, and TaxRate has a lineage to DimCustomer, affecting both tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4444,
+        "precision": 1.0,
+        "recall": 0.2857
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_059",
+      "question": "If DimCompany changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "FactWatches"
+      ],
+      "predicted_answer": [
+        "DimSecurity",
+        "DimTrade",
+        "FactHoldings",
+        "FactMarketHistory",
+        "Financial",
+        "SRC.DailyMarket",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HoldingHistory",
+        "SRC.Trade",
+        "SRC.TradeHistory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "DimCompany has direct FK dependencies to DimSecurity and Financial, and indirect lineage through DimSecurity and Financial affects other tables via FK and derived relationships.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimSecurity",
+          "Financial",
+          "FactHoldings",
+          "FactMarketHistory",
+          "DimTrade",
+          "SRC.FINWIRE_CMP",
+          "SRC.FINWIRE_SEC",
+          "SRC.FINWIRE_FIN",
+          "SRC.Trade",
+          "SRC.TradeHistory",
+          "SRC.HoldingHistory",
+          "SRC.DailyMarket"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "DimCompany has direct FK dependencies to DimSecurity and Financial, and indirect lineage through DimSecurity and Financial affects other tables via FK and derived relationships.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimSecurity\", \"Financial\", \"FactHoldings\", \"FactMarketHistory\", \"DimTrade\", \"SRC.FINWIRE_CMP\", \"SRC.FINWIRE_SEC\", \"SRC.FINWIRE_FIN\", \"SRC.Trade\", \"SRC.TradeHistory\", \"SRC.HoldingHistory\", \"SRC.DailyMarket\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"DimCompany has direct FK dependencies to DimSecurity and Financial, and indirect lineage through DimSecurity and Financial affects other tables via FK and derived relationships.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4706,
+        "precision": 0.3333,
+        "recall": 0.8
+      }
+    },
+    {
+      "id": "tpc-di_ext_combined_impact_060",
+      "question": "If TaxRate changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DimAccount",
+        "DimCustomer",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactWatches"
+      ],
+      "predicted_answer": [
+        "DimCustomer",
+        "SRC.TaxRate",
+        "TaxRate"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "TaxRate has lineage to DimCustomer and is derived from by SRC.TaxRate, with no foreign key dependencies affecting other tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "DimCustomer",
+          "SRC.TaxRate",
+          "TaxRate"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "TaxRate has lineage to DimCustomer and is derived from by SRC.TaxRate, with no foreign key dependencies affecting other tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCustomer\", \"SRC.TaxRate\", \"TaxRate\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"TaxRate has lineage to DimCustomer and is derived from by SRC.TaxRate, with no foreign key dependencies affecting other tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.2222,
+        "precision": 0.3333,
+        "recall": 0.1667
+      }
+    },
+    {
+      "id": "tpc-di_ext_long_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects FactCashBalances to Financial?",
+      "gold_answer": [
+        "FactCashBalances",
+        "DimCustomer",
+        "DimTrade",
+        "DimCompany",
+        "Financial"
+      ],
+      "predicted_answer": [
+        "FactCashBalances",
+        "DimAccount",
+        "FactHoldings",
+        "DimCompany",
+        "Financial"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "reasoning": "The context provides a shortest path from FactCashBalances to Financial via DimAccount, FactHoldings, and DimCompany.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "FactCashBalances",
+          "DimAccount",
+          "FactHoldings",
+          "DimCompany",
+          "Financial"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context provides a shortest path from FactCashBalances to Financial via DimAccount, FactHoldings, and DimCompany.",
+        "_raw_text": "{\n  \"answer_list\": [\"FactCashBalances\", \"DimAccount\", \"FactHoldings\", \"DimCompany\", \"Financial\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides a shortest path from FactCashBalances to Financial via DimAccount, FactHoldings, and DimCompany.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
+      }
+    }
+  ]
+}

@@ -3,7 +3,8 @@
 % ============================================================================
 \section{Baselines}
 
-We implement three baselines spanning the text-to-graph-augmented spectrum:
+We implement four baselines spanning the text-to-graph-augmented spectrum,
+plus an agentic Tool-Use baseline:
 
 \paragraph{Flat Text (FT).}
 The complete schema is serialized as a text document listing all tables,
@@ -12,16 +13,35 @@ FK relationships, and lineage edges. This forms the strongest
 
 \paragraph{Vector RAG (VR).}
 Tables are chunked with their local FK and lineage edges, embedded using
-Sentence-BERT, and retrieved via cosine similarity ($k=15$). A global
-lineage summary is appended to provide cross-chunk edge visibility.
+Sentence-BERT~\cite{reimers2019sentencebert}, and retrieved via cosine
+similarity ($k=15$). A global lineage summary is appended to provide
+cross-chunk edge visibility.
 
 \paragraph{Graph-Augmented (GA).}
-Explicit graph algorithms---BFS subgraph extraction (3-hop), connected
-component detection, shortest path computation---provide structured
-context. GA uses NetworkX graph algorithms to extract relevant subgraph
-neighborhoods; it is \emph{not} a trained GNN. The LLM receives
-algorithm output as text context. A learned graph encoder represents
-future work.
+Starting from the tables referenced in the question, a 3-hop BFS
+over the schema graph extracts the local subgraph neighborhood. The
+extracted context includes: (i)~the list of tables within the BFS
+frontier, (ii)~FK edges between extracted tables, (iii)~lineage
+edges (\texttt{derived\_from}) between extracted tables, and
+(iv)~per-table column lists. Crucially, GA does \emph{not} inject
+algorithm outputs (shortest paths, component IDs, or hop distances)
+into the context---the LLM must infer these from the raw subgraph.
+This design ensures that GA tests \emph{structural reasoning} over
+graph context rather than \emph{answer copy-paste} from precomputed
+results. A learned graph encoder (e.g., GNN) represents future work.
+
+\paragraph{Tool-Use (TU).}
+An agentic baseline providing the LLM with 9 graph algorithm tools:
+\texttt{shortest\_path}, \texttt{connected\_components},
+\texttt{check\_fk\_adjacency}, \texttt{get\_lineage\_forward/reverse},
+\texttt{transitive\_lineage}, \texttt{get\_component\_of},
+\texttt{get\_fk\_neighbors}, and \texttt{list\_tables}. The LLM
+receives a schema summary (table list + edge types) and tool
+definitions, then engages in a multi-turn conversation (up to 3 tool
+calls per question) implemented via function calling. This baseline
+is closest in spirit to graph-grounded agent systems such as
+ToG~\cite{sun2024tog} and GraphCoT~\cite{jin2024graphcot}, adapted
+for schema topology reasoning.
 
 All baselines are evaluated with two frontier models: Gemini~2.5 Flash
 (closed-weight) and DeepSeek-V3 (open-weight, 671B MoE). We use greedy
@@ -32,3 +52,21 @@ store 6 node-level structural features (in-degree, out-degree, PageRank,
 betweenness centrality, etc.), \emph{none of these features are used by
 any current baseline at inference time}. They are provided for future work
 on learned graph encoders (e.g., GNNs).
+
+\paragraph{Oracle.}
+Injects gold graph algorithm outputs (the correct shortest path, connected
+component membership, lineage traversal result, etc.) directly into the
+prompt. Oracle scores represent the upper bound achievable by each
+model---any remaining errors reflect decoding or format issues, not
+retrieval or reasoning failures.
+
+\paragraph{List canonicalization and tie handling.}
+Unordered list answers are lowercased and sorted before comparison;
+exact match requires identical sorted sets. For shortest-path questions,
+multiple valid routes may exist (e.g., two equally short FK paths).
+Our scoring function validates the \emph{predicted path} against the
+FK adjacency matrix: if the predicted sequence of tables corresponds
+to a valid path of the same length as the gold answer, it is marked
+correct even if it differs from the gold path. This ensures EM is
+robust to tie-breaking variability. Boolean and integer answers are
+type-cast before comparison.

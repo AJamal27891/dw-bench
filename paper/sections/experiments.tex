@@ -231,6 +231,20 @@ overhead in multi-hop reasoning, while shorter random identifiers
 Obfuscation simultaneously removes name shortcuts for easy lookups
 and reduces name complexity for hard structural traversals.
 
+\paragraph{Contamination control.}
+Several schemas in DW-Bench (AdventureWorks, TPC-DS) are widely
+documented and likely present in LLM pretraining corpora, raising
+concerns about data contamination. Our obfuscation protocol replaces
+all table/column names with random identifiers, directly testing
+whether LLMs exploit memorized schema-name priors versus performing
+genuine topology reasoning. The substantial obfuscation penalties
+observed (up to $-$30.4\% for DeepSeek) confirm that current models
+do partially rely on surface-form memorization. Critically,
+\emph{obfuscated} scores represent the contamination-free lower
+bound, while \emph{original} scores include potential contamination
+benefits. We report both to enable readers to draw their own
+conclusions.
+
 \subsection{Syn-Logistics: Stress-Testing Structural Reasoning}
 
 To address the statistical power limitation of the real-world corpus

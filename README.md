@@ -6,17 +6,21 @@
 
 **DW-Bench** is the first benchmark for evaluating whether Large Language Models can reason about the *graph structure* of data warehouse schemas — data lineage, foreign key paths, and connectivity — rather than just generating SQL queries.
 
-## Key Findings (Gemini 2.5 Flash)
+## Key Findings
 
-| Baseline | Easy (226) | Medium (383) | Hard (61) | **Avg** |
-|---|:---:|:---:|:---:|:---:|
-| **Flat Text** | 83.2% | **77.8%** | 14.8% | **74.0%** |
-| **Vector RAG** | **81.9%** | 71.3% | 5.3% | 68.2% |
-| **Graph-Aug** | 78.4% | 74.2% | **17.5%** | 69.9% |
+### Syn-Logistics (corrected, all baselines)
 
-> **All baselines collapse on hard structural tasks** (≤17.5% EM).
-> `combined_impact` — requiring simultaneous lineage + FK traversal — remains
-> unsolved at ≤6.5% EM, establishing a clear frontier for GNN-augmented approaches.
+| Baseline | Gemini 2.5 Flash | DeepSeek-V3 |
+|---|:---:|:---:|
+| Oracle | 97.8% | 100.0% |
+| **Tool-Use** | **86.8%** | **89.2%** |
+| Flat Text | 86.6% | 73.7% |
+| Graph-Aug | 83.1% | 66.7% |
+| Vector-RAG | 80.9% | 65.9% |
+
+> **Model-dependent structural gap**: Gemini achieves 98-100% on `hop_count`/`count`,
+> while DeepSeek scores 27-48% on the same subtypes.
+> `combined_impact` remains unsolved (≤27% EM) for both models.
 
 ## Quick Start
 
@@ -109,7 +113,8 @@ dw-bench/
 | TPC-DS | Analytics | 24 | 70 | 0 | 127 | 1 |
 | TPC-DI | ETL | 35 | 29 | 21 | 181 | 2 |
 | OMOP CDM | Healthcare | 37 | 74 | 21 | 158 | 3 |
-| **Total** | | **198** | **309** | **81** | **670** | |
+| Syn-Logistics | Supply Chain | 64 | 96 | 35 | 372 | 5 |
+| **Total** | | **262** | **405** | **116** | **1,042** | |
 
 ### Question Types (13 subtypes, 3 difficulty levels)
 
@@ -142,8 +147,9 @@ dw-bench/
 | **Flat Text (FT)** | Full schema as text | Complete graph, maximal context |
 | **Vector RAG (VR)** | Top-k retrieved chunks | FAISS embedding similarity (k=15) |
 | **Graph-Aug (GA)** | Graph algorithm output | BFS subgraphs, shortest paths, components |
+| **Tool-Use (TU)** | Schema summary + 9 graph tools | Agentic: multi-turn tool calling |
 
-All baselines use the same LLM and system prompt. GA uses NetworkX graph algorithms (not a trained GNN).
+All baselines use the same LLM and system prompt. GA uses NetworkX graph algorithms (not a trained GNN). TU provides graph algorithm tools; the LLM selects which to call.
 
 ## Obfuscation Protocol
 
@@ -169,6 +175,27 @@ The obfuscation condition replaces all table names with random identifiers to me
 3. Run `python scripts/obfuscate_schema.py --dataset your_dataset`
 4. Run `python scripts/generate_extended_qa.py --dataset your_dataset`
 5. Evaluate: `python run.py --api-base ... --model ... --dataset your_dataset`
+
+## Exact Reproduction
+
+```bash
+# Reproduce all results for a specific model
+python run.py --api-base https://generativelanguage.googleapis.com/v1beta/openai \
+  --model gemini-2.5-flash --api-key $GOOGLE_API_KEY --condition all
+
+# Reproduce Tool-Use baseline
+python evaluation/evaluate.py --datasets syn_logistics \
+  --baselines tool_use_original --model gemini-2.5-flash --api-key $GOOGLE_API_KEY
+
+# View aggregated results
+python view_results.py
+
+# Validate result file integrity
+python integrity_check.py
+```
+
+All evaluation scripts, prompts, and scoring functions are in `evaluation/`.
+List canonicalization rules are documented in `evaluation/metrics.py`.
 
 ## Citation
 

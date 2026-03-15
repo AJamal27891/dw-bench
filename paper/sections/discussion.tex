@@ -3,34 +3,43 @@
 % ============================================================================
 \section{Discussion}
 
-\paragraph{Why does Flat Text win overall?}
-Flat Text provides the LLM with the \emph{complete} graph as text. For
-local queries (direct FK, forward lineage), the LLM can pattern-match
-the answer from the context. The 8K+ token context windows of modern
-LLMs accommodate even the largest schemas. However, this advantage
-vanishes on tasks requiring algorithmic traversal.
+\paragraph{The model-dependent structural gap.}
+The most striking finding is the dramatic performance difference between
+Gemini and DeepSeek on structural subtypes. Gemini achieves 98--100\% EM
+on \texttt{hop\_count} and 100\% on \texttt{count} across FT, GA, and VR,
+while DeepSeek scores as low as 48\% and 27\% respectively. This
+suggests that structural graph reasoning capability is not uniformly
+present in frontier models but depends on architecture and training
+data composition. DW-Bench enables precise quantification of this gap.
+
+\paragraph{Why does Flat Text win on small schemas?}
+On Syn-Logistics (64 tables), Flat Text (86.6\%) outperforms Graph-Augmented
+(83.1\%) because the complete schema fits in the LLM's context
+window---Gemini's 1M-token context easily accommodates a 64-table schema.
+For local queries (direct FK, forward lineage), the LLM can
+pattern-match the answer from text. On larger schemas (102+ tables),
+GA's targeted retrieval becomes essential as context dilution degrades FT.
 
 \paragraph{Why does Vector RAG underperform?}
 Chunking the schema into per-table documents fragments the graph,
 breaking cross-chunk edges. Despite our global lineage summary
 mitigation, VR still misses schema-wide connectivity information,
-explaining its poor performance on \texttt{membership} (16.7\% EM) and
-\texttt{connected} (0\% EM vs.\ GA's 50\%).
+performing worst on \texttt{combined\_impact} and \texttt{membership}.
 
 \paragraph{The combined\_impact frontier.}
 This subtype requires two distinct traversals: (1) forward lineage from
 a source table, collecting all transitively-affected DW tables, then (2)
 reverse FK from each affected table, finding all tables that depend on
-them. No current baseline can reliably execute this two-phase algorithm.
-We hypothesize that \emph{learned} graph representations (e.g., GNN
-encoders producing per-node embeddings that capture multi-hop
-reachability) are necessary.
+them. With $\leq$26.5\% EM across both models and all baselines, while
+Oracle achieves 100\%, \texttt{combined\_impact} represents the genuine
+unsolved frontier---even when the schema fits in context and tool
+access is provided.
 
 \paragraph{Limitations.}
-DW-Bench currently includes 5 datasets (4 real-world, 1 synthetic);
-more diverse topologies (e.g., data mesh, lakehouse) would strengthen
-generalization claims. While the Syn-Logistics synthetic dataset resolves
-the statistical power limitation for low-$n$ subtypes (all subtypes
-now have $n\geq20$), the real-world corpus inherently contains
-small-sample subtypes. Future work should include additional models at
-various scales and agentic retrieval methods.
+DW-Bench currently evaluates schema-level topology reasoning on schemas
+small enough to fit in context (24--102 tables). Real enterprise data
+warehouses can have thousands of tables with millions of data rows;
+extending DW-Bench to test data-level graph reasoning (with value nodes)
+at scale is an important direction. The benchmark includes 5 datasets
+(4 real-world, 1 synthetic); more diverse topologies would strengthen
+generalization claims.

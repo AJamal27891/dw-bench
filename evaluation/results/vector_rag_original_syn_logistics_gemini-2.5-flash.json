@@ -6,12 +6,12 @@
   "model_tag": "gemini-2.5-flash",
   "metrics": {
     "total": 372,
-    "micro_em": 0.629,
-    "micro_f1": 0.7005,
-    "macro_em": 0.6617,
-    "macro_f1": 0.7262,
-    "exact_match": 0.629,
-    "avg_f1": 0.7005,
+    "micro_em": 0.8091,
+    "micro_f1": 0.8806,
+    "macro_em": 0.8103,
+    "macro_f1": 0.8748,
+    "exact_match": 0.8091,
+    "avg_f1": 0.8806,
     "by_type": {
       "lineage": {
         "total": 145,
@@ -32,8 +32,8 @@
     "by_difficulty": {
       "hard": {
         "total": 107,
-        "exact_match": 0.271,
-        "avg_f1": 0.4051
+        "exact_match": 0.6542,
+        "avg_f1": 0.7882
       },
       "medium": {
         "total": 112,
@@ -42,8 +42,8 @@
       },
       "easy": {
         "total": 153,
-        "exact_match": 0.7712,
-        "avg_f1": 0.8082
+        "exact_match": 0.9412,
+        "avg_f1": 0.9781
       }
     },
     "by_subtype": {
@@ -64,8 +64,8 @@
       },
       "count": {
         "total": 26,
-        "exact_match": 0.0,
-        "avg_f1": 0.0
+        "exact_match": 1.0,
+        "avg_f1": 1.0
       },
       "full_enumeration": {
         "total": 25,
@@ -89,8 +89,8 @@
       },
       "hop_count": {
         "total": 44,
-        "exact_match": 0.0,
-        "avg_f1": 0.0
+        "exact_match": 0.9318,
+        "avg_f1": 0.9318
       },
       "direct_fk": {
         "total": 36,
@@ -4932,7 +4932,7 @@
       "id": "syn_logistics_count_096",
       "question": "How many disconnected components (data silos) exist in the schema?",
       "gold_answer": "5",
-      "predicted_answer": null,
+      "predicted_answer": 5,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -4965,15 +4965,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 5,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema contains 5 distinct sets of interconnected tables, with no relationships linking tables between these sets. Each set represents a disconnected component or data silo.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_097",
       "question": "How many tables are in the logistics data silo?",
       "gold_answer": "20",
-      "predicted_answer": null,
+      "predicted_answer": 20,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5006,15 +5006,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 20,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"By analyzing the 'ALL LINEAGE RELATIONSHIPS (global)' section, all tables related to shipments, purchase orders, inventory, suppliers, products, warehouses, and carriers were identified as belonging to the logistics data silo.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_098",
       "question": "How many tables are in the hr data silo?",
       "gold_answer": "11",
-      "predicted_answer": null,
+      "predicted_answer": 11,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5047,15 +5047,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 11,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Identified tables related to employees, payroll, compensation, and departments as belonging to the HR data silo, then counted them.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_099",
       "question": "How many tables are in the healthcare data silo?",
       "gold_answer": "11",
-      "predicted_answer": null,
+      "predicted_answer": 11,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5088,15 +5088,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 11,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Identified all tables related to patients, providers, labs, prescriptions, and healthcare outcomes from the provided schema and global lineage.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_100",
       "question": "How many tables are in the ecommerce data silo?",
       "gold_answer": "11",
-      "predicted_answer": null,
+      "predicted_answer": 11,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5129,15 +5129,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 11,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The ecommerce data silo includes tables related to customer sessions, product listings, payments, transactions, and their derived marts. These are: mart_revenue_dashboard, mart_conversion_funnel, fact_transaction, dim_product_listing, dim_customer, stg_sessions_enriched, stg_products_normalized, stg_payments_validated, raw_cart_sessions, raw_product_catalog, and raw_payment_events.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_101",
       "question": "How many tables are in the finance data silo?",
       "gold_answer": "11",
-      "predicted_answer": null,
+      "predicted_answer": 11,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5170,15 +5170,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 11,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Identified tables directly related to financial concepts (journal entries, accounts, cost centers, bank, tax, ledger, financial statements) and their immediate sources/targets within the provided schema.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_102",
       "question": "How many raw-layer tables are in the logistics domain?",
       "gold_answer": "5",
-      "predicted_answer": null,
+      "predicted_answer": 5,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5211,15 +5211,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 5,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"I identified all tables starting with 'raw_' that are part of the logistics domain based on their relationships and names.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_103",
       "question": "How many staging-layer tables are in the logistics domain?",
       "gold_answer": "5",
-      "predicted_answer": null,
+      "predicted_answer": 5,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5252,15 +5252,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 5,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Staging tables related to shipments, inventory, freight, orders, and suppliers are considered part of the logistics domain. These are stg_orders_cleaned, stg_shipments_validated, stg_inventory_snapshot, stg_freight_reconciled, and stg_suppliers_deduped.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_104",
       "question": "How many core-layer tables are in the logistics domain?",
       "gold_answer": "6",
-      "predicted_answer": null,
+      "predicted_answer": 6,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5293,15 +5293,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 6,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Core-layer tables are `dim_` and `fact_` tables. Identifying those related to logistics (shipment, inventory, supplier, warehouse, product, carrier, purchase order) gives 6 tables.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_105",
       "question": "How many mart-layer tables are in the logistics domain?",
       "gold_answer": "4",
-      "predicted_answer": null,
+      "predicted_answer": 4,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5334,15 +5334,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Identified mart_delivery_performance, mart_inventory_turnover, mart_procurement_cost, and mart_supplier_scorecard as logistics-related based on their direct relationships to tables like dim_supplier, dim_product, fact_shipment, dim_carrier, and dim_warehouse.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_106",
       "question": "How many raw-layer tables are in the hr domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5375,15 +5375,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The raw-layer tables feeding into HR-related dimensions (dim_employee, dim_department) and facts (fact_payroll) are raw_compensation_data, raw_department_hierarchy, and raw_employee_records.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_107",
       "question": "How many staging-layer tables are in the hr domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5416,15 +5416,15 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The staging tables related to HR (employees, departments, compensation) are stg_departments_mapped, stg_compensation_normalized, and stg_employees_cleaned.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_108",
       "question": "How many core-layer tables are in the hr domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5457,15 +5457,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Core-layer tables are typically `dim_` and `fact_` tables. In the HR domain, these are dim_employee, dim_department, and fact_payroll.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_109",
       "question": "How many mart-layer tables are in the hr domain?",
       "gold_answer": "2",
-      "predicted_answer": null,
+      "predicted_answer": 2,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5498,15 +5498,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Mart-layer tables related to HR are mart_attrition_analysis (derived from fact_payroll, dim_department) and mart_headcount_report (derived from dim_employee, dim_department).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_110",
       "question": "How many raw-layer tables are in the healthcare domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5539,15 +5539,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Identifying tables starting with 'raw_' that are related to patient, prescriptions, or lab results, which are indicative of the healthcare domain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_111",
       "question": "How many staging-layer tables are in the healthcare domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5580,15 +5580,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The staging tables related to healthcare are stg_labs_standardized, stg_patients_validated, and stg_prescriptions_coded, based on their names and relationships to patient/provider/encounter data.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_112",
       "question": "How many core-layer tables are in the healthcare domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5621,15 +5621,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Core-layer tables are typically `dim_` and `fact_` tables. In the provided schema, `dim_patient`, `dim_provider`, and `fact_encounter` are related to the healthcare domain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_113",
       "question": "How many mart-layer tables are in the healthcare domain?",
       "gold_answer": "2",
-      "predicted_answer": null,
+      "predicted_answer": 2,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5662,15 +5662,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The mart-layer tables related to healthcare are 'mart_readmission_risk' and 'mart_treatment_outcomes', as they are derived from patient and provider dimensions/facts.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_114",
       "question": "How many raw-layer tables are in the ecommerce domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5703,15 +5703,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The raw-layer tables related to ecommerce are raw_product_catalog, raw_cart_sessions, and raw_payment_events, as they feed into staging tables that ultimately lead to ecommerce-related dimensions (dim_customer, dim_product_listing) and facts (fact_transaction) and marts (mart_revenue_dashboard, mart_conversion_funnel).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_115",
       "question": "How many staging-layer tables are in the ecommerce domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5744,15 +5744,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The staging tables related to ecommerce are stg_sessions_enriched, stg_products_normalized, and stg_payments_validated, as they process raw cart, product, and payment data leading to customer and product listing dimensions and transaction facts.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_116",
       "question": "How many core-layer tables are in the ecommerce domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5785,15 +5785,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Core-layer tables are typically `dim_` and `fact_` tables. In the provided schema, `dim_customer`, `dim_product_listing`, and `fact_transaction` are core-layer tables related to the ecommerce domain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_117",
       "question": "How many mart-layer tables are in the ecommerce domain?",
       "gold_answer": "2",
-      "predicted_answer": null,
+      "predicted_answer": 2,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5826,15 +5826,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The mart_revenue_dashboard and mart_conversion_funnel tables are derived from dimensions and facts (dim_product_listing, dim_customer, fact_transaction) that are clearly associated with ecommerce activities.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_118",
       "question": "How many raw-layer tables are in the finance domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5867,15 +5867,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Identifying raw-layer tables (starting with 'raw_') that feed into finance-specific staging tables or facts: raw_ledger_entries, raw_bank_feeds, and raw_tax_filings.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_119",
       "question": "How many staging-layer tables are in the finance domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5908,15 +5908,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The staging tables directly related to finance entities (journal entries, accounts, cost centers, bank feeds, tax filings, ledger entries) are stg_ledger_reconciled, stg_bank_matched, and stg_tax_validated.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_120",
       "question": "How many core-layer tables are in the finance domain?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5949,15 +5949,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Core-layer tables typically include fact and dimension tables. In the finance domain, these are fact_journal_entry, dim_cost_center, and dim_account.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_count_121",
       "question": "How many mart-layer tables are in the finance domain?",
       "gold_answer": "2",
-      "predicted_answer": null,
+      "predicted_answer": 2,
       "answer_type": "number",
       "type": "silo",
       "subtype": "count",
@@ -5990,8 +5990,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Mart tables directly related to core financial concepts like journal entries, accounts, cost centers, cash flow, and trial balance are mart_cash_flow_statement and mart_trial_balance.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -10712,7 +10712,7 @@
       "id": "syn_logistics_hop_count_212",
       "question": "What is the minimum number of hops between raw_purchase_orders and mart_delivery_performance?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -10750,8 +10750,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_purchase_orders\",\n    \"stg_orders_cleaned\",\n    \"dim_supplier\",\n    \"mart_delivery_performance\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_purchase_orders -> stg_orders_cleaned -> dim_supplier -> mart_delivery_performance, which involves 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -10845,7 +10845,7 @@
       "id": "syn_logistics_hop_count_215",
       "question": "What is the minimum number of hops between raw_purchase_orders and mart_inventory_turnover?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -10878,15 +10878,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path is raw_purchase_orders -> stg_freight_reconciled -> dim_carrier -> mart_inventory_turnover, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_216",
       "question": "What is the minimum number of hops between raw_shipment_tracking and mart_delivery_performance?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -10924,15 +10924,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_shipment_tracking\",\n    \"stg_shipments_validated\",\n    \"dim_supplier\",\n    \"mart_delivery_performance\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_shipment_tracking -> stg_shipments_validated -> dim_supplier -> mart_delivery_performance, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_217",
       "question": "What is the minimum number of hops between raw_shipment_tracking and mart_procurement_cost?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -10965,15 +10965,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_shipment_tracking -> stg_shipments_validated -> dim_product -> mart_procurement_cost, which takes 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_218",
       "question": "What is the minimum number of hops between raw_shipment_tracking and mart_supplier_scorecard?",
       "gold_answer": "4",
-      "predicted_answer": null,
+      "predicted_answer": 4,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11006,15 +11006,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_shipment_tracking -> stg_shipments_validated -> fact_purchase_order -> dim_carrier -> mart_supplier_scorecard, which is 4 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_219",
       "question": "What is the minimum number of hops between raw_shipment_tracking and mart_inventory_turnover?",
       "gold_answer": "4",
-      "predicted_answer": null,
+      "predicted_answer": 4,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11053,15 +11053,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_shipment_tracking\",\n    \"stg_shipments_validated\",\n    \"fact_purchase_order\",\n    \"dim_carrier\",\n    \"mart_inventory_turnover\"\n  ],\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_shipment_tracking -> stg_shipments_validated -> fact_purchase_order -> dim_carrier -> mart_inventory_turnover, which involves 4 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_220",
       "question": "What is the minimum number of hops between raw_supplier_catalog and mart_delivery_performance?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11099,15 +11099,15 @@
         "_raw_text": "{\n  \"answer_list\": [\n    \"raw_supplier_catalog\",\n    \"stg_shipments_validated\",\n    \"dim_supplier\",\n    \"mart_delivery_performance\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_supplier_catalog -> stg_shipments_validated -> dim_supplier -> mart_delivery_performance, which is 3 hops.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_221",
       "question": "What is the minimum number of hops between raw_supplier_catalog and mart_procurement_cost?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11140,15 +11140,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path is raw_supplier_catalog -> stg_suppliers_deduped -> dim_product -> mart_procurement_cost, which has 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_222",
       "question": "What is the minimum number of hops between raw_supplier_catalog and mart_supplier_scorecard?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11186,15 +11186,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_supplier_catalog\",\n    \"stg_suppliers_deduped\",\n    \"dim_warehouse\",\n    \"mart_supplier_scorecard\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_supplier_catalog -> stg_suppliers_deduped -> dim_warehouse -> mart_supplier_scorecard, which involves 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_223",
       "question": "What is the minimum number of hops between raw_supplier_catalog and mart_inventory_turnover?",
       "gold_answer": "4",
-      "predicted_answer": null,
+      "predicted_answer": 4,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11227,15 +11227,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path is: raw_supplier_catalog -> stg_shipments_validated -> fact_purchase_order -> dim_carrier -> mart_inventory_turnover, which is 4 hops. Other paths also yield 4 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_224",
       "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_delivery_performance?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11273,15 +11273,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_warehouse_inventory\",\n    \"stg_suppliers_deduped\",\n    \"dim_product\",\n    \"mart_delivery_performance\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_warehouse_inventory -> stg_suppliers_deduped -> dim_product -> mart_delivery_performance, which involves 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_225",
       "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_procurement_cost?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11319,15 +11319,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_warehouse_inventory\",\n    \"stg_inventory_snapshot\",\n    \"dim_warehouse\",\n    \"mart_procurement_cost\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path exists from raw_warehouse_inventory to mart_procurement_cost via stg_inventory_snapshot and dim_warehouse, taking 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_226",
       "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_supplier_scorecard?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11365,15 +11365,15 @@
         "_raw_text": "{\n  \"answer_list\": [\n    \"raw_warehouse_inventory\",\n    \"stg_inventory_snapshot\",\n    \"dim_warehouse\",\n    \"mart_supplier_scorecard\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_warehouse_inventory -> stg_inventory_snapshot -> dim_warehouse -> mart_supplier_scorecard, which involves 3 hops.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_227",
       "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_inventory_turnover?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11406,15 +11406,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_warehouse_inventory -> stg_inventory_snapshot -> dim_carrier -> mart_inventory_turnover, which involves 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_228",
       "question": "What is the minimum number of hops between raw_freight_invoices and mart_delivery_performance?",
       "gold_answer": "4",
-      "predicted_answer": null,
+      "predicted_answer": 4,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11447,8 +11447,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_freight_invoices -> stg_freight_reconciled -> fact_shipment -> dim_product -> mart_delivery_performance, which is 4 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -11501,7 +11501,7 @@
       "id": "syn_logistics_hop_count_230",
       "question": "What is the minimum number of hops between raw_freight_invoices and mart_supplier_scorecard?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11534,15 +11534,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One path is raw_freight_invoices -> stg_freight_reconciled -> dim_carrier -> mart_supplier_scorecard, which has 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_231",
       "question": "What is the minimum number of hops between raw_freight_invoices and mart_inventory_turnover?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11575,15 +11575,15 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One path is raw_freight_invoices -> stg_freight_reconciled -> fact_shipment -> mart_inventory_turnover (3 hops). Another is raw_freight_invoices -> stg_inventory_snapshot -> dim_carrier -> mart_inventory_turnover (3 hops).\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_232",
       "question": "What is the minimum number of hops between raw_employee_records and mart_headcount_report?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11616,15 +11616,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path exists from raw_employee_records -> stg_employees_cleaned -> dim_employee -> mart_headcount_report, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_233",
       "question": "What is the minimum number of hops between raw_employee_records and mart_attrition_analysis?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11657,15 +11657,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One path is raw_employee_records -> stg_employees_cleaned -> fact_payroll -> mart_attrition_analysis (3 hops). Another is raw_employee_records -> stg_compensation_normalized -> dim_department -> mart_attrition_analysis (3 hops).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_234",
       "question": "What is the minimum number of hops between raw_department_hierarchy and mart_headcount_report?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11698,15 +11698,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_department_hierarchy -> stg_departments_mapped -> dim_department -> mart_headcount_report, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_235",
       "question": "What is the minimum number of hops between raw_department_hierarchy and mart_attrition_analysis?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11744,15 +11744,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_department_hierarchy\",\n    \"stg_departments_mapped\",\n    \"dim_department\",\n    \"mart_attrition_analysis\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A direct path exists: raw_department_hierarchy -> stg_departments_mapped -> dim_department -> mart_attrition_analysis, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_236",
       "question": "What is the minimum number of hops between raw_compensation_data and mart_headcount_report?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11785,15 +11785,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One shortest path is raw_compensation_data -> stg_compensation_normalized -> dim_department -> mart_headcount_report, which has 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_237",
       "question": "What is the minimum number of hops between raw_compensation_data and mart_attrition_analysis?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11831,15 +11831,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_compensation_data\",\n    \"stg_compensation_normalized\",\n    \"fact_payroll\",\n    \"mart_attrition_analysis\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tracing the lineage: raw_compensation_data -> stg_compensation_normalized -> fact_payroll -> mart_attrition_analysis, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_238",
       "question": "What is the minimum number of hops between raw_patient_intake and mart_readmission_risk?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11877,15 +11877,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_patient_intake\",\n    \"stg_patients_validated\",\n    \"dim_patient\",\n    \"mart_readmission_risk\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path exists from raw_patient_intake to mart_readmission_risk via stg_patients_validated and dim_patient in 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_239",
       "question": "What is the minimum number of hops between raw_patient_intake and mart_treatment_outcomes?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11918,15 +11918,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One path is raw_patient_intake -> stg_patients_validated -> fact_encounter -> mart_treatment_outcomes (3 hops). Another is raw_patient_intake -> stg_prescriptions_coded -> dim_provider -> mart_treatment_outcomes (3 hops).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_240",
       "question": "What is the minimum number of hops between raw_lab_results and mart_readmission_risk?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -11964,15 +11964,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_lab_results\",\n    \"stg_labs_standardized\",\n    \"dim_patient\",\n    \"mart_readmission_risk\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_lab_results -> stg_labs_standardized -> dim_patient -> mart_readmission_risk, which has 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_241",
       "question": "What is the minimum number of hops between raw_lab_results and mart_treatment_outcomes?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12010,15 +12010,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_lab_results\",\n    \"stg_labs_standardized\",\n    \"dim_provider\",\n    \"mart_treatment_outcomes\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_lab_results -> stg_labs_standardized -> dim_provider -> mart_treatment_outcomes, which involves 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_242",
       "question": "What is the minimum number of hops between raw_prescriptions and mart_readmission_risk?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12051,15 +12051,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path can be traced as: raw_prescriptions -> stg_labs_standardized -> dim_patient -> mart_readmission_risk, which is 3 hops. Another path is raw_prescriptions -> stg_prescriptions_coded -> dim_provider -> mart_readmission_risk, also 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_243",
       "question": "What is the minimum number of hops between raw_prescriptions and mart_treatment_outcomes?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12092,15 +12092,15 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path is: raw_prescriptions -> stg_prescriptions_coded -> fact_encounter -> mart_treatment_outcomes, which is 3 hops. Another path is raw_prescriptions -> stg_prescriptions_coded -> dim_provider -> mart_treatment_outcomes, also 3 hops.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_244",
       "question": "What is the minimum number of hops between raw_cart_sessions and mart_conversion_funnel?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12133,15 +12133,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One path is raw_cart_sessions -> stg_payments_validated -> dim_product_listing -> mart_conversion_funnel (3 hops). Another is raw_cart_sessions -> stg_sessions_enriched -> dim_customer -> mart_conversion_funnel (3 hops).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_245",
       "question": "What is the minimum number of hops between raw_cart_sessions and mart_revenue_dashboard?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12174,15 +12174,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One path is raw_cart_sessions -> stg_payments_validated -> dim_product_listing -> mart_revenue_dashboard (3 hops). Another is raw_cart_sessions -> stg_sessions_enriched -> fact_transaction -> mart_revenue_dashboard (3 hops).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_246",
       "question": "What is the minimum number of hops between raw_product_catalog and mart_conversion_funnel?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12215,15 +12215,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path can be traced from raw_product_catalog -> stg_products_normalized -> dim_product_listing -> mart_conversion_funnel, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_247",
       "question": "What is the minimum number of hops between raw_product_catalog and mart_revenue_dashboard?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12261,15 +12261,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_product_catalog\",\n    \"stg_products_normalized\",\n    \"dim_product_listing\",\n    \"mart_revenue_dashboard\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_product_catalog -> stg_products_normalized -> dim_product_listing -> mart_revenue_dashboard, which involves 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_248",
       "question": "What is the minimum number of hops between raw_payment_events and mart_conversion_funnel?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12307,15 +12307,15 @@
         "_raw_text": "{\n  \"answer_list\": [\n    \"raw_payment_events\",\n    \"stg_payments_validated\",\n    \"dim_product_listing\",\n    \"mart_conversion_funnel\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One shortest path is raw_payment_events -> stg_payments_validated -> dim_product_listing -> mart_conversion_funnel, which is 3 hops.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_249",
       "question": "What is the minimum number of hops between raw_payment_events and mart_revenue_dashboard?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12348,15 +12348,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tracing the lineage: raw_payment_events -> stg_payments_validated -> dim_product_listing -> mart_revenue_dashboard (3 hops) or raw_payment_events -> stg_payments_validated -> fact_transaction -> mart_revenue_dashboard (3 hops).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_250",
       "question": "What is the minimum number of hops between raw_ledger_entries and mart_trial_balance?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12389,15 +12389,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One path is raw_ledger_entries -> stg_ledger_reconciled -> dim_account -> mart_trial_balance (3 hops). Another is raw_ledger_entries -> stg_tax_validated -> dim_cost_center -> mart_trial_balance (3 hops).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_251",
       "question": "What is the minimum number of hops between raw_ledger_entries and mart_cash_flow_statement?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12430,15 +12430,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path exists from raw_ledger_entries -> stg_ledger_reconciled -> fact_journal_entry -> mart_cash_flow_statement, which is 3 hops. Another path is raw_ledger_entries -> stg_tax_validated -> fact_journal_entry -> mart_cash_flow_statement, also 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_252",
       "question": "What is the minimum number of hops between raw_bank_feeds and mart_trial_balance?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12476,15 +12476,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"raw_bank_feeds\",\n    \"stg_bank_matched\",\n    \"dim_account\",\n    \"mart_trial_balance\"\n  ],\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_bank_feeds -> stg_bank_matched -> dim_account -> mart_trial_balance, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_253",
       "question": "What is the minimum number of hops between raw_bank_feeds and mart_cash_flow_statement?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12517,15 +12517,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is raw_bank_feeds -> stg_bank_matched -> dim_cost_center -> mart_cash_flow_statement, which involves 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_254",
       "question": "What is the minimum number of hops between raw_tax_filings and mart_trial_balance?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12558,15 +12558,15 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One shortest path is raw_tax_filings -> stg_tax_validated -> dim_cost_center -> mart_trial_balance, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "syn_logistics_hop_count_255",
       "question": "What is the minimum number of hops between raw_tax_filings and mart_cash_flow_statement?",
       "gold_answer": "3",
-      "predicted_answer": null,
+      "predicted_answer": 3,
       "answer_type": "number",
       "type": "routing",
       "subtype": "hop_count",
@@ -12599,8 +12599,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"One shortest path is raw_tax_filings -> stg_tax_validated -> fact_journal_entry -> mart_cash_flow_statement, which is 3 hops.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {

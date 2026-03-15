@@ -252,7 +252,7 @@ def extract_answer(response: dict, answer_type: str):
         if isinstance(ans, list):
             return sorted(ans) if answer_type == 'list' else ans
         return []
-    elif answer_type == 'integer':
+    elif answer_type in ('integer', 'number'):
         ans = response.get('answer_int')
         if ans is not None:
             try:

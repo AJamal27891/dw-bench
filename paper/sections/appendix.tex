@@ -16,16 +16,67 @@ realistic supply-chain terminology to prevent semantic collapse under
 obfuscation. The schema contains 64 tables, 96 FK edges, 35 lineage edges,
 and 372 questions.
 
+\paragraph{Lineage Edge Curation.}
+Lineage (derived\_from) edges are curated as follows:
+\textbf{AdventureWorks}: Extracted from official Microsoft reference
+documentation mapping OLTP source tables to DW dimension/fact tables (39
+edges).
+\textbf{TPC-DS}: No lineage edges; schema is a pure star/snowflake FK
+graph.
+\textbf{TPC-DI}: Derived from the official TPC-DI specification defining
+staging$\to$dimension$\to$fact transformation flows (21 edges).
+\textbf{OMOP CDM}: Derived from OHDSI ETL convention guides mapping
+source vocabularies and clinical tables to standardized CDM tables (21
+edges).
+\textbf{Syn-Logistics}: Defined by construction---three parallel 4-hop
+chains (raw$\to$staging$\to$dimension$\to$mart) per connected component
+(35 edges). All lineage edges are validated by verifying that the source
+table's schema semantically feeds the target table's schema.
+
+\section{Hop-Distance Analysis}
+\label{app:hop-distance}
+
+\begin{table}[h]
+\centering
+\caption{Minimum evidence hops per subtype on Syn-Logistics, compared to
+Graph-Augmented (Gemini) EM. Subtypes requiring full-graph knowledge
+(silo detection, component enumeration) inherently exceed the 3-hop BFS
+radius. Overall, \textbf{45.4\%} of questions exceed 3 hops.}
+\label{tab:hop-distance}
+\small
+\begin{tabular}{lrrrc}
+\toprule
+Subtype & $n$ & Exceeds 3h & \% & GA EM \\
+\midrule
+count            & 26 & 26 & 100\% & 100\% \\
+membership       & 20 & 20 & 100\% & 0\% \\
+combined\_impact & 34 & 34 & 100\% & 0\% \\
+full\_enumeration & 25 & 25 & 100\% & 100\% \\
+connected        & 25 & 25 & 100\% & 100\% \\
+isolation        & 25 & 25 & 100\% & 100\% \\
+transitive       & 29 &  4 &  14\% & 93\% \\
+hop\_count       & 44 &  5 &  11\% & 100\% \\
+direct\_fk       & 36 &  3 &   8\% & 100\% \\
+join\_path       & 26 &  2 &   8\% & 81\% \\
+forward          & 20 &  0 &   0\% & 100\% \\
+reverse          & 20 &  0 &   0\% & 100\% \\
+multi\_source    & 42 &  0 &   0\% & 95\% \\
+\midrule
+\textbf{Total}   & 372 & 169 & \textbf{45.4\%} & 83.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Full Per-Subtype Results}
 \label{app:subtypes}
 
-% TABLE A1: Full Syn-Logistics per-subtype table
+% TABLE A1: Full Syn-Logistics per-subtype table (CORRECTED)
 \begin{table}[h]
 \centering
-\caption{Per-subtype EM (\%) on Syn-Logistics. All structural subtypes
-(\texttt{hop\_count}, \texttt{count}, \texttt{combined\_impact},
-\texttt{membership}) achieve $\leq$40\% across all non-oracle baselines
-while the Oracle scores 100\%.}
+\caption{Per-subtype EM (\%) on Syn-Logistics (corrected). Gemini achieves
+near-perfect scores on \texttt{hop\_count} and \texttt{count}, while
+DeepSeek shows a pronounced model-dependent gap. Both models
+struggle on \texttt{combined\_impact} and \texttt{membership}.}
 \label{tab:syn-subtypes}
 \small
 \begin{tabular}{lrcccccc}
@@ -34,8 +85,8 @@ Subtype & $n$ & \multicolumn{3}{c}{Gemini 2.5 Flash} & \multicolumn{3}{c}{DeepSe
 \cmidrule(lr){3-5} \cmidrule(lr){6-8}
  & & FT & GA & VR & FT & GA & VR \\
 \midrule
-hop\_count       & 44 & 0 & 0 & 0 & 0 & 0 & 0 \\
-count            & 26 & 0 & 0 & 0 & 0 & 0 & 0 \\
+hop\_count       & 44 & 98 & 100 & 93 & 48 & 100 & 70 \\
+count            & 26 & 100 & 100 & 100 & 69 & 73 & 27 \\
 combined\_impact & 34 & 2.9 & 0 & 0 & 26.5 & 2.9 & 17.6 \\
 membership       & 20 & 25 & 0 & 25 & 40 & 0 & 20 \\
 \midrule
@@ -64,6 +115,22 @@ retrieved chunks per question. List answers are compared as unordered sets
 after lowercasing; exact match requires identical sorted sets. F1 is
 computed as token-level overlap between predicted and gold answer sets.
 
+\section{Tool-Use Baseline}
+\label{app:tool-use}
+
+The Tool-Use baseline provides the LLM with 9 graph algorithm tools
+(\texttt{shortest\_path}, \texttt{connected\_components},
+\texttt{check\_fk\_adjacency}, \texttt{get\_lineage\_forward},
+\texttt{get\_lineage\_reverse}, \texttt{transitive\_lineage},
+\texttt{get\_component\_of}, \texttt{get\_fk\_neighbors},
+\texttt{list\_tables}) implemented via NetworkX. The LLM receives a
+schema summary (table list + edge types) and tool definitions, then
+generates up to 3 tool calls per question in a multi-turn conversation.
+Tool results are returned as JSON and the LLM formulates its final answer.
+Gemini Tool-Use achieves 86.8\% Micro-EM on Syn-Logistics, matching Flat
+Text (86.6\%), confirming that the LLM can reason directly from textual
+schema descriptions without needing explicit tool access for small schemas.
+
 \section{Example Questions}
 \label{app:examples}
 
@@ -77,7 +144,7 @@ computed as token-level overlap between predicted and gold answer sets.
 \texttt{DW.DimProduct}?''}
 \textbf{Gold: [DW.DimCustomer, DW.FactInternetSales, DW.DimProduct]}
 
-\paragraph{Hard (hop\_count):}
-\emph{``How many FK hops are needed to reach \texttt{dim\_carrier} from
-\texttt{mart\_revenue\_dashboard}?''}
-\textbf{Gold: 3}
+\paragraph{Hard (combined\_impact):}
+\emph{``Which tables are transitively affected (via lineage and FK
+dependencies) if \texttt{raw\_purchase\_orders} is modified?''}
+\textbf{Gold: [stg\_purchase\_orders, dim\_supplier, ...]} (8 tables)

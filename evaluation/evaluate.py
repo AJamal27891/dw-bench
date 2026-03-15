@@ -142,6 +142,12 @@ def run_evaluation(baseline_name: str, dataset: str, obfuscated: bool,
                                  api_base=api_base, model=model,
                                  obfuscated=obfuscated,
                                  qa_file=qa_file)
+    elif baseline_name == 'tool_use':
+        from baselines.tool_use import run_tool_use
+        raw_results = run_tool_use(ds_dir, api_key,
+                                   api_base=api_base, model=model,
+                                   obfuscated=obfuscated,
+                                   qa_file=qa_file)
     else:
         raise ValueError(f"Unknown baseline: {baseline_name}")
 
@@ -220,7 +226,7 @@ def main():
     parser = argparse.ArgumentParser(
         description='DW-Bench Evaluation Harness')
     parser.add_argument('--baseline', type=str, required=True,
-                        choices=['flat_text', 'vector_rag', 'graph_aug', 'gnn_llm', 'oracle'])
+                        choices=['flat_text', 'vector_rag', 'graph_aug', 'gnn_llm', 'oracle', 'tool_use'])
     parser.add_argument('--dataset', type=str, default='all',
                         choices=['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics', 'all'])
     parser.add_argument('--obfuscated', action='store_true',

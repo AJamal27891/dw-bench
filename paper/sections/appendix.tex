@@ -8,12 +8,76 @@
 % FIGURE A1: Full schema graphs for all 4 datasets
 % [FIGURE A1 PLACEHOLDER: 2x2 grid of schema graph visualizations]
 
+\paragraph{Syn-Logistics Design.}
+The Syn-Logistics dataset was constructed to guarantee $n\geq20$ for every
+subtype by building three parallel 4-hop lineage chains across five
+connected components. Table names are drawn from a Domain Dictionary of
+realistic supply-chain terminology to prevent semantic collapse under
+obfuscation. The schema contains 64 tables, 96 FK edges, 35 lineage edges,
+and 372 questions.
+
 \section{Full Per-Subtype Results}
 \label{app:subtypes}
 
-% TABLE A1: Full 13-subtype x 3-baseline x 4-dataset table
+% TABLE A1: Full Syn-Logistics per-subtype table
+\begin{table}[h]
+\centering
+\caption{Per-subtype EM (\%) on Syn-Logistics. All structural subtypes
+(\texttt{hop\_count}, \texttt{count}, \texttt{combined\_impact},
+\texttt{membership}) achieve $\leq$40\% across all non-oracle baselines
+while the Oracle scores 100\%.}
+\label{tab:syn-subtypes}
+\small
+\begin{tabular}{lrcccccc}
+\toprule
+Subtype & $n$ & \multicolumn{3}{c}{Gemini 2.5 Flash} & \multicolumn{3}{c}{DeepSeek-V3} \\
+\cmidrule(lr){3-5} \cmidrule(lr){6-8}
+ & & FT & GA & VR & FT & GA & VR \\
+\midrule
+hop\_count       & 44 & 0 & 0 & 0 & 0 & 0 & 0 \\
+count            & 26 & 0 & 0 & 0 & 0 & 0 & 0 \\
+combined\_impact & 34 & 2.9 & 0 & 0 & 26.5 & 2.9 & 17.6 \\
+membership       & 20 & 25 & 0 & 25 & 40 & 0 & 20 \\
+\midrule
+forward          & 20 & 100 & 100 & 100 & 60 & 35 & 50 \\
+reverse          & 20 & 100 & 100 & 90 & 75 & 55 & 60 \\
+transitive       & 29 & 96.6 & 93.1 & 100 & 72.4 & 69 & 75.9 \\
+multi\_source    & 42 & 100 & 95.2 & 81 & 92.9 & 57.1 & 83.3 \\
+join\_path       & 26 & 100 & 80.8 & 92.3 & 88.5 & 61.5 & 84.6 \\
+full\_enum       & 25 & 100 & 100 & 72 & 88 & 80 & 56 \\
+connected        & 25 & 100 & 100 & 100 & 100 & 100 & 84 \\
+isolation        & 25 & 100 & 100 & 100 & 100 & 100 & 100 \\
+direct\_fk       & 36 & 100 & 100 & 100 & 100 & 100 & 100 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Decoding and Evaluation Details}
+\label{app:decoding}
+
+All LLM inferences use greedy decoding ($\tau{=}0.0$) with no nucleus
+sampling ($p = 1.0$) and a single deterministic pass. No repeated runs or
+confidence intervals are reported; the deterministic decoding ensures
+reproducibility. For Vector-RAG, we use
+\texttt{all-MiniLM-L6-v2}~\cite{reimers2019sentencebert} with $k{=}15$
+retrieved chunks per question. List answers are compared as unordered sets
+after lowercasing; exact match requires identical sorted sets. F1 is
+computed as token-level overlap between predicted and gold answer sets.
 
 \section{Example Questions}
 \label{app:examples}
 
-% Examples of each difficulty level with gold answers
+\paragraph{Easy (direct\_fk):}
+\emph{``Is there a direct foreign key relationship between
+\texttt{DW.DimProduct} and \texttt{DW.FactInternetSales}?''}
+\textbf{Gold: yes}
+
+\paragraph{Medium (join\_path):}
+\emph{``What is the shortest FK path from \texttt{DW.DimCustomer} to
+\texttt{DW.DimProduct}?''}
+\textbf{Gold: [DW.DimCustomer, DW.FactInternetSales, DW.DimProduct]}
+
+\paragraph{Hard (hop\_count):}
+\emph{``How many FK hops are needed to reach \texttt{dim\_carrier} from
+\texttt{mart\_revenue\_dashboard}?''}
+\textbf{Gold: 3}

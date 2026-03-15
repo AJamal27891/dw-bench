@@ -56,11 +56,19 @@ def _format_gold_evidence(qa_pair: dict) -> str:
         evidence_parts.append(
             f"Shortest path length (hops): {answer}")
     elif subtype == 'forward':
-        evidence_parts.append(
-            f"Tables directly derived from the source: {answer}")
+        if isinstance(answer, list):
+            evidence_parts.append(
+                f"Tables directly derived from the source (exact list): {json.dumps(answer)}")
+        else:
+            evidence_parts.append(
+                f"Tables directly derived from the source: {answer}")
     elif subtype == 'reverse':
-        evidence_parts.append(
-            f"Source tables that feed into the target: {answer}")
+        if isinstance(answer, list):
+            evidence_parts.append(
+                f"Source tables that feed into the target (exact list): {json.dumps(answer)}")
+        else:
+            evidence_parts.append(
+                f"Source tables that feed into the target: {answer}")
     elif subtype == 'transitive':
         evidence_parts.append(
             f"Full transitive lineage chain: {answer}")
@@ -69,7 +77,7 @@ def _format_gold_evidence(qa_pair: dict) -> str:
             f"All tables affected (lineage + FK dependents): {answer}")
     elif subtype == 'multi_source':
         evidence_parts.append(
-            f"Tables with 3+ source lineage edges: {answer}")
+            f"Direct source tables feeding into the target: {answer}")
     elif subtype == 'count':
         evidence_parts.append(
             f"Number of connected components: {answer}")
@@ -77,8 +85,12 @@ def _format_gold_evidence(qa_pair: dict) -> str:
         evidence_parts.append(
             f"Component membership result: {answer}")
     elif subtype == 'isolation':
-        evidence_parts.append(
-            f"Isolation check result: {answer}")
+        if answer in ('no', False):
+            evidence_parts.append(
+                "These tables are NOT connected. They belong to different disconnected silos. The answer to the question is: no")
+        else:
+            evidence_parts.append(
+                "These tables ARE connected through FK or lineage. The answer to the question is: yes")
     elif subtype == 'connected':
         evidence_parts.append(
             f"Connectivity check result: {answer}")

@@ -4,29 +4,32 @@ text-to-SQL benchmarks such as Spider and BIRD. However, these benchmarks
 evaluate \emph{query generation}, not \emph{structural understanding} of
 database schemas. We introduce \textbf{DW-Bench}, the first benchmark
 specifically designed to evaluate LLMs on \emph{graph topology reasoning}
-over data warehouse schemas. DW-Bench contains \textbf{666 questions} across
-\textbf{4 real-world datasets} (AdventureWorks, TPC-DS, TPC-DI, OMOP~CDM)
-spanning \textbf{198 tables}, \textbf{13 question subtypes}, and \textbf{3
-difficulty levels}. Questions require reasoning about foreign key paths,
-data lineage chains, transitive impact analysis, and connected component
-detection---tasks that demand graph traversal rather than SQL generation.
+over data warehouse schemas. DW-Bench contains \textbf{1,038 questions}
+across \textbf{5 datasets} (4 real-world: AdventureWorks, TPC-DS, TPC-DI,
+OMOP~CDM; 1 synthetic: Syn-Logistics) spanning \textbf{262 tables},
+\textbf{13 question subtypes}, and \textbf{3 difficulty levels}. Questions
+require reasoning about foreign key paths, data lineage chains, transitive
+impact analysis, and connected component detection---tasks that demand
+graph traversal rather than SQL generation.
 
-We evaluate three baselines---\emph{Flat Text}, \emph{Vector-RAG}, and
-\emph{Graph-Augmented}---using two frontier models: Gemini~2.5 Flash
-(closed-weight) and DeepSeek-V3 (open-weight, 671B MoE). For Gemini,
-micro-averaging creates a \textbf{Triviality Illusion}: Flat Text appears
-strongest (73.9\% EM) by inflating scores through 316 easy routing
-questions, but under macro-averaging Graph-Augmented leads
-(\textbf{68.0\%} vs.\ 61.1\%). For DeepSeek-V3, Graph-Augmented
-\emph{strictly dominates} across both micro (\textbf{82.7\%} vs.\
-68.6\%) and macro (\textbf{74.0\%} vs.\ 56.1\%)---confirming
-that topological context injection is universally beneficial. An Oracle
-baseline injecting gold graph evidence achieves \textbf{97--99\% EM},
-proving questions are solvable and isolating failures as a retrieval gap.
+We evaluate four baselines---\emph{Oracle}, \emph{Flat Text},
+\emph{Vector-RAG}, and \emph{Graph-Augmented}---using two frontier models:
+Gemini~2.5 Flash~\cite{gemini2024} and DeepSeek-V3~\cite{deepseek2024v3}.
+On the original 4 real-world datasets, Gemini micro-averaging creates a
+\textbf{Triviality Illusion}: Flat Text appears strongest (73.9\% EM), but
+under macro-averaging Graph-Augmented leads (\textbf{68.0\%} vs.\ 61.1\%).
+DeepSeek-V3 shows Graph-Augmented \emph{strictly dominating} across both
+micro (\textbf{82.7\%}) and macro (\textbf{74.0\%}). On Syn-Logistics,
+which was designed to stress-test structural reasoning with $n\geq20$ per
+subtype, we observe the most devastating finding:
+\texttt{hop\_count} ($n{=}44$) and \texttt{count} ($n{=}26$) score
+\textbf{0\% EM across all baselines} while the Oracle achieves 100\%,
+proving the structural reasoning gap is fundamental. The Oracle
+baseline achieves \textbf{97.8--100\% EM}, confirming question solvability.
 
 DW-Bench includes an obfuscation protocol replacing table names with
-random identifiers. DeepSeek suffers up to \textbf{30\%} penalty,
-revealing semantic reliance, while Gemini shows differential effects
-across difficulty levels. The benchmark, all results, and evaluation
-code are publicly available.
+random identifiers, revealing that DeepSeek suffers up to \textbf{30\%}
+penalty while Gemini shows differential effects across difficulty levels.
+The benchmark, all results, and evaluation code are publicly available at
+\url{https://github.com/AJamal27891/dw-bench}.
 \end{abstract}

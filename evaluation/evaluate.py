@@ -222,7 +222,7 @@ def main():
     parser.add_argument('--baseline', type=str, required=True,
                         choices=['flat_text', 'vector_rag', 'graph_aug', 'gnn_llm', 'oracle'])
     parser.add_argument('--dataset', type=str, default='all',
-                        choices=['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'all'])
+                        choices=['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics', 'all'])
     parser.add_argument('--obfuscated', action='store_true',
                         help='Use obfuscated schema and Q&A')
     parser.add_argument('--extended', action='store_true',

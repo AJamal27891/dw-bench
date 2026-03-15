@@ -23,5 +23,8 @@ neighborhoods; it is \emph{not} a trained GNN. The LLM receives
 algorithm output as text context. A learned graph encoder represents
 future work.
 
-All baselines use the same LLM (Gemini 2.5 Flash) and system prompt
-requiring JSON-formatted answers with reasoning.
+All baselines are evaluated with two frontier models: Gemini~2.5 Flash
+(closed-weight) and DeepSeek-V3 (open-weight, 671B MoE). We use greedy
+decoding ($\tau{=}0.0$) with a single deterministic pass to eliminate
+sampling variance. Responses use a structured JSON format with reasoning
+and answer fields.

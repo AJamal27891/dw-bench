@@ -9,10 +9,24 @@ Supports:
 
 def exact_match(predicted, gold) -> bool:
     """Exact match for int, bool, string answers."""
+    # Normalize yes/no <-> true/false for boolean-like answers
+    BOOL_MAP = {'yes': True, 'no': False, 'true': True, 'false': False}
+    
+    def to_bool(v):
+        if isinstance(v, bool):
+            return v
+        if isinstance(v, str) and v.lower().strip() in BOOL_MAP:
+            return BOOL_MAP[v.lower().strip()]
+        return None
+    
+    gb = to_bool(gold)
+    pb = to_bool(predicted)
+    if gb is not None and pb is not None:
+        return gb == pb
+    
     if isinstance(gold, bool):
         if isinstance(predicted, bool):
             return predicted == gold
-        # Handle string "true"/"false"
         if isinstance(predicted, str):
             return predicted.lower() == str(gold).lower()
         return False

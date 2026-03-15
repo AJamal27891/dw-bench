@@ -27,9 +27,10 @@ encoders producing per-node embeddings that capture multi-hop
 reachability) are necessary.
 
 \paragraph{Limitations.}
-DW-Bench currently includes 4 datasets; more diverse topologies (e.g.,
-data mesh, lakehouse) would strengthen generalization claims. The
-\texttt{transitive} subtype has only 4 questions due to limited multi-hop
-lineage in real schemas --- synthetic schema generators could address
-this. Our evaluation uses a single frontier model; future work should
-include open-source models at various scales.
+DW-Bench currently includes 5 datasets (4 real-world, 1 synthetic);
+more diverse topologies (e.g., data mesh, lakehouse) would strengthen
+generalization claims. While the Syn-Logistics synthetic dataset resolves
+the statistical power limitation for low-$n$ subtypes (all subtypes
+now have $n\geq20$), the real-world corpus inherently contains
+small-sample subtypes. Future work should include additional models at
+various scales and agentic retrieval methods.

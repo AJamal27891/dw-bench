@@ -37,16 +37,21 @@ benchmark evaluates LLMs on these capabilities.
 
 \paragraph{Contributions.} We make the following contributions:
 \begin{enumerate}
-  \item \textbf{DW-Bench}: A benchmark of 670 automatically-generated
-    questions across 4 real-world data warehouse schemas, organized into 3
-    categories (lineage impact, schema routing, silo detection), 13
-    subtypes, and 3 difficulty levels.
-  \item \textbf{Three baselines} spanning the text-only to graph-augmented
-    spectrum, revealing that graph context is necessary for hard structural
-    reasoning.
+  \item \textbf{DW-Bench}: A benchmark of 1,038 automatically-generated
+    questions across 5 data warehouse schemas (4 real-world, 1 synthetic),
+    organized into 3 categories (lineage impact, schema routing, silo
+    detection), 13 subtypes, and 3 difficulty levels.
+  \item \textbf{Four baselines} spanning the text-only to graph-augmented
+    spectrum, evaluated with two frontier models
+    (Gemini~2.5 Flash, DeepSeek-V3), revealing that graph context is
+    necessary for hard structural reasoning.
   \item \textbf{An obfuscation protocol} that randomizes table names,
     enabling controlled evaluation of memorization versus genuine
     topology understanding.
+  \item \textbf{Syn-Logistics}: A synthetic dataset with $n\geq20$ per
+    subtype, addressing statistical power limitations and confirming
+    that \texttt{hop\_count} and \texttt{count} score 0\% EM across all
+    baselines despite 100\% Oracle solvability.
   \item \textbf{Open-source release} of all datasets, evaluation code,
     and baseline implementations.
 \end{enumerate}

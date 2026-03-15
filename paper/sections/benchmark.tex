@@ -19,8 +19,9 @@ AdventureWorks & Retail/HR   & 102 & 136 & 39 & 204 & 11 \\
 TPC-DS         & Analytics   &  24 &  70 &  0 & 127 &  1 \\
 TPC-DI         & ETL         &  35 &  29 & 21 & 181 &  2 \\
 OMOP CDM       & Healthcare  &  37 &  74 & 21 & 158 &  3 \\
+Syn-Logistics  & Supply Chain&  64 &  96 & 35 & 372 &  5 \\
 \midrule
-\textbf{Total} &             & \textbf{198} & \textbf{309} & \textbf{81} & \textbf{670} & --- \\
+\textbf{Total} &             & \textbf{262} & \textbf{405} & \textbf{116} & \textbf{1,042} & --- \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -41,9 +42,17 @@ an ETL pipeline from staging to warehouse, with 21 lineage edges
 representing the transformation flow.
 
 \textbf{OMOP CDM}~(Observational Medical Outcomes Partnership Common Data
-Model) is a healthcare standard with 37 tables, 74 FK edges, and 21
-lineage edges across 3 connected components (clinical data, vocabulary
-tables, and metadata).
+Model)~\cite{ohdsi2019omop} is a healthcare standard with 37 tables, 74
+FK edges, and 21 lineage edges across 3 connected components (clinical
+data, vocabulary tables, and metadata).
+
+\textbf{Syn-Logistics}~is a synthetic supply-chain data warehouse with 64
+tables modeled across 5 connected components (carrier, procurement,
+healthcare, finance, HR). It was specifically designed to address the
+statistical power limitation of the real-world corpus: every subtype has
+$n\geq20$ questions, enabling reliable per-subtype conclusions. The
+schema uses a Domain Dictionary of realistic table names to prevent
+semantic collapse under obfuscation.
 
 \subsection{Schema Graph Representation}
 
@@ -53,7 +62,8 @@ tables, and metadata).
 % with OLTP layer on left and DW layer on right]
 
 Each dataset is represented as a heterogeneous graph $G = (V, E_{fk} \cup
-E_{lin})$ using PyTorch Geometric's \texttt{HeteroData}. Nodes represent
+E_{lin})$ using PyTorch Geometric~\cite{fey2019pyg}
+\texttt{HeteroData}. Nodes represent
 tables with 6 structural features: in-degree, out-degree, normalized
 degree, lineage degree, betweenness centrality, and PageRank. Edges are
 typed as either \texttt{fk\_to} (foreign key) or \texttt{derived\_from}
@@ -63,8 +73,9 @@ typed as either \texttt{fk\_to} (foreign key) or \texttt{derived\_from}
 \label{sec:qa-generation}
 
 Questions are generated deterministically from the graph structure using
-Algorithm~\ref{alg:qa-gen}, ensuring ground-truth answers are provably
-correct. We define three categories with 13 subtypes:
+standard graph algorithms (BFS, Dijkstra, connected component detection)
+implemented with NetworkX~\cite{networkx2008}, ensuring ground-truth
+answers are provably correct. We define three categories with 13 subtypes:
 
 % TABLE 2: Question Taxonomy
 \begin{table}[t]

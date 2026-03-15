@@ -1,0 +1,386 @@
+[
+  {
+    "table_name": "raw_purchase_orders",
+    "silo": "logistics",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_purchase_orders (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_shipment_tracking",
+    "silo": "logistics",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_shipment_tracking (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_supplier_catalog",
+    "silo": "logistics",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_supplier_catalog (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_warehouse_inventory",
+    "silo": "logistics",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_warehouse_inventory (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_freight_invoices",
+    "silo": "logistics",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_freight_invoices (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "stg_orders_cleaned",
+    "silo": "logistics",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_orders_cleaned (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_shipments_validated",
+    "silo": "logistics",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_shipments_validated (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_suppliers_deduped",
+    "silo": "logistics",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_suppliers_deduped (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_inventory_snapshot",
+    "silo": "logistics",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_inventory_snapshot (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_freight_reconciled",
+    "silo": "logistics",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_freight_reconciled (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "dim_supplier",
+    "silo": "logistics",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_supplier (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "dim_product",
+    "silo": "logistics",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_product (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "dim_warehouse",
+    "silo": "logistics",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_warehouse (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "dim_carrier",
+    "silo": "logistics",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_carrier (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "fact_shipment",
+    "silo": "logistics",
+    "layer": "core",
+    "ddl": "CREATE TABLE fact_shipment (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64),\n  dim_supplier_key INT REFERENCES dim_supplier(surrogate_key),\n  dim_product_key INT REFERENCES dim_product(surrogate_key),\n  dim_warehouse_key INT REFERENCES dim_warehouse(surrogate_key),\n  dim_carrier_key INT REFERENCES dim_carrier(surrogate_key)\n);"
+  },
+  {
+    "table_name": "fact_purchase_order",
+    "silo": "logistics",
+    "layer": "core",
+    "ddl": "CREATE TABLE fact_purchase_order (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64),\n  dim_supplier_key INT REFERENCES dim_supplier(surrogate_key),\n  dim_product_key INT REFERENCES dim_product(surrogate_key),\n  dim_warehouse_key INT REFERENCES dim_warehouse(surrogate_key),\n  dim_carrier_key INT REFERENCES dim_carrier(surrogate_key)\n);"
+  },
+  {
+    "table_name": "mart_delivery_performance",
+    "silo": "logistics",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_delivery_performance (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "mart_procurement_cost",
+    "silo": "logistics",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_procurement_cost (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "mart_supplier_scorecard",
+    "silo": "logistics",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_supplier_scorecard (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "mart_inventory_turnover",
+    "silo": "logistics",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_inventory_turnover (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "raw_employee_records",
+    "silo": "hr",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_employee_records (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_department_hierarchy",
+    "silo": "hr",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_department_hierarchy (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_compensation_data",
+    "silo": "hr",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_compensation_data (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "stg_employees_cleaned",
+    "silo": "hr",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_employees_cleaned (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_departments_mapped",
+    "silo": "hr",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_departments_mapped (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_compensation_normalized",
+    "silo": "hr",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_compensation_normalized (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "dim_employee",
+    "silo": "hr",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_employee (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "dim_department",
+    "silo": "hr",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_department (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "fact_payroll",
+    "silo": "hr",
+    "layer": "core",
+    "ddl": "CREATE TABLE fact_payroll (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64),\n  dim_employee_key INT REFERENCES dim_employee(surrogate_key),\n  dim_department_key INT REFERENCES dim_department(surrogate_key)\n);"
+  },
+  {
+    "table_name": "mart_headcount_report",
+    "silo": "hr",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_headcount_report (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "mart_attrition_analysis",
+    "silo": "hr",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_attrition_analysis (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "raw_patient_intake",
+    "silo": "healthcare",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_patient_intake (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_lab_results",
+    "silo": "healthcare",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_lab_results (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_prescriptions",
+    "silo": "healthcare",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_prescriptions (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "stg_patients_validated",
+    "silo": "healthcare",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_patients_validated (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_labs_standardized",
+    "silo": "healthcare",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_labs_standardized (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_prescriptions_coded",
+    "silo": "healthcare",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_prescriptions_coded (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "dim_patient",
+    "silo": "healthcare",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_patient (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "dim_provider",
+    "silo": "healthcare",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_provider (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "fact_encounter",
+    "silo": "healthcare",
+    "layer": "core",
+    "ddl": "CREATE TABLE fact_encounter (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64),\n  dim_patient_key INT REFERENCES dim_patient(surrogate_key),\n  dim_provider_key INT REFERENCES dim_provider(surrogate_key)\n);"
+  },
+  {
+    "table_name": "mart_readmission_risk",
+    "silo": "healthcare",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_readmission_risk (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "mart_treatment_outcomes",
+    "silo": "healthcare",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_treatment_outcomes (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "raw_cart_sessions",
+    "silo": "ecommerce",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_cart_sessions (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_product_catalog",
+    "silo": "ecommerce",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_product_catalog (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_payment_events",
+    "silo": "ecommerce",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_payment_events (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "stg_sessions_enriched",
+    "silo": "ecommerce",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_sessions_enriched (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_products_normalized",
+    "silo": "ecommerce",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_products_normalized (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_payments_validated",
+    "silo": "ecommerce",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_payments_validated (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "dim_customer",
+    "silo": "ecommerce",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_customer (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "dim_product_listing",
+    "silo": "ecommerce",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_product_listing (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "fact_transaction",
+    "silo": "ecommerce",
+    "layer": "core",
+    "ddl": "CREATE TABLE fact_transaction (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64),\n  dim_customer_key INT REFERENCES dim_customer(surrogate_key),\n  dim_product_listing_key INT REFERENCES dim_product_listing(surrogate_key)\n);"
+  },
+  {
+    "table_name": "mart_conversion_funnel",
+    "silo": "ecommerce",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_conversion_funnel (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "mart_revenue_dashboard",
+    "silo": "ecommerce",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_revenue_dashboard (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "raw_ledger_entries",
+    "silo": "finance",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_ledger_entries (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_bank_feeds",
+    "silo": "finance",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_bank_feeds (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "raw_tax_filings",
+    "silo": "finance",
+    "layer": "raw",
+    "ddl": "CREATE TABLE raw_tax_filings (\n  id INT PRIMARY KEY,\n  source_system VARCHAR(50),\n  load_timestamp TIMESTAMP,\n  raw_data TEXT,\n  file_name VARCHAR(255),\n  batch_id INT\n);"
+  },
+  {
+    "table_name": "stg_ledger_reconciled",
+    "silo": "finance",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_ledger_reconciled (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_bank_matched",
+    "silo": "finance",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_bank_matched (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "stg_tax_validated",
+    "silo": "finance",
+    "layer": "staging",
+    "ddl": "CREATE TABLE stg_tax_validated (\n  id INT PRIMARY KEY,\n  source_id INT,\n  validated_flag BOOLEAN,\n  cleaned_value VARCHAR(200),\n  etl_timestamp TIMESTAMP,\n  quality_score DECIMAL(5,2)\n);"
+  },
+  {
+    "table_name": "dim_account",
+    "silo": "finance",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_account (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "dim_cost_center",
+    "silo": "finance",
+    "layer": "core",
+    "ddl": "CREATE TABLE dim_cost_center (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64)\n);"
+  },
+  {
+    "table_name": "fact_journal_entry",
+    "silo": "finance",
+    "layer": "core",
+    "ddl": "CREATE TABLE fact_journal_entry (\n  surrogate_key INT PRIMARY KEY,\n  business_key VARCHAR(100),\n  effective_date DATE,\n  expiry_date DATE,\n  is_current BOOLEAN,\n  hash_diff VARCHAR(64),\n  dim_account_key INT REFERENCES dim_account(surrogate_key),\n  dim_cost_center_key INT REFERENCES dim_cost_center(surrogate_key)\n);"
+  },
+  {
+    "table_name": "mart_trial_balance",
+    "silo": "finance",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_trial_balance (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  },
+  {
+    "table_name": "mart_cash_flow_statement",
+    "silo": "finance",
+    "layer": "mart",
+    "ddl": "CREATE TABLE mart_cash_flow_statement (\n  metric_key INT PRIMARY KEY,\n  dimension_key INT,\n  measure_value DECIMAL(18,4),\n  period_date DATE,\n  aggregation_level VARCHAR(20),\n  refresh_timestamp TIMESTAMP\n);"
+  }
+]

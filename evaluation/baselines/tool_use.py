@@ -25,37 +25,52 @@ from flat_text import call_llm, extract_answer, _parse_json_response
 # ============================================================
 
 def build_graph(dataset_dir: Path, obfuscated: bool = False) -> tuple:
-    """Load PyG graph and build NetworkX graph for tool execution."""
+    """Load PyG graph and build NetworkX graphs for tool execution.
+    
+    Returns:
+        table_names: list of table names
+        G_fk_only: undirected graph with FK edges ONLY (for component/adjacency queries)
+        G_combined: undirected graph with FK + lineage edges (for path queries)
+        G_directed: directed graph with both types (for lineage queries)
+    """
     graph_file = 'obfuscated_schema_graph.pt' if obfuscated else 'schema_graph.pt'
     data = torch.load(dataset_dir / graph_file, weights_only=False)
     table_names = data['table'].table_names
 
-    # Build undirected graph for FK queries
-    G_fk = nx.Graph()
-    G_directed = nx.DiGraph()  # For lineage queries
+    # Build THREE separate graphs:
+    G_fk_only = nx.Graph()     # FK edges ONLY — for components, adjacency
+    G_combined = nx.Graph()    # FK + lineage — for shortest path queries
+    G_directed = nx.DiGraph()  # Directed — for lineage traversal
     
     for t in table_names:
-        G_fk.add_node(t)
+        G_fk_only.add_node(t)
+        G_combined.add_node(t)
         G_directed.add_node(t)
 
     if ('table', 'fk_to', 'table') in data.edge_types:
         ei = data['table', 'fk_to', 'table'].edge_index
         for j in range(ei.shape[1]):
             s, d = ei[0, j].item(), ei[1, j].item()
-            G_fk.add_edge(table_names[s], table_names[d], type='fk')
+            G_fk_only.add_edge(table_names[s], table_names[d], type='fk')
+            G_combined.add_edge(table_names[s], table_names[d], type='fk')
             G_directed.add_edge(table_names[s], table_names[d], type='fk')
 
     if ('table', 'derived_from', 'table') in data.edge_types:
         ei = data['table', 'derived_from', 'table'].edge_index
         for j in range(ei.shape[1]):
             s, d = ei[0, j].item(), ei[1, j].item()
-            G_fk.add_edge(table_names[s], table_names[d], type='lineage')
+            # lineage edges go in combined + directed, NOT in fk_only
+            G_combined.add_edge(table_names[s], table_names[d], type='lineage')
             G_directed.add_edge(table_names[s], table_names[d], type='lineage')
 
-    return table_names, G_fk, G_directed
+    print(f"  Graph built: {len(table_names)} tables, "
+          f"{G_fk_only.number_of_edges()} FK edges, "
+          f"{G_combined.number_of_edges() - G_fk_only.number_of_edges()} lineage edges")
+
+    return table_names, G_fk_only, G_combined, G_directed
 
 
-def execute_tool(tool_name: str, args: dict, G_fk: nx.Graph, G_dir: nx.DiGraph, table_names: list) -> str:
+def execute_tool(tool_name: str, args: dict, G_fk: nx.Graph, G_combined: nx.Graph, G_dir: nx.DiGraph, table_names: list) -> str:
     """Execute a graph tool and return the result as a string."""
     try:
         if tool_name == 'shortest_path':
@@ -64,13 +79,16 @@ def execute_tool(tool_name: str, args: dict, G_fk: nx.Graph, G_dir: nx.DiGraph, 
             if src not in G_fk or dst not in G_fk:
                 return f"Error: Table '{src}' or '{dst}' not found in graph."
             try:
-                path = nx.shortest_path(G_fk, src, dst)
+                # Use combined graph (FK+lineage) for path finding
+                path = nx.shortest_path(G_combined, src, dst)
                 return json.dumps({"path": path, "length": len(path) - 1})
             except nx.NetworkXNoPath:
                 return json.dumps({"path": None, "length": -1, "message": "No path exists"})
 
         elif tool_name == 'connected_components':
-            components = list(nx.connected_components(G_fk))
+            # Use COMBINED graph (FK+lineage) for silo detection — gold answers
+            # define "data silos" as groups connected by ANY edge type
+            components = list(nx.connected_components(G_combined))
             result = {
                 "count": len(components),
                 "components": [sorted(list(c)) for c in components]
@@ -82,7 +100,13 @@ def execute_tool(tool_name: str, args: dict, G_fk: nx.Graph, G_dir: nx.DiGraph, 
             dst = args.get('target', '')
             if src not in G_fk or dst not in G_fk:
                 return f"Error: Table not found."
-            adjacent = G_fk.has_edge(src, dst)
+            # Check DIRECTED FK: does src have a FK pointing to dst?
+            # Gold answers use directed fk_adj, so we must match direction.
+            # Use the directed graph and only check 'fk' type edges in src→dst direction.
+            adjacent = False
+            if G_dir.has_edge(src, dst):
+                edge_data = G_dir[src][dst]
+                adjacent = edge_data.get('type') == 'fk'
             return json.dumps({"adjacent": adjacent})
 
         elif tool_name == 'get_lineage_forward':
@@ -127,10 +151,15 @@ def execute_tool(tool_name: str, args: dict, G_fk: nx.Graph, G_dir: nx.DiGraph, 
             table = args.get('table', '')
             if table not in G_fk:
                 return f"Error: Table '{table}' not found."
-            for comp in nx.connected_components(G_fk):
+            # Use COMBINED graph (FK+lineage) — gold answers define silos
+            # via any edge type. EXCLUDE the query table itself from results
+            # (gold answers list OTHER tables in the same component).
+            for comp in nx.connected_components(G_combined):
                 if table in comp:
-                    return json.dumps({"table": table, "component": sorted(list(comp))})
-            return json.dumps({"table": table, "component": [table]})
+                    members = sorted(list(comp - {table}))
+                    return json.dumps({"table": table, "component": members,
+                                       "component_size": len(comp)})
+            return json.dumps({"table": table, "component": [], "component_size": 1})
 
         elif tool_name == 'get_fk_neighbors':
             table = args.get('table', '')
@@ -216,7 +245,7 @@ Rules:
 
 
 def run_tool_use_question(question: str, answer_type: str, table_names: list,
-                          G_fk: nx.Graph, G_dir: nx.DiGraph,
+                          G_fk: nx.Graph, G_combined: nx.Graph, G_dir: nx.DiGraph,
                           api_key: str, api_base: str, model: str,
                           max_tool_calls: int = 3) -> dict:
     """Run a single question through the tool-use loop."""
@@ -279,7 +308,7 @@ def run_tool_use_question(question: str, answer_type: str, table_names: list,
         if 'tool_call' in parsed:
             tool_name = parsed['tool_call']
             tool_args = parsed.get('args', {})
-            tool_result = execute_tool(tool_name, tool_args, G_fk, G_dir, table_names)
+            tool_result = execute_tool(tool_name, tool_args, G_fk, G_combined, G_dir, table_names)
             
             # Add assistant message and tool result to conversation
             messages.append({'role': 'assistant', 'content': content})
@@ -327,7 +356,7 @@ def run_tool_use(dataset_dir: Path, api_key: str = "",
     with open(dataset_dir / qa_file, 'r', encoding='utf-8') as f:
         questions = json.load(f)
 
-    table_names, G_fk, G_dir = build_graph(dataset_dir, obfuscated)
+    table_names, G_fk, G_combined, G_dir = build_graph(dataset_dir, obfuscated)
     is_local = '127.0.0.1' in api_base or 'localhost' in api_base
 
     print(f"\n  Tool-Use baseline: {len(questions)} questions")
@@ -337,7 +366,7 @@ def run_tool_use(dataset_dir: Path, api_key: str = "",
     for i, q in enumerate(questions):
         raw_response = run_tool_use_question(
             q['question'], q['answer_type'], table_names,
-            G_fk, G_dir, api_key, api_base, model,
+            G_fk, G_combined, G_dir, api_key, api_base, model,
         )
         predicted = extract_answer(raw_response, q['answer_type'])
         api_failure = not raw_response.get('_raw_text')

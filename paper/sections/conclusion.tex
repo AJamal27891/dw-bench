@@ -6,14 +6,18 @@
 We introduced DW-Bench, the first benchmark for evaluating LLM
 capabilities on data warehouse graph topology reasoning. Across five
 datasets (four real-world, one synthetic), two frontier models (Gemini~2.5
-Flash and DeepSeek-V3), and four baselines, our evaluation reveals a
-clear hierarchy: while Flat Text baselines dominate easy local queries,
-they fail catastrophically on hard structural tasks that require graph
-traversal. Graph-Augmented baselines improve hard-task performance
-significantly, but subtypes requiring deep structural reasoning---such as
-\texttt{hop\_count}, \texttt{count}, and \texttt{combined\_impact}---remain
-effectively unsolved by all methods, establishing a compelling frontier
-for GNN-augmented LLM architectures.
+Flash and DeepSeek-V3), and five baselines (Flat Text, Graph-Augmented,
+Vector-RAG, Tool-Use, and Oracle), our evaluation reveals three key
+insights. First, a \emph{model-dependent structural gap}: Gemini achieves
+near-perfect scores on structural subtypes (98--100\% EM on
+\texttt{hop\_count} and \texttt{count}), while DeepSeek scores as low as
+27--48\% on the same tasks. Second, a \emph{Triviality Illusion}: micro-averaging
+inflates scores by weighting easy subtypes disproportionately, which
+macro-averaging corrects. Third, a \emph{compositional ceiling}:
+\texttt{combined\_impact}---requiring multi-phase lineage + FK
+traversal---remains below 27\% EM for both models across all baselines,
+despite 100\% Oracle solvability, establishing a compelling frontier for
+learned graph representations.
 
 DW-Bench is publicly available at
 \url{https://github.com/AJamal27891/dw-bench} with all datasets,

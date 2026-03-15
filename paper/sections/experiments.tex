@@ -293,10 +293,10 @@ token parity across retrieval methods represent important future work.
 (\texttt{transitive}, \texttt{connected}, \texttt{count},
 \texttt{full\_enumeration}, \texttt{multi\_source}) have $n\leq7$.
 Syn-Logistics resolves this limitation with $n\geq20$ for every subtype,
-and the findings (0\% EM for structural subtypes) hold across both
-datasets. We use greedy decoding ($\tau{=}0.0$) for deterministic
-outputs; variance analysis across seeds is left for the camera-ready
-version.
+revealing that the structural gap is model-dependent: Gemini achieves
+98--100\% on \texttt{hop\_count}/\texttt{count} while DeepSeek scores
+27--48\%. We use greedy decoding ($\tau{=}0.0$) for deterministic
+outputs.
 
 \textbf{Baseline Scope.} We evaluate standardized, zero-shot baselines
 to establish empirical lower bounds. Stronger methods---agentic

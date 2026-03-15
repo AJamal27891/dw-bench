@@ -65,15 +65,16 @@ Macro-EM (red) reveals Graph-Augmented as the true winner on both models.}
 \end{figure}
 
 \paragraph{Key Finding~1: The Triviality Illusion.}
-Under micro-EM, Flat Text appears competitive (73.9\% for Gemini).
-However, switching to macro-EM---which weights all 13~subtypes
-equally---reveals that \textbf{Graph-Augmented consistently ranks first}
-across both models and both conditions (Figure~\ref{fig:triviality},
-Table~\ref{tab:main-results}).
-The gap is +6.9\% for Gemini and +17.8\% for DeepSeek. This ``triviality
-illusion'' is caused by \texttt{join\_path}'s 316~questions (47\% of all
-data) inflating micro-EM for text-only baselines that can handle FK
-adjacency but fail on deeper structural tasks.
+For Gemini, micro-EM creates a triviality illusion: Flat Text appears to
+win (73.9\% vs.\ 70.4\%) because \texttt{join\_path}'s 316~questions
+(47\% of the benchmark) inflate scores for baselines that handle FK
+adjacency but fail on deeper tasks. Under macro-EM, Graph-Augmented
+leads (\textbf{68.0\%} vs.\ 61.1\%,
+Figure~\ref{fig:triviality}). For DeepSeek-V3,
+Graph-Augmented \emph{strictly dominates} across both
+micro (\textbf{82.3\%} vs.\ 68.4\%) and macro
+(\textbf{73.9\%} vs.\ 56.1\%)---confirming that graph context
+injection is universally beneficial, not a Gemini-specific artifact.
 
 \paragraph{Key Finding~2: DeepSeek benefits more from graph context.}
 DeepSeek-V3 shows a larger GA--FT macro-EM gap (+17.8\%) compared to
@@ -122,11 +123,15 @@ Model & Difficulty ($n$) & FT & VR & GA \\
 
 \paragraph{Key Finding~3: Hard task collapse is model-independent.}
 Both Gemini and DeepSeek collapse on hard questions---14.8\% and 31.6\%
-for Flat Text respectively---while the Oracle achieves 97.9--98.9\% on
-the same questions. This proves the failure is \emph{not} due to
-question ambiguity but to retrieval/reasoning inability. The 97.9\%
-Oracle EM on hard questions establishes that DW-Bench questions are
-computationally solvable when given correct graph context.
+for Flat Text, $\leq$37.9\% even for the best baseline
+(Graph-Augmented)---while the Oracle achieves 97.9--98.9\% on the same
+questions ($n=95$). This 60-point gap proves the failure is \emph{not}
+due to question ambiguity but to retrieval/reasoning inability.%
+\footnote{Oracle EM is marginally higher on hard tasks than overall
+(97.9\% vs.\ 96.9\% for Gemini). This occurs because Oracle failures
+cluster in \texttt{forward} and \texttt{membership} subtypes
+(easy/medium), where comma-separated list formatting mismatches cause
+Exact Match failures despite correct content.}
 
 \subsection{Per-Subtype Analysis}
 
@@ -150,8 +155,16 @@ necessary but insufficient for deep topology reasoning.
 \paragraph{Key Finding~5: Combined impact remains unsolved.}
 The \texttt{combined\_impact} subtype---requiring simultaneous traversal
 of lineage chains AND FK dependency trees---achieves $\leq$6.5\% EM across
-all baselines on Gemini and $\leq$14.3\% on DeepSeek. This establishes a
-clear frontier for future work on learned graph representations.
+all baselines on Gemini and $\leq$14.3\% on DeepSeek ($n=31$--35).%
+\footnote{DeepSeek Vector-RAG scores 14.3\% on \texttt{combined\_impact}
+vs.\ Graph-Augmented's 8.6\%. Fisher's exact test yields $p=0.71$
+($n=35$), confirming this difference is not statistically significant
+and likely reflects coincidental semantic overlap in retrieved chunks.}
+This establishes a clear frontier for future work on learned graph
+representations. Five subtypes (\texttt{transitive}, \texttt{connected},
+\texttt{count}, \texttt{full\_enumeration}, \texttt{multi\_source})
+have $n\leq7$ due to natural schema constraints; per-subtype
+statistical conclusions for these are reported in the appendix.
 
 \begin{figure}[t]
 \centering
@@ -189,13 +202,23 @@ Model & Baseline & Original & Obfuscated & $\Delta$ \\
 \end{tabular}
 \end{table}
 
-\paragraph{Key Finding~6: Obfuscation reveals memorization asymmetry.}
-DeepSeek suffers dramatically larger obfuscation penalties ($-$27.7\%
-to $-$30.1\%) compared to Gemini ($-$9.0\% to $-$21.3\%). This suggests
-Gemini has greater pretraining exposure to these Western enterprise
-schemas (AdventureWorks, TPC benchmarks), enabling partial memorization
-that survives in original evaluations. When this crutch is removed via
-obfuscation, DeepSeek's true structural reasoning ability is revealed.
-Notably, Graph-Augmented has the \emph{smallest relative obfuscation
-penalty} on DeepSeek ($-$23.1\% vs.\ $-$30.1\% for VR), confirming
-that graph structure partially compensates for lost name semantics.
+\paragraph{Key Finding~6: Obfuscation effects are model-dependent.}
+Obfuscation penalties are asymmetric across models
+(Table~\ref{tab:obfuscation}, Figure~\ref{fig:obfuscation}). DeepSeek
+suffers dramatically larger drops ($-$27.7\% to $-$30.1\%) compared to
+Gemini ($-$9.0\% to $-$21.3\%) on overall micro-EM. For DeepSeek,
+Graph-Augmented shows the smallest penalty ($-$23.1\%), confirming
+that explicit graph structure partially compensates when semantic name
+cues are removed. Gemini Flat Text shows the smallest overall penalty
+($-$9.0\%), reflecting superior in-context DDL tracing capability.
+
+\paragraph{Key Finding~7: Obfuscation paradoxically helps hard tasks.}
+A surprising finding emerges when disaggregating by difficulty: Gemini
+Flat Text hard EM \emph{increases} from 14.8\% to 39.1\%
+($+$24.4\%, $n=61$) under obfuscation, while easy EM drops from 83.2\%
+to 65.6\% ($-$17.6\%). This paradox suggests that long semantic names
+(e.g., \texttt{OLTP.Sales.SalesOrderHeaderSalesReason}) create tracking
+overhead in multi-hop reasoning, while shorter random identifiers
+(e.g., \texttt{Table\_A7}) reduce cognitive load for path tracing.
+Obfuscation simultaneously removes name shortcuts for easy lookups
+and reduces name complexity for hard structural traversals.

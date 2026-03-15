@@ -13,20 +13,21 @@ detection---tasks that demand graph traversal rather than SQL generation.
 
 We evaluate three baselines---\emph{Flat Text}, \emph{Vector-RAG}, and
 \emph{Graph-Augmented}---using two frontier models: Gemini~2.5 Flash
-(closed-weight) and DeepSeek-V3 (open-weight, 671B MoE). Under
-standard micro-averaging, Flat Text appears strongest
-(\textbf{73.9\%} EM for Gemini). However, \emph{macro-averaging} across
-all 13~subtypes reveals a \textbf{triviality illusion}: Graph-Augmented
-consistently ranks first (\textbf{68.0\%} vs.\ 61.1\% Gemini;
-\textbf{73.9\%} vs.\ 56.1\% DeepSeek), while all baselines collapse on
-hard structural tasks ($\leq$17.5\% EM). An Oracle baseline injecting
-gold graph evidence achieves \textbf{97--99\% EM}, proving these
-questions are solvable and isolating the failure as a
-retrieval/reasoning gap.
+(closed-weight) and DeepSeek-V3 (open-weight, 671B MoE). For Gemini,
+micro-averaging creates a \textbf{Triviality Illusion}: Flat Text appears
+strongest (73.9\% EM) by inflating scores through 316 easy routing
+questions, but under macro-averaging Graph-Augmented leads
+(\textbf{68.0\%} vs.\ 61.1\%). For DeepSeek-V3, Graph-Augmented
+\emph{strictly dominates} across both micro (\textbf{82.3\%} vs.\
+68.4\%) and macro (\textbf{73.9\%} vs.\ 56.1\%) metrics---confirming
+that topological context injection is universally beneficial. An Oracle
+baseline injecting gold graph evidence achieves \textbf{97--99\% EM},
+proving these questions are solvable and isolating the failure as a
+retrieval gap, not question ambiguity.
 
 DW-Bench includes an obfuscation protocol replacing table names with
-random identifiers. DeepSeek suffers up to \textbf{30\%} obfuscation
-penalty versus Gemini's \textbf{9--21\%}, revealing asymmetric
-memorization. The benchmark, all results, and evaluation code are
-publicly available.
+random identifiers. DeepSeek suffers up to \textbf{30\%} penalty,
+revealing semantic reliance, while Gemini's hard task performance
+paradoxically \emph{improves} (+24\%), suggesting that shorter random
+identifiers reduce multi-hop tracking complexity.
 \end{abstract}

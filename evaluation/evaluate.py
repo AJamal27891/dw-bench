@@ -148,6 +148,12 @@ def run_evaluation(baseline_name: str, dataset: str, obfuscated: bool,
                                    api_base=api_base, model=model,
                                    obfuscated=obfuscated,
                                    qa_file=qa_file)
+    elif baseline_name == 'react_code':
+        from baselines.react_code import run_react_code
+        raw_results = run_react_code(ds_dir, api_key,
+                                     api_base=api_base, model=model,
+                                     obfuscated=obfuscated,
+                                     qa_file=qa_file)
     else:
         raise ValueError(f"Unknown baseline: {baseline_name}")
 

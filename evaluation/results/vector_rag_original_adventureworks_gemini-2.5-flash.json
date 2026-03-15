@@ -4145,7 +4145,7 @@
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "multi_source",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The global lineage relationships explicitly list the source tables that feed into DW.dbo.FactInternetSales via DERIVED_FROM relationships.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4201,7 +4201,7 @@
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "multi_source",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The schema explicitly lists three OLTP tables that are derived into DW.dbo.FactProductInventory via 'DERIVED_FROM' relationships.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4258,7 +4258,7 @@
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "multi_source",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The 'ALL LINEAGE RELATIONSHIPS' section explicitly lists four OLTP tables that are derived into DW.dbo.FactResellerSales.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4457,7 +4457,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal (BFS/DFS) starting from DW.dbo.DimSalesTerritory, including all tables reachable via FK or DERIVED_FROM relationships in any direction, based on the provided schema and global lineage.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4635,7 +4635,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a breadth-first search (BFS) starting from",
       "api_failure": false,
       "retrieved_tables": [
@@ -4822,7 +4822,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5301,7 +5301,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Tracing foreign key relationships from OLTP.Sales.SalesTerritoryHistory leads to OLTP.Sales.SalesTerritory and OLTP.Sales.SalesPerson. Tracing from DW.dbo.FactCurrencyRate leads to DW.dbo.DimCurrency and DW.dbo.DimDate. No common tables or connecting FK paths exist between these two sets of tables.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5539,7 +5539,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from DW.dbo.FactInternetSales to DW.dbo.DimCurrency.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5592,7 +5592,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from DW.dbo.DimProductSubcategory to DW.dbo.DimProductCategory, forming the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5645,7 +5645,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from OLTP.Sales.SpecialOfferProduct to OLTP.Production.Product.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5698,7 +5698,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactProductInventory has a direct foreign key relationship to DW.dbo.DimProduct, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5751,7 +5751,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactSalesQuota has a direct foreign key relationship to DW.dbo.DimDate, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5804,7 +5804,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from DW.dbo.FactFinance to DW.dbo.DimAccount, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5857,7 +5857,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship where OLTP.Production.ProductModelIllustration references OLTP.Production.ProductModel, forming a direct join path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5910,7 +5910,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from OLTP.Purchasing.PurchaseOrderDetail to OLTP.Purchasing.PurchaseOrderHeader.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5963,7 +5963,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from OLTP.Purchasing.PurchaseOrderHeader to OLTP.Purchasing.ShipMethod, making this the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6016,7 +6016,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Production.ProductProductPhoto has a direct foreign key relationship to OLTP.Production.Product, making it a one-step connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6069,7 +6069,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactFinance has a direct foreign key relationship to DW.dbo.DimScenario, making this the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6122,7 +6122,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Production.WorkOrder has a direct foreign key relationship to OLTP.Production.Product, making it the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6175,7 +6175,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactInternetSalesReason has a direct foreign key relationship to DW.dbo.DimSalesReason, making this the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6228,7 +6228,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Sales.SalesTaxRate has a direct foreign key relationship to OLTP.Person.StateProvince, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6283,7 +6283,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both OLTP.Production.ProductDocument and OLTP.Production.WorkOrder have a direct foreign key relationship with OLTP.Production.Product, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6339,7 +6339,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Sales.SalesOrderHeader has an FK to OLTP.Sales.SalesTerritory, and OLTP.Sales.SalesOrderHeaderSalesReason has an FK to OLTP.Sales.SalesOrderHeader, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6515,7 +6515,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactFinance has foreign key relationships with both DW.dbo.DimDate and DW.dbo.DimAccount, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6630,7 +6630,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactResellerSales has foreign keys to both DW.dbo.DimReseller and DW.dbo.DimEmployee, forming a direct connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6745,7 +6745,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both OLTP.Production.ProductDocument and OLTP.Production.ProductListPriceHistory have a direct foreign key relationship to OLTP.Production.Product, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6860,7 +6860,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.DimPromotion is linked to DW.dbo.FactResellerSales by an FK, and DW.dbo.FactResellerSales is linked to DW.dbo.DimCurrency by an FK, forming a 2-step chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7152,7 +7152,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Production.Product has an FK to OLTP.Production.ProductModel, and OLTP.Production.ProductCostHistory has an FK to OLTP.Production.Product, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7267,7 +7267,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Production.Product has a foreign key to OLTP.Production.ProductModel, and OLTP.Production.BillOfMaterials has a foreign key to OLTP.Production.Product, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7382,7 +7382,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Production.ProductModelProductDescriptionCulture links both tables: it has an FK to OLTP.Production.ProductModel and an FK to OLTP.Production.ProductDescription.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7438,7 +7438,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Purchasing.Vendor is connected to OLTP.Person.BusinessEntity, which is then connected to OLTP.Person.Person, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7494,7 +7494,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactResellerSales has foreign keys to both DW.dbo.DimProduct and DW.dbo.DimDate, creating a direct path between them.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7550,7 +7550,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both DW.dbo.FactCurrencyRate and DW.dbo.FactSurveyResponse have a direct foreign key relationship with DW.dbo.DimDate, forming the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7606,7 +7606,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Sales.SalesOrderHeader has foreign keys to both OLTP.Sales.Customer and OLTP.Sales.CreditCard, forming a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7662,7 +7662,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both OLTP.HumanResources.EmployeeDepartmentHistory and OLTP.Purchasing.PurchaseOrderHeader have a direct foreign key relationship with OLTP.HumanResources.Employee, making it the shortest common link.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7782,7 +7782,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Traced foreign key relationships from OLTP.Person.PhoneNumberType through OLTP.Person.Person, OLTP.HumanResources.Employee, and OLTP.Sales.SalesPerson to reach OLTP.Sales.SalesTerritory in 5 joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7845,7 +7845,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A path is found by traversing FKs: EmployeeDepartmentHistory -> Employee -> Person.Person <- BusinessEntityContact -> ContactType. This is the shortest chain of FK joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7904,7 +7904,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "After exploring all direct and indirect foreign key relationships from both tables, no common table or connecting path was found within the provided schema context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7957,7 +7957,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The table OLTP.Sales.SalesTaxRate is not present in the provided database schema or lineage relationships, so no path can be determined.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8009,7 +8009,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided foreign key relationships, there are no direct or indirect foreign key joins connecting any table in the OLTP.Sales schema to any table in the OLTP.Production schema.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8060,7 +8060,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "OLTP.Production.Product has no outgoing foreign key relationships in the provided schema. OLTP.Person.Person is not involved in any foreign key relationships in the provided schema.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8110,7 +8110,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided schema, there is no foreign key relationship connecting OLTP.Production.ProductModel or OLTP.Production.ProductDescription to OLTP.Production.Product, which is necessary to bridge OLTP.Production.Culture to OLTP.Production.TransactionHistory.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8162,7 +8162,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The table OLTP.Person.Address is not present in the provided 'DATABASE SCHEMA' section, which defines foreign key relationships. Therefore, a foreign key join path cannot be determined from the given context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8215,7 +8215,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided schema, there are no foreign key relationships that connect any table in the OLTP.Production branch (starting from OLTP.Production.ProductProductPhoto) to any table in the OLTP.Sales or OLTP.Person branches (leading to OLTP.Sales.CountryRegionCurrency).",
       "api_failure": false,
       "retrieved_tables": [
@@ -8271,7 +8271,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is found by following FK relationships: ProductListPriceHistory --FK--> Product --FK--> SpecialOfferProduct --FK--> SalesOrderDetail --FK--> SalesOrderHeader.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8331,7 +8331,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "OLTP.Production.Illustration is only connected to OLTP.Production.ProductModelIllustration. This table is not among the 15 most relevant tables, and no further relationships for it are provided, making it a dead end for reaching other tables in the context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8383,7 +8383,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "There is no foreign key relationship connecting any table in the 'Production' schema (related to ProductListPriceHistory) to any table in the 'Sales' schema (related to SalesPersonQuotaHistory) within the provided schema context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8435,7 +8435,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A breadth-first search was conducted from both OLTP.Production.BillOfMaterials and OLTP.Sales.Currency using only foreign key relationships. No common tables or connecting paths were found between the two search frontiers within the provided schema.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8491,7 +8491,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves joining OLTP.Sales.Currency to OLTP.Sales.CurrencyRate, then to OLTP.Sales.SalesOrderHeader, then to OLTP.Person.Address, and finally to OLTP.Person.BusinessEntityAddress, using foreign key relationships.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8553,7 +8553,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Starting from UnitMeasure, Product references UnitMeasure. Product references ProductModel. ProductModelProductDescriptionCulture references ProductModel and ProductDescription, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8611,7 +8611,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the 15 explicitly listed tables, there are no foreign key relationships that connect any Sales domain table to any Production domain table. Tables like OLTP.Production.Product or OLTP.HumanResources.Employee, which could act as bridges, are not among the 15 listed tables and thus cannot be included in the path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8661,7 +8661,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided schema, there is no direct or indirect foreign key relationship connecting OLTP.Production.ProductModel to OLTP.Sales.SalesOrderHeader or OLTP.Purchasing.PurchaseOrderHeader, which are the only tables linked to OLTP.Purchasing.ShipMethod.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8721,7 +8721,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Starting from OLTP.Sales.SalesTerritory, the shortest path involves connecting through sales order details to a product, then to a work order, and finally to work order routing.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8787,7 +8787,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A foreign key chain connects OLTP.Person.BusinessEntity to OLTP.Production.WorkOrder through Person, Employee, Document, ProductDocument, and Product tables, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8848,7 +8848,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided schema, there are no foreign key relationships connecting any OLTP.Production tables to any OLTP.Person tables. Therefore, no path exists between OLTP.Production.ProductModelIllustration and OLTP.Person.ContactType via foreign key joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8899,7 +8899,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The target table OLTP.Sales.Customer is not listed in the provided 'DATABASE SCHEMA' section, which details foreign key relationships. Therefore, a foreign key path cannot be established within the given context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8951,7 +8951,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "To connect OLTP.Production.ProductModelIllustration to OLTP.Sales.CurrencyRate via foreign key joins, a path must lead to OLTP.Sales.SalesOrderHeader, as it is the only table with an FK to OLTP.Sales.CurrencyRate. However, OLTP.Sales.SalesOrderHeader has no other foreign key relationships listed in the provided schema that would connect it to OLTP.Production.ProductModelIllustration or any related OLTP.Production tables.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9010,7 +9010,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path connects Department to EmployeeDepartmentHistory, then to Employee, then to Person, then to BusinessEntity, then to BusinessEntityAddress, and finally to Address, using only foreign key relationships.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9074,7 +9074,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A foreign key path exists from OLTP.Person.AddressType to OLTP.Sales.Customer through BusinessEntityAddress, BusinessEntity, and Store, forming a chain of 4 joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9132,7 +9132,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided schema, there are no foreign key relationships that connect any table in the OLTP.Production schema to any table in the OLTP.Person schema.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9190,7 +9190,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Starting from JobCandidate, the path goes through Employee, then Document, ProductDocument, Product, and finally ProductSubcategory via foreign key relationships.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9250,7 +9250,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "OLTP.Production.ProductDescription has no foreign key relationships (incoming or outgoing) with any of the other 14 tables provided in the context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9312,7 +9312,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves 8 foreign key joins, connecting through PersonPhone, Person, BusinessEntity, BusinessEntityAddress, Address, StateProvince, and CountryRegion to reach CountryRegionCurrency.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9374,7 +9374,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Tracing foreign key relationships from OLTP.Person.AddressType leads to OLTP.Sales.SalesOrderHeader. Tracing from OLTP.Production.ProductDocument leads to OLTP.Sales.SalesOrderDetail. However, the provided schema does not explicitly define a foreign key relationship between OLTP.Sales.SalesOrderHeader and OLTP.Sales.SalesOrderDetail, preventing a complete path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9426,7 +9426,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Sales.SalesOrderHeaderSalesReason links to OLTP.Sales.SalesOrderHeader via FK, and OLTP.Sales.SalesOrderHeader then links to OLTP.Sales.CurrencyRate via FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9488,7 +9488,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is found by traversing foreign key relationships: PersonPhone links to Person, which links to Customer, then to SalesOrderHeader, SalesOrderHeaderSalesReason, and finally SalesReason.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9547,7 +9547,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both DW.dbo.DimOrganization and DW.dbo.FactResellerSales have a direct foreign key relationship with DW.dbo.DimCurrency, forming a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9607,7 +9607,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A path is found from OLTP.Production.Culture to OLTP.Production.BillOfMaterials through ProductModelProductDescriptionCulture, ProductModel, and Product, involving 4 foreign key joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9728,7 +9728,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Illustration is linked to ProductModelIllustration, which links to ProductModel. ProductModel is also linked to ProductModelProductDescriptionCulture, which then links to ProductDescription, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9849,7 +9849,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves joining DimProduct to FactResellerSales, then to DimDate, then to FactFinance, and finally to DimAccount, resulting in a chain of 4 foreign key joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9906,7 +9906,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The table OLTP.Sales.SalesPerson is not present in the provided database schema, nor are any tables that directly link to it via foreign key relationships within the given context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -9958,7 +9958,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both OLTP.Production.TransactionHistory and OLTP.Production.WorkOrder have a direct foreign key relationship with OLTP.Production.Product, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -10015,7 +10015,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided foreign key relationships, there is no direct or indirect foreign key path connecting OLTP.Sales.SalesTerritory to OLTP.Production.Culture.",
       "api_failure": false,
       "retrieved_tables": [

@@ -1165,7 +1165,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "device_exposure is listed in Component 1, which contains 35 tables. All tables in Component 1 are in the same connected component.",
       "api_failure": false,
       "raw_response": {
@@ -1299,7 +1299,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "observation_period is listed in Component 1, which contains 35 tables. All tables in Component 1 are in the same connected component.",
       "api_failure": false,
       "raw_response": {
@@ -1433,7 +1433,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "The table 'location' is listed in 'Component 1' of the connected components. All tables within this component are in the same data silo.",
       "api_failure": false,
       "raw_response": {
@@ -1544,15 +1544,15 @@
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "reasoning": "The tables are connected via 'concept_class → concept → concept_relationship' through foreign key relationships.",
+      "reasoning": "The tables are connected via 'concept_class \u2192 concept \u2192 concept_relationship' through foreign key relationships.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": true,
         "answer_str": null,
-        "reasoning": "The tables are connected via 'concept_class → concept → concept_relationship' through foreign key relationships.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The tables are connected via 'concept_class → concept → concept_relationship' through foreign key relationships.\"\n}\n```"
+        "reasoning": "The tables are connected via 'concept_class \u2192 concept \u2192 concept_relationship' through foreign key relationships.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The tables are connected via 'concept_class \u2192 concept \u2192 concept_relationship' through foreign key relationships.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -1735,7 +1735,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "specimen is connected to concept via FK, and cost is connected to concept via FK, forming a chain: specimen -> concept <- cost.",
       "api_failure": false,
       "raw_response": {
@@ -1899,7 +1899,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'condition_era' table has a foreign key relationship directly referencing the 'person' table, establishing a direct join path.",
       "api_failure": false,
       "raw_response": {
@@ -1935,7 +1935,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationship `concept_relationship --FK--> concept` indicates that concept_relationship has a foreign key referencing concept, forming a direct join path.",
       "api_failure": false,
       "raw_response": {
@@ -1971,7 +1971,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The `drug_strength` table has a foreign key that directly references the `concept` table, forming a direct join path.",
       "api_failure": false,
       "raw_response": {
@@ -2007,7 +2007,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships section explicitly states 'condition_occurrence --FK--> person', indicating a direct foreign key join.",
       "api_failure": false,
       "raw_response": {
@@ -2043,7 +2043,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships explicitly state 'note --FK--> provider', indicating a direct foreign key join.",
       "api_failure": false,
       "raw_response": {
@@ -2079,7 +2079,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The provided context explicitly states a direct foreign key relationship between 'payer_plan_period' and 'concept'.",
       "api_failure": false,
       "raw_response": {
@@ -2115,7 +2115,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'death' table has a foreign key directly referencing the 'concept' table, establishing a direct connection.",
       "api_failure": false,
       "raw_response": {
@@ -2151,7 +2151,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'dose_era' table has a foreign key directly referencing the 'concept' table, establishing a direct join path.",
       "api_failure": false,
       "raw_response": {
@@ -2187,7 +2187,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The `note_nlp` table has a direct foreign key relationship to the `concept` table, making it the shortest possible path.",
       "api_failure": false,
       "raw_response": {
@@ -2223,7 +2223,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships show a direct foreign key from visit_detail to visit_occurrence, meaning visit_occurrence can join to visit_detail in one hop.",
       "api_failure": false,
       "raw_response": {
@@ -2259,7 +2259,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships section explicitly states 'condition_era --FK--> concept', indicating a direct foreign key join.",
       "api_failure": false,
       "raw_response": {
@@ -2295,7 +2295,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "device_exposure has a direct foreign key relationship to person, meaning they can be joined in one step.",
       "api_failure": false,
       "raw_response": {
@@ -2331,7 +2331,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'episode' table has a direct foreign key relationship to the 'concept' table.",
       "api_failure": false,
       "raw_response": {
@@ -2367,7 +2367,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'procedure_occurrence' table has a direct foreign key relationship to the 'provider' table.",
       "api_failure": false,
       "raw_response": {
@@ -2403,7 +2403,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationship `person --FK--> concept` indicates a direct foreign key join between the `person` and `concept` tables, making it a 1-hop connection.",
       "api_failure": false,
       "raw_response": {
@@ -2439,7 +2439,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships section explicitly states 'payer_plan_period --FK--> person', indicating a direct foreign key join from person to payer_plan_period.",
       "api_failure": false,
       "raw_response": {
@@ -2472,16 +2472,16 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly lists 'visit_occurrence → care_site' as a 1-hop path, but does not list 'care_site → visit_occurrence'. This implies that a direct path from 'care_site' to 'visit_occurrence' is not considered a 'shortest path' in the context's defined directionality.",
+      "difficulty": "easy",
+      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly lists 'visit_occurrence \u2192 care_site' as a 1-hop path, but does not list 'care_site \u2192 visit_occurrence'. This implies that a direct path from 'care_site' to 'visit_occurrence' is not considered a 'shortest path' in the context's defined directionality.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": null,
         "answer_str": "no path",
-        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly lists 'visit_occurrence → care_site' as a 1-hop path, but does not list 'care_site → visit_occurrence'. This implies that a direct path from 'care_site' to 'visit_occurrence' is not considered a 'shortest path' in the context's defined directionality.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section explicitly lists 'visit_occurrence → care_site' as a 1-hop path, but does not list 'care_site → visit_occurrence'. This implies that a direct path from 'care_site' to 'visit_occurrence' is not considered a 'shortest path' in the context's defined directionality.\"\n}\n```"
+        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly lists 'visit_occurrence \u2192 care_site' as a 1-hop path, but does not list 'care_site \u2192 visit_occurrence'. This implies that a direct path from 'care_site' to 'visit_occurrence' is not considered a 'shortest path' in the context's defined directionality.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section explicitly lists 'visit_occurrence \u2192 care_site' as a 1-hop path, but does not list 'care_site \u2192 visit_occurrence'. This implies that a direct path from 'care_site' to 'visit_occurrence' is not considered a 'shortest path' in the context's defined directionality.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -2505,7 +2505,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships section shows a direct foreign key from concept_synonym to concept.",
       "api_failure": false,
       "raw_response": {
@@ -2541,7 +2541,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships section explicitly states 'measurement --FK--> provider', indicating a direct foreign key join.",
       "api_failure": false,
       "raw_response": {
@@ -2577,7 +2577,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "procedure_occurrence has a foreign key directly referencing visit_occurrence, creating a 1-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -2613,7 +2613,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "device_exposure has a direct foreign key relationship to concept, making it a 1-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -2649,7 +2649,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'measurement' table has a direct foreign key relationship to the 'visit_occurrence' table.",
       "api_failure": false,
       "raw_response": {
@@ -2685,7 +2685,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships show a direct foreign key from procedure_occurrence to person, meaning procedure_occurrence can be joined directly to person.",
       "api_failure": false,
       "raw_response": {
@@ -2721,7 +2721,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The context explicitly states a direct foreign key relationship from device_exposure to provider.",
       "api_failure": false,
       "raw_response": {
@@ -2757,7 +2757,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationships show that 'note' has a foreign key referencing 'visit_occurrence', indicating a direct join path.",
       "api_failure": false,
       "raw_response": {
@@ -2793,7 +2793,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK Relationships section shows a direct foreign key relationship from drug_era to person, meaning person is directly connected to drug_era via a foreign key.",
       "api_failure": false,
       "raw_response": {
@@ -2831,7 +2831,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between visit_detail and death is provided in the context as visit_detail -> person -> death, which involves foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -2908,7 +2908,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path provided in the context directly connects death to concept via FK, and concept to concept_class via FK.",
       "api_failure": false,
       "raw_response": {
@@ -2949,7 +2949,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from concept_ancestor to relationship is concept_ancestor -> concept -> concept_relationship -> relationship, as derived from the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -2989,7 +2989,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "condition_era has a foreign key to concept, and cost also has a foreign key to concept, allowing a join through concept.",
       "api_failure": false,
       "raw_response": {
@@ -3148,7 +3148,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section, showing a 2-hop connection from provider to concept_ancestor via concept.",
       "api_failure": false,
       "raw_response": {
@@ -3189,7 +3189,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from relationship to vocabulary is found by following foreign key relationships: relationship is linked to concept_relationship, which is linked to concept, which is linked to vocabulary.",
       "api_failure": false,
       "raw_response": {
@@ -3229,8 +3229,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from condition_era to concept_relationship is condition_era → concept → concept_relationship. Reversing this path gives the shortest chain from concept_relationship to condition_era.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from condition_era to concept_relationship is condition_era \u2192 concept \u2192 concept_relationship. Reversing this path gives the shortest chain from concept_relationship to condition_era.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3241,8 +3241,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from condition_era to concept_relationship is condition_era → concept → concept_relationship. Reversing this path gives the shortest chain from concept_relationship to condition_era.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_relationship\",\n    \"concept\",\n    \"condition_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from condition_era to concept_relationship is condition_era → concept → concept_relationship. Reversing this path gives the shortest chain from concept_relationship to condition_era.\"\n}\n```"
+        "reasoning": "The shortest path from condition_era to concept_relationship is condition_era \u2192 concept \u2192 concept_relationship. Reversing this path gives the shortest chain from concept_relationship to condition_era.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_relationship\",\n    \"concept\",\n    \"condition_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from condition_era to concept_relationship is condition_era \u2192 concept \u2192 concept_relationship. Reversing this path gives the shortest chain from concept_relationship to condition_era.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3268,7 +3268,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Based on FK relationships, 'concept_synonym' has an FK to 'concept', and 'observation' also has an FK to 'concept'. Thus, 'concept' is the common table connecting them, forming the shortest chain: concept_synonym -> concept <- observation.",
       "api_failure": false,
       "raw_response": {
@@ -3307,7 +3307,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -3346,7 +3346,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path provided in the context directly shows the foreign key chain from drug_exposure to fact_relationship via concept.",
       "api_failure": false,
       "raw_response": {
@@ -3385,7 +3385,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between death and episode_event is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -3425,7 +3425,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path identified in the context using foreign key joins is from procedure_occurrence to person, and then from person to drug_era, totaling 2 hops.",
       "api_failure": false,
       "raw_response": {
@@ -3464,7 +3464,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path provided in the context is death -> person -> care_site. Reversing this path gives care_site -> person -> death.",
       "api_failure": false,
       "raw_response": {
@@ -3543,8 +3543,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between concept_ancestor and drug_strength is explicitly provided in the context as concept_ancestor → concept → drug_strength.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between concept_ancestor and drug_strength is explicitly provided in the context as concept_ancestor \u2192 concept \u2192 drug_strength.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3555,8 +3555,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between concept_ancestor and drug_strength is explicitly provided in the context as concept_ancestor → concept → drug_strength.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"drug_strength\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between concept_ancestor and drug_strength is explicitly provided in the context as concept_ancestor → concept → drug_strength.\"\n}\n```"
+        "reasoning": "The shortest path between concept_ancestor and drug_strength is explicitly provided in the context as concept_ancestor \u2192 concept \u2192 drug_strength.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"drug_strength\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between concept_ancestor and drug_strength is explicitly provided in the context as concept_ancestor \u2192 concept \u2192 drug_strength.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3583,7 +3583,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from fact_relationship to note_nlp via foreign key joins is through the 'concept' table, as both tables have a direct foreign key relationship with 'concept'.",
       "api_failure": false,
       "raw_response": {
@@ -3622,7 +3622,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from vocabulary to concept_synonym via foreign key joins is vocabulary -> concept -> concept_synonym, as concept has an FK to vocabulary and concept_synonym has an FK to concept.",
       "api_failure": false,
       "raw_response": {
@@ -3703,7 +3703,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both procedure_occurrence and drug_exposure have a direct foreign key relationship to the person table, creating a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -3742,8 +3742,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between visit_detail and specimen is provided in the context as visit_detail → person → specimen.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between visit_detail and specimen is provided in the context as visit_detail \u2192 person \u2192 specimen.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3754,8 +3754,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between visit_detail and specimen is provided in the context as visit_detail → person → specimen.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"visit_detail\",\n    \"person\",\n    \"specimen\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between visit_detail and specimen is provided in the context as visit_detail → person → specimen.\"\n}\n```"
+        "reasoning": "The shortest path between visit_detail and specimen is provided in the context as visit_detail \u2192 person \u2192 specimen.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"visit_detail\",\n    \"person\",\n    \"specimen\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between visit_detail and specimen is provided in the context as visit_detail \u2192 person \u2192 specimen.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3781,7 +3781,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both 'cost' and 'note' have a foreign key relationship to 'concept'. Therefore, 'concept' serves as the common link, creating a 2-hop path: cost -> concept -> note.",
       "api_failure": false,
       "raw_response": {
@@ -3863,7 +3863,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between 'observation_period' and 'relationship' is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -3908,7 +3908,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between visit_detail and relationship is explicitly provided in the context under 'Shortest Paths Between Mentioned Tables'.",
       "api_failure": false,
       "raw_response": {
@@ -3949,7 +3949,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path provided in the context connects procedure_occurrence to death via the person table using foreign key relationships.",
       "api_failure": false,
       "raw_response": {
@@ -3988,7 +3988,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path provided in the context for connecting concept_relationship to source_to_concept_map is through the concept table.",
       "api_failure": false,
       "raw_response": {
@@ -4027,8 +4027,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between payer_plan_period and cost is explicitly provided in the context as payer_plan_period → concept → cost.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between payer_plan_period and cost is explicitly provided in the context as payer_plan_period \u2192 concept \u2192 cost.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4039,8 +4039,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between payer_plan_period and cost is explicitly provided in the context as payer_plan_period → concept → cost.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"payer_plan_period\",\n    \"concept\",\n    \"cost\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between payer_plan_period and cost is explicitly provided in the context as payer_plan_period → concept → cost.\"\n}\n```"
+        "reasoning": "The shortest path between payer_plan_period and cost is explicitly provided in the context as payer_plan_period \u2192 concept \u2192 cost.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"payer_plan_period\",\n    \"concept\",\n    \"cost\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between payer_plan_period and cost is explicitly provided in the context as payer_plan_period \u2192 concept \u2192 cost.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4066,7 +4066,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both `concept_relationship` and `payer_plan_period` have foreign keys referencing `concept`. The shortest path connects them through `concept`.",
       "api_failure": false,
       "raw_response": {
@@ -4105,7 +4105,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest chain of foreign key joins is found by tracing FK relationships. 'payer_plan_period' has an FK to 'concept', and 'source_to_concept_map' has an FK to 'concept', forming a 2-hop path: payer_plan_period -> concept -> source_to_concept_map. The path 'payer_plan_period -> person -> source_to_concept_map' is not a chain of foreign key joins as 'person' does not have an FK to 'source_to_concept_map'.",
       "api_failure": false,
       "raw_response": {
@@ -4144,8 +4144,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between condition_occurrence and care_site is directly provided in the context as condition_occurrence → person → care_site.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between condition_occurrence and care_site is directly provided in the context as condition_occurrence \u2192 person \u2192 care_site.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4156,8 +4156,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between condition_occurrence and care_site is directly provided in the context as condition_occurrence → person → care_site.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"condition_occurrence\",\n    \"person\",\n    \"care_site\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between condition_occurrence and care_site is directly provided in the context as condition_occurrence → person → care_site.\"\n}\n```"
+        "reasoning": "The shortest path between condition_occurrence and care_site is directly provided in the context as condition_occurrence \u2192 person \u2192 care_site.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"condition_occurrence\",\n    \"person\",\n    \"care_site\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between condition_occurrence and care_site is directly provided in the context as condition_occurrence \u2192 person \u2192 care_site.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4182,7 +4182,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from concept_relationship to provider is through concept, as concept_relationship links to concept, and concept links to provider via foreign keys.",
       "api_failure": false,
       "raw_response": {
@@ -4220,7 +4220,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from concept_ancestor to domain is concept_ancestor -> concept -> domain, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -4259,8 +4259,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between procedure_occurrence and observation is provided in the context as procedure_occurrence → person → observation.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between procedure_occurrence and observation is provided in the context as procedure_occurrence \u2192 person \u2192 observation.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4271,8 +4271,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between procedure_occurrence and observation is provided in the context as procedure_occurrence → person → observation.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"procedure_occurrence\",\n    \"person\",\n    \"observation\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between procedure_occurrence and observation is provided in the context as procedure_occurrence → person → observation.\"\n}\n```"
+        "reasoning": "The shortest path between procedure_occurrence and observation is provided in the context as procedure_occurrence \u2192 person \u2192 observation.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"procedure_occurrence\",\n    \"person\",\n    \"observation\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between procedure_occurrence and observation is provided in the context as procedure_occurrence \u2192 person \u2192 observation.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4297,8 +4297,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp → concept → concept_relationship, as provided in the context.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp \u2192 concept \u2192 concept_relationship, as provided in the context.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4309,8 +4309,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp → concept → concept_relationship, as provided in the context.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"note_nlp\",\n    \"concept\",\n    \"concept_relationship\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from note_nlp to concept_relationship is note_nlp → concept → concept_relationship, as provided in the context.\"\n}\n```"
+        "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp \u2192 concept \u2192 concept_relationship, as provided in the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"note_nlp\",\n    \"concept\",\n    \"concept_relationship\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from note_nlp to concept_relationship is note_nlp \u2192 concept \u2192 concept_relationship, as provided in the context.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4336,7 +4336,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from concept_ancestor to drug_exposure involves joining concept_ancestor to concept, and then concept to drug_exposure, as both tables have foreign keys referencing concept.",
       "api_failure": false,
       "raw_response": {
@@ -4376,8 +4376,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path connecting 'cost' to 'observation_period' via foreign key joins is provided in the context as 'observation_period → person → concept → cost'.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path connecting 'cost' to 'observation_period' via foreign key joins is provided in the context as 'observation_period \u2192 person \u2192 concept \u2192 cost'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4389,8 +4389,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path connecting 'cost' to 'observation_period' via foreign key joins is provided in the context as 'observation_period → person → concept → cost'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"observation_period\",\n    \"person\",\n    \"concept\",\n    \"cost\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path connecting 'cost' to 'observation_period' via foreign key joins is provided in the context as 'observation_period → person → concept → cost'.\"\n}\n```"
+        "reasoning": "The shortest path connecting 'cost' to 'observation_period' via foreign key joins is provided in the context as 'observation_period \u2192 person \u2192 concept \u2192 cost'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"observation_period\",\n    \"person\",\n    \"concept\",\n    \"cost\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path connecting 'cost' to 'observation_period' via foreign key joins is provided in the context as 'observation_period \u2192 person \u2192 concept \u2192 cost'.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4416,7 +4416,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "device_exposure is connected to person via FK, and dose_era is also connected to person via FK, forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -4455,7 +4455,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path provided in the context shows cost connects to concept, and concept connects to drug_era via foreign keys.",
       "api_failure": false,
       "raw_response": {
@@ -4494,7 +4494,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "fact_relationship has an FK to concept, and condition_occurrence also has an FK to concept, creating a path through concept.",
       "api_failure": false,
       "raw_response": {
@@ -4533,7 +4533,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Based on the FK Relationships, condition_occurrence links to concept, and concept links to vocabulary, forming a 2-hop foreign key path.",
       "api_failure": false,
       "raw_response": {
@@ -4572,7 +4572,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from concept_ancestor to concept_synonym involves joining concept_ancestor to concept, and then concept to concept_synonym, as indicated by the provided shortest path information and FK relationships.",
       "api_failure": false,
       "raw_response": {
@@ -4612,7 +4612,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from fact_relationship to person is through the concept table, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -4653,8 +4653,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from visit_detail to episode_event is given as 'visit_detail → person → episode → episode_event'. Reversing this path gives the shortest chain of foreign key joins from episode_event to visit_detail.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from visit_detail to episode_event is given as 'visit_detail \u2192 person \u2192 episode \u2192 episode_event'. Reversing this path gives the shortest chain of foreign key joins from episode_event to visit_detail.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4666,8 +4666,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from visit_detail to episode_event is given as 'visit_detail → person → episode → episode_event'. Reversing this path gives the shortest chain of foreign key joins from episode_event to visit_detail.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"episode_event\",\n    \"episode\",\n    \"person\",\n    \"visit_detail\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from visit_detail to episode_event is given as 'visit_detail → person → episode → episode_event'. Reversing this path gives the shortest chain of foreign key joins from episode_event to visit_detail.\"\n}\n```"
+        "reasoning": "The shortest path from visit_detail to episode_event is given as 'visit_detail \u2192 person \u2192 episode \u2192 episode_event'. Reversing this path gives the shortest chain of foreign key joins from episode_event to visit_detail.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"episode_event\",\n    \"episode\",\n    \"person\",\n    \"visit_detail\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from visit_detail to episode_event is given as 'visit_detail \u2192 person \u2192 episode \u2192 episode_event'. Reversing this path gives the shortest chain of foreign key joins from episode_event to visit_detail.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4693,7 +4693,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path provided in the context connects procedure_occurrence to payer_plan_period via person. Reversing this path gives the connection from payer_plan_period to procedure_occurrence.",
       "api_failure": false,
       "raw_response": {
@@ -4732,7 +4732,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest foreign key path from visit_occurrence to dose_era is through the concept table, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -4769,7 +4769,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from condition_occurrence to concept, making it a 1-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -4807,8 +4807,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path provided in the context is concept_ancestor → concept → source_to_concept_map, which involves two foreign key joins: concept_ancestor to concept, and source_to_concept_map to concept.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path provided in the context is concept_ancestor \u2192 concept \u2192 source_to_concept_map, which involves two foreign key joins: concept_ancestor to concept, and source_to_concept_map to concept.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4819,8 +4819,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided in the context is concept_ancestor → concept → source_to_concept_map, which involves two foreign key joins: concept_ancestor to concept, and source_to_concept_map to concept.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"source_to_concept_map\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context is concept_ancestor → concept → source_to_concept_map, which involves two foreign key joins: concept_ancestor to concept, and source_to_concept_map to concept.\"\n}\n```"
+        "reasoning": "The shortest path provided in the context is concept_ancestor \u2192 concept \u2192 source_to_concept_map, which involves two foreign key joins: concept_ancestor to concept, and source_to_concept_map to concept.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"source_to_concept_map\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context is concept_ancestor \u2192 concept \u2192 source_to_concept_map, which involves two foreign key joins: concept_ancestor to concept, and source_to_concept_map to concept.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4885,7 +4885,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is found by following foreign key relationships: condition_era has an FK to concept, and note_nlp has an FK to concept, allowing a join through concept.",
       "api_failure": false,
       "raw_response": {
@@ -4924,8 +4924,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between note_nlp and payer_plan_period is explicitly provided in the context as note_nlp → concept → payer_plan_period.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between note_nlp and payer_plan_period is explicitly provided in the context as note_nlp \u2192 concept \u2192 payer_plan_period.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4936,8 +4936,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between note_nlp and payer_plan_period is explicitly provided in the context as note_nlp → concept → payer_plan_period.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"note_nlp\",\n    \"concept\",\n    \"payer_plan_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between note_nlp and payer_plan_period is explicitly provided in the context as note_nlp → concept → payer_plan_period.\"\n}\n```"
+        "reasoning": "The shortest path between note_nlp and payer_plan_period is explicitly provided in the context as note_nlp \u2192 concept \u2192 payer_plan_period.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"note_nlp\",\n    \"concept\",\n    \"payer_plan_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between note_nlp and payer_plan_period is explicitly provided in the context as note_nlp \u2192 concept \u2192 payer_plan_period.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5028,15 +5028,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp → concept → concept_relationship, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp \u2192 concept \u2192 concept_relationship, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp → concept → concept_relationship, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from note_nlp to concept_relationship is note_nlp → concept → concept_relationship, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from note_nlp to concept_relationship is note_nlp \u2192 concept \u2192 concept_relationship, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from note_nlp to concept_relationship is note_nlp \u2192 concept \u2192 concept_relationship, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -5100,15 +5100,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided in the context is 'drug_exposure → concept → concept_ancestor', which involves 2 hops (joins).",
+      "reasoning": "The shortest path provided in the context is 'drug_exposure \u2192 concept \u2192 concept_ancestor', which involves 2 hops (joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided in the context is 'drug_exposure → concept → concept_ancestor', which involves 2 hops (joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context is 'drug_exposure → concept → concept_ancestor', which involves 2 hops (joins).\"\n}\n```"
+        "reasoning": "The shortest path provided in the context is 'drug_exposure \u2192 concept \u2192 concept_ancestor', which involves 2 hops (joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context is 'drug_exposure \u2192 concept \u2192 concept_ancestor', which involves 2 hops (joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5124,15 +5124,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from death to care_site using foreign key joins is death → person → care_site, which involves 2 hops/joins.",
+      "reasoning": "The shortest path from death to care_site using foreign key joins is death \u2192 person \u2192 care_site, which involves 2 hops/joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from death to care_site using foreign key joins is death → person → care_site, which involves 2 hops/joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from death to care_site using foreign key joins is death → person → care_site, which involves 2 hops/joins.\"\n}\n```"
+        "reasoning": "The shortest path from death to care_site using foreign key joins is death \u2192 person \u2192 care_site, which involves 2 hops/joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from death to care_site using foreign key joins is death \u2192 person \u2192 care_site, which involves 2 hops/joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5172,15 +5172,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided is 'payer_plan_period → concept → cost', which involves 2 hops (joins).",
+      "reasoning": "The shortest path provided is 'payer_plan_period \u2192 concept \u2192 cost', which involves 2 hops (joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided is 'payer_plan_period → concept → cost', which involves 2 hops (joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is 'payer_plan_period → concept → cost', which involves 2 hops (joins).\"\n}\n```"
+        "reasoning": "The shortest path provided is 'payer_plan_period \u2192 concept \u2192 cost', which involves 2 hops (joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is 'payer_plan_period \u2192 concept \u2192 cost', which involves 2 hops (joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5196,15 +5196,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from person to fact_relationship is person → concept → fact_relationship, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from person to fact_relationship is person \u2192 concept \u2192 fact_relationship, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from person to fact_relationship is person → concept → fact_relationship, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from person to fact_relationship is person → concept → fact_relationship, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from person to fact_relationship is person \u2192 concept \u2192 fact_relationship, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from person to fact_relationship is person \u2192 concept \u2192 fact_relationship, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -5220,15 +5220,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from cost to drug_era is cost → concept → drug_era, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from cost to drug_era is cost \u2192 concept \u2192 drug_era, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from cost to drug_era is cost → concept → drug_era, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from cost to drug_era is cost → concept → drug_era, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from cost to drug_era is cost \u2192 concept \u2192 drug_era, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from cost to drug_era is cost \u2192 concept \u2192 drug_era, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5340,15 +5340,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from provider to domain is provider → concept → domain, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from provider to domain is provider \u2192 concept \u2192 domain, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from provider to domain is provider → concept → domain, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from provider to domain is provider → concept → domain, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from provider to domain is provider \u2192 concept \u2192 domain, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from provider to domain is provider \u2192 concept \u2192 domain, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5388,15 +5388,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from cost to condition_era is cost → concept → condition_era, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from cost to condition_era is cost \u2192 concept \u2192 condition_era, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from cost to condition_era is cost → concept → condition_era, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from cost to condition_era is cost → concept → condition_era, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from cost to condition_era is cost \u2192 concept \u2192 condition_era, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from cost to condition_era is cost \u2192 concept \u2192 condition_era, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5412,15 +5412,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from note to cost is note → concept → cost, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from note to cost is note \u2192 concept \u2192 cost, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from note to cost is note → concept → cost, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from note to cost is note → concept → cost, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from note to cost is note \u2192 concept \u2192 cost, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from note to cost is note \u2192 concept \u2192 cost, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,

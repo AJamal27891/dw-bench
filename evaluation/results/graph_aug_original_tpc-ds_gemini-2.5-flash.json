@@ -162,7 +162,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "The context states that all 24 tables, including household_demographics, belong to a single connected component (Component 1).",
       "api_failure": false,
       "raw_response": {
@@ -262,7 +262,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "The context states that all 24 tables, including 'customer', belong to a single connected component (Component 1).",
       "api_failure": false,
       "raw_response": {
@@ -362,7 +362,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "The context states there is only one connected component (data silo) which includes all 24 listed tables, including 'warehouse'.",
       "api_failure": false,
       "raw_response": {
@@ -414,15 +414,15 @@
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "reasoning": "The provided shortest path explicitly shows a connection: inventory → date_dim → catalog_returns → call_center.",
+      "reasoning": "The provided shortest path explicitly shows a connection: inventory \u2192 date_dim \u2192 catalog_returns \u2192 call_center.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": true,
         "answer_str": null,
-        "reasoning": "The provided shortest path explicitly shows a connection: inventory → date_dim → catalog_returns → call_center.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path explicitly shows a connection: inventory → date_dim → catalog_returns → call_center.\"\n}\n```"
+        "reasoning": "The provided shortest path explicitly shows a connection: inventory \u2192 date_dim \u2192 catalog_returns \u2192 call_center.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path explicitly shows a connection: inventory \u2192 date_dim \u2192 catalog_returns \u2192 call_center.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -438,15 +438,15 @@
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "reasoning": "A path exists from warehouse to income_band: warehouse → catalog_returns → household_demographics → income_band.",
+      "reasoning": "A path exists from warehouse to income_band: warehouse \u2192 catalog_returns \u2192 household_demographics \u2192 income_band.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": true,
         "answer_str": null,
-        "reasoning": "A path exists from warehouse to income_band: warehouse → catalog_returns → household_demographics → income_band.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"A path exists from warehouse to income_band: warehouse → catalog_returns → household_demographics → income_band.\"\n}\n```"
+        "reasoning": "A path exists from warehouse to income_band: warehouse \u2192 catalog_returns \u2192 household_demographics \u2192 income_band.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"A path exists from warehouse to income_band: warehouse \u2192 catalog_returns \u2192 household_demographics \u2192 income_band.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -533,7 +533,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path information explicitly shows a direct foreign key relationship from customer to customer_address.",
       "api_failure": false,
       "raw_response": {
@@ -664,7 +664,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from promotion to store_sales is a direct foreign key relationship where store_sales references promotion.",
       "api_failure": false,
       "raw_response": {
@@ -700,7 +700,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The provided FK relationships show that store_sales has a foreign key referencing store, meaning a direct join can be made from store to store_sales.",
       "api_failure": false,
       "raw_response": {
@@ -736,7 +736,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section, showing a direct foreign key relationship.",
       "api_failure": false,
       "raw_response": {
@@ -772,7 +772,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between customer and household_demographics is directly provided in the context as a 1-hop connection.",
       "api_failure": false,
       "raw_response": {
@@ -808,7 +808,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between store_sales and time_dim is directly given as a 1-hop foreign key join in the context.",
       "api_failure": false,
       "raw_response": {
@@ -841,16 +841,16 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The provided shortest path is 'web_returns → customer', indicating a foreign key from web_returns to customer. There is no path listed from customer to web_returns in the context.",
+      "difficulty": "easy",
+      "reasoning": "The provided shortest path is 'web_returns \u2192 customer', indicating a foreign key from web_returns to customer. There is no path listed from customer to web_returns in the context.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": null,
         "answer_str": "no path",
-        "reasoning": "The provided shortest path is 'web_returns → customer', indicating a foreign key from web_returns to customer. There is no path listed from customer to web_returns in the context.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided shortest path is 'web_returns → customer', indicating a foreign key from web_returns to customer. There is no path listed from customer to web_returns in the context.\"\n}\n```"
+        "reasoning": "The provided shortest path is 'web_returns \u2192 customer', indicating a foreign key from web_returns to customer. There is no path listed from customer to web_returns in the context.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The provided shortest path is 'web_returns \u2192 customer', indicating a foreign key from web_returns to customer. There is no path listed from customer to web_returns in the context.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -874,7 +874,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -910,7 +910,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from customer to web_sales is a direct foreign key relationship where web_sales references customer.",
       "api_failure": false,
       "raw_response": {
@@ -946,7 +946,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between catalog_returns and time_dim is a direct foreign key join, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -982,7 +982,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between catalog_returns and call_center is directly provided in the context as a 1-hop connection.",
       "api_failure": false,
       "raw_response": {
@@ -1018,8 +1018,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between store_returns and item is directly given in the context as 'store_returns → item'.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between store_returns and item is directly given in the context as 'store_returns \u2192 item'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1029,8 +1029,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between store_returns and item is directly given in the context as 'store_returns → item'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_returns\",\n    \"item\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between store_returns and item is directly given in the context as 'store_returns → item'.\"\n}\n```"
+        "reasoning": "The shortest path between store_returns and item is directly given in the context as 'store_returns \u2192 item'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_returns\",\n    \"item\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between store_returns and item is directly given in the context as 'store_returns \u2192 item'.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -1054,7 +1054,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationship `catalog_sales --FK--> call_center` indicates that catalog_sales references call_center. To connect call_center to catalog_sales, you would join call_center to catalog_sales.",
       "api_failure": false,
       "raw_response": {
@@ -1090,7 +1090,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between store_returns and reason is a direct foreign key join, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -1126,7 +1126,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from household_demographics to catalog_returns is a direct foreign key join, as catalog_returns has an FK to household_demographics.",
       "api_failure": false,
       "raw_response": {
@@ -1162,7 +1162,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -1195,7 +1195,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Based on the provided 'FK Relationships', the 'warehouse' table does not have any outgoing foreign keys. Therefore, no chain of foreign key joins can start from 'warehouse' to connect to 'inventory'.",
       "api_failure": false,
       "raw_response": {
@@ -1228,7 +1228,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -1264,7 +1264,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationship `catalog_returns --FK--> reason` indicates that catalog_returns has a foreign key referencing reason. To connect reason to catalog_returns, you would join reason to catalog_returns.",
       "api_failure": false,
       "raw_response": {
@@ -1300,7 +1300,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between web_sales and customer_address is directly provided in the context as a 1-hop foreign key join.",
       "api_failure": false,
       "raw_response": {
@@ -1336,7 +1336,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path directly connects customer_demographics to store_sales via a foreign key relationship, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -1372,7 +1372,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between store_returns and date_dim is directly given as a 1-hop foreign key join in the context.",
       "api_failure": false,
       "raw_response": {
@@ -1408,7 +1408,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationship `store_returns --FK--> customer_address` indicates a direct join path from customer_address to store_returns.",
       "api_failure": false,
       "raw_response": {
@@ -1444,7 +1444,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between customer and customer_demographics is directly provided in the context as a 1-hop foreign key join.",
       "api_failure": false,
       "raw_response": {
@@ -1480,7 +1480,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from household_demographics to store_returns is a direct join, as store_returns has a foreign key to household_demographics.",
       "api_failure": false,
       "raw_response": {
@@ -1516,7 +1516,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationship `catalog_sales --FK--> customer_address` indicates a direct join path from customer_address to catalog_sales.",
       "api_failure": false,
       "raw_response": {
@@ -1552,7 +1552,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between web_sales and warehouse is directly given in the context as a 1-hop connection.",
       "api_failure": false,
       "raw_response": {
@@ -1593,7 +1593,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from catalog_returns to web_site is given as catalog_returns → date_dim → web_sales → web_site. Reversing this path gives the shortest chain from web_site to catalog_returns.",
+      "reasoning": "The shortest path from catalog_returns to web_site is given as catalog_returns \u2192 date_dim \u2192 web_sales \u2192 web_site. Reversing this path gives the shortest chain from web_site to catalog_returns.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1605,8 +1605,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from catalog_returns to web_site is given as catalog_returns → date_dim → web_sales → web_site. Reversing this path gives the shortest chain from web_site to catalog_returns.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"web_site\",\n    \"web_sales\",\n    \"date_dim\",\n    \"catalog_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from catalog_returns to web_site is given as catalog_returns → date_dim → web_sales → web_site. Reversing this path gives the shortest chain from web_site to catalog_returns.\"\n}\n```"
+        "reasoning": "The shortest path from catalog_returns to web_site is given as catalog_returns \u2192 date_dim \u2192 web_sales \u2192 web_site. Reversing this path gives the shortest chain from web_site to catalog_returns.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"web_site\",\n    \"web_sales\",\n    \"date_dim\",\n    \"catalog_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from catalog_returns to web_site is given as catalog_returns \u2192 date_dim \u2192 web_sales \u2192 web_site. Reversing this path gives the shortest chain from web_site to catalog_returns.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -1635,7 +1635,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from item to income_band is directly provided in the context as item → catalog_returns → household_demographics → income_band.",
+      "reasoning": "The shortest path from item to income_band is directly provided in the context as item \u2192 catalog_returns \u2192 household_demographics \u2192 income_band.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1647,8 +1647,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from item to income_band is directly provided in the context as item → catalog_returns → household_demographics → income_band.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"item\",\n    \"catalog_returns\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from item to income_band is directly provided in the context as item → catalog_returns → household_demographics → income_band.\"\n}\n```"
+        "reasoning": "The shortest path from item to income_band is directly provided in the context as item \u2192 catalog_returns \u2192 household_demographics \u2192 income_band.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"item\",\n    \"catalog_returns\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from item to income_band is directly provided in the context as item \u2192 catalog_returns \u2192 household_demographics \u2192 income_band.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -1674,8 +1674,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The provided shortest path from date_dim to ship_mode is date_dim → catalog_returns → ship_mode (2 hops). Reversing this path gives the shortest chain from ship_mode to date_dim.",
+      "difficulty": "easy",
+      "reasoning": "The provided shortest path from date_dim to ship_mode is date_dim \u2192 catalog_returns \u2192 ship_mode (2 hops). Reversing this path gives the shortest chain from ship_mode to date_dim.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1686,8 +1686,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The provided shortest path from date_dim to ship_mode is date_dim → catalog_returns → ship_mode (2 hops). Reversing this path gives the shortest chain from ship_mode to date_dim.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"ship_mode\",\n    \"catalog_returns\",\n    \"date_dim\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path from date_dim to ship_mode is date_dim → catalog_returns → ship_mode (2 hops). Reversing this path gives the shortest chain from ship_mode to date_dim.\"\n}\n```"
+        "reasoning": "The provided shortest path from date_dim to ship_mode is date_dim \u2192 catalog_returns \u2192 ship_mode (2 hops). Reversing this path gives the shortest chain from ship_mode to date_dim.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"ship_mode\",\n    \"catalog_returns\",\n    \"date_dim\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path from date_dim to ship_mode is date_dim \u2192 catalog_returns \u2192 ship_mode (2 hops). Reversing this path gives the shortest chain from ship_mode to date_dim.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -1713,7 +1713,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between ship_mode and call_center is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -1794,8 +1794,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between store_sales and store_returns is explicitly provided in the context as store_sales → date_dim → store_returns.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between store_sales and store_returns is explicitly provided in the context as store_sales \u2192 date_dim \u2192 store_returns.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1806,8 +1806,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between store_sales and store_returns is explicitly provided in the context as store_sales → date_dim → store_returns.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_sales\",\n    \"date_dim\",\n    \"store_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between store_sales and store_returns is explicitly provided in the context as store_sales → date_dim → store_returns.\"\n}\n```"
+        "reasoning": "The shortest path between store_sales and store_returns is explicitly provided in the context as store_sales \u2192 date_dim \u2192 store_returns.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_sales\",\n    \"date_dim\",\n    \"store_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between store_sales and store_returns is explicitly provided in the context as store_sales \u2192 date_dim \u2192 store_returns.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -1875,8 +1875,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from household_demographics to ship_mode is household_demographics → catalog_returns → ship_mode. Reversing this path gives the shortest chain from ship_mode to household_demographics.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from household_demographics to ship_mode is household_demographics \u2192 catalog_returns \u2192 ship_mode. Reversing this path gives the shortest chain from ship_mode to household_demographics.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1887,8 +1887,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from household_demographics to ship_mode is household_demographics → catalog_returns → ship_mode. Reversing this path gives the shortest chain from ship_mode to household_demographics.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"ship_mode\",\n    \"catalog_returns\",\n    \"household_demographics\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from household_demographics to ship_mode is household_demographics → catalog_returns → ship_mode. Reversing this path gives the shortest chain from ship_mode to household_demographics.\"\n}\n```"
+        "reasoning": "The shortest path from household_demographics to ship_mode is household_demographics \u2192 catalog_returns \u2192 ship_mode. Reversing this path gives the shortest chain from ship_mode to household_demographics.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"ship_mode\",\n    \"catalog_returns\",\n    \"household_demographics\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from household_demographics to ship_mode is household_demographics \u2192 catalog_returns \u2192 ship_mode. Reversing this path gives the shortest chain from ship_mode to household_demographics.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -1914,7 +1914,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from reason to customer is through catalog_returns, as catalog_returns has foreign keys to both reason and customer.",
       "api_failure": false,
       "raw_response": {
@@ -1953,8 +1953,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from store_returns to catalog_sales is store_returns → date_dim → catalog_sales. Reversing this path gives the shortest chain from catalog_sales to store_returns.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from store_returns to catalog_sales is store_returns \u2192 date_dim \u2192 catalog_sales. Reversing this path gives the shortest chain from catalog_sales to store_returns.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1965,8 +1965,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from store_returns to catalog_sales is store_returns → date_dim → catalog_sales. Reversing this path gives the shortest chain from catalog_sales to store_returns.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"catalog_sales\",\n    \"date_dim\",\n    \"store_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_returns to catalog_sales is store_returns → date_dim → catalog_sales. Reversing this path gives the shortest chain from catalog_sales to store_returns.\"\n}\n```"
+        "reasoning": "The shortest path from store_returns to catalog_sales is store_returns \u2192 date_dim \u2192 catalog_sales. Reversing this path gives the shortest chain from catalog_sales to store_returns.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"catalog_sales\",\n    \"date_dim\",\n    \"store_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_returns to catalog_sales is store_returns \u2192 date_dim \u2192 catalog_sales. Reversing this path gives the shortest chain from catalog_sales to store_returns.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -1992,7 +1992,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from catalog_sales to web_returns is catalog_sales -> date_dim -> web_returns. Reversing this path gives the shortest chain from web_returns to catalog_sales.",
       "api_failure": false,
       "raw_response": {
@@ -2031,7 +2031,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between time_dim and item is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -2070,8 +2070,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from store_returns to income_band is directly provided in the context as store_returns → household_demographics → income_band.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from store_returns to income_band is directly provided in the context as store_returns \u2192 household_demographics \u2192 income_band.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2082,8 +2082,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from store_returns to income_band is directly provided in the context as store_returns → household_demographics → income_band.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_returns\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_returns to income_band is directly provided in the context as store_returns → household_demographics → income_band.\"\n}\n```"
+        "reasoning": "The shortest path from store_returns to income_band is directly provided in the context as store_returns \u2192 household_demographics \u2192 income_band.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_returns\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_returns to income_band is directly provided in the context as store_returns \u2192 household_demographics \u2192 income_band.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -2109,7 +2109,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from reason to customer_address is through catalog_returns, as catalog_returns has foreign keys to both reason and customer_address.",
       "api_failure": false,
       "raw_response": {
@@ -2148,7 +2148,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from customer to web_page is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -2187,7 +2187,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from customer_demographics to time_dim is found by reversing the provided path from time_dim to customer_demographics.",
       "api_failure": false,
       "raw_response": {
@@ -2229,7 +2229,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from income_band to call_center is given as 'income_band → household_demographics → catalog_returns → call_center'. Reversing this path provides the shortest chain from call_center to income_band.",
+      "reasoning": "The shortest path from income_band to call_center is given as 'income_band \u2192 household_demographics \u2192 catalog_returns \u2192 call_center'. Reversing this path provides the shortest chain from call_center to income_band.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2241,8 +2241,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from income_band to call_center is given as 'income_band → household_demographics → catalog_returns → call_center'. Reversing this path provides the shortest chain from call_center to income_band.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from income_band to call_center is given as 'income_band → household_demographics → catalog_returns → call_center'. Reversing this path provides the shortest chain from call_center to income_band.\"\n}\n```"
+        "reasoning": "The shortest path from income_band to call_center is given as 'income_band \u2192 household_demographics \u2192 catalog_returns \u2192 call_center'. Reversing this path provides the shortest chain from call_center to income_band.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from income_band to call_center is given as 'income_band \u2192 household_demographics \u2192 catalog_returns \u2192 call_center'. Reversing this path provides the shortest chain from call_center to income_band.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -2313,7 +2313,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from inventory to promotion is given as `inventory → date_dim → store_sales → promotion` (3 hops). Reversing this path and verifying FK relationships provides a 3-hop path from promotion to inventory: `promotion` (parent) is joined by `store_sales` (child), `store_sales` (child) joins `date_dim` (parent), and `date_dim` (parent) is joined by `inventory` (child).",
+      "reasoning": "The shortest path from inventory to promotion is given as `inventory \u2192 date_dim \u2192 store_sales \u2192 promotion` (3 hops). Reversing this path and verifying FK relationships provides a 3-hop path from promotion to inventory: `promotion` (parent) is joined by `store_sales` (child), `store_sales` (child) joins `date_dim` (parent), and `date_dim` (parent) is joined by `inventory` (child).",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2325,8 +2325,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from inventory to promotion is given as `inventory → date_dim → store_sales → promotion` (3 hops). Reversing this path and verifying FK relationships provides a 3-hop path from promotion to inventory: `promotion` (parent) is joined by `store_sales` (child), `store_sales` (child) joins `date_dim` (parent), and `date_dim` (parent) is joined by `inventory` (child).",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"promotion\",\n    \"store_sales\",\n    \"date_dim\",\n    \"inventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from inventory to promotion is given as `inventory → date_dim → store_sales → promotion` (3 hops). Reversing this path and verifying FK relationships provides a 3-hop path from promotion to inventory: `promotion` (parent) is joined by `store_sales` (child), `store_sales` (child) joins `date_dim` (parent), and `date_dim` (parent) is joined by `inventory` (child).\"\n}\n```"
+        "reasoning": "The shortest path from inventory to promotion is given as `inventory \u2192 date_dim \u2192 store_sales \u2192 promotion` (3 hops). Reversing this path and verifying FK relationships provides a 3-hop path from promotion to inventory: `promotion` (parent) is joined by `store_sales` (child), `store_sales` (child) joins `date_dim` (parent), and `date_dim` (parent) is joined by `inventory` (child).",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"promotion\",\n    \"store_sales\",\n    \"date_dim\",\n    \"inventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from inventory to promotion is given as `inventory \u2192 date_dim \u2192 store_sales \u2192 promotion` (3 hops). Reversing this path and verifying FK relationships provides a 3-hop path from promotion to inventory: `promotion` (parent) is joined by `store_sales` (child), `store_sales` (child) joins `date_dim` (parent), and `date_dim` (parent) is joined by `inventory` (child).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -2352,8 +2352,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from customer_demographics to warehouse is provided in the context as customer_demographics → catalog_returns → warehouse.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from customer_demographics to warehouse is provided in the context as customer_demographics \u2192 catalog_returns \u2192 warehouse.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2364,8 +2364,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from customer_demographics to warehouse is provided in the context as customer_demographics → catalog_returns → warehouse.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"customer_demographics\",\n    \"catalog_returns\",\n    \"warehouse\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_demographics to warehouse is provided in the context as customer_demographics → catalog_returns → warehouse.\"\n}\n```"
+        "reasoning": "The shortest path from customer_demographics to warehouse is provided in the context as customer_demographics \u2192 catalog_returns \u2192 warehouse.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"customer_demographics\",\n    \"catalog_returns\",\n    \"warehouse\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_demographics to warehouse is provided in the context as customer_demographics \u2192 catalog_returns \u2192 warehouse.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -2394,7 +2394,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from store_sales to call_center is store_sales → date_dim → catalog_returns → call_center. Reversing this path gives the shortest chain from call_center to store_sales.",
+      "reasoning": "The shortest path from store_sales to call_center is store_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. Reversing this path gives the shortest chain from call_center to store_sales.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2406,8 +2406,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from store_sales to call_center is store_sales → date_dim → catalog_returns → call_center. Reversing this path gives the shortest chain from call_center to store_sales.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"store_sales\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_sales to call_center is store_sales → date_dim → catalog_returns → call_center. Reversing this path gives the shortest chain from call_center to store_sales.\"\n}\n```"
+        "reasoning": "The shortest path from store_sales to call_center is store_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. Reversing this path gives the shortest chain from call_center to store_sales.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"store_sales\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_sales to call_center is store_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. Reversing this path gives the shortest chain from call_center to store_sales.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -2433,7 +2433,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from catalog_page to item is through catalog_returns, as catalog_returns has foreign keys referencing both catalog_page and item.",
       "api_failure": false,
       "raw_response": {
@@ -2475,7 +2475,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from web_sales to call_center is provided as web_sales → date_dim → catalog_returns → call_center. Reversing this path gives the shortest chain from call_center to web_sales.",
+      "reasoning": "The shortest path from web_sales to call_center is provided as web_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. Reversing this path gives the shortest chain from call_center to web_sales.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2487,8 +2487,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from web_sales to call_center is provided as web_sales → date_dim → catalog_returns → call_center. Reversing this path gives the shortest chain from call_center to web_sales.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"web_sales\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from web_sales to call_center is provided as web_sales → date_dim → catalog_returns → call_center. Reversing this path gives the shortest chain from call_center to web_sales.\"\n}\n```"
+        "reasoning": "The shortest path from web_sales to call_center is provided as web_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. Reversing this path gives the shortest chain from call_center to web_sales.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"web_sales\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from web_sales to call_center is provided as web_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. Reversing this path gives the shortest chain from call_center to web_sales.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -2514,8 +2514,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from item to web_page is explicitly provided in the context as item → web_returns → web_page.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from item to web_page is explicitly provided in the context as item \u2192 web_returns \u2192 web_page.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2526,8 +2526,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from item to web_page is explicitly provided in the context as item → web_returns → web_page.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"item\",\n    \"web_returns\",\n    \"web_page\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from item to web_page is explicitly provided in the context as item → web_returns → web_page.\"\n}\n```"
+        "reasoning": "The shortest path from item to web_page is explicitly provided in the context as item \u2192 web_returns \u2192 web_page.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"item\",\n    \"web_returns\",\n    \"web_page\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from item to web_page is explicitly provided in the context as item \u2192 web_returns \u2192 web_page.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -2641,7 +2641,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between catalog_page and web_site is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -2686,7 +2686,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between catalog_page and web_page is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -2731,7 +2731,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path from call_center to web_page is provided, so the reverse path gives the shortest chain from web_page to call_center.",
       "api_failure": false,
       "raw_response": {
@@ -2776,7 +2776,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path from store to web_page is provided, so reversing it gives the shortest path from web_page to store.",
       "api_failure": false,
       "raw_response": {
@@ -2821,7 +2821,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between inventory and income_band is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -2866,7 +2866,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between 'store' and 'warehouse' is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -2911,7 +2911,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between 'store' and 'web_site' is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -2997,7 +2997,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from inventory to time_dim is provided as `inventory → date_dim → catalog_returns → time_dim`. Reversing this path gives the shortest chain from time_dim to inventory.",
+      "reasoning": "The shortest path from inventory to time_dim is provided as `inventory \u2192 date_dim \u2192 catalog_returns \u2192 time_dim`. Reversing this path gives the shortest chain from time_dim to inventory.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3009,8 +3009,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from inventory to time_dim is provided as `inventory → date_dim → catalog_returns → time_dim`. Reversing this path gives the shortest chain from time_dim to inventory.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"time_dim\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"inventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from inventory to time_dim is provided as `inventory → date_dim → catalog_returns → time_dim`. Reversing this path gives the shortest chain from time_dim to inventory.\"\n}\n```"
+        "reasoning": "The shortest path from inventory to time_dim is provided as `inventory \u2192 date_dim \u2192 catalog_returns \u2192 time_dim`. Reversing this path gives the shortest chain from time_dim to inventory.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"time_dim\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"inventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from inventory to time_dim is provided as `inventory \u2192 date_dim \u2192 catalog_returns \u2192 time_dim`. Reversing this path gives the shortest chain from time_dim to inventory.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -3078,7 +3078,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from store to customer is found by reversing the provided path from customer to store, which is store -> store_sales -> customer.",
       "api_failure": false,
       "raw_response": {
@@ -3117,7 +3117,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from web_sales to store_returns is found by reversing the provided path from store_returns to web_sales, which is store_returns -> date_dim -> web_sales.",
       "api_failure": false,
       "raw_response": {
@@ -3156,7 +3156,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between customer_address and web_page is directly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -3195,7 +3195,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from customer_address to web_site is customer_address -> web_sales -> web_site. Reversing this path gives the shortest chain from web_site to customer_address.",
       "api_failure": false,
       "raw_response": {
@@ -3234,7 +3234,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the context under 'Shortest Paths Between Mentioned Tables'.",
       "api_failure": false,
       "raw_response": {
@@ -3271,7 +3271,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The provided FK relationships show that catalog_sales has a foreign key referencing promotion, meaning a direct join exists from promotion to catalog_sales.",
       "api_failure": false,
       "raw_response": {
@@ -3309,8 +3309,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between 'item' and 'customer' is explicitly provided in the context as 'item → catalog_returns → customer'.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between 'item' and 'customer' is explicitly provided in the context as 'item \u2192 catalog_returns \u2192 customer'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3321,8 +3321,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'item' and 'customer' is explicitly provided in the context as 'item → catalog_returns → customer'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"item\",\n    \"catalog_returns\",\n    \"customer\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between 'item' and 'customer' is explicitly provided in the context as 'item → catalog_returns → customer'.\"\n}\n```"
+        "reasoning": "The shortest path between 'item' and 'customer' is explicitly provided in the context as 'item \u2192 catalog_returns \u2192 customer'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"item\",\n    \"catalog_returns\",\n    \"customer\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between 'item' and 'customer' is explicitly provided in the context as 'item \u2192 catalog_returns \u2192 customer'.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -3348,8 +3348,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from web_returns to income_band is web_returns → household_demographics → income_band. Reversing this path gives the shortest chain from income_band to web_returns.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from web_returns to income_band is web_returns \u2192 household_demographics \u2192 income_band. Reversing this path gives the shortest chain from income_band to web_returns.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3360,8 +3360,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from web_returns to income_band is web_returns → household_demographics → income_band. Reversing this path gives the shortest chain from income_band to web_returns.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"income_band\",\n    \"household_demographics\",\n    \"web_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from web_returns to income_band is web_returns → household_demographics → income_band. Reversing this path gives the shortest chain from income_band to web_returns.\"\n}\n```"
+        "reasoning": "The shortest path from web_returns to income_band is web_returns \u2192 household_demographics \u2192 income_band. Reversing this path gives the shortest chain from income_band to web_returns.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"income_band\",\n    \"household_demographics\",\n    \"web_returns\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from web_returns to income_band is web_returns \u2192 household_demographics \u2192 income_band. Reversing this path gives the shortest chain from income_band to web_returns.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3390,7 +3390,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from store_sales to reason is provided in the context as store_sales → date_dim → catalog_returns → reason.",
+      "reasoning": "The shortest path from store_sales to reason is provided in the context as store_sales \u2192 date_dim \u2192 catalog_returns \u2192 reason.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3402,8 +3402,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from store_sales to reason is provided in the context as store_sales → date_dim → catalog_returns → reason.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_sales\",\n    \"date_dim\",\n    \"catalog_returns\",\n    \"reason\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_sales to reason is provided in the context as store_sales → date_dim → catalog_returns → reason.\"\n}\n```"
+        "reasoning": "The shortest path from store_sales to reason is provided in the context as store_sales \u2192 date_dim \u2192 catalog_returns \u2192 reason.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"store_sales\",\n    \"date_dim\",\n    \"catalog_returns\",\n    \"reason\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_sales to reason is provided in the context as store_sales \u2192 date_dim \u2192 catalog_returns \u2192 reason.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -3427,7 +3427,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between inventory and item is a direct foreign key join, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -3510,7 +3510,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The context provides the shortest path from inventory to call_center as 'inventory → date_dim → catalog_returns → call_center'. Reversing this path gives the shortest chain from call_center to inventory, which is 'call_center → catalog_returns → date_dim → inventory'.",
+      "reasoning": "The context provides the shortest path from inventory to call_center as 'inventory \u2192 date_dim \u2192 catalog_returns \u2192 call_center'. Reversing this path gives the shortest chain from call_center to inventory, which is 'call_center \u2192 catalog_returns \u2192 date_dim \u2192 inventory'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3522,8 +3522,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context provides the shortest path from inventory to call_center as 'inventory → date_dim → catalog_returns → call_center'. Reversing this path gives the shortest chain from call_center to inventory, which is 'call_center → catalog_returns → date_dim → inventory'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"inventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from inventory to call_center as 'inventory → date_dim → catalog_returns → call_center'. Reversing this path gives the shortest chain from call_center to inventory, which is 'call_center → catalog_returns → date_dim → inventory'.\"\n}\n```"
+        "reasoning": "The context provides the shortest path from inventory to call_center as 'inventory \u2192 date_dim \u2192 catalog_returns \u2192 call_center'. Reversing this path gives the shortest chain from call_center to inventory, which is 'call_center \u2192 catalog_returns \u2192 date_dim \u2192 inventory'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"call_center\",\n    \"catalog_returns\",\n    \"date_dim\",\n    \"inventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from inventory to call_center as 'inventory \u2192 date_dim \u2192 catalog_returns \u2192 call_center'. Reversing this path gives the shortest chain from call_center to inventory, which is 'call_center \u2192 catalog_returns \u2192 date_dim \u2192 inventory'.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -3547,7 +3547,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -3627,8 +3627,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from customer to income_band is explicitly provided in the context as customer → household_demographics → income_band.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from customer to income_band is explicitly provided in the context as customer \u2192 household_demographics \u2192 income_band.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3639,8 +3639,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from customer to income_band is explicitly provided in the context as customer → household_demographics → income_band.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"customer\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer to income_band is explicitly provided in the context as customer → household_demographics → income_band.\"\n}\n```"
+        "reasoning": "The shortest path from customer to income_band is explicitly provided in the context as customer \u2192 household_demographics \u2192 income_band.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"customer\",\n    \"household_demographics\",\n    \"income_band\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer to income_band is explicitly provided in the context as customer \u2192 household_demographics \u2192 income_band.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3666,8 +3666,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path from customer_demographics to store is provided in the context as customer_demographics → store_sales → store.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path from customer_demographics to store is provided in the context as customer_demographics \u2192 store_sales \u2192 store.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3678,8 +3678,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from customer_demographics to store is provided in the context as customer_demographics → store_sales → store.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"customer_demographics\",\n    \"store_sales\",\n    \"store\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_demographics to store is provided in the context as customer_demographics → store_sales → store.\"\n}\n```"
+        "reasoning": "The shortest path from customer_demographics to store is provided in the context as customer_demographics \u2192 store_sales \u2192 store.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"customer_demographics\",\n    \"store_sales\",\n    \"store\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_demographics to store is provided in the context as customer_demographics \u2192 store_sales \u2192 store.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3745,7 +3745,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between catalog_returns and warehouse is directly connected by a foreign key, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -3800,15 +3800,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from customer_demographics to warehouse is customer_demographics → catalog_returns → warehouse, which involves 2 hops (joins).",
+      "reasoning": "The shortest path from customer_demographics to warehouse is customer_demographics \u2192 catalog_returns \u2192 warehouse, which involves 2 hops (joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from customer_demographics to warehouse is customer_demographics → catalog_returns → warehouse, which involves 2 hops (joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_demographics to warehouse is customer_demographics → catalog_returns → warehouse, which involves 2 hops (joins).\"\n}\n```"
+        "reasoning": "The shortest path from customer_demographics to warehouse is customer_demographics \u2192 catalog_returns \u2192 warehouse, which involves 2 hops (joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_demographics to warehouse is customer_demographics \u2192 catalog_returns \u2192 warehouse, which involves 2 hops (joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3920,15 +3920,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from store_returns to item is 1 hop, as indicated by 'store_returns → item (1 hops)'.",
+      "reasoning": "The shortest path from store_returns to item is 1 hop, as indicated by 'store_returns \u2192 item (1 hops)'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 1,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from store_returns to item is 1 hop, as indicated by 'store_returns → item (1 hops)'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_returns to item is 1 hop, as indicated by 'store_returns → item (1 hops)'.\"\n}\n```"
+        "reasoning": "The shortest path from store_returns to item is 1 hop, as indicated by 'store_returns \u2192 item (1 hops)'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_returns to item is 1 hop, as indicated by 'store_returns \u2192 item (1 hops)'.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3968,15 +3968,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from store_sales to call_center is 3 hops: store_sales → date_dim → catalog_returns → call_center. The number of joins is the same in reverse.",
+      "reasoning": "The shortest path from store_sales to call_center is 3 hops: store_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. The number of joins is the same in reverse.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from store_sales to call_center is 3 hops: store_sales → date_dim → catalog_returns → call_center. The number of joins is the same in reverse.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_sales to call_center is 3 hops: store_sales → date_dim → catalog_returns → call_center. The number of joins is the same in reverse.\"\n}\n```"
+        "reasoning": "The shortest path from store_sales to call_center is 3 hops: store_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. The number of joins is the same in reverse.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from store_sales to call_center is 3 hops: store_sales \u2192 date_dim \u2192 catalog_returns \u2192 call_center. The number of joins is the same in reverse.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4040,15 +4040,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from customer_address to web_page is customer_address → web_returns → web_page, which involves 2 hops (joins).",
+      "reasoning": "The shortest path from customer_address to web_page is customer_address \u2192 web_returns \u2192 web_page, which involves 2 hops (joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from customer_address to web_page is customer_address → web_returns → web_page, which involves 2 hops (joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_address to web_page is customer_address → web_returns → web_page, which involves 2 hops (joins).\"\n}\n```"
+        "reasoning": "The shortest path from customer_address to web_page is customer_address \u2192 web_returns \u2192 web_page, which involves 2 hops (joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer_address to web_page is customer_address \u2192 web_returns \u2192 web_page, which involves 2 hops (joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4064,15 +4064,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from 'item' to 'customer' is 'item → catalog_returns → customer', which involves 2 hops (joins).",
+      "reasoning": "The shortest path from 'item' to 'customer' is 'item \u2192 catalog_returns \u2192 customer', which involves 2 hops (joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from 'item' to 'customer' is 'item → catalog_returns → customer', which involves 2 hops (joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from 'item' to 'customer' is 'item → catalog_returns → customer', which involves 2 hops (joins).\"\n}\n```"
+        "reasoning": "The shortest path from 'item' to 'customer' is 'item \u2192 catalog_returns \u2192 customer', which involves 2 hops (joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from 'item' to 'customer' is 'item \u2192 catalog_returns \u2192 customer', which involves 2 hops (joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4112,15 +4112,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from 'item' to 'web_page' is 'item → web_returns → web_page', which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from 'item' to 'web_page' is 'item \u2192 web_returns \u2192 web_page', which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from 'item' to 'web_page' is 'item → web_returns → web_page', which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from 'item' to 'web_page' is 'item → web_returns → web_page', which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from 'item' to 'web_page' is 'item \u2192 web_returns \u2192 web_page', which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from 'item' to 'web_page' is 'item \u2192 web_returns \u2192 web_page', which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4136,15 +4136,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from inventory to time_dim is inventory → date_dim → catalog_returns → time_dim, which involves 3 foreign key joins.",
+      "reasoning": "The shortest path from inventory to time_dim is inventory \u2192 date_dim \u2192 catalog_returns \u2192 time_dim, which involves 3 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from inventory to time_dim is inventory → date_dim → catalog_returns → time_dim, which involves 3 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from inventory to time_dim is inventory → date_dim → catalog_returns → time_dim, which involves 3 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from inventory to time_dim is inventory \u2192 date_dim \u2192 catalog_returns \u2192 time_dim, which involves 3 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from inventory to time_dim is inventory \u2192 date_dim \u2192 catalog_returns \u2192 time_dim, which involves 3 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4160,15 +4160,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path between web_returns and customer is 1 hop, as indicated by the direct FK relationship: web_returns → customer.",
+      "reasoning": "The shortest path between web_returns and customer is 1 hop, as indicated by the direct FK relationship: web_returns \u2192 customer.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 1,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between web_returns and customer is 1 hop, as indicated by the direct FK relationship: web_returns → customer.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between web_returns and customer is 1 hop, as indicated by the direct FK relationship: web_returns → customer.\"\n}\n```"
+        "reasoning": "The shortest path between web_returns and customer is 1 hop, as indicated by the direct FK relationship: web_returns \u2192 customer.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between web_returns and customer is 1 hop, as indicated by the direct FK relationship: web_returns \u2192 customer.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4184,15 +4184,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from customer to web_page is customer → web_returns → web_page, which involves 2 hops (joins).",
+      "reasoning": "The shortest path from customer to web_page is customer \u2192 web_returns \u2192 web_page, which involves 2 hops (joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from customer to web_page is customer → web_returns → web_page, which involves 2 hops (joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer to web_page is customer → web_returns → web_page, which involves 2 hops (joins).\"\n}\n```"
+        "reasoning": "The shortest path from customer to web_page is customer \u2192 web_returns \u2192 web_page, which involves 2 hops (joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from customer to web_page is customer \u2192 web_returns \u2192 web_page, which involves 2 hops (joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,

@@ -2759,376 +2759,6 @@
       }
     },
     {
-      "id": "adventureworks_lineage_combined_065",
-      "question": "If OLTP.Sales.SalesOrderDetail changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
-      "gold_answer": [
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales"
-      ],
-      "predicted_answer": [
-        "DW.dbo.DimAccount",
-        "DW.dbo.DimCurrency",
-        "DW.dbo.DimCustomer",
-        "DW.dbo.DimDate",
-        "DW.dbo.DimDepartmentGroup",
-        "DW.dbo.DimEmployee",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimOrganization",
-        "DW.dbo.DimProduct",
-        "DW.dbo.DimProductCategory",
-        "DW.dbo.DimProductSubcategory",
-        "DW.dbo.DimPromotion",
-        "DW.dbo.DimReseller",
-        "DW.dbo.DimSalesReason",
-        "DW.dbo.DimSalesTerritory",
-        "DW.dbo.DimScenario",
-        "DW.dbo.FactCallCenter",
-        "DW.dbo.FactCurrencyRate",
-        "DW.dbo.FactFinance",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactProductInventory",
-        "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSalesQuota",
-        "DW.dbo.FactSurveyResponse",
-        "OLTP.HumanResources.Employee",
-        "OLTP.HumanResources.EmployeeDepartmentHistory",
-        "OLTP.HumanResources.EmployeePayHistory",
-        "OLTP.HumanResources.JobCandidate",
-        "OLTP.Person.Address",
-        "OLTP.Person.BusinessEntity",
-        "OLTP.Person.BusinessEntityAddress",
-        "OLTP.Person.CountryRegion",
-        "OLTP.Person.EmailAddress",
-        "OLTP.Person.Person",
-        "OLTP.Person.StateProvince",
-        "OLTP.Production.Document",
-        "OLTP.Production.Product",
-        "OLTP.Production.ProductCategory",
-        "OLTP.Production.ProductModel",
-        "OLTP.Production.ProductSubcategory",
-        "OLTP.Production.UnitMeasure",
-        "OLTP.Purchasing.PurchaseOrderDetail",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Purchasing.ShipMethod",
-        "OLTP.Purchasing.Vendor",
-        "OLTP.Sales.CreditCard",
-        "OLTP.Sales.Currency",
-        "OLTP.Sales.CurrencyRate",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderHeader",
-        "OLTP.Sales.SalesOrderHeaderSalesReason",
-        "OLTP.Sales.SalesPerson",
-        "OLTP.Sales.SalesPersonQuotaHistory",
-        "OLTP.Sales.SalesReason",
-        "OLTP.Sales.SalesTerritory",
-        "OLTP.Sales.SpecialOffer",
-        "OLTP.Sales.SpecialOfferProduct",
-        "OLTP.Sales.Store"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "combined_impact",
-      "difficulty": "hard",
-      "reasoning": "OLTP.Sales.SalesOrderDetail has lineage to DW.dbo.FactResellerSales and DW.dbo.FactInternetSales, and FK dependencies to OLTP.Sales.SpecialOfferProduct and OLTP.Sales.SalesOrderHeader, affecting all connected tables in Component 1 through cascading lineage and FK relationships.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "DW.dbo.FactResellerSales",
-          "DW.dbo.FactInternetSales",
-          "DW.dbo.FactProductInventory",
-          "DW.dbo.DimProduct",
-          "DW.dbo.DimProductSubcategory",
-          "DW.dbo.DimProductCategory",
-          "DW.dbo.DimSalesReason",
-          "DW.dbo.FactInternetSalesReason",
-          "DW.dbo.DimCurrency",
-          "DW.dbo.DimDate",
-          "DW.dbo.DimCustomer",
-          "DW.dbo.DimPromotion",
-          "DW.dbo.DimSalesTerritory",
-          "DW.dbo.DimEmployee",
-          "DW.dbo.DimGeography",
-          "DW.dbo.DimReseller",
-          "DW.dbo.FactCurrencyRate",
-          "DW.dbo.FactFinance",
-          "DW.dbo.FactCallCenter",
-          "DW.dbo.FactSurveyResponse",
-          "DW.dbo.FactSalesQuota",
-          "DW.dbo.DimAccount",
-          "DW.dbo.DimDepartmentGroup",
-          "DW.dbo.DimOrganization",
-          "DW.dbo.DimScenario",
-          "OLTP.Sales.SalesOrderHeader",
-          "OLTP.Sales.SpecialOfferProduct",
-          "OLTP.Production.Product",
-          "OLTP.Purchasing.PurchaseOrderDetail",
-          "OLTP.Purchasing.PurchaseOrderHeader",
-          "OLTP.Purchasing.Vendor",
-          "OLTP.Sales.Customer",
-          "OLTP.Sales.Store",
-          "OLTP.Person.Person",
-          "OLTP.Person.EmailAddress",
-          "OLTP.Person.BusinessEntityAddress",
-          "OLTP.Person.Address",
-          "OLTP.Person.StateProvince",
-          "OLTP.Person.CountryRegion",
-          "OLTP.Sales.SalesTerritory",
-          "OLTP.Sales.Currency",
-          "OLTP.Sales.SpecialOffer",
-          "OLTP.Sales.SalesReason",
-          "OLTP.Sales.CurrencyRate",
-          "OLTP.Sales.SalesPersonQuotaHistory",
-          "OLTP.Production.ProductSubcategory",
-          "OLTP.Production.ProductCategory",
-          "OLTP.Production.ProductModel",
-          "OLTP.HumanResources.Employee",
-          "OLTP.Sales.SalesPerson",
-          "OLTP.Person.BusinessEntity",
-          "OLTP.Production.UnitMeasure",
-          "OLTP.Purchasing.ShipMethod",
-          "OLTP.Sales.CreditCard",
-          "OLTP.Production.Document",
-          "OLTP.HumanResources.EmployeeDepartmentHistory",
-          "OLTP.HumanResources.EmployeePayHistory",
-          "OLTP.HumanResources.JobCandidate",
-          "OLTP.Sales.SalesOrderHeaderSalesReason"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "OLTP.Sales.SalesOrderDetail has lineage to DW.dbo.FactResellerSales and DW.dbo.FactInternetSales, and FK dependencies to OLTP.Sales.SpecialOfferProduct and OLTP.Sales.SalesOrderHeader, affecting all connected tables in Component 1 through cascading lineage and FK relationships.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactResellerSales\", \"DW.dbo.FactInternetSales\", \"DW.dbo.FactProductInventory\", \"DW.dbo.DimProduct\", \"DW.dbo.DimProductSubcategory\", \"DW.dbo.DimProductCategory\", \"DW.dbo.DimSalesReason\", \"DW.dbo.FactInternetSalesReason\", \"DW.dbo.DimCurrency\", \"DW.dbo.DimDate\", \"DW.dbo.DimCustomer\", \"DW.dbo.DimPromotion\", \"DW.dbo.DimSalesTerritory\", \"DW.dbo.DimEmployee\", \"DW.dbo.DimGeography\", \"DW.dbo.DimReseller\", \"DW.dbo.FactCurrencyRate\", \"DW.dbo.FactFinance\", \"DW.dbo.FactCallCenter\", \"DW.dbo.FactSurveyResponse\", \"DW.dbo.FactSalesQuota\", \"DW.dbo.DimAccount\", \"DW.dbo.DimDepartmentGroup\", \"DW.dbo.DimOrganization\", \"DW.dbo.DimScenario\", \"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SpecialOfferProduct\", \"OLTP.Production.Product\", \"OLTP.Purchasing.PurchaseOrderDetail\", \"OLTP.Purchasing.PurchaseOrderHeader\", \"OLTP.Purchasing.Vendor\", \"OLTP.Sales.Customer\", \"OLTP.Sales.Store\", \"OLTP.Person.Person\", \"OLTP.Person.EmailAddress\", \"OLTP.Person.BusinessEntityAddress\", \"OLTP.Person.Address\", \"OLTP.Person.StateProvince\", \"OLTP.Person.CountryRegion\", \"OLTP.Sales.SalesTerritory\", \"OLTP.Sales.Currency\", \"OLTP.Sales.SpecialOffer\", \"OLTP.Sales.SalesReason\", \"OLTP.Sales.CurrencyRate\", \"OLTP.Sales.SalesPersonQuotaHistory\", \"OLTP.Production.ProductSubcategory\", \"OLTP.Production.ProductCategory\", \"OLTP.Production.ProductModel\", \"OLTP.HumanResources.Employee\", \"OLTP.Sales.SalesPerson\", \"OLTP.Person.BusinessEntity\", \"OLTP.Production.UnitMeasure\", \"OLTP.Purchasing.ShipMethod\", \"OLTP.Sales.CreditCard\", \"OLTP.Production.Document\", \"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.EmployeePayHistory\", \"OLTP.HumanResources.JobCandidate\", \"OLTP.Sales.SalesOrderHeaderSalesReason\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"OLTP.Sales.SalesOrderDetail has lineage to DW.dbo.FactResellerSales and DW.dbo.FactInternetSales, and FK dependencies to OLTP.Sales.SpecialOfferProduct and OLTP.Sales.SalesOrderHeader, affecting all connected tables in Component 1 through cascading lineage and FK relationships.\"\n}"
-      },
-      "scores": {
-        "exact_match": false,
-        "f1": 0.0968,
-        "precision": 0.0508,
-        "recall": 1.0
-      }
-    },
-    {
-      "id": "adventureworks_lineage_combined_066",
-      "question": "If OLTP.Person.EmailAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
-      "gold_answer": [
-        "DW.dbo.DimCustomer",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactSurveyResponse"
-      ],
-      "predicted_answer": [
-        "DW.dbo.DimCustomer",
-        "OLTP.Person.Person"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "combined_impact",
-      "difficulty": "hard",
-      "reasoning": "OLTP.Person.EmailAddress has a foreign key to OLTP.Person.Person, and OLTP.Person.EmailAddress is derived from DW.dbo.DimCustomer via lineage, affecting both tables.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "DW.dbo.DimCustomer",
-          "OLTP.Person.Person"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "OLTP.Person.EmailAddress has a foreign key to OLTP.Person.Person, and OLTP.Person.EmailAddress is derived from DW.dbo.DimCustomer via lineage, affecting both tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimCustomer\", \"OLTP.Person.Person\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"OLTP.Person.EmailAddress has a foreign key to OLTP.Person.Person, and OLTP.Person.EmailAddress is derived from DW.dbo.DimCustomer via lineage, affecting both tables.\"\n}"
-      },
-      "scores": {
-        "exact_match": false,
-        "f1": 0.4,
-        "precision": 0.5,
-        "recall": 0.3333
-      }
-    },
-    {
-      "id": "adventureworks_lineage_combined_067",
-      "question": "If OLTP.HumanResources.Employee changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
-      "gold_answer": [
-        "DW.dbo.DimEmployee",
-        "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSalesQuota",
-        "OLTP.HumanResources.EmployeeDepartmentHistory",
-        "OLTP.HumanResources.EmployeePayHistory",
-        "OLTP.HumanResources.JobCandidate",
-        "OLTP.Production.Document",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Sales.SalesPerson"
-      ],
-      "predicted_answer": [
-        "DW.dbo.DimCurrency",
-        "DW.dbo.DimCurrency",
-        "DW.dbo.DimCustomer",
-        "DW.dbo.DimCustomer",
-        "DW.dbo.DimDate",
-        "DW.dbo.DimDate",
-        "DW.dbo.DimDepartmentGroup",
-        "DW.dbo.DimDepartmentGroup",
-        "DW.dbo.DimEmployee",
-        "DW.dbo.DimEmployee",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimOrganization",
-        "DW.dbo.DimOrganization",
-        "DW.dbo.DimProduct",
-        "DW.dbo.DimProduct",
-        "DW.dbo.DimProductSubcategory",
-        "DW.dbo.DimProductSubcategory",
-        "DW.dbo.DimPromotion",
-        "DW.dbo.DimPromotion",
-        "DW.dbo.DimReseller",
-        "DW.dbo.DimReseller",
-        "DW.dbo.DimSalesTerritory",
-        "DW.dbo.DimSalesTerritory",
-        "DW.dbo.DimSalesTerritory",
-        "DW.dbo.FactCallCenter",
-        "DW.dbo.FactCurrencyRate",
-        "DW.dbo.FactFinance",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactProductInventory",
-        "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSalesQuota",
-        "DW.dbo.FactSurveyResponse",
-        "OLTP.HumanResources.EmployeeDepartmentHistory",
-        "OLTP.HumanResources.EmployeePayHistory",
-        "OLTP.HumanResources.JobCandidate",
-        "OLTP.Production.Document",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Sales.SalesOrderHeader",
-        "OLTP.Sales.SalesPerson",
-        "OLTP.Sales.SalesPersonQuotaHistory",
-        "OLTP.Sales.SalesTerritoryHistory",
-        "OLTP.Sales.Store"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "combined_impact",
-      "difficulty": "hard",
-      "reasoning": "Based on the context, OLTP.HumanResources.Employee has direct FK dependencies and lineage relationships affecting multiple tables, including DW.dbo.DimEmployee and others through cascading effects in Component 1.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "DW.dbo.DimEmployee",
-          "OLTP.HumanResources.EmployeeDepartmentHistory",
-          "OLTP.HumanResources.EmployeePayHistory",
-          "OLTP.HumanResources.JobCandidate",
-          "OLTP.Purchasing.PurchaseOrderHeader",
-          "OLTP.Sales.SalesPerson",
-          "OLTP.Production.Document",
-          "DW.dbo.FactResellerSales",
-          "DW.dbo.FactSalesQuota",
-          "OLTP.Sales.SalesTerritoryHistory",
-          "OLTP.Sales.Store",
-          "OLTP.Sales.SalesOrderHeader",
-          "OLTP.Sales.SalesPersonQuotaHistory",
-          "DW.dbo.DimSalesTerritory",
-          "DW.dbo.DimGeography",
-          "DW.dbo.DimCustomer",
-          "DW.dbo.FactInternetSales",
-          "DW.dbo.FactSurveyResponse",
-          "DW.dbo.FactProductInventory",
-          "DW.dbo.FactCurrencyRate",
-          "DW.dbo.FactCallCenter",
-          "DW.dbo.FactFinance",
-          "DW.dbo.FactInternetSalesReason",
-          "DW.dbo.DimProduct",
-          "DW.dbo.DimPromotion",
-          "DW.dbo.DimReseller",
-          "DW.dbo.DimDate",
-          "DW.dbo.DimCurrency",
-          "DW.dbo.DimDepartmentGroup",
-          "DW.dbo.DimOrganization",
-          "DW.dbo.DimProductSubcategory",
-          "DW.dbo.DimSalesTerritory",
-          "DW.dbo.DimEmployee",
-          "DW.dbo.DimGeography",
-          "DW.dbo.DimCustomer",
-          "DW.dbo.DimProduct",
-          "DW.dbo.DimPromotion",
-          "DW.dbo.DimReseller",
-          "DW.dbo.DimDate",
-          "DW.dbo.DimCurrency",
-          "DW.dbo.DimDepartmentGroup",
-          "DW.dbo.DimOrganization",
-          "DW.dbo.DimProductSubcategory",
-          "DW.dbo.DimSalesTerritory"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "Based on the context, OLTP.HumanResources.Employee has direct FK dependencies and lineage relationships affecting multiple tables, including DW.dbo.DimEmployee and others through cascading effects in Component 1.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimEmployee\", \"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.EmployeePayHistory\", \"OLTP.HumanResources.JobCandidate\", \"OLTP.Purchasing.PurchaseOrderHeader\", \"OLTP.Sales.SalesPerson\", \"OLTP.Production.Document\", \"DW.dbo.FactResellerSales\", \"DW.dbo.FactSalesQuota\", \"OLTP.Sales.SalesTerritoryHistory\", \"OLTP.Sales.Store\", \"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SalesPersonQuotaHistory\", \"DW.dbo.DimSalesTerritory\", \"DW.dbo.DimGeography\", \"DW.dbo.DimCustomer\", \"DW.dbo.FactInternetSales\", \"DW.dbo.FactSurveyResponse\", \"DW.dbo.FactProductInventory\", \"DW.dbo.FactCurrencyRate\", \"DW.dbo.FactCallCenter\", \"DW.dbo.FactFinance\", \"DW.dbo.FactInternetSalesReason\", \"DW.dbo.DimProduct\", \"DW.dbo.DimPromotion\", \"DW.dbo.DimReseller\", \"DW.dbo.DimDate\", \"DW.dbo.DimCurrency\", \"DW.dbo.DimDepartmentGroup\", \"DW.dbo.DimOrganization\", \"DW.dbo.DimProductSubcategory\", \"DW.dbo.DimSalesTerritory\", \"DW.dbo.DimEmployee\", \"DW.dbo.DimGeography\", \"DW.dbo.DimCustomer\", \"DW.dbo.DimProduct\", \"DW.dbo.DimPromotion\", \"DW.dbo.DimReseller\", \"DW.dbo.DimDate\", \"DW.dbo.DimCurrency\", \"DW.dbo.DimDepartmentGroup\", \"DW.dbo.DimOrganization\", \"DW.dbo.DimProductSubcategory\", \"DW.dbo.DimSalesTerritory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Based on the context, OLTP.HumanResources.Employee has direct FK dependencies and lineage relationships affecting multiple tables, including DW.dbo.DimEmployee and others through cascading effects in Component 1.\"\n}"
-      },
-      "scores": {
-        "exact_match": false,
-        "f1": 0.45,
-        "precision": 0.2903,
-        "recall": 1.0
-      }
-    },
-    {
-      "id": "adventureworks_lineage_combined_068",
-      "question": "If OLTP.Sales.SalesOrderHeader changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
-      "gold_answer": [
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeaderSalesReason"
-      ],
-      "predicted_answer": [
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactResellerSales",
-        "OLTP.HumanResources.Employee",
-        "OLTP.Person.Address",
-        "OLTP.Purchasing.ShipMethod",
-        "OLTP.Sales.CreditCard",
-        "OLTP.Sales.CurrencyRate",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeaderSalesReason",
-        "OLTP.Sales.SalesPerson",
-        "OLTP.Sales.SalesTerritory"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "combined_impact",
-      "difficulty": "hard",
-      "reasoning": "OLTP.Sales.SalesOrderHeader has direct lineage to DW.dbo.FactResellerSales and DW.dbo.FactInternetSales, and foreign key dependencies to multiple tables as listed in the context.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "DW.dbo.FactResellerSales",
-          "DW.dbo.FactInternetSales",
-          "OLTP.Sales.SalesOrderDetail",
-          "OLTP.Sales.SalesOrderHeaderSalesReason",
-          "OLTP.Sales.SalesPerson",
-          "OLTP.Sales.SalesTerritory",
-          "OLTP.Purchasing.ShipMethod",
-          "OLTP.Person.Address",
-          "OLTP.Sales.CurrencyRate",
-          "OLTP.Sales.CreditCard",
-          "OLTP.Sales.Customer",
-          "OLTP.HumanResources.Employee"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "OLTP.Sales.SalesOrderHeader has direct lineage to DW.dbo.FactResellerSales and DW.dbo.FactInternetSales, and foreign key dependencies to multiple tables as listed in the context.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactResellerSales\", \"DW.dbo.FactInternetSales\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.SalesOrderHeaderSalesReason\", \"OLTP.Sales.SalesPerson\", \"OLTP.Sales.SalesTerritory\", \"OLTP.Purchasing.ShipMethod\", \"OLTP.Person.Address\", \"OLTP.Sales.CurrencyRate\", \"OLTP.Sales.CreditCard\", \"OLTP.Sales.Customer\", \"OLTP.HumanResources.Employee\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"OLTP.Sales.SalesOrderHeader has direct lineage to DW.dbo.FactResellerSales and DW.dbo.FactInternetSales, and foreign key dependencies to multiple tables as listed in the context.\"\n}"
-      },
-      "scores": {
-        "exact_match": false,
-        "f1": 0.4706,
-        "precision": 0.3333,
-        "recall": 0.8
-      }
-    },
-    {
       "id": "adventureworks_lineage_multisrc_069",
       "question": "DW.dbo.DimCustomer integrates data from multiple sources. List ALL source tables that feed into DW.dbo.DimCustomer.",
       "gold_answer": [
@@ -3240,167 +2870,6 @@
         "answer_str": null,
         "reasoning": "The lineage relationships show that DW.dbo.DimGeography is derived from OLTP.Person.Address, OLTP.Person.StateProvince, and OLTP.Person.CountryRegion.",
         "_raw_text": "{\n  \"answer_list\": [\"OLTP.Person.Address\", \"OLTP.Person.StateProvince\", \"OLTP.Person.CountryRegion\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage relationships show that DW.dbo.DimGeography is derived from OLTP.Person.Address, OLTP.Person.StateProvince, and OLTP.Person.CountryRegion.\"\n}"
-      },
-      "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
-      }
-    },
-    {
-      "id": "adventureworks_lineage_multisrc_072",
-      "question": "DW.dbo.DimProduct integrates data from multiple sources. List ALL source tables that feed into DW.dbo.DimProduct.",
-      "gold_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Production.ProductCategory",
-        "OLTP.Production.ProductModel",
-        "OLTP.Production.ProductSubcategory"
-      ],
-      "predicted_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Production.ProductCategory",
-        "OLTP.Production.ProductModel",
-        "OLTP.Production.ProductSubcategory"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "multi_source",
-      "difficulty": "hard",
-      "reasoning": "The lineage relationships show that DW.dbo.DimProduct is derived from these four OLTP tables.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "OLTP.Production.Product",
-          "OLTP.Production.ProductSubcategory",
-          "OLTP.Production.ProductCategory",
-          "OLTP.Production.ProductModel"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "The lineage relationships show that DW.dbo.DimProduct is derived from these four OLTP tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.Product\", \"OLTP.Production.ProductSubcategory\", \"OLTP.Production.ProductCategory\", \"OLTP.Production.ProductModel\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage relationships show that DW.dbo.DimProduct is derived from these four OLTP tables.\"\n}"
-      },
-      "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
-      }
-    },
-    {
-      "id": "adventureworks_lineage_multisrc_073",
-      "question": "DW.dbo.FactInternetSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactInternetSales.",
-      "gold_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
-      ],
-      "predicted_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "multi_source",
-      "difficulty": "hard",
-      "reasoning": "The lineage relationships show that DW.dbo.FactInternetSales is derived from these four OLTP tables.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "OLTP.Sales.SalesOrderHeader",
-          "OLTP.Sales.SalesOrderDetail",
-          "OLTP.Sales.Customer",
-          "OLTP.Production.Product"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "The lineage relationships show that DW.dbo.FactInternetSales is derived from these four OLTP tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.Customer\", \"OLTP.Production.Product\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage relationships show that DW.dbo.FactInternetSales is derived from these four OLTP tables.\"\n}"
-      },
-      "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
-      }
-    },
-    {
-      "id": "adventureworks_lineage_multisrc_074",
-      "question": "DW.dbo.FactProductInventory integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactProductInventory.",
-      "gold_answer": [
-        "OLTP.Purchasing.PurchaseOrderDetail",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Purchasing.Vendor"
-      ],
-      "predicted_answer": [
-        "OLTP.Purchasing.PurchaseOrderDetail",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Purchasing.Vendor"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "multi_source",
-      "difficulty": "hard",
-      "reasoning": "The lineage relationships show that DW.dbo.FactProductInventory is derived from these three OLTP tables.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "OLTP.Purchasing.PurchaseOrderDetail",
-          "OLTP.Purchasing.PurchaseOrderHeader",
-          "OLTP.Purchasing.Vendor"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "The lineage relationships show that DW.dbo.FactProductInventory is derived from these three OLTP tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Purchasing.PurchaseOrderDetail\", \"OLTP.Purchasing.PurchaseOrderHeader\", \"OLTP.Purchasing.Vendor\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage relationships show that DW.dbo.FactProductInventory is derived from these three OLTP tables.\"\n}"
-      },
-      "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
-      }
-    },
-    {
-      "id": "adventureworks_lineage_multisrc_075",
-      "question": "DW.dbo.FactResellerSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactResellerSales.",
-      "gold_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
-      ],
-      "predicted_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
-      ],
-      "answer_type": "list",
-      "type": "lineage_impact",
-      "subtype": "multi_source",
-      "difficulty": "hard",
-      "reasoning": "The lineage relationships show that DW.dbo.FactResellerSales is derived from these four OLTP tables.",
-      "api_failure": false,
-      "raw_response": {
-        "answer_list": [
-          "OLTP.Sales.SalesOrderHeader",
-          "OLTP.Sales.SalesOrderDetail",
-          "OLTP.Sales.Customer",
-          "OLTP.Production.Product"
-        ],
-        "answer_int": null,
-        "answer_bool": null,
-        "answer_str": null,
-        "reasoning": "The lineage relationships show that DW.dbo.FactResellerSales is derived from these four OLTP tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.Customer\", \"OLTP.Production.Product\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage relationships show that DW.dbo.FactResellerSales is derived from these four OLTP tables.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5077,7 +4546,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate → DW.dbo.FactSalesQuota with 1 hop.",
+      "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate \u2192 DW.dbo.FactSalesQuota with 1 hop.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5087,8 +4556,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate → DW.dbo.FactSalesQuota with 1 hop.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimDate\", \"DW.dbo.FactSalesQuota\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as DW.dbo.DimDate → DW.dbo.FactSalesQuota with 1 hop.\"\n}"
+        "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate \u2192 DW.dbo.FactSalesQuota with 1 hop.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimDate\", \"DW.dbo.FactSalesQuota\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as DW.dbo.DimDate \u2192 DW.dbo.FactSalesQuota with 1 hop.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5781,7 +5250,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument → OLTP.Production.Product → OLTP.Production.ProductListPriceHistory with 2 hops.",
+      "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory with 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5792,8 +5261,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument → OLTP.Production.Product → OLTP.Production.ProductListPriceHistory with 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.ProductDocument\", \"OLTP.Production.Product\", \"OLTP.Production.ProductListPriceHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as OLTP.Production.ProductDocument → OLTP.Production.Product → OLTP.Production.ProductListPriceHistory with 2 hops.\"\n}"
+        "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.ProductDocument\", \"OLTP.Production.Product\", \"OLTP.Production.ProductListPriceHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as OLTP.Production.ProductDocument \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory with 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5949,7 +5418,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory → DW.dbo.FactInternetSales → DW.dbo.DimDate → DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
+      "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory \u2192 DW.dbo.FactInternetSales \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5961,8 +5430,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory → DW.dbo.FactInternetSales → DW.dbo.DimDate → DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactInternetSales\", \"DW.dbo.DimSalesTerritory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory → DW.dbo.FactInternetSales → DW.dbo.DimDate → DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.\"\n}"
+        "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory \u2192 DW.dbo.FactInternetSales \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactInternetSales\", \"DW.dbo.DimSalesTerritory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory \u2192 DW.dbo.FactInternetSales \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -6352,7 +5821,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate → DW.dbo.DimDate → DW.dbo.FactSurveyResponse with 2 hops.",
+      "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactSurveyResponse with 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -6363,8 +5832,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate → DW.dbo.DimDate → DW.dbo.FactSurveyResponse with 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactSurveyResponse\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate → DW.dbo.DimDate → DW.dbo.FactSurveyResponse with 2 hops.\"\n}"
+        "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactSurveyResponse with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactSurveyResponse\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactSurveyResponse with 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -6432,7 +5901,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory → OLTP.HumanResources.Employee → OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
+      "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory \u2192 OLTP.HumanResources.Employee \u2192 OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -6443,8 +5912,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory → OLTP.HumanResources.Employee → OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.Employee\", \"OLTP.Purchasing.PurchaseOrderHeader\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory → OLTP.HumanResources.Employee → OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.\"\n}"
+        "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory \u2192 OLTP.HumanResources.Employee \u2192 OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.Employee\", \"OLTP.Purchasing.PurchaseOrderHeader\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory \u2192 OLTP.HumanResources.Employee \u2192 OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -7977,7 +7446,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales.",
+      "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -7988,8 +7457,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimOrganization\", \"DW.dbo.DimCurrency\", \"DW.dbo.FactResellerSales\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales.\"\n}"
+        "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimOrganization\", \"DW.dbo.DimCurrency\", \"DW.dbo.FactResellerSales\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -8288,7 +7757,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory → OLTP.Production.Product → OLTP.Production.WorkOrder with 2 hops.",
+      "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.WorkOrder with 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -8299,8 +7768,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory → OLTP.Production.Product → OLTP.Production.WorkOrder with 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.TransactionHistory\", \"OLTP.Production.Product\", \"OLTP.Production.WorkOrder\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as OLTP.Production.TransactionHistory → OLTP.Production.Product → OLTP.Production.WorkOrder with 2 hops.\"\n}"
+        "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.WorkOrder with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.TransactionHistory\", \"OLTP.Production.Product\", \"OLTP.Production.WorkOrder\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as OLTP.Production.TransactionHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.WorkOrder with 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,

@@ -1554,7 +1554,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1640,7 +1640,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1723,7 +1723,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2184,7 +2184,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2324,7 +2324,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2376,7 +2376,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2428,7 +2428,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2477,7 +2477,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the minimal number of foreign key relationships connecting condition_occurrence to person, so we analyze the path through the schema.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2499,7 +2499,7 @@
       ],
       "raw_response": {
         "reasoning": "The query asks for the minimal number of foreign key relationships connecting condition_occurrence to person, so we analyze the path through the schema.",
-        "_raw_text": "{\n  \"answer_list\": [\"condition_era\", \"person\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves condition_era → person.\"\n}\n{\n  \"reasoning\": \"The query asks for the minimal number of foreign key relationships connecting condition_occurrence to person, so we analyze the path through the schema.\"\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"condition_era\", \"person\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves condition_era \u2192 person.\"\n}\n{\n  \"reasoning\": \"The query asks for the minimal number of foreign key relationships connecting condition_occurrence to person, so we analyze the path through the schema.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -2523,7 +2523,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2551,7 +2551,7 @@
         "answer_int": 5,
         "answer_bool": true,
         "answer_str": "The shortest chain involves note_nlp referencing note and provider.",
-        "_raw_text": "{\n  \"answer_list\": [\"note\", \"provider\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves note_nlp referencing note and provider.\"\n}  \nReasoning: The schema links note through note_nlp to note_nlp, which connects to concept and provider. Thus the path is note → note_nlp → concept → provider.\""
+        "_raw_text": "{\n  \"answer_list\": [\"note\", \"provider\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves note_nlp referencing note and provider.\"\n}  \nReasoning: The schema links note through note_nlp to note_nlp, which connects to concept and provider. Thus the path is note \u2192 note_nlp \u2192 concept \u2192 provider.\""
       },
       "scores": {
         "exact_match": true,
@@ -2575,7 +2575,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2627,7 +2627,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2679,7 +2679,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2731,7 +2731,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2758,8 +2758,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves linking through note_nlp → note and then to concept via the relationship table.",
-        "_raw_text": "{\n  \"answer_list\": [\"note_nlp\", \"note\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves linking through note_nlp → note and then to concept via the relationship table.\"\n}\n{\n  \"reasoning\": \"The query asks for the minimal sequence of foreign key relationships connecting note_nlp to concept, so we trace the paths through the schema.\"\n}\n"
+        "answer_str": "The shortest path involves linking through note_nlp \u2192 note and then to concept via the relationship table.",
+        "_raw_text": "{\n  \"answer_list\": [\"note_nlp\", \"note\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves linking through note_nlp \u2192 note and then to concept via the relationship table.\"\n}\n{\n  \"reasoning\": \"The query asks for the minimal sequence of foreign key relationships connecting note_nlp to concept, so we trace the paths through the schema.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -2783,7 +2783,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2835,7 +2835,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2887,7 +2887,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2939,7 +2939,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2991,7 +2991,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3043,7 +3043,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3095,7 +3095,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3147,7 +3147,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3199,7 +3199,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3251,7 +3251,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3303,7 +3303,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3354,7 +3354,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3405,7 +3405,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3457,7 +3457,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3509,7 +3509,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3561,7 +3561,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3613,7 +3613,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3666,7 +3666,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3772,7 +3772,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3826,7 +3826,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3853,8 +3853,8 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two joins: ancestor → concept and concept → relationship.",
-        "_raw_text": "{\n  \"answer_list\": [\"concept_ancestor\", \"relationship\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two joins: ancestor → concept and concept → relationship.\"\n}\n{\n  \"reasoning\": \"The query asks for the minimal number of foreign key relationships needed to link ancestor to relationship. Analyzing the schema reveals two direct FK paths.\"\n}\n"
+        "answer_str": "The shortest path involves two joins: ancestor \u2192 concept and concept \u2192 relationship.",
+        "_raw_text": "{\n  \"answer_list\": [\"concept_ancestor\", \"relationship\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two joins: ancestor \u2192 concept and concept \u2192 relationship.\"\n}\n{\n  \"reasoning\": \"The query asks for the minimal number of foreign key relationships needed to link ancestor to relationship. Analyzing the schema reveals two direct FK paths.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -3878,7 +3878,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4010,9 +4010,9 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The schema shows direct FK links from concept_class to concept, and then to domain, so the shortest path goes through concept_class → concept → provider.",
+        "answer_str": "The schema shows direct FK links from concept_class to concept, and then to domain, so the shortest path goes through concept_class \u2192 concept \u2192 provider.",
         "reasoning": "By tracing the relationships, we see a linear chain connecting the core concepts to the provider.",
-        "_raw_text": "{\n  \"answer_list\": [\"concept_class\", \"provider\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema shows direct FK links from concept_class to concept, and then to domain, so the shortest path goes through concept_class → concept → provider.\",\n  \"reasoning\": \"By tracing the relationships, we see a linear chain connecting the core concepts to the provider.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"concept_class\", \"provider\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema shows direct FK links from concept_class to concept, and then to domain, so the shortest path goes through concept_class \u2192 concept \u2192 provider.\",\n  \"reasoning\": \"By tracing the relationships, we see a linear chain connecting the core concepts to the provider.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -4091,7 +4091,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4145,7 +4145,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4197,7 +4197,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4249,7 +4249,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the shortest join chain connecting concept_synonym to observation, so we analyze the relationships and identify the most direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4303,7 +4303,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4356,7 +4356,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4410,7 +4410,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4463,7 +4463,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4516,7 +4516,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4597,9 +4597,9 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The schema shows multiple indirect paths, but the direct FK chain is location → source_to_concept_map via person and condition_occurrence.",
+        "answer_str": "The schema shows multiple indirect paths, but the direct FK chain is location \u2192 source_to_concept_map via person and condition_occurrence.",
         "reasoning": "The query asks for the shortest join chain linking location to the concept map table. Analyzing the relationships reveals that location must go through person and condition_occurrence before reaching source_to_concept_map.",
-        "_raw_text": "{\n  \"answer_list\": [\"location\", \"source_to_concept_map\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema shows multiple indirect paths, but the direct FK chain is location → source_to_concept_map via person and condition_occurrence.\",\n  \"reasoning\": \"The query asks for the shortest join chain linking location to the concept map table. Analyzing the relationships reveals that location must go through person and condition_occurrence before reaching source_to_concept_map.\"\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"location\", \"source_to_concept_map\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema shows multiple indirect paths, but the direct FK chain is location \u2192 source_to_concept_map via person and condition_occurrence.\",\n  \"reasoning\": \"The query asks for the shortest join chain linking location to the concept map table. Analyzing the relationships reveals that location must go through person and condition_occurrence before reaching source_to_concept_map.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -4624,7 +4624,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the shortest path connecting those two tables via foreign keys, which is directly established.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4675,7 +4675,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the minimal sequence of foreign key relationships linking fact_relationship to note_nlp. Analyzing the schema reveals direct FK links between note_nlp and note, and note_nlp connects to note directly, forming a two-step path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4722,7 +4722,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The vocabulary table has a direct foreign key mapping to concept_synonym, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4830,7 +4830,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4883,7 +4883,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4936,7 +4936,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5044,7 +5044,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5099,7 +5099,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5152,7 +5152,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5205,7 +5205,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5258,7 +5258,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the minimal foreign key chain linking cost to payer_plan_period, but the relationships are not strictly linear. Analyzing all paths confirms complexity.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5312,7 +5312,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5365,7 +5365,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5415,7 +5415,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the shortest path linking condition_occurrence to care_site via foreign keys. Analyzing the schema reveals a multi-step chain through location, person, and visit details.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5461,7 +5461,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5512,7 +5512,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5564,7 +5564,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5617,7 +5617,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5670,7 +5670,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5721,7 +5721,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the minimal sequence of foreign key relationships linking cost to observation_period. Analyzing the schema reveals direct FK links from cost to observation_period through person.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5768,7 +5768,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5821,7 +5821,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5874,7 +5874,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5927,7 +5927,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -5980,7 +5980,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6033,7 +6033,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6087,7 +6087,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6115,7 +6115,7 @@
         "answer_int": 5,
         "answer_bool": true,
         "answer_str": "The shortest chain involves linking through episode_event and then visit_detail.",
-        "_raw_text": "{\n  \"answer_list\": [\"episode_event\", \"visit_detail\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves linking through episode_event and then visit_detail.\"\n}\nReasoning: The schema shows episode_event is related to both episode and visit_detail via FK constraints. To connect them, you need episode_event → visit_detail through the foreign key path.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"episode_event\", \"visit_detail\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves linking through episode_event and then visit_detail.\"\n}\nReasoning: The schema shows episode_event is related to both episode and visit_detail via FK constraints. To connect them, you need episode_event \u2192 visit_detail through the foreign key path.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -6140,7 +6140,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6193,7 +6193,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6245,7 +6245,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6272,8 +6272,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves condition_occurrence → concept through the derived relationships.",
-        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves condition_occurrence → concept through the derived relationships.\"\n}"
+        "answer_str": "The shortest chain involves condition_occurrence \u2192 concept through the derived relationships.",
+        "_raw_text": "{\n  \"answer_list\": [\"condition_occurrence\", \"concept\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves condition_occurrence \u2192 concept through the derived relationships.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -6298,7 +6298,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6404,7 +6404,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6457,7 +6457,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -6573,8 +6573,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The schema requires multiple joins: person → visit_occurrence → visit_detail.",
-        "_raw_text": "{\n  \"answer_list\": [\"visit_detail\", \"person\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema requires multiple joins: person → visit_occurrence → visit_detail.\"\n}\n{\n  \"reasoning\": \"The question asks about the minimum foreign key joins between specimen and visit_detail, which involves linking concepts through visit_occurrence and person.\"\n}\n"
+        "answer_str": "The schema requires multiple joins: person \u2192 visit_occurrence \u2192 visit_detail.",
+        "_raw_text": "{\n  \"answer_list\": [\"visit_detail\", \"person\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema requires multiple joins: person \u2192 visit_occurrence \u2192 visit_detail.\"\n}\n{\n  \"reasoning\": \"The question asks about the minimum foreign key joins between specimen and visit_detail, which involves linking concepts through visit_occurrence and person.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -7052,7 +7052,7 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The schema links concepts through relationships, so we traverse two paths: concept → relationship and relationship → concept.",
+      "reasoning": "The schema links concepts through relationships, so we traverse two paths: concept \u2192 relationship and relationship \u2192 concept.",
       "api_failure": false,
       "retrieved_tables": [
         "relationship",
@@ -7079,8 +7079,8 @@
         "answer_int": 2,
         "answer_bool": true,
         "answer_str": "Two joins are required: one from concept to relationship and another from relationship back to concept.",
-        "reasoning": "The schema links concepts through relationships, so we traverse two paths: concept → relationship and relationship → concept.",
-        "_raw_text": "{\n  \"answer_list\": [\"relationship\", \"concept_relationship\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Two joins are required: one from concept to relationship and another from relationship back to concept.\",\n  \"reasoning\": \"The schema links concepts through relationships, so we traverse two paths: concept → relationship and relationship → concept.\"\n}\n"
+        "reasoning": "The schema links concepts through relationships, so we traverse two paths: concept \u2192 relationship and relationship \u2192 concept.",
+        "_raw_text": "{\n  \"answer_list\": [\"relationship\", \"concept_relationship\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Two joins are required: one from concept to relationship and another from relationship back to concept.\",\n  \"reasoning\": \"The schema links concepts through relationships, so we traverse two paths: concept \u2192 relationship and relationship \u2192 concept.\"\n}\n"
       },
       "scores": {
         "exact_match": false,

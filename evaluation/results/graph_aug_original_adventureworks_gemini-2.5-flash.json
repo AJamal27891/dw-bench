@@ -3173,7 +3173,7 @@
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "multi_source",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The lineage relationships show that DW.dbo.FactInternetSales is derived from OLTP.Sales.SalesOrderHeader, OLTP.Sales.SalesOrderDetail, OLTP.Sales.Customer, and OLTP.Production.Product.",
       "api_failure": false,
       "raw_response": {
@@ -3212,7 +3212,7 @@
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "multi_source",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The lineage relationships show that OLTP.Purchasing.PurchaseOrderDetail, OLTP.Purchasing.PurchaseOrderHeader, and OLTP.Purchasing.Vendor are derived into DW.dbo.FactProductInventory.",
       "api_failure": false,
       "raw_response": {
@@ -3252,7 +3252,7 @@
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "multi_source",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The lineage relationships show that DW.dbo.FactResellerSales is derived from OLTP.Sales.SalesOrderHeader, OLTP.Sales.SalesOrderDetail, OLTP.Sales.Customer, and OLTP.Production.Product.",
       "api_failure": false,
       "raw_response": {
@@ -3492,7 +3492,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "DW.dbo.DimSalesTerritory is listed in Component 1, which contains 92 tables. All tables within Component 1 are in the same connected component.",
       "api_failure": false,
       "raw_response": {
@@ -3796,7 +3796,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "OLTP.Person.PhoneNumberType is listed in Component 1, which contains 92 tables. All tables in Component 1 are in the same connected component.",
       "api_failure": false,
       "raw_response": {
@@ -4100,7 +4100,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "OLTP.Production.Illustration is listed in Component 1, which contains 92 tables. All tables in Component 1 are in the same connected component.",
       "api_failure": false,
       "raw_response": {
@@ -4464,7 +4464,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A foreign key path exists: OLTP.Sales.SalesTerritoryHistory -> OLTP.Sales.SalesPerson -> OLTP.Sales.SalesOrderHeader -> OLTP.Sales.CurrencyRate -> DW.dbo.FactCurrencyRate.",
       "api_failure": false,
       "raw_response": {
@@ -4799,7 +4799,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from DW.dbo.FactInternetSales to DW.dbo.DimCurrency.",
       "api_failure": false,
       "raw_response": {
@@ -4835,7 +4835,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from DW.dbo.DimProductSubcategory to DW.dbo.DimProductCategory.",
       "api_failure": false,
       "raw_response": {
@@ -4871,7 +4871,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from OLTP.Sales.SpecialOfferProduct to OLTP.Production.Product.",
       "api_failure": false,
       "raw_response": {
@@ -4907,7 +4907,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section, indicating a direct foreign key relationship.",
       "api_failure": false,
       "raw_response": {
@@ -4943,7 +4943,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -4979,7 +4979,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The context explicitly states a direct foreign key relationship from DW.dbo.FactFinance to DW.dbo.DimAccount.",
       "api_failure": false,
       "raw_response": {
@@ -5015,7 +5015,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -5051,7 +5051,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -5087,7 +5087,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Purchasing.PurchaseOrderHeader has a direct foreign key relationship to OLTP.Purchasing.ShipMethod, forming a 1-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -5123,7 +5123,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is a direct foreign key relationship where OLTP.Production.ProductProductPhoto references OLTP.Production.Product.",
       "api_failure": false,
       "raw_response": {
@@ -5159,7 +5159,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from DW.dbo.FactFinance to DW.dbo.DimScenario.",
       "api_failure": false,
       "raw_response": {
@@ -5195,7 +5195,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from OLTP.Production.WorkOrder to OLTP.Production.Product.",
       "api_failure": false,
       "raw_response": {
@@ -5231,7 +5231,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly from DW.dbo.DimSalesReason to DW.dbo.FactInternetSalesReason via a foreign key relationship, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -5267,7 +5267,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.Sales.SalesTaxRate has a foreign key relationship to OLTP.Person.StateProvince, indicating a direct join path between the two tables.",
       "api_failure": false,
       "raw_response": {
@@ -5305,7 +5305,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -5344,7 +5344,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from OLTP.Sales.SalesTerritory to OLTP.Sales.SalesOrderHeaderSalesReason is found by reversing the provided path from OLTP.Sales.SalesOrderHeaderSalesReason to OLTP.Sales.SalesTerritory.",
       "api_failure": false,
       "raw_response": {
@@ -5467,7 +5467,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.FactFinance has foreign keys referencing both DW.dbo.DimDate and DW.dbo.DimAccount, allowing a two-hop join path between them.",
       "api_failure": false,
       "raw_response": {
@@ -5548,7 +5548,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from DW.dbo.DimReseller to DW.dbo.DimEmployee is found by joining through DW.dbo.FactResellerSales, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -5629,7 +5629,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between the two tables is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -5671,7 +5671,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The provided context explicitly states the shortest path between DW.dbo.DimDepartmentGroup and DW.dbo.FactResellerSales as DW.dbo.DimDepartmentGroup → DW.dbo.FactFinance → DW.dbo.DimDate → DW.dbo.FactResellerSales. Reversing this path gives the shortest chain of foreign key joins from DW.dbo.FactResellerSales to DW.dbo.DimDepartmentGroup.",
+      "reasoning": "The provided context explicitly states the shortest path between DW.dbo.DimDepartmentGroup and DW.dbo.FactResellerSales as DW.dbo.DimDepartmentGroup \u2192 DW.dbo.FactFinance \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactResellerSales. Reversing this path gives the shortest chain of foreign key joins from DW.dbo.FactResellerSales to DW.dbo.DimDepartmentGroup.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5683,8 +5683,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The provided context explicitly states the shortest path between DW.dbo.DimDepartmentGroup and DW.dbo.FactResellerSales as DW.dbo.DimDepartmentGroup → DW.dbo.FactFinance → DW.dbo.DimDate → DW.dbo.FactResellerSales. Reversing this path gives the shortest chain of foreign key joins from DW.dbo.FactResellerSales to DW.dbo.DimDepartmentGroup.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.FactResellerSales\",\n    \"DW.dbo.DimDate\",\n    \"DW.dbo.FactFinance\",\n    \"DW.dbo.DimDepartmentGroup\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context explicitly states the shortest path between DW.dbo.DimDepartmentGroup and DW.dbo.FactResellerSales as DW.dbo.DimDepartmentGroup → DW.dbo.FactFinance → DW.dbo.DimDate → DW.dbo.FactResellerSales. Reversing this path gives the shortest chain of foreign key joins from DW.dbo.FactResellerSales to DW.dbo.DimDepartmentGroup.\"\n}\n```"
+        "reasoning": "The provided context explicitly states the shortest path between DW.dbo.DimDepartmentGroup and DW.dbo.FactResellerSales as DW.dbo.DimDepartmentGroup \u2192 DW.dbo.FactFinance \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactResellerSales. Reversing this path gives the shortest chain of foreign key joins from DW.dbo.FactResellerSales to DW.dbo.DimDepartmentGroup.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.FactResellerSales\",\n    \"DW.dbo.DimDate\",\n    \"DW.dbo.FactFinance\",\n    \"DW.dbo.DimDepartmentGroup\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context explicitly states the shortest path between DW.dbo.DimDepartmentGroup and DW.dbo.FactResellerSales as DW.dbo.DimDepartmentGroup \u2192 DW.dbo.FactFinance \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactResellerSales. Reversing this path gives the shortest chain of foreign key joins from DW.dbo.FactResellerSales to DW.dbo.DimDepartmentGroup.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5710,7 +5710,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section, showing a 2-hop foreign key chain.",
       "api_failure": false,
       "raw_response": {
@@ -5917,8 +5917,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path provided in the context from OLTP.Production.ProductCostHistory to OLTP.Production.ProductModel is OLTP.Production.ProductCostHistory → OLTP.Production.Product → OLTP.Production.ProductModel. Reversing this path gives the shortest chain of foreign key joins from OLTP.Production.ProductModel to OLTP.Production.ProductCostHistory.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path provided in the context from OLTP.Production.ProductCostHistory to OLTP.Production.ProductModel is OLTP.Production.ProductCostHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductModel. Reversing this path gives the shortest chain of foreign key joins from OLTP.Production.ProductModel to OLTP.Production.ProductCostHistory.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5929,8 +5929,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided in the context from OLTP.Production.ProductCostHistory to OLTP.Production.ProductModel is OLTP.Production.ProductCostHistory → OLTP.Production.Product → OLTP.Production.ProductModel. Reversing this path gives the shortest chain of foreign key joins from OLTP.Production.ProductModel to OLTP.Production.ProductCostHistory.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Production.ProductModel\",\n    \"OLTP.Production.Product\",\n    \"OLTP.Production.ProductCostHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context from OLTP.Production.ProductCostHistory to OLTP.Production.ProductModel is OLTP.Production.ProductCostHistory → OLTP.Production.Product → OLTP.Production.ProductModel. Reversing this path gives the shortest chain of foreign key joins from OLTP.Production.ProductModel to OLTP.Production.ProductCostHistory.\"\n}\n```"
+        "reasoning": "The shortest path provided in the context from OLTP.Production.ProductCostHistory to OLTP.Production.ProductModel is OLTP.Production.ProductCostHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductModel. Reversing this path gives the shortest chain of foreign key joins from OLTP.Production.ProductModel to OLTP.Production.ProductCostHistory.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Production.ProductModel\",\n    \"OLTP.Production.Product\",\n    \"OLTP.Production.ProductCostHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context from OLTP.Production.ProductCostHistory to OLTP.Production.ProductModel is OLTP.Production.ProductCostHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductModel. Reversing this path gives the shortest chain of foreign key joins from OLTP.Production.ProductModel to OLTP.Production.ProductCostHistory.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5998,7 +5998,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -6079,7 +6079,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path involves joining OLTP.Production.ProductModel to OLTP.Production.ProductModelProductDescriptionCulture, and then to OLTP.Production.ProductDescription, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -6118,7 +6118,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -6157,7 +6157,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DW.dbo.DimProduct is connected to DW.dbo.FactResellerSales via an incoming FK, and DW.dbo.FactResellerSales is connected to DW.dbo.DimDate via an outgoing FK, forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -6196,7 +6196,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -6235,7 +6235,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from OLTP.Sales.Customer to OLTP.Sales.CreditCard involves joining through OLTP.Sales.SalesOrderHeader, as indicated by the provided shortest path information and FK relationships.",
       "api_failure": false,
       "raw_response": {
@@ -6274,7 +6274,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "OLTP.HumanResources.EmployeeDepartmentHistory has an FK to OLTP.HumanResources.Employee, and OLTP.Purchasing.PurchaseOrderHeader also has an FK to OLTP.HumanResources.Employee, forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -6359,7 +6359,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is found by traversing foreign key relationships: OLTP.Person.PhoneNumberType is linked to OLTP.Person.PersonPhone, which links to OLTP.Person.Person, which links to OLTP.Sales.Customer, which finally links to OLTP.Sales.SalesTerritory. This is a 4-hop path, consistent with the example provided in the context for the reverse direction.",
       "api_failure": false,
       "raw_response": {
@@ -6404,7 +6404,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path from OLTP.Person.ContactType to OLTP.HumanResources.EmployeeDepartmentHistory is provided, so I reversed it to find the path from OLTP.HumanResources.EmployeeDepartmentHistory to OLTP.Person.ContactType.",
       "api_failure": false,
       "raw_response": {
@@ -6446,7 +6446,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided 'FK Relationships (relevant tables)', OLTP.Person.StateProvince has outgoing FKs to OLTP.Sales.SalesTerritory and OLTP.Person.CountryRegion. However, neither of these tables are listed as sources for any further foreign key relationships, preventing the formation of a longer chain to OLTP.Production.Location.",
       "api_failure": false,
       "raw_response": {
@@ -6491,7 +6491,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path using only foreign key joins is found by tracing FK relationships from OLTP.Sales.SalesTaxRate to OLTP.Production.ProductProductPhoto, avoiding lineage relationships.",
       "api_failure": false,
       "raw_response": {
@@ -6542,7 +6542,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path from OLTP.Sales.CurrencyRate to OLTP.Production.ProductModelProductDescriptionCulture is found by reversing the provided path from OLTP.Production.ProductModelProductDescriptionCulture to OLTP.Sales.CurrencyRate.",
       "api_failure": false,
       "raw_response": {
@@ -6590,7 +6590,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest foreign key join path is found by tracing FK relationships: ProductListPriceHistory -> Product -> ProductDocument -> Document -> Employee -> Person.",
       "api_failure": false,
       "raw_response": {
@@ -6636,7 +6636,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between OLTP.Production.TransactionHistory and OLTP.Production.Culture is explicitly provided in the context, consisting of 4 joins.",
       "api_failure": false,
       "raw_response": {
@@ -6685,7 +6685,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Traced foreign key relationships from OLTP.Production.ProductPhoto through OLTP.Production.ProductProductPhoto, OLTP.Production.Product, OLTP.Sales.SpecialOfferProduct, OLTP.Sales.SalesOrderDetail, OLTP.Sales.SalesOrderHeader to OLTP.Person.Address.",
       "api_failure": false,
       "raw_response": {
@@ -6738,7 +6738,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path using only foreign key joins is found by tracing FK relationships from OLTP.Production.ProductProductPhoto to OLTP.Sales.CountryRegionCurrency, resulting in a 7-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -6780,7 +6780,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The provided shortest path between OLTP.Production.ProductListPriceHistory and OLTP.Sales.SalesOrderHeader includes a lineage relationship (DW.dbo.FactInternetSales), not solely foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -6854,7 +6854,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path provided in the context for OLTP.Production.Illustration to OLTP.Person.AddressType is 7 hops, but it includes lineage relationships (DW.dbo.DimProduct, DW.dbo.FactInternetSales, DW.dbo.DimCustomer). The question specifically asks for foreign key joins. Re-evaluating based strictly on FKs, the path is longer.",
       "api_failure": false,
       "raw_response": {
@@ -6926,7 +6926,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Tracing foreign key relationships from OLTP.Production.ProductListPriceHistory leads to OLTP.Production.Product, and then to OLTP.Production.ProductModel, OLTP.Production.ProductSubcategory, or OLTP.Production.UnitMeasure. None of these paths, based on the explicit FK relationships provided, lead to OLTP.Sales.SalesPersonQuotaHistory or any intermediate table that could connect to it via FKs.",
       "api_failure": false,
       "raw_response": {
@@ -6961,7 +6961,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided 'FK Relationships' section, there is no direct or indirect foreign key path connecting OLTP.Production.BillOfMaterials to OLTP.Sales.Currency.",
       "api_failure": false,
       "raw_response": {
@@ -7000,7 +7000,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path from OLTP.Person.BusinessEntityAddress to OLTP.Sales.Currency is provided in the context. The answer reverses this path to match the requested direction.",
       "api_failure": false,
       "raw_response": {
@@ -7045,7 +7045,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -7094,7 +7094,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A breadth-first search using only foreign key relationships reveals a 6-hop path. The provided 'Shortest Paths' include lineage relationships, which are not foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -7141,7 +7141,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path from OLTP.Production.ProductModel to OLTP.Purchasing.ShipMethod is found in the 'Shortest Paths Between Mentioned Tables' section, which is then reversed to match the requested direction.",
       "api_failure": false,
       "raw_response": {
@@ -7190,7 +7190,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path using only foreign key joins is found by traversing the FK relationships: OLTP.Sales.SalesOrderHeader --FK--> OLTP.Sales.SalesTerritory, OLTP.Sales.SalesOrderDetail --FK--> OLTP.Sales.SalesOrderHeader, OLTP.Sales.SalesOrderDetail --FK--> OLTP.Sales.SpecialOfferProduct, OLTP.Sales.SpecialOfferProduct --FK--> OLTP.Production.Product, OLTP.Production.WorkOrder --FK--> OLTP.Production.Product, and OLTP.Production.WorkOrderRouting --FK--> OLTP.Production.WorkOrder.",
       "api_failure": false,
       "raw_response": {
@@ -7237,7 +7237,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between OLTP.Person.BusinessEntity and OLTP.Production.WorkOrder is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -7288,7 +7288,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path provided in the context between OLTP.Production.ProductModelIllustration and OLTP.Person.ContactType uses a mix of FK and lineage relationships. However, the question specifically asks for foreign key joins. The provided shortest path for 'OLTP.Production.ProductModelIllustration -> OLTP.Person.ContactType' includes DW tables, which implies lineage. I need to find a path that only uses FK relationships. Looking at the individual FK relationships, I can construct a path: OLTP.Production.ProductModelIllustration --FK--> OLTP.Production.ProductModel --FK--> OLTP.Production.Product --FK--> OLTP.Purchasing.ProductVendor --FK--> OLTP.Purchasing.Vendor --FK--> OLTP.Person.BusinessEntity --FK--> OLTP.Person.BusinessEntityContact --FK--> OLTP.Person.ContactType.",
       "api_failure": false,
       "raw_response": {
@@ -7338,7 +7338,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path using only foreign key joins is found by tracing the FK relationships between the tables.",
       "api_failure": false,
       "raw_response": {
@@ -7387,7 +7387,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -7435,7 +7435,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section, reversed to match the requested direction.",
       "api_failure": false,
       "raw_response": {
@@ -7481,7 +7481,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Starting from OLTP.Person.AddressType, follow FKs: OLTP.Person.AddressType is referenced by OLTP.Person.BusinessEntityAddress. OLTP.Person.BusinessEntityAddress references OLTP.Person.BusinessEntity. OLTP.Person.BusinessEntity is referenced by OLTP.Sales.Store. OLTP.Sales.Store is referenced by OLTP.Sales.Customer. This forms a 4-hop path using only foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -7522,7 +7522,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest chain of foreign key joins connecting `OLTP.Production.WorkOrderRouting` to `OLTP.Person.BusinessEntityContact` can be found by tracing foreign key relationships. The provided \"Shortest Paths Between Mentioned Tables\" section includes a path that mixes foreign key and lineage relationsh",
       "api_failure": false,
       "raw_response": {
@@ -7560,7 +7560,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between OLTP.HumanResources.JobCandidate and OLTP.Production.ProductSubcategory is provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -7612,7 +7612,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -7664,7 +7664,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Traced foreign key relationships from OLTP.Person.PhoneNumberType through OLTP.Person.PersonPhone, OLTP.Person.Person, OLTP.Sales.Customer, OLTP.Sales.SalesTerritory, OLTP.Person.CountryRegion to OLTP.Sales.CountryRegionCurrency.",
       "api_failure": false,
       "raw_response": {
@@ -7715,7 +7715,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Traced the shortest path using only foreign key relationships. The path involves 6 foreign key joins connecting the two tables.",
       "api_failure": false,
       "raw_response": {
@@ -7758,7 +7758,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -7803,7 +7803,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Tracing foreign key relationships: OLTP.Person.PersonPhone --FK--> OLTP.Person.Person <--FK-- OLTP.Sales.Customer <--FK-- OLTP.Sales.SalesOrderHeader <--FK-- OLTP.Sales.SalesOrderHeaderSalesReason --FK--> OLTP.Sales.SalesReason. This forms a 5-hop chain of FK joins.",
       "api_failure": false,
       "raw_response": {
@@ -7845,7 +7845,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -7888,7 +7888,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path between OLTP.Production.BillOfMaterials and OLTP.Production.Culture is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -7975,7 +7975,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -8062,7 +8062,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Tracing foreign key relationships from DW.dbo.DimProduct, the shortest path to DW.dbo.DimAccount is found through FactResellerSales, DimDate, and FactFinance.",
       "api_failure": false,
       "raw_response": {
@@ -8111,7 +8111,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest foreign key join path is found by tracing FK relationships from OLTP.Sales.SalesPerson to OLTP.Production.ProductInventory, connecting through Employee, Person, BusinessEntity, Vendor, ProductVendor, and Product tables.",
       "api_failure": false,
       "raw_response": {
@@ -8155,7 +8155,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between the two tables is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -8195,7 +8195,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Based on the provided 'FK Relationships' list, OLTP.Sales.SalesTerritory is not listed as the source of any foreign key, meaning it cannot initiate a chain of foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -8559,15 +8559,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DW.dbo.DimOrganization to DW.dbo.FactResellerSales is DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from DW.dbo.DimOrganization to DW.dbo.FactResellerSales is DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DW.dbo.DimOrganization to DW.dbo.FactResellerSales is DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DW.dbo.DimOrganization to DW.dbo.FactResellerSales is DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from DW.dbo.DimOrganization to DW.dbo.FactResellerSales is DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DW.dbo.DimOrganization to DW.dbo.FactResellerSales is DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -8607,15 +8607,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from OLTP.Sales.SalesTerritory to OLTP.Sales.SalesOrderHeaderSalesReason is OLTP.Sales.SalesTerritory → OLTP.Sales.SalesOrderHeader → OLTP.Sales.SalesOrderHeaderSalesReason, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from OLTP.Sales.SalesTerritory to OLTP.Sales.SalesOrderHeaderSalesReason is OLTP.Sales.SalesTerritory \u2192 OLTP.Sales.SalesOrderHeader \u2192 OLTP.Sales.SalesOrderHeaderSalesReason, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_int": 2,
         "answer_list": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from OLTP.Sales.SalesTerritory to OLTP.Sales.SalesOrderHeaderSalesReason is OLTP.Sales.SalesTerritory → OLTP.Sales.SalesOrderHeader → OLTP.Sales.SalesOrderHeaderSalesReason, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_int\": 2,\n  \"answer_list\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from OLTP.Sales.SalesTerritory to OLTP.Sales.SalesOrderHeaderSalesReason is OLTP.Sales.SalesTerritory → OLTP.Sales.SalesOrderHeader → OLTP.Sales.SalesOrderHeaderSalesReason, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from OLTP.Sales.SalesTerritory to OLTP.Sales.SalesOrderHeaderSalesReason is OLTP.Sales.SalesTerritory \u2192 OLTP.Sales.SalesOrderHeader \u2192 OLTP.Sales.SalesOrderHeaderSalesReason, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_int\": 2,\n  \"answer_list\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from OLTP.Sales.SalesTerritory to OLTP.Sales.SalesOrderHeaderSalesReason is OLTP.Sales.SalesTerritory \u2192 OLTP.Sales.SalesOrderHeader \u2192 OLTP.Sales.SalesOrderHeaderSalesReason, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,

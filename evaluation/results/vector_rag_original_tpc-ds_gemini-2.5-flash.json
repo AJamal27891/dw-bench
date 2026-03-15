@@ -170,7 +170,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal (BFS) starting from household_demographics to find all reachable tables within the provided schema context.",
       "api_failure": false,
       "retrieved_tables": [
@@ -269,7 +269,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Starting from 'customer', a graph traversal reveals that all 15 tables provided in the context are directly or indirectly connected to 'customer'.",
       "api_failure": false,
       "retrieved_tables": [
@@ -368,7 +368,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Starting from 'warehouse', a breadth-first search reveals that all tables provided in the context are reachable, forming a single connected component.",
       "api_failure": false,
       "retrieved_tables": [
@@ -632,7 +632,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'customer' table has a foreign key relationship pointing to 'customer_address', indicating a direct connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -777,7 +777,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from store_sales to promotion, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -830,7 +830,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "store_sales has a direct foreign key relationship to the store table, making it a one-step connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -883,7 +883,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "catalog_sales has a direct foreign key relationship to customer_demographics.",
       "api_failure": false,
       "retrieved_tables": [
@@ -936,7 +936,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The customer table has a direct foreign key relationship to household_demographics, making it the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -989,7 +989,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from store_sales to time_dim.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1042,7 +1042,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_returns has a foreign key relationship directly to customer, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1095,7 +1095,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "catalog_sales has a direct foreign key relationship to household_demographics, making it the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1148,7 +1148,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_sales has a direct foreign key relationship to customer, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1201,7 +1201,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from catalog_returns to time_dim.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1254,7 +1254,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "catalog_returns has a direct foreign key relationship to call_center.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1307,7 +1307,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "store_returns has a direct foreign key relationship to item, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1360,7 +1360,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "catalog_sales has a foreign key relationship directly to call_center, establishing a direct connection between the two tables.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1413,7 +1413,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "store_returns has a direct foreign key relationship to reason, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1466,7 +1466,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from catalog_returns to household_demographics, making it a direct connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1519,7 +1519,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from catalog_sales to customer, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1572,7 +1572,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'inventory' table has a direct foreign key relationship to the 'warehouse' table.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1625,7 +1625,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_sales has a direct foreign key relationship to date_dim, making it the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1678,7 +1678,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "catalog_returns has a direct foreign key relationship to reason, making it the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1731,7 +1731,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_sales has a direct foreign key relationship to customer_address.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1784,7 +1784,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "store_sales has a direct foreign key relationship to customer_demographics, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1837,7 +1837,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "store_returns has a direct foreign key relationship to date_dim.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1890,7 +1890,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "customer_address and store_returns are directly connected by a foreign key relationship, as indicated in the schema for both tables.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1943,7 +1943,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from 'customer' to 'customer_demographics'.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1996,7 +1996,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The schema directly shows a foreign key relationship between household_demographics and store_returns.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2049,7 +2049,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from catalog_sales to customer_address, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2102,7 +2102,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_sales has a direct foreign key relationship to warehouse, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2275,7 +2275,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "ship_mode is connected to catalog_returns, which in turn is connected to date_dim, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2331,7 +2331,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both 'catalog_sales' and 'catalog_returns' directly connect 'ship_mode' and 'call_center', forming the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2446,7 +2446,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both store_sales and store_returns have a direct foreign key relationship with the 'store' table, forming a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2561,7 +2561,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "ship_mode is connected to catalog_sales, which is then connected to household_demographics, forming a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2617,7 +2617,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Reason is directly connected to store_returns, which is then directly connected to customer, forming a path of length 2.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2673,7 +2673,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both catalog_sales and store_returns have a direct foreign key relationship with the 'item' table, forming a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2729,7 +2729,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both web_returns and catalog_sales have a direct foreign key relationship to the 'item' table, forming a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2785,7 +2785,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_sales is directly connected to both time_dim and item, forming the shortest possible chain of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2841,7 +2841,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "store_returns is directly connected to household_demographics, which is then directly connected to income_band.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2897,7 +2897,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The table `store_returns` has foreign keys to both `reason` and `customer_address`, creating a direct path of length 2.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2953,7 +2953,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "customer is connected to web_sales, and web_sales is connected to web_page, forming a 2-step path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3009,7 +3009,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both customer_demographics and time_dim are directly connected to web_sales, forming a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3242,7 +3242,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "customer_demographics is connected to web_sales, and web_sales is connected to warehouse, forming a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3357,7 +3357,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "catalog_page is linked to catalog_returns, and catalog_returns is linked to item, forming a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3472,7 +3472,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both `item` and `web_page` tables are directly linked to `web_sales` via foreign keys, forming a path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3650,7 +3650,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path connects catalog_page to catalog_sales, then to a common table like warehouse, then to web_sales, and finally to web_site, resulting in a 5-table chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3712,7 +3712,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves 4 joins (5 tables). One such path is `catalog_page` <- `catalog_sales` -> `item` <- `web_sales` -> `web_page`, where each arrow represents a foreign key relationship.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3774,7 +3774,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A path of 3 joins connects web_page to call_center via web_sales, item, and catalog_sales. No shorter path (2 joins) exists as web_page's direct connections do not link to call_center's direct connections.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3836,7 +3836,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A direct path exists from web_page to web_sales, then to item, then to store_sales, and finally to store, forming a chain of 4 joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3898,7 +3898,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "Starting from `inventory`, we can join to `warehouse`, then `web_sales`, then `household_demographics`, and finally `income_band`.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3960,7 +3960,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves 4 joins: store is joined with store_sales, store_sales with item, item with inventory, and inventory with warehouse.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4022,7 +4022,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves connecting 'store' to 'store_sales', then 'store_sales' to a common dimension like 'item', 'item' to 'web_sales', and finally 'web_sales' to 'web_site'.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4257,7 +4257,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from 'store' to 'customer' is through 'store_sales', as 'store_sales' has foreign keys referencing both 'store' and 'customer'.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4313,7 +4313,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both web_sales and store_returns have a direct foreign key relationship with the 'item' table, forming a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4369,7 +4369,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "customer_address is linked to web_sales, and web_sales is linked to web_page, forming a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4425,7 +4425,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_site is linked to web_sales, and web_sales is directly linked to customer_address, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4481,7 +4481,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_sales has foreign keys to both promotion and web_site, creating a direct path between them through web_sales.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4535,7 +4535,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "catalog_sales has a direct foreign key relationship to promotion, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4590,7 +4590,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path connects 'item' to 'store_sales' and then 'store_sales' to 'customer' via foreign key relationships.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4646,7 +4646,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "household_demographics has a foreign key to income_band, and web_returns has a foreign key to household_demographics, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4759,7 +4759,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'inventory' table has a direct foreign key relationship to the 'item' table, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4930,7 +4930,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "web_returns has a direct foreign key relationship to time_dim, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5044,7 +5044,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "customer is linked to household_demographics, which is then linked to income_band, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5100,7 +5100,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "customer_demographics is linked to store_sales, and store_sales is linked to store, forming a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5213,7 +5213,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from catalog_returns to warehouse.",
       "api_failure": false,
       "retrieved_tables": [

@@ -28,6 +28,19 @@ reasoning tasks, and GraphArena~\cite{grapharena2024} benchmarks graph
 algorithms at scale---but neither addresses the domain-specific challenges
 of data warehouse schemas with mixed FK and lineage edge types.
 
+\paragraph{Advanced GraphRAG and Agentic Methods.}
+Recent literature highlights advanced modular GraphRAG, RL-finetuning
+(e.g., G1), and agentic tool-use (e.g., ToG-3.0, FABLE, GraphCogent,
+GDS Agent) as promising directions for general graph traversal. However,
+in alignment with foundational dataset methodologies (e.g., Spider, BIRD),
+DW-Bench deliberately evaluates standardized, zero-shot baselines (Flat
+Text, standard Vector-RAG) to establish the empirical lower-bound of LLM
+structural reasoning. By formalizing the evaluation target and providing
+the exact Oracle upper-bound (98\%+ EM), we isolate the topological
+retrieval bottleneck; closing this gap with composite, multi-agent
+frameworks is explicitly left as a critical direction for future community
+research.
+
 \paragraph{Positioning.}
 DW-Bench uniquely combines: (1) \emph{real-world} schemas from industry
 standards, (2) \emph{heterogeneous} edge types (FK + lineage), (3)

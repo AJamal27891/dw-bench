@@ -1655,7 +1655,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Starting from 'device_exposure', I traversed all connected tables via FK and DERIVED_FROM relationships in both directions. All tables in the provided schema are connected to 'device_exposure' except for 'cdm_source' and 'metadata', which are explicitly stated as isolated.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1796,7 +1796,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Starting from 'observation_period', I traversed all connected tables via FK and DERIVED_FROM relationships in both directions, including those mentioned in global lineage, until no new tables could be reached. Isolated tables 'cdm_source' and 'metadata' were excluded.",
       "api_failure": false,
       "retrieved_tables": [
@@ -1931,7 +1931,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Starting from 'location', I traversed all direct and indirect relationships (FK and DERIVED_FROM, in both directions) to identify all reachable tables. Tables explicitly marked as 'No relationships (isolated table)' (cdm_source, metadata) were excluded.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2413,7 +2413,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "specimen is connected to concept via an FK, and cost is connected to concept via an FK, establishing a connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2567,7 +2567,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "condition_era has a direct foreign key relationship to person, meaning person is the parent table.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2620,7 +2620,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship where 'concept_relationship' references 'concept', forming the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2673,7 +2673,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from drug_strength to concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2726,7 +2726,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "condition_occurrence has a direct foreign key relationship to person.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2779,7 +2779,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'note' table has a direct foreign key relationship to the 'provider' table, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2832,7 +2832,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "payer_plan_period has a direct foreign key relationship to concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2885,7 +2885,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'death' table has a foreign key relationship directly to the 'concept' table (death --FK--> concept), allowing a direct join.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2938,7 +2938,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from dose_era to concept, making it the shortest possible path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2991,7 +2991,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "note_nlp has a direct foreign key relationship to concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3044,7 +3044,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "visit_detail has a direct foreign key relationship to visit_occurrence.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3097,7 +3097,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'condition_era' table has a direct foreign key relationship to the 'concept' table.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3150,7 +3150,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The `device_exposure` table has a direct foreign key relationship to the `person` table, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3203,7 +3203,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'episode' table has a direct foreign key relationship to the 'concept' table, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3256,7 +3256,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The `procedure_occurrence` table has a direct foreign key relationship to the `provider` table, making it a one-step connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3310,7 +3310,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path involves one intermediate table. `death` has foreign keys to both `concept` and `person`.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3364,7 +3364,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "payer_plan_period has a direct foreign key relationship to person, making it a one-step join from person to payer_plan_period.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3417,7 +3417,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "visit_occurrence has a direct foreign key relationship to care_site, making it the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3470,7 +3470,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "concept_synonym has a direct foreign key relationship to concept, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3523,7 +3523,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'measurement' table has a direct foreign key relationship to the 'provider' table.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3576,7 +3576,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "procedure_occurrence has a direct foreign key relationship to visit_occurrence, making it a one-step join.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3629,7 +3629,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "device_exposure has a direct foreign key relationship to concept, making it the shortest possible chain of 1 join.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3682,7 +3682,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'measurement' table has a direct foreign key relationship to 'visit_occurrence'.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3735,7 +3735,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The `procedure_occurrence` table has a direct foreign key relationship to the `person` table, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3788,7 +3788,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "device_exposure has a direct foreign key relationship to provider, as explicitly stated in its relationships: 'device_exposure --FK--> provider'.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3841,7 +3841,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The 'note' table has a direct foreign key relationship to 'visit_occurrence', establishing a direct connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3894,7 +3894,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The `drug_era` table has a direct foreign key relationship to the `person` table, specifically `drug_era --FK--> person`.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3949,7 +3949,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "death is connected to person via an FK, and person is connected to visit_detail via an FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4060,7 +4060,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "death has a foreign key to concept, and concept has a foreign key to concept_class, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4118,7 +4118,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "concept_ancestor links to concept, which is linked by concept_relationship, and concept_relationship links to relationship.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4175,7 +4175,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "condition_era has a foreign key to concept, and cost also has a foreign key to concept, forming a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4402,7 +4402,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Provider has a foreign key to concept, and concept_ancestor has a foreign key to concept, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4460,7 +4460,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "relationship is connected to concept_relationship, which is connected to concept, and concept is directly connected to vocabulary via foreign keys.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4517,7 +4517,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both concept_relationship and condition_era have a direct foreign key relationship to the concept table, forming a shortest path through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4573,7 +4573,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both concept_synonym and observation have a direct foreign key relationship with the concept table, forming a two-step path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4629,7 +4629,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest foreign key path is from observation to person, and then from person to location.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4685,7 +4685,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both drug_exposure and fact_relationship have a direct foreign key relationship to the concept table, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4741,7 +4741,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A foreign key path connects death to person, person to episode, and episode to episode_event, forming the shortest chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4798,7 +4798,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both procedure_occurrence and drug_era have a foreign key relationship with the person table, creating a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4854,7 +4854,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A foreign key relationship exists from `person` to `care_site`, and from `death` to `person`, forming a direct chain of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4969,7 +4969,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both concept_ancestor and drug_strength have a direct foreign key relationship to the concept table, forming a two-step path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5026,7 +5026,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both 'fact_relationship' and 'note_nlp' have a direct foreign key relationship to the 'concept' table, making 'concept' the shortest common link.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5082,7 +5082,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "vocabulary is connected to concept via a foreign key from concept. Concept is connected to concept_synonym via a foreign key from concept_synonym. This forms the shortest chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5197,7 +5197,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both procedure_occurrence and drug_exposure have a direct foreign key relationship to the person table, creating a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5253,7 +5253,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both 'specimen' and 'visit_detail' tables have a direct foreign key relationship to the 'person' table, making 'person' the common link.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5309,7 +5309,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "cost has an FK to concept, and note also has an FK to concept, forming a direct two-step connection through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5424,7 +5424,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "fact_relationship connects to concept. concept connects to person (person --FK--> concept). person connects to observation_period (observation_period --FK--> person). This forms the shortest chain of 3 FK joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5485,7 +5485,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves joining visit_detail to care_site, then care_site to concept, then concept to concept_relationship (via concept_relationship's FK to concept), and finally concept_relationship to relationship.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5543,7 +5543,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both 'death' and 'procedure_occurrence' tables have a foreign key relationship to the 'person' table, creating a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5599,7 +5599,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both `concept_relationship` and `source_to_concept_map` have a direct foreign key relationship to the `concept` table, forming a shortest path through `concept`.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5655,7 +5655,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both 'cost' and 'payer_plan_period' tables have a direct foreign key relationship to the 'concept' table, forming a shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5711,7 +5711,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "concept_relationship has a foreign key to concept, and payer_plan_period also has a foreign key to concept, forming a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5767,7 +5767,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "source_to_concept_map has an FK to concept, and payer_plan_period also has an FK to concept, creating a direct join path through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5823,7 +5823,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "condition_occurrence is linked to person via FK, and person is linked to care_site via FK, forming a path of length 2.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5878,7 +5878,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "concept_relationship has a foreign key to concept, and provider has a foreign key to concept, forming a 2-join path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5933,7 +5933,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "concept_ancestor has an FK to concept, and concept has an FK to domain, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5989,7 +5989,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both procedure_occurrence and observation have foreign key relationships to visit_occurrence, person, provider, and concept, creating multiple shortest paths of length 2.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6044,7 +6044,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "note_nlp has a foreign key to concept, and concept_relationship has a foreign key to concept, forming a direct path through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6100,7 +6100,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "concept_ancestor has an FK to concept, and drug_exposure also has an FK to concept, forming a direct connection through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6157,7 +6157,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is cost -> concept <- person <- observation_period, involving three foreign key joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6214,7 +6214,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both device_exposure and dose_era have a foreign key relationship with the person table, creating a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6270,7 +6270,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "cost connects to concept via FK, and drug_era also connects to concept via FK, forming a direct path through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6326,7 +6326,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "fact_relationship has an FK to concept, and condition_occurrence also has an FK to concept, forming a direct connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6382,7 +6382,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is found by following the direct foreign key from condition_occurrence to concept, and then from concept to vocabulary.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6438,7 +6438,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both concept_ancestor and concept_synonym directly link to the concept table via foreign key relationships, forming a direct path through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6496,7 +6496,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "fact_relationship links to concept via FK. death links to concept via FK and to person via FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6555,7 +6555,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is found by following foreign key relationships: episode_event --FK--> episode --FK--> person <--FK-- visit_detail. This chain involves 3 foreign key joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6612,7 +6612,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "payer_plan_period is connected to person via an FK, and person is connected to procedure_occurrence via an FK from procedure_occurrence to person, forming a 2-hop path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6668,7 +6668,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "visit_occurrence is linked to person via an FK, and dose_era is linked to person via an FK, forming a 2-step chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6722,7 +6722,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from condition_occurrence to concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6777,7 +6777,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "concept_ancestor connects to concept via an FK. source_to_concept_map also connects to concept via an FK, forming a direct path through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6889,7 +6889,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "condition_era has an FK to concept, and note_nlp also has an FK to concept, creating a direct path through concept.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6945,7 +6945,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "note_nlp has a foreign key to concept, and payer_plan_period also has a foreign key to concept, creating a direct two-join path.",
       "api_failure": false,
       "retrieved_tables": [

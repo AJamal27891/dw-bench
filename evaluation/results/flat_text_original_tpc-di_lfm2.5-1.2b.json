@@ -1750,7 +1750,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -1809,7 +1809,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -1869,7 +1869,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -1904,7 +1904,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -1937,7 +1937,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -1970,7 +1970,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2001,7 +2001,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "The query asks about connected components, so we identify the table containing StatusType.",
       "api_failure": false,
       "raw_response": {
@@ -2026,7 +2026,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "The query asks about connected components related to TradeType, so we identify the relevant table.",
       "api_failure": false,
       "raw_response": {
@@ -2054,7 +2054,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2325,7 +2325,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The schema defines direct FK relationships between SRC.FINWIRE_SEC and DimSecurity, and between SRC.CustomerMgmt and DimCustomer. No indirect paths are implied.",
       "api_failure": false,
       "raw_response": {
@@ -2415,7 +2415,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2450,7 +2450,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2485,7 +2485,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2520,7 +2520,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2555,7 +2555,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2590,7 +2590,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2626,7 +2626,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2637,8 +2637,8 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The path involves DimTrade → DimBroker → DimCustomer.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimTrade\", \"DimBroker\", \"DimCustomer\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves DimTrade → DimBroker → DimCustomer.\"\n}\n{\n  \"reasoning\": \"The query seeks the minimal foreign key chain linking DimCustomer to DimAccount through intermediary tables.\"\n}\n"
+        "answer_str": "The path involves DimTrade \u2192 DimBroker \u2192 DimCustomer.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimTrade\", \"DimBroker\", \"DimCustomer\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves DimTrade \u2192 DimBroker \u2192 DimCustomer.\"\n}\n{\n  \"reasoning\": \"The query seeks the minimal foreign key chain linking DimCustomer to DimAccount through intermediary tables.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -2662,7 +2662,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2672,8 +2672,8 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The connection involves two FK paths: DimAccount → DimTrade via DimBroker.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimTrade\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves two FK paths: DimAccount → DimTrade via DimBroker.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest path linking DimAccount to DimTrade using foreign keys.\"\n}\n"
+        "answer_str": "The connection involves two FK paths: DimAccount \u2192 DimTrade via DimBroker.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimTrade\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves two FK paths: DimAccount \u2192 DimTrade via DimBroker.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest path linking DimAccount to DimTrade using foreign keys.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
@@ -2697,7 +2697,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2732,7 +2732,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2767,7 +2767,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2802,7 +2802,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2837,7 +2837,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2872,7 +2872,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2907,7 +2907,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2942,7 +2942,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -2977,7 +2977,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3012,7 +3012,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3047,7 +3047,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3082,7 +3082,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3117,7 +3117,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3152,7 +3152,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3187,7 +3187,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3222,7 +3222,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3257,7 +3257,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3292,7 +3292,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3328,7 +3328,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3364,7 +3364,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3400,7 +3400,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3538,7 +3538,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3574,7 +3574,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3610,7 +3610,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3720,7 +3720,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3756,7 +3756,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3829,7 +3829,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3865,7 +3865,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3901,7 +3901,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -3974,7 +3974,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4010,7 +4010,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4046,7 +4046,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4119,7 +4119,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4189,7 +4189,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the shortest path connecting FactMarketHistory to FactCashBalances through foreign keys, requiring a chain involving DimCompany.",
       "api_failure": false,
       "raw_response": {
@@ -4219,7 +4219,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4257,7 +4257,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4293,7 +4293,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4329,7 +4329,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4365,7 +4365,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4401,7 +4401,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4437,7 +4437,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4510,7 +4510,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4546,7 +4546,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4582,7 +4582,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4618,7 +4618,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4654,7 +4654,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4690,7 +4690,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4798,7 +4798,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4808,8 +4808,8 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The join involves two foreign keys: FactWatches ↔ DimTrade.",
-        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"DimTrade\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The join involves two foreign keys: FactWatches ↔ DimTrade.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest path connecting FactWatches to DimTrade via foreign key relationships.\"\n}\n"
+        "answer_str": "The join involves two foreign keys: FactWatches \u2194 DimTrade.",
+        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"DimTrade\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The join involves two foreign keys: FactWatches \u2194 DimTrade.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest path connecting FactWatches to DimTrade via foreign key relationships.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -4869,7 +4869,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4905,7 +4905,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -4941,7 +4941,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -5014,7 +5014,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -5050,7 +5050,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "raw_response": {
@@ -5083,7 +5083,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The schema shows a clear one-to-one relationship between DimSecurity and Financial through the ForeignKey constraint.",
       "api_failure": false,
       "raw_response": {

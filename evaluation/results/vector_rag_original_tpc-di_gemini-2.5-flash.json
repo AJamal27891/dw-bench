@@ -2673,7 +2673,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal starting from SRC.CashTransaction, following all FK and DERIVED_FROM relationships in both directions to identify all connected tables.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2800,7 +2800,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal starting from FactWatches, including all tables reachable via FK, DERIVED_FROM, or inverse relationships, until no new tables could be added.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2923,7 +2923,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal (BFS/DFS) starting from SRC.HR, following all FK and DERIVED_FROM relationships in both directions to identify all reachable tables within the same connected component.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2996,7 +2996,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.Industry is connected to Industry via a DERIVED_FROM relationship, and no other tables are connected to either of these.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3047,7 +3047,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Industry is connected to SRC.Industry via a DERIVED_FROM relationship, and no other tables are connected to either of these.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3098,7 +3098,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.StatusType is connected to StatusType via a DERIVED_FROM relationship, and no other tables are connected to either of these.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3149,7 +3149,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "StatusType is directly connected only to SRC.StatusType via a DERIVED_FROM relationship, forming a distinct connected component.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3200,7 +3200,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "TradeType is connected to SRC.TradeType via DERIVED_FROM relationships in both directions, forming a small connected component.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3251,7 +3251,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.TradeType is connected to TradeType via a DERIVED_FROM relationship, and no other tables are connected to either of these.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3707,7 +3707,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Neither SRC.FINWIRE_SEC nor SRC.CustomerMgmt tables have any foreign key relationships listed in the provided schema. They only have 'DERIVED_FROM' relationships, which are not foreign keys.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3880,7 +3880,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches has a direct foreign key relationship to DimSecurity, making it a one-step join.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3933,7 +3933,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances has a direct foreign key relationship to DimCustomer, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3986,7 +3986,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimTime, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4039,7 +4039,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances has a direct foreign key relationship to DimAccount, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4092,7 +4092,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches has a direct foreign key relationship to DimDate, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4145,7 +4145,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimBroker, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4198,7 +4198,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimAccount has a direct foreign key relationship to DimCustomer, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4251,7 +4251,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimAccount, making it a one-step connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4304,7 +4304,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimCustomer.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4357,7 +4357,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimSecurity, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4410,7 +4410,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances has a direct foreign key relationship to DimDate, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4463,7 +4463,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimCompany, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4516,7 +4516,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimCompany, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4569,7 +4569,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactMarketHistory has a direct foreign key relationship to DimCompany, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4622,7 +4622,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimAccount, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4675,7 +4675,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimAccount has a direct foreign key relationship to DimBroker, making it the shortest possible chain of one join.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4728,7 +4728,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactMarketHistory has a direct foreign key relationship to DimDate, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4781,7 +4781,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from DimSecurity to DimCompany, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4834,7 +4834,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimDate, as indicated by 'DimTrade --FK--> DimDate'.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4887,7 +4887,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactMarketHistory has a direct foreign key relationship to DimSecurity, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4940,7 +4940,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Financial has a direct foreign key relationship to DimCompany.",
       "api_failure": false,
       "retrieved_tables": [
@@ -4993,7 +4993,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from FactHoldings to DimTime, forming the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5046,7 +5046,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimDate, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5099,7 +5099,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimSecurity, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5152,7 +5152,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches has a direct foreign key relationship to DimCustomer, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5205,7 +5205,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimCustomer, making it the shortest possible chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5260,7 +5260,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTime is connected to DimTrade via a foreign key, and DimTrade is also connected to DimSecurity via a foreign key, forming a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5316,7 +5316,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimAccount has foreign keys to both DimBroker and DimCustomer, forming a direct connection between them through DimAccount.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5372,7 +5372,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTime is connected to DimTrade via a foreign key. DimTrade is then connected to DimAccount via another foreign key, forming a chain of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5605,7 +5605,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimAccount has an FK to DimBroker, and FactHoldings has an FK to DimAccount, forming a 2-join path: DimBroker -> DimAccount -> FactHoldings.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5661,7 +5661,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has foreign keys to both DimCompany and DimCustomer, creating a direct two-step join path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5717,7 +5717,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign key relationships with both DimDate and DimTime, creating a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5891,7 +5891,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade is connected to DimAccount via a foreign key, and FactCashBalances is also connected to DimAccount via a foreign key, forming a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -5947,7 +5947,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimCustomer is connected to FactHoldings via a foreign key, and FactHoldings is connected to DimTime via a foreign key, forming a chain of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6062,7 +6062,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a foreign key to DimCompany, and Financial has a foreign key to DimCompany, forming a direct chain.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6118,7 +6118,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimDate is connected to FactWatches via FK, and FactWatches is connected to DimCustomer via FK, forming a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6174,7 +6174,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Financial connects to DimCompany via an FK. FactMarketHistory also connects to DimCompany via an FK, forming a direct path through DimCompany.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6289,7 +6289,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances is connected to DimAccount via an FK, and DimAccount is connected to DimBroker via an FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6345,7 +6345,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimAccount is connected to DimCustomer via an FK, and DimCustomer is connected to FactWatches via an FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6401,7 +6401,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade is connected to DimDate via an FK, and DimDate is connected to FactMarketHistory via an FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6516,7 +6516,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both DimTrade and FactHoldings have a direct foreign key relationship with DimCustomer, forming a shortest path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6631,7 +6631,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactMarketHistory and FactCashBalances both have a foreign key relationship with DimDate, providing a direct connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6687,7 +6687,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign keys to both DimDate and DimAccount, forming a direct two-step connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6747,7 +6747,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path involves 4 foreign key joins: Financial --FK--> DimCompany, FactMarketHistory --FK--> DimCompany, FactMarketHistory --FK--> DimDate, and FactCashBalances --FK--> DimDate.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6805,7 +6805,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign keys to both DimBroker and DimDate, creating a direct two-step connection.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6861,7 +6861,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both FactMarketHistory and FactHoldings have a foreign key relationship with DimSecurity, creating a direct join path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6917,7 +6917,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimSecurity is connected to DimTrade via an FK, and DimTrade is connected to DimDate via an FK, forming a 2-step path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -6973,7 +6973,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches has a foreign key to DimSecurity, and FactHoldings also has a foreign key to DimSecurity, creating a direct join path of length 2.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7029,7 +7029,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimDate is connected to DimTrade via FK, and DimTrade is connected to DimCompany via FK, forming a chain of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7144,7 +7144,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign keys to both DimTime and DimBroker, allowing a direct two-step join path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7200,7 +7200,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimCustomer is connected to FactWatches via an FK, and FactWatches is connected to DimSecurity via an FK, forming a 2-step path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7256,7 +7256,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign keys referencing both DimBroker and DimSecurity, creating a direct two-hop path between them.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7312,7 +7312,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances is connected to DimCustomer via FK, and DimCustomer is connected to FactWatches via FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7368,7 +7368,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances is connected to DimAccount via FK, and DimAccount is connected to FactHoldings via FK, forming a direct path of two joins.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7424,7 +7424,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches is connected to DimSecurity via an FK, and DimSecurity is connected to DimCompany via an FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7598,7 +7598,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches is connected to DimSecurity via an FK, and DimTrade is also connected to DimSecurity via an FK, forming a 2-hop path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7713,7 +7713,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct FK to DimCompany. Financial has an FK to DimCompany. Thus, DimTrade can join DimCompany, and DimCompany can join Financial.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7769,7 +7769,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches is connected to DimSecurity via an FK, and DimSecurity is connected to FactMarketHistory via an FK, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7825,7 +7825,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimCompany is connected to DimTrade via a foreign key, and DimTrade is connected to DimBroker via a foreign key, forming the shortest path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7940,7 +7940,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTime is connected to DimTrade via a foreign key, and DimTrade is connected to DimCompany via a foreign key, forming a direct path.",
       "api_failure": false,
       "retrieved_tables": [
@@ -7996,7 +7996,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign keys to both DimAccount and DimSecurity, creating a direct path of two joins between the three tables.",
       "api_failure": false,
       "retrieved_tables": [
@@ -8052,7 +8052,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimSecurity has an FK to DimCompany, and Financial has an FK to DimCompany, creating a direct path through DimCompany.",
       "api_failure": false,
       "retrieved_tables": [

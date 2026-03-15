@@ -162,7 +162,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -242,7 +242,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -322,7 +322,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -583,7 +583,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -723,7 +723,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -775,7 +775,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -827,7 +827,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -879,7 +879,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -931,7 +931,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -983,7 +983,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1035,7 +1035,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1087,7 +1087,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1139,7 +1139,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1190,7 +1190,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1241,7 +1241,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1268,8 +1268,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The join involves store_returns → item through catalog_returns or web_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The join involves store_returns → item through catalog_returns or web_returns.\"\n}\n{\n  \"reasoning\": \"We need to trace the foreign key path from store_returns back to item, identifying the minimal sequence of tables.\"\n}"
+        "answer_str": "The join involves store_returns \u2192 item through catalog_returns or web_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The join involves store_returns \u2192 item through catalog_returns or web_returns.\"\n}\n{\n  \"reasoning\": \"We need to trace the foreign key path from store_returns back to item, identifying the minimal sequence of tables.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -1293,7 +1293,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1345,7 +1345,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1372,8 +1372,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The chain involves store_returns → store → reason.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"reason\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The chain involves store_returns → store → reason.\"\n}\n{\n  \"reason\": \"The schema links returns through store entities, so the path must go through store tables.\"\n}\n"
+        "answer_str": "The chain involves store_returns \u2192 store \u2192 reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"reason\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The chain involves store_returns \u2192 store \u2192 reason.\"\n}\n{\n  \"reason\": \"The schema links returns through store entities, so the path must go through store tables.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
@@ -1397,7 +1397,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1449,7 +1449,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1501,7 +1501,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1529,7 +1529,7 @@
         "answer_int": 2,
         "answer_bool": true,
         "answer_str": "The shortest path goes through warehouse and inventory.",
-        "_raw_text": "{\n  \"answer_list\": [\"warehouse\", \"inventory\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through warehouse and inventory.\"\n}\n{\n  \"reasoning\": \"The schema links warehouse to inventory via multiple intermediate tables, but the minimal chain involves warehouse → inventory directly.\"\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"warehouse\", \"inventory\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through warehouse and inventory.\"\n}\n{\n  \"reasoning\": \"The schema links warehouse to inventory via multiple intermediate tables, but the minimal chain involves warehouse \u2192 inventory directly.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
@@ -1553,7 +1553,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1605,7 +1605,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1657,7 +1657,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1709,7 +1709,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1761,7 +1761,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1813,7 +1813,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1864,7 +1864,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1915,7 +1915,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -1967,7 +1967,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2019,7 +2019,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2100,8 +2100,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The connection involves web_sales → web_page → catalog_page → catalog_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"web_site\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves web_sales → web_page → catalog_page → catalog_returns.\"\n}\n{\n  \"reasoning\": \"The schema links web_site through web_sales, then web_page, and finally catalog_returns via the relationships.\"\n}\n"
+        "answer_str": "The connection involves web_sales \u2192 web_page \u2192 catalog_page \u2192 catalog_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_site\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves web_sales \u2192 web_page \u2192 catalog_page \u2192 catalog_returns.\"\n}\n{\n  \"reasoning\": \"The schema links web_site through web_sales, then web_page, and finally catalog_returns via the relationships.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -2180,7 +2180,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2233,7 +2233,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2340,7 +2340,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2447,7 +2447,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2500,7 +2500,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2553,7 +2553,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2606,7 +2606,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2633,8 +2633,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The path involves web_site → catalog_page → catalog_sales.",
-        "_raw_text": "{\n  \"answer_list\": [\"web_site\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves web_site → catalog_page → catalog_sales.\"\n}\n{\n  \"reasoning\": \"The query needs to trace from web_returns through the site and catalog layers to reach catalog_sales.\"\n}\n"
+        "answer_str": "The path involves web_site \u2192 catalog_page \u2192 catalog_sales.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_site\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves web_site \u2192 catalog_page \u2192 catalog_sales.\"\n}\n{\n  \"reasoning\": \"The query needs to trace from web_returns through the site and catalog layers to reach catalog_sales.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -2656,7 +2656,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the shortest join chain linking time_dim to item. Analyzing relationships reveals that time_dim connects via inventory, web_sales, and catalog_sales, which ultimately tie to item through its relationships.",
       "api_failure": false,
       "retrieved_tables": [
@@ -2678,7 +2678,7 @@
       ],
       "raw_response": {
         "reasoning": "The query asks for the shortest join chain linking time_dim to item. Analyzing relationships reveals that time_dim connects via inventory, web_sales, and catalog_sales, which ultimately tie to item through its relationships.",
-        "_raw_text": "{\n  \"answer_list\": [\"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema shows multiple FK links, but the direct path involves time_dim → item through inventory and web_sales.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest join chain linking time_dim to item. Analyzing relationships reveals that time_dim connects via inventory, web_sales, and catalog_sales, which ultimately tie to item through its relationships.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema shows multiple FK links, but the direct path involves time_dim \u2192 item through inventory and web_sales.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest join chain linking time_dim to item. Analyzing relationships reveals that time_dim connects via inventory, web_sales, and catalog_sales, which ultimately tie to item through its relationships.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -2703,7 +2703,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2755,7 +2755,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2807,7 +2807,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -2857,7 +2857,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The query asks for the shortest chain connecting customer_demographics to time_dim via foreign keys. Analyzing relationships reveals that store_sales acts as a bridge, linking all related tables including time_dim.",
       "api_failure": false,
       "retrieved_tables": [
@@ -3066,7 +3066,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3173,7 +3173,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3200,8 +3200,8 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The connection involves catalog_page → item through catalog_returns and store_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_page\", \"item\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves catalog_page → item through catalog_returns and store_returns.\"\n}\n{\n  \"reason\": \"The schema links catalog_page to item via multiple related tables, requiring two joins.\"\n}\n"
+        "answer_str": "The connection involves catalog_page \u2192 item through catalog_returns and store_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_page\", \"item\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves catalog_page \u2192 item through catalog_returns and store_returns.\"\n}\n{\n  \"reason\": \"The schema links catalog_page to item via multiple related tables, requiring two joins.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
@@ -3280,7 +3280,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3441,7 +3441,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3496,7 +3496,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3551,7 +3551,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3606,7 +3606,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3661,7 +3661,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3716,7 +3716,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3771,7 +3771,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -3984,7 +3984,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4037,7 +4037,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4090,7 +4090,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4143,7 +4143,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4196,7 +4196,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4248,7 +4248,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4275,8 +4275,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The path involves promotion → catalog_sales through ship_mode and warehouse.",
-        "_raw_text": "{\n  \"answer_list\": [\"promotion\", \"catalog_sales\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves promotion → catalog_sales through ship_mode and warehouse.\"\n}\n{\n  \"reasoning\": \"The schema links promotion to catalog_sales via multiple intermediaries, requiring several FK joins.\"\n}\n"
+        "answer_str": "The path involves promotion \u2192 catalog_sales through ship_mode and warehouse.",
+        "_raw_text": "{\n  \"answer_list\": [\"promotion\", \"catalog_sales\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves promotion \u2192 catalog_sales through ship_mode and warehouse.\"\n}\n{\n  \"reasoning\": \"The schema links promotion to catalog_sales via multiple intermediaries, requiring several FK joins.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
@@ -4301,7 +4301,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4328,8 +4328,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The connection involves multiple tables, but the core path is item → customer through address and sales records.",
-        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves multiple tables, but the core path is item → customer through address and sales records.\"\n}\n{\n  \"reasoning\": \"We need to trace the relationships from item back to customer using foreign keys.\"\n}"
+        "answer_str": "The connection involves multiple tables, but the core path is item \u2192 customer through address and sales records.",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves multiple tables, but the core path is item \u2192 customer through address and sales records.\"\n}\n{\n  \"reasoning\": \"We need to trace the relationships from item back to customer using foreign keys.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -4354,7 +4354,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4437,8 +4437,8 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The chain involves store_sales → store_returns → web_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\", \"web_returns\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The chain involves store_sales → store_returns → web_returns.\"\n}\n{\n  \"reasoning\": \"We need to trace the foreign key relationships from store_sales through store_returns and then to reason. The shortest path uses three joins.\"\n}"
+        "answer_str": "The chain involves store_sales \u2192 store_returns \u2192 web_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\", \"web_returns\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The chain involves store_sales \u2192 store_returns \u2192 web_returns.\"\n}\n{\n  \"reasoning\": \"We need to trace the foreign key relationships from store_sales through store_returns and then to reason. The shortest path uses three joins.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -4462,7 +4462,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4490,7 +4490,7 @@
         "answer_int": 5,
         "answer_bool": true,
         "answer_str": "The shortest chain involves inventory referencing item through the warehouse and store relationships.",
-        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory referencing item through the warehouse and store relationships.\"\n}\n{\n  \"reasoning\": \"The schema links inventory to item via multiple tables, but the minimal path connects inventory → warehouse → store → item.\"\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory referencing item through the warehouse and store relationships.\"\n}\n{\n  \"reasoning\": \"The schema links inventory to item via multiple tables, but the minimal path connects inventory \u2192 warehouse \u2192 store \u2192 item.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
@@ -4622,7 +4622,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4729,7 +4729,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4782,7 +4782,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [
@@ -4886,7 +4886,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "",
       "api_failure": false,
       "retrieved_tables": [

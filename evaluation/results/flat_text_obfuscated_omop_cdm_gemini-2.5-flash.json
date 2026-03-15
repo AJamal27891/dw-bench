@@ -1201,7 +1201,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal (BFS/DFS) starting from Table_K1, considering all FK and DERIVED_FROM relationships in both directions to find all reachable tables. Tables W and S are isolated.",
       "api_failure": false,
       "raw_response": {
@@ -1335,7 +1335,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal (BFS) starting from Table_J1, considering all FK and DERIVED_FROM relationships as bidirectional edges, to find all reachable tables. Tables Table_W and Table_S are not connected to any other tables.",
       "api_failure": false,
       "raw_response": {
@@ -1469,7 +1469,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Performed a graph traversal (BFS) starting from Table_I1, considering all FK and DERIVED",
       "api_failure": false,
       "raw_response": {
@@ -1769,7 +1769,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_X is connected to Table_U via an FK relationship, and Table_C1 is also connected to Table_U via an FK relationship, establishing a connection.",
       "api_failure": false,
       "raw_response": {
@@ -1933,7 +1933,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_I has a foreign key referencing Table_V (Table_I --FK--> Table_V), establishing a direct connection between the two tables.",
       "api_failure": false,
       "raw_response": {
@@ -1970,7 +1970,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship where Table_J references Table_U (Table_J --FK--> Table_U), forming the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2007,7 +2007,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_A1 has a foreign key referencing Table_U (Table_A1 --FK--> Table_U), establishing a direct connection between them. This is the shortest possible chain of foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -2044,7 +2044,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_H has a direct foreign key relationship to Table_V, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2081,7 +2081,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_O has a direct foreign key relationship to Table_P, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2118,7 +2118,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from Table_B to Table_U, making it the shortest possible path.",
       "api_failure": false,
       "raw_response": {
@@ -2155,7 +2155,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from Table_N to Table_U, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2192,7 +2192,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_E1 has a foreign key referencing Table_U (Table_E1 --FK--> Table_U), establishing a direct connection between the two tables.",
       "api_failure": false,
       "raw_response": {
@@ -2229,7 +2229,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from Table_C to Table_U, making it the shortest possible path.",
       "api_failure": false,
       "raw_response": {
@@ -2266,7 +2266,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_D1 has a direct foreign key relationship to Table_Z, forming the shortest possible chain of one join.",
       "api_failure": false,
       "raw_response": {
@@ -2303,7 +2303,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from Table_I to Table_U, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2340,7 +2340,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is a direct foreign key relationship from Table_K1 to Table_V, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2374,7 +2374,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is no foreign key relationship originating from Table_U that directly or indirectly leads to Table_H1. Table_H1 has an FK to Table_U, but not the other way around.",
       "api_failure": false,
       "raw_response": {
@@ -2408,7 +2408,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_T has a direct foreign key relationship to Table_P, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2445,7 +2445,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists where Table_V references Table_U (Table_V --FK--> Table_U), establishing a direct connection between them.",
       "api_failure": false,
       "raw_response": {
@@ -2479,7 +2479,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "No table has a foreign key pointing to Table_B, meaning Table_B cannot be the target of any foreign key join. Therefore, no directed path from Table_V to Table_B exists.",
       "api_failure": false,
       "raw_response": {
@@ -2510,7 +2510,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "There is no directed foreign key path from Table_Y to Table_Z. Table_Y only has FKs to Table_I1 and Table_U, and neither of these (or their subsequent FK targets) lead to Table_Z.",
       "api_failure": false,
       "raw_response": {
@@ -2544,7 +2544,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_L has a direct foreign key relationship to Table_U, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2581,7 +2581,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_F1 has a direct foreign key relationship to Table_P, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2618,7 +2618,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_T has a foreign key referencing Table_Z (`Table_T --FK--> Table_Z`), establishing a direct connection between the two tables. This is the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2655,7 +2655,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_K1 has a direct foreign key relationship to Table_U, making it a one-step connection.",
       "api_failure": false,
       "raw_response": {
@@ -2692,7 +2692,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_F1 has a direct foreign key relationship to Table_Z (Table_F1 --FK--> Table_Z), making this the shortest possible path.",
       "api_failure": false,
       "raw_response": {
@@ -2729,7 +2729,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_T has a foreign key relationship to Table_V (`Table_T --FK--> Table_V`), establishing a direct connection between them. This is the shortest possible chain of foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -2766,7 +2766,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_K1 has a direct foreign key relationship to Table_P, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2803,7 +2803,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_O has a direct foreign key relationship to Table_Z (Table_O --FK--> Table_Z), forming the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -2840,7 +2840,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_E has a foreign key referencing Table_V (`Table_E --FK--> Table_V`), establishing a direct foreign key join between them.",
       "api_failure": false,
       "raw_response": {
@@ -2879,7 +2879,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_N is connected to Table_V via Table_N --FK--> Table_V. Table_D1 is connected to Table_V via Table_D1 --FK--> Table_V. Thus, Table_V acts as a common link, forming the shortest chain: Table_N -> Table_V <- Table_D1.",
       "api_failure": false,
       "raw_response": {
@@ -2958,7 +2958,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_N connects to Table_U via FK, and Table_U connects to Table_Q via FK, forming the shortest path of two joins.",
       "api_failure": false,
       "raw_response": {
@@ -3000,7 +3000,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_M has an FK to Table_U. Table_J has FKs to both Table_U and Table_B1, allowing a join path M -> U <- J -> B1.",
       "api_failure": false,
       "raw_response": {
@@ -3041,7 +3041,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_I has an FK to Table_U, and Table_C1 also has an FK to Table_U, creating a shortest path of two joins through Table_U.",
       "api_failure": false,
       "raw_response": {
@@ -3204,7 +3204,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_P has a foreign key to Table_U, and Table_M also has a foreign key to Table_U. This allows Table_P and Table_M to be connected through Table_U via two foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -3246,7 +3246,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_J has an FK to Table_B1, Table_J has an FK to Table_U, and Table_U has an FK to Table_F, forming the shortest chain.",
       "api_failure": false,
       "raw_response": {
@@ -3287,7 +3287,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_J has a foreign key to Table_U (Table_J --FK--> Table_U). Table_I also has a foreign key to Table_U (Table_I --FK--> Table_U). This establishes a connection J - U - I, which is the shortest chain of two foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -3327,7 +3327,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_L has a foreign key to Table_U (Table_L --FK--> Table_U). Table_D also has a foreign key to Table_U (Table_D --FK--> Table_U). This creates a shortest path of two joins: Table_L joins Table_U, and Table_D joins Table_U, connecting Table_L and Table_D through Table_U.",
       "api_failure": false,
       "raw_response": {
@@ -3367,7 +3367,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_D has a foreign key relationship to Table_V, and Table_V has a foreign key relationship to Table_I1, forming the shortest path.",
       "api_failure": false,
       "raw_response": {
@@ -3407,7 +3407,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_A has a foreign key to Table_U, and Table_G1 also has a foreign key to Table_U. This allows Table_A to join Table_U, and Table_G1 to join Table_U, connecting them through Table_U in two steps.",
       "api_failure": false,
       "raw_response": {
@@ -3442,7 +3442,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_R only appears as the source of a foreign key relationship (Table_R --FK--> Table_H1). It is never the target of a foreign key. Therefore, no table can directly join to Table_R, meaning no directed path of foreign key joins can end at Table_R.",
       "api_failure": false,
       "raw_response": {
@@ -3478,7 +3478,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_T has a foreign key to Table_V, and Table_E also has a foreign key to Table_V, creating a shortest path of two joins.",
       "api_failure": false,
       "raw_response": {
@@ -3518,7 +3518,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_Y connects to Table_U via 'Table_Y --FK--> Table_U', and Table_N connects to Table_U via 'Table_N --FK--> Table_U', forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -3601,7 +3601,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_M has a foreign key to Table_U, and Table_A1 also has a foreign key to Table_U, allowing them to connect through their common parent Table_U.",
       "api_failure": false,
       "raw_response": {
@@ -3638,7 +3638,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A breadth-first search starting from Table_G1 following foreign key relationships does not reach Table_C. Table_G1 only links to Table_U, and Table_U links to Table_F, Table_G, and Table_Q, none of which lead to Table_C.",
       "api_failure": false,
       "raw_response": {
@@ -3674,7 +3674,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_U has a foreign key to Table_F, and Table_L has a foreign key to Table_U, forming a direct path.",
       "api_failure": false,
       "raw_response": {
@@ -3757,7 +3757,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both Table_T and Table_A have foreign key relationships directly to Table_V, forming a shortest path of two joins.",
       "api_failure": false,
       "raw_response": {
@@ -3793,7 +3793,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_D1 is not the target of any foreign key relationship, meaning no table has an FK pointing to Table_D1. Therefore, Table_D1 cannot be the end of a directed chain of foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -3829,7 +3829,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_C1 has an FK to Table_U, and Table_O has an FK to Table_U, forming a direct join path through Table_U.",
       "api_failure": false,
       "raw_response": {
@@ -3913,7 +3913,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "A breadth-first search (BFS) was performed starting from Table_B1, considering both directions of FK relationships for joins. The shortest path found is Table_B1 -> Table_J -> Table_U -> Table_V -> Table_J1.",
       "api_failure": false,
       "raw_response": {
@@ -3953,7 +3953,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "To connect to Table_B1, the path must end with Table_J --FK--> Table_B1. However, no table in the schema has a foreign key relationship pointing to Table_J, making it unreachable via FK joins.",
       "api_failure": false,
       "raw_response": {
@@ -3989,7 +3989,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both Table_N and Table_T have foreign key relationships to Table_V, forming a direct connection through a common table.",
       "api_failure": false,
       "raw_response": {
@@ -4029,7 +4029,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_J has an FK to Table_U, and Table_K also has an FK to Table_U. This creates a common link (J -- U -- K) with two joins.",
       "api_failure": false,
       "raw_response": {
@@ -4069,7 +4069,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_C1 has a foreign key to Table_U, and Table_B also has a foreign key to Table_U. This means both Table_C1 and Table_B can join Table_U, forming a shortest chain of two joins: Table_C1 -> Table_U <- Table_B.",
       "api_failure": false,
       "raw_response": {
@@ -4109,7 +4109,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_J has an FK to Table_U, and Table_B also has an FK to Table_U, creating a direct connection through Table_U.",
       "api_failure": false,
       "raw_response": {
@@ -4149,7 +4149,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_K has an FK to Table_U, and Table_B also has an FK to Table_U, creating a direct connection through Table_U.",
       "api_failure": false,
       "raw_response": {
@@ -4189,7 +4189,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_H has a foreign key relationship to Table_V, and Table_V has a foreign key relationship to Table_Y, forming a direct path of length 2.",
       "api_failure": false,
       "raw_response": {
@@ -4228,7 +4228,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_J has a foreign key to Table_U (Table_J --FK--> Table_U). Table_P also has a foreign key to Table_U (Table_P --FK--> Table_U). This forms a shortest chain of two joins: Table_J to Table_U, and Table_U to Table_P.",
       "api_failure": false,
       "raw_response": {
@@ -4267,7 +4267,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_M connects to Table_U via FK, and Table_U connects to Table_G via FK, forming the shortest path.",
       "api_failure": false,
       "raw_response": {
@@ -4307,7 +4307,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both Table_T and Table_D have foreign key relationships to Table_V, creating a direct path through Table_V.",
       "api_failure": false,
       "raw_response": {
@@ -4346,7 +4346,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_C has a direct foreign key relationship to Table_U, and Table_J also has a direct foreign key relationship to Table_U, forming the shortest path.",
       "api_failure": false,
       "raw_response": {
@@ -4386,7 +4386,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_M connects to Table_U via FK, and Table_A also connects to Table_U via FK, forming a direct path through Table_U.",
       "api_failure": false,
       "raw_response": {
@@ -4427,7 +4427,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_C1 connects to Table_U (Table_C1 --FK--> Table_U). Table_U connects to Table_V (Table_V --FK--> Table_U). Table_V connects to Table_J1 (Table_J1 --FK--> Table_V). This forms the shortest chain of 3 joins.",
       "api_failure": false,
       "raw_response": {
@@ -4468,7 +4468,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_K1 connects to Table_V via FK. Table_E1 also connects to Table_V via FK, forming a path of length 2: Table_K1 -> Table_V <- Table_E1.",
       "api_failure": false,
       "raw_response": {
@@ -4508,7 +4508,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_C1 is connected to Table_U via an FK. Table_E is also connected to Table_U via an FK. Thus, Table_C1 can join Table_U, and Table_U can join Table_E, forming the shortest chain.",
       "api_failure": false,
       "raw_response": {
@@ -4548,7 +4548,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_G1 connects to Table_U via an FK (Table_G1 --FK--> Table_U). Table_H also connects to Table_U via an FK (Table_H --FK--> Table_U). Thus, Table_U is a common node, forming the shortest chain.",
       "api_failure": false,
       "raw_response": {
@@ -4588,7 +4588,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_H connects to Table_U via FK, and Table_U connects to Table_F via FK, forming the shortest path.",
       "api_failure": false,
       "raw_response": {
@@ -4628,7 +4628,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Both Table_M and Table_L have a direct foreign key relationship to Table_U, forming the shortest path.",
       "api_failure": false,
       "raw_response": {
@@ -4669,7 +4669,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A foreign key relationship `A --FK--> B` means table A can join table B. A shortest path BFS on the undirected graph of FK relationships finds `Table_G1` connects to `Table_U` (via `Table_G1 --FK--> Table_U`), and `Table_U` connects to `Table_V` (via `Table_V --FK--> Table_U`).",
       "api_failure": false,
       "raw_response": {
@@ -4711,7 +4711,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A breadth-first search (BFS) treating FKs as undirected edges reveals the shortest path. Table_R connects to Table_H1, which connects to Table_V. Table_D1 also connects to Table_V, forming the shortest chain: R - H1 - V - D1.",
       "api_failure": false,
       "raw_response": {
@@ -4752,7 +4752,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_B has an FK to Table_V, and Table_T also has an FK to Table_V, creating a path of two joins: Table_B -> Table_V -> Table_T.",
       "api_failure": false,
       "raw_response": {
@@ -4792,7 +4792,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_Z has a foreign key to Table_V, and Table_E1 also has a foreign key to Table_V, creating a path of two joins.",
       "api_failure": false,
       "raw_response": {
@@ -4830,7 +4830,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_H has a direct foreign key relationship to Table_U, making it the shortest possible path.",
       "api_failure": false,
       "raw_response": {
@@ -4869,7 +4869,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_M has an FK to Table_U, and Table_K has an FK to Table_U. This creates a path of two joins: Table_M -> Table_U <- Table_K.",
       "api_failure": false,
       "raw_response": {
@@ -4949,7 +4949,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Table_I connects to Table_U via Table_I --FK--> Table_U. Table_C connects to Table_U via Table_C --FK--> Table_U. This forms the shortest chain: Table_I, Table_U, Table_C.",
       "api_failure": false,
       "raw_response": {
@@ -4985,7 +4985,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A foreign key join path implies a directed sequence of relationships (Table_A --FK--> Table_B --FK--> Table_C). Table_B is not referenced by any foreign key in the schema, meaning no table X has a relationship X --FK--> Table_B. Therefore, Table_B cannot be the end of a foreign key join chain.",
       "api_failure": false,
       "raw_response": {

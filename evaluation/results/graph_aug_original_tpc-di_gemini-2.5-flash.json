@@ -1881,7 +1881,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.CashTransaction is listed in Component 1, which includes all the tables provided in the answer_list.",
       "api_failure": false,
       "raw_response": {
@@ -1993,7 +1993,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "FactWatches is listed in Component 1, which includes all the tables provided in the answer list.",
       "api_failure": false,
       "raw_response": {
@@ -2105,7 +2105,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.HR is listed in Component 1, which includes all the specified tables.",
       "api_failure": false,
       "raw_response": {
@@ -2165,7 +2165,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.Industry is listed in 'Component 3' along with 'Industry'.",
       "api_failure": false,
       "raw_response": {
@@ -2199,7 +2199,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "Industry is part of Component 3, which also contains SRC.Industry.",
       "api_failure": false,
       "raw_response": {
@@ -2233,7 +2233,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.StatusType is part of Component 4, which also includes StatusType.",
       "api_failure": false,
       "raw_response": {
@@ -2267,7 +2267,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "StatusType is listed in 'Component 4' along with SRC.StatusType, indicating they are in the same connected component.",
       "api_failure": false,
       "raw_response": {
@@ -2301,7 +2301,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "TradeType is part of Component 5, which also includes SRC.TradeType.",
       "api_failure": false,
       "raw_response": {
@@ -2335,7 +2335,7 @@
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reasoning": "SRC.TradeType is listed in Component 5, which also contains TradeType.",
       "api_failure": false,
       "raw_response": {
@@ -2604,7 +2604,7 @@
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "connected",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Neither SRC.FINWIRE_SEC nor SRC.CustomerMgmt are listed as participating in any foreign key relationships in the provided context.",
       "api_failure": false,
       "raw_response": {
@@ -2747,7 +2747,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches has a direct foreign key relationship to DimSecurity, forming a 1-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -2783,7 +2783,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances has a direct foreign key relationship to DimCustomer, making it a 1-hop connection.",
       "api_failure": false,
       "raw_response": {
@@ -2819,8 +2819,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The provided context explicitly states the shortest path between DimTime and DimTrade via a foreign key relationship is DimTime → DimTrade.",
+      "difficulty": "easy",
+      "reasoning": "The provided context explicitly states the shortest path between DimTime and DimTrade via a foreign key relationship is DimTime \u2192 DimTrade.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2830,8 +2830,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The provided context explicitly states the shortest path between DimTime and DimTrade via a foreign key relationship is DimTime → DimTrade.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimTime\",\n    \"DimTrade\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context explicitly states the shortest path between DimTime and DimTrade via a foreign key relationship is DimTime → DimTrade.\"\n}\n```"
+        "reasoning": "The provided context explicitly states the shortest path between DimTime and DimTrade via a foreign key relationship is DimTime \u2192 DimTrade.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimTime\",\n    \"DimTrade\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context explicitly states the shortest path between DimTime and DimTrade via a foreign key relationship is DimTime \u2192 DimTrade.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -2855,7 +2855,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances has a direct foreign key relationship to DimAccount, forming a 1-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -2891,8 +2891,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "FactWatches has a direct foreign key relationship to DimDate, as indicated by 'FactWatches --FK--> DimDate' and the shortest path 'DimDate → FactWatches (1 hops)'.",
+      "difficulty": "easy",
+      "reasoning": "FactWatches has a direct foreign key relationship to DimDate, as indicated by 'FactWatches --FK--> DimDate' and the shortest path 'DimDate \u2192 FactWatches (1 hops)'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2902,8 +2902,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "FactWatches has a direct foreign key relationship to DimDate, as indicated by 'FactWatches --FK--> DimDate' and the shortest path 'DimDate → FactWatches (1 hops)'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimDate\",\n    \"FactWatches\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"FactWatches has a direct foreign key relationship to DimDate, as indicated by 'FactWatches --FK--> DimDate' and the shortest path 'DimDate → FactWatches (1 hops)'.\"\n}\n```"
+        "reasoning": "FactWatches has a direct foreign key relationship to DimDate, as indicated by 'FactWatches --FK--> DimDate' and the shortest path 'DimDate \u2192 FactWatches (1 hops)'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimDate\",\n    \"FactWatches\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"FactWatches has a direct foreign key relationship to DimDate, as indicated by 'FactWatches --FK--> DimDate' and the shortest path 'DimDate \u2192 FactWatches (1 hops)'.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -2927,7 +2927,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -2963,7 +2963,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimCustomer and DimAccount is a direct foreign key relationship, as indicated in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -2999,7 +2999,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The provided 'Shortest Paths Between Mentioned Tables' explicitly states a direct FK relationship between DimAccount and DimTrade.",
       "api_failure": false,
       "raw_response": {
@@ -3035,7 +3035,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimCustomer, forming a 1-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -3071,7 +3071,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a direct foreign key relationship to DimSecurity, forming the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -3107,7 +3107,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances has a direct foreign key relationship to DimDate, forming a 1-hop chain.",
       "api_failure": false,
       "raw_response": {
@@ -3143,7 +3143,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimCompany, meaning DimCompany can be joined to FactHoldings in one step.",
       "api_failure": false,
       "raw_response": {
@@ -3179,7 +3179,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from DimTrade to DimCompany, forming the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -3215,8 +3215,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The context explicitly states the shortest path between DimCompany and FactMarketHistory is 'DimCompany → FactMarketHistory (1 hops)' via a foreign key relationship.",
+      "difficulty": "easy",
+      "reasoning": "The context explicitly states the shortest path between DimCompany and FactMarketHistory is 'DimCompany \u2192 FactMarketHistory (1 hops)' via a foreign key relationship.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3226,8 +3226,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly states the shortest path between DimCompany and FactMarketHistory is 'DimCompany → FactMarketHistory (1 hops)' via a foreign key relationship.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimCompany\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states the shortest path between DimCompany and FactMarketHistory is 'DimCompany → FactMarketHistory (1 hops)' via a foreign key relationship.\"\n}\n```"
+        "reasoning": "The context explicitly states the shortest path between DimCompany and FactMarketHistory is 'DimCompany \u2192 FactMarketHistory (1 hops)' via a foreign key relationship.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimCompany\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states the shortest path between DimCompany and FactMarketHistory is 'DimCompany \u2192 FactMarketHistory (1 hops)' via a foreign key relationship.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3251,7 +3251,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a direct foreign key relationship to DimAccount, making it a 1-hop connection.",
       "api_failure": false,
       "raw_response": {
@@ -3287,7 +3287,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The FK relationship 'DimAccount --FK--> DimBroker' indicates that DimAccount has a foreign key referencing DimBroker, forming a direct join path from DimBroker to DimAccount.",
       "api_failure": false,
       "raw_response": {
@@ -3323,7 +3323,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactMarketHistory has a direct foreign key relationship to DimDate, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -3359,7 +3359,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from DimSecurity to DimCompany, making it the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -3395,7 +3395,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the 'Shortest Paths Between Mentioned Tables' section, indicating a direct FK relationship.",
       "api_failure": false,
       "raw_response": {
@@ -3431,7 +3431,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactMarketHistory has a foreign key relationship to DimSecurity, indicating a direct join path from DimSecurity to FactMarketHistory.",
       "api_failure": false,
       "raw_response": {
@@ -3467,7 +3467,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A direct foreign key relationship exists from Financial to DimCompany, forming the shortest possible chain.",
       "api_failure": false,
       "raw_response": {
@@ -3503,7 +3503,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a foreign key relationship to DimTime, establishing a direct connection between the two tables.",
       "api_failure": false,
       "raw_response": {
@@ -3539,8 +3539,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from DimDate to FactHoldings: 'DimDate → FactHoldings'.",
+      "difficulty": "easy",
+      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from DimDate to FactHoldings: 'DimDate \u2192 FactHoldings'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3550,8 +3550,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from DimDate to FactHoldings: 'DimDate → FactHoldings'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimDate\",\n    \"FactHoldings\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from DimDate to FactHoldings: 'DimDate → FactHoldings'.\"\n}\n```"
+        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from DimDate to FactHoldings: 'DimDate \u2192 FactHoldings'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimDate\",\n    \"FactHoldings\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from DimDate to FactHoldings: 'DimDate \u2192 FactHoldings'.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3575,7 +3575,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has a foreign key relationship with DimSecurity, indicating a direct join path between them.",
       "api_failure": false,
       "raw_response": {
@@ -3611,7 +3611,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactWatches has a direct foreign key relationship to DimCustomer.",
       "api_failure": false,
       "raw_response": {
@@ -3647,7 +3647,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimCustomer and DimTrade is a direct foreign key relationship, as indicated by 'DimTrade --FK--> DimCustomer'.",
       "api_failure": false,
       "raw_response": {
@@ -3685,7 +3685,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTime can join to FactHoldings (FactHoldings --FK--> DimTime), and FactHoldings can join to DimSecurity (FactHoldings --FK--> DimSecurity), forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -3724,7 +3724,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimBroker and DimCustomer via foreign key joins is explicitly provided in the context.",
       "api_failure": false,
       "raw_response": {
@@ -3763,7 +3763,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "A foreign key relationship exists from FactHoldings to DimTime, and from FactHoldings to DimAccount, allowing a 2-hop path: DimTime -> FactHoldings -> DimAccount.",
       "api_failure": false,
       "raw_response": {
@@ -3928,8 +3928,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between DimBroker and FactHoldings is explicitly provided in the context as 'DimBroker → DimAccount → FactHoldings' with 2 hops.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between DimBroker and FactHoldings is explicitly provided in the context as 'DimBroker \u2192 DimAccount \u2192 FactHoldings' with 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3940,8 +3940,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between DimBroker and FactHoldings is explicitly provided in the context as 'DimBroker → DimAccount → FactHoldings' with 2 hops.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimBroker\",\n    \"DimAccount\",\n    \"FactHoldings\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimBroker and FactHoldings is explicitly provided in the context as 'DimBroker → DimAccount → FactHoldings' with 2 hops.\"\n}\n```"
+        "reasoning": "The shortest path between DimBroker and FactHoldings is explicitly provided in the context as 'DimBroker \u2192 DimAccount \u2192 FactHoldings' with 2 hops.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimBroker\",\n    \"DimAccount\",\n    \"FactHoldings\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimBroker and FactHoldings is explicitly provided in the context as 'DimBroker \u2192 DimAccount \u2192 FactHoldings' with 2 hops.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -3967,7 +3967,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has foreign keys referencing both DimCompany and DimCustomer, allowing a direct two-hop path between them.",
       "api_failure": false,
       "raw_response": {
@@ -4006,7 +4006,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimDate and DimTime via foreign key joins is explicitly provided in the context.",
       "api_failure": false,
       "raw_response": {
@@ -4080,7 +4080,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The provided context explicitly states the shortest path between DimAccount and FactMarketHistory as 'DimAccount → FactHoldings → DimDate → FactMarketHistory'.",
+      "reasoning": "The provided context explicitly states the shortest path between DimAccount and FactMarketHistory as 'DimAccount \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4092,8 +4092,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The provided context explicitly states the shortest path between DimAccount and FactMarketHistory as 'DimAccount → FactHoldings → DimDate → FactMarketHistory'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimAccount\",\n    \"FactHoldings\",\n    \"DimDate\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context explicitly states the shortest path between DimAccount and FactMarketHistory as 'DimAccount → FactHoldings → DimDate → FactMarketHistory'.\"\n}\n```"
+        "reasoning": "The provided context explicitly states the shortest path between DimAccount and FactMarketHistory as 'DimAccount \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimAccount\",\n    \"FactHoldings\",\n    \"DimDate\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided context explicitly states the shortest path between DimAccount and FactMarketHistory as 'DimAccount \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory'.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4119,7 +4119,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest foreign key join path from DimTrade to FactCashBalances is through DimCustomer, as explicitly stated in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -4158,8 +4158,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between DimCustomer and DimTime is explicitly provided in the context as DimCustomer → FactHoldings → DimTime, which involves foreign key joins.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between DimCustomer and DimTime is explicitly provided in the context as DimCustomer \u2192 FactHoldings \u2192 DimTime, which involves foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4170,8 +4170,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between DimCustomer and DimTime is explicitly provided in the context as DimCustomer → FactHoldings → DimTime, which involves foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimCustomer\",\n    \"FactHoldings\",\n    \"DimTime\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimCustomer and DimTime is explicitly provided in the context as DimCustomer → FactHoldings → DimTime, which involves foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path between DimCustomer and DimTime is explicitly provided in the context as DimCustomer \u2192 FactHoldings \u2192 DimTime, which involves foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimCustomer\",\n    \"FactHoldings\",\n    \"DimTime\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimCustomer and DimTime is explicitly provided in the context as DimCustomer \u2192 FactHoldings \u2192 DimTime, which involves foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4200,7 +4200,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The provided shortest path from DimTime to FactCashBalances is DimTime → FactHoldings → DimDate → FactCashBalances. Reversing this path gives the shortest chain of foreign key joins from FactCashBalances to DimTime.",
+      "reasoning": "The provided shortest path from DimTime to FactCashBalances is DimTime \u2192 FactHoldings \u2192 DimDate \u2192 FactCashBalances. Reversing this path gives the shortest chain of foreign key joins from FactCashBalances to DimTime.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4212,8 +4212,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The provided shortest path from DimTime to FactCashBalances is DimTime → FactHoldings → DimDate → FactCashBalances. Reversing this path gives the shortest chain of foreign key joins from FactCashBalances to DimTime.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactCashBalances\",\n    \"DimDate\",\n    \"FactHoldings\",\n    \"DimTime\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path from DimTime to FactCashBalances is DimTime → FactHoldings → DimDate → FactCashBalances. Reversing this path gives the shortest chain of foreign key joins from FactCashBalances to DimTime.\"\n}\n```"
+        "reasoning": "The provided shortest path from DimTime to FactCashBalances is DimTime \u2192 FactHoldings \u2192 DimDate \u2192 FactCashBalances. Reversing this path gives the shortest chain of foreign key joins from FactCashBalances to DimTime.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactCashBalances\",\n    \"DimDate\",\n    \"FactHoldings\",\n    \"DimTime\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path from DimTime to FactCashBalances is DimTime \u2192 FactHoldings \u2192 DimDate \u2192 FactCashBalances. Reversing this path gives the shortest chain of foreign key joins from FactCashBalances to DimTime.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4239,7 +4239,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between FactHoldings and Financial is FactHoldings -> DimCompany -> Financial, as indicated in the 'Shortest Paths Between Mentioned Tables' and confirmed by FK relationships.",
       "api_failure": false,
       "raw_response": {
@@ -4278,7 +4278,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimDate is connected to FactHoldings via FK, and FactHoldings is connected to DimCustomer via FK, forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -4313,7 +4313,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "Financial has an FK to DimCompany. However, DimCompany does not have an FK to FactMarketHistory (FactMarketHistory has an FK to DimCompany), so a chain of foreign key joins from Financial to FactMarketHistory cannot be formed.",
       "api_failure": false,
       "raw_response": {
@@ -4351,7 +4351,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The context provides the shortest path from DimCustomer to FactMarketHistory as 'DimCustomer → FactHoldings → DimDate → FactMarketHistory'. Reversing this path gives the shortest chain of foreign key joins from FactMarketHistory to DimCustomer.",
+      "reasoning": "The context provides the shortest path from DimCustomer to FactMarketHistory as 'DimCustomer \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory'. Reversing this path gives the shortest chain of foreign key joins from FactMarketHistory to DimCustomer.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4363,8 +4363,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context provides the shortest path from DimCustomer to FactMarketHistory as 'DimCustomer → FactHoldings → DimDate → FactMarketHistory'. Reversing this path gives the shortest chain of foreign key joins from FactMarketHistory to DimCustomer.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactMarketHistory\",\n    \"DimDate\",\n    \"FactHoldings\",\n    \"DimCustomer\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from DimCustomer to FactMarketHistory as 'DimCustomer → FactHoldings → DimDate → FactMarketHistory'. Reversing this path gives the shortest chain of foreign key joins from FactMarketHistory to DimCustomer.\"\n}\n```"
+        "reasoning": "The context provides the shortest path from DimCustomer to FactMarketHistory as 'DimCustomer \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory'. Reversing this path gives the shortest chain of foreign key joins from FactMarketHistory to DimCustomer.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactMarketHistory\",\n    \"DimDate\",\n    \"FactHoldings\",\n    \"DimCustomer\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from DimCustomer to FactMarketHistory as 'DimCustomer \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory'. Reversing this path gives the shortest chain of foreign key joins from FactMarketHistory to DimCustomer.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4390,7 +4390,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path is directly provided in the context under 'Shortest Paths Between Mentioned Tables'.",
       "api_failure": false,
       "raw_response": {
@@ -4429,8 +4429,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The context explicitly states the shortest path as 'DimAccount → DimCustomer → FactWatches'. Both 'DimAccount --FK--> DimCustomer' and 'FactWatches --FK--> DimCustomer' are listed as foreign key relationships.",
+      "difficulty": "easy",
+      "reasoning": "The context explicitly states the shortest path as 'DimAccount \u2192 DimCustomer \u2192 FactWatches'. Both 'DimAccount --FK--> DimCustomer' and 'FactWatches --FK--> DimCustomer' are listed as foreign key relationships.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4441,8 +4441,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly states the shortest path as 'DimAccount → DimCustomer → FactWatches'. Both 'DimAccount --FK--> DimCustomer' and 'FactWatches --FK--> DimCustomer' are listed as foreign key relationships.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimAccount\",\n    \"DimCustomer\",\n    \"FactWatches\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states the shortest path as 'DimAccount → DimCustomer → FactWatches'. Both 'DimAccount --FK--> DimCustomer' and 'FactWatches --FK--> DimCustomer' are listed as foreign key relationships.\"\n}\n```"
+        "reasoning": "The context explicitly states the shortest path as 'DimAccount \u2192 DimCustomer \u2192 FactWatches'. Both 'DimAccount --FK--> DimCustomer' and 'FactWatches --FK--> DimCustomer' are listed as foreign key relationships.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimAccount\",\n    \"DimCustomer\",\n    \"FactWatches\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states the shortest path as 'DimAccount \u2192 DimCustomer \u2192 FactWatches'. Both 'DimAccount --FK--> DimCustomer' and 'FactWatches --FK--> DimCustomer' are listed as foreign key relationships.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4468,8 +4468,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between DimTrade and FactMarketHistory is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section, which is DimTrade → DimDate → FactMarketHistory.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between DimTrade and FactMarketHistory is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section, which is DimTrade \u2192 DimDate \u2192 FactMarketHistory.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4480,8 +4480,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between DimTrade and FactMarketHistory is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section, which is DimTrade → DimDate → FactMarketHistory.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimTrade\",\n    \"DimDate\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimTrade and FactMarketHistory is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section, which is DimTrade → DimDate → FactMarketHistory.\"\n}\n```"
+        "reasoning": "The shortest path between DimTrade and FactMarketHistory is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section, which is DimTrade \u2192 DimDate \u2192 FactMarketHistory.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimTrade\",\n    \"DimDate\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimTrade and FactMarketHistory is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section, which is DimTrade \u2192 DimDate \u2192 FactMarketHistory.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4510,7 +4510,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DimTime to FactMarketHistory is provided as DimTime → FactHoldings → DimDate → FactMarketHistory (3 hops). Reversing this path gives the shortest chain from FactMarketHistory to DimTime.",
+      "reasoning": "The shortest path from DimTime to FactMarketHistory is provided as DimTime \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory (3 hops). Reversing this path gives the shortest chain from FactMarketHistory to DimTime.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4522,8 +4522,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DimTime to FactMarketHistory is provided as DimTime → FactHoldings → DimDate → FactMarketHistory (3 hops). Reversing this path gives the shortest chain from FactMarketHistory to DimTime.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactMarketHistory\",\n    \"DimDate\",\n    \"FactHoldings\",\n    \"DimTime\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimTime to FactMarketHistory is provided as DimTime → FactHoldings → DimDate → FactMarketHistory (3 hops). Reversing this path gives the shortest chain from FactMarketHistory to DimTime.\"\n}\n```"
+        "reasoning": "The shortest path from DimTime to FactMarketHistory is provided as DimTime \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory (3 hops). Reversing this path gives the shortest chain from FactMarketHistory to DimTime.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactMarketHistory\",\n    \"DimDate\",\n    \"FactHoldings\",\n    \"DimTime\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimTime to FactMarketHistory is provided as DimTime \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory (3 hops). Reversing this path gives the shortest chain from FactMarketHistory to DimTime.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -4549,7 +4549,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has a foreign key to DimCustomer, and FactHoldings also has a foreign key to DimCustomer, creating a 2-hop path through DimCustomer. This is the shortest chain of foreign key joins.",
       "api_failure": false,
       "raw_response": {
@@ -4591,7 +4591,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path between DimBroker and Financial, as provided in the context, is DimBroker → DimTrade → DimCompany → Financial, which consists of foreign key joins.",
+      "reasoning": "The shortest path between DimBroker and Financial, as provided in the context, is DimBroker \u2192 DimTrade \u2192 DimCompany \u2192 Financial, which consists of foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4603,8 +4603,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between DimBroker and Financial, as provided in the context, is DimBroker → DimTrade → DimCompany → Financial, which consists of foreign key joins.",
-        "_raw_text": "{\n  \"answer_list\": [\n    \"DimBroker\",\n    \"DimTrade\",\n    \"DimCompany\",\n    \"Financial\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimBroker and Financial, as provided in the context, is DimBroker → DimTrade → DimCompany → Financial, which consists of foreign key joins.\"\n}"
+        "reasoning": "The shortest path between DimBroker and Financial, as provided in the context, is DimBroker \u2192 DimTrade \u2192 DimCompany \u2192 Financial, which consists of foreign key joins.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"DimBroker\",\n    \"DimTrade\",\n    \"DimCompany\",\n    \"Financial\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimBroker and Financial, as provided in the context, is DimBroker \u2192 DimTrade \u2192 DimCompany \u2192 Financial, which consists of foreign key joins.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -4630,8 +4630,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between FactCashBalances and FactMarketHistory via foreign key joins is explicitly provided in the context as FactCashBalances → DimDate → FactMarketHistory.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between FactCashBalances and FactMarketHistory via foreign key joins is explicitly provided in the context as FactCashBalances \u2192 DimDate \u2192 FactMarketHistory.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4642,8 +4642,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between FactCashBalances and FactMarketHistory via foreign key joins is explicitly provided in the context as FactCashBalances → DimDate → FactMarketHistory.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactCashBalances\",\n    \"DimDate\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactCashBalances and FactMarketHistory via foreign key joins is explicitly provided in the context as FactCashBalances → DimDate → FactMarketHistory.\"\n}\n```"
+        "reasoning": "The shortest path between FactCashBalances and FactMarketHistory via foreign key joins is explicitly provided in the context as FactCashBalances \u2192 DimDate \u2192 FactMarketHistory.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactCashBalances\",\n    \"DimDate\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactCashBalances and FactMarketHistory via foreign key joins is explicitly provided in the context as FactCashBalances \u2192 DimDate \u2192 FactMarketHistory.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4669,7 +4669,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactCashBalances has foreign keys to both DimDate and DimAccount, creating a direct 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -4712,7 +4712,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reasoning": "The shortest path from FactCashBalances to Financial is provided, which can be reversed to find the path from Financial to FactCashBalances.",
       "api_failure": false,
       "raw_response": {
@@ -4753,8 +4753,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between DimBroker and DimDate via foreign key joins is explicitly provided in the context as DimBroker → DimTrade → DimDate.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between DimBroker and DimDate via foreign key joins is explicitly provided in the context as DimBroker \u2192 DimTrade \u2192 DimDate.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4765,8 +4765,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between DimBroker and DimDate via foreign key joins is explicitly provided in the context as DimBroker → DimTrade → DimDate.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimBroker\",\n    \"DimTrade\",\n    \"DimDate\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimBroker and DimDate via foreign key joins is explicitly provided in the context as DimBroker → DimTrade → DimDate.\"\n}\n```"
+        "reasoning": "The shortest path between DimBroker and DimDate via foreign key joins is explicitly provided in the context as DimBroker \u2192 DimTrade \u2192 DimDate.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimBroker\",\n    \"DimTrade\",\n    \"DimDate\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimBroker and DimDate via foreign key joins is explicitly provided in the context as DimBroker \u2192 DimTrade \u2192 DimDate.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -4792,7 +4792,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between FactHoldings and FactMarketHistory via foreign key joins is FactHoldings -> DimDate -> FactMarketHistory, as explicitly stated in the context.",
       "api_failure": false,
       "raw_response": {
@@ -4831,7 +4831,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimDate and DimSecurity via foreign key joins is explicitly provided in the context.",
       "api_failure": false,
       "raw_response": {
@@ -4870,7 +4870,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between FactWatches and FactHoldings via foreign keys is through DimDate, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -4909,7 +4909,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "FactHoldings has foreign keys to both DimDate and DimCompany, creating a direct connection between them in two hops.",
       "api_failure": false,
       "raw_response": {
@@ -4990,7 +4990,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign keys referencing both DimTime and DimBroker. Therefore, DimTime can join to DimTrade, and DimTrade can then join to DimBroker, forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -5029,7 +5029,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimCustomer and DimSecurity via foreign key joins is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
@@ -5068,7 +5068,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTrade has foreign keys referencing both DimBroker and DimSecurity, forming a direct two-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -5107,7 +5107,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between FactCashBalances and FactWatches is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section of the context.",
       "api_failure": false,
       "raw_response": {
@@ -5146,7 +5146,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between FactCashBalances and FactHoldings is explicitly stated in the 'Shortest Paths Between Mentioned Tables' section of the provided context.",
       "api_failure": false,
       "raw_response": {
@@ -5185,8 +5185,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between FactWatches and DimCompany is explicitly provided in the context as FactWatches → DimSecurity → DimCompany, which involves two foreign key joins.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between FactWatches and DimCompany is explicitly provided in the context as FactWatches \u2192 DimSecurity \u2192 DimCompany, which involves two foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5197,8 +5197,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between FactWatches and DimCompany is explicitly provided in the context as FactWatches → DimSecurity → DimCompany, which involves two foreign key joins.",
-        "_raw_text": "{\n  \"answer_list\": [\n    \"FactWatches\",\n    \"DimSecurity\",\n    \"DimCompany\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactWatches and DimCompany is explicitly provided in the context as FactWatches → DimSecurity → DimCompany, which involves two foreign key joins.\"\n}"
+        "reasoning": "The shortest path between FactWatches and DimCompany is explicitly provided in the context as FactWatches \u2192 DimSecurity \u2192 DimCompany, which involves two foreign key joins.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"FactWatches\",\n    \"DimSecurity\",\n    \"DimCompany\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactWatches and DimCompany is explicitly provided in the context as FactWatches \u2192 DimSecurity \u2192 DimCompany, which involves two foreign key joins.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5298,7 +5298,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path from FactWatches to DimTrade via foreign key joins is FactWatches -> DimCustomer -> DimTrade, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
@@ -5340,7 +5340,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The context provides the shortest path from DimCustomer to Financial as 'DimCustomer → FactHoldings → DimCompany → Financial'. Reversing this path gives the shortest chain of foreign key joins from Financial to DimCustomer, which is 'Financial → DimCompany → FactHoldings → DimCustomer'.",
+      "reasoning": "The context provides the shortest path from DimCustomer to Financial as 'DimCustomer \u2192 FactHoldings \u2192 DimCompany \u2192 Financial'. Reversing this path gives the shortest chain of foreign key joins from Financial to DimCustomer, which is 'Financial \u2192 DimCompany \u2192 FactHoldings \u2192 DimCustomer'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5352,8 +5352,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context provides the shortest path from DimCustomer to Financial as 'DimCustomer → FactHoldings → DimCompany → Financial'. Reversing this path gives the shortest chain of foreign key joins from Financial to DimCustomer, which is 'Financial → DimCompany → FactHoldings → DimCustomer'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Financial\",\n    \"DimCompany\",\n    \"FactHoldings\",\n    \"DimCustomer\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from DimCustomer to Financial as 'DimCustomer → FactHoldings → DimCompany → Financial'. Reversing this path gives the shortest chain of foreign key joins from Financial to DimCustomer, which is 'Financial → DimCompany → FactHoldings → DimCustomer'.\"\n}\n```"
+        "reasoning": "The context provides the shortest path from DimCustomer to Financial as 'DimCustomer \u2192 FactHoldings \u2192 DimCompany \u2192 Financial'. Reversing this path gives the shortest chain of foreign key joins from Financial to DimCustomer, which is 'Financial \u2192 DimCompany \u2192 FactHoldings \u2192 DimCustomer'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Financial\",\n    \"DimCompany\",\n    \"FactHoldings\",\n    \"DimCustomer\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides the shortest path from DimCustomer to Financial as 'DimCustomer \u2192 FactHoldings \u2192 DimCompany \u2192 Financial'. Reversing this path gives the shortest chain of foreign key joins from Financial to DimCustomer, which is 'Financial \u2192 DimCompany \u2192 FactHoldings \u2192 DimCustomer'.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -5379,7 +5379,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimTrade and Financial via foreign key joins is explicitly provided in the context.",
       "api_failure": false,
       "raw_response": {
@@ -5418,8 +5418,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between FactWatches and FactMarketHistory is FactWatches → DimSecurity → FactMarketHistory, as indicated in the provided shortest paths.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between FactWatches and FactMarketHistory is FactWatches \u2192 DimSecurity \u2192 FactMarketHistory, as indicated in the provided shortest paths.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5430,8 +5430,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between FactWatches and FactMarketHistory is FactWatches → DimSecurity → FactMarketHistory, as indicated in the provided shortest paths.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactWatches\",\n    \"DimSecurity\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactWatches and FactMarketHistory is FactWatches → DimSecurity → FactMarketHistory, as indicated in the provided shortest paths.\"\n}\n```"
+        "reasoning": "The shortest path between FactWatches and FactMarketHistory is FactWatches \u2192 DimSecurity \u2192 FactMarketHistory, as indicated in the provided shortest paths.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactWatches\",\n    \"DimSecurity\",\n    \"FactMarketHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactWatches and FactMarketHistory is FactWatches \u2192 DimSecurity \u2192 FactMarketHistory, as indicated in the provided shortest paths.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -5457,7 +5457,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimCompany and DimBroker via foreign key joins is DimBroker -> DimTrade -> DimCompany, as provided in the context.",
       "api_failure": false,
       "raw_response": {
@@ -5499,7 +5499,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path between FactWatches and Financial is explicitly provided in the context as FactWatches → DimSecurity → DimCompany → Financial, which involves foreign key joins.",
+      "reasoning": "The shortest path between FactWatches and Financial is explicitly provided in the context as FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 Financial, which involves foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5511,8 +5511,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between FactWatches and Financial is explicitly provided in the context as FactWatches → DimSecurity → DimCompany → Financial, which involves foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactWatches\",\n    \"DimSecurity\",\n    \"DimCompany\",\n    \"Financial\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactWatches and Financial is explicitly provided in the context as FactWatches → DimSecurity → DimCompany → Financial, which involves foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path between FactWatches and Financial is explicitly provided in the context as FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 Financial, which involves foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"FactWatches\",\n    \"DimSecurity\",\n    \"DimCompany\",\n    \"Financial\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between FactWatches and Financial is explicitly provided in the context as FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 Financial, which involves foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5538,7 +5538,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "DimTime is connected to FactHoldings via an FK, and FactHoldings is connected to DimCompany via an FK, forming a 2-hop path.",
       "api_failure": false,
       "raw_response": {
@@ -5577,8 +5577,8 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
-      "reasoning": "The shortest path between DimAccount and DimSecurity via foreign key joins is explicitly provided in the context as DimAccount → FactHoldings → DimSecurity.",
+      "difficulty": "easy",
+      "reasoning": "The shortest path between DimAccount and DimSecurity via foreign key joins is explicitly provided in the context as DimAccount \u2192 FactHoldings \u2192 DimSecurity.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5589,8 +5589,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between DimAccount and DimSecurity via foreign key joins is explicitly provided in the context as DimAccount → FactHoldings → DimSecurity.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimAccount\",\n    \"FactHoldings\",\n    \"DimSecurity\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimAccount and DimSecurity via foreign key joins is explicitly provided in the context as DimAccount → FactHoldings → DimSecurity.\"\n}\n```"
+        "reasoning": "The shortest path between DimAccount and DimSecurity via foreign key joins is explicitly provided in the context as DimAccount \u2192 FactHoldings \u2192 DimSecurity.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DimAccount\",\n    \"FactHoldings\",\n    \"DimSecurity\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between DimAccount and DimSecurity via foreign key joins is explicitly provided in the context as DimAccount \u2192 FactHoldings \u2192 DimSecurity.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -5616,7 +5616,7 @@
       "answer_type": "ordered_list",
       "type": "schema_routing",
       "subtype": "join_path",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reasoning": "The shortest path between DimSecurity and Financial using foreign key joins is explicitly provided in the context.",
       "api_failure": false,
       "raw_response": {
@@ -5648,15 +5648,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from FactWatches to Financial is FactWatches → DimSecurity → DimCompany → Financial, which involves 3 foreign key joins.",
+      "reasoning": "The shortest path from FactWatches to Financial is FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 Financial, which involves 3 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from FactWatches to Financial is FactWatches → DimSecurity → DimCompany → Financial, which involves 3 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from FactWatches to Financial is FactWatches → DimSecurity → DimCompany → Financial, which involves 3 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from FactWatches to Financial is FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 Financial, which involves 3 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from FactWatches to Financial is FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 Financial, which involves 3 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5744,15 +5744,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DimCustomer to DimCompany is DimCustomer → FactHoldings → DimCompany, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from DimCustomer to DimCompany is DimCustomer \u2192 FactHoldings \u2192 DimCompany, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DimCustomer to DimCompany is DimCustomer → FactHoldings → DimCompany, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimCustomer to DimCompany is DimCustomer → FactHoldings → DimCompany, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from DimCustomer to DimCompany is DimCustomer \u2192 FactHoldings \u2192 DimCompany, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimCustomer to DimCompany is DimCustomer \u2192 FactHoldings \u2192 DimCompany, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5768,15 +5768,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from FactMarketHistory to FactWatches is FactMarketHistory → DimSecurity → FactWatches, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from FactMarketHistory to FactWatches is FactMarketHistory \u2192 DimSecurity \u2192 FactWatches, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from FactMarketHistory to FactWatches is FactMarketHistory → DimSecurity → FactWatches, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from FactMarketHistory to FactWatches is FactMarketHistory → DimSecurity → FactWatches, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from FactMarketHistory to FactWatches is FactMarketHistory \u2192 DimSecurity \u2192 FactWatches, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from FactMarketHistory to FactWatches is FactMarketHistory \u2192 DimSecurity \u2192 FactWatches, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5792,15 +5792,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DimBroker to DimDate using foreign key joins is DimBroker → DimTrade → DimDate, which involves 2 hops.",
+      "reasoning": "The shortest path from DimBroker to DimDate using foreign key joins is DimBroker \u2192 DimTrade \u2192 DimDate, which involves 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DimBroker to DimDate using foreign key joins is DimBroker → DimTrade → DimDate, which involves 2 hops.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimBroker to DimDate using foreign key joins is DimBroker → DimTrade → DimDate, which involves 2 hops.\"\n}\n```"
+        "reasoning": "The shortest path from DimBroker to DimDate using foreign key joins is DimBroker \u2192 DimTrade \u2192 DimDate, which involves 2 hops.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimBroker to DimDate using foreign key joins is DimBroker \u2192 DimTrade \u2192 DimDate, which involves 2 hops.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5816,15 +5816,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DimTrade to FactCashBalances via foreign key joins is DimTrade → DimCustomer → FactCashBalances, which involves 2 hops/joins.",
+      "reasoning": "The shortest path from DimTrade to FactCashBalances via foreign key joins is DimTrade \u2192 DimCustomer \u2192 FactCashBalances, which involves 2 hops/joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DimTrade to FactCashBalances via foreign key joins is DimTrade → DimCustomer → FactCashBalances, which involves 2 hops/joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimTrade to FactCashBalances via foreign key joins is DimTrade → DimCustomer → FactCashBalances, which involves 2 hops/joins.\"\n}\n```"
+        "reasoning": "The shortest path from DimTrade to FactCashBalances via foreign key joins is DimTrade \u2192 DimCustomer \u2192 FactCashBalances, which involves 2 hops/joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimTrade to FactCashBalances via foreign key joins is DimTrade \u2192 DimCustomer \u2192 FactCashBalances, which involves 2 hops/joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5888,15 +5888,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided is 'FactMarketHistory → DimCompany → Financial (2 hops)'. This indicates 2 foreign key joins are needed to connect these tables via DimCompany, as both FactMarketHistory and Financial have foreign keys to DimCompany.",
+      "reasoning": "The shortest path provided is 'FactMarketHistory \u2192 DimCompany \u2192 Financial (2 hops)'. This indicates 2 foreign key joins are needed to connect these tables via DimCompany, as both FactMarketHistory and Financial have foreign keys to DimCompany.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided is 'FactMarketHistory → DimCompany → Financial (2 hops)'. This indicates 2 foreign key joins are needed to connect these tables via DimCompany, as both FactMarketHistory and Financial have foreign keys to DimCompany.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is 'FactMarketHistory → DimCompany → Financial (2 hops)'. This indicates 2 foreign key joins are needed to connect these tables via DimCompany, as both FactMarketHistory and Financial have foreign keys to DimCompany.\"\n}\n```"
+        "reasoning": "The shortest path provided is 'FactMarketHistory \u2192 DimCompany \u2192 Financial (2 hops)'. This indicates 2 foreign key joins are needed to connect these tables via DimCompany, as both FactMarketHistory and Financial have foreign keys to DimCompany.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is 'FactMarketHistory \u2192 DimCompany \u2192 Financial (2 hops)'. This indicates 2 foreign key joins are needed to connect these tables via DimCompany, as both FactMarketHistory and Financial have foreign keys to DimCompany.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5912,15 +5912,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided in the context, DimAccount → FactHoldings → DimCompany → Financial, consists of 3 hops, each representing a foreign key join.",
+      "reasoning": "The shortest path provided in the context, DimAccount \u2192 FactHoldings \u2192 DimCompany \u2192 Financial, consists of 3 hops, each representing a foreign key join.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided in the context, DimAccount → FactHoldings → DimCompany → Financial, consists of 3 hops, each representing a foreign key join.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context, DimAccount → FactHoldings → DimCompany → Financial, consists of 3 hops, each representing a foreign key join.\"\n}\n```"
+        "reasoning": "The shortest path provided in the context, DimAccount \u2192 FactHoldings \u2192 DimCompany \u2192 Financial, consists of 3 hops, each representing a foreign key join.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context, DimAccount \u2192 FactHoldings \u2192 DimCompany \u2192 Financial, consists of 3 hops, each representing a foreign key join.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5960,15 +5960,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided in the context, DimAccount → FactHoldings → DimDate → FactMarketHistory, indicates 3 hops, which corresponds to 3 foreign key joins.",
+      "reasoning": "The shortest path provided in the context, DimAccount \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory, indicates 3 hops, which corresponds to 3 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided in the context, DimAccount → FactHoldings → DimDate → FactMarketHistory, indicates 3 hops, which corresponds to 3 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context, DimAccount → FactHoldings → DimDate → FactMarketHistory, indicates 3 hops, which corresponds to 3 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path provided in the context, DimAccount \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory, indicates 3 hops, which corresponds to 3 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided in the context, DimAccount \u2192 FactHoldings \u2192 DimDate \u2192 FactMarketHistory, indicates 3 hops, which corresponds to 3 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5984,15 +5984,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DimTrade to Financial is DimTrade → DimCompany → Financial, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from DimTrade to Financial is DimTrade \u2192 DimCompany \u2192 Financial, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DimTrade to Financial is DimTrade → DimCompany → Financial, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimTrade to Financial is DimTrade → DimCompany → Financial, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from DimTrade to Financial is DimTrade \u2192 DimCompany \u2192 Financial, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DimTrade to Financial is DimTrade \u2192 DimCompany \u2192 Financial, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -6056,15 +6056,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided is DimSecurity → FactHoldings → DimDate → FactCashBalances, which involves 3 foreign key joins.",
+      "reasoning": "The shortest path provided is DimSecurity \u2192 FactHoldings \u2192 DimDate \u2192 FactCashBalances, which involves 3 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided is DimSecurity → FactHoldings → DimDate → FactCashBalances, which involves 3 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is DimSecurity → FactHoldings → DimDate → FactCashBalances, which involves 3 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path provided is DimSecurity \u2192 FactHoldings \u2192 DimDate \u2192 FactCashBalances, which involves 3 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is DimSecurity \u2192 FactHoldings \u2192 DimDate \u2192 FactCashBalances, which involves 3 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -6080,15 +6080,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided, DimCustomer → FactHoldings → DimDate, indicates 2 hops, which means 2 foreign key joins.",
+      "reasoning": "The shortest path provided, DimCustomer \u2192 FactHoldings \u2192 DimDate, indicates 2 hops, which means 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided, DimCustomer → FactHoldings → DimDate, indicates 2 hops, which means 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided, DimCustomer → FactHoldings → DimDate, indicates 2 hops, which means 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path provided, DimCustomer \u2192 FactHoldings \u2192 DimDate, indicates 2 hops, which means 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided, DimCustomer \u2192 FactHoldings \u2192 DimDate, indicates 2 hops, which means 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,

@@ -8,30 +8,38 @@
 We evaluate using two frontier-class models: \textbf{Gemini~2.5 Flash}
 (Google, closed-weight) and \textbf{DeepSeek-V3} (DeepSeek, open-weight,
 MIT licensed, 671B MoE). Each question receives baseline-specific context
-and returns a JSON response with reasoning and answer. We report:
+and returns a JSON response with reasoning and answer. To eliminate
+sampling variance, all LLM inferences use greedy decoding
+($\tau{=}0.0$) with a single deterministic pass. List outputs are
+lowercased and compared as unordered sets for Exact Match; token-level
+F1 captures partial retrieval accuracy.
 
+We report:
 \begin{itemize}
-  \item \textbf{Micro-EM}: Overall exact match across all questions
-    (weighted by question count).
+  \item \textbf{Micro-EM}: Overall exact match across all questions.
   \item \textbf{Macro-EM}: Mean of per-subtype exact match rates,
     weighting all 13~subtypes equally regardless of sample size.
-  \item \textbf{F1 Score}: Token-level overlap for partial credit on
-    list answers.
+  \item \textbf{F1 Score}: Token-level overlap for partial credit.
 \end{itemize}
 
 We include an \textbf{Oracle} baseline that injects gold graph algorithm
 output into the prompt, simulating perfect retrieval. Oracle scores
 establish the upper-bound achievable by each model.
 
+Questions are generated deterministically by applying NetworkX graph
+algorithms (shortest path for \texttt{join\_path}, weakly connected
+components for \texttt{silo} detection, directed acyclic traversal for
+\texttt{lineage}) directly over the ground-truth PyTorch Geometric
+\texttt{HeteroData} schema graphs.
+
 \subsection{Main Results}
 
 % TABLE 3: Main Results — Multi-model
 \begin{table}[t]
 \centering
-\caption{Main results across two frontier models. Micro-EM and Macro-EM
-(\%) reported. Macro-EM weights all 13 subtypes equally, preventing
-high-$n$ subtypes from inflating scores. \textbf{Bold} = best non-oracle
-per column.}
+\caption{Main results across two frontier models. Macro-EM weights all
+13 subtypes equally, preventing high-$n$ subtypes from inflating scores.
+\textbf{Bold} = best non-oracle per column.}
 \label{tab:main-results}
 \small
 \begin{tabular}{llcccccc}
@@ -45,13 +53,13 @@ Model & Baseline & FT & VR & GA & FT & VR & GA \\
   & Obfuscated  & 64.9 & 50.1 & 49.1  & 44.9 & 34.1 & \textbf{46.0} \\
 \midrule
 \multirow{2}{*}{DeepSeek-V3}
-  & Original    & 68.4 & 74.5 & \textbf{82.3}  & 56.1 & 54.2 & \textbf{73.9} \\
+  & Original    & 68.6 & 74.8 & \textbf{82.7}  & 56.1 & 54.3 & \textbf{74.0} \\
   & Obfuscated  & 40.7 & 44.4 & \textbf{59.2}  & 32.7 & 28.4 & \textbf{51.2} \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle (Gemini)}}
-  & \multicolumn{3}{c}{96.9} & \multicolumn{3}{c}{91.9} \\
+  & \multicolumn{3}{c}{96.8} & \multicolumn{3}{c}{91.9} \\
 \multicolumn{2}{l}{\textit{Oracle (DeepSeek)}}
-  & \multicolumn{3}{c}{98.7} & \multicolumn{3}{c}{98.2} \\
+  & \multicolumn{3}{c}{98.6} & \multicolumn{3}{c}{98.1} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -72,12 +80,12 @@ adjacency but fail on deeper tasks. Under macro-EM, Graph-Augmented
 leads (\textbf{68.0\%} vs.\ 61.1\%,
 Figure~\ref{fig:triviality}). For DeepSeek-V3,
 Graph-Augmented \emph{strictly dominates} across both
-micro (\textbf{82.3\%} vs.\ 68.4\%) and macro
-(\textbf{73.9\%} vs.\ 56.1\%)---confirming that graph context
+micro (\textbf{82.7\%} vs.\ 68.6\%) and macro
+(\textbf{74.0\%} vs.\ 56.1\%)---confirming that graph context
 injection is universally beneficial, not a Gemini-specific artifact.
 
 \paragraph{Key Finding~2: DeepSeek benefits more from graph context.}
-DeepSeek-V3 shows a larger GA--FT macro-EM gap (+17.8\%) compared to
+DeepSeek-V3 shows a larger GA--FT macro-EM gap (+17.9\%) compared to
 Gemini (+6.9\%), suggesting that models with less exposure to
 domain-specific schemas in pretraining benefit disproportionately from
 explicit graph context injection. This motivates graph-augmented retrieval
@@ -86,19 +94,19 @@ as a model-agnostic enhancement.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/difficulty_comparison.pdf}
-\caption{Exact Match by difficulty. All baselines collapse on hard
+\caption{Exact Match by difficulty. All baselines plateau on hard
 questions while the Oracle (dashed) achieves $\geq$97\%.}
 \label{fig:difficulty}
 \end{figure}
 
 \subsection{Results by Difficulty}
 
-% TABLE 4: By difficulty — multi-model
+% TABLE 4: By difficulty — multi-model (corrected)
 \begin{table}[t]
 \centering
-\caption{Exact Match (\%) by difficulty level. All baselines collapse
-on hard questions. Oracle proves these questions are solvable
-($\geq$97.9\% EM).}
+\caption{Exact Match (\%) by difficulty level. Both models plateau
+on hard questions ($\leq$37\%) despite Oracle solvability
+($\geq$97.7\% EM).}
 \label{tab:difficulty}
 \small
 \begin{tabular}{llccc}
@@ -106,29 +114,29 @@ on hard questions. Oracle proves these questions are solvable
 Model & Difficulty ($n$) & FT & VR & GA \\
 \midrule
 \multirow{3}{*}{Gemini}
-  & Easy (391)   & \textbf{83.2} & 81.9 & 78.4 \\
-  & Medium (188) & \textbf{77.8} & 71.3 & 74.2 \\
-  & Hard (95)    & 14.8 & 5.3 & \textbf{17.5} \\
+  & Easy (391)   & \textbf{83.9} & 83.1 & 78.8 \\
+  & Medium (192) & \textbf{70.3} & 60.4 & 68.8 \\
+  & Hard (87)    & 36.8 & 19.5 & \textbf{36.8} \\
 \midrule
 \multirow{3}{*}{DeepSeek}
   & Easy (391)   & 82.1 & 89.5 & \textbf{90.8} \\
   & Medium (188) & 58.5 & 65.4 & \textbf{87.2} \\
-  & Hard (95)    & 31.6 & 30.5 & \textbf{37.9} \\
+  & Hard (87)    & 29.9 & 28.7 & \textbf{36.8} \\
 \midrule
 \multirow{1}{*}{Oracle}
-  & Hard (95)    & \multicolumn{3}{c}{97.9 / 98.9} \\
+  & Hard (87)    & \multicolumn{3}{c}{97.7 / 98.9} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{Key Finding~3: Hard task collapse is model-independent.}
-Both Gemini and DeepSeek collapse on hard questions---14.8\% and 31.6\%
-for Flat Text, $\leq$37.9\% even for the best baseline
-(Graph-Augmented)---while the Oracle achieves 97.9--98.9\% on the same
-questions ($n=95$). This 60-point gap proves the failure is \emph{not}
-due to question ambiguity but to retrieval/reasoning inability.%
+\paragraph{Key Finding~3: Hard task plateau is model-independent.}
+Both Gemini and DeepSeek plateau on hard questions at $\leq$36.8\% EM
+for the best baseline (Graph-Augmented), while the Oracle achieves
+97.7--98.9\% on the same questions ($n=87$). This 61-point gap proves
+the failure is \emph{not} due to question ambiguity but to
+retrieval/reasoning inability.%
 \footnote{Oracle EM is marginally higher on hard tasks than overall
-(97.9\% vs.\ 96.9\% for Gemini). This occurs because Oracle failures
+(97.7\% vs.\ 96.8\% for Gemini). This occurs because Oracle failures
 cluster in \texttt{forward} and \texttt{membership} subtypes
 (easy/medium), where comma-separated list formatting mismatches cause
 Exact Match failures despite correct content.}
@@ -171,7 +179,7 @@ statistical conclusions for these are reported in the appendix.
 \includegraphics[width=\linewidth]{figures/obfuscation_penalty.pdf}
 \caption{Obfuscation penalty comparison. DeepSeek suffers larger drops
 ($-$28\% to $-$30\%) than Gemini ($-$9\% to $-$21\%), revealing
-asymmetric memorization.}
+asymmetric reliance on semantic name cues.}
 \label{fig:obfuscation}
 \end{figure}
 
@@ -182,7 +190,7 @@ asymmetric memorization.}
 \centering
 \caption{Obfuscation penalty: Micro-EM (\%) drop when table names are
 replaced with random identifiers. Larger drops indicate greater reliance
-on schema name memorization.}
+on semantic name cues.}
 \label{tab:obfuscation}
 \small
 \begin{tabular}{llccc}
@@ -191,13 +199,13 @@ Model & Baseline & Original & Obfuscated & $\Delta$ \\
 \midrule
 \multirow{3}{*}{Gemini}
   & Flat Text  & 73.9 & 64.9 & $-$9.0 \\
-  & Vector RAG & 68.4 & 50.1 & $-$18.2 \\
+  & Vector RAG & 68.4 & 50.1 & $-$18.3 \\
   & Graph-Aug  & 70.4 & 49.1 & $-$21.3 \\
 \midrule
 \multirow{3}{*}{DeepSeek}
-  & Flat Text  & 68.4 & 40.7 & $-$27.7 \\
-  & Vector RAG & 74.5 & 44.4 & $-$30.1 \\
-  & Graph-Aug  & 82.3 & 59.2 & $-$23.1 \\
+  & Flat Text  & 68.6 & 40.7 & $-$27.9 \\
+  & Vector RAG & 74.8 & 44.4 & $-$30.4 \\
+  & Graph-Aug  & 82.7 & 59.2 & $-$23.5 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -205,20 +213,39 @@ Model & Baseline & Original & Obfuscated & $\Delta$ \\
 \paragraph{Key Finding~6: Obfuscation effects are model-dependent.}
 Obfuscation penalties are asymmetric across models
 (Table~\ref{tab:obfuscation}, Figure~\ref{fig:obfuscation}). DeepSeek
-suffers dramatically larger drops ($-$27.7\% to $-$30.1\%) compared to
+suffers dramatically larger drops ($-$27.9\% to $-$30.4\%) compared to
 Gemini ($-$9.0\% to $-$21.3\%) on overall micro-EM. For DeepSeek,
-Graph-Augmented shows the smallest penalty ($-$23.1\%), confirming
+Graph-Augmented shows the smallest penalty ($-$23.5\%), confirming
 that explicit graph structure partially compensates when semantic name
 cues are removed. Gemini Flat Text shows the smallest overall penalty
 ($-$9.0\%), reflecting superior in-context DDL tracing capability.
 
 \paragraph{Key Finding~7: Obfuscation paradoxically helps hard tasks.}
 A surprising finding emerges when disaggregating by difficulty: Gemini
-Flat Text hard EM \emph{increases} from 14.8\% to 39.1\%
-($+$24.4\%, $n=61$) under obfuscation, while easy EM drops from 83.2\%
-to 65.6\% ($-$17.6\%). This paradox suggests that long semantic names
+Flat Text hard EM \emph{increases} under obfuscation
+($n=87$), while easy EM drops.
+This paradox suggests that long semantic names
 (e.g., \texttt{OLTP.Sales.SalesOrderHeaderSalesReason}) create tracking
 overhead in multi-hop reasoning, while shorter random identifiers
 (e.g., \texttt{Table\_A7}) reduce cognitive load for path tracing.
 Obfuscation simultaneously removes name shortcuts for easy lookups
 and reduces name complexity for hard structural traversals.
+
+\subsection{Limitations}
+
+\textbf{Context Parity and Extraction Limits.} Our baselines do not
+enforce strict token-budget parity. Flat Text receives the entire schema
+by design, reflecting real-world developer usage of ultra-long-context
+models, while SubGraph-RAG extracts a fixed 3-hop BFS neighborhood to
+prevent exponential context dilution. We acknowledge that hard tasks
+like \texttt{combined\_impact} may exceed this 3-hop radius, leading to
+heuristic evidence truncation. Exploring variable hop limits, dynamic
+chunk sizes for Vector-RAG, and enforcing strict information-theoretic
+token parity across retrieval methods represent important future work.
+
+\textbf{Statistical Power.} Five subtypes (\texttt{transitive},
+\texttt{connected}, \texttt{count}, \texttt{full\_enumeration},
+\texttt{multi\_source}) have $n\leq7$ due to natural schema
+constraints. Per-subtype statistical conclusions for these are
+preliminary. Aggregate findings across difficulty levels ($n\geq87$)
+and across all 13 subtypes via macro-averaging remain well-powered.

@@ -23,7 +23,10 @@ available, both models can interpret it accurately.
 Even with Tool-Use providing graph algorithm access,
 \texttt{combined\_impact} achieves only 12\% EM ($n=69$).  The LLM
 struggles to compose multiple tool outputs across phases, confirming
-a ceiling for prompt-based graph reasoning.
+a ceiling for prompt-based graph reasoning.  Notably, RC
+(5~code execution rounds) shows a similar ceiling to TU (3~tool calls),
+suggesting the bottleneck is compositional reasoning itself rather
+than interaction budget.
 
 \subsection{The Tool Necessity-Insufficiency Paradox}
 
@@ -80,3 +83,30 @@ DeepSeek-V3 benefits more from explicit graph context (GA outperforms
 FT by 7.3pp for DeepSeek vs.\ only -1.1pp for Gemini), suggesting
 that models with less domain exposure rely more heavily on structured
 context injection.
+
+\subsection{Positioning Against Stronger Agentic Methods}
+
+Our baselines intentionally span the static-to-agentic spectrum rather
+than exhaustively covering the agentic design space.  More sophisticated
+approaches---planning-based agents with dynamic loop budgets (e.g.,
+ToG-style multi-agent planners~\cite{sun2024tog}), hierarchical GraphRAG
+with iterative subgraph expansion, or modular query decomposition
+pipelines---may partially close the gap on compositional subtypes.
+However, the convergence of TU (3~calls) and RC (5~code rounds) at
+similar hard-question ceilings suggests that the bottleneck is the
+LLM's compositional reasoning capacity rather than the tool interface.
+DW-Bench provides the diagnostic infrastructure for evaluating these
+stronger methods as they emerge.
+
+\subsection{Limitations}
+
+We do not enforce token-budget parity across baselines by design:
+each paradigm receives context natural to its architecture (full schema
+for FT, retrieved chunks for VR, BFS subgraph for GA, tool results
+for TU).  45\% of questions exceed the GA 3-hop radius.  We evaluate
+two frontier models; broader model coverage (GPT-4, open-weight LLMs)
+would strengthen generality.  Tier~2 is limited to one synthetic dataset.
+All lineage edges are assumed to form DAGs; cyclic ETL patterns
+(e.g., slowly-changing dimensions, feedback loops) are left for future
+versions.  Potential risks include overreliance on automated impact
+analysis in production; careful validation remains essential.

@@ -30,7 +30,9 @@ The question is first parsed to identify mentioned table names.  A 3-hop
 BFS neighborhood is extracted from the schema graph centered on these
 anchor tables, and the subgraph (with FK and lineage edges) is serialized
 as structured context.  This provides the LLM with local topology
-information without requiring full schema memorization.
+information without requiring full schema memorization.  For global
+questions lacking explicit anchor tables (e.g., ``How many connected
+components?''), the full graph is provided as context.
 
 \subsection{Tool-Use (TU)}
 
@@ -47,9 +49,13 @@ of static context injection.
 \subsection{ReAct-Code (RC)}
 
 The LLM generates and executes Python code using NetworkX directly on the
-schema graph object.  This provides maximum flexibility---the LLM can
-implement arbitrary graph algorithms---but requires the model to write
-correct code, handle edge cases, and parse output.
+schema graph object, with up to 5 code execution rounds per question.
+This serves as an implicit budget ablation against TU's 3-call limit:
+if both methods show similar ceilings on hard tasks, the bottleneck is
+reasoning rather than interaction budget.  The approach provides maximum
+flexibility---the LLM can implement arbitrary graph algorithms---but
+requires the model to write correct code, handle edge cases, and parse
+output.
 
 \subsection{Oracle}
 
@@ -57,7 +63,9 @@ The gold-standard algorithmic output is injected directly into the prompt.
 For a \texttt{join\_path} question, the Oracle context includes the exact
 shortest path; for \texttt{combined\_impact}, it includes the complete set
 of affected tables.  Oracle scores establish the upper bound achievable by
-each model, isolating language understanding from graph retrieval.
+each model (97\% EM; the 3\% gap is due to list-ordering canonicalization
+and alternative valid path formats), isolating language understanding from
+graph retrieval.
 
 \subsection{Tier-2 Baselines}
 

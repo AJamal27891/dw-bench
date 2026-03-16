@@ -6,7 +6,7 @@
 \section{Supplementary Figures}
 \label{app:figures}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/triviality_illusion.pdf}
 \caption{The Triviality Illusion: Micro vs.\ Macro EM. Negative deltas
@@ -14,26 +14,18 @@ reveal that easy subtypes inflate aggregate scores for static baselines.}
 \label{fig:triviality}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.pdf}
-\caption{EM by gold path length (Gemini). Static baselines collapse
-beyond 3~hops; Tool-Use degrades more gracefully.}
-\label{fig:hop_decay}
-\end{figure}
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/obfuscation_penalty.pdf}
-\caption{Obfuscation penalty by baseline and model.}
+\caption{Obfuscation penalty by baseline and model. Tool-Use loses
+only 3--4\% while static baselines lose 15--32\%.}
 \label{fig:obfuscation}
 \end{figure}
 
 \section{Tier~2 Full Results}
 \label{app:tier2}
 
-% TABLE: Tier 2
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Tier~2 value-level results (EM~\%, Gemini, Syn-Logistics).}
 \label{tab:tier2}
@@ -56,13 +48,53 @@ shared\_source          & 35  & \textbf{37} & 26  & 23 \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
 \caption{Tier~2 EM by subtype (Gemini). \texttt{cascade\_count} and
 \texttt{row\_provenance} require tools (100\%/92\% vs.\ 0\%).}
 \label{fig:tier2}
 \end{figure}
+
+\section{Hop-Distance Analysis}
+\label{app:hop-distance}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.pdf}
+\caption{EM by gold path length (Gemini). Static baselines collapse
+beyond 3~hops; Tool-Use degrades more gracefully.}
+\label{fig:hop_decay}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Minimum evidence hops per subtype (Syn-Logistics).
+45.4\% of questions exceed the GA 3-hop BFS radius.}
+\label{tab:hop-distance}
+\small
+\begin{tabular}{lrrrc}
+\toprule
+Subtype & $n$ & Exceeds 3h & \% & GA EM \\
+\midrule
+count            & 26 & 26 & 100\% & 100\% \\
+membership       & 20 & 20 & 100\% & 0\% \\
+combined\_impact & 34 & 34 & 100\% & 0\% \\
+full\_enum       & 25 & 25 & 100\% & 100\% \\
+connected        & 25 & 25 & 100\% & 100\% \\
+isolation        & 25 & 25 & 100\% & 100\% \\
+transitive       & 29 &  4 &  14\% & 93\% \\
+hop\_count       & 44 &  5 &  11\% & 100\% \\
+direct\_fk       & 36 &  3 &   8\% & 100\% \\
+join\_path       & 26 &  2 &   8\% & 81\% \\
+multi\_source    & 42 &  0 &   0\% & 95\% \\
+forward          & 20 &  0 &   0\% & 100\% \\
+reverse          & 20 &  0 &   0\% & 100\% \\
+\midrule
+\textbf{Total}   & 372 & 169 & \textbf{45.4\%} & 83.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Dataset Details}
 \label{app:datasets}
@@ -79,52 +111,90 @@ from realistic supply-chain terminology (64 tables, 96 FK, 35 lineage).
 \textbf{OMOP}: OHDSI ETL conventions (21 edges).
 \textbf{Syn-Log}: By construction (35 edges).
 
-\section{Hop-Distance Analysis}
-\label{app:hop-distance}
-
-\begin{table}[h]
-\centering
-\caption{Evidence hops per subtype (Syn-Logistics). 45.4\% of questions
-exceed the GA 3-hop radius.}
-\label{tab:hop-distance}
-\small
-\begin{tabular}{lrrrc}
-\toprule
-Subtype & $n$ & Exceeds 3h & \% & GA EM \\
-\midrule
-count            & 26 & 26 & 100\% & 100\% \\
-membership       & 20 & 20 & 100\% & 0\% \\
-combined\_impact & 34 & 34 & 100\% & 0\% \\
-full\_enum       & 25 & 25 & 100\% & 100\% \\
-transitive       & 29 &  4 &  14\% & 93\% \\
-join\_path       & 26 &  2 &   8\% & 81\% \\
-forward          & 20 &  0 &   0\% & 100\% \\
-\midrule
-\textbf{Total}   & 372 & 169 & \textbf{45.4\%} & 83.1\% \\
-\bottomrule
-\end{tabular}
-\end{table}
-
 \section{Evaluation Details}
 \label{app:decoding}
 
-All inferences use greedy decoding ($\tau{=}0$, $p{=}1.0$) in a single
-deterministic pass. Vector-RAG uses \texttt{all-MiniLM-L6-v2} with
-$k{=}15$. List answers are compared as sorted sets after lowercasing.
+\paragraph{Models.}
+\textbf{Gemini~2.5~Flash} (Google, closed-weight, accessed via API) and
+\textbf{DeepSeek-V3} (DeepSeek, 671B MoE, MIT licensed, accessed via API).
+Both use greedy decoding ($\tau{=}0$, $p{=}1.0$) with a single
+deterministic pass per question for exact reproducibility.
 
-\section{Example Questions}
+\paragraph{Scoring.}
+\emph{Exact Match (EM)}: predicted answer must exactly match the gold
+answer after canonicalization.
+\emph{Path validation}: for \texttt{join\_path}, alternative shortest
+paths of equal length are validated against the FK adjacency matrix.
+\emph{List canonicalization}: lists are lowercased and sorted
+alphabetically before comparison; order does not matter.
+\emph{F1}: token-level overlap between predicted and gold answer sets.
+
+\paragraph{Retrieval.}
+Vector-RAG uses \texttt{all-MiniLM-L6-v2}~\cite{reimers2019sentencebert}
+embeddings with FAISS exact search and $k{=}15$ retrieved chunks.
+Graph-Augmented uses 3-hop BFS neighborhoods from mentioned tables.
+Tool-Use provides 9 graph algorithm tools with up to 3 calls per question.
+ReAct-Code provides a Python REPL with NetworkX and allows up to 5 code
+execution rounds per question.
+
+\paragraph{Statistical treatment.}
+All figures include 95\% bootstrap confidence intervals computed via
+2,000 resamples over questions. Per-question results (JSON) are released
+for community bootstrap and stratification analyses.
+
+\section{Example Questions and Predictions}
 \label{app:examples}
 
-\paragraph{Easy (\texttt{direct\_fk}):}
-\emph{``Is there a direct FK between \texttt{DW.DimProduct} and
-\texttt{DW.FactInternetSales}?''} \textbf{Gold: yes}
-
-\paragraph{Medium (\texttt{join\_path}):}
-\emph{``Shortest FK path from \texttt{DW.DimCustomer} to
-\texttt{DW.DimProduct}?''} \textbf{Gold: [DimCustomer, FactInternetSales,
-DimProduct]}
-
-\paragraph{Hard (\texttt{combined\_impact}):}
-\emph{``Which tables are transitively affected if
-\texttt{raw\_purchase\_orders} is modified?''}
-\textbf{Gold: [stg\_purchase\_orders, dim\_supplier, ...]} (8 tables)
+\begin{table}[H]
+\centering
+\caption{Representative questions across difficulty levels and
+categories, with gold answers and Tool-Use (TU) predictions.
+\cmark~=~correct, \xmark~=~incorrect.
+Tool-Use succeeds on lookup-style questions (direct FK, shortest path,
+cascade count) but fails on exhaustive enumeration (membership) and
+multi-hop composition (combined impact, provenance tracing).}
+\label{tab:examples}
+\small
+\begin{tabular}{p{0.11\linewidth}p{0.38\linewidth}p{0.22\linewidth}p{0.20\linewidth}}
+\toprule
+\textbf{Subtype} & \textbf{Question} & \textbf{Gold} & \textbf{TU Pred.} \\
+\midrule
+\texttt{direct\_fk} \newline \textit{Easy} &
+Is there a direct FK between \texttt{DW.DimProduct} and
+\texttt{DW.FactInternetSales}? &
+yes &
+yes \cmark \\
+\midrule
+\texttt{join\_path} \newline \textit{Medium} &
+What is the shortest FK path from \texttt{DW.DimCustomer} to
+\texttt{DW.DimProduct}? &
+{[}DimCustomer, FactInternet\-Sales, DimProduct{]} &
+{[}DimCustomer, FactInternet\-Sales, DimProduct{]} \cmark \\
+\midrule
+\texttt{membership} \newline \textit{Hard} &
+Which connected component contains \texttt{DW.DimCurrency}? List all
+tables in that component. &
+{[}DimCurrency, FactCurrency\-Rate, DimDate, ...{]} (12 tables) &
+{[}DimCurrency{]} \xmark \\
+\midrule
+\texttt{combined\_\newline impact} \newline \textit{Hard} &
+Which tables are transitively affected (via lineage and FK) if
+\texttt{raw\_purchase\_ orders} is modified? &
+{[}stg\_purchase\_ orders, dim\_supplier, ...{]} (8 tables) &
+{[}stg\_purchase\_ orders{]} \xmark \\
+\midrule
+\texttt{cascade\_\newline count} \newline \textit{Tier~2} &
+How many downstream rows would be affected if we delete the row with
+\texttt{shipment\_id=SH042} from \texttt{raw\_shipments}? &
+147 &
+147 \cmark \\
+\midrule
+\texttt{multi\_hop\newline \_trace} \newline \textit{Tier~2} &
+Trace the full provenance chain of \texttt{order\_id=ORD-2891} in
+\texttt{mart\_profit\_analysis} back to its raw source tables. &
+{[}raw\_purchase\_orders $\to$ stg\_orders $\to$ dim\_product $\to$
+mart\_profit\_ analysis{]} &
+{[}raw\_purchase\\_ orders, mart\_profit\_ analysis{]} \xmark \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -10,7 +10,9 @@ We evaluate with \textbf{Gemini~2.5 Flash} and \textbf{DeepSeek-V3}
 reproducibility. We report pooled \textbf{Micro-EM} (overall exact
 match) and \textbf{Macro-EM} (mean of per-subtype EM, weighting all
 13~subtypes equally). An \textbf{Oracle} baseline injects gold
-algorithmic outputs, establishing an upper bound.
+algorithmic outputs, establishing an upper bound (97\% EM; the 3\% gap
+is due to list-ordering canonicalization and alternative valid path
+formats not captured by the scorer).
 
 \subsection{Tier~1: Main Results}
 
@@ -86,6 +88,9 @@ All baselines plateau at $\sim$60\% on hard questions while Oracle
 achieves $>$98\%. The \texttt{combined\_impact} subtype ($n=69$)
 averages only 12\% EM even with TU, identifying compositional
 graph reasoning as the fundamental bottleneck.
+Notably, RC (5~code rounds) shows a similar ceiling to TU (3~tool calls),
+suggesting the bottleneck is compositional reasoning itself rather
+than interaction budget.
 
 \begin{figure}[t]
 \centering
@@ -161,8 +166,18 @@ itself---the capability that GNN encoders are designed to provide.
 
 \subsection{Limitations}
 
-We do not enforce token-budget parity across baselines; 45\% of questions
-exceed the GA 3-hop radius. We use two frontier models with deterministic
-single-pass evaluation; broader model coverage and bootstrap intervals
-would strengthen generality. Tier~2 is limited to one synthetic dataset.
-DeepSeek RC has partial coverage (2/5 datasets).
+We do not enforce token-budget parity across baselines by design:
+each paradigm receives context natural to its architecture (full schema
+for FT, retrieved chunks for VR, BFS subgraph for GA, tool results
+for TU). 45\% of questions exceed the GA 3-hop radius. We use two
+frontier models with deterministic single-pass evaluation; broader
+model coverage would strengthen generality. Tier~2 is limited to one
+synthetic dataset. All lineage edges are assumed to form a DAG;
+cyclic ETL patterns (e.g., slowly-changing dimensions) are left
+for future versions. DeepSeek RC has partial coverage (2/5 datasets).
+
+\paragraph{Dataset licenses.}
+TPC-DS and TPC-DI are available under the TPC EULA (free for
+research). OMOP CDM uses the Apache~2.0 license. AdventureWorks
+is released under the Microsoft Public License. Syn-Logistics
+is our creation, released under MIT.

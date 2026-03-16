@@ -1,0 +1,5212 @@
+[
+  {
+    "id": "syn_logistics_transitive_000",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_delivery_performance through the ETL pipeline?",
+    "answer": [
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_delivery_performance through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_001",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_procurement_cost through the ETL pipeline?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_procurement_cost through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_002",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_supplier_scorecard through the ETL pipeline?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_supplier_scorecard through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_003",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_inventory_turnover through the ETL pipeline?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_inventory_turnover through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_004",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_headcount_report through the ETL pipeline?",
+    "answer": [
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_headcount_report through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_005",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_attrition_analysis through the ETL pipeline?",
+    "answer": [
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_attrition_analysis through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_006",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_readmission_risk through the ETL pipeline?",
+    "answer": [
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_readmission_risk through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_007",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_treatment_outcomes through the ETL pipeline?",
+    "answer": [
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_treatment_outcomes through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_008",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_conversion_funnel through the ETL pipeline?",
+    "answer": [
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_conversion_funnel through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_009",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_revenue_dashboard through the ETL pipeline?",
+    "answer": [
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_revenue_dashboard through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_010",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_trial_balance through the ETL pipeline?",
+    "answer": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_trial_balance through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_011",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "Which raw source tables transitively feed into mart_cash_flow_statement through the ETL pipeline?",
+    "answer": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS backward from mart_cash_flow_statement through derived_from edges to raw layer"
+  },
+  {
+    "id": "syn_logistics_transitive_012",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_purchase_orders is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_purchase_orders through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_013",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_shipment_tracking is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_delivery_performance",
+      "mart_procurement_cost"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_shipment_tracking through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_014",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_supplier_catalog is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_delivery_performance",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_supplier_catalog through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_015",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_warehouse_inventory is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_warehouse_inventory through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_016",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_freight_invoices is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_freight_invoices through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_017",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_employee_records is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_attrition_analysis",
+      "mart_headcount_report"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_employee_records through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_018",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_department_hierarchy is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_attrition_analysis",
+      "mart_headcount_report"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_department_hierarchy through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_019",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_compensation_data is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_attrition_analysis",
+      "mart_headcount_report"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_compensation_data through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_020",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_patient_intake is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_readmission_risk",
+      "mart_treatment_outcomes"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_patient_intake through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_021",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_lab_results is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_readmission_risk",
+      "mart_treatment_outcomes"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_lab_results through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_022",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_prescriptions is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_readmission_risk",
+      "mart_treatment_outcomes"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_prescriptions through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_023",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_cart_sessions is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_cart_sessions through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_024",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_product_catalog is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_product_catalog through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_025",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_payment_events is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_payment_events through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_026",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_ledger_entries is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_cash_flow_statement",
+      "mart_trial_balance"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_ledger_entries through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_027",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_bank_feeds is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_cash_flow_statement",
+      "mart_trial_balance"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_bank_feeds through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_transitive_028",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "transitive",
+    "question": "If raw_tax_filings is modified, which mart/reporting tables will be affected through the lineage chain?",
+    "answer": [
+      "mart_cash_flow_statement",
+      "mart_trial_balance"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "BFS forward from raw_tax_filings through derived_from edges to mart layer"
+  },
+  {
+    "id": "syn_logistics_multi_source_029",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_shipments_validated?",
+    "answer": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_030",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_suppliers_deduped?",
+    "answer": [
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_031",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_inventory_snapshot?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_032",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_freight_reconciled?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_purchase_orders"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_033",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_supplier?",
+    "answer": [
+      "stg_orders_cleaned",
+      "stg_shipments_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_034",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_product?",
+    "answer": [
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_035",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_warehouse?",
+    "answer": [
+      "stg_inventory_snapshot",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_036",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_carrier?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_037",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into fact_shipment?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_orders_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_038",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into fact_purchase_order?",
+    "answer": [
+      "stg_orders_cleaned",
+      "stg_shipments_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_039",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_delivery_performance?",
+    "answer": [
+      "dim_product",
+      "dim_supplier"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_040",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_procurement_cost?",
+    "answer": [
+      "dim_product",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_041",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_supplier_scorecard?",
+    "answer": [
+      "dim_carrier",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_042",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_inventory_turnover?",
+    "answer": [
+      "dim_carrier",
+      "fact_shipment"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_043",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_departments_mapped?",
+    "answer": [
+      "raw_compensation_data",
+      "raw_department_hierarchy"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_044",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_compensation_normalized?",
+    "answer": [
+      "raw_compensation_data",
+      "raw_employee_records"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_045",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_employee?",
+    "answer": [
+      "stg_departments_mapped",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_046",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_department?",
+    "answer": [
+      "stg_compensation_normalized",
+      "stg_departments_mapped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_047",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into fact_payroll?",
+    "answer": [
+      "stg_compensation_normalized",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_048",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_headcount_report?",
+    "answer": [
+      "dim_department",
+      "dim_employee"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_049",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_attrition_analysis?",
+    "answer": [
+      "dim_department",
+      "fact_payroll"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_050",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_labs_standardized?",
+    "answer": [
+      "raw_lab_results",
+      "raw_prescriptions"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_051",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_prescriptions_coded?",
+    "answer": [
+      "raw_patient_intake",
+      "raw_prescriptions"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_052",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_patient?",
+    "answer": [
+      "stg_labs_standardized",
+      "stg_patients_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_053",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_provider?",
+    "answer": [
+      "stg_labs_standardized",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_054",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into fact_encounter?",
+    "answer": [
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_055",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_readmission_risk?",
+    "answer": [
+      "dim_patient",
+      "dim_provider"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_056",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_treatment_outcomes?",
+    "answer": [
+      "dim_provider",
+      "fact_encounter"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_057",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_products_normalized?",
+    "answer": [
+      "raw_payment_events",
+      "raw_product_catalog"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_058",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_payments_validated?",
+    "answer": [
+      "raw_cart_sessions",
+      "raw_payment_events"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_059",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_customer?",
+    "answer": [
+      "stg_products_normalized",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_060",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_product_listing?",
+    "answer": [
+      "stg_payments_validated",
+      "stg_products_normalized"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_061",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into fact_transaction?",
+    "answer": [
+      "stg_payments_validated",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_062",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_conversion_funnel?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_063",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_revenue_dashboard?",
+    "answer": [
+      "dim_product_listing",
+      "fact_transaction"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_064",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_bank_matched?",
+    "answer": [
+      "raw_bank_feeds",
+      "raw_tax_filings"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_065",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into stg_tax_validated?",
+    "answer": [
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_066",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_account?",
+    "answer": [
+      "stg_bank_matched",
+      "stg_ledger_reconciled"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_067",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into dim_cost_center?",
+    "answer": [
+      "stg_bank_matched",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_068",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into fact_journal_entry?",
+    "answer": [
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_069",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_trial_balance?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_multi_source_070",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "multi_source",
+    "question": "Which tables directly feed into mart_cash_flow_statement?",
+    "answer": [
+      "dim_cost_center",
+      "fact_journal_entry"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Direct predecessors in derived_from edges"
+  },
+  {
+    "id": "syn_logistics_connected_071",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_carrier and dim_department in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 0 and 1 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_072",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_carrier and dim_patient in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 0 and 2 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_073",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_carrier and dim_customer in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 0 and 3 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_074",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_carrier and dim_account in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 0 and 4 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_075",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_department and dim_patient in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 1 and 2 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_076",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_department and dim_customer in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 1 and 3 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_077",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_department and dim_account in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 1 and 4 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_078",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_patient and dim_customer in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 2 and 3 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_079",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_patient and dim_account in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 2 and 4 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_080",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_customer and dim_account in the same connected component?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "Component 3 and 4 are disconnected"
+  },
+  {
+    "id": "syn_logistics_connected_081",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_carrier and dim_product in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 0"
+  },
+  {
+    "id": "syn_logistics_connected_082",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_carrier and dim_supplier in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 0"
+  },
+  {
+    "id": "syn_logistics_connected_083",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_carrier and dim_warehouse in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 0"
+  },
+  {
+    "id": "syn_logistics_connected_084",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_department and dim_employee in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 1"
+  },
+  {
+    "id": "syn_logistics_connected_085",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_department and fact_payroll in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 1"
+  },
+  {
+    "id": "syn_logistics_connected_086",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_department and mart_attrition_analysis in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 1"
+  },
+  {
+    "id": "syn_logistics_connected_087",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_patient and dim_provider in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 2"
+  },
+  {
+    "id": "syn_logistics_connected_088",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_patient and fact_encounter in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 2"
+  },
+  {
+    "id": "syn_logistics_connected_089",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_patient and mart_readmission_risk in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 2"
+  },
+  {
+    "id": "syn_logistics_connected_090",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_customer and dim_product_listing in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 3"
+  },
+  {
+    "id": "syn_logistics_connected_091",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_customer and fact_transaction in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 3"
+  },
+  {
+    "id": "syn_logistics_connected_092",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_customer and mart_conversion_funnel in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 3"
+  },
+  {
+    "id": "syn_logistics_connected_093",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_account and dim_cost_center in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 4"
+  },
+  {
+    "id": "syn_logistics_connected_094",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_account and fact_journal_entry in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 4"
+  },
+  {
+    "id": "syn_logistics_connected_095",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "connected",
+    "question": "Are dim_account and mart_cash_flow_statement in the same connected component?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "Both in component 4"
+  },
+  {
+    "id": "syn_logistics_count_096",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many disconnected components (data silos) exist in the schema?",
+    "answer": "5",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "5 connected components"
+  },
+  {
+    "id": "syn_logistics_count_097",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many tables are in the logistics data silo?",
+    "answer": "20",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "Component 0 has 20 tables"
+  },
+  {
+    "id": "syn_logistics_count_098",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many tables are in the hr data silo?",
+    "answer": "11",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "Component 1 has 11 tables"
+  },
+  {
+    "id": "syn_logistics_count_099",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many tables are in the healthcare data silo?",
+    "answer": "11",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "Component 2 has 11 tables"
+  },
+  {
+    "id": "syn_logistics_count_100",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many tables are in the ecommerce data silo?",
+    "answer": "11",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "Component 3 has 11 tables"
+  },
+  {
+    "id": "syn_logistics_count_101",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many tables are in the finance data silo?",
+    "answer": "11",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "Component 4 has 11 tables"
+  },
+  {
+    "id": "syn_logistics_count_102",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many raw-layer tables are in the logistics domain?",
+    "answer": "5",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "5 raw tables in logistics"
+  },
+  {
+    "id": "syn_logistics_count_103",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many staging-layer tables are in the logistics domain?",
+    "answer": "5",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "5 staging tables in logistics"
+  },
+  {
+    "id": "syn_logistics_count_104",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many core-layer tables are in the logistics domain?",
+    "answer": "6",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "6 core tables in logistics"
+  },
+  {
+    "id": "syn_logistics_count_105",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many mart-layer tables are in the logistics domain?",
+    "answer": "4",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "4 mart tables in logistics"
+  },
+  {
+    "id": "syn_logistics_count_106",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many raw-layer tables are in the hr domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 raw tables in hr"
+  },
+  {
+    "id": "syn_logistics_count_107",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many staging-layer tables are in the hr domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 staging tables in hr"
+  },
+  {
+    "id": "syn_logistics_count_108",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many core-layer tables are in the hr domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 core tables in hr"
+  },
+  {
+    "id": "syn_logistics_count_109",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many mart-layer tables are in the hr domain?",
+    "answer": "2",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "2 mart tables in hr"
+  },
+  {
+    "id": "syn_logistics_count_110",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many raw-layer tables are in the healthcare domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 raw tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_count_111",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many staging-layer tables are in the healthcare domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 staging tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_count_112",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many core-layer tables are in the healthcare domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 core tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_count_113",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many mart-layer tables are in the healthcare domain?",
+    "answer": "2",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "2 mart tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_count_114",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many raw-layer tables are in the ecommerce domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 raw tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_count_115",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many staging-layer tables are in the ecommerce domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 staging tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_count_116",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many core-layer tables are in the ecommerce domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 core tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_count_117",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many mart-layer tables are in the ecommerce domain?",
+    "answer": "2",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "2 mart tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_count_118",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many raw-layer tables are in the finance domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 raw tables in finance"
+  },
+  {
+    "id": "syn_logistics_count_119",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many staging-layer tables are in the finance domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 staging tables in finance"
+  },
+  {
+    "id": "syn_logistics_count_120",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many core-layer tables are in the finance domain?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "3 core tables in finance"
+  },
+  {
+    "id": "syn_logistics_count_121",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "count",
+    "question": "How many mart-layer tables are in the finance domain?",
+    "answer": "2",
+    "answer_type": "number",
+    "difficulty": "easy",
+    "reasoning": "2 mart tables in finance"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_122",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all tables in the logistics data silo.",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory",
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot",
+      "stg_orders_cleaned",
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "All tables in component 0"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_123",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all tables in the hr data silo.",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report",
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records",
+      "stg_compensation_normalized",
+      "stg_departments_mapped",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "All tables in component 1"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_124",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all tables in the healthcare data silo.",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes",
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions",
+      "stg_labs_standardized",
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "All tables in component 2"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_125",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all tables in the ecommerce data silo.",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard",
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog",
+      "stg_payments_validated",
+      "stg_products_normalized",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "All tables in component 3"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_126",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all tables in the finance data silo.",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance",
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings",
+      "stg_bank_matched",
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "All tables in component 4"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_127",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all raw tables in the logistics domain.",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "raw tables in logistics"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_128",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all staging tables in the logistics domain.",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot",
+      "stg_orders_cleaned",
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "staging tables in logistics"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_129",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all core tables in the logistics domain.",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "core tables in logistics"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_130",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all mart tables in the logistics domain.",
+    "answer": [
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "mart tables in logistics"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_131",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all raw tables in the hr domain.",
+    "answer": [
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "raw tables in hr"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_132",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all staging tables in the hr domain.",
+    "answer": [
+      "stg_compensation_normalized",
+      "stg_departments_mapped",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "staging tables in hr"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_133",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all core tables in the hr domain.",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "core tables in hr"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_134",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all mart tables in the hr domain.",
+    "answer": [
+      "mart_attrition_analysis",
+      "mart_headcount_report"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "mart tables in hr"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_135",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all raw tables in the healthcare domain.",
+    "answer": [
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "raw tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_136",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all staging tables in the healthcare domain.",
+    "answer": [
+      "stg_labs_standardized",
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "staging tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_137",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all core tables in the healthcare domain.",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "core tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_138",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all mart tables in the healthcare domain.",
+    "answer": [
+      "mart_readmission_risk",
+      "mart_treatment_outcomes"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "mart tables in healthcare"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_139",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all raw tables in the ecommerce domain.",
+    "answer": [
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "raw tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_140",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all staging tables in the ecommerce domain.",
+    "answer": [
+      "stg_payments_validated",
+      "stg_products_normalized",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "staging tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_141",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all core tables in the ecommerce domain.",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "core tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_142",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all mart tables in the ecommerce domain.",
+    "answer": [
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "mart tables in ecommerce"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_143",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all raw tables in the finance domain.",
+    "answer": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "raw tables in finance"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_144",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all staging tables in the finance domain.",
+    "answer": [
+      "stg_bank_matched",
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "staging tables in finance"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_145",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all core tables in the finance domain.",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "core tables in finance"
+  },
+  {
+    "id": "syn_logistics_full_enumeration_146",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "full_enumeration",
+    "question": "List all mart tables in the finance domain.",
+    "answer": [
+      "mart_cash_flow_statement",
+      "mart_trial_balance"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "mart tables in finance"
+  },
+  {
+    "id": "syn_logistics_forward_147",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_purchase_orders?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_orders_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_purchase_orders in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_148",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_shipment_tracking?",
+    "answer": [
+      "stg_shipments_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_shipment_tracking in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_149",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_supplier_catalog?",
+    "answer": [
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_supplier_catalog in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_150",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_supplier_catalog?",
+    "answer": [
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_supplier_catalog in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_151",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_warehouse_inventory?",
+    "answer": [
+      "stg_inventory_snapshot",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_warehouse_inventory in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_152",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_warehouse_inventory?",
+    "answer": [
+      "stg_inventory_snapshot",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_warehouse_inventory in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_153",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_freight_invoices?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_freight_invoices in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_154",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_freight_invoices?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_freight_invoices in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_155",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from raw_purchase_orders?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_orders_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of raw_purchase_orders in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_156",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_orders_cleaned?",
+    "answer": [
+      "dim_supplier",
+      "fact_purchase_order",
+      "fact_shipment"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_orders_cleaned in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_157",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_shipments_validated?",
+    "answer": [
+      "dim_product",
+      "dim_supplier",
+      "fact_purchase_order"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_shipments_validated in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_158",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_shipments_validated?",
+    "answer": [
+      "dim_product",
+      "dim_supplier",
+      "fact_purchase_order"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_shipments_validated in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_159",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_suppliers_deduped?",
+    "answer": [
+      "dim_product",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_suppliers_deduped in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_160",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_suppliers_deduped?",
+    "answer": [
+      "dim_product",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_suppliers_deduped in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_161",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_inventory_snapshot?",
+    "answer": [
+      "dim_carrier",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_inventory_snapshot in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_162",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_inventory_snapshot?",
+    "answer": [
+      "dim_carrier",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_inventory_snapshot in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_163",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_freight_reconciled?",
+    "answer": [
+      "dim_carrier",
+      "fact_shipment"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_freight_reconciled in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_164",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_freight_reconciled?",
+    "answer": [
+      "dim_carrier",
+      "fact_shipment"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_freight_reconciled in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_165",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_orders_cleaned?",
+    "answer": [
+      "dim_supplier",
+      "fact_purchase_order",
+      "fact_shipment"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_orders_cleaned in derived_from"
+  },
+  {
+    "id": "syn_logistics_forward_166",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "forward",
+    "question": "Which tables are directly derived from stg_orders_cleaned?",
+    "answer": [
+      "dim_supplier",
+      "fact_purchase_order",
+      "fact_shipment"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct successors of stg_orders_cleaned in derived_from"
+  },
+  {
+    "id": "syn_logistics_reverse_167",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_orders_cleaned?",
+    "answer": [
+      "raw_purchase_orders"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_orders_cleaned"
+  },
+  {
+    "id": "syn_logistics_reverse_168",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_shipments_validated?",
+    "answer": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_shipments_validated"
+  },
+  {
+    "id": "syn_logistics_reverse_169",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_shipments_validated?",
+    "answer": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_shipments_validated"
+  },
+  {
+    "id": "syn_logistics_reverse_170",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_suppliers_deduped?",
+    "answer": [
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_suppliers_deduped"
+  },
+  {
+    "id": "syn_logistics_reverse_171",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_suppliers_deduped?",
+    "answer": [
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_suppliers_deduped"
+  },
+  {
+    "id": "syn_logistics_reverse_172",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_inventory_snapshot?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_inventory_snapshot"
+  },
+  {
+    "id": "syn_logistics_reverse_173",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_inventory_snapshot?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_warehouse_inventory"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_inventory_snapshot"
+  },
+  {
+    "id": "syn_logistics_reverse_174",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_freight_reconciled?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_purchase_orders"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_freight_reconciled"
+  },
+  {
+    "id": "syn_logistics_reverse_175",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for stg_freight_reconciled?",
+    "answer": [
+      "raw_freight_invoices",
+      "raw_purchase_orders"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of stg_freight_reconciled"
+  },
+  {
+    "id": "syn_logistics_reverse_176",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_supplier?",
+    "answer": [
+      "stg_orders_cleaned",
+      "stg_shipments_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_supplier"
+  },
+  {
+    "id": "syn_logistics_reverse_177",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_supplier?",
+    "answer": [
+      "stg_orders_cleaned",
+      "stg_shipments_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_supplier"
+  },
+  {
+    "id": "syn_logistics_reverse_178",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_product?",
+    "answer": [
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_product"
+  },
+  {
+    "id": "syn_logistics_reverse_179",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_product?",
+    "answer": [
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_product"
+  },
+  {
+    "id": "syn_logistics_reverse_180",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_warehouse?",
+    "answer": [
+      "stg_inventory_snapshot",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_reverse_181",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_warehouse?",
+    "answer": [
+      "stg_inventory_snapshot",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_reverse_182",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_carrier?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_carrier"
+  },
+  {
+    "id": "syn_logistics_reverse_183",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for dim_carrier?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of dim_carrier"
+  },
+  {
+    "id": "syn_logistics_reverse_184",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for fact_shipment?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_orders_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of fact_shipment"
+  },
+  {
+    "id": "syn_logistics_reverse_185",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for fact_shipment?",
+    "answer": [
+      "stg_freight_reconciled",
+      "stg_orders_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of fact_shipment"
+  },
+  {
+    "id": "syn_logistics_reverse_186",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "reverse",
+    "question": "What are the direct source tables for fact_purchase_order?",
+    "answer": [
+      "stg_orders_cleaned",
+      "stg_shipments_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct predecessors of fact_purchase_order"
+  },
+  {
+    "id": "syn_logistics_isolation_187",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_carrier connected to dim_cost_center through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_carrier is in logistics, dim_cost_center is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_188",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_carrier connected to dim_department through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_carrier is in logistics, dim_department is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_189",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_carrier connected to raw_department_hierarchy through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_carrier is in logistics, raw_department_hierarchy is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_190",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_carrier connected to dim_patient through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_carrier is in logistics, dim_patient is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_191",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_carrier connected to stg_labs_standardized through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_carrier is in logistics, stg_labs_standardized is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_192",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_department connected to fact_shipment through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_department is in hr, fact_shipment is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_193",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_department connected to stg_inventory_snapshot through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_department is in hr, stg_inventory_snapshot is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_194",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_department connected to stg_tax_validated through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_department is in hr, stg_tax_validated is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_195",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_department connected to stg_shipments_validated through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_department is in hr, stg_shipments_validated is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_196",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_department connected to raw_bank_feeds through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_department is in hr, raw_bank_feeds is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_197",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_patient connected to stg_tax_validated through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_patient is in healthcare, stg_tax_validated is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_198",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_patient connected to stg_sessions_enriched through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_patient is in healthcare, stg_sessions_enriched is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_199",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_patient connected to stg_orders_cleaned through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_patient is in healthcare, stg_orders_cleaned is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_200",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_patient connected to dim_customer through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_patient is in healthcare, dim_customer is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_201",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_patient connected to dim_department through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_patient is in healthcare, dim_department is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_202",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_customer connected to raw_supplier_catalog through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_customer is in ecommerce, raw_supplier_catalog is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_203",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_customer connected to raw_shipment_tracking through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_customer is in ecommerce, raw_shipment_tracking is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_204",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_customer connected to stg_orders_cleaned through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_customer is in ecommerce, stg_orders_cleaned is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_205",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_customer connected to dim_carrier through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_customer is in ecommerce, dim_carrier is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_206",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_customer connected to fact_shipment through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_customer is in ecommerce, fact_shipment is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_207",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_account connected to raw_lab_results through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_account is in finance, raw_lab_results is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_208",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_account connected to dim_provider through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_account is in finance, dim_provider is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_209",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_account connected to raw_shipment_tracking through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_account is in finance, raw_shipment_tracking is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_210",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_account connected to stg_labs_standardized through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_account is in finance, stg_labs_standardized is in a different silo"
+  },
+  {
+    "id": "syn_logistics_isolation_211",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "isolation",
+    "question": "Is dim_account connected to dim_warehouse through any FK or lineage relationship?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "medium",
+    "reasoning": "dim_account is in finance, dim_warehouse is in a different silo"
+  },
+  {
+    "id": "syn_logistics_hop_count_212",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_purchase_orders and mart_delivery_performance?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_purchase_orders → stg_orders_cleaned → dim_supplier → mart_delivery_performance"
+  },
+  {
+    "id": "syn_logistics_hop_count_213",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_purchase_orders and mart_procurement_cost?",
+    "answer": "4",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_purchase_orders → stg_freight_reconciled → fact_shipment → dim_product → mart_procurement_cost"
+  },
+  {
+    "id": "syn_logistics_hop_count_214",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_purchase_orders and mart_supplier_scorecard?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_purchase_orders → stg_freight_reconciled → dim_carrier → mart_supplier_scorecard"
+  },
+  {
+    "id": "syn_logistics_hop_count_215",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_purchase_orders and mart_inventory_turnover?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_purchase_orders → stg_freight_reconciled → dim_carrier → mart_inventory_turnover"
+  },
+  {
+    "id": "syn_logistics_hop_count_216",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_shipment_tracking and mart_delivery_performance?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_shipment_tracking → stg_shipments_validated → dim_supplier → mart_delivery_performance"
+  },
+  {
+    "id": "syn_logistics_hop_count_217",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_shipment_tracking and mart_procurement_cost?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_shipment_tracking → stg_shipments_validated → dim_product → mart_procurement_cost"
+  },
+  {
+    "id": "syn_logistics_hop_count_218",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_shipment_tracking and mart_supplier_scorecard?",
+    "answer": "4",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_shipment_tracking → stg_shipments_validated → fact_purchase_order → dim_warehouse → mart_supplier_scorecard"
+  },
+  {
+    "id": "syn_logistics_hop_count_219",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_shipment_tracking and mart_inventory_turnover?",
+    "answer": "4",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_shipment_tracking → stg_shipments_validated → dim_supplier → fact_shipment → mart_inventory_turnover"
+  },
+  {
+    "id": "syn_logistics_hop_count_220",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_supplier_catalog and mart_delivery_performance?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_supplier_catalog → stg_shipments_validated → dim_supplier → mart_delivery_performance"
+  },
+  {
+    "id": "syn_logistics_hop_count_221",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_supplier_catalog and mart_procurement_cost?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_supplier_catalog → stg_shipments_validated → dim_product → mart_procurement_cost"
+  },
+  {
+    "id": "syn_logistics_hop_count_222",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_supplier_catalog and mart_supplier_scorecard?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_supplier_catalog → stg_suppliers_deduped → dim_warehouse → mart_supplier_scorecard"
+  },
+  {
+    "id": "syn_logistics_hop_count_223",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_supplier_catalog and mart_inventory_turnover?",
+    "answer": "4",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_supplier_catalog → stg_shipments_validated → dim_supplier → fact_shipment → mart_inventory_turnover"
+  },
+  {
+    "id": "syn_logistics_hop_count_224",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_delivery_performance?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_warehouse_inventory → stg_suppliers_deduped → dim_product → mart_delivery_performance"
+  },
+  {
+    "id": "syn_logistics_hop_count_225",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_procurement_cost?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_warehouse_inventory → stg_inventory_snapshot → dim_warehouse → mart_procurement_cost"
+  },
+  {
+    "id": "syn_logistics_hop_count_226",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_supplier_scorecard?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_warehouse_inventory → stg_inventory_snapshot → dim_warehouse → mart_supplier_scorecard"
+  },
+  {
+    "id": "syn_logistics_hop_count_227",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_warehouse_inventory and mart_inventory_turnover?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_warehouse_inventory → stg_inventory_snapshot → dim_carrier → mart_inventory_turnover"
+  },
+  {
+    "id": "syn_logistics_hop_count_228",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_freight_invoices and mart_delivery_performance?",
+    "answer": "4",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_freight_invoices → stg_freight_reconciled → fact_shipment → dim_supplier → mart_delivery_performance"
+  },
+  {
+    "id": "syn_logistics_hop_count_229",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_freight_invoices and mart_procurement_cost?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_freight_invoices → stg_inventory_snapshot → dim_warehouse → mart_procurement_cost"
+  },
+  {
+    "id": "syn_logistics_hop_count_230",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_freight_invoices and mart_supplier_scorecard?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_freight_invoices → stg_inventory_snapshot → dim_warehouse → mart_supplier_scorecard"
+  },
+  {
+    "id": "syn_logistics_hop_count_231",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_freight_invoices and mart_inventory_turnover?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_freight_invoices → stg_inventory_snapshot → dim_carrier → mart_inventory_turnover"
+  },
+  {
+    "id": "syn_logistics_hop_count_232",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_employee_records and mart_headcount_report?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_employee_records → stg_compensation_normalized → dim_department → mart_headcount_report"
+  },
+  {
+    "id": "syn_logistics_hop_count_233",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_employee_records and mart_attrition_analysis?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_employee_records → stg_compensation_normalized → dim_department → mart_attrition_analysis"
+  },
+  {
+    "id": "syn_logistics_hop_count_234",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_department_hierarchy and mart_headcount_report?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_department_hierarchy → stg_departments_mapped → dim_employee → mart_headcount_report"
+  },
+  {
+    "id": "syn_logistics_hop_count_235",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_department_hierarchy and mart_attrition_analysis?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_department_hierarchy → stg_departments_mapped → dim_department → mart_attrition_analysis"
+  },
+  {
+    "id": "syn_logistics_hop_count_236",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_compensation_data and mart_headcount_report?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_compensation_data → stg_departments_mapped → dim_employee → mart_headcount_report"
+  },
+  {
+    "id": "syn_logistics_hop_count_237",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_compensation_data and mart_attrition_analysis?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_compensation_data → stg_departments_mapped → dim_department → mart_attrition_analysis"
+  },
+  {
+    "id": "syn_logistics_hop_count_238",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_patient_intake and mart_readmission_risk?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_patient_intake → stg_patients_validated → dim_patient → mart_readmission_risk"
+  },
+  {
+    "id": "syn_logistics_hop_count_239",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_patient_intake and mart_treatment_outcomes?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_patient_intake → stg_patients_validated → fact_encounter → mart_treatment_outcomes"
+  },
+  {
+    "id": "syn_logistics_hop_count_240",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_lab_results and mart_readmission_risk?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_lab_results → stg_labs_standardized → dim_patient → mart_readmission_risk"
+  },
+  {
+    "id": "syn_logistics_hop_count_241",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_lab_results and mart_treatment_outcomes?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_lab_results → stg_labs_standardized → dim_provider → mart_treatment_outcomes"
+  },
+  {
+    "id": "syn_logistics_hop_count_242",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_prescriptions and mart_readmission_risk?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_prescriptions → stg_labs_standardized → dim_patient → mart_readmission_risk"
+  },
+  {
+    "id": "syn_logistics_hop_count_243",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_prescriptions and mart_treatment_outcomes?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_prescriptions → stg_labs_standardized → dim_provider → mart_treatment_outcomes"
+  },
+  {
+    "id": "syn_logistics_hop_count_244",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_cart_sessions and mart_conversion_funnel?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_cart_sessions → stg_sessions_enriched → dim_customer → mart_conversion_funnel"
+  },
+  {
+    "id": "syn_logistics_hop_count_245",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_cart_sessions and mart_revenue_dashboard?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_cart_sessions → stg_sessions_enriched → fact_transaction → mart_revenue_dashboard"
+  },
+  {
+    "id": "syn_logistics_hop_count_246",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_product_catalog and mart_conversion_funnel?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_product_catalog → stg_products_normalized → dim_customer → mart_conversion_funnel"
+  },
+  {
+    "id": "syn_logistics_hop_count_247",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_product_catalog and mart_revenue_dashboard?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_product_catalog → stg_products_normalized → dim_product_listing → mart_revenue_dashboard"
+  },
+  {
+    "id": "syn_logistics_hop_count_248",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_payment_events and mart_conversion_funnel?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_payment_events → stg_products_normalized → dim_customer → mart_conversion_funnel"
+  },
+  {
+    "id": "syn_logistics_hop_count_249",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_payment_events and mart_revenue_dashboard?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_payment_events → stg_products_normalized → dim_product_listing → mart_revenue_dashboard"
+  },
+  {
+    "id": "syn_logistics_hop_count_250",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_ledger_entries and mart_trial_balance?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_ledger_entries → stg_ledger_reconciled → dim_account → mart_trial_balance"
+  },
+  {
+    "id": "syn_logistics_hop_count_251",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_ledger_entries and mart_cash_flow_statement?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_ledger_entries → stg_ledger_reconciled → fact_journal_entry → mart_cash_flow_statement"
+  },
+  {
+    "id": "syn_logistics_hop_count_252",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_bank_feeds and mart_trial_balance?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_bank_feeds → stg_bank_matched → dim_account → mart_trial_balance"
+  },
+  {
+    "id": "syn_logistics_hop_count_253",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_bank_feeds and mart_cash_flow_statement?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_bank_feeds → stg_bank_matched → dim_cost_center → mart_cash_flow_statement"
+  },
+  {
+    "id": "syn_logistics_hop_count_254",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_tax_filings and mart_trial_balance?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_tax_filings → stg_bank_matched → dim_account → mart_trial_balance"
+  },
+  {
+    "id": "syn_logistics_hop_count_255",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "hop_count",
+    "question": "What is the minimum number of hops between raw_tax_filings and mart_cash_flow_statement?",
+    "answer": "3",
+    "answer_type": "number",
+    "difficulty": "hard",
+    "reasoning": "Shortest path: raw_tax_filings → stg_bank_matched → dim_cost_center → mart_cash_flow_statement"
+  },
+  {
+    "id": "syn_logistics_direct_fk_256",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_shipment have a direct foreign key to dim_supplier?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_shipment → dim_supplier"
+  },
+  {
+    "id": "syn_logistics_direct_fk_257",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_shipment have a direct foreign key to dim_product?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_shipment → dim_product"
+  },
+  {
+    "id": "syn_logistics_direct_fk_258",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_shipment have a direct foreign key to dim_warehouse?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_shipment → dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_direct_fk_259",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_shipment have a direct foreign key to dim_carrier?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_shipment → dim_carrier"
+  },
+  {
+    "id": "syn_logistics_direct_fk_260",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_purchase_order have a direct foreign key to dim_supplier?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_purchase_order → dim_supplier"
+  },
+  {
+    "id": "syn_logistics_direct_fk_261",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_purchase_order have a direct foreign key to dim_product?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_purchase_order → dim_product"
+  },
+  {
+    "id": "syn_logistics_direct_fk_262",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_purchase_order have a direct foreign key to dim_warehouse?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_purchase_order → dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_direct_fk_263",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_purchase_order have a direct foreign key to dim_carrier?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_purchase_order → dim_carrier"
+  },
+  {
+    "id": "syn_logistics_direct_fk_264",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_payroll have a direct foreign key to dim_employee?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_payroll → dim_employee"
+  },
+  {
+    "id": "syn_logistics_direct_fk_265",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_payroll have a direct foreign key to dim_department?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_payroll → dim_department"
+  },
+  {
+    "id": "syn_logistics_direct_fk_266",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_encounter have a direct foreign key to dim_patient?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_encounter → dim_patient"
+  },
+  {
+    "id": "syn_logistics_direct_fk_267",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_encounter have a direct foreign key to dim_provider?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_encounter → dim_provider"
+  },
+  {
+    "id": "syn_logistics_direct_fk_268",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_transaction have a direct foreign key to dim_customer?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_transaction → dim_customer"
+  },
+  {
+    "id": "syn_logistics_direct_fk_269",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_transaction have a direct foreign key to dim_product_listing?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_transaction → dim_product_listing"
+  },
+  {
+    "id": "syn_logistics_direct_fk_270",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_journal_entry have a direct foreign key to dim_account?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_journal_entry → dim_account"
+  },
+  {
+    "id": "syn_logistics_direct_fk_271",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does fact_journal_entry have a direct foreign key to dim_cost_center?",
+    "answer": "yes",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "FK edge exists: fact_journal_entry → dim_cost_center"
+  },
+  {
+    "id": "syn_logistics_direct_fk_272",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_purchase_orders have a direct foreign key to dim_supplier?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_purchase_orders and dim_supplier"
+  },
+  {
+    "id": "syn_logistics_direct_fk_273",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_purchase_orders have a direct foreign key to dim_product?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_purchase_orders and dim_product"
+  },
+  {
+    "id": "syn_logistics_direct_fk_274",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_shipment_tracking have a direct foreign key to dim_supplier?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_shipment_tracking and dim_supplier"
+  },
+  {
+    "id": "syn_logistics_direct_fk_275",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_shipment_tracking have a direct foreign key to dim_product?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_shipment_tracking and dim_product"
+  },
+  {
+    "id": "syn_logistics_direct_fk_276",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_employee_records have a direct foreign key to dim_employee?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_employee_records and dim_employee"
+  },
+  {
+    "id": "syn_logistics_direct_fk_277",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_employee_records have a direct foreign key to dim_department?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_employee_records and dim_department"
+  },
+  {
+    "id": "syn_logistics_direct_fk_278",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_department_hierarchy have a direct foreign key to dim_employee?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_department_hierarchy and dim_employee"
+  },
+  {
+    "id": "syn_logistics_direct_fk_279",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_department_hierarchy have a direct foreign key to dim_department?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_department_hierarchy and dim_department"
+  },
+  {
+    "id": "syn_logistics_direct_fk_280",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_patient_intake have a direct foreign key to dim_patient?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_patient_intake and dim_patient"
+  },
+  {
+    "id": "syn_logistics_direct_fk_281",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_patient_intake have a direct foreign key to dim_provider?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_patient_intake and dim_provider"
+  },
+  {
+    "id": "syn_logistics_direct_fk_282",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_lab_results have a direct foreign key to dim_patient?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_lab_results and dim_patient"
+  },
+  {
+    "id": "syn_logistics_direct_fk_283",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_lab_results have a direct foreign key to dim_provider?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_lab_results and dim_provider"
+  },
+  {
+    "id": "syn_logistics_direct_fk_284",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_cart_sessions have a direct foreign key to dim_customer?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_cart_sessions and dim_customer"
+  },
+  {
+    "id": "syn_logistics_direct_fk_285",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_cart_sessions have a direct foreign key to dim_product_listing?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_cart_sessions and dim_product_listing"
+  },
+  {
+    "id": "syn_logistics_direct_fk_286",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_product_catalog have a direct foreign key to dim_customer?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_product_catalog and dim_customer"
+  },
+  {
+    "id": "syn_logistics_direct_fk_287",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_product_catalog have a direct foreign key to dim_product_listing?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_product_catalog and dim_product_listing"
+  },
+  {
+    "id": "syn_logistics_direct_fk_288",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_ledger_entries have a direct foreign key to dim_account?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_ledger_entries and dim_account"
+  },
+  {
+    "id": "syn_logistics_direct_fk_289",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_ledger_entries have a direct foreign key to dim_cost_center?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_ledger_entries and dim_cost_center"
+  },
+  {
+    "id": "syn_logistics_direct_fk_290",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_bank_feeds have a direct foreign key to dim_account?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_bank_feeds and dim_account"
+  },
+  {
+    "id": "syn_logistics_direct_fk_291",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "direct_fk",
+    "question": "Does raw_bank_feeds have a direct foreign key to dim_cost_center?",
+    "answer": "no",
+    "answer_type": "boolean",
+    "difficulty": "easy",
+    "reasoning": "No direct FK between raw_bank_feeds and dim_cost_center"
+  },
+  {
+    "id": "syn_logistics_combined_impact_292",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_purchase_orders is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_supplier_scorecard",
+      "stg_freight_reconciled",
+      "stg_orders_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_purchase_orders + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_293",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_shipment_tracking is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_procurement_cost",
+      "stg_shipments_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_shipment_tracking + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_294",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_supplier_catalog is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_supplier_catalog + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_295",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_warehouse_inventory is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "stg_inventory_snapshot",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_warehouse_inventory + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_296",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_freight_invoices is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_freight_invoices + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_297",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_orders_cleaned is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_orders_cleaned + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_298",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_shipments_validated is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_procurement_cost"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_shipments_validated + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_299",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_suppliers_deduped is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_product",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_suppliers_deduped + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_300",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_inventory_snapshot is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_inventory_snapshot + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_301",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_freight_reconciled is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_inventory_turnover",
+      "mart_supplier_scorecard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_freight_reconciled + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_302",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_employee_records is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report",
+      "stg_compensation_normalized",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_employee_records + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_303",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_department_hierarchy is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report",
+      "stg_departments_mapped"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_department_hierarchy + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_304",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_compensation_data is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report",
+      "stg_compensation_normalized",
+      "stg_departments_mapped"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_compensation_data + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_305",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_employees_cleaned is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_employees_cleaned + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_306",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_departments_mapped is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_departments_mapped + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_307",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_compensation_normalized is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_compensation_normalized + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_308",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_patient_intake is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes",
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_patient_intake + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_309",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_lab_results is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes",
+      "stg_labs_standardized"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_lab_results + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_310",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_prescriptions is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes",
+      "stg_labs_standardized",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_prescriptions + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_311",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_patients_validated is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_patients_validated + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_312",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_labs_standardized is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_labs_standardized + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_313",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_prescriptions_coded is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_prescriptions_coded + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_314",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_cart_sessions is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard",
+      "stg_payments_validated",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_cart_sessions + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_315",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_product_catalog is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard",
+      "stg_products_normalized"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_product_catalog + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_316",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_payment_events is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard",
+      "stg_payments_validated",
+      "stg_products_normalized"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_payment_events + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_317",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_sessions_enriched is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_sessions_enriched + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_318",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_products_normalized is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_products_normalized + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_319",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_payments_validated is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_payments_validated + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_320",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_ledger_entries is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance",
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_ledger_entries + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_321",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_bank_feeds is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance",
+      "stg_bank_matched"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_bank_feeds + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_322",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If raw_tax_filings is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance",
+      "stg_bank_matched",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from raw_tax_filings + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_323",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_ledger_reconciled is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_ledger_reconciled + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_324",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_bank_matched is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_bank_matched + FK expansion"
+  },
+  {
+    "id": "syn_logistics_combined_impact_325",
+    "dataset": "syn_logistics",
+    "type": "lineage",
+    "subtype": "combined_impact",
+    "question": "If stg_tax_validated is corrupted, which tables are affected through both lineage AND foreign key dependencies?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard",
+    "reasoning": "Lineage forward from stg_tax_validated + FK expansion"
+  },
+  {
+    "id": "syn_logistics_membership_326",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_carrier?",
+    "answer": [
+      "dim_product",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory",
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot",
+      "stg_orders_cleaned",
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_carrier is in the logistics silo"
+  },
+  {
+    "id": "syn_logistics_membership_327",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_product?",
+    "answer": [
+      "dim_carrier",
+      "dim_supplier",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory",
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot",
+      "stg_orders_cleaned",
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_product is in the logistics silo"
+  },
+  {
+    "id": "syn_logistics_membership_328",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_supplier?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_warehouse",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory",
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot",
+      "stg_orders_cleaned",
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_supplier is in the logistics silo"
+  },
+  {
+    "id": "syn_logistics_membership_329",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_warehouse?",
+    "answer": [
+      "dim_carrier",
+      "dim_product",
+      "dim_supplier",
+      "fact_purchase_order",
+      "fact_shipment",
+      "mart_delivery_performance",
+      "mart_inventory_turnover",
+      "mart_procurement_cost",
+      "mart_supplier_scorecard",
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory",
+      "stg_freight_reconciled",
+      "stg_inventory_snapshot",
+      "stg_orders_cleaned",
+      "stg_shipments_validated",
+      "stg_suppliers_deduped"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_warehouse is in the logistics silo"
+  },
+  {
+    "id": "syn_logistics_membership_330",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_department?",
+    "answer": [
+      "dim_employee",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report",
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records",
+      "stg_compensation_normalized",
+      "stg_departments_mapped",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_department is in the hr silo"
+  },
+  {
+    "id": "syn_logistics_membership_331",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_employee?",
+    "answer": [
+      "dim_department",
+      "fact_payroll",
+      "mart_attrition_analysis",
+      "mart_headcount_report",
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records",
+      "stg_compensation_normalized",
+      "stg_departments_mapped",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_employee is in the hr silo"
+  },
+  {
+    "id": "syn_logistics_membership_332",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as fact_payroll?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "mart_attrition_analysis",
+      "mart_headcount_report",
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records",
+      "stg_compensation_normalized",
+      "stg_departments_mapped",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "fact_payroll is in the hr silo"
+  },
+  {
+    "id": "syn_logistics_membership_333",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as mart_attrition_analysis?",
+    "answer": [
+      "dim_department",
+      "dim_employee",
+      "fact_payroll",
+      "mart_headcount_report",
+      "raw_compensation_data",
+      "raw_department_hierarchy",
+      "raw_employee_records",
+      "stg_compensation_normalized",
+      "stg_departments_mapped",
+      "stg_employees_cleaned"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "mart_attrition_analysis is in the hr silo"
+  },
+  {
+    "id": "syn_logistics_membership_334",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_patient?",
+    "answer": [
+      "dim_provider",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes",
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions",
+      "stg_labs_standardized",
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_patient is in the healthcare silo"
+  },
+  {
+    "id": "syn_logistics_membership_335",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_provider?",
+    "answer": [
+      "dim_patient",
+      "fact_encounter",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes",
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions",
+      "stg_labs_standardized",
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_provider is in the healthcare silo"
+  },
+  {
+    "id": "syn_logistics_membership_336",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as fact_encounter?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "mart_readmission_risk",
+      "mart_treatment_outcomes",
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions",
+      "stg_labs_standardized",
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "fact_encounter is in the healthcare silo"
+  },
+  {
+    "id": "syn_logistics_membership_337",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as mart_readmission_risk?",
+    "answer": [
+      "dim_patient",
+      "dim_provider",
+      "fact_encounter",
+      "mart_treatment_outcomes",
+      "raw_lab_results",
+      "raw_patient_intake",
+      "raw_prescriptions",
+      "stg_labs_standardized",
+      "stg_patients_validated",
+      "stg_prescriptions_coded"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "mart_readmission_risk is in the healthcare silo"
+  },
+  {
+    "id": "syn_logistics_membership_338",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_customer?",
+    "answer": [
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard",
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog",
+      "stg_payments_validated",
+      "stg_products_normalized",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_customer is in the ecommerce silo"
+  },
+  {
+    "id": "syn_logistics_membership_339",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_product_listing?",
+    "answer": [
+      "dim_customer",
+      "fact_transaction",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard",
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog",
+      "stg_payments_validated",
+      "stg_products_normalized",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_product_listing is in the ecommerce silo"
+  },
+  {
+    "id": "syn_logistics_membership_340",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as fact_transaction?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "mart_conversion_funnel",
+      "mart_revenue_dashboard",
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog",
+      "stg_payments_validated",
+      "stg_products_normalized",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "fact_transaction is in the ecommerce silo"
+  },
+  {
+    "id": "syn_logistics_membership_341",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as mart_conversion_funnel?",
+    "answer": [
+      "dim_customer",
+      "dim_product_listing",
+      "fact_transaction",
+      "mart_revenue_dashboard",
+      "raw_cart_sessions",
+      "raw_payment_events",
+      "raw_product_catalog",
+      "stg_payments_validated",
+      "stg_products_normalized",
+      "stg_sessions_enriched"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "mart_conversion_funnel is in the ecommerce silo"
+  },
+  {
+    "id": "syn_logistics_membership_342",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_account?",
+    "answer": [
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance",
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings",
+      "stg_bank_matched",
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_account is in the finance silo"
+  },
+  {
+    "id": "syn_logistics_membership_343",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as dim_cost_center?",
+    "answer": [
+      "dim_account",
+      "fact_journal_entry",
+      "mart_cash_flow_statement",
+      "mart_trial_balance",
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings",
+      "stg_bank_matched",
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "dim_cost_center is in the finance silo"
+  },
+  {
+    "id": "syn_logistics_membership_344",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as fact_journal_entry?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "mart_cash_flow_statement",
+      "mart_trial_balance",
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings",
+      "stg_bank_matched",
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "fact_journal_entry is in the finance silo"
+  },
+  {
+    "id": "syn_logistics_membership_345",
+    "dataset": "syn_logistics",
+    "type": "silo",
+    "subtype": "membership",
+    "question": "Which tables are in the same connected component (data silo) as mart_cash_flow_statement?",
+    "answer": [
+      "dim_account",
+      "dim_cost_center",
+      "fact_journal_entry",
+      "mart_trial_balance",
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings",
+      "stg_bank_matched",
+      "stg_ledger_reconciled",
+      "stg_tax_validated"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "mart_cash_flow_statement is in the finance silo"
+  },
+  {
+    "id": "syn_logistics_join_path_346",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_shipment and dim_supplier?",
+    "answer": [
+      "fact_shipment",
+      "dim_supplier"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_shipment → dim_supplier"
+  },
+  {
+    "id": "syn_logistics_join_path_347",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_shipment and dim_product?",
+    "answer": [
+      "fact_shipment",
+      "dim_product"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_shipment → dim_product"
+  },
+  {
+    "id": "syn_logistics_join_path_348",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_shipment and dim_warehouse?",
+    "answer": [
+      "fact_shipment",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_shipment → dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_join_path_349",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_shipment and dim_carrier?",
+    "answer": [
+      "fact_shipment",
+      "dim_carrier"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_shipment → dim_carrier"
+  },
+  {
+    "id": "syn_logistics_join_path_350",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_purchase_order and dim_supplier?",
+    "answer": [
+      "fact_purchase_order",
+      "dim_supplier"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_purchase_order → dim_supplier"
+  },
+  {
+    "id": "syn_logistics_join_path_351",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_purchase_order and dim_product?",
+    "answer": [
+      "fact_purchase_order",
+      "dim_product"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_purchase_order → dim_product"
+  },
+  {
+    "id": "syn_logistics_join_path_352",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_purchase_order and dim_warehouse?",
+    "answer": [
+      "fact_purchase_order",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_purchase_order → dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_join_path_353",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_purchase_order and dim_carrier?",
+    "answer": [
+      "fact_purchase_order",
+      "dim_carrier"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_purchase_order → dim_carrier"
+  },
+  {
+    "id": "syn_logistics_join_path_354",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_supplier and dim_product?",
+    "answer": [
+      "dim_supplier",
+      "fact_shipment",
+      "dim_product"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_supplier ← fact_shipment → dim_product"
+  },
+  {
+    "id": "syn_logistics_join_path_355",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_supplier and dim_warehouse?",
+    "answer": [
+      "dim_supplier",
+      "fact_shipment",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_supplier ← fact_shipment → dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_join_path_356",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_supplier and dim_carrier?",
+    "answer": [
+      "dim_supplier",
+      "fact_shipment",
+      "dim_carrier"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_supplier ← fact_shipment → dim_carrier"
+  },
+  {
+    "id": "syn_logistics_join_path_357",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_product and dim_warehouse?",
+    "answer": [
+      "dim_product",
+      "fact_shipment",
+      "dim_warehouse"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_product ← fact_shipment → dim_warehouse"
+  },
+  {
+    "id": "syn_logistics_join_path_358",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_product and dim_carrier?",
+    "answer": [
+      "dim_product",
+      "fact_shipment",
+      "dim_carrier"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_product ← fact_shipment → dim_carrier"
+  },
+  {
+    "id": "syn_logistics_join_path_359",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_warehouse and dim_carrier?",
+    "answer": [
+      "dim_warehouse",
+      "fact_shipment",
+      "dim_carrier"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_warehouse ← fact_shipment → dim_carrier"
+  },
+  {
+    "id": "syn_logistics_join_path_360",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_payroll and dim_employee?",
+    "answer": [
+      "fact_payroll",
+      "dim_employee"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_payroll → dim_employee"
+  },
+  {
+    "id": "syn_logistics_join_path_361",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_payroll and dim_department?",
+    "answer": [
+      "fact_payroll",
+      "dim_department"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_payroll → dim_department"
+  },
+  {
+    "id": "syn_logistics_join_path_362",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_employee and dim_department?",
+    "answer": [
+      "dim_employee",
+      "fact_payroll",
+      "dim_department"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_employee ← fact_payroll → dim_department"
+  },
+  {
+    "id": "syn_logistics_join_path_363",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_encounter and dim_patient?",
+    "answer": [
+      "fact_encounter",
+      "dim_patient"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_encounter → dim_patient"
+  },
+  {
+    "id": "syn_logistics_join_path_364",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_encounter and dim_provider?",
+    "answer": [
+      "fact_encounter",
+      "dim_provider"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_encounter → dim_provider"
+  },
+  {
+    "id": "syn_logistics_join_path_365",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_patient and dim_provider?",
+    "answer": [
+      "dim_patient",
+      "fact_encounter",
+      "dim_provider"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_patient ← fact_encounter → dim_provider"
+  },
+  {
+    "id": "syn_logistics_join_path_366",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_transaction and dim_customer?",
+    "answer": [
+      "fact_transaction",
+      "dim_customer"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_transaction → dim_customer"
+  },
+  {
+    "id": "syn_logistics_join_path_367",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_transaction and dim_product_listing?",
+    "answer": [
+      "fact_transaction",
+      "dim_product_listing"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_transaction → dim_product_listing"
+  },
+  {
+    "id": "syn_logistics_join_path_368",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_customer and dim_product_listing?",
+    "answer": [
+      "dim_customer",
+      "fact_transaction",
+      "dim_product_listing"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_customer ← fact_transaction → dim_product_listing"
+  },
+  {
+    "id": "syn_logistics_join_path_369",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_journal_entry and dim_account?",
+    "answer": [
+      "fact_journal_entry",
+      "dim_account"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_journal_entry → dim_account"
+  },
+  {
+    "id": "syn_logistics_join_path_370",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between fact_journal_entry and dim_cost_center?",
+    "answer": [
+      "fact_journal_entry",
+      "dim_cost_center"
+    ],
+    "answer_type": "list",
+    "difficulty": "easy",
+    "reasoning": "Direct FK: fact_journal_entry → dim_cost_center"
+  },
+  {
+    "id": "syn_logistics_join_path_371",
+    "dataset": "syn_logistics",
+    "type": "routing",
+    "subtype": "join_path",
+    "question": "What is the shortest join path between dim_account and dim_cost_center?",
+    "answer": [
+      "dim_account",
+      "fact_journal_entry",
+      "dim_cost_center"
+    ],
+    "answer_type": "list",
+    "difficulty": "medium",
+    "reasoning": "Via shared fact table: dim_account ← fact_journal_entry → dim_cost_center"
+  }
+]

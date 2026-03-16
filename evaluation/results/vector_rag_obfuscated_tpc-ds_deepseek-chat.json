@@ -2363,12 +2363,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_A\", \"Table_N\", \"Table_D\", \"Table_L\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A connects to Table_N via Table_N --FK--> Table_A, Table_N connects to Table_D via Table_N --FK--> Table_D, and Table_D connects to Table_L via Table_D --FK--> Table_L, forming the shortest path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -3626,12 +3626,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_A\", \"Table_E\", \"Table_U\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A connects to Table_E via Table_E --FK--> Table_A, and Table_E connects to Table_U via Table_E --FK--> Table_U, forming a direct two-step path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -4528,12 +4528,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_M\", \"Table_E\", \"Table_U\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_M connects to Table_E via Table_E --FK--> Table_M, and Table_E connects to Table_U via Table_E --FK--> Table_U, forming a two-step path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -4753,12 +4753,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_A\", \"Table_N\", \"Table_V\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A connects to Table_N via Table_N --FK--> Table_A, and Table_N connects to Table_V via Table_N --FK--> Table_V, forming a direct two-step path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -6864,5 +6864,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 127,
+    "exact_match": 35,
+    "exact_match_pct": 27.6,
+    "avg_f1": 27.6
+  }
 }

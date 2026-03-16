@@ -16003,7 +16003,27 @@
     {
       "id": "syn_logistics_membership_326",
       "question": "Which data silo does dim_carrier belong to?",
-      "gold_answer": "logistics",
+      "gold_answer": [
+        "dim_product",
+        "dim_supplier",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ],
       "predicted_answer": "Supply Chain",
       "answer_type": "string",
       "type": "silo",
@@ -16044,7 +16064,27 @@
     {
       "id": "syn_logistics_membership_327",
       "question": "Which data silo does dim_product belong to?",
-      "gold_answer": "logistics",
+      "gold_answer": [
+        "dim_carrier",
+        "dim_supplier",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ],
       "predicted_answer": "Supply Chain",
       "answer_type": "string",
       "type": "silo",
@@ -16085,7 +16125,27 @@
     {
       "id": "syn_logistics_membership_328",
       "question": "Which data silo does dim_supplier belong to?",
-      "gold_answer": "logistics",
+      "gold_answer": [
+        "dim_carrier",
+        "dim_product",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ],
       "predicted_answer": "Procurement/Supply Chain",
       "answer_type": "string",
       "type": "silo",
@@ -16126,7 +16186,27 @@
     {
       "id": "syn_logistics_membership_329",
       "question": "Which data silo does dim_warehouse belong to?",
-      "gold_answer": "logistics",
+      "gold_answer": [
+        "dim_carrier",
+        "dim_product",
+        "dim_supplier",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ],
       "predicted_answer": "Supply Chain",
       "answer_type": "string",
       "type": "silo",
@@ -16167,7 +16247,18 @@
     {
       "id": "syn_logistics_membership_330",
       "question": "Which data silo does dim_department belong to?",
-      "gold_answer": "hr",
+      "gold_answer": [
+        "dim_employee",
+        "fact_payroll",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ],
       "predicted_answer": "HR and Payroll",
       "answer_type": "string",
       "type": "silo",
@@ -16208,7 +16299,18 @@
     {
       "id": "syn_logistics_membership_331",
       "question": "Which data silo does dim_employee belong to?",
-      "gold_answer": "hr",
+      "gold_answer": [
+        "dim_department",
+        "fact_payroll",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ],
       "predicted_answer": "HR/Payroll",
       "answer_type": "string",
       "type": "silo",
@@ -16249,7 +16351,18 @@
     {
       "id": "syn_logistics_membership_332",
       "question": "Which data silo does fact_payroll belong to?",
-      "gold_answer": "hr",
+      "gold_answer": [
+        "dim_department",
+        "dim_employee",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ],
       "predicted_answer": null,
       "answer_type": "string",
       "type": "silo",
@@ -16302,7 +16415,18 @@
     {
       "id": "syn_logistics_membership_333",
       "question": "Which data silo does mart_attrition_analysis belong to?",
-      "gold_answer": "hr",
+      "gold_answer": [
+        "dim_department",
+        "dim_employee",
+        "fact_payroll",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ],
       "predicted_answer": "HR",
       "answer_type": "string",
       "type": "silo",
@@ -16336,14 +16460,25 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"HR\",\n  \"reasoning\": \"mart_attrition_analysis is derived from fact_payroll and dim_department, which trace back to raw employee, compensation, and department hierarchy data, indicating an HR data silo.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "syn_logistics_membership_334",
       "question": "Which data silo does dim_patient belong to?",
-      "gold_answer": "healthcare",
+      "gold_answer": [
+        "dim_provider",
+        "fact_encounter",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "predicted_answer": "Healthcare",
       "answer_type": "string",
       "type": "silo",
@@ -16377,14 +16512,25 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"Healthcare\",\n  \"reasoning\": \"dim_patient is connected to tables like stg_labs_standardized, mart_readmission_risk, and fact_encounter, all of which are related to healthcare data.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "syn_logistics_membership_335",
       "question": "Which data silo does dim_provider belong to?",
-      "gold_answer": "healthcare",
+      "gold_answer": [
+        "dim_patient",
+        "fact_encounter",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "predicted_answer": "Healthcare",
       "answer_type": "string",
       "type": "silo",
@@ -16418,14 +16564,25 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"Healthcare\",\n  \"reasoning\": \"dim_provider is directly related to fact_encounter, dim_patient, mart_readmission_risk, and mart_treatment_outcomes, all of which are core components of a healthcare data domain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "syn_logistics_membership_336",
       "question": "Which data silo does fact_encounter belong to?",
-      "gold_answer": "healthcare",
+      "gold_answer": [
+        "dim_patient",
+        "dim_provider",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "predicted_answer": "Healthcare",
       "answer_type": "string",
       "type": "silo",
@@ -16459,14 +16616,25 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"Healthcare\",\n  \"reasoning\": \"fact_encounter is related to dim_patient, dim_provider, and mart_treatment_outcomes, which are all components of a healthcare domain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "syn_logistics_membership_337",
       "question": "Which data silo does mart_readmission_risk belong to?",
-      "gold_answer": "healthcare",
+      "gold_answer": [
+        "dim_patient",
+        "dim_provider",
+        "fact_encounter",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "predicted_answer": null,
       "answer_type": "string",
       "type": "silo",
@@ -16519,7 +16687,18 @@
     {
       "id": "syn_logistics_membership_338",
       "question": "Which data silo does dim_customer belong to?",
-      "gold_answer": "ecommerce",
+      "gold_answer": [
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "predicted_answer": "Sales",
       "answer_type": "string",
       "type": "silo",
@@ -16560,7 +16739,18 @@
     {
       "id": "syn_logistics_membership_339",
       "question": "Which data silo does dim_product_listing belong to?",
-      "gold_answer": "ecommerce",
+      "gold_answer": [
+        "dim_customer",
+        "fact_transaction",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "predicted_answer": "E-commerce",
       "answer_type": "string",
       "type": "silo",
@@ -16601,7 +16791,18 @@
     {
       "id": "syn_logistics_membership_340",
       "question": "Which data silo does fact_transaction belong to?",
-      "gold_answer": "ecommerce",
+      "gold_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "predicted_answer": "Sales",
       "answer_type": "string",
       "type": "silo",
@@ -16642,7 +16843,18 @@
     {
       "id": "syn_logistics_membership_341",
       "question": "Which data silo does mart_conversion_funnel belong to?",
-      "gold_answer": "ecommerce",
+      "gold_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "predicted_answer": "Sales and Marketing",
       "answer_type": "string",
       "type": "silo",
@@ -16683,7 +16895,18 @@
     {
       "id": "syn_logistics_membership_342",
       "question": "Which data silo does dim_account belong to?",
-      "gold_answer": "finance",
+      "gold_answer": [
+        "dim_cost_center",
+        "fact_journal_entry",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "predicted_answer": "Financial Data",
       "answer_type": "string",
       "type": "silo",
@@ -16724,7 +16947,18 @@
     {
       "id": "syn_logistics_membership_343",
       "question": "Which data silo does dim_cost_center belong to?",
-      "gold_answer": "finance",
+      "gold_answer": [
+        "dim_account",
+        "fact_journal_entry",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "predicted_answer": "Finance",
       "answer_type": "string",
       "type": "silo",
@@ -16758,14 +16992,25 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"Finance\",\n  \"reasoning\": \"dim_cost_center is related to tables like mart_cash_flow_statement, mart_trial_balance, fact_journal_entry, and dim_account, all of which are core financial concepts.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "syn_logistics_membership_344",
       "question": "Which data silo does fact_journal_entry belong to?",
-      "gold_answer": "finance",
+      "gold_answer": [
+        "dim_account",
+        "dim_cost_center",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "predicted_answer": "Financial/Accounting",
       "answer_type": "string",
       "type": "silo",
@@ -16806,7 +17051,18 @@
     {
       "id": "syn_logistics_membership_345",
       "question": "Which data silo does mart_cash_flow_statement belong to?",
-      "gold_answer": "finance",
+      "gold_answer": [
+        "dim_account",
+        "dim_cost_center",
+        "fact_journal_entry",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "predicted_answer": null,
       "answer_type": "string",
       "type": "silo",
@@ -18226,5 +18482,11 @@
         "recall": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 372,
+    "exact_match": 296,
+    "exact_match_pct": 79.6,
+    "avg_f1": 86.7
+  }
 }

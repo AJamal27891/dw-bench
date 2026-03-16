@@ -1,0 +1,82 @@
+% ============================================================================
+% 6. DISCUSSION — Journal version (expanded)
+% ============================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Retrieval--Reasoning Decomposition}
+
+Our results reveal a clean decomposition of graph reasoning performance
+into two independent failure modes.
+
+\textbf{Retrieval-limited subtypes} (\texttt{hop\_count},
+\texttt{direct\_fk}, \texttt{isolation}, \texttt{connected}) achieve
+$\geq$93\% EM with Tool-Use because the answer requires only one or
+two graph lookups.  Static baselines fail on these subtypes
+\emph{not because the reasoning is complex}, but because the relevant
+graph fragment is missing from the injected context.  This is confirmed
+by the Oracle's near-perfect scores: once the correct information is
+available, both models can interpret it accurately.
+
+\textbf{Reasoning-limited subtypes} (\texttt{combined\_impact},
+\texttt{membership}, \texttt{transitive}) remain hard even with tools.
+Even with Tool-Use providing graph algorithm access,
+\texttt{combined\_impact} achieves only 12\% EM ($n=69$).  The LLM
+struggles to compose multiple tool outputs across phases, confirming
+a ceiling for prompt-based graph reasoning.
+
+\subsection{The Tool Necessity-Insufficiency Paradox}
+
+Tier~2 reveals a striking paradox: tools are simultaneously
+\emph{essential} and \emph{insufficient}.
+
+On data-dependent subtypes (\texttt{cascade\_count}: 100\% vs.\ 0\%;
+\texttt{row\_provenance}: 92\% vs.\ 0\%), tools are the difference
+between perfect performance and complete failure.  These subtypes
+require traversing the 18MB row-level lineage map---far exceeding any
+context window.
+
+Yet on reasoning-intensive subtypes (\texttt{multi\_hop\_trace}: 27\%;
+\texttt{shared\_source}: 23\%), tools provide \emph{no} advantage over
+static baselines.  These subtypes require multi-hop graph traversal
+and set-theoretic reasoning (finding common ancestors of two mart
+tables)---capabilities that tools provide but LLMs cannot effectively
+orchestrate.
+
+\subsection{Implications for Hybrid Architectures}
+
+The complementarity analysis confirms that Tool-Use and Graph-Augmented
+fail on largely the \emph{same} questions: their union improves overall
+EM by only 6 percentage points, leaving 35\% of questions unsolved by
+either approach.  This suggest that the bottleneck is not retrieval
+\emph{or} tool access, but the LLM's ability to perform compositional
+structural reasoning.
+
+This points toward hybrid architectures combining:
+\begin{enumerate}
+  \item \textbf{Tool-augmented retrieval} for data-access subtypes
+    where simple lookups suffice.
+  \item \textbf{Learned structural representations} (e.g., GNN encoders)
+    that can capture multi-hop topology patterns beyond what prompt-based
+    reasoning can achieve.
+  \item \textbf{Compositional reasoning modules} that decompose complex
+    graph queries into sequences of simpler operations.
+\end{enumerate}
+
+\subsection{Obfuscation and Memorization}
+
+The obfuscation results provide a clean diagnostic for memorization.
+Static baselines lose 15--32\% EM under obfuscation, confirming partial
+reliance on memorized schema name associations.  Tool-Use's near-invariance
+($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\% DeepSeek) demonstrates that
+algorithmic graph access is robust to input perturbation---a desirable
+property for production deployment where schemas are diverse and
+evolving.
+
+\subsection{Model Differences}
+
+Gemini and DeepSeek show consistent patterns but differ in magnitude.
+DeepSeek-V3 benefits more from explicit graph context (GA outperforms
+FT by 7.3pp for DeepSeek vs.\ only -1.1pp for Gemini), suggesting
+that models with less domain exposure rely more heavily on structured
+context injection.

@@ -4328,7 +4328,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "Table_F1 has a direct FK to Table_E1, and Table_E1 has a direct FK to Table_Q via Table_A or Table_P, but Table_A has a direct FK to Table_Q, making the shortest path Table_F1 → Table_E1 → Table_Q.",
+      "reasoning": "Table_F1 has a direct FK to Table_E1, and Table_E1 has a direct FK to Table_Q via Table_A or Table_P, but Table_A has a direct FK to Table_Q, making the shortest path Table_F1 \u2192 Table_E1 \u2192 Table_Q.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4339,8 +4339,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "Table_F1 has a direct FK to Table_E1, and Table_E1 has a direct FK to Table_Q via Table_A or Table_P, but Table_A has a direct FK to Table_Q, making the shortest path Table_F1 → Table_E1 → Table_Q.",
-        "_raw_text": "{\n    \"answer_list\": [\"Table_F1\", \"Table_E1\", \"Table_Q\"],\n    \"answer_int\": null,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"Table_F1 has a direct FK to Table_E1, and Table_E1 has a direct FK to Table_Q via Table_A or Table_P, but Table_A has a direct FK to Table_Q, making the shortest path Table_F1 → Table_E1 → Table_Q.\"\n}"
+        "reasoning": "Table_F1 has a direct FK to Table_E1, and Table_E1 has a direct FK to Table_Q via Table_A or Table_P, but Table_A has a direct FK to Table_Q, making the shortest path Table_F1 \u2192 Table_E1 \u2192 Table_Q.",
+        "_raw_text": "{\n    \"answer_list\": [\"Table_F1\", \"Table_E1\", \"Table_Q\"],\n    \"answer_int\": null,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"Table_F1 has a direct FK to Table_E1, and Table_E1 has a direct FK to Table_Q via Table_A or Table_P, but Table_A has a direct FK to Table_Q, making the shortest path Table_F1 \u2192 Table_E1 \u2192 Table_Q.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -7205,15 +7205,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "Table_G connects to Table_T via FK, and Table_T connects to Table_A1 via FK through Table_N and Table_B1, but the shortest path is Table_G → Table_T → Table_A1 via Table_B1's FK to Table_T and Table_A1's FK to Table_L, requiring 2 joins.",
+      "reasoning": "Table_G connects to Table_T via FK, and Table_T connects to Table_A1 via FK through Table_N and Table_B1, but the shortest path is Table_G \u2192 Table_T \u2192 Table_A1 via Table_B1's FK to Table_T and Table_A1's FK to Table_L, requiring 2 joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "Table_G connects to Table_T via FK, and Table_T connects to Table_A1 via FK through Table_N and Table_B1, but the shortest path is Table_G → Table_T → Table_A1 via Table_B1's FK to Table_T and Table_A1's FK to Table_L, requiring 2 joins.",
-        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": 2,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"Table_G connects to Table_T via FK, and Table_T connects to Table_A1 via FK through Table_N and Table_B1, but the shortest path is Table_G → Table_T → Table_A1 via Table_B1's FK to Table_T and Table_A1's FK to Table_L, requiring 2 joins.\"\n}"
+        "reasoning": "Table_G connects to Table_T via FK, and Table_T connects to Table_A1 via FK through Table_N and Table_B1, but the shortest path is Table_G \u2192 Table_T \u2192 Table_A1 via Table_B1's FK to Table_T and Table_A1's FK to Table_L, requiring 2 joins.",
+        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": 2,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"Table_G connects to Table_T via FK, and Table_T connects to Table_A1 via FK through Table_N and Table_B1, but the shortest path is Table_G \u2192 Table_T \u2192 Table_A1 via Table_B1's FK to Table_T and Table_A1's FK to Table_L, requiring 2 joins.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -7724,5 +7724,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 181,
+    "exact_match": 34,
+    "exact_match_pct": 18.8,
+    "avg_f1": 18.8
+  }
 }

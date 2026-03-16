@@ -6,34 +6,34 @@
   "model_tag": "gemini-2.5-flash",
   "metrics": {
     "total": 127,
-    "micro_em": 0.9685,
-    "micro_f1": 0.9916,
-    "macro_em": 0.8672,
-    "macro_f1": 0.9895,
-    "exact_match": 0.9685,
-    "avg_f1": 0.9916,
+    "micro_em": 0.9843,
+    "micro_f1": 0.9997,
+    "macro_em": 0.9167,
+    "macro_f1": 0.9982,
+    "exact_match": 0.9843,
+    "avg_f1": 0.9997,
     "by_type": {
       "silo_detection": {
         "total": 11,
-        "exact_match": 0.7273,
-        "avg_f1": 0.9942
+        "exact_match": 0.8182,
+        "avg_f1": 0.9961
       },
       "schema_routing": {
         "total": 116,
-        "exact_match": 0.9914,
-        "avg_f1": 0.9914
+        "exact_match": 1.0,
+        "avg_f1": 1.0
       }
     },
     "by_difficulty": {
       "easy": {
         "total": 72,
-        "exact_match": 0.9861,
-        "avg_f1": 0.9861
+        "exact_match": 1.0,
+        "avg_f1": 1.0
       },
       "medium": {
         "total": 47,
-        "exact_match": 0.9362,
-        "avg_f1": 0.9986
+        "exact_match": 0.9574,
+        "avg_f1": 0.9991
       },
       "hard": {
         "total": 8,
@@ -49,8 +49,8 @@
       },
       "membership": {
         "total": 3,
-        "exact_match": 0.0,
-        "avg_f1": 0.9787
+        "exact_match": 0.3333,
+        "avg_f1": 0.9858
       },
       "isolation": {
         "total": 5,
@@ -79,8 +79,8 @@
       },
       "direct_fk": {
         "total": 16,
-        "exact_match": 0.9375,
-        "avg_f1": 0.9375
+        "exact_match": 1.0,
+        "avg_f1": 1.0
       }
     }
   },
@@ -167,7 +167,7 @@
       "type": "silo_detection",
       "subtype": "membership",
       "difficulty": "medium",
-      "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'household_demographics'. The result directly provides the list of tables in that component.",
+      "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'household_demographics'. The tool returned a list of tables that are part of the same component, which includes 'household_demographics' itself.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -179,7 +179,6 @@
           "customer_address",
           "customer_demographics",
           "date_dim",
-          "household_demographics",
           "income_band",
           "inventory",
           "item",
@@ -194,13 +193,14 @@
           "web_page",
           "web_returns",
           "web_sales",
-          "web_site"
+          "web_site",
+          "household_demographics"
         ],
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'household_demographics'. The result directly provides the list of tables in that component.",
-        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The 'get_component_of' tool was used to find all tables in the same connected component as 'household_demographics'. The result directly provides the list of tables in that component.\"}"
+        "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'household_demographics'. The tool returned a list of tables that are part of the same component, which includes 'household_demographics' itself.",
+        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\", \"household_demographics\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The 'get_component_of' tool was used to find all tables in the same connected component as 'household_demographics'. The tool returned a list of tables that are part of the same component, which includes 'household_demographics' itself.\"}"
       },
       "scores": {
         "exact_match": false,
@@ -242,7 +242,6 @@
         "catalog_page",
         "catalog_returns",
         "catalog_sales",
-        "customer",
         "customer_address",
         "customer_demographics",
         "date_dim",
@@ -267,7 +266,7 @@
       "type": "silo_detection",
       "subtype": "membership",
       "difficulty": "medium",
-      "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'customer'. The result directly provides the list of tables in that component.",
+      "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'customer'. The result indicates that all tables in the schema are part of the same connected component as 'customer', meaning there is a path between 'customer' and every other table in the schema.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -275,7 +274,6 @@
           "catalog_page",
           "catalog_returns",
           "catalog_sales",
-          "customer",
           "customer_address",
           "customer_demographics",
           "date_dim",
@@ -299,13 +297,13 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'customer'. The result directly provides the list of tables in that component.",
-        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The 'get_component_of' tool was used to find all tables in the same connected component as 'customer'. The result directly provides the list of tables in that component.\"}"
+        "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'customer'. The result indicates that all tables in the schema are part of the same connected component as 'customer', meaning there is a path between 'customer' and every other table in the schema.",
+        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The 'get_component_of' tool was used to find all tables in the same connected component as 'customer'. The result indicates that all tables in the schema are part of the same connected component as 'customer', meaning there is a path between 'customer' and every other table in the schema.\"}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.9787,
-        "precision": 0.9583,
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
         "recall": 1.0
       }
     },
@@ -367,7 +365,7 @@
       "type": "silo_detection",
       "subtype": "membership",
       "difficulty": "medium",
-      "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'warehouse'. The result shows that all 24 tables in the schema are part of the same connected component as 'warehouse', indicating a single data silo.",
+      "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'warehouse'. The result indicates that all 24 tables in the schema are part of the same connected component as 'warehouse', meaning the entire schema forms a single data silo.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -390,17 +388,17 @@
           "store_returns",
           "store_sales",
           "time_dim",
-          "warehouse",
           "web_page",
           "web_returns",
           "web_sales",
-          "web_site"
+          "web_site",
+          "warehouse"
         ],
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'warehouse'. The result shows that all 24 tables in the schema are part of the same connected component as 'warehouse', indicating a single data silo.",
-        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The 'get_component_of' tool was used to find all tables in the same connected component as 'warehouse'. The result shows that all 24 tables in the schema are part of the same connected component as 'warehouse', indicating a single data silo.\"}"
+        "reasoning": "The 'get_component_of' tool was used to find all tables in the same connected component as 'warehouse'. The result indicates that all 24 tables in the schema are part of the same connected component as 'warehouse', meaning the entire schema forms a single data silo.",
+        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\", \"warehouse\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The 'get_component_of' tool was used to find all tables in the same connected component as 'warehouse'. The result indicates that all 24 tables in the schema are part of the same connected component as 'warehouse', meaning the entire schema forms a single data silo.\"}"
       },
       "scores": {
         "exact_match": false,
@@ -442,15 +440,15 @@
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "reasoning": "The shortest_path tool found a path between 'warehouse' and 'income_band' of length 3, indicating they are connected through a chain of foreign key relationships: warehouse -> catalog_sales -> household_demographics -> income_band.",
+      "reasoning": "The shortest_path tool found a path between 'warehouse' and 'income_band' with a length of 3, indicating they are connected through a chain of foreign key relationships: warehouse -> catalog_sales -> household_demographics -> income_band.",
       "api_failure": false,
       "raw_response": {
+        "answer_bool": true,
         "answer_list": null,
         "answer_int": null,
-        "answer_bool": true,
         "answer_str": null,
-        "reasoning": "The shortest_path tool found a path between 'warehouse' and 'income_band' of length 3, indicating they are connected through a chain of foreign key relationships: warehouse -> catalog_sales -> household_demographics -> income_band.",
-        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": true, \"answer_str\": null, \"reasoning\": \"The shortest_path tool found a path between 'warehouse' and 'income_band' of length 3, indicating they are connected through a chain of foreign key relationships: warehouse -> catalog_sales -> household_demographics -> income_band.\"}"
+        "reasoning": "The shortest_path tool found a path between 'warehouse' and 'income_band' with a length of 3, indicating they are connected through a chain of foreign key relationships: warehouse -> catalog_sales -> household_demographics -> income_band.",
+        "_raw_text": "{\"answer_bool\": true, \"answer_list\": null, \"answer_int\": null, \"answer_str\": null, \"reasoning\": \"The shortest_path tool found a path between 'warehouse' and 'income_band' with a length of 3, indicating they are connected through a chain of foreign key relationships: warehouse -> catalog_sales -> household_demographics -> income_band.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -490,15 +488,15 @@
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "reasoning": "The shortest_path tool found a path between 'date_dim' and 'call_center' of length 2, specifically: date_dim -> catalog_sales -> call_center. This indicates they are connected through a chain of foreign key relationships.",
+      "reasoning": "The shortest_path tool found a path between date_dim and call_center, specifically: date_dim -> catalog_sales -> call_center. This indicates they are connected through a chain of foreign key relationships.",
       "api_failure": false,
       "raw_response": {
-        "answer_bool": true,
         "answer_list": null,
         "answer_int": null,
+        "answer_bool": true,
         "answer_str": null,
-        "reasoning": "The shortest_path tool found a path between 'date_dim' and 'call_center' of length 2, specifically: date_dim -> catalog_sales -> call_center. This indicates they are connected through a chain of foreign key relationships.",
-        "_raw_text": "{\"answer_bool\": true, \"answer_list\": null, \"answer_int\": null, \"answer_str\": null, \"reasoning\": \"The shortest_path tool found a path between 'date_dim' and 'call_center' of length 2, specifically: date_dim -> catalog_sales -> call_center. This indicates they are connected through a chain of foreign key relationships.\"}"
+        "reasoning": "The shortest_path tool found a path between date_dim and call_center, specifically: date_dim -> catalog_sales -> call_center. This indicates they are connected through a chain of foreign key relationships.",
+        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": true, \"answer_str\": null, \"reasoning\": \"The shortest_path tool found a path between date_dim and call_center, specifically: date_dim -> catalog_sales -> call_center. This indicates they are connected through a chain of foreign key relationships.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -612,7 +610,7 @@
       "type": "silo_detection",
       "subtype": "full_enumeration",
       "difficulty": "hard",
-      "reasoning": "The schema has only one connected component, which by definition is the largest. The list of tables in this component is provided by the connected_components tool.",
+      "reasoning": "The 'connected_components' tool was called, and it returned a single connected component containing all 24 tables. Therefore, this component is the largest, and all tables within it are listed.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -644,8 +642,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The schema has only one connected component, which by definition is the largest. The list of tables in this component is provided by the connected_components tool.",
-        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The schema has only one connected component, which by definition is the largest. The list of tables in this component is provided by the connected_components tool.\"}"
+        "reasoning": "The 'connected_components' tool was called, and it returned a single connected component containing all 24 tables. Therefore, this component is the largest, and all tables within it are listed.",
+        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The 'connected_components' tool was called, and it returned a single connected component containing all 24 tables. Therefore, this component is the largest, and all tables within it are listed.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -750,11 +748,11 @@
           "catalog_sales",
           "customer_demographics"
         ],
-        "answer_int": 1,
+        "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
         "reasoning": "The shortest path between catalog_sales and customer_demographics is a direct foreign key relationship, as indicated by the path length of 1.",
-        "_raw_text": "{\"answer_list\": [\"catalog_sales\", \"customer_demographics\"], \"answer_int\": 1, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between catalog_sales and customer_demographics is a direct foreign key relationship, as indicated by the path length of 1.\"}"
+        "_raw_text": "{\"answer_list\": [\"catalog_sales\", \"customer_demographics\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between catalog_sales and customer_demographics is a direct foreign key relationship, as indicated by the path length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -780,7 +778,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'customer' and 'household_demographics' is a direct foreign key relationship, as indicated by the path length of 1.",
+      "reasoning": "The shortest path between 'customer' and 'household_demographics' is a direct foreign key relationship, as indicated by the tool result. The path is ['customer', 'household_demographics'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -790,8 +788,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'customer' and 'household_demographics' is a direct foreign key relationship, as indicated by the path length of 1.",
-        "_raw_text": "{\"answer_list\": [\"customer\", \"household_demographics\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'customer' and 'household_demographics' is a direct foreign key relationship, as indicated by the path length of 1.\"}"
+        "reasoning": "The shortest path between 'customer' and 'household_demographics' is a direct foreign key relationship, as indicated by the tool result. The path is ['customer', 'household_demographics'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"customer\", \"household_demographics\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'customer' and 'household_demographics' is a direct foreign key relationship, as indicated by the tool result. The path is ['customer', 'household_demographics'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -817,7 +815,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between store_sales and time_dim is a direct foreign key relationship, as indicated by the tool result. The path is ['store_sales', 'time_dim'] with a length of 1.",
+      "reasoning": "The shortest path between store_sales and time_dim is a direct foreign key relationship, as indicated by the tool result. The path consists of these two tables.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -827,8 +825,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between store_sales and time_dim is a direct foreign key relationship, as indicated by the tool result. The path is ['store_sales', 'time_dim'] with a length of 1.",
-        "_raw_text": "{\"answer_list\": [\"store_sales\", \"time_dim\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between store_sales and time_dim is a direct foreign key relationship, as indicated by the tool result. The path is ['store_sales', 'time_dim'] with a length of 1.\"}"
+        "reasoning": "The shortest path between store_sales and time_dim is a direct foreign key relationship, as indicated by the tool result. The path consists of these two tables.",
+        "_raw_text": "{\"answer_list\": [\"store_sales\", \"time_dim\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between store_sales and time_dim is a direct foreign key relationship, as indicated by the tool result. The path consists of these two tables.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -965,7 +963,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'catalog_returns' and 'time_dim' is a direct connection, as indicated by the tool result. The path is ['catalog_returns', 'time_dim'] with a length of 1.",
+      "reasoning": "The shortest path between catalog_returns and time_dim is a direct connection, as indicated by the tool result. The path is ['catalog_returns', 'time_dim'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -975,8 +973,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'catalog_returns' and 'time_dim' is a direct connection, as indicated by the tool result. The path is ['catalog_returns', 'time_dim'] with a length of 1.",
-        "_raw_text": "{\"answer_list\": [\"catalog_returns\", \"time_dim\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'catalog_returns' and 'time_dim' is a direct connection, as indicated by the tool result. The path is ['catalog_returns', 'time_dim'] with a length of 1.\"}"
+        "reasoning": "The shortest path between catalog_returns and time_dim is a direct connection, as indicated by the tool result. The path is ['catalog_returns', 'time_dim'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"catalog_returns\", \"time_dim\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between catalog_returns and time_dim is a direct connection, as indicated by the tool result. The path is ['catalog_returns', 'time_dim'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1150,7 +1148,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'household_demographics' to 'catalog_returns' is a direct join, as indicated by the path length of 1 from the shortest_path tool.",
+      "reasoning": "The shortest path between 'household_demographics' and 'catalog_returns' is a direct foreign key join, as indicated by the path length of 1. The path consists of these two tables directly.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1160,8 +1158,8 @@
         "answer_int": 1,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'household_demographics' to 'catalog_returns' is a direct join, as indicated by the path length of 1 from the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"household_demographics\", \"catalog_returns\"], \"answer_int\": 1, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'household_demographics' to 'catalog_returns' is a direct join, as indicated by the path length of 1 from the shortest_path tool.\"}"
+        "reasoning": "The shortest path between 'household_demographics' and 'catalog_returns' is a direct foreign key join, as indicated by the path length of 1. The path consists of these two tables directly.",
+        "_raw_text": "{\"answer_list\": [\"household_demographics\", \"catalog_returns\"], \"answer_int\": 1, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'household_demographics' and 'catalog_returns' is a direct foreign key join, as indicated by the path length of 1. The path consists of these two tables directly.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1187,7 +1185,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'catalog_sales' and 'customer' is a direct foreign key relationship, as indicated by the path ['catalog_sales', 'customer'] with a length of 1.",
+      "reasoning": "The shortest path between 'catalog_sales' and 'customer' is a direct foreign key relationship, as indicated by the tool result. The path is ['catalog_sales', 'customer'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1197,8 +1195,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'catalog_sales' and 'customer' is a direct foreign key relationship, as indicated by the path ['catalog_sales', 'customer'] with a length of 1.",
-        "_raw_text": "{\"answer_list\": [\"catalog_sales\", \"customer\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'catalog_sales' and 'customer' is a direct foreign key relationship, as indicated by the path ['catalog_sales', 'customer'] with a length of 1.\"}"
+        "reasoning": "The shortest path between 'catalog_sales' and 'customer' is a direct foreign key relationship, as indicated by the tool result. The path is ['catalog_sales', 'customer'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"catalog_sales\", \"customer\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'catalog_sales' and 'customer' is a direct foreign key relationship, as indicated by the tool result. The path is ['catalog_sales', 'customer'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1224,7 +1222,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'warehouse' and 'inventory' is a direct foreign key relationship, as indicated by the tool result. The path is ['warehouse', 'inventory'] with a length of 1.",
+      "reasoning": "The shortest path between 'warehouse' and 'inventory' is a direct foreign key relationship, as indicated by the path ['warehouse', 'inventory'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1234,8 +1232,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'warehouse' and 'inventory' is a direct foreign key relationship, as indicated by the tool result. The path is ['warehouse', 'inventory'] with a length of 1.",
-        "_raw_text": "{\"answer_list\": [\"warehouse\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'warehouse' and 'inventory' is a direct foreign key relationship, as indicated by the tool result. The path is ['warehouse', 'inventory'] with a length of 1.\"}"
+        "reasoning": "The shortest path between 'warehouse' and 'inventory' is a direct foreign key relationship, as indicated by the path ['warehouse', 'inventory'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"warehouse\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'warehouse' and 'inventory' is a direct foreign key relationship, as indicated by the path ['warehouse', 'inventory'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1261,7 +1259,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting web_sales to date_dim is a direct join, as indicated by the shortest_path tool result.",
+      "reasoning": "The shortest path between 'web_sales' and 'date_dim' is a direct connection, as indicated by the tool result. The path is ['web_sales', 'date_dim'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1271,8 +1269,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting web_sales to date_dim is a direct join, as indicated by the shortest_path tool result.",
-        "_raw_text": "{\"answer_list\": [\"web_sales\", \"date_dim\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting web_sales to date_dim is a direct join, as indicated by the shortest_path tool result.\"}"
+        "reasoning": "The shortest path between 'web_sales' and 'date_dim' is a direct connection, as indicated by the tool result. The path is ['web_sales', 'date_dim'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"web_sales\", \"date_dim\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'web_sales' and 'date_dim' is a direct connection, as indicated by the tool result. The path is ['web_sales', 'date_dim'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1298,7 +1296,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'reason' and 'catalog_returns' is a direct foreign key relationship, as indicated by the tool result. The path is ['reason', 'catalog_returns'] with a length of 1.",
+      "reasoning": "The shortest path between 'reason' and 'catalog_returns' is a direct foreign key relationship, as indicated by the tool result.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1308,8 +1306,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'reason' and 'catalog_returns' is a direct foreign key relationship, as indicated by the tool result. The path is ['reason', 'catalog_returns'] with a length of 1.",
-        "_raw_text": "{\"answer_list\": [\"reason\", \"catalog_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'reason' and 'catalog_returns' is a direct foreign key relationship, as indicated by the tool result. The path is ['reason', 'catalog_returns'] with a length of 1.\"}"
+        "reasoning": "The shortest path between 'reason' and 'catalog_returns' is a direct foreign key relationship, as indicated by the tool result.",
+        "_raw_text": "{\"answer_list\": [\"reason\", \"catalog_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'reason' and 'catalog_returns' is a direct foreign key relationship, as indicated by the tool result.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1335,7 +1333,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between web_sales and customer_address is a direct foreign key relationship, as indicated by the path length of 1 from the shortest_path tool.",
+      "reasoning": "The shortest path between web_sales and customer_address is a direct foreign key relationship, as indicated by the tool result. The path is ['web_sales', 'customer_address'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1345,8 +1343,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between web_sales and customer_address is a direct foreign key relationship, as indicated by the path length of 1 from the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"web_sales\", \"customer_address\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between web_sales and customer_address is a direct foreign key relationship, as indicated by the path length of 1 from the shortest_path tool.\"}"
+        "reasoning": "The shortest path between web_sales and customer_address is a direct foreign key relationship, as indicated by the tool result. The path is ['web_sales', 'customer_address'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"web_sales\", \"customer_address\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between web_sales and customer_address is a direct foreign key relationship, as indicated by the tool result. The path is ['web_sales', 'customer_address'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1557,7 +1555,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'customer_address' and 'catalog_sales' is a direct foreign key relationship, as indicated by the tool result. The path consists of these two tables.",
+      "reasoning": "The shortest path between customer_address and catalog_sales is a direct foreign key relationship, as indicated by the path of length 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1567,8 +1565,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'customer_address' and 'catalog_sales' is a direct foreign key relationship, as indicated by the tool result. The path consists of these two tables.",
-        "_raw_text": "{\"answer_list\": [\"customer_address\", \"catalog_sales\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'customer_address' and 'catalog_sales' is a direct foreign key relationship, as indicated by the tool result. The path consists of these two tables.\"}"
+        "reasoning": "The shortest path between customer_address and catalog_sales is a direct foreign key relationship, as indicated by the path of length 1.",
+        "_raw_text": "{\"answer_list\": [\"customer_address\", \"catalog_sales\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between customer_address and catalog_sales is a direct foreign key relationship, as indicated by the path of length 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1594,7 +1592,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'web_sales' and 'warehouse' is a direct foreign key relationship, as indicated by the path ['web_sales', 'warehouse'] with a length of 1.",
+      "reasoning": "The shortest chain of foreign key joins connecting web_sales to warehouse is a direct link, as indicated by the path ['web_sales', 'warehouse'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1604,8 +1602,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'web_sales' and 'warehouse' is a direct foreign key relationship, as indicated by the path ['web_sales', 'warehouse'] with a length of 1.",
-        "_raw_text": "{\"answer_list\": [\"web_sales\", \"warehouse\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'web_sales' and 'warehouse' is a direct foreign key relationship, as indicated by the path ['web_sales', 'warehouse'] with a length of 1.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting web_sales to warehouse is a direct link, as indicated by the path ['web_sales', 'warehouse'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"web_sales\", \"warehouse\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting web_sales to warehouse is a direct link, as indicated by the path ['web_sales', 'warehouse'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1801,7 +1799,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest chain of foreign key joins connecting 'promotion' to 'store_returns' was found using the 'shortest_path' tool. The path is 'promotion' -> 'store_sales' -> 'date_dim' -> 'store_returns'.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'promotion' to 'store_returns' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> store_returns.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1813,8 +1811,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'promotion' to 'store_returns' was found using the 'shortest_path' tool. The path is 'promotion' -> 'store_sales' -> 'date_dim' -> 'store_returns'.",
-        "_raw_text": "{\"answer_list\": [\"promotion\", \"store_sales\", \"date_dim\", \"store_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'promotion' to 'store_returns' was found using the 'shortest_path' tool. The path is 'promotion' -> 'store_sales' -> 'date_dim' -> 'store_returns'.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'promotion' to 'store_returns' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> store_returns.",
+        "_raw_text": "{\"answer_list\": [\"promotion\", \"store_sales\", \"date_dim\", \"store_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'promotion' to 'store_returns' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> store_returns.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -1842,7 +1840,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'store_sales' to 'store_returns' is ['store_sales', 'date_dim', 'store_returns'], as identified by the shortest_path tool.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'store_sales' to 'store_returns' is ['store_sales', 'date_dim', 'store_returns'], as identified by the shortest_path tool. This path has a length of 2.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1853,8 +1851,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'store_sales' to 'store_returns' is ['store_sales', 'date_dim', 'store_returns'], as identified by the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"store_sales\", \"date_dim\", \"store_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'store_sales' to 'store_returns' is ['store_sales', 'date_dim', 'store_returns'], as identified by the shortest_path tool.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'store_sales' to 'store_returns' is ['store_sales', 'date_dim', 'store_returns'], as identified by the shortest_path tool. This path has a length of 2.",
+        "_raw_text": "{\"answer_list\": [\"store_sales\", \"date_dim\", \"store_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'store_sales' to 'store_returns' is ['store_sales', 'date_dim', 'store_returns'], as identified by the shortest_path tool. This path has a length of 2.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -2125,7 +2123,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'store_returns' to 'income_band' was found using the 'shortest_path' tool. The path is 'store_returns' -> 'household_demographics' -> 'income_band'.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'store_returns' to 'income_band' is ['store_returns', 'household_demographics', 'income_band'], as identified by the shortest_path tool.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2136,8 +2134,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'store_returns' to 'income_band' was found using the 'shortest_path' tool. The path is 'store_returns' -> 'household_demographics' -> 'income_band'.",
-        "_raw_text": "{\"answer_list\": [\"store_returns\", \"household_demographics\", \"income_band\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'store_returns' to 'income_band' was found using the 'shortest_path' tool. The path is 'store_returns' -> 'household_demographics' -> 'income_band'.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'store_returns' to 'income_band' is ['store_returns', 'household_demographics', 'income_band'], as identified by the shortest_path tool.",
+        "_raw_text": "{\"answer_list\": [\"store_returns\", \"household_demographics\", \"income_band\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'store_returns' to 'income_band' is ['store_returns', 'household_demographics', 'income_band'], as identified by the shortest_path tool.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -2373,7 +2371,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest chain of foreign key joins connecting 'promotion' to 'inventory' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> inventory.",
+      "reasoning": "The shortest chain of foreign key joins from 'promotion' to 'inventory' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> inventory, with a length of 3 joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2385,8 +2383,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'promotion' to 'inventory' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> inventory.",
-        "_raw_text": "{\"answer_list\": [\"promotion\", \"store_sales\", \"date_dim\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'promotion' to 'inventory' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> inventory.\"}"
+        "reasoning": "The shortest chain of foreign key joins from 'promotion' to 'inventory' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> inventory, with a length of 3 joins.",
+        "_raw_text": "{\"answer_list\": [\"promotion\", \"store_sales\", \"date_dim\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins from 'promotion' to 'inventory' was found using the 'shortest_path' tool. The path is promotion -> store_sales -> date_dim -> inventory, with a length of 3 joins.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -2414,7 +2412,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'customer_demographics' to 'warehouse' is found using the 'shortest_path' tool, which returned the path ['customer_demographics', 'catalog_sales', 'warehouse'].",
+      "reasoning": "The shortest chain of foreign key joins connecting 'customer_demographics' to 'warehouse' was found using the 'shortest_path' tool. The path is 'customer_demographics' -> 'catalog_sales' -> 'warehouse'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2425,8 +2423,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'customer_demographics' to 'warehouse' is found using the 'shortest_path' tool, which returned the path ['customer_demographics', 'catalog_sales', 'warehouse'].",
-        "_raw_text": "{\"answer_list\": [\"customer_demographics\", \"catalog_sales\", \"warehouse\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'customer_demographics' to 'warehouse' is found using the 'shortest_path' tool, which returned the path ['customer_demographics', 'catalog_sales', 'warehouse'].\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'customer_demographics' to 'warehouse' was found using the 'shortest_path' tool. The path is 'customer_demographics' -> 'catalog_sales' -> 'warehouse'.",
+        "_raw_text": "{\"answer_list\": [\"customer_demographics\", \"catalog_sales\", \"warehouse\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'customer_demographics' to 'warehouse' was found using the 'shortest_path' tool. The path is 'customer_demographics' -> 'catalog_sales' -> 'warehouse'.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -2497,7 +2495,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'catalog_page' to 'item' is 'catalog_page' -> 'catalog_sales' -> 'item', as identified by the shortest_path tool.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'catalog_page' to 'item' is 'catalog_page' -> 'catalog_sales' -> 'item', as determined by the shortest_path tool.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2508,8 +2506,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'catalog_page' to 'item' is 'catalog_page' -> 'catalog_sales' -> 'item', as identified by the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"catalog_page\", \"catalog_sales\", \"item\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'catalog_page' to 'item' is 'catalog_page' -> 'catalog_sales' -> 'item', as identified by the shortest_path tool.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'catalog_page' to 'item' is 'catalog_page' -> 'catalog_sales' -> 'item', as determined by the shortest_path tool.",
+        "_raw_text": "{\"answer_list\": [\"catalog_page\", \"catalog_sales\", \"item\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'catalog_page' to 'item' is 'catalog_page' -> 'catalog_sales' -> 'item', as determined by the shortest_path tool.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3030,7 +3028,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest chain of foreign key joins connecting 'web_returns' to 'web_site' is ['web_returns', 'date_dim', 'web_sales', 'web_site'], as determined by the shortest_path tool.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'web_returns' to 'web_site' is ['web_returns', 'date_dim', 'web_sales', 'web_site'], as identified by the shortest_path tool.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3042,8 +3040,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'web_returns' to 'web_site' is ['web_returns', 'date_dim', 'web_sales', 'web_site'], as determined by the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"web_returns\", \"date_dim\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'web_returns' to 'web_site' is ['web_returns', 'date_dim', 'web_sales', 'web_site'], as determined by the shortest_path tool.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'web_returns' to 'web_site' is ['web_returns', 'date_dim', 'web_sales', 'web_site'], as identified by the shortest_path tool.",
+        "_raw_text": "{\"answer_list\": [\"web_returns\", \"date_dim\", \"web_sales\", \"web_site\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'web_returns' to 'web_site' is ['web_returns', 'date_dim', 'web_sales', 'web_site'], as identified by the shortest_path tool.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3073,7 +3071,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest chain of foreign key joins connecting 'time_dim' to 'inventory' is 'time_dim' -> 'store_sales' -> 'date_dim' -> 'inventory', as identified by the shortest_path tool.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'time_dim' to 'inventory' is ['time_dim', 'store_sales', 'date_dim', 'inventory'], as determined by the shortest_path tool.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3085,8 +3083,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'time_dim' to 'inventory' is 'time_dim' -> 'store_sales' -> 'date_dim' -> 'inventory', as identified by the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"time_dim\", \"store_sales\", \"date_dim\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'time_dim' to 'inventory' is 'time_dim' -> 'store_sales' -> 'date_dim' -> 'inventory', as identified by the shortest_path tool.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'time_dim' to 'inventory' is ['time_dim', 'store_sales', 'date_dim', 'inventory'], as determined by the shortest_path tool.",
+        "_raw_text": "{\"answer_list\": [\"time_dim\", \"store_sales\", \"date_dim\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'time_dim' to 'inventory' is ['time_dim', 'store_sales', 'date_dim', 'inventory'], as determined by the shortest_path tool.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3157,7 +3155,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'store' to 'customer' is found by using the 'shortest_path' tool, which returned the path ['store', 'store_sales', 'customer'].",
+      "reasoning": "The shortest chain of foreign key joins connecting 'store' to 'customer' is 'store' -> 'store_sales' -> 'customer', as identified by the shortest_path tool.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3168,8 +3166,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'store' to 'customer' is found by using the 'shortest_path' tool, which returned the path ['store', 'store_sales', 'customer'].",
-        "_raw_text": "{\"answer_list\": [\"store\", \"store_sales\", \"customer\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'store' to 'customer' is found by using the 'shortest_path' tool, which returned the path ['store', 'store_sales', 'customer'].\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'store' to 'customer' is 'store' -> 'store_sales' -> 'customer', as identified by the shortest_path tool.",
+        "_raw_text": "{\"answer_list\": [\"store\", \"store_sales\", \"customer\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'store' to 'customer' is 'store' -> 'store_sales' -> 'customer', as identified by the shortest_path tool.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3197,7 +3195,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'web_sales' to 'store_returns' is found by using the 'shortest_path' tool. The path returned is ['web_sales', 'date_dim', 'store_returns'].",
+      "reasoning": "The shortest chain of foreign key joins connecting 'web_sales' to 'store_returns' was found using the 'shortest_path' tool. The path is 'web_sales' -> 'date_dim' -> 'store_returns', with a length of 2 joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3208,8 +3206,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'web_sales' to 'store_returns' is found by using the 'shortest_path' tool. The path returned is ['web_sales', 'date_dim', 'store_returns'].",
-        "_raw_text": "{\"answer_list\": [\"web_sales\", \"date_dim\", \"store_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'web_sales' to 'store_returns' is found by using the 'shortest_path' tool. The path returned is ['web_sales', 'date_dim', 'store_returns'].\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'web_sales' to 'store_returns' was found using the 'shortest_path' tool. The path is 'web_sales' -> 'date_dim' -> 'store_returns', with a length of 2 joins.",
+        "_raw_text": "{\"answer_list\": [\"web_sales\", \"date_dim\", \"store_returns\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'web_sales' to 'store_returns' was found using the 'shortest_path' tool. The path is 'web_sales' -> 'date_dim' -> 'store_returns', with a length of 2 joins.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3277,7 +3275,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest chain of foreign key joins connecting 'web_site' to 'customer_address' is 'web_site' -> 'web_sales' -> 'customer_address', as identified by the shortest_path tool.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'web_site' to 'customer_address' was found using the 'shortest_path' tool. The path is 'web_site' -> 'web_sales' -> 'customer_address', with a length of 2 joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3288,8 +3286,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'web_site' to 'customer_address' is 'web_site' -> 'web_sales' -> 'customer_address', as identified by the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"web_site\", \"web_sales\", \"customer_address\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'web_site' to 'customer_address' is 'web_site' -> 'web_sales' -> 'customer_address', as identified by the shortest_path tool.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'web_site' to 'customer_address' was found using the 'shortest_path' tool. The path is 'web_site' -> 'web_sales' -> 'customer_address', with a length of 2 joins.",
+        "_raw_text": "{\"answer_list\": [\"web_site\", \"web_sales\", \"customer_address\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'web_site' to 'customer_address' was found using the 'shortest_path' tool. The path is 'web_site' -> 'web_sales' -> 'customer_address', with a length of 2 joins.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3599,7 +3597,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest chain of foreign key joins connecting 'call_center' to 'inventory' was found using the 'shortest_path' tool. The path is 'call_center' -> 'catalog_sales' -> 'date_dim' -> 'inventory'.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'call_center' to 'inventory' is 'call_center' -> 'catalog_sales' -> 'date_dim' -> 'inventory', as determined by the shortest_path tool.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3611,8 +3609,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest chain of foreign key joins connecting 'call_center' to 'inventory' was found using the 'shortest_path' tool. The path is 'call_center' -> 'catalog_sales' -> 'date_dim' -> 'inventory'.",
-        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_sales\", \"date_dim\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'call_center' to 'inventory' was found using the 'shortest_path' tool. The path is 'call_center' -> 'catalog_sales' -> 'date_dim' -> 'inventory'.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'call_center' to 'inventory' is 'call_center' -> 'catalog_sales' -> 'date_dim' -> 'inventory', as determined by the shortest_path tool.",
+        "_raw_text": "{\"answer_list\": [\"call_center\", \"catalog_sales\", \"date_dim\", \"inventory\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'call_center' to 'inventory' is 'call_center' -> 'catalog_sales' -> 'date_dim' -> 'inventory', as determined by the shortest_path tool.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3720,7 +3718,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between 'customer' and 'income_band' was found using the 'shortest_path' tool, which returned the chain: customer -> household_demographics -> income_band.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'customer' to 'income_band' was found using the 'shortest_path' tool. The path is customer -> household_demographics -> income_band.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3731,8 +3729,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'customer' and 'income_band' was found using the 'shortest_path' tool, which returned the chain: customer -> household_demographics -> income_band.",
-        "_raw_text": "{\"answer_list\": [\"customer\", \"household_demographics\", \"income_band\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'customer' and 'income_band' was found using the 'shortest_path' tool, which returned the chain: customer -> household_demographics -> income_band.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'customer' to 'income_band' was found using the 'shortest_path' tool. The path is customer -> household_demographics -> income_band.",
+        "_raw_text": "{\"answer_list\": [\"customer\", \"household_demographics\", \"income_band\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'customer' to 'income_band' was found using the 'shortest_path' tool. The path is customer -> household_demographics -> income_band.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3802,7 +3800,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path between 'catalog_returns' and 'store' was found using the 'shortest_path' tool, which returned the chain: catalog_returns -> date_dim -> store_sales -> store.",
+      "reasoning": "The shortest chain of foreign key joins connecting 'catalog_returns' to 'store' is ['catalog_returns', 'date_dim', 'store_sales', 'store'], as determined by the shortest_path tool.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3814,8 +3812,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'catalog_returns' and 'store' was found using the 'shortest_path' tool, which returned the chain: catalog_returns -> date_dim -> store_sales -> store.",
-        "_raw_text": "{\"answer_list\": [\"catalog_returns\", \"date_dim\", \"store_sales\", \"store\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'catalog_returns' and 'store' was found using the 'shortest_path' tool, which returned the chain: catalog_returns -> date_dim -> store_sales -> store.\"}"
+        "reasoning": "The shortest chain of foreign key joins connecting 'catalog_returns' to 'store' is ['catalog_returns', 'date_dim', 'store_sales', 'store'], as determined by the shortest_path tool.",
+        "_raw_text": "{\"answer_list\": [\"catalog_returns\", \"date_dim\", \"store_sales\", \"store\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest chain of foreign key joins connecting 'catalog_returns' to 'store' is ['catalog_returns', 'date_dim', 'store_sales', 'store'], as determined by the shortest_path tool.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3841,7 +3839,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between catalog_returns and warehouse is a direct foreign key relationship, as indicated by the path of length 1 returned by the shortest_path tool.",
+      "reasoning": "The shortest path between 'catalog_returns' and 'warehouse' is a direct foreign key relationship, as indicated by the tool result. The path is ['catalog_returns', 'warehouse'] with a length of 1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3851,8 +3849,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between catalog_returns and warehouse is a direct foreign key relationship, as indicated by the path of length 1 returned by the shortest_path tool.",
-        "_raw_text": "{\"answer_list\": [\"catalog_returns\", \"warehouse\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between catalog_returns and warehouse is a direct foreign key relationship, as indicated by the path of length 1 returned by the shortest_path tool.\"}"
+        "reasoning": "The shortest path between 'catalog_returns' and 'warehouse' is a direct foreign key relationship, as indicated by the tool result. The path is ['catalog_returns', 'warehouse'] with a length of 1.",
+        "_raw_text": "{\"answer_list\": [\"catalog_returns\", \"warehouse\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'catalog_returns' and 'warehouse' is a direct foreign key relationship, as indicated by the tool result. The path is ['catalog_returns', 'warehouse'] with a length of 1.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3944,15 +3942,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path between 'call_center' and 'inventory' involves 3 foreign key joins, as determined by the 'shortest_path' tool. The path is call_center -> catalog_sales -> date_dim -> inventory.",
+      "reasoning": "The shortest path between 'call_center' and 'inventory' involves 3 foreign key joins, as indicated by the length of the path ['call_center', 'catalog_sales', 'date_dim', 'inventory'].",
       "api_failure": false,
       "raw_response": {
         "answer_int": 3,
         "answer_list": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'call_center' and 'inventory' involves 3 foreign key joins, as determined by the 'shortest_path' tool. The path is call_center -> catalog_sales -> date_dim -> inventory.",
-        "_raw_text": "{\"answer_int\": 3, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'call_center' and 'inventory' involves 3 foreign key joins, as determined by the 'shortest_path' tool. The path is call_center -> catalog_sales -> date_dim -> inventory.\"}"
+        "reasoning": "The shortest path between 'call_center' and 'inventory' involves 3 foreign key joins, as indicated by the length of the path ['call_center', 'catalog_sales', 'date_dim', 'inventory'].",
+        "_raw_text": "{\"answer_int\": 3, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'call_center' and 'inventory' involves 3 foreign key joins, as indicated by the length of the path ['call_center', 'catalog_sales', 'date_dim', 'inventory'].\"}"
       },
       "scores": {
         "exact_match": true,
@@ -3992,15 +3990,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path between household_demographics and store_returns has a length of 1, meaning only one foreign key join is needed.",
+      "reasoning": "The shortest path between 'household_demographics' and 'store_returns' has a length of 1, meaning only one foreign key join is needed.",
       "api_failure": false,
       "raw_response": {
-        "answer_list": null,
         "answer_int": 1,
+        "answer_list": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between household_demographics and store_returns has a length of 1, meaning only one foreign key join is needed.",
-        "_raw_text": "{\"answer_list\": null, \"answer_int\": 1, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between household_demographics and store_returns has a length of 1, meaning only one foreign key join is needed.\"}"
+        "reasoning": "The shortest path between 'household_demographics' and 'store_returns' has a length of 1, meaning only one foreign key join is needed.",
+        "_raw_text": "{\"answer_int\": 1, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'household_demographics' and 'store_returns' has a length of 1, meaning only one foreign key join is needed.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -4016,15 +4014,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path between 'store_returns' and 'item' has a length of 1, meaning only one foreign key join is needed.",
+      "reasoning": "The shortest path between 'store_returns' and 'item' has a length of 1, meaning only one foreign key join is needed to connect them directly.",
       "api_failure": false,
       "raw_response": {
         "answer_int": 1,
         "answer_list": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'store_returns' and 'item' has a length of 1, meaning only one foreign key join is needed.",
-        "_raw_text": "{\"answer_int\": 1, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'store_returns' and 'item' has a length of 1, meaning only one foreign key join is needed.\"}"
+        "reasoning": "The shortest path between 'store_returns' and 'item' has a length of 1, meaning only one foreign key join is needed to connect them directly.",
+        "_raw_text": "{\"answer_int\": 1, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'store_returns' and 'item' has a length of 1, meaning only one foreign key join is needed to connect them directly.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -4040,15 +4038,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path between 'promotion' and 'catalog_sales' has a length of 1, which means one foreign key join is needed to connect them directly.",
+      "reasoning": "The shortest path between 'promotion' and 'catalog_sales' has a length of 1, meaning one foreign key join is needed to connect them directly.",
       "api_failure": false,
       "raw_response": {
         "answer_int": 1,
         "answer_list": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'promotion' and 'catalog_sales' has a length of 1, which means one foreign key join is needed to connect them directly.",
-        "_raw_text": "{\"answer_int\": 1, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'promotion' and 'catalog_sales' has a length of 1, which means one foreign key join is needed to connect them directly.\"}"
+        "reasoning": "The shortest path between 'promotion' and 'catalog_sales' has a length of 1, meaning one foreign key join is needed to connect them directly.",
+        "_raw_text": "{\"answer_int\": 1, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'promotion' and 'catalog_sales' has a length of 1, meaning one foreign key join is needed to connect them directly.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -4280,15 +4278,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path between 'customer' and 'web_page' found by the 'shortest_path' tool is ['customer', 'web_sales', 'web_page']. This path has a length of 2, meaning 2 foreign key joins are needed.",
+      "reasoning": "The shortest path from 'customer' to 'web_page' is 'customer' -> 'web_sales' -> 'web_page', which involves 2 foreign key joins. The length of the path directly corresponds to the minimum number of joins needed.",
       "api_failure": false,
       "raw_response": {
         "answer_int": 2,
         "answer_list": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between 'customer' and 'web_page' found by the 'shortest_path' tool is ['customer', 'web_sales', 'web_page']. This path has a length of 2, meaning 2 foreign key joins are needed.",
-        "_raw_text": "{\"answer_int\": 2, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path between 'customer' and 'web_page' found by the 'shortest_path' tool is ['customer', 'web_sales', 'web_page']. This path has a length of 2, meaning 2 foreign key joins are needed.\"}"
+        "reasoning": "The shortest path from 'customer' to 'web_page' is 'customer' -> 'web_sales' -> 'web_page', which involves 2 foreign key joins. The length of the path directly corresponds to the minimum number of joins needed.",
+        "_raw_text": "{\"answer_int\": 2, \"answer_list\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The shortest path from 'customer' to 'web_page' is 'customer' -> 'web_sales' -> 'web_page', which involves 2 foreign key joins. The length of the path directly corresponds to the minimum number of joins needed.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -4472,15 +4470,15 @@
       "type": "schema_routing",
       "subtype": "direct_fk",
       "difficulty": "easy",
-      "reasoning": "The tool 'check_fk_adjacency' was called with 'catalog_returns' and 'date_dim' as arguments, and the result indicated that they are directly adjacent via a foreign key relationship.",
+      "reasoning": "The tool 'check_fk_adjacency' was called with 'catalog_returns' and 'date_dim' as arguments, and the result indicated that they are directly adjacent, meaning there is a direct foreign key relationship.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": true,
         "answer_str": null,
-        "reasoning": "The tool 'check_fk_adjacency' was called with 'catalog_returns' and 'date_dim' as arguments, and the result indicated that they are directly adjacent via a foreign key relationship.",
-        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": true, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called with 'catalog_returns' and 'date_dim' as arguments, and the result indicated that they are directly adjacent via a foreign key relationship.\"}"
+        "reasoning": "The tool 'check_fk_adjacency' was called with 'catalog_returns' and 'date_dim' as arguments, and the result indicated that they are directly adjacent, meaning there is a direct foreign key relationship.",
+        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": true, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called with 'catalog_returns' and 'date_dim' as arguments, and the result indicated that they are directly adjacent, meaning there is a direct foreign key relationship.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -4520,15 +4518,15 @@
       "type": "schema_routing",
       "subtype": "direct_fk",
       "difficulty": "easy",
-      "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_page'. The result indicated that they are not adjacent, meaning there is no direct foreign key relationship.",
+      "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_page'. The result indicates that they are not directly adjacent via a foreign key.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": false,
         "answer_str": null,
-        "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_page'. The result indicated that they are not adjacent, meaning there is no direct foreign key relationship.",
-        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_page'. The result indicated that they are not adjacent, meaning there is no direct foreign key relationship.\"}"
+        "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_page'. The result indicates that they are not directly adjacent via a foreign key.",
+        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_page'. The result indicates that they are not directly adjacent via a foreign key.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -4616,15 +4614,15 @@
       "type": "schema_routing",
       "subtype": "direct_fk",
       "difficulty": "easy",
-      "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'customer' and 'call_center'. The result indicated that they are not adjacent, meaning there is no direct foreign key relationship.",
+      "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'customer' and 'call_center'. The result indicates that they are not directly adjacent via a foreign key.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": false,
         "answer_str": null,
-        "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'customer' and 'call_center'. The result indicated that they are not adjacent, meaning there is no direct foreign key relationship.",
-        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'customer' and 'call_center'. The result indicated that they are not adjacent, meaning there is no direct foreign key relationship.\"}"
+        "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'customer' and 'call_center'. The result indicates that they are not directly adjacent via a foreign key.",
+        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'customer' and 'call_center'. The result indicates that they are not directly adjacent via a foreign key.\"}"
       },
       "scores": {
         "exact_match": true,
@@ -4659,24 +4657,24 @@
       "id": "tpc-ds_route_direct_115",
       "question": "Does promotion have a direct foreign key relationship to web_sales?",
       "gold_answer": false,
-      "predicted_answer": true,
+      "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
       "subtype": "direct_fk",
       "difficulty": "easy",
-      "reasoning": "The tool 'check_fk_adjacency' was called with 'promotion' and 'web_sales' as arguments, and the result indicated that they are directly adjacent, meaning there is a direct foreign key relationship.",
+      "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_sales'. The result indicated that they are not directly adjacent via a foreign key.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
-        "answer_bool": true,
+        "answer_bool": false,
         "answer_str": null,
-        "reasoning": "The tool 'check_fk_adjacency' was called with 'promotion' and 'web_sales' as arguments, and the result indicated that they are directly adjacent, meaning there is a direct foreign key relationship.",
-        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": true, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called with 'promotion' and 'web_sales' as arguments, and the result indicated that they are directly adjacent, meaning there is a direct foreign key relationship.\"}"
+        "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_sales'. The result indicated that they are not directly adjacent via a foreign key.",
+        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'promotion' and 'web_sales'. The result indicated that they are not directly adjacent via a foreign key.\"}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -4712,15 +4710,15 @@
       "type": "schema_routing",
       "subtype": "direct_fk",
       "difficulty": "easy",
-      "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'income_band' and 'catalog_page'. The result indicates that they are not directly adjacent via a foreign key.",
+      "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'income_band' and 'catalog_page'. The result indicated that they are not directly adjacent via a foreign key.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": false,
         "answer_str": null,
-        "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'income_band' and 'catalog_page'. The result indicates that they are not directly adjacent via a foreign key.",
-        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'income_band' and 'catalog_page'. The result indicates that they are not directly adjacent via a foreign key.\"}"
+        "reasoning": "The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'income_band' and 'catalog_page'. The result indicated that they are not directly adjacent via a foreign key.",
+        "_raw_text": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"The tool 'check_fk_adjacency' was called to determine if there is a direct foreign key relationship between 'income_band' and 'catalog_page'. The result indicated that they are not directly adjacent via a foreign key.\"}"
       },
       "scores": {
         "exact_match": true,

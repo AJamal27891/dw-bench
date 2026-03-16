@@ -1,28 +1,65 @@
-"""Generate publication-quality figures for DW-Bench paper."""
+"""Generate publication-quality figures for DW-Bench paper.
+
+Best practices applied:
+- Colorblind-safe palette (Tol's muted scheme)
+- Consistent font: Computer Modern (LaTeX default)
+- No chartjunk: minimal gridlines, no 3D, no unnecessary borders
+- High DPI for print (300+)
+- Tight, consistent spacing
+- Clear data-ink ratio maximization
+"""
 import json
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 from pathlib import Path
 from collections import defaultdict
 
+# ── Publication style ────────────────────────────────────────────────
 plt.rcParams.update({
     'font.family': 'serif',
-    'font.size': 11,
-    'axes.titlesize': 13,
-    'axes.labelsize': 12,
+    'font.serif': ['Computer Modern Roman', 'Times New Roman', 'DejaVu Serif'],
+    'font.size': 10,
+    'axes.titlesize': 12,
+    'axes.labelsize': 11,
+    'axes.linewidth': 0.6,
+    'xtick.major.width': 0.5,
+    'ytick.major.width': 0.5,
+    'legend.fontsize': 8,
     'figure.dpi': 300,
+    'savefig.dpi': 300,
+    'savefig.bbox': 'tight',
+    'savefig.pad_inches': 0.05,
+    'text.usetex': False,
+    'axes.spines.top': False,
+    'axes.spines.right': False,
 })
+
+# Colorblind-safe palette (Tol's muted)
+COLORS = {
+    'FT':     '#332288',  # Indigo
+    'VR':     '#88CCEE',  # Cyan
+    'GA':     '#44AA99',  # Teal
+    'TU':     '#DDCC77',  # Sand
+    'RC':     '#CC6677',  # Rose
+    'Oracle': '#117733',  # Green
+    'FT_v2':  '#332288',
+    'GA_v2':  '#44AA99',
+    'TU_v2':  '#DDCC77',
+}
 
 rd = Path('evaluation/results')
 DS = ['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm']
+DS_ALL = DS + ['syn_logistics']
 OUT = Path('paper/figures')
 OUT.mkdir(exist_ok=True)
 
-def load_all(bl, cond, tag):
+
+def load_all(bl, cond, tag, datasets=None):
     r = []
-    for d in DS:
+    for d in (datasets or DS):
         f = rd / f'{bl}_{cond}_{d}_{tag}.json'
         if f.exists():
             r.extend(json.load(open(f, encoding='utf-8'))['results'])
@@ -40,155 +77,271 @@ def by_subtype(results):
         dd[r['subtype']].append(1 if r['scores']['exact_match'] else 0)
     return {s: np.mean(v)*100 for s, v in dd.items()}
 
+def micro_em(results):
+    if not results: return 0
+    return sum(1 for r in results if r['scores']['exact_match']) / len(results) * 100
 
-# ── Figure 1: Difficulty Bar Chart (Gemini + DeepSeek + Oracle) ──────
-fig, axes = plt.subplots(1, 2, figsize=(12, 4.5), sharey=True)
+def macro_em(results):
+    st = by_subtype(results)
+    return np.mean(list(st.values())) if st else 0
+
+
+# ════════════════════════════════════════════════════════════════════
+# Figure 1: Difficulty by Baseline (side-by-side panels)
+# ════════════════════════════════════════════════════════════════════
+fig, axes = plt.subplots(1, 2, figsize=(6.5, 3.0), sharey=True)
+
+bls = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
+       ('tool_use', 'TU'), ('react_code', 'RC')]
 
 for ax, (tag, title) in zip(axes, [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
                                      ('deepseek-chat', 'DeepSeek-V3')]):
     diffs = ['easy', 'medium', 'hard']
-    bls = [('flat_text', 'Flat Text', '#4ECDC4'),
-           ('vector_rag', 'Vector RAG', '#FF6B6B'),
-           ('graph_aug', 'Graph-Aug', '#45B7D1')]
-
     x = np.arange(len(diffs))
-    w = 0.22
+    w = 0.14
+    n = len(bls)
 
-    for i, (bl, label, color) in enumerate(bls):
-        data = by_difficulty(load_all(bl, 'original', tag))
+    for i, (bl, bl_short) in enumerate(bls):
+        data = by_difficulty(load_all(bl, 'original', tag, DS_ALL))
+        if not data:
+            continue
         vals = [data.get(d, 0) for d in diffs]
-        ax.bar(x + (i-1)*w, vals, w, label=label, color=color,
-               edgecolor='white', linewidth=0.5)
+        offset = (i - n/2 + 0.5) * w
+        ax.bar(x + offset, vals, w, label=bl_short,
+               color=COLORS[bl_short], edgecolor='white', linewidth=0.3)
 
-    # Oracle line
-    oracle = by_difficulty(load_all('oracle', 'original', tag))
+    # Oracle dashed line
+    oracle = by_difficulty(load_all('oracle', 'original', tag, DS_ALL))
     oracle_vals = [oracle.get(d, 0) for d in diffs]
-    ax.plot(x, oracle_vals, 'k--o', markersize=6, label='Oracle', linewidth=1.5)
+    ax.plot(x, oracle_vals, 's--', markersize=4, label='Oracle',
+            color=COLORS['Oracle'], linewidth=1.2)
 
     ax.set_xlabel('Difficulty')
-    ax.set_ylabel('Exact Match (%)')
-    ax.set_title(title)
+    if ax == axes[0]:
+        ax.set_ylabel('Exact Match (%)')
+    ax.set_title(title, fontweight='bold')
     ax.set_xticks(x)
     ax.set_xticklabels(['Easy', 'Medium', 'Hard'])
     ax.set_ylim(0, 105)
-    ax.legend(fontsize=9, loc='upper right')
-    ax.grid(axis='y', alpha=0.3)
+    ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
+    ax.grid(axis='y', alpha=0.2, linewidth=0.4)
 
+axes[1].legend(bbox_to_anchor=(1.02, 1), loc='upper left',
+               frameon=False, fontsize=8)
 plt.tight_layout()
-plt.savefig(OUT / 'difficulty_comparison.pdf', bbox_inches='tight')
-plt.savefig(OUT / 'difficulty_comparison.png', bbox_inches='tight')
-print(f'Saved: {OUT}/difficulty_comparison.pdf')
+plt.savefig(OUT / 'difficulty_comparison.pdf')
+plt.savefig(OUT / 'difficulty_comparison.png')
+plt.close()
+print('✓ difficulty_comparison.pdf')
 
 
-# ── Figure 2: Subtype Heatmap (Gemini) ────────────────────────────────
-fig, ax = plt.subplots(figsize=(7, 6))
+# ════════════════════════════════════════════════════════════════════
+# Figure 2: Subtype Heatmap (Gemini, all 5 baselines)
+# ════════════════════════════════════════════════════════════════════
+fig, ax = plt.subplots(figsize=(4.5, 5.5))
 
-bls = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA')]
+bl_pairs = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
+            ('tool_use', 'TU'), ('react_code', 'RC')]
 all_subtypes = set()
 data_map = {}
-for bl, bl_short in bls:
-    st = by_subtype(load_all(bl, 'original', 'gemini-2.5-flash'))
-    data_map[bl_short] = st
-    all_subtypes.update(st.keys())
+for bl, bl_short in bl_pairs:
+    results = load_all(bl, 'original', 'gemini-2.5-flash', DS_ALL)
+    if results:
+        st = by_subtype(results)
+        data_map[bl_short] = st
+        all_subtypes.update(st.keys())
 
-# Sort by GA performance (ascending = hardest at top)
-subtypes = sorted(all_subtypes, key=lambda s: data_map['GA'].get(s, 0))
+subtypes = sorted(all_subtypes, key=lambda s: data_map.get('TU', {}).get(s, 0))
+bl_names = [bl for _, bl in bl_pairs if bl in data_map]
 
-matrix = np.array([[data_map[bl].get(s, 0) for bl in ['FT', 'VR', 'GA']]
+matrix = np.array([[data_map.get(bl, {}).get(s, 0) for bl in bl_names]
                     for s in subtypes])
 
 im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=0, vmax=100)
 
-ax.set_xticks(range(3))
-ax.set_xticklabels(['Flat Text', 'Vector RAG', 'Graph-Aug'])
+ax.set_xticks(range(len(bl_names)))
+ax.set_xticklabels(bl_names, fontsize=9, fontweight='bold')
 ax.set_yticks(range(len(subtypes)))
-ax.set_yticklabels([s.replace('_', ' ') for s in subtypes], fontsize=9)
+ax.set_yticklabels([s.replace('_', '\\_') for s in subtypes], fontsize=8)
 
-# Annotate cells
 for i in range(len(subtypes)):
-    for j in range(3):
+    for j in range(len(bl_names)):
         v = matrix[i, j]
-        color = 'white' if v < 30 or v > 80 else 'black'
+        color = 'white' if v < 35 or v > 75 else 'black'
         ax.text(j, i, f'{v:.0f}', ha='center', va='center',
-                fontsize=8, fontweight='bold', color=color)
+                fontsize=7, fontweight='bold', color=color)
 
-ax.set_title('Gemini 2.5 Flash: EM (%) by Subtype', fontsize=13)
-plt.colorbar(im, ax=ax, shrink=0.8, label='Exact Match (%)')
+ax.set_title('Tier 1: EM (%) by Subtype (Gemini)', fontweight='bold', pad=10)
+cbar = plt.colorbar(im, ax=ax, shrink=0.7, pad=0.02)
+cbar.ax.set_ylabel('Exact Match (%)', fontsize=9)
+cbar.ax.tick_params(labelsize=8)
 plt.tight_layout()
-plt.savefig(OUT / 'subtype_heatmap.pdf', bbox_inches='tight')
-plt.savefig(OUT / 'subtype_heatmap.png', bbox_inches='tight')
-print(f'Saved: {OUT}/subtype_heatmap.pdf')
+plt.savefig(OUT / 'subtype_heatmap.pdf')
+plt.savefig(OUT / 'subtype_heatmap.png')
+plt.close()
+print('✓ subtype_heatmap.pdf')
 
 
-# ── Figure 3: Micro vs Macro EM (the "Triviality Illusion") ─────────
-fig, ax = plt.subplots(figsize=(8, 4.5))
+# ════════════════════════════════════════════════════════════════════
+# Figure 3: Micro vs Macro EM — Triviality Illusion
+# ════════════════════════════════════════════════════════════════════
+fig, ax = plt.subplots(figsize=(6.5, 3.2))
 
-models = ['Gemini FT', 'Gemini VR', 'Gemini GA',
-          'DeepSeek FT', 'DeepSeek VR', 'DeepSeek GA']
-micro_vals = [73.9, 68.4, 70.4, 68.4, 74.5, 82.3]
-macro_vals = [61.1, 53.0, 68.0, 56.1, 54.2, 73.9]
+all_bls = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
+           ('tool_use', 'TU'), ('react_code', 'RC')]
 
-x = np.arange(len(models))
+models_list = []
+micro_vals = []
+macro_vals = []
+
+for tag, tag_label in [('gemini-2.5-flash', 'Gemini'), ('deepseek-chat', 'DeepSeek')]:
+    for bl, bl_short in all_bls:
+        results = load_all(bl, 'original', tag, DS_ALL)
+        if results:
+            models_list.append(f'{tag_label}\n{bl_short}')
+            micro_vals.append(micro_em(results))
+            macro_vals.append(macro_em(results))
+
+x = np.arange(len(models_list))
 w = 0.35
 
-bars1 = ax.bar(x - w/2, micro_vals, w, label='Micro-EM',
-               color='#45B7D1', edgecolor='white')
-bars2 = ax.bar(x + w/2, macro_vals, w, label='Macro-EM',
-               color='#FF6B6B', edgecolor='white')
+ax.bar(x - w/2, micro_vals, w, label='Micro-EM',
+       color='#88CCEE', edgecolor='white', linewidth=0.3)
+ax.bar(x + w/2, macro_vals, w, label='Macro-EM',
+       color='#CC6677', edgecolor='white', linewidth=0.3)
 
-# Annotate deltas
-for i in range(len(models)):
+for i in range(len(models_list)):
     delta = macro_vals[i] - micro_vals[i]
     y = max(micro_vals[i], macro_vals[i]) + 1.5
-    ax.text(i, y, f'{delta:+.1f}%', ha='center', fontsize=8,
-            fontweight='bold', color='#c0392b' if delta < -5 else '#27ae60')
+    ax.text(i, y, f'{delta:+.0f}', ha='center', fontsize=6.5,
+            fontweight='bold', color='#882255' if delta < -5 else '#117733')
 
 ax.set_ylabel('Exact Match (%)')
-ax.set_title('The Triviality Illusion: Micro vs. Macro EM')
+ax.set_title('Micro vs. Macro EM Across Baselines', fontweight='bold')
 ax.set_xticks(x)
-ax.set_xticklabels(models, rotation=30, ha='right', fontsize=9)
-ax.set_ylim(0, 95)
-ax.legend(fontsize=10)
-ax.grid(axis='y', alpha=0.3)
-ax.axvline(2.5, color='gray', linestyle='--', alpha=0.5)
-ax.text(1.0, 88, 'Gemini 2.5 Flash', ha='center', fontsize=9, style='italic')
-ax.text(4.0, 88, 'DeepSeek-V3', ha='center', fontsize=9, style='italic')
+ax.set_xticklabels(models_list, fontsize=7.5)
+ax.set_ylim(0, 100)
+ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
+ax.legend(fontsize=9, frameon=False, loc='upper right')
+ax.grid(axis='y', alpha=0.2, linewidth=0.4)
+
+gem_count = sum(1 for m in models_list if 'Gemini' in m)
+ax.axvline(gem_count - 0.5, color='gray', linestyle=':', alpha=0.5, linewidth=0.7)
 
 plt.tight_layout()
-plt.savefig(OUT / 'triviality_illusion.pdf', bbox_inches='tight')
-plt.savefig(OUT / 'triviality_illusion.png', bbox_inches='tight')
-print(f'Saved: {OUT}/triviality_illusion.pdf')
+plt.savefig(OUT / 'triviality_illusion.pdf')
+plt.savefig(OUT / 'triviality_illusion.png')
+plt.close()
+print('✓ triviality_illusion.pdf')
 
 
-# ── Figure 4: Obfuscation Penalty ────────────────────────────────────
-fig, ax = plt.subplots(figsize=(8, 4))
+# ════════════════════════════════════════════════════════════════════
+# Figure 4: Obfuscation Penalty (grouped bars)
+# ════════════════════════════════════════════════════════════════════
+fig, ax = plt.subplots(figsize=(6.5, 3.0))
 
-labels = ['Gemini\nFT', 'Gemini\nVR', 'Gemini\nGA',
-          'DeepSeek\nFT', 'DeepSeek\nVR', 'DeepSeek\nGA']
-orig =   [73.9, 68.4, 70.4, 68.4, 74.5, 82.3]
-obfusc = [64.9, 50.1, 49.1, 40.7, 44.4, 59.2]
-penalty = [o - r for o, r in zip(obfusc, orig)]
+labels = []
+penalties = []
 
-colors = ['#e74c3c' if p < -20 else '#f39c12' if p < -10 else '#27ae60'
-          for p in penalty]
-bars = ax.bar(range(len(labels)), penalty, color=colors, edgecolor='white')
+for tag, tag_label in [('gemini-2.5-flash', 'Gemini'), ('deepseek-chat', 'DeepSeek')]:
+    for bl, bl_short in all_bls:
+        orig = load_all(bl, 'original', tag, DS)
+        obf = load_all(bl, 'obfuscated', tag, DS)
+        if orig and obf:
+            delta = micro_em(obf) - micro_em(orig)
+            labels.append(f'{tag_label}\n{bl_short}')
+            penalties.append(delta)
 
-for i, (p, bar) in enumerate(zip(penalty, bars)):
-    ax.text(bar.get_x() + bar.get_width()/2, p - 1.5,
-            f'{p:.1f}%', ha='center', va='top', fontsize=9, fontweight='bold')
+colors = ['#CC6677' if p < -20 else '#DDCC77' if p < -10 else '#117733'
+          for p in penalties]
+bars = ax.bar(range(len(labels)), penalties, color=colors,
+              edgecolor='white', linewidth=0.3)
+
+for i, (p, bar) in enumerate(zip(penalties, bars)):
+    va = 'top' if p < 0 else 'bottom'
+    y = p - 1.2 if p < 0 else p + 0.5
+    ax.text(bar.get_x() + bar.get_width()/2, y,
+            f'{p:.1f}', ha='center', va=va, fontsize=6.5, fontweight='bold')
 
 ax.set_ylabel('EM Change (%)')
-ax.set_title('Obfuscation Penalty: Original → Obfuscated')
+ax.set_title('Obfuscation Penalty by Baseline', fontweight='bold')
 ax.set_xticks(range(len(labels)))
-ax.set_xticklabels(labels, fontsize=9)
-ax.axhline(0, color='black', linewidth=0.8)
-ax.set_ylim(-35, 2)
-ax.grid(axis='y', alpha=0.3)
-ax.axvline(2.5, color='gray', linestyle='--', alpha=0.5)
+ax.set_xticklabels(labels, fontsize=7.5)
+ax.axhline(0, color='black', linewidth=0.6)
+ax.set_ylim(min(penalties) - 5, 5)
+ax.grid(axis='y', alpha=0.2, linewidth=0.4)
+
+gem_count_obf = sum(1 for l in labels if 'Gemini' in l)
+ax.axvline(gem_count_obf - 0.5, color='gray', linestyle=':', alpha=0.5, linewidth=0.7)
 
 plt.tight_layout()
-plt.savefig(OUT / 'obfuscation_penalty.pdf', bbox_inches='tight')
-plt.savefig(OUT / 'obfuscation_penalty.png', bbox_inches='tight')
-print(f'Saved: {OUT}/obfuscation_penalty.pdf')
+plt.savefig(OUT / 'obfuscation_penalty.pdf')
+plt.savefig(OUT / 'obfuscation_penalty.png')
+plt.close()
+print('✓ obfuscation_penalty.pdf')
 
-print('\n✅ All 4 figures generated!')
+
+# ════════════════════════════════════════════════════════════════════
+# Figure 5 (NEW): Tier 2 — Value-Level Results by Subtype
+# ════════════════════════════════════════════════════════════════════
+fig, ax = plt.subplots(figsize=(6.5, 3.8))
+
+t2_bls = [('flat_text_v2', 'FT$_{v2}$', COLORS['FT_v2']),
+          ('graph_aug_v2', 'GA$_{v2}$', COLORS['GA_v2']),
+          ('tool_use_v2', 'TU$_{v2}$', COLORS['TU_v2'])]
+
+# Load Gemini Tier 2 data
+t2_data = {}
+for bl, label, color in t2_bls:
+    f = rd / f'{bl}_original_syn_logistics_gemini-2.5-flash.json'
+    if f.exists():
+        results = json.load(open(f, encoding='utf-8'))['results']
+        st = by_subtype(results)
+        t2_data[label] = st
+
+# Order subtypes for visual impact (show dramatic contrasts)
+subtype_order = ['cascade_count', 'row_provenance', 'row_impact',
+                 'value_origin', 'multi_hop_trace',
+                 'value_propagation', 'cross_silo_reachability', 'shared_source']
+subtype_labels = ['cascade\ncount', 'row\nprov.', 'row\nimpact',
+                  'value\norigin', 'multi-hop\ntrace',
+                  'value\nprop.', 'cross-silo\nreach.', 'shared\nsource']
+
+x = np.arange(len(subtype_order))
+w = 0.25
+n = len(t2_bls)
+
+for i, (bl, label, color) in enumerate(t2_bls):
+    vals = [t2_data.get(label, {}).get(s, 0) for s in subtype_order]
+    offset = (i - n/2 + 0.5) * w
+    bars = ax.bar(x + offset, vals, w, label=label, color=color,
+                  edgecolor='white', linewidth=0.3)
+    # Annotate dramatic values
+    for j, v in enumerate(vals):
+        if v >= 90 or (v == 0 and subtype_order[j] in ['cascade_count', 'row_provenance']):
+            ax.text(x[j] + offset, v + 1.5, f'{v:.0f}',
+                    ha='center', va='bottom', fontsize=5.5, fontweight='bold')
+
+ax.set_ylabel('Exact Match (%)')
+ax.set_title('Tier 2: Value-Level Results by Subtype (Gemini)', fontweight='bold')
+ax.set_xticks(x)
+ax.set_xticklabels(subtype_labels, fontsize=7)
+ax.set_ylim(0, 112)
+ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
+ax.legend(fontsize=8, frameon=False, loc='upper right', ncol=3)
+ax.grid(axis='y', alpha=0.2, linewidth=0.4)
+
+# Annotate the "tools essential" region
+ax.annotate('Tools essential', xy=(0.5, 55), fontsize=7, ha='center',
+            fontstyle='italic', color='#882255',
+            bbox=dict(boxstyle='round,pad=0.2', facecolor='#FCEEF5',
+                      edgecolor='#882255', linewidth=0.5))
+
+plt.tight_layout()
+plt.savefig(OUT / 'tier2_subtype.pdf')
+plt.savefig(OUT / 'tier2_subtype.png')
+plt.close()
+print('✓ tier2_subtype.pdf (NEW)')
+
+
+print('\n✅ All 5 figures generated with publication-quality styling!')

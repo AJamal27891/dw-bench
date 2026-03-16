@@ -116,7 +116,6 @@
         "customer_address",
         "customer_demographics",
         "date_dim",
-        "household_demographics",
         "income_band",
         "inventory",
         "item",
@@ -155,9 +154,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.1538,
+        "f1": 0.16,
         "precision": 1.0,
-        "recall": 0.0833
+        "recall": 0.087
       }
     },
     {
@@ -168,7 +167,6 @@
         "catalog_page",
         "catalog_returns",
         "catalog_sales",
-        "customer",
         "customer_address",
         "customer_demographics",
         "date_dim",
@@ -211,9 +209,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.1538,
-        "precision": 1.0,
-        "recall": 0.0833
+        "f1": 0.08,
+        "precision": 0.5,
+        "recall": 0.0435
       }
     },
     {
@@ -239,7 +237,6 @@
         "store_returns",
         "store_sales",
         "time_dim",
-        "warehouse",
         "web_page",
         "web_returns",
         "web_sales",
@@ -269,9 +266,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.2222,
+        "f1": 0.2308,
         "precision": 1.0,
-        "recall": 0.125
+        "recall": 0.1304
       }
     },
     {
@@ -505,7 +502,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -542,7 +540,8 @@
         "f1": 0.4,
         "precision": 0.3333,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -577,7 +576,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -612,7 +612,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -647,7 +648,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -682,7 +684,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -717,7 +720,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -752,7 +756,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -787,7 +792,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -822,7 +828,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -857,7 +864,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -892,7 +900,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -921,15 +930,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The path involves store_sales \u2192 date_dim \u2192 reason.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\", \"date_dim\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves store_sales \u2192 date_dim \u2192 reason.\"\n}\n{\n  \"reason\": \"The query requires linking returns through sales data and then to the reason field via date dimensions.\"\n}"
+        "answer_str": "The path involves store_sales → date_dim → reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\", \"date_dim\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves store_sales → date_dim → reason.\"\n}\n{\n  \"reason\": \"The query requires linking returns through sales data and then to the reason field via date dimensions.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.3333,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -964,7 +974,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -999,7 +1010,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1034,7 +1046,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1069,7 +1082,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1102,7 +1116,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1137,7 +1152,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1172,7 +1188,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1207,7 +1224,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1242,7 +1260,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1277,7 +1296,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1312,7 +1332,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1338,7 +1359,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1373,7 +1395,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1410,7 +1433,8 @@
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1447,7 +1471,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1483,7 +1508,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1519,7 +1545,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1556,7 +1583,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1592,7 +1620,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1629,7 +1658,8 @@
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1667,7 +1697,8 @@
         "f1": 0.3333,
         "precision": 0.3333,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1703,7 +1734,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1739,7 +1771,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1775,7 +1808,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1811,7 +1845,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1849,7 +1884,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1885,7 +1921,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1921,7 +1958,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1957,7 +1995,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1994,7 +2033,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2031,7 +2071,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2068,7 +2109,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2104,7 +2146,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2141,7 +2184,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2177,7 +2221,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2214,7 +2259,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2250,7 +2296,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2281,15 +2328,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The path involves store_sales \u2192 date_dim \u2192 web_sales.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\", \"web_sales\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves store_sales \u2192 date_dim \u2192 web_sales.\"\n}\n{\n  \"reasoning\": \"The query connects returns through sales data and then to website pages via the sales dimension.\"\n}"
+        "answer_str": "The path involves store_sales → date_dim → web_sales.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\", \"web_sales\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves store_sales → date_dim → web_sales.\"\n}\n{\n  \"reasoning\": \"The query connects returns through sales data and then to website pages via the sales dimension.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 0.6667,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2320,15 +2368,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The path involves web_sales \u2192 customer \u2192 call_center.",
-        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"web_returns\", \"call_center\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves web_sales \u2192 customer \u2192 call_center.\"\n}\n{\n  \"reason\": \"The query traces the relationship through sales, customer, and call center tables sequentially.\"\n}"
+        "answer_str": "The path involves web_sales → customer → call_center.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"web_returns\", \"call_center\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The path involves web_sales → customer → call_center.\"\n}\n{\n  \"reason\": \"The query traces the relationship through sales, customer, and call center tables sequentially.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 0.6667,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2366,7 +2415,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2404,7 +2454,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2442,7 +2493,8 @@
         "f1": 0.2857,
         "precision": 0.5,
         "recall": 0.2,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2480,7 +2532,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2518,7 +2571,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2556,7 +2610,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2594,7 +2649,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2631,7 +2687,8 @@
         "f1": 0.4,
         "precision": 1.0,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2668,7 +2725,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2705,7 +2763,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2741,7 +2800,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2777,7 +2837,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2813,7 +2874,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2849,7 +2911,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2885,7 +2948,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2920,7 +2984,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2956,7 +3021,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2992,7 +3058,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3033,7 +3100,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3068,7 +3136,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3105,7 +3174,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3142,7 +3212,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3177,7 +3248,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3215,7 +3287,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3251,7 +3324,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3287,7 +3361,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3317,14 +3392,15 @@
         "answer_int": 2,
         "answer_bool": true,
         "answer_str": "The schema links catalog_returns through store_sales and then store_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema links catalog_returns through store_sales and then store_returns.\"\n}\n{\n  \"reason\": \"We need to join store_sales \u2192 date_dim \u2192 store, then store_sales \u2194 store_returns.\"\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store_returns\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The schema links catalog_returns through store_sales and then store_returns.\"\n}\n{\n  \"reason\": \"We need to join store_sales → date_dim → store, then store_sales ↔ store_returns.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3359,7 +3435,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4245,5 +4322,11 @@
         "f1": 0.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 127,
+    "exact_match": 26,
+    "exact_match_pct": 20.5,
+    "avg_f1": 47.0
+  }
 }

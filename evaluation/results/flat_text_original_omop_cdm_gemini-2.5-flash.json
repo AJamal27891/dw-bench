@@ -1230,7 +1230,6 @@
         "concept_ancestor",
         "concept_class",
         "concept_relationship",
-        "concept_synonym",
         "condition_era",
         "condition_occurrence",
         "cost",
@@ -1349,9 +1348,9 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"person\",\n    \"observation_period\",\n    \"visit_occurrence\",\n    \"visit_detail\",\n    \"condition_occurrence\",\n    \"drug_exposure\",\n    \"procedure_occurrence\",\n    \"device_exposure\",\n    \"measurement\",\n    \"observation\",\n    \"death\",\n    \"note\",\n    \"note_nlp\",\n    \"specimen\",\n    \"fact_relationship\",\n    \"episode\",\n    \"episode_event\",\n    \"location\",\n    \"care_site\",\n    \"provider\",\n    \"payer_plan_period\",\n    \"cost\",\n    \"drug_era\",\n    \"dose_era\",\n    \"condition_era\",\n    \"concept\",\n    \"vocabulary\",\n    \"domain\",\n    \"concept_class\",\n    \"concept_relationship\",\n    \"relationship\",\n    \"concept_synonym\",\n    \"concept_ancestor\",\n    \"source_to_concept_map\",\n    \"drug_strength\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Starting from 'device_exposure', a graph traversal using both FK and DERIVED_FROM relationships connects to all tables in the schema except 'cdm_source' and 'metadata', which have no defined relationships.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
+        "exact_match": false,
+        "f1": 0.9855,
+        "precision": 0.9714,
         "recall": 1.0
       }
     },
@@ -1383,7 +1382,6 @@
         "note",
         "note_nlp",
         "observation",
-        "observation_period",
         "payer_plan_period",
         "person",
         "procedure_occurrence",
@@ -1483,9 +1481,9 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"person\",\n    \"observation_period\",\n    \"visit_occurrence\",\n    \"visit_detail\",\n    \"condition_occurrence\",\n    \"drug_exposure\",\n    \"procedure_occurrence\",\n    \"device_exposure\",\n    \"measurement\",\n    \"observation\",\n    \"death\",\n    \"note\",\n    \"note_nlp\",\n    \"specimen\",\n    \"fact_relationship\",\n    \"episode\",\n    \"episode_event\",\n    \"location\",\n    \"care_site\",\n    \"provider\",\n    \"payer_plan_period\",\n    \"cost\",\n    \"drug_era\",\n    \"dose_era\",\n    \"condition_era\",\n    \"concept\",\n    \"vocabulary\",\n    \"domain\",\n    \"concept_class\",\n    \"concept_relationship\",\n    \"relationship\",\n    \"concept_synonym\",\n    \"concept_ancestor\",\n    \"source_to_concept_map\",\n    \"drug_strength\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Starting from 'observation_period', a graph traversal (BFS/DFS) was performed using all FK and DERIVED_FROM relationships to identify all reachable tables. All tables except 'cdm_source' and 'metadata' are connected.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
+        "exact_match": false,
+        "f1": 0.9855,
+        "precision": 0.9714,
         "recall": 1.0
       }
     },
@@ -1519,7 +1517,6 @@
         "observation",
         "observation_period",
         "payer_plan_period",
-        "person",
         "procedure_occurrence",
         "provider",
         "relationship",
@@ -1617,16 +1614,16 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"person\",\n    \"observation_period\",\n    \"visit_occurrence\",\n    \"visit_detail\",\n    \"condition_occurrence\",\n    \"drug_exposure\",\n    \"procedure_occurrence\",\n    \"device_exposure\",\n    \"measurement\",\n    \"observation\",\n    \"death\",\n    \"note\",\n    \"note_nlp\",\n    \"specimen\",\n    \"fact_relationship\",\n    \"episode\",\n    \"episode_event\",\n    \"location\",\n    \"care_site\",\n    \"provider\",\n    \"payer_plan_period\",\n    \"cost\",\n    \"drug_era\",\n    \"dose_era\",\n    \"condition_era\",\n    \"concept\",\n    \"vocabulary\",\n    \"domain\",\n    \"concept_class\",\n    \"concept_relationship\",\n    \"relationship\",\n    \"concept_synonym\",\n    \"concept_ancestor\",\n    \"source_to_concept_map\",\n    \"drug_strength\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Performed a graph traversal starting from 'location' using both FK and DERIVED_FROM relationships to identify all reachable tables. All tables except 'cdm_source' and 'metadata' are connected to 'location'.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
+        "exact_match": false,
+        "f1": 0.9855,
+        "precision": 0.9714,
         "recall": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_012",
       "question": "Are episode_event and drug_era connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1643,14 +1640,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"episode_event is connected to episode, which is connected to person, and person is connected to drug_era via foreign key relationships.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_013",
       "question": "Are device_exposure and episode_event connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1667,14 +1664,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"device_exposure is connected to person via FK, and person is connected to episode via FK. episode is connected to episode_event via FK, forming a path: device_exposure -> person -> episode -> episode_event.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_009",
       "question": "Are concept_class and concept_relationship connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1691,14 +1688,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_class is linked to concept, and concept_relationship is also linked to concept, establishing a connection between them.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_006",
       "question": "Are drug_strength and metadata connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1715,14 +1712,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'metadata' table is not involved in any foreign key relationships, so it cannot be connected to 'drug_strength' or any other table via FKs.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_007",
       "question": "Are procedure_occurrence and metadata connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1739,14 +1736,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'metadata' table has no foreign key relationships defined in the provided schema, so it cannot be connected to 'procedure_occurrence' via FKs.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_005",
       "question": "Are cdm_source and metadata connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1763,14 +1760,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Neither cdm_source nor metadata are involved in any foreign key relationships according to the provided schema, so they cannot be connected.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_010",
       "question": "Are procedure_occurrence and cost connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1787,14 +1784,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"procedure_occurrence is connected to concept via an FK, and cost is also connected to concept via an FK, establishing a connection.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_004",
       "question": "Are episode and cdm_source connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1811,14 +1808,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The `cdm_source` table is not involved in any foreign key relationships, either as a source or a target. Therefore, it cannot be connected to `episode` via FKs.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_008",
       "question": "Are fact_relationship and cdm_source connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1835,14 +1832,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"cdm_source has no foreign key relationships listed, meaning it is not connected to any other table via FKs.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_011",
       "question": "Are concept and drug_strength connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1859,14 +1856,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from drug_strength to concept.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_connected_014",
       "question": "Are specimen and cost connected through any chain of foreign key relationships?",
-      "gold_answer": "Yes",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1883,8 +1880,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'specimen' and 'cost' tables have foreign key relationships to the 'concept' table, establishing a connection between them.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -2025,8 +2022,8 @@
       "id": "omop_cdm_route_path_000",
       "question": "What is the shortest chain of foreign key joins that connects person to condition_era?",
       "gold_answer": [
-        "condition_era",
-        "person"
+        "care_site",
+        "location"
       ],
       "predicted_answer": [
         "person",
@@ -2050,19 +2047,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"person\",\n    \"condition_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from condition_era to person, meaning condition_era references person.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_001",
       "question": "What is the shortest chain of foreign key joins that connects concept to concept_relationship?",
       "gold_answer": [
-        "concept_relationship",
-        "relationship"
+        "condition_occurrence",
+        "provider"
       ],
       "predicted_answer": [
         "concept",
@@ -2087,18 +2085,19 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5,
-        "precision": 0.5,
-        "recall": 0.5,
-        "order_correct": false
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_002",
       "question": "What is the shortest chain of foreign key joins that connects concept to drug_strength?",
       "gold_answer": [
-        "drug_strength",
-        "concept"
+        "measurement",
+        "provider"
       ],
       "predicted_answer": [
         "concept",
@@ -2122,19 +2121,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept\",\n    \"drug_strength\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'drug_strength' table has a direct foreign key relationship to the 'concept' table, forming the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_003",
       "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to person?",
       "gold_answer": [
-        "condition_occurrence",
-        "person"
+        "visit_occurrence",
+        "drug_exposure"
       ],
       "predicted_answer": [
         "condition_occurrence",
@@ -2158,19 +2158,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\"condition_occurrence\", \"person\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from condition_occurrence to person.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_004",
       "question": "What is the shortest chain of foreign key joins that connects note to provider?",
       "gold_answer": [
-        "provider",
-        "note"
+        "concept",
+        "device_exposure"
       ],
       "predicted_answer": [
         "note",
@@ -2194,11 +2195,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"note\",\n    \"provider\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A direct foreign key relationship exists from 'note' to 'provider'.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2234,15 +2236,16 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_006",
       "question": "What is the shortest chain of foreign key joins that connects concept to death?",
       "gold_answer": [
-        "concept",
-        "death"
+        "visit_occurrence",
+        "concept"
       ],
       "predicted_answer": [
         "death",
@@ -2266,19 +2269,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\"death\", \"concept\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'death' table has a direct foreign key relationship to the 'concept' table, making it the shortest possible path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_007",
       "question": "What is the shortest chain of foreign key joins that connects concept to dose_era?",
       "gold_answer": [
-        "dose_era",
-        "concept"
+        "device_exposure",
+        "person"
       ],
       "predicted_answer": [
         "concept",
@@ -2302,19 +2306,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept\",\n    \"dose_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The `dose_era` table has a foreign key directly referencing the `concept` table, forming a direct connection.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_008",
       "question": "What is the shortest chain of foreign key joins that connects note_nlp to concept?",
       "gold_answer": [
-        "note_nlp",
-        "concept"
+        "concept",
+        "concept_synonym"
       ],
       "predicted_answer": [
         "note_nlp",
@@ -2341,18 +2346,19 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8,
-        "precision": 0.6667,
-        "recall": 1.0,
-        "order_correct": false
+        "f1": 0.4,
+        "precision": 0.3333,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_009",
       "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to visit_detail?",
       "gold_answer": [
-        "visit_occurrence",
-        "visit_detail"
+        "visit_detail",
+        "person"
       ],
       "predicted_answer": [
         "visit_occurrence",
@@ -2376,19 +2382,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"visit_occurrence\",\n    \"visit_detail\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"visit_detail has a direct foreign key relationship to visit_occurrence, forming a single-step chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_010",
       "question": "What is the shortest chain of foreign key joins that connects condition_era to concept?",
       "gold_answer": [
-        "condition_era",
-        "concept"
+        "concept",
+        "provider"
       ],
       "predicted_answer": [
         "condition_era",
@@ -2412,19 +2419,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"condition_era\",\n    \"concept\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from 'condition_era' to 'concept'.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_011",
       "question": "What is the shortest chain of foreign key joins that connects person to device_exposure?",
       "gold_answer": [
-        "device_exposure",
-        "person"
+        "care_site",
+        "visit_detail"
       ],
       "predicted_answer": [
         "person",
@@ -2448,19 +2456,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"person\",\n    \"device_exposure\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"device_exposure has a direct foreign key relationship to person, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_012",
       "question": "What is the shortest chain of foreign key joins that connects concept to episode?",
       "gold_answer": [
-        "episode",
-        "concept"
+        "drug_era",
+        "person"
       ],
       "predicted_answer": [
         "concept",
@@ -2484,19 +2493,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept\",\n    \"episode\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'episode' table has a direct foreign key relationship to the 'concept' table, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_013",
       "question": "What is the shortest chain of foreign key joins that connects provider to procedure_occurrence?",
       "gold_answer": [
-        "procedure_occurrence",
-        "provider"
+        "visit_occurrence",
+        "person"
       ],
       "predicted_answer": [
         "provider",
@@ -2520,19 +2530,20 @@
         "_raw_text": "{\n  \"answer_list\": [\n    \"provider\",\n    \"procedure_occurrence\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"procedure_occurrence has a direct foreign key relationship to provider, making it the shortest possible chain.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_014",
       "question": "What is the shortest chain of foreign key joins that connects concept to person?",
       "gold_answer": [
-        "concept",
-        "person"
+        "episode_event",
+        "episode"
       ],
       "predicted_answer": [
         "concept",
@@ -2556,19 +2567,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept\",\n    \"person\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The relationship 'person --FK--> concept' indicates that the 'person' table has a foreign key referencing the 'concept' table, allowing a direct join between 'concept' and 'person'.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_015",
       "question": "What is the shortest chain of foreign key joins that connects person to payer_plan_period?",
       "gold_answer": [
-        "payer_plan_period",
-        "person"
+        "concept",
+        "condition_occurrence"
       ],
       "predicted_answer": [
         "payer_plan_period",
@@ -2592,19 +2604,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"payer_plan_period\",\n    \"person\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"payer_plan_period has a direct foreign key relationship to person.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_016",
       "question": "What is the shortest chain of foreign key joins that connects care_site to visit_occurrence?",
       "gold_answer": [
-        "visit_occurrence",
-        "care_site"
+        "procedure_occurrence",
+        "person"
       ],
       "predicted_answer": [
         "visit_occurrence",
@@ -2628,19 +2641,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"visit_occurrence\",\n    \"care_site\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from visit_occurrence to care_site, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_017",
       "question": "What is the shortest chain of foreign key joins that connects concept_synonym to concept?",
       "gold_answer": [
-        "concept_synonym",
-        "concept"
+        "note",
+        "provider"
       ],
       "predicted_answer": [
         "concept_synonym",
@@ -2664,19 +2678,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_synonym\",\n    \"concept\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from concept_synonym to concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_018",
       "question": "What is the shortest chain of foreign key joins that connects measurement to provider?",
       "gold_answer": [
-        "measurement",
-        "provider"
+        "cost",
+        "concept"
       ],
       "predicted_answer": [
         "measurement",
@@ -2700,19 +2715,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"measurement\",\n    \"provider\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from 'measurement' to 'provider'.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_019",
       "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to procedure_occurrence?",
       "gold_answer": [
-        "procedure_occurrence",
-        "visit_occurrence"
+        "drug_exposure",
+        "person"
       ],
       "predicted_answer": [
         "procedure_occurrence",
@@ -2736,19 +2752,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\"procedure_occurrence\", \"visit_occurrence\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"procedure_occurrence has a direct foreign key relationship to visit_occurrence.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_020",
       "question": "What is the shortest chain of foreign key joins that connects concept to device_exposure?",
       "gold_answer": [
-        "device_exposure",
-        "concept"
+        "visit_detail",
+        "provider"
       ],
       "predicted_answer": [
         "device_exposure",
@@ -2772,19 +2789,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"device_exposure\",\n    \"concept\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema directly shows a foreign key relationship from device_exposure to concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_021",
       "question": "What is the shortest chain of foreign key joins that connects measurement to visit_occurrence?",
       "gold_answer": [
-        "visit_occurrence",
-        "measurement"
+        "concept",
+        "concept_ancestor"
       ],
       "predicted_answer": [
         "measurement",
@@ -2808,19 +2826,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"measurement\",\n    \"visit_occurrence\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A direct foreign key relationship exists from 'measurement' to 'visit_occurrence'.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_022",
       "question": "What is the shortest chain of foreign key joins that connects person to procedure_occurrence?",
       "gold_answer": [
-        "procedure_occurrence",
-        "person"
+        "episode",
+        "concept"
       ],
       "predicted_answer": [
         "procedure_occurrence",
@@ -2844,19 +2863,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"procedure_occurrence\",\n    \"person\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from procedure_occurrence to person, making it the shortest possible path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_023",
       "question": "What is the shortest chain of foreign key joins that connects device_exposure to provider?",
       "gold_answer": [
-        "device_exposure",
-        "provider"
+        "provider",
+        "visit_occurrence"
       ],
       "predicted_answer": [
         "device_exposure",
@@ -2880,19 +2900,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\"device_exposure\", \"provider\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from device_exposure to provider.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_024",
       "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to note?",
       "gold_answer": [
-        "visit_occurrence",
-        "note"
+        "person",
+        "measurement"
       ],
       "predicted_answer": [
         "visit_occurrence",
@@ -2916,19 +2937,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"visit_occurrence\",\n    \"note\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'note' table has a direct foreign key relationship to 'visit_occurrence', making it the shortest possible path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_025",
       "question": "What is the shortest chain of foreign key joins that connects person to drug_era?",
       "gold_answer": [
-        "drug_era",
-        "person"
+        "visit_occurrence",
+        "procedure_occurrence"
       ],
       "predicted_answer": [
         "drug_era",
@@ -2952,20 +2974,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"drug_era\",\n    \"person\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from drug_era to person.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_026",
       "question": "What is the shortest chain of foreign key joins that connects death to visit_detail?",
       "gold_answer": [
-        "visit_detail",
+        "dose_era",
         "person",
-        "death"
+        "provider"
       ],
       "predicted_answer": [
         "death",
@@ -2991,20 +3014,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"death\",\n    \"person\",\n    \"visit_detail\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'death' and 'visit_detail' tables have a foreign key relationship to the 'person' table, allowing a direct join through 'person'.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_027",
       "question": "What is the shortest chain of foreign key joins that connects domain to device_exposure?",
       "gold_answer": [
-        "device_exposure",
+        "location",
+        "person",
         "concept",
-        "domain"
+        "vocabulary"
       ],
       "predicted_answer": [
         "domain",
@@ -3030,11 +3055,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"domain\",\n    \"concept\",\n    \"device_exposure\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"domain is connected to concept via a foreign key, and concept is connected to device_exposure via a foreign key, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 0.3333,
+        "recall": 0.25,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3042,7 +3068,8 @@
       "question": "What is the shortest chain of foreign key joins that connects death to concept_class?",
       "gold_answer": [
         "concept_class",
-        "concept"
+        "concept",
+        "episode"
       ],
       "predicted_answer": [
         "death",
@@ -3069,20 +3096,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8,
+        "f1": 0.6667,
         "precision": 0.6667,
-        "recall": 1.0,
-        "order_correct": false
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_029",
       "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to relationship?",
       "gold_answer": [
-        "concept_ancestor",
-        "concept",
-        "concept_relationship",
-        "relationship"
+        "note",
+        "person",
+        "payer_plan_period"
       ],
       "predicted_answer": [
         "concept_ancestor",
@@ -3110,20 +3137,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"concept_relationship\",\n    \"relationship\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_ancestor links to concept, which then links to concept_relationship, and concept_relationship links to relationship, forming the shortest FK chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_030",
       "question": "What is the shortest chain of foreign key joins that connects condition_era to cost?",
       "gold_answer": [
-        "condition_era",
-        "concept",
-        "cost"
+        "drug_exposure",
+        "person",
+        "measurement"
       ],
       "predicted_answer": [
         "condition_era",
@@ -3149,20 +3177,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"condition_era\",\n    \"concept\",\n    \"cost\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'condition_era' and 'cost' have a foreign key relationship to the 'concept' table, making 'concept' the shortest common link.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_031",
       "question": "What is the shortest chain of foreign key joins that connects observation to observation_period?",
       "gold_answer": [
-        "observation_period",
+        "concept_ancestor",
+        "concept",
         "person",
-        "observation"
+        "visit_detail"
       ],
       "predicted_answer": [
         "observation",
@@ -3188,20 +3218,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"observation\",\n    \"person\",\n    \"observation_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'observation' and 'observation_period' tables have a direct foreign key relationship to the 'person' table, creating the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 0.3333,
+        "recall": 0.25,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_032",
       "question": "What is the shortest chain of foreign key joins that connects concept_class to provider?",
       "gold_answer": [
-        "concept_class",
+        "location",
+        "person",
         "concept",
-        "provider"
+        "concept_class"
       ],
       "predicted_answer": [
         "concept_class",
@@ -3227,21 +3259,22 @@
         "_raw_text": "{\n  \"answer_list\": [\n    \"concept_class\",\n    \"concept\",\n    \"provider\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_class is referenced by concept, and provider references concept, forming a direct path: concept_class <- concept -> provider.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 0.6667,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_033",
       "question": "What is the shortest chain of foreign key joins that connects episode_event to concept_relationship?",
       "gold_answer": [
-        "concept_relationship",
+        "drug_strength",
         "concept",
-        "episode",
-        "episode_event"
+        "person",
+        "observation_period"
       ],
       "predicted_answer": [
         "episode_event",
@@ -3269,20 +3302,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"episode_event\",\n    \"episode\",\n    \"concept\",\n    \"concept_relationship\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is found by following foreign key relationships: episode_event links to episode, episode links to concept, and concept_relationship links to concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_034",
       "question": "What is the shortest chain of foreign key joins that connects provider to concept_ancestor?",
       "gold_answer": [
-        "concept_ancestor",
+        "cost",
         "concept",
-        "provider"
+        "condition_era"
       ],
       "predicted_answer": [
         "provider",
@@ -3308,21 +3342,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"provider\",\n    \"concept\",\n    \"concept_ancestor\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Provider has a foreign key to concept, and concept_ancestor has a foreign key to concept, forming a direct connection through concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_035",
       "question": "What is the shortest chain of foreign key joins that connects relationship to vocabulary?",
       "gold_answer": [
-        "relationship",
-        "concept_relationship",
+        "cost",
         "concept",
-        "vocabulary"
+        "concept_class"
       ],
       "predicted_answer": [
         "relationship",
@@ -3350,20 +3384,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"relationship\",\n    \"concept_relationship\",\n    \"concept\",\n    \"vocabulary\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is found by following foreign key relationships: relationship is referenced by concept_relationship, which in turn references concept, and concept references vocabulary.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 0.25,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_036",
       "question": "What is the shortest chain of foreign key joins that connects concept_relationship to condition_era?",
       "gold_answer": [
-        "concept_relationship",
+        "condition_occurrence",
         "concept",
-        "condition_era"
+        "concept_class"
       ],
       "predicted_answer": [
         "concept_relationship",
@@ -3389,20 +3424,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_relationship\",\n    \"concept\",\n    \"condition_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_relationship links to concept, and condition_era also links to concept, forming a direct path through concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_037",
       "question": "What is the shortest chain of foreign key joins that connects concept_synonym to observation?",
       "gold_answer": [
-        "concept_synonym",
-        "concept",
-        "observation"
+        "specimen",
+        "person",
+        "drug_exposure"
       ],
       "predicted_answer": [
         "concept_synonym",
@@ -3428,20 +3464,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_synonym\",\n    \"concept\",\n    \"observation\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_synonym links to concept via FK. observation links to concept via FK. This forms the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_038",
       "question": "What is the shortest chain of foreign key joins that connects observation to location?",
       "gold_answer": [
-        "observation",
+        "concept",
         "person",
-        "location"
+        "observation_period"
       ],
       "predicted_answer": [
         "observation",
@@ -3467,20 +3504,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"observation\",\n    \"person\",\n    \"location\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest foreign key path is observation --FK--> person --FK--> location, which is 2 steps long.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_039",
       "question": "What is the shortest chain of foreign key joins that connects drug_exposure to fact_relationship?",
       "gold_answer": [
-        "fact_relationship",
+        "drug_exposure",
         "concept",
-        "drug_exposure"
+        "cost"
       ],
       "predicted_answer": [
         "drug_exposure",
@@ -3506,18 +3544,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"drug_exposure\",\n    \"concept\",\n    \"fact_relationship\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"drug_exposure has a foreign key to concept, and fact_relationship also has a foreign key to concept, creating a direct path through concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_040",
       "question": "What is the shortest chain of foreign key joins that connects death to episode_event?",
       "gold_answer": [
-        "episode_event",
+        "drug_strength",
+        "concept",
         "episode"
       ],
       "predicted_answer": [],
@@ -3540,16 +3580,17 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_041",
       "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to drug_era?",
       "gold_answer": [
-        "procedure_occurrence",
+        "episode",
         "person",
-        "drug_era"
+        "visit_occurrence"
       ],
       "predicted_answer": [
         "procedure_occurrence",
@@ -3575,20 +3616,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"procedure_occurrence\",\n    \"person\",\n    \"drug_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both procedure_occurrence and drug_era have a foreign key relationship to the person table, creating a direct path of two FK joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_042",
       "question": "What is the shortest chain of foreign key joins that connects care_site to death?",
       "gold_answer": [
-        "care_site",
+        "payer_plan_period",
         "person",
-        "death"
+        "device_exposure"
       ],
       "predicted_answer": [
         "care_site",
@@ -3614,21 +3656,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"care_site\",\n    \"person\",\n    \"death\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest foreign key chain is care_site -> person (person has FK to care_site) -> death (death has FK to person).\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_043",
       "question": "What is the shortest chain of foreign key joins that connects location to source_to_concept_map?",
       "gold_answer": [
-        "source_to_concept_map",
+        "relationship",
+        "concept_relationship",
         "concept",
-        "person",
-        "location"
+        "dose_era"
       ],
       "predicted_answer": [
         "location",
@@ -3657,19 +3700,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.75,
-        "recall": 0.75,
-        "order_correct": false
+        "f1": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_044",
       "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to drug_strength?",
       "gold_answer": [
-        "concept_ancestor",
-        "concept",
-        "drug_strength"
+        "provider",
+        "person",
+        "death"
       ],
       "predicted_answer": [
         "concept_ancestor",
@@ -3695,21 +3739,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"drug_strength\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both concept_ancestor and drug_strength have a direct foreign key relationship with the concept table, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_045",
       "question": "What is the shortest chain of foreign key joins that connects fact_relationship to note_nlp?",
       "gold_answer": [
-        "fact_relationship",
-        "concept",
-        "concept_relationship",
-        "relationship"
+        "payer_plan_period",
+        "person",
+        "episode"
       ],
       "predicted_answer": [
         "fact_relationship",
@@ -3736,19 +3780,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5714,
-        "precision": 0.6667,
-        "recall": 0.5,
-        "order_correct": false
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_046",
       "question": "What is the shortest chain of foreign key joins that connects vocabulary to concept_synonym?",
       "gold_answer": [
-        "concept_synonym",
+        "vocabulary",
         "concept",
-        "vocabulary"
+        "fact_relationship"
       ],
       "predicted_answer": [
         "vocabulary",
@@ -3774,21 +3819,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"vocabulary\",\n    \"concept\",\n    \"concept_synonym\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"vocabulary is linked to concept via an FK, and concept is linked to concept_synonym via an FK, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_047",
       "question": "What is the shortest chain of foreign key joins that connects drug_era to episode_event?",
       "gold_answer": [
-        "episode_event",
-        "episode",
+        "visit_detail",
         "person",
-        "drug_era"
+        "concept",
+        "fact_relationship"
       ],
       "predicted_answer": [
         "drug_era",
@@ -3816,20 +3862,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"drug_era\",\n    \"person\",\n    \"episode\",\n    \"episode_event\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"drug_era links to person, person links to episode, and episode links to episode_event, forming a chain of 3 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_048",
       "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to drug_exposure?",
       "gold_answer": [
-        "procedure_occurrence",
-        "person",
-        "drug_exposure"
+        "device_exposure",
+        "concept",
+        "domain"
       ],
       "predicted_answer": [
         "procedure_occurrence",
@@ -3855,20 +3902,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"procedure_occurrence\",\n    \"person\",\n    \"drug_exposure\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both procedure_occurrence and drug_exposure have foreign keys to the person table, creating a direct two-step connection.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_049",
       "question": "What is the shortest chain of foreign key joins that connects specimen to visit_detail?",
       "gold_answer": [
-        "visit_detail",
         "person",
-        "specimen"
+        "concept",
+        "cost"
       ],
       "predicted_answer": [
         "specimen",
@@ -3894,20 +3942,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"specimen\",\n    \"person\",\n    \"visit_detail\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'specimen' and 'visit_detail' have a direct foreign key relationship to the 'person' table, forming a shortest path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_050",
       "question": "What is the shortest chain of foreign key joins that connects cost to note?",
       "gold_answer": [
-        "note",
-        "concept",
-        "cost"
+        "death",
+        "person",
+        "condition_era"
       ],
       "predicted_answer": [
         "cost",
@@ -3933,20 +3982,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"cost\",\n    \"concept\",\n    \"note\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Cost is connected to concept via an FK. Note is also connected to concept via an FK, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_051",
       "question": "What is the shortest chain of foreign key joins that connects note to condition_occurrence?",
       "gold_answer": [
-        "condition_occurrence",
+        "concept_class",
+        "concept",
         "person",
-        "note"
+        "visit_detail"
       ],
       "predicted_answer": [
         "note",
@@ -3972,22 +4023,23 @@
         "_raw_text": "{\n  \"answer_list\": [\"note\", \"person\", \"condition_occurrence\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'note' and 'condition_occurrence' have foreign keys to the 'person' table, creating a direct path of two joins.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 0.3333,
+        "recall": 0.25,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_052",
       "question": "What is the shortest chain of foreign key joins that connects relationship to observation_period?",
       "gold_answer": [
-        "observation_period",
-        "person",
-        "concept",
+        "relationship",
         "concept_relationship",
-        "relationship"
+        "concept",
+        "person",
+        "location"
       ],
       "predicted_answer": [
         "relationship",
@@ -4017,22 +4069,23 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"relationship\",\n    \"concept_relationship\",\n    \"concept\",\n    \"person\",\n    \"observation_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is found by following foreign key relationships: relationship is referenced by concept_relationship, which references concept. Concept is referenced by person, which is referenced by observation_period.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.8,
+        "precision": 0.8,
+        "recall": 0.8,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_053",
       "question": "What is the shortest chain of foreign key joins that connects visit_detail to relationship?",
       "gold_answer": [
-        "visit_detail",
-        "person",
-        "concept",
+        "relationship",
         "concept_relationship",
-        "relationship"
+        "concept",
+        "person",
+        "visit_detail"
       ],
       "predicted_answer": [
         "visit_detail",
@@ -4066,16 +4119,17 @@
         "f1": 0.8,
         "precision": 0.8,
         "recall": 0.8,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_054",
       "question": "What is the shortest chain of foreign key joins that connects death to procedure_occurrence?",
       "gold_answer": [
-        "procedure_occurrence",
+        "observation",
         "person",
-        "death"
+        "payer_plan_period"
       ],
       "predicted_answer": [
         "death",
@@ -4101,20 +4155,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"death\",\n    \"person\",\n    \"procedure_occurrence\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'death' and 'procedure_occurrence' have foreign keys to 'person', creating a direct two-step path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_055",
       "question": "What is the shortest chain of foreign key joins that connects concept_relationship to source_to_concept_map?",
       "gold_answer": [
-        "source_to_concept_map",
+        "drug_strength",
         "concept",
-        "concept_relationship"
+        "concept_ancestor"
       ],
       "predicted_answer": [
         "concept_relationship",
@@ -4140,20 +4195,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_relationship\",\n    \"concept\",\n    \"source_to_concept_map\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both concept_relationship and source_to_concept_map have a foreign key relationship with the concept table, forming a direct connection.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_056",
       "question": "What is the shortest chain of foreign key joins that connects cost to payer_plan_period?",
       "gold_answer": [
-        "payer_plan_period",
-        "concept",
-        "cost"
+        "condition_era",
+        "person",
+        "payer_plan_period"
       ],
       "predicted_answer": [
         "cost",
@@ -4179,20 +4235,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"cost\",\n    \"concept\",\n    \"payer_plan_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Cost is connected to concept via an FK. Payer_plan_period is also connected to concept via an FK, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_057",
       "question": "What is the shortest chain of foreign key joins that connects concept_relationship to payer_plan_period?",
       "gold_answer": [
-        "concept_relationship",
+        "drug_strength",
         "concept",
-        "payer_plan_period"
+        "dose_era"
       ],
       "predicted_answer": [
         "concept_relationship",
@@ -4218,20 +4275,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_relationship\",\n    \"concept\",\n    \"payer_plan_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_relationship links to concept via an FK, and payer_plan_period also links to concept via an FK, forming a direct path through concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_058",
       "question": "What is the shortest chain of foreign key joins that connects source_to_concept_map to payer_plan_period?",
       "gold_answer": [
-        "source_to_concept_map",
-        "concept",
-        "payer_plan_period"
+        "person",
+        "specimen"
       ],
       "predicted_answer": [
         "source_to_concept_map",
@@ -4257,20 +4314,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"source_to_concept_map\",\n    \"concept\",\n    \"payer_plan_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both `source_to_concept_map` and `payer_plan_period` have foreign keys referencing the `concept` table, creating a direct connection through `concept`.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_059",
       "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to care_site?",
       "gold_answer": [
-        "condition_occurrence",
-        "person",
-        "care_site"
+        "concept_synonym",
+        "concept",
+        "domain"
       ],
       "predicted_answer": [
         "condition_occurrence",
@@ -4296,19 +4354,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"condition_occurrence\",\n    \"person\",\n    \"care_site\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A direct foreign key relationship exists from condition_occurrence to person, and from person to care_site, forming a chain of two FK joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_060",
       "question": "What is the shortest chain of foreign key joins that connects concept_relationship to provider?",
       "gold_answer": [
-        "concept_relationship",
-        "relationship"
+        "person",
+        "dose_era"
       ],
       "predicted_answer": [
         "concept_relationship",
@@ -4335,18 +4394,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
-        "precision": 0.3333,
-        "recall": 0.5,
-        "order_correct": false
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_061",
       "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to domain?",
       "gold_answer": [
-        "concept_ancestor",
-        "concept"
+        "observation",
+        "person",
+        "condition_occurrence"
       ],
       "predicted_answer": [
         "concept_ancestor",
@@ -4373,19 +4434,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8,
-        "precision": 0.6667,
-        "recall": 1.0,
-        "order_correct": false
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_062",
       "question": "What is the shortest chain of foreign key joins that connects procedure_occurrence to observation?",
       "gold_answer": [
-        "procedure_occurrence",
+        "drug_exposure",
         "person",
-        "observation"
+        "procedure_occurrence"
       ],
       "predicted_answer": [
         "procedure_occurrence",
@@ -4411,19 +4473,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"procedure_occurrence\",\n    \"person\",\n    \"observation\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both procedure_occurrence and observation tables have a foreign key relationship to the person table, creating a direct path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_063",
       "question": "What is the shortest chain of foreign key joins that connects note_nlp to concept_relationship?",
       "gold_answer": [
-        "concept_relationship",
-        "relationship"
+        "episode",
+        "concept",
+        "source_to_concept_map"
       ],
       "predicted_answer": [
         "note_nlp",
@@ -4450,19 +4514,19 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
+        "f1": 0.3333,
         "precision": 0.3333,
-        "recall": 0.5,
-        "order_correct": false
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_064",
       "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to drug_exposure?",
       "gold_answer": [
-        "concept_ancestor",
-        "concept",
-        "drug_exposure"
+        "person",
+        "concept"
       ],
       "predicted_answer": [
         "concept_ancestor",
@@ -4488,20 +4552,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"drug_exposure\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_ancestor has a foreign key to concept, and drug_exposure also has a foreign key to concept, forming a direct path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.3333,
+        "recall": 0.5,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_065",
       "question": "What is the shortest chain of foreign key joins that connects cost to observation_period?",
       "gold_answer": [
-        "observation_period",
+        "death",
         "person",
-        "observation"
+        "payer_plan_period"
       ],
       "predicted_answer": [
         "cost",
@@ -4530,19 +4595,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5714,
-        "precision": 0.5,
-        "recall": 0.6667,
-        "order_correct": false
+        "f1": 0.2857,
+        "precision": 0.25,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_066",
       "question": "What is the shortest chain of foreign key joins that connects device_exposure to dose_era?",
       "gold_answer": [
-        "device_exposure",
-        "person",
-        "dose_era"
+        "concept_relationship",
+        "concept",
+        "concept_synonym"
       ],
       "predicted_answer": [
         "device_exposure",
@@ -4568,20 +4634,20 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"device_exposure\",\n    \"person\",\n    \"dose_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both device_exposure and dose_era have a direct foreign key relationship to the person table, forming a shortest path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_067",
       "question": "What is the shortest chain of foreign key joins that connects cost to drug_era?",
       "gold_answer": [
-        "drug_era",
-        "concept",
-        "cost"
+        "provider",
+        "drug_exposure"
       ],
       "predicted_answer": [
         "cost",
@@ -4607,20 +4673,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"cost\",\n    \"concept\",\n    \"drug_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Cost is connected to concept via an FK. Drug_era is also connected to concept via an FK, forming a direct path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_068",
       "question": "What is the shortest chain of foreign key joins that connects fact_relationship to condition_occurrence?",
       "gold_answer": [
-        "condition_occurrence",
-        "concept",
-        "fact_relationship"
+        "drug_era",
+        "person",
+        "death"
       ],
       "predicted_answer": [
         "fact_relationship",
@@ -4646,20 +4713,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"fact_relationship\",\n    \"concept\",\n    \"condition_occurrence\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both fact_relationship and condition_occurrence have a direct foreign key relationship to the concept table, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_069",
       "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to vocabulary?",
       "gold_answer": [
-        "condition_occurrence",
-        "concept",
-        "vocabulary"
+        "procedure_occurrence",
+        "person",
+        "payer_plan_period"
       ],
       "predicted_answer": [
         "condition_occurrence",
@@ -4685,11 +4753,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"condition_occurrence\",\n    \"concept\",\n    \"vocabulary\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"condition_occurrence links to concept via FK, and concept links to vocabulary via FK, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4698,7 +4767,7 @@
       "gold_answer": [
         "concept_ancestor",
         "concept",
-        "concept_synonym"
+        "vocabulary"
       ],
       "predicted_answer": [
         "concept_ancestor",
@@ -4724,21 +4793,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"concept_synonym\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both concept_ancestor and concept_synonym have a direct foreign key relationship to the concept table, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_071",
       "question": "What is the shortest chain of foreign key joins that connects fact_relationship to person?",
       "gold_answer": [
-        "fact_relationship",
-        "concept",
-        "concept_relationship",
-        "relationship"
+        "specimen",
+        "person",
+        "payer_plan_period"
       ],
       "predicted_answer": [
         "fact_relationship",
@@ -4765,18 +4834,18 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5714,
-        "precision": 0.6667,
-        "recall": 0.5,
-        "order_correct": false
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_072",
       "question": "What is the shortest chain of foreign key joins that connects episode_event to visit_detail?",
       "gold_answer": [
-        "episode_event",
-        "episode",
+        "drug_era",
         "person",
         "visit_detail"
       ],
@@ -4806,20 +4875,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"episode_event\",\n    \"episode\",\n    \"person\",\n    \"visit_detail\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"episode_event links to episode, which links to person. visit_detail also links to person, creating a 3-join path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 0.5,
+        "recall": 0.6667,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_073",
       "question": "What is the shortest chain of foreign key joins that connects payer_plan_period to procedure_occurrence?",
       "gold_answer": [
-        "procedure_occurrence",
-        "person",
-        "payer_plan_period"
+        "concept_class",
+        "concept",
+        "dose_era"
       ],
       "predicted_answer": [
         "payer_plan_period",
@@ -4845,20 +4915,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"payer_plan_period\",\n    \"person\",\n    \"procedure_occurrence\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both payer_plan_period and procedure_occurrence have a direct foreign key relationship to the person table, forming a two-step path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_074",
       "question": "What is the shortest chain of foreign key joins that connects visit_occurrence to dose_era?",
       "gold_answer": [
-        "visit_occurrence",
-        "person",
-        "dose_era"
+        "concept_relationship",
+        "concept",
+        "concept_ancestor"
       ],
       "predicted_answer": [
         "visit_occurrence",
@@ -4884,19 +4955,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"visit_occurrence\",\n    \"person\",\n    \"dose_era\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"visit_occurrence is connected to person via FK, and person is connected to dose_era via FK, forming a direct path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_075",
       "question": "What is the shortest chain of foreign key joins that connects condition_occurrence to concept?",
       "gold_answer": [
-        "condition_occurrence",
-        "concept"
+        "dose_era",
+        "person",
+        "procedure_occurrence"
       ],
       "predicted_answer": [
         "condition_occurrence",
@@ -4920,20 +4993,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"condition_occurrence\",\n    \"concept\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from condition_occurrence to concept.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_076",
       "question": "What is the shortest chain of foreign key joins that connects concept_ancestor to source_to_concept_map?",
       "gold_answer": [
-        "source_to_concept_map",
+        "provider",
         "concept",
-        "concept_ancestor"
+        "concept_relationship"
       ],
       "predicted_answer": [
         "concept_ancestor",
@@ -4959,20 +5033,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"concept_ancestor\",\n    \"concept\",\n    \"source_to_concept_map\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"concept_ancestor is connected to concept via an FK. source_to_concept_map is also connected to concept via an FK, forming a two-step path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_077",
       "question": "What is the shortest chain of foreign key joins that connects domain to provider?",
       "gold_answer": [
-        "provider",
+        "location",
+        "person",
         "concept",
-        "domain"
+        "drug_strength"
       ],
       "predicted_answer": [
         "domain",
@@ -4998,20 +5074,21 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"domain\",\n    \"concept\",\n    \"provider\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path connects 'domain' to 'concept' (concept --FK--> domain) and 'concept' to 'provider' (provider --FK--> concept), forming a chain of two foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0.2857,
+        "precision": 0.3333,
+        "recall": 0.25,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_078",
       "question": "What is the shortest chain of foreign key joins that connects condition_era to note_nlp?",
       "gold_answer": [
-        "condition_era",
+        "drug_strength",
         "concept",
-        "note_nlp"
+        "drug_exposure"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -5033,16 +5110,16 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_path_079",
       "question": "What is the shortest chain of foreign key joins that connects note_nlp to payer_plan_period?",
       "gold_answer": [
-        "payer_plan_period",
-        "concept",
-        "note_nlp"
+        "condition_occurrence",
+        "person"
       ],
       "predicted_answer": [
         "note_nlp",
@@ -5068,17 +5145,18 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"note_nlp\",\n    \"concept\",\n    \"payer_plan_period\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both note_nlp and payer_plan_period have a direct foreign key relationship to the concept table, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": false
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
       "id": "omop_cdm_route_hops_080",
       "question": "What is the minimum number of foreign key joins needed to connect procedure_occurrence to drug_exposure?",
-      "gold_answer": 2,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5095,14 +5173,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both procedure_occurrence and drug_exposure have foreign keys to person, visit_occurrence, provider, and concept, allowing a connection in two joins (e.g., procedure_occurrence -> person <- drug_exposure).\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_081",
       "question": "What is the minimum number of foreign key joins needed to connect specimen to visit_detail?",
-      "gold_answer": 2,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5119,14 +5197,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both 'specimen' and 'visit_detail' tables have a foreign key relationship to the 'person' table. Therefore, connecting 'specimen' to 'person' and then 'person' to 'visit_detail' requires 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_082",
       "question": "What is the minimum number of foreign key joins needed to connect visit_occurrence to procedure_occurrence?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5143,14 +5221,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from procedure_occurrence to visit_occurrence, requiring only one join.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_083",
       "question": "What is the minimum number of foreign key joins needed to connect note_nlp to concept_relationship?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5167,8 +5245,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is note_nlp --FK--> concept, and then concept_relationship --FK--> concept (which implies a join from concept to concept_relationship). This makes 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -5246,7 +5324,7 @@
     {
       "id": "omop_cdm_route_hops_087",
       "question": "What is the minimum number of foreign key joins needed to connect care_site to death?",
-      "gold_answer": 2,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5263,14 +5341,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path can be found via care_site -> person -> death (2 joins) or care_site -> concept -> death (2 joins).\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_088",
       "question": "What is the minimum number of foreign key joins needed to connect concept to episode?",
-      "gold_answer": 1,
+      "gold_answer": 3,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5287,8 +5365,8 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from 'episode' to 'concept'.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5318,7 +5396,7 @@
     {
       "id": "omop_cdm_route_hops_090",
       "question": "What is the minimum number of foreign key joins needed to connect fact_relationship to person?",
-      "gold_answer": 3,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5346,7 +5424,7 @@
     {
       "id": "omop_cdm_route_hops_091",
       "question": "What is the minimum number of foreign key joins needed to connect cost to drug_era?",
-      "gold_answer": 2,
+      "gold_answer": 3,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5363,8 +5441,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Cost is connected to concept via an FK. Drug_era is also connected to concept via an FK. Therefore, they can be connected through concept with two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5394,7 +5472,7 @@
     {
       "id": "omop_cdm_route_hops_093",
       "question": "What is the minimum number of foreign key joins needed to connect concept to concept_relationship?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5411,8 +5489,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from concept_relationship to concept, requiring one join.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5442,7 +5520,7 @@
     {
       "id": "omop_cdm_route_hops_095",
       "question": "What is the minimum number of foreign key joins needed to connect relationship to observation_period?",
-      "gold_answer": 4,
+      "gold_answer": 1,
       "predicted_answer": 4,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5459,8 +5537,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is relationship -> concept_relationship -> concept -> person -> observation_period, requiring 4 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5490,7 +5568,7 @@
     {
       "id": "omop_cdm_route_hops_097",
       "question": "What is the minimum number of foreign key joins needed to connect condition_occurrence to concept?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5507,8 +5585,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from condition_occurrence to concept, requiring one join.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5538,7 +5616,7 @@
     {
       "id": "omop_cdm_route_hops_099",
       "question": "What is the minimum number of foreign key joins needed to connect cost to note?",
-      "gold_answer": 2,
+      "gold_answer": 3,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5555,14 +5633,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is cost --FK--> concept <--FK-- note, requiring 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_direct_103",
       "question": "Does visit_detail have a direct foreign key relationship to provider?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5579,14 +5657,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'visit_detail --FK--> provider', indicating a direct foreign key relationship.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_109",
       "question": "Does drug_strength have a direct foreign key relationship to vocabulary?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5603,14 +5681,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided schema does not list a direct foreign key relationship between drug_strength and vocabulary.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_115",
       "question": "Does procedure_occurrence have a direct foreign key relationship to condition_occurrence?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5627,14 +5705,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between procedure_occurrence and condition_occurrence in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_105",
       "question": "Does concept_relationship have a direct foreign key relationship to relationship?",
-      "gold_answer": "Yes",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5651,14 +5729,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'concept_relationship --FK--> relationship', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_108",
       "question": "Does concept_synonym have a direct foreign key relationship to fact_relationship?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5675,14 +5753,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between concept_synonym and fact_relationship in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_106",
       "question": "Does episode have a direct foreign key relationship to person?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5699,14 +5777,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'episode --FK--> person', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_100",
       "question": "Does observation have a direct foreign key relationship to person?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5723,14 +5801,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'observation --FK--> person', indicating a direct foreign key relationship.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_104",
       "question": "Does note have a direct foreign key relationship to provider?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5747,14 +5825,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'note --FK--> provider', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_102",
       "question": "Does episode_event have a direct foreign key relationship to episode?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5771,14 +5849,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'episode_event --FK--> episode', indicating a direct foreign key relationship.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_107",
       "question": "Does note have a direct foreign key relationship to concept?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5795,14 +5873,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'note --FK--> concept', indicating a direct foreign key relationship.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_114",
       "question": "Does episode have a direct foreign key relationship to condition_occurrence?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5819,14 +5897,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between 'episode' and 'condition_occurrence' in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_111",
       "question": "Does condition_occurrence have a direct foreign key relationship to cost?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5843,14 +5921,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between condition_occurrence and cost in the provided schema.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_110",
       "question": "Does visit_occurrence have a direct foreign key relationship to note_nlp?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5867,14 +5945,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between visit_occurrence and note_nlp in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_112",
       "question": "Does episode have a direct foreign key relationship to payer_plan_period?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5891,14 +5969,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between 'episode' and 'payer_plan_period' in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_101",
       "question": "Does note_nlp have a direct foreign key relationship to concept?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5915,14 +5993,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'note_nlp --FK--> concept', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_113",
       "question": "Does care_site have a direct foreign key relationship to relationship?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5939,9 +6017,15 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between 'care_site' and 'relationship' in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 158,
+    "exact_match": 47,
+    "exact_match_pct": 29.7,
+    "avg_f1": 44.1
+  }
 }

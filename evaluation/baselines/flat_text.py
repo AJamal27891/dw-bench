@@ -250,7 +250,34 @@ def extract_answer(response: dict, answer_type: str):
     if answer_type in ('list', 'ordered_list'):
         ans = response.get('answer_list')
         if isinstance(ans, list):
-            return sorted(ans) if answer_type == 'list' else ans
+            # Flatten dicts to strings if model returns structured items
+            clean = []
+            for item in ans:
+                if isinstance(item, dict):
+                    # e.g. {"table": "x", "row_id": "row_5"} or {"table": "x", "rows": [5]}
+                    t = item.get('table', '')
+                    r = item.get('row_id', item.get('rows', item.get('row', '')))
+                    if isinstance(r, list):
+                        r = f"row_{r[0]}"
+                    clean.append(f"{t}:{r}" if t and r else str(item))
+                elif isinstance(item, str) and item.startswith('{'):
+                    # Stringified dict: "{'table': 'X', 'rows': [N]}"
+                    import ast
+                    try:
+                        parsed = ast.literal_eval(item)
+                        if isinstance(parsed, dict) and 'table' in parsed:
+                            t = parsed['table']
+                            r = parsed.get('row_id', parsed.get('rows', parsed.get('row', '')))
+                            if isinstance(r, list):
+                                r = f"row_{r[0]}"
+                            clean.append(f"{t}:{r}" if t and r else item)
+                        else:
+                            clean.append(item)
+                    except Exception:
+                        clean.append(item)
+                else:
+                    clean.append(str(item))
+            return sorted(clean) if answer_type == 'list' else clean
         return []
     elif answer_type in ('integer', 'number'):
         ans = response.get('answer_int')

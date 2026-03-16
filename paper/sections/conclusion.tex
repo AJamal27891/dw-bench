@@ -1,24 +1,15 @@
 % ============================================================================
-% 7. CONCLUSION
+% 6. CONCLUSION
 % ============================================================================
 \section{Conclusion}
 
-We introduced DW-Bench, the first benchmark for evaluating LLM
-capabilities on data warehouse graph topology reasoning. Across five
-datasets (four real-world, one synthetic), two frontier models (Gemini~2.5
-Flash and DeepSeek-V3), and five baselines (Flat Text, Graph-Augmented,
-Vector-RAG, Tool-Use, and Oracle), our evaluation reveals three key
-insights. First, a \emph{model-dependent structural gap}: Gemini achieves
-near-perfect scores on structural subtypes (98--100\% EM on
-\texttt{hop\_count} and \texttt{count}), while DeepSeek scores as low as
-27--48\% on the same tasks. Second, a \emph{Triviality Illusion}: micro-averaging
-inflates scores by weighting easy subtypes disproportionately, which
-macro-averaging corrects. Third, a \emph{compositional ceiling}:
-\texttt{combined\_impact}---requiring multi-phase lineage + FK
-traversal---remains below 27\% EM for both models across all baselines,
-despite 100\% Oracle solvability, establishing a compelling frontier for
-learned graph representations.
-
-DW-Bench is publicly available at
-\url{https://github.com/AJamal27891/dw-bench} with all datasets,
-evaluation code, and baseline implementations.
+DW-Bench evaluates LLMs on graph topology reasoning over data warehouse
+schemas. Our six-baseline evaluation yields four insights:
+(1)~Tool-Use dominates (89--90\% vs.\ 69--77\% static);
+(2)~easy subtypes create a Triviality Illusion in micro-EM;
+(3)~a hard-question ceiling persists at $\sim$60\% even with tools
+(vs.\ $>$97\% Oracle); and
+(4)~tools are essential for value-level questions yet insufficient for
+compositional reasoning. The gap between tool-augmented LLMs and Oracle
+on hard subtypes motivates hybrid architectures combining interactive
+tools with learned graph representations.

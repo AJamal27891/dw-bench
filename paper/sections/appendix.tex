@@ -2,46 +2,90 @@
 % APPENDIX
 % ============================================================================
 \appendix
+
+\section{Supplementary Figures}
+\label{app:figures}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figures/triviality_illusion.pdf}
+\caption{The Triviality Illusion: Micro vs.\ Macro EM. Negative deltas
+reveal that easy subtypes inflate aggregate scores for static baselines.}
+\label{fig:triviality}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.pdf}
+\caption{EM by gold path length (Gemini). Static baselines collapse
+beyond 3~hops; Tool-Use degrades more gracefully.}
+\label{fig:hop_decay}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figures/obfuscation_penalty.pdf}
+\caption{Obfuscation penalty by baseline and model.}
+\label{fig:obfuscation}
+\end{figure}
+
+\section{Tier~2 Full Results}
+\label{app:tier2}
+
+% TABLE: Tier 2
+\begin{table}[h]
+\centering
+\caption{Tier~2 value-level results (EM~\%, Gemini, Syn-Logistics).}
+\label{tab:tier2}
+\small
+\begin{tabular}{llccc}
+\toprule
+Subtype & $n$ & FT$_{v2}$ & GA$_{v2}$ & TU$_{v2}$ \\
+\midrule
+cascade\_count          & 58  & 0   & 0   & \textbf{100} \\
+row\_provenance         & 84  & 0   & 8   & \textbf{92} \\
+row\_impact             & 56  & 27  & 27  & \textbf{38} \\
+value\_origin           & 60  & 48  & \textbf{53} & 52 \\
+multi\_hop\_trace       & 60  & \textbf{30} & 30  & 27 \\
+value\_propagation      & 40  & \textbf{85} & 75  & 62 \\
+cross\_silo\_reach.     & 40  & \textbf{58} & 58  & 52 \\
+shared\_source          & 35  & \textbf{37} & 26  & 23 \\
+\midrule
+\textbf{Overall}        & 433 & 30  & 31  & \textbf{59} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
+\caption{Tier~2 EM by subtype (Gemini). \texttt{cascade\_count} and
+\texttt{row\_provenance} require tools (100\%/92\% vs.\ 0\%).}
+\label{fig:tier2}
+\end{figure}
+
 \section{Dataset Details}
 \label{app:datasets}
 
-% FIGURE A1: Full schema graphs for all 4 datasets
-% [FIGURE A1 PLACEHOLDER: 2x2 grid of schema graph visualizations]
-
 \paragraph{Syn-Logistics Design.}
-The Syn-Logistics dataset was constructed to guarantee $n\geq20$ for every
-subtype by building three parallel 4-hop lineage chains across five
-connected components. Table names are drawn from a Domain Dictionary of
-realistic supply-chain terminology to prevent semantic collapse under
-obfuscation. The schema contains 64 tables, 96 FK edges, 35 lineage edges,
-and 372 questions.
+The Syn-Logistics dataset guarantees $n\geq20$ per subtype via three
+parallel 4-hop lineage chains across five components. Table names are drawn
+from realistic supply-chain terminology (64 tables, 96 FK, 35 lineage).
 
 \paragraph{Lineage Edge Curation.}
-Lineage (derived\_from) edges are curated as follows:
-\textbf{AdventureWorks}: Extracted from official Microsoft reference
-documentation mapping OLTP source tables to DW dimension/fact tables (39
-edges).
-\textbf{TPC-DS}: No lineage edges; schema is a pure star/snowflake FK
-graph.
-\textbf{TPC-DI}: Derived from the official TPC-DI specification defining
-staging$\to$dimension$\to$fact transformation flows (21 edges).
-\textbf{OMOP CDM}: Derived from OHDSI ETL convention guides mapping
-source vocabularies and clinical tables to standardized CDM tables (21
-edges).
-\textbf{Syn-Logistics}: Defined by construction---three parallel 4-hop
-chains (raw$\to$staging$\to$dimension$\to$mart) per connected component
-(35 edges). All lineage edges are validated by verifying that the source
-table's schema semantically feeds the target table's schema.
+\textbf{AW}: Microsoft reference docs (39 edges).
+\textbf{TPC-DS}: No lineage (pure FK).
+\textbf{TPC-DI}: Official spec ETL flows (21 edges).
+\textbf{OMOP}: OHDSI ETL conventions (21 edges).
+\textbf{Syn-Log}: By construction (35 edges).
 
 \section{Hop-Distance Analysis}
 \label{app:hop-distance}
 
 \begin{table}[h]
 \centering
-\caption{Minimum evidence hops per subtype on Syn-Logistics, compared to
-Graph-Augmented (Gemini) EM. Subtypes requiring full-graph knowledge
-(silo detection, component enumeration) inherently exceed the 3-hop BFS
-radius. Overall, \textbf{45.4\%} of questions exceed 3 hops.}
+\caption{Evidence hops per subtype (Syn-Logistics). 45.4\% of questions
+exceed the GA 3-hop radius.}
 \label{tab:hop-distance}
 \small
 \begin{tabular}{lrrrc}
@@ -51,100 +95,36 @@ Subtype & $n$ & Exceeds 3h & \% & GA EM \\
 count            & 26 & 26 & 100\% & 100\% \\
 membership       & 20 & 20 & 100\% & 0\% \\
 combined\_impact & 34 & 34 & 100\% & 0\% \\
-full\_enumeration & 25 & 25 & 100\% & 100\% \\
-connected        & 25 & 25 & 100\% & 100\% \\
-isolation        & 25 & 25 & 100\% & 100\% \\
+full\_enum       & 25 & 25 & 100\% & 100\% \\
 transitive       & 29 &  4 &  14\% & 93\% \\
-hop\_count       & 44 &  5 &  11\% & 100\% \\
-direct\_fk       & 36 &  3 &   8\% & 100\% \\
 join\_path       & 26 &  2 &   8\% & 81\% \\
 forward          & 20 &  0 &   0\% & 100\% \\
-reverse          & 20 &  0 &   0\% & 100\% \\
-multi\_source    & 42 &  0 &   0\% & 95\% \\
 \midrule
 \textbf{Total}   & 372 & 169 & \textbf{45.4\%} & 83.1\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{Full Per-Subtype Results}
-\label{app:subtypes}
-
-% TABLE A1: Full Syn-Logistics per-subtype table (CORRECTED)
-\begin{table}[h]
-\centering
-\caption{Per-subtype EM (\%) on Syn-Logistics (corrected). Gemini achieves
-near-perfect scores on \texttt{hop\_count} and \texttt{count}, while
-DeepSeek shows a pronounced model-dependent gap. Both models
-struggle on \texttt{combined\_impact} and \texttt{membership}.}
-\label{tab:syn-subtypes}
-\small
-\begin{tabular}{lrcccccc}
-\toprule
-Subtype & $n$ & \multicolumn{3}{c}{Gemini 2.5 Flash} & \multicolumn{3}{c}{DeepSeek-V3} \\
-\cmidrule(lr){3-5} \cmidrule(lr){6-8}
- & & FT & GA & VR & FT & GA & VR \\
-\midrule
-hop\_count       & 44 & 98 & 100 & 93 & 48 & 100 & 70 \\
-count            & 26 & 100 & 100 & 100 & 69 & 73 & 27 \\
-combined\_impact & 34 & 2.9 & 0 & 0 & 26.5 & 2.9 & 17.6 \\
-membership       & 20 & 25 & 0 & 25 & 40 & 0 & 20 \\
-\midrule
-forward          & 20 & 100 & 100 & 100 & 60 & 35 & 50 \\
-reverse          & 20 & 100 & 100 & 90 & 75 & 55 & 60 \\
-transitive       & 29 & 96.6 & 93.1 & 100 & 72.4 & 69 & 75.9 \\
-multi\_source    & 42 & 100 & 95.2 & 81 & 92.9 & 57.1 & 83.3 \\
-join\_path       & 26 & 100 & 80.8 & 92.3 & 88.5 & 61.5 & 84.6 \\
-full\_enum       & 25 & 100 & 100 & 72 & 88 & 80 & 56 \\
-connected        & 25 & 100 & 100 & 100 & 100 & 100 & 84 \\
-isolation        & 25 & 100 & 100 & 100 & 100 & 100 & 100 \\
-direct\_fk       & 36 & 100 & 100 & 100 & 100 & 100 & 100 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Decoding and Evaluation Details}
+\section{Evaluation Details}
 \label{app:decoding}
 
-All LLM inferences use greedy decoding ($\tau{=}0.0$) with no nucleus
-sampling ($p = 1.0$) and a single deterministic pass. No repeated runs or
-confidence intervals are reported; the deterministic decoding ensures
-reproducibility. For Vector-RAG, we use
-\texttt{all-MiniLM-L6-v2}~\cite{reimers2019sentencebert} with $k{=}15$
-retrieved chunks per question. List answers are compared as unordered sets
-after lowercasing; exact match requires identical sorted sets. F1 is
-computed as token-level overlap between predicted and gold answer sets.
-
-\section{Tool-Use Baseline}
-\label{app:tool-use}
-
-The Tool-Use baseline provides the LLM with 9 graph algorithm tools
-(\texttt{shortest\_path}, \texttt{connected\_components},
-\texttt{check\_fk\_adjacency}, \texttt{get\_lineage\_forward},
-\texttt{get\_lineage\_reverse}, \texttt{transitive\_lineage},
-\texttt{get\_component\_of}, \texttt{get\_fk\_neighbors},
-\texttt{list\_tables}) implemented via NetworkX. The LLM receives a
-schema summary (table list + edge types) and tool definitions, then
-generates up to 3 tool calls per question in a multi-turn conversation.
-Tool results are returned as JSON and the LLM formulates its final answer.
-Gemini Tool-Use achieves 86.8\% Micro-EM on Syn-Logistics, matching Flat
-Text (86.6\%), confirming that the LLM can reason directly from textual
-schema descriptions without needing explicit tool access for small schemas.
+All inferences use greedy decoding ($\tau{=}0$, $p{=}1.0$) in a single
+deterministic pass. Vector-RAG uses \texttt{all-MiniLM-L6-v2} with
+$k{=}15$. List answers are compared as sorted sets after lowercasing.
 
 \section{Example Questions}
 \label{app:examples}
 
-\paragraph{Easy (direct\_fk):}
-\emph{``Is there a direct foreign key relationship between
-\texttt{DW.DimProduct} and \texttt{DW.FactInternetSales}?''}
-\textbf{Gold: yes}
+\paragraph{Easy (\texttt{direct\_fk}):}
+\emph{``Is there a direct FK between \texttt{DW.DimProduct} and
+\texttt{DW.FactInternetSales}?''} \textbf{Gold: yes}
 
-\paragraph{Medium (join\_path):}
-\emph{``What is the shortest FK path from \texttt{DW.DimCustomer} to
-\texttt{DW.DimProduct}?''}
-\textbf{Gold: [DW.DimCustomer, DW.FactInternetSales, DW.DimProduct]}
+\paragraph{Medium (\texttt{join\_path}):}
+\emph{``Shortest FK path from \texttt{DW.DimCustomer} to
+\texttt{DW.DimProduct}?''} \textbf{Gold: [DimCustomer, FactInternetSales,
+DimProduct]}
 
-\paragraph{Hard (combined\_impact):}
-\emph{``Which tables are transitively affected (via lineage and FK
-dependencies) if \texttt{raw\_purchase\_orders} is modified?''}
+\paragraph{Hard (\texttt{combined\_impact}):}
+\emph{``Which tables are transitively affected if
+\texttt{raw\_purchase\_orders} is modified?''}
 \textbf{Gold: [stg\_purchase\_orders, dim\_supplier, ...]} (8 tables)

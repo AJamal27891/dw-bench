@@ -4184,12 +4184,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_F\", \"Table_R\", \"Table_M\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_F has a foreign key to Table_R, and Table_R has a foreign key to Table_M, forming a direct two-step path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -4855,12 +4855,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_G1\", \"Table_A1\", \"Table_Y\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G1 has a foreign key to Table_A1, and Table_Y has a foreign key to Table_A1, making a direct two-step path via Table_A1.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -5029,12 +5029,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_G1\", \"Table_A1\", \"Table_S\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G1 has a foreign key to Table_A1, and Table_S has a foreign key to Table_A1, forming a direct two-step path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -5982,12 +5982,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_F\", \"Table_U\", \"Table_I\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_F has a foreign key to Table_U, and Table_U has a foreign key to Table_I, forming a direct two-step path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -8433,5 +8433,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 158,
+    "exact_match": 37,
+    "exact_match_pct": 23.4,
+    "avg_f1": 23.4
+  }
 }

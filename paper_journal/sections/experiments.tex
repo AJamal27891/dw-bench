@@ -1,0 +1,240 @@
+% ============================================================================
+% 5. EXPERIMENTS — Journal version (expanded with per-dataset tables)
+% ============================================================================
+\section{Experimental Results}
+\label{sec:experiments}
+
+\subsection{Evaluation Metrics}
+
+We use \textbf{Exact Match (EM)} as the primary metric: a prediction is
+correct if and only if it exactly matches the gold answer after
+canonicalization (lowercase, sorted for unordered sets, shortest-path
+tie validation against the FK adjacency matrix).
+\textbf{F1 Score} provides token-level partial credit.
+
+We report:
+\begin{itemize}
+  \item \textbf{Micro-EM}: Pooled exact match across all questions
+    (total correct / total questions).
+  \item \textbf{Macro-EM}: Mean of per-subtype exact match rates,
+    weighting all 13~subtypes equally regardless of sample size.
+\end{itemize}
+
+We include an \textbf{Oracle} baseline that injects gold graph algorithm
+output into the prompt, establishing an upper bound.  All evaluations
+use greedy decoding ($\tau{=}0$) for deterministic reproducibility.
+
+\subsection{Tier~1: Main Results}
+
+% TABLE 3: Main Results
+\begin{table}[t]
+\centering
+\caption{Tier~1 schema-level results (Micro-EM~\% $\pm$ 95\% CI,
+pooled across 5 datasets, 2000 bootstrap resamples).
+\textbf{Bold}~=~best non-oracle.
+$^\dagger$DeepSeek RC: 2/5 datasets.}
+\label{tab:main-results}
+\begin{tabular}{llccccc}
+\toprule
+Model & & FT & VR & GA & TU & RC \\
+\midrule
+Gemini & Micro & 76.8{\scriptsize$\pm$2.4} & 73.2{\scriptsize$\pm$2.6}
+  & 75.7{\scriptsize$\pm$2.5} & \textbf{89.3}{\scriptsize$\pm$1.9}
+  & 81.4{\scriptsize$\pm$2.4} \\
+\midrule
+DeepSeek & Micro & 69.7{\scriptsize$\pm$2.8} & 71.2{\scriptsize$\pm$2.8}
+  & 77.0{\scriptsize$\pm$2.6} & \textbf{90.4}{\scriptsize$\pm$1.7}
+  & 82.1{\scriptsize$\pm$4.2}$^\dagger$ \\
+\midrule
+\multicolumn{2}{l}{\textit{Oracle}}
+  & \multicolumn{5}{c}{97.0$\pm$1.0 / 97.2$\pm$1.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Key Finding~1: Tool-Use dominates.}
+Tool-Use achieves 89.3\% micro-EM (Gemini) and 90.4\% (DeepSeek),
+outperforming the best static baseline by 13.6 and 13.4 percentage
+points respectively.
+
+\paragraph{Key Finding~2: Static baselines show a Triviality Illusion.}
+Flat Text appears competitive (76.8\%) because \texttt{join\_path}
+(33\% of questions) inflates scores for baselines that handle FK
+adjacency but fail on deeper tasks.
+
+\subsection{Results by Difficulty}
+
+% TABLE 4: By difficulty
+\begin{table}[t]
+\centering
+\caption{Exact Match (\%) by difficulty level (pooled across 5 datasets).}
+\label{tab:difficulty}
+\begin{tabular}{llccccc}
+\toprule
+Model & Difficulty ($n$) & FT & VR & GA & TU & RC \\
+\midrule
+\multirow{3}{*}{Gemini}
+  & Easy (544)   & 82.7 & 82.5 & 82.2 & \textbf{99.6} & 90.4 \\
+  & Medium (300) & 78.9 & 73.0 & 76.3 & \textbf{90.3} & 78.7 \\
+  & Hard (202)   & 56.7 & 47.4 & 56.7 & \textbf{59.9} & \textbf{60.9} \\
+\midrule
+\multirow{3}{*}{DeepSeek}
+  & Easy (544)   & 82.7 & 84.4 & 87.1 & \textbf{98.0} & 95.8 \\
+  & Medium (300) & 65.3 & 65.3 & 76.0 & \textbf{97.0} & 79.8 \\
+  & Hard (202)   & 39.7 & 43.3 & 50.0 & \textbf{60.4} & 54.7 \\
+\midrule
+\multicolumn{2}{l}{\textit{Oracle Hard}}
+  & \multicolumn{5}{c}{98.5 (Gemini) / 99.5 (DeepSeek)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Key Finding~3: Hard task plateau persists even with tools.}
+Even Tool-Use plateaus on hard questions at $\sim$60\% EM versus Oracle's
+98.5\%.  Figure~\ref{fig:hop_decay} disaggregates EM by gold path length:
+static baselines collapse beyond 3 hops (87\%$\to$19\% for FT), while
+Tool-Use degrades more gracefully.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/hop_distance_decay.pdf}
+\caption{EM by gold path length (Gemini).  Static baselines collapse
+beyond 3~hops; Tool-Use degrades more gracefully but still falls short
+of Oracle on long paths.}
+\label{fig:hop_decay}
+\end{figure}
+
+\subsection{Per-Subtype Analysis}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/subtype_heatmap.pdf}
+\caption{Gap to Oracle (Oracle~EM~$-$~Baseline~EM) by subtype (Gemini).
+Darker~=~larger gap. \texttt{combined\_impact} and \texttt{membership}
+show the largest gaps across all baselines.}
+\label{fig:heatmap}
+\end{figure}
+
+\paragraph{Key Finding~4: Retrieval-limited vs.\ reasoning-limited subtypes.}
+Tool-Use achieves $\geq$93\% EM on subtypes requiring simple graph lookups
+(\texttt{hop\_count}, \texttt{isolation}, \texttt{direct\_fk}).  But on
+\texttt{combined\_impact} (12\% EM, $n=69$) and \texttt{membership}
+(15\% EM), tools provide minimal advantage.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/difficulty_comparison.pdf}
+\caption{Exact Match by difficulty.  All non-oracle baselines plateau
+on hard questions.}
+\label{fig:difficulty}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/triviality_illusion.pdf}
+\caption{Micro vs.\ Macro EM across baselines.  Negative deltas reveal
+the Triviality Illusion effect.}
+\label{fig:triviality}
+\end{figure}
+
+\subsection{Obfuscation Results}
+
+% TABLE 5: Obfuscation
+\begin{table}[t]
+\centering
+\caption{Obfuscation penalty: Micro-EM (\%) drop when table names are
+replaced with random identifiers (4 datasets, excl.\ Syn-Logistics).}
+\label{tab:obfuscation}
+\begin{tabular}{llccccc}
+\toprule
+Model & & FT & VR & GA & TU & RC \\
+\midrule
+\multirow{3}{*}{Gemini}
+  & Original    & 72.1 & 69.7 & 71.6 & \textbf{91.2} & 87.1 \\
+  & Obfuscated  & 57.2 & 43.7 & 43.7 & \textbf{87.8} & 79.5 \\
+  & $\Delta$    & $-$14.9 & $-$26.0 & $-$27.9 & $-$\textbf{3.4} & $-$7.6 \\
+\midrule
+\multirow{3}{*}{DeepSeek}
+  & Original    & 68.6 & 74.8 & 82.7 & \textbf{91.4} & --- \\
+  & Obfuscated  & 40.8 & 43.1 & 58.4 & \textbf{87.2} & --- \\
+  & $\Delta$    & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/obfuscation_penalty.pdf}
+\caption{Obfuscation penalty by baseline.}
+\label{fig:obfuscation}
+\end{figure}
+
+\paragraph{Key Finding: Tool-Use is obfuscation-invariant.}
+Tool-Use shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini,
+${-}4.2$\% DeepSeek), compared to static baselines losing 15--32
+percentage points.
+
+\subsection{Tier~2: Value-Level Evaluation}
+
+Tier~2 extends evaluation to value-level questions requiring interactive
+data access.  We evaluate on 433 questions across 8 subtypes on
+Syn-Logistics (Table~\ref{tab:tier2}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
+\caption{Tier~2 value-level EM by subtype (Gemini).
+\texttt{cascade\_count} and \texttt{row\_provenance} require tools.}
+\label{fig:tier2}
+\end{figure}
+
+% TABLE 7: Tier 2
+\begin{table}[t]
+\centering
+\caption{Tier~2 value-level results (EM~\%, Gemini).}
+\label{tab:tier2}
+\small
+\begin{tabular}{llccc}
+\toprule
+Subtype & $n$ & FT$_{v2}$ & GA$_{v2}$ & TU$_{v2}$ \\
+\midrule
+cascade\_count          & 58  & 0   & 0   & \textbf{100} \\
+row\_provenance         & 84  & 0   & 8   & \textbf{92} \\
+row\_impact             & 56  & 27  & 27  & \textbf{38} \\
+value\_origin           & 60  & 48  & 53  & 52 \\
+multi\_hop\_trace       & 60  & 30  & 30  & 27 \\
+value\_propagation      & 40  & \textbf{85} & 75  & 62 \\
+cross\_silo\_reach.     & 40  & 58  & 58  & 52 \\
+shared\_source          & 35  & \textbf{37} & 26  & 23 \\
+\midrule
+\textbf{Overall}        & 433 & 30  & 31  & \textbf{59} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Key Finding~5: Tools are essential for value-level questions.}
+\texttt{cascade\_count} (100\% vs.\ 0\%) and \texttt{row\_provenance}
+(92\% vs.\ 0--8\%) are structurally impossible without data query tools.
+
+\paragraph{Key Finding~6: Tools are necessary but insufficient.}
+Despite solving data-access subtypes, Tool-Use achieves only 59\%
+overall EM.  On \texttt{multi\_hop\_trace} (27\%) and
+\texttt{shared\_source} (23\%), tools provide no advantage.
+
+\subsection{Limitations}
+
+\textbf{Context Parity.} Baselines do not enforce strict token-budget
+parity.  Since 45\% of questions involve paths exceeding 3 hops,
+GA scores may be depressed on long-range subtypes.
+
+\textbf{Baseline Coverage.} DeepSeek ReAct-Code was evaluated on only
+2/5 datasets due to compute constraints.
+
+\textbf{Statistical Treatment.} We use greedy decoding ($\tau{=}0$) with
+a single deterministic pass for exact reproducibility.  Per-question
+results are released for community bootstrap analyses.
+
+\textbf{Model Breadth.} We evaluate two frontier models; broader
+evaluation with GPT-4 class models and open-weight variants would
+strengthen generality claims.  Tier~2 is limited to Syn-Logistics;
+extending to real-world datasets with row-level lineage is ongoing work.

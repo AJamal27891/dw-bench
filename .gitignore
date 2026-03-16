@@ -1,17 +1,26 @@
-# Python
+# ═══════════════════════════════════════════════════
+# DW-Bench — .gitignore
+# ═══════════════════════════════════════════════════
+
+# --- Python ---
 __pycache__/
 *.pyc
+*.pyo
 
-# API keys / secrets
+# --- API keys / secrets ---
 .env
 .env.*
 
-# Internal session docs (not for public repo)
+# --- Internal session docs ---
 docs/session_handover.md
 
-*.pyo
+# --- Large data files (→ HuggingFace) ---
+# Value-level data is too large for GitHub; will be pushed to HuggingFace
+datasets/*/value_schema_graph.pt
+datasets/*/value_data/
+datasets/*/lineage_map.json
 
-# LaTeX build artifacts
+# --- LaTeX build artifacts ---
 paper/*.aux
 paper/*.log
 paper/*.out
@@ -21,17 +30,30 @@ paper/*.pdf
 paper/*.fdb_latexmk
 paper/*.fls
 paper/*.synctex.gz
+paper_journal/*.aux
+paper_journal/*.log
+paper_journal/*.out
+paper_journal/*.bbl
+paper_journal/*.blg
+paper_journal/*.pdf
+paper_journal/*.fdb_latexmk
+paper_journal/*.fls
+paper_journal/*.synctex.gz
 
-# IDE
+# --- IDE ---
 .vscode/
 .idea/
 *.swp
 *~
 
-# OS
+# --- OS ---
 .DS_Store
 Thumbs.db
 
-# Temp
+# --- Temp ---
 *.tmp
 tmp_*.py
+
+# --- FAISS caches ---
+*.faiss
+*.index

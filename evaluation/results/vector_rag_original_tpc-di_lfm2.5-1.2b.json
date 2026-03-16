@@ -2440,7 +2440,8 @@
         "DimTrade",
         "FactHoldings",
         "FactMarketHistory",
-        "FactWatches"
+        "FactWatches",
+        "Financial"
       ],
       "predicted_answer": [
         "DimCompany",
@@ -2481,9 +2482,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.2857,
+        "f1": 0.25,
         "precision": 0.5,
-        "recall": 0.2
+        "recall": 0.1667
       }
     },
     {
@@ -2595,7 +2596,6 @@
         "FactMarketHistory",
         "FactWatches",
         "Financial",
-        "SRC.CashTransaction",
         "SRC.CustomerMgmt",
         "SRC.DailyMarket",
         "SRC.Date",
@@ -2656,9 +2656,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.303,
+        "f1": 0.3125,
         "precision": 1.0,
-        "recall": 0.1786
+        "recall": 0.1852
       }
     },
     {
@@ -2676,7 +2676,6 @@
         "FactCashBalances",
         "FactHoldings",
         "FactMarketHistory",
-        "FactWatches",
         "Financial",
         "SRC.CashTransaction",
         "SRC.CustomerMgmt",
@@ -2739,9 +2738,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.303,
-        "precision": 1.0,
-        "recall": 0.1786
+        "f1": 0.25,
+        "precision": 0.8,
+        "recall": 0.1481
       }
     },
     {
@@ -2768,7 +2767,6 @@
         "SRC.FINWIRE_CMP",
         "SRC.FINWIRE_FIN",
         "SRC.FINWIRE_SEC",
-        "SRC.HR",
         "SRC.HoldingHistory",
         "SRC.TaxRate",
         "SRC.Time",
@@ -2818,17 +2816,16 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.129,
+        "f1": 0.1333,
         "precision": 0.6667,
-        "recall": 0.0714
+        "recall": 0.0741
       }
     },
     {
       "id": "tpc-di_silo_member_004",
       "question": "Which tables are in the same connected component (data silo) as SRC.Industry?",
       "gold_answer": [
-        "Industry",
-        "SRC.Industry"
+        "Industry"
       ],
       "predicted_answer": [
         "Financial",
@@ -2869,16 +2866,15 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5,
+        "f1": 0.6667,
         "precision": 0.5,
-        "recall": 0.5
+        "recall": 1.0
       }
     },
     {
       "id": "tpc-di_silo_member_005",
       "question": "Which tables are in the same connected component (data silo) as Industry?",
       "gold_answer": [
-        "Industry",
         "SRC.Industry"
       ],
       "predicted_answer": [
@@ -2922,16 +2918,15 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
-        "precision": 0.3333,
-        "recall": 0.5
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "tpc-di_silo_member_006",
       "question": "Which tables are in the same connected component (data silo) as SRC.StatusType?",
       "gold_answer": [
-        "SRC.StatusType",
         "StatusType"
       ],
       "predicted_answer": [
@@ -2973,17 +2968,16 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5,
+        "f1": 0.6667,
         "precision": 0.5,
-        "recall": 0.5
+        "recall": 1.0
       }
     },
     {
       "id": "tpc-di_silo_member_007",
       "question": "Which tables are in the same connected component (data silo) as StatusType?",
       "gold_answer": [
-        "SRC.StatusType",
-        "StatusType"
+        "SRC.StatusType"
       ],
       "predicted_answer": [
         "DimSecurity",
@@ -3028,17 +3022,16 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.3333,
-        "precision": 0.25,
-        "recall": 0.5
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "tpc-di_silo_member_008",
       "question": "Which tables are in the same connected component (data silo) as TradeType?",
       "gold_answer": [
-        "SRC.TradeType",
-        "TradeType"
+        "SRC.TradeType"
       ],
       "predicted_answer": [
         "Trade",
@@ -3079,16 +3072,15 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5,
-        "precision": 0.5,
-        "recall": 0.5
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "tpc-di_silo_member_009",
       "question": "Which tables are in the same connected component (data silo) as SRC.TradeType?",
       "gold_answer": [
-        "SRC.TradeType",
         "TradeType"
       ],
       "predicted_answer": [
@@ -3136,9 +3128,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.2857,
+        "f1": 0.3333,
         "precision": 0.2,
-        "recall": 0.5
+        "recall": 1.0
       }
     },
     {
@@ -3739,7 +3731,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3791,7 +3784,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3834,7 +3828,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3877,7 +3872,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3929,7 +3925,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3972,7 +3969,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4024,7 +4022,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4067,7 +4066,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4119,7 +4119,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4169,7 +4170,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4221,7 +4223,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4273,7 +4276,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4325,7 +4329,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4377,7 +4382,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4420,7 +4426,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4472,7 +4479,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4515,7 +4523,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4567,7 +4576,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4619,7 +4629,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4671,7 +4682,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4714,7 +4726,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4766,7 +4779,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4818,7 +4832,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4870,7 +4885,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4922,7 +4938,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4974,7 +4991,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5027,7 +5045,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5080,7 +5099,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5133,7 +5153,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5178,7 +5199,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5232,7 +5254,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5286,7 +5309,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5339,7 +5363,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5392,7 +5417,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5443,7 +5469,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5497,7 +5524,8 @@
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5543,15 +5571,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The connection involves two levels: Account \u2192 Company via DimCompany, and Company \u2192 MarketHistory via FactMarketHistory.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves two levels: Account \u2192 Company via DimCompany, and Company \u2192 MarketHistory via FactMarketHistory.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest path connecting DimAccount to FactMarketHistory through foreign keys. Analyzing the schema reveals two indirect routes, but the most direct is through DimCompany.\"\n}\n"
+        "answer_str": "The connection involves two levels: Account → Company via DimCompany, and Company → MarketHistory via FactMarketHistory.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The connection involves two levels: Account → Company via DimCompany, and Company → MarketHistory via FactMarketHistory.\"\n}\n{\n  \"reasoning\": \"The query asks for the shortest path connecting DimAccount to FactMarketHistory through foreign keys. Analyzing the schema reveals two indirect routes, but the most direct is through DimCompany.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5602,7 +5631,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5646,7 +5676,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5700,7 +5731,8 @@
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5753,7 +5785,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5808,7 +5841,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5852,7 +5886,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5906,7 +5941,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5959,7 +5995,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6012,7 +6049,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6056,7 +6094,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6101,7 +6140,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6154,7 +6194,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6208,7 +6249,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6261,7 +6303,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6314,7 +6357,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6367,7 +6411,8 @@
         "f1": 0.3333,
         "precision": 1.0,
         "recall": 0.2,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6411,7 +6456,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6464,7 +6510,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6517,7 +6564,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6570,7 +6618,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6621,7 +6670,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6666,7 +6716,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6719,7 +6770,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6770,7 +6822,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6823,7 +6876,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6867,7 +6921,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6911,7 +6966,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6964,7 +7020,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7018,7 +7075,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7070,7 +7128,8 @@
         "f1": 0.4,
         "precision": 1.0,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7114,7 +7173,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7159,7 +7219,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7212,7 +7273,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7265,7 +7327,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7309,7 +7372,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7363,7 +7427,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7416,7 +7481,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7467,7 +7533,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7520,7 +7587,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -9010,5 +9078,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 181,
+    "exact_match": 35,
+    "exact_match_pct": 19.3,
+    "avg_f1": 44.3
+  }
 }

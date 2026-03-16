@@ -110,7 +110,7 @@
       "id": "omop_cdm_lineage_fwd_000",
       "question": "Which tables in the data warehouse are directly derived from Table_H?",
       "gold_answer": [
-        "Table_I"
+        "Table_W"
       ],
       "predicted_answer": [
         "Table_K",
@@ -145,7 +145,7 @@
       "question": "Which tables in the data warehouse are directly derived from Table_A?",
       "gold_answer": [
         "Table_E",
-        "Table_E1"
+        "Table_N"
       ],
       "predicted_answer": [
         "Table_K",
@@ -179,7 +179,7 @@
       "id": "omop_cdm_lineage_fwd_002",
       "question": "Which tables in the data warehouse are directly derived from Table_O?",
       "gold_answer": [
-        "Table_C"
+        "Table_J"
       ],
       "predicted_answer": [
         "Table_C"
@@ -201,17 +201,17 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\"Table_C\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_O is directly derived from Table_C, as indicated by the 'Table_O --DERIVED_FROM--> Table_C' relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "omop_cdm_lineage_fwd_003",
       "question": "Which tables in the data warehouse are directly derived from Table_H1?",
       "gold_answer": [
-        "Table_R"
+        "Table_P"
       ],
       "predicted_answer": [
         "Table_U"
@@ -243,15 +243,15 @@
       "id": "omop_cdm_lineage_fwd_004",
       "question": "Which tables in the data warehouse are directly derived from Table_U?",
       "gold_answer": [
-        "Table_A",
-        "Table_D",
-        "Table_F1",
-        "Table_H",
-        "Table_H1",
+        "Table_B",
+        "Table_F",
+        "Table_I",
         "Table_K1",
-        "Table_N",
-        "Table_T",
-        "Table_X",
+        "Table_M",
+        "Table_Q",
+        "Table_S",
+        "Table_U",
+        "Table_Y",
         "Table_Z"
       ],
       "predicted_answer": [
@@ -292,22 +292,22 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_F1\",\n    \"Table_D\",\n    \"Table_K1\",\n    \"Table_Z\",\n    \"Table_N\",\n    \"Table_X\",\n    \"Table_H1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"I identified all 'DERIVED_FROM' relationships where 'Table_U' is the source table (right side of the arrow).\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0.2,
+        "precision": 0.2,
+        "recall": 0.2
       }
     },
     {
       "id": "omop_cdm_lineage_fwd_005",
       "question": "Which tables in the data warehouse are directly derived from Table_K?",
       "gold_answer": [
-        "Table_A",
-        "Table_D",
-        "Table_F1",
-        "Table_H",
-        "Table_T",
-        "Table_V"
+        "Table_F",
+        "Table_H1",
+        "Table_I",
+        "Table_M",
+        "Table_Q",
+        "Table_Z"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -335,7 +335,7 @@
       "id": "omop_cdm_lineage_rev_006",
       "question": "What are all the source tables that Table_V is derived from?",
       "gold_answer": [
-        "Table_K"
+        "Table_I1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -363,7 +363,7 @@
       "id": "omop_cdm_lineage_rev_007",
       "question": "What are all the source tables that Table_Z is derived from?",
       "gold_answer": [
-        "Table_U"
+        "Table_A1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -391,8 +391,8 @@
       "id": "omop_cdm_lineage_rev_008",
       "question": "What are all the source tables that Table_H is derived from?",
       "gold_answer": [
-        "Table_K",
-        "Table_U"
+        "Table_A1",
+        "Table_I1"
       ],
       "predicted_answer": [
         "Table_I"
@@ -424,8 +424,8 @@
       "id": "omop_cdm_lineage_rev_009",
       "question": "What are all the source tables that Table_A is derived from?",
       "gold_answer": [
-        "Table_K",
-        "Table_U"
+        "Table_A1",
+        "Table_I1"
       ],
       "predicted_answer": [
         "Table_E",
@@ -459,8 +459,8 @@
       "id": "omop_cdm_lineage_rev_010",
       "question": "What are all the source tables that Table_T is derived from?",
       "gold_answer": [
-        "Table_K",
-        "Table_U"
+        "Table_A1",
+        "Table_I1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -488,7 +488,7 @@
       "id": "omop_cdm_lineage_rev_011",
       "question": "What are all the source tables that Table_K1 is derived from?",
       "gold_answer": [
-        "Table_U"
+        "Table_A1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -516,8 +516,8 @@
       "id": "omop_cdm_lineage_rev_012",
       "question": "What are all the source tables that Table_F1 is derived from?",
       "gold_answer": [
-        "Table_K",
-        "Table_U"
+        "Table_A1",
+        "Table_I1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -545,8 +545,8 @@
       "id": "omop_cdm_lineage_rev_013",
       "question": "What are all the source tables that Table_D is derived from?",
       "gold_answer": [
-        "Table_K",
-        "Table_U"
+        "Table_A1",
+        "Table_I1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -574,7 +574,7 @@
       "id": "omop_cdm_lineage_rev_014",
       "question": "What are all the source tables that Table_N is derived from?",
       "gold_answer": [
-        "Table_U"
+        "Table_A1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -602,7 +602,7 @@
       "id": "omop_cdm_lineage_rev_015",
       "question": "What are all the source tables that Table_C is derived from?",
       "gold_answer": [
-        "Table_O"
+        "Table_C1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -630,7 +630,7 @@
       "id": "omop_cdm_lineage_rev_016",
       "question": "What are all the source tables that Table_X is derived from?",
       "gold_answer": [
-        "Table_U"
+        "Table_A1"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -658,7 +658,7 @@
       "id": "omop_cdm_lineage_rev_017",
       "question": "What are all the source tables that Table_H1 is derived from?",
       "gold_answer": [
-        "Table_U"
+        "Table_A1"
       ],
       "predicted_answer": [
         "Table_R"
@@ -690,7 +690,7 @@
       "id": "omop_cdm_lineage_rev_018",
       "question": "What are all the source tables that Table_R is derived from?",
       "gold_answer": [
-        "Table_H1"
+        "Table_S"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -718,7 +718,7 @@
       "id": "omop_cdm_lineage_rev_019",
       "question": "What are all the source tables that Table_E is derived from?",
       "gold_answer": [
-        "Table_A"
+        "Table_F"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -746,7 +746,7 @@
       "id": "omop_cdm_lineage_rev_020",
       "question": "What are all the source tables that Table_E1 is derived from?",
       "gold_answer": [
-        "Table_A"
+        "Table_F"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -774,7 +774,7 @@
       "id": "omop_cdm_lineage_rev_021",
       "question": "What are all the source tables that Table_I is derived from?",
       "gold_answer": [
-        "Table_H"
+        "Table_Q"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -802,19 +802,19 @@
       "id": "omop_cdm_lineage_trans_022",
       "question": "If the schema of Table_U changes, which tables are directly or indirectly affected through data lineage?",
       "gold_answer": [
-        "Table_A",
-        "Table_D",
+        "Table_B",
         "Table_E",
-        "Table_E1",
-        "Table_F1",
-        "Table_H",
-        "Table_H1",
+        "Table_F",
         "Table_I",
         "Table_K1",
+        "Table_M",
         "Table_N",
-        "Table_R",
-        "Table_T",
-        "Table_X",
+        "Table_P",
+        "Table_Q",
+        "Table_S",
+        "Table_U",
+        "Table_W",
+        "Table_Y",
         "Table_Z"
       ],
       "predicted_answer": [
@@ -894,24 +894,24 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.6512,
-        "precision": 0.4828,
-        "recall": 1.0
+        "f1": 0.4186,
+        "precision": 0.3103,
+        "recall": 0.6429
       }
     },
     {
       "id": "omop_cdm_lineage_trans_023",
       "question": "If the schema of Table_K changes, which tables are directly or indirectly affected through data lineage?",
       "gold_answer": [
-        "Table_A",
-        "Table_D",
         "Table_E",
-        "Table_E1",
-        "Table_F1",
-        "Table_H",
+        "Table_F",
+        "Table_H1",
         "Table_I",
-        "Table_T",
-        "Table_V"
+        "Table_M",
+        "Table_N",
+        "Table_Q",
+        "Table_W",
+        "Table_Z"
       ],
       "predicted_answer": [],
       "answer_type": "list",
@@ -939,32 +939,32 @@
       "id": "omop_cdm_lineage_combined_024",
       "question": "If Table_U changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "Table_A",
-        "Table_A1",
         "Table_B",
-        "Table_C",
         "Table_C1",
-        "Table_D",
         "Table_D1",
         "Table_E",
-        "Table_E1",
+        "Table_F",
         "Table_F1",
+        "Table_G",
         "Table_G1",
         "Table_H",
         "Table_H1",
         "Table_I",
+        "Table_I1",
         "Table_J",
+        "Table_J1",
         "Table_K",
         "Table_K1",
-        "Table_L",
         "Table_M",
         "Table_N",
-        "Table_O",
         "Table_P",
+        "Table_Q",
         "Table_R",
+        "Table_S",
         "Table_T",
+        "Table_U",
         "Table_V",
-        "Table_X",
+        "Table_W",
         "Table_Y",
         "Table_Z"
       ],
@@ -1047,32 +1047,32 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.9655,
-        "precision": 0.9333,
-        "recall": 1.0
+        "f1": 0.7586,
+        "precision": 0.7333,
+        "recall": 0.7857
       }
     },
     {
       "id": "omop_cdm_lineage_combined_025",
       "question": "If Table_K changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "Table_A",
         "Table_B",
-        "Table_D",
+        "Table_C1",
         "Table_D1",
         "Table_E",
-        "Table_E1",
-        "Table_F1",
-        "Table_H",
+        "Table_F",
+        "Table_G1",
         "Table_H1",
         "Table_I",
-        "Table_J1",
         "Table_K1",
+        "Table_M",
         "Table_N",
-        "Table_O",
-        "Table_T",
-        "Table_V",
+        "Table_Q",
+        "Table_S",
+        "Table_U",
+        "Table_W",
         "Table_X",
+        "Table_Y",
         "Table_Z"
       ],
       "predicted_answer": [],
@@ -1134,9 +1134,7 @@
         "Table_D",
         "Table_D1",
         "Table_E",
-        "Table_E1",
         "Table_F",
-        "Table_F1",
         "Table_G",
         "Table_G1",
         "Table_H",
@@ -1150,13 +1148,14 @@
         "Table_L",
         "Table_M",
         "Table_N",
-        "Table_O",
         "Table_P",
         "Table_Q",
         "Table_R",
+        "Table_S",
         "Table_T",
         "Table_U",
         "Table_V",
+        "Table_W",
         "Table_X",
         "Table_Y",
         "Table_Z"
@@ -1249,10 +1248,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_K1\",\n    \"Table_V\",\n    \"Table_Z\",\n    \"Table_P\",\n    \"Table_U\",\n    \"Table_K\",\n    \"Table_I1\",\n    \"Table_Y\",\n    \"Table_D1\",\n    \"Table_H\",\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_F1\",\n    \"Table_D\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_X\",\n    \"Table_H1\",\n    \"Table_J1\",\n    \"Table_B\",\n    \"Table_E\",\n    \"Table_E1\",\n    \"Table_I\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_Q\",\n    \"Table_C\",\n    \"Table_C1\",\n    \"Table_J\",\n    \"Table_M\",\n    \"Table_L\",\n    \"Table_A1\",\n    \"Table_G1\",\n    \"Table_B1\",\n    \"Table_R\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Performed a graph traversal (BFS/DFS) starting from Table_K1, considering all FK and DERIVED_FROM relationships in both directions to find all reachable tables. Tables W and S are isolated.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0.9275,
+        "precision": 0.9143,
+        "recall": 0.9412
       }
     },
     {
@@ -1268,7 +1267,6 @@
         "Table_D",
         "Table_D1",
         "Table_E",
-        "Table_E1",
         "Table_F",
         "Table_F1",
         "Table_G",
@@ -1284,14 +1282,14 @@
         "Table_L",
         "Table_M",
         "Table_N",
-        "Table_O",
         "Table_P",
         "Table_Q",
         "Table_R",
+        "Table_S",
         "Table_T",
         "Table_U",
         "Table_V",
-        "Table_X",
+        "Table_W",
         "Table_Y",
         "Table_Z"
       ],
@@ -1383,10 +1381,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J1\",\n    \"Table_V\",\n    \"Table_I1\",\n    \"Table_P\",\n    \"Table_Y\",\n    \"Table_U\",\n    \"Table_Z\",\n    \"Table_D1\",\n    \"Table_H\",\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_K1\",\n    \"Table_F1\",\n    \"Table_D\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_X\",\n    \"Table_H1\",\n    \"Table_B\",\n    \"Table_E\",\n    \"Table_E1\",\n    \"Table_I\",\n    \"Table_K\",\n    \"Table_C\",\n    \"Table_C1\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_Q\",\n    \"Table_J\",\n    \"Table_M\",\n    \"Table_L\",\n    \"Table_A1\",\n    \"Table_G1\",\n    \"Table_R\",\n    \"Table_B1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Performed a graph traversal (BFS) starting from Table_J1, considering all FK and DERIVED_FROM relationships as bidirectional edges, to find all reachable tables. Tables Table_W and Table_S are not connected to any other tables.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0.9275,
+        "precision": 0.9143,
+        "recall": 0.9412
       }
     },
     {
@@ -1402,13 +1400,11 @@
         "Table_D",
         "Table_D1",
         "Table_E",
-        "Table_E1",
         "Table_F",
         "Table_F1",
         "Table_G",
         "Table_G1",
         "Table_H",
-        "Table_H1",
         "Table_I",
         "Table_I1",
         "Table_J",
@@ -1418,13 +1414,14 @@
         "Table_L",
         "Table_M",
         "Table_N",
-        "Table_O",
         "Table_P",
         "Table_Q",
         "Table_R",
+        "Table_S",
         "Table_T",
         "Table_U",
         "Table_V",
+        "Table_W",
         "Table_X",
         "Table_Y",
         "Table_Z"
@@ -1515,16 +1512,16 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_I1\",\n    \"Table_V\",\n    \"Table_Y\",\n    \"Table_P\",\n    \"Table_U\",\n    \"Table_Z\",\n    \"Table_D1\",\n    \"Table_H\",\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_K1\",\n    \"Table_F1\",\n    \"Table_D\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_X\",\n    \"Table_H1\",\n    \"Table_J1\",\n    \"Table_B\",\n    \"Table_E\",\n    \"Table_E1\",\n    \"Table_I\",\n    \"Table_K\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_Q\",\n    \"Table_C\",\n    \"Table_C1\",\n    \"Table_J\",\n    \"Table_M\",\n    \"Table_L\",\n    \"Table_A1\",\n    \"Table_G1\",\n    \"Table_R\",\n    \"Table_B1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Performed a graph traversal (BFS) starting from Table_I1, considering all FK and DERIVED"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0.9275,
+        "precision": 0.9143,
+        "recall": 0.9412
       }
     },
     {
       "id": "omop_cdm_silo_isolated_012",
       "question": "Are Table_R and Table_E connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1541,14 +1538,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_R is connected to Table_H1 via FK, and Table_H1 is connected to Table_V via FK. Table_E is also connected to Table_V via FK, forming a chain: Table_R -> Table_H1 -> Table_V <- Table_E.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_013",
       "question": "Are Table_K1 and Table_R connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1565,14 +1562,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_K1 is connected to Table_V, and Table_R is connected to Table_H1, which in turn is connected to Table_V. Thus, a chain exists: Table_K1 -- Table_V -- Table_H1 -- Table_R.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_009",
       "question": "Are Table_Q and Table_J connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1589,14 +1586,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_J is connected to Table_U via FK, and Table_U is connected to Table_Q via FK, forming a path: Table_J -> Table_U -> Table_Q.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_006",
       "question": "Are Table_A1 and Table_S connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1613,14 +1610,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_S is not involved in any foreign key relationships, meaning it has no incoming or outgoing FK connections to any other table in the schema.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_007",
       "question": "Are Table_T and Table_S connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1637,14 +1634,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_S is not involved in any foreign key relationships, either as a source or a target. Therefore, it cannot be connected to Table_T through such a chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_005",
       "question": "Are Table_W and Table_S connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1661,14 +1658,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Neither Table_W nor Table_S are involved in any foreign key relationships listed in the schema, thus they cannot be connected.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_010",
       "question": "Are Table_T and Table_C1 connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1685,14 +1682,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Both Table_T and Table_C1 have a foreign key relationship with Table_U, establishing a connection between them.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_004",
       "question": "Are Table_H1 and Table_W connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1709,14 +1706,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_W is not involved in any foreign key relationships, either as a source or a target, preventing any connection to Table_H1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_008",
       "question": "Are Table_G1 and Table_W connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1733,14 +1730,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_W is not involved in any foreign key relationships, making it impossible to connect to any other table via FKs.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_isolated_011",
       "question": "Are Table_U and Table_A1 connected through any chain of foreign key relationships?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1757,14 +1754,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A1 has a direct foreign key relationship to Table_U (Table_A1 --FK--> Table_U).\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_silo_connected_014",
       "question": "Are Table_X and Table_C1 connected through any chain of foreign key relationships?",
-      "gold_answer": "Yes",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
@@ -1781,8 +1778,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_X is connected to Table_U via an FK relationship, and Table_C1 is also connected to Table_U via an FK relationship, establishing a connection.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -1798,7 +1795,6 @@
         "Table_D",
         "Table_D1",
         "Table_E",
-        "Table_E1",
         "Table_F",
         "Table_F1",
         "Table_G",
@@ -1814,13 +1810,14 @@
         "Table_L",
         "Table_M",
         "Table_N",
-        "Table_O",
         "Table_P",
         "Table_Q",
         "Table_R",
+        "Table_S",
         "Table_T",
         "Table_U",
         "Table_V",
+        "Table_W",
         "Table_X",
         "Table_Y",
         "Table_Z"
@@ -1913,17 +1910,17 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_J1\",\n    \"Table_Z\",\n    \"Table_D1\",\n    \"Table_H\",\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_K1\",\n    \"Table_F1\",\n    \"Table_D\",\n    \"Table_N\",\n    \"Table_O\",\n    \"Table_C\",\n    \"Table_X\",\n    \"Table_G1\",\n    \"Table_H1\",\n    \"Table_R\",\n    \"Table_I1\",\n    \"Table_Y\",\n    \"Table_P\",\n    \"Table_B\",\n    \"Table_C1\",\n    \"Table_E\",\n    \"Table_E1\",\n    \"Table_I\",\n    \"Table_U\",\n    \"Table_F\",\n    \"Table_G\",\n    \"Table_Q\",\n    \"Table_J\",\n    \"Table_B1\",\n    \"Table_L\",\n    \"Table_M\",\n    \"Table_K\",\n    \"Table_A1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"All tables except Table_W and Table_S are interconnected through FK or DERIVED_FROM relationships, forming a single large component of 35 tables. Table_W and Table_S have no relationships, forming isolated components of size 1 each.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0.9429,
+        "precision": 0.9429,
+        "recall": 0.9429
       }
     },
     {
       "id": "omop_cdm_route_path_000",
       "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_I?",
       "gold_answer": [
-        "Table_I",
+        "Table_L",
         "Table_V"
       ],
       "predicted_answer": [
@@ -1948,10 +1945,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_I\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_I has a foreign key referencing Table_V (Table_I --FK--> Table_V), establishing a direct connection between the two tables.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -1960,8 +1957,8 @@
       "id": "omop_cdm_route_path_001",
       "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_J?",
       "gold_answer": [
-        "Table_B1",
-        "Table_J"
+        "Table_Q",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_U",
@@ -1986,9 +1983,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5,
-        "precision": 0.5,
-        "recall": 0.5,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -1997,8 +1994,8 @@
       "id": "omop_cdm_route_path_002",
       "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_A1?",
       "gold_answer": [
-        "Table_A1",
-        "Table_U"
+        "Table_M",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_U",
@@ -2022,10 +2019,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_A1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A1 has a foreign key referencing Table_U (Table_A1 --FK--> Table_U), establishing a direct connection between them. This is the shortest possible chain of foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2034,8 +2031,8 @@
       "id": "omop_cdm_route_path_003",
       "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_V?",
       "gold_answer": [
-        "Table_H",
-        "Table_V"
+        "Table_F",
+        "Table_U"
       ],
       "predicted_answer": [
         "Table_H",
@@ -2059,11 +2056,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_V\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H has a direct foreign key relationship to Table_V, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2071,8 +2068,8 @@
       "id": "omop_cdm_route_path_004",
       "question": "What is the shortest chain of foreign key joins that connects Table_O to Table_P?",
       "gold_answer": [
-        "Table_O",
-        "Table_P"
+        "Table_A1",
+        "Table_Y"
       ],
       "predicted_answer": [
         "Table_O",
@@ -2096,11 +2093,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_O has a direct foreign key relationship to Table_P, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2108,8 +2105,8 @@
       "id": "omop_cdm_route_path_005",
       "question": "What is the shortest chain of foreign key joins that connects Table_B to Table_U?",
       "gold_answer": [
-        "Table_B",
-        "Table_U"
+        "Table_A1",
+        "Table_G1"
       ],
       "predicted_answer": [
         "Table_B",
@@ -2133,11 +2130,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_B to Table_U, making it the shortest possible path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2145,7 +2142,7 @@
       "id": "omop_cdm_route_path_006",
       "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_N?",
       "gold_answer": [
-        "Table_N",
+        "Table_A1",
         "Table_U"
       ],
       "predicted_answer": [
@@ -2170,11 +2167,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_N to Table_U, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2182,8 +2179,8 @@
       "id": "omop_cdm_route_path_007",
       "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_E1?",
       "gold_answer": [
-        "Table_E1",
-        "Table_U"
+        "Table_H1",
+        "Table_Y"
       ],
       "predicted_answer": [
         "Table_U",
@@ -2207,10 +2204,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_E1 has a foreign key referencing Table_U (Table_E1 --FK--> Table_U), establishing a direct connection between the two tables.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2219,8 +2216,8 @@
       "id": "omop_cdm_route_path_008",
       "question": "What is the shortest chain of foreign key joins that connects Table_C to Table_U?",
       "gold_answer": [
-        "Table_C",
-        "Table_U"
+        "Table_A1",
+        "Table_F1"
       ],
       "predicted_answer": [
         "Table_C",
@@ -2244,11 +2241,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_C\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_C to Table_U, making it the shortest possible path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2257,7 +2254,7 @@
       "question": "What is the shortest chain of foreign key joins that connects Table_Z to Table_D1?",
       "gold_answer": [
         "Table_D1",
-        "Table_Z"
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_D1",
@@ -2281,11 +2278,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_D1\",\n    \"Table_Z\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_D1 has a direct foreign key relationship to Table_Z, forming the shortest possible chain of one join.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2293,8 +2290,8 @@
       "id": "omop_cdm_route_path_010",
       "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_U?",
       "gold_answer": [
-        "Table_I",
-        "Table_U"
+        "Table_A1",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_I",
@@ -2318,11 +2315,11 @@
         "_raw_text": "{\n  \"answer_list\": [\n    \"Table_I\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_I to Table_U, making it the shortest possible chain.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2330,7 +2327,7 @@
       "id": "omop_cdm_route_path_011",
       "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_K1?",
       "gold_answer": [
-        "Table_K1",
+        "Table_D1",
         "Table_V"
       ],
       "predicted_answer": [
@@ -2355,11 +2352,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\"Table_K1\", \"Table_V\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_K1 to Table_V, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2368,7 +2365,7 @@
       "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_H1?",
       "gold_answer": [
         "Table_H1",
-        "Table_U"
+        "Table_N"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -2398,8 +2395,8 @@
       "id": "omop_cdm_route_path_013",
       "question": "What is the shortest chain of foreign key joins that connects Table_P to Table_T?",
       "gold_answer": [
-        "Table_P",
-        "Table_T"
+        "Table_H1",
+        "Table_U"
       ],
       "predicted_answer": [
         "Table_T",
@@ -2423,10 +2420,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_T has a direct foreign key relationship to Table_P, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2435,8 +2432,8 @@
       "id": "omop_cdm_route_path_014",
       "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_V?",
       "gold_answer": [
-        "Table_U",
-        "Table_V"
+        "Table_P",
+        "Table_S"
       ],
       "predicted_answer": [
         "Table_U",
@@ -2460,11 +2457,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_V\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A direct foreign key relationship exists where Table_V references Table_U (Table_V --FK--> Table_U), establishing a direct connection between them.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2472,8 +2469,8 @@
       "id": "omop_cdm_route_path_015",
       "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_B?",
       "gold_answer": [
-        "Table_B",
-        "Table_V"
+        "Table_A1",
+        "Table_Q"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -2503,8 +2500,8 @@
       "id": "omop_cdm_route_path_016",
       "question": "What is the shortest chain of foreign key joins that connects Table_Y to Table_Z?",
       "gold_answer": [
-        "Table_Y",
-        "Table_Z"
+        "Table_H1",
+        "Table_I"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -2534,8 +2531,8 @@
       "id": "omop_cdm_route_path_017",
       "question": "What is the shortest chain of foreign key joins that connects Table_L to Table_U?",
       "gold_answer": [
-        "Table_L",
-        "Table_U"
+        "Table_C1",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_L",
@@ -2559,11 +2556,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_L\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_L has a direct foreign key relationship to Table_U, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2571,8 +2568,8 @@
       "id": "omop_cdm_route_path_018",
       "question": "What is the shortest chain of foreign key joins that connects Table_F1 to Table_P?",
       "gold_answer": [
-        "Table_F1",
-        "Table_P"
+        "Table_A1",
+        "Table_K"
       ],
       "predicted_answer": [
         "Table_F1",
@@ -2596,11 +2593,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F1\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_F1 has a direct foreign key relationship to Table_P, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2608,8 +2605,8 @@
       "id": "omop_cdm_route_path_019",
       "question": "What is the shortest chain of foreign key joins that connects Table_Z to Table_T?",
       "gold_answer": [
-        "Table_T",
-        "Table_Z"
+        "Table_F",
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_Z",
@@ -2633,10 +2630,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_Z\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_T has a foreign key referencing Table_Z (`Table_T --FK--> Table_Z`), establishing a direct connection between the two tables. This is the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2645,8 +2642,8 @@
       "id": "omop_cdm_route_path_020",
       "question": "What is the shortest chain of foreign key joins that connects Table_U to Table_K1?",
       "gold_answer": [
-        "Table_K1",
-        "Table_U"
+        "Table_D1",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_U",
@@ -2670,10 +2667,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_U\",\n    \"Table_K1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_K1 has a direct foreign key relationship to Table_U, making it a one-step connection.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2682,8 +2679,8 @@
       "id": "omop_cdm_route_path_021",
       "question": "What is the shortest chain of foreign key joins that connects Table_F1 to Table_Z?",
       "gold_answer": [
-        "Table_F1",
-        "Table_Z"
+        "Table_A1",
+        "Table_T"
       ],
       "predicted_answer": [
         "Table_F1",
@@ -2707,11 +2704,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F1\",\n    \"Table_Z\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_F1 has a direct foreign key relationship to Table_Z (Table_F1 --FK--> Table_Z), making this the shortest possible path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2719,8 +2716,8 @@
       "id": "omop_cdm_route_path_022",
       "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_T?",
       "gold_answer": [
-        "Table_T",
-        "Table_V"
+        "Table_A1",
+        "Table_S"
       ],
       "predicted_answer": [
         "Table_V",
@@ -2744,10 +2741,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_T has a foreign key relationship to Table_V (`Table_T --FK--> Table_V`), establishing a direct connection between them. This is the shortest possible chain of foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2756,8 +2753,8 @@
       "id": "omop_cdm_route_path_023",
       "question": "What is the shortest chain of foreign key joins that connects Table_K1 to Table_P?",
       "gold_answer": [
-        "Table_K1",
-        "Table_P"
+        "Table_R",
+        "Table_U"
       ],
       "predicted_answer": [
         "Table_K1",
@@ -2781,11 +2778,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_K1\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_K1 has a direct foreign key relationship to Table_P, making it the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2793,8 +2790,8 @@
       "id": "omop_cdm_route_path_024",
       "question": "What is the shortest chain of foreign key joins that connects Table_Z to Table_O?",
       "gold_answer": [
-        "Table_O",
-        "Table_Z"
+        "Table_H1",
+        "Table_M"
       ],
       "predicted_answer": [
         "Table_O",
@@ -2818,11 +2815,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_Z\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_O has a direct foreign key relationship to Table_Z (Table_O --FK--> Table_Z), forming the shortest possible chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -2830,8 +2827,8 @@
       "id": "omop_cdm_route_path_025",
       "question": "What is the shortest chain of foreign key joins that connects Table_V to Table_E?",
       "gold_answer": [
-        "Table_E",
-        "Table_V"
+        "Table_I",
+        "Table_U"
       ],
       "predicted_answer": [
         "Table_V",
@@ -2855,10 +2852,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_V\",\n    \"Table_E\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_E has a foreign key referencing Table_V (`Table_E --FK--> Table_V`), establishing a direct foreign key join between them.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2867,9 +2864,9 @@
       "id": "omop_cdm_route_path_026",
       "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_D1?",
       "gold_answer": [
-        "Table_D1",
-        "Table_N",
-        "Table_V"
+        "Table_E",
+        "Table_H1",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_N",
@@ -2895,10 +2892,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N\",\n    \"Table_V\",\n    \"Table_D1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_N is connected to Table_V via Table_N --FK--> Table_V. Table_D1 is connected to Table_V via Table_D1 --FK--> Table_V. Thus, Table_V acts as a common link, forming the shortest chain: Table_N -> Table_V <- Table_D1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2907,9 +2904,10 @@
       "id": "omop_cdm_route_path_027",
       "question": "What is the shortest chain of foreign key joins that connects Table_G to Table_K1?",
       "gold_answer": [
-        "Table_G",
-        "Table_K1",
-        "Table_U"
+        "Table_A1",
+        "Table_B1",
+        "Table_H1",
+        "Table_L"
       ],
       "predicted_answer": [
         "Table_G",
@@ -2935,10 +2933,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_U\",\n    \"Table_K1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"An undirected BFS from Table_G reveals that Table_U is connected to Table_G (Table_U --FK--> Table_G), and Table_K1 is connected to Table_U (Table_K1 --FK--> Table_U), forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2947,8 +2945,9 @@
       "id": "omop_cdm_route_path_028",
       "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_Q?",
       "gold_answer": [
-        "Table_Q",
-        "Table_U"
+        "Table_A1",
+        "Table_D",
+        "Table_S"
       ],
       "predicted_answer": [
         "Table_N",
@@ -2975,9 +2974,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8,
-        "precision": 0.6667,
-        "recall": 1.0,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -2986,10 +2985,9 @@
       "id": "omop_cdm_route_path_029",
       "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_B1?",
       "gold_answer": [
-        "Table_B1",
-        "Table_J",
-        "Table_M",
-        "Table_U"
+        "Table_C1",
+        "Table_G1",
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_M",
@@ -3017,10 +3015,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_M\",\n    \"Table_U\",\n    \"Table_J\",\n    \"Table_B1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_M has an FK to Table_U. Table_J has FKs to both Table_U and Table_B1, allowing a join path M -> U <- J -> B1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3029,9 +3027,9 @@
       "id": "omop_cdm_route_path_030",
       "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_C1?",
       "gold_answer": [
-        "Table_C1",
-        "Table_I",
-        "Table_U"
+        "Table_F",
+        "Table_H1",
+        "Table_M"
       ],
       "predicted_answer": [
         "Table_I",
@@ -3057,10 +3055,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_I\",\n    \"Table_U\",\n    \"Table_C1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_I has an FK to Table_U, and Table_C1 also has an FK to Table_U, creating a shortest path of two joins through Table_U.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3069,9 +3067,10 @@
       "id": "omop_cdm_route_path_031",
       "question": "What is the shortest chain of foreign key joins that connects Table_D to Table_J1?",
       "gold_answer": [
-        "Table_D",
-        "Table_J1",
-        "Table_V"
+        "Table_A1",
+        "Table_D1",
+        "Table_H1",
+        "Table_T"
       ],
       "predicted_answer": [
         "Table_D",
@@ -3097,10 +3096,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_D\",\n    \"Table_V\",\n    \"Table_J1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_D has a foreign key to Table_V, and Table_J1 also has a foreign key to Table_V, creating a direct connection through Table_V.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3109,9 +3108,10 @@
       "id": "omop_cdm_route_path_032",
       "question": "What is the shortest chain of foreign key joins that connects Table_Q to Table_P?",
       "gold_answer": [
-        "Table_P",
-        "Table_Q",
-        "Table_U"
+        "Table_A1",
+        "Table_D",
+        "Table_H1",
+        "Table_L"
       ],
       "predicted_answer": [
         "Table_Q",
@@ -3137,10 +3137,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_Q\",\n    \"Table_U\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_U has a foreign key to Table_Q, and Table_P has a foreign key to Table_U, forming the shortest chain of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3149,10 +3149,10 @@
       "id": "omop_cdm_route_path_033",
       "question": "What is the shortest chain of foreign key joins that connects Table_R to Table_J?",
       "gold_answer": [
+        "Table_A1",
         "Table_H1",
-        "Table_J",
-        "Table_R",
-        "Table_U"
+        "Table_J1",
+        "Table_X"
       ],
       "predicted_answer": [
         "Table_R",
@@ -3180,10 +3180,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_R\",\n    \"Table_H1\",\n    \"Table_U\",\n    \"Table_J\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A breadth-first search starting from Table_R reveals the shortest path to Table_J is R -> H1 -> U -> J, where each step represents a foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3192,9 +3192,9 @@
       "id": "omop_cdm_route_path_034",
       "question": "What is the shortest chain of foreign key joins that connects Table_P to Table_M?",
       "gold_answer": [
-        "Table_M",
-        "Table_P",
-        "Table_U"
+        "Table_A1",
+        "Table_K",
+        "Table_W"
       ],
       "predicted_answer": [
         "Table_P",
@@ -3220,10 +3220,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_P\",\n    \"Table_U\",\n    \"Table_M\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_P has a foreign key to Table_U, and Table_M also has a foreign key to Table_U. This allows Table_P and Table_M to be connected through Table_U via two foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3232,10 +3232,9 @@
       "id": "omop_cdm_route_path_035",
       "question": "What is the shortest chain of foreign key joins that connects Table_B1 to Table_F?",
       "gold_answer": [
-        "Table_B1",
-        "Table_F",
-        "Table_J",
-        "Table_U"
+        "Table_A1",
+        "Table_D",
+        "Table_K"
       ],
       "predicted_answer": [
         "Table_B1",
@@ -3263,10 +3262,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B1\",\n    \"Table_J\",\n    \"Table_U\",\n    \"Table_F\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_J has an FK to Table_B1, Table_J has an FK to Table_U, and Table_U has an FK to Table_F, forming the shortest chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3275,9 +3274,9 @@
       "id": "omop_cdm_route_path_036",
       "question": "What is the shortest chain of foreign key joins that connects Table_J to Table_I?",
       "gold_answer": [
-        "Table_I",
-        "Table_J",
-        "Table_U"
+        "Table_A1",
+        "Table_D",
+        "Table_Q"
       ],
       "predicted_answer": [
         "Table_J",
@@ -3303,10 +3302,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_U\",\n    \"Table_I\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_J has a foreign key to Table_U (Table_J --FK--> Table_U). Table_I also has a foreign key to Table_U (Table_I --FK--> Table_U). This establishes a connection J - U - I, which is the shortest chain of two foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3315,9 +3314,9 @@
       "id": "omop_cdm_route_path_037",
       "question": "What is the shortest chain of foreign key joins that connects Table_L to Table_D?",
       "gold_answer": [
-        "Table_D",
-        "Table_L",
-        "Table_U"
+        "Table_B",
+        "Table_F",
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_L",
@@ -3343,10 +3342,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_L\",\n    \"Table_U\",\n    \"Table_D\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_L has a foreign key to Table_U (Table_L --FK--> Table_U). Table_D also has a foreign key to Table_U (Table_D --FK--> Table_U). This creates a shortest path of two joins: Table_L joins Table_U, and Table_D joins Table_U, connecting Table_L and Table_D through Table_U.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3355,9 +3354,9 @@
       "id": "omop_cdm_route_path_038",
       "question": "What is the shortest chain of foreign key joins that connects Table_D to Table_I1?",
       "gold_answer": [
-        "Table_D",
-        "Table_I1",
-        "Table_V"
+        "Table_A1",
+        "Table_H1",
+        "Table_X"
       ],
       "predicted_answer": [
         "Table_D",
@@ -3383,10 +3382,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_D\",\n    \"Table_V\",\n    \"Table_I1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_D has a foreign key relationship to Table_V, and Table_V has a foreign key relationship to Table_I1, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3395,9 +3394,9 @@
       "id": "omop_cdm_route_path_039",
       "question": "What is the shortest chain of foreign key joins that connects Table_A to Table_G1?",
       "gold_answer": [
-        "Table_A",
-        "Table_G1",
-        "Table_U"
+        "Table_A1",
+        "Table_F",
+        "Table_K"
       ],
       "predicted_answer": [
         "Table_A",
@@ -3423,10 +3422,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_U\",\n    \"Table_G1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A has a foreign key to Table_U, and Table_G1 also has a foreign key to Table_U. This allows Table_A to join Table_U, and Table_G1 to join Table_U, connecting them through Table_U in two steps.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3435,8 +3434,9 @@
       "id": "omop_cdm_route_path_040",
       "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_R?",
       "gold_answer": [
-        "Table_H1",
-        "Table_R"
+        "Table_A1",
+        "Table_J1",
+        "Table_S"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -3466,9 +3466,9 @@
       "id": "omop_cdm_route_path_041",
       "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_E?",
       "gold_answer": [
-        "Table_E",
-        "Table_T",
-        "Table_V"
+        "Table_H1",
+        "Table_S",
+        "Table_U"
       ],
       "predicted_answer": [
         "Table_T",
@@ -3494,10 +3494,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_V\",\n    \"Table_E\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_T has a foreign key to Table_V, and Table_E also has a foreign key to Table_V, creating a shortest path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3506,8 +3506,8 @@
       "id": "omop_cdm_route_path_042",
       "question": "What is the shortest chain of foreign key joins that connects Table_Y to Table_N?",
       "gold_answer": [
-        "Table_N",
-        "Table_V",
+        "Table_G1",
+        "Table_H1",
         "Table_Y"
       ],
       "predicted_answer": [
@@ -3535,9 +3535,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.6667,
-        "precision": 0.6667,
-        "recall": 0.6667,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3546,10 +3546,10 @@
       "id": "omop_cdm_route_path_043",
       "question": "What is the shortest chain of foreign key joins that connects Table_I1 to Table_K?",
       "gold_answer": [
-        "Table_I1",
-        "Table_K",
-        "Table_U",
-        "Table_V"
+        "Table_A",
+        "Table_A1",
+        "Table_E",
+        "Table_H"
       ],
       "predicted_answer": [
         "Table_I1",
@@ -3577,10 +3577,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_I1\",\n    \"Table_V\",\n    \"Table_U\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path of three foreign key joins connects Table_I1 to Table_K: Table_V --FK--> Table_I1, Table_V --FK--> Table_U, and Table_K --FK--> Table_U. No shorter path exists.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3589,9 +3589,9 @@
       "id": "omop_cdm_route_path_044",
       "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_A1?",
       "gold_answer": [
-        "Table_A1",
-        "Table_M",
-        "Table_U"
+        "Table_H1",
+        "Table_K1",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_M",
@@ -3617,10 +3617,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_M\",\n    \"Table_U\",\n    \"Table_A1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_M has a foreign key to Table_U, and Table_A1 also has a foreign key to Table_U, allowing them to connect through their common parent Table_U.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3629,10 +3629,9 @@
       "id": "omop_cdm_route_path_045",
       "question": "What is the shortest chain of foreign key joins that connects Table_G1 to Table_C?",
       "gold_answer": [
-        "Table_B1",
         "Table_G1",
-        "Table_J",
-        "Table_U"
+        "Table_H1",
+        "Table_S"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -3662,9 +3661,9 @@
       "id": "omop_cdm_route_path_046",
       "question": "What is the shortest chain of foreign key joins that connects Table_F to Table_L?",
       "gold_answer": [
-        "Table_F",
-        "Table_L",
-        "Table_U"
+        "Table_A1",
+        "Table_B1",
+        "Table_G"
       ],
       "predicted_answer": [
         "Table_F",
@@ -3690,10 +3689,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F\",\n    \"Table_U\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_U has a foreign key to Table_F, and Table_L has a foreign key to Table_U, forming a direct path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3702,10 +3701,10 @@
       "id": "omop_cdm_route_path_047",
       "question": "What is the shortest chain of foreign key joins that connects Table_E to Table_R?",
       "gold_answer": [
-        "Table_E",
-        "Table_H1",
-        "Table_R",
-        "Table_V"
+        "Table_A1",
+        "Table_D1",
+        "Table_G",
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_E",
@@ -3733,10 +3732,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_E\",\n    \"Table_V\",\n    \"Table_H1\",\n    \"Table_R\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_E connects to Table_V (E --FK--> V), Table_V connects to Table_H1 (H1 --FK--> V), and Table_H1 connects to Table_R (R --FK--> H1), forming a chain of 3 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.25,
+        "precision": 0.25,
+        "recall": 0.25,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3745,9 +3744,9 @@
       "id": "omop_cdm_route_path_048",
       "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_A?",
       "gold_answer": [
-        "Table_A",
-        "Table_T",
-        "Table_V"
+        "Table_A1",
+        "Table_C",
+        "Table_Y"
       ],
       "predicted_answer": [
         "Table_T",
@@ -3773,10 +3772,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_V\",\n    \"Table_A\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both Table_T and Table_A have foreign key relationships directly to Table_V, forming a shortest path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3785,9 +3784,9 @@
       "id": "omop_cdm_route_path_049",
       "question": "What is the shortest chain of foreign key joins that connects Table_X to Table_D1?",
       "gold_answer": [
-        "Table_D1",
-        "Table_V",
-        "Table_X"
+        "Table_A1",
+        "Table_H1",
+        "Table_K"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -3817,9 +3816,9 @@
       "id": "omop_cdm_route_path_050",
       "question": "What is the shortest chain of foreign key joins that connects Table_C1 to Table_O?",
       "gold_answer": [
-        "Table_C1",
-        "Table_O",
-        "Table_U"
+        "Table_H1",
+        "Table_K1",
+        "Table_W"
       ],
       "predicted_answer": [
         "Table_C1",
@@ -3845,10 +3844,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_C1\",\n    \"Table_U\",\n    \"Table_O\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_C1 has an FK to Table_U, and Table_O has an FK to Table_U, forming a direct join path through Table_U.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3857,9 +3856,10 @@
       "id": "omop_cdm_route_path_051",
       "question": "What is the shortest chain of foreign key joins that connects Table_O to Table_H?",
       "gold_answer": [
-        "Table_H",
-        "Table_O",
-        "Table_V"
+        "Table_A1",
+        "Table_D",
+        "Table_D1",
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_O",
@@ -3885,10 +3885,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_O\",\n    \"Table_V\",\n    \"Table_H\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_O has a foreign key relationship with Table_V, and Table_H also has a foreign key relationship with Table_V, creating a shortest path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3897,11 +3897,11 @@
       "id": "omop_cdm_route_path_052",
       "question": "What is the shortest chain of foreign key joins that connects Table_B1 to Table_J1?",
       "gold_answer": [
-        "Table_B1",
-        "Table_J",
-        "Table_J1",
-        "Table_U",
-        "Table_V"
+        "Table_A",
+        "Table_A1",
+        "Table_H",
+        "Table_H1",
+        "Table_L"
       ],
       "predicted_answer": [
         "Table_B1",
@@ -3931,10 +3931,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B1\",\n    \"Table_J\",\n    \"Table_U\",\n    \"Table_V\",\n    \"Table_J1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A breadth-first search (BFS) was performed starting from Table_B1, considering both directions of FK relationships for joins. The shortest path found is Table_B1 -> Table_J -> Table_U -> Table_V -> Table_J1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -3943,11 +3943,11 @@
       "id": "omop_cdm_route_path_053",
       "question": "What is the shortest chain of foreign key joins that connects Table_D1 to Table_B1?",
       "gold_answer": [
-        "Table_B1",
+        "Table_A",
+        "Table_A1",
         "Table_D1",
-        "Table_J",
-        "Table_U",
-        "Table_V"
+        "Table_H",
+        "Table_H1"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -3977,9 +3977,9 @@
       "id": "omop_cdm_route_path_054",
       "question": "What is the shortest chain of foreign key joins that connects Table_N to Table_T?",
       "gold_answer": [
-        "Table_N",
-        "Table_T",
-        "Table_V"
+        "Table_G1",
+        "Table_H1",
+        "Table_Z"
       ],
       "predicted_answer": [
         "Table_N",
@@ -4005,10 +4005,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N\",\n    \"Table_V\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both Table_N and Table_T have foreign key relationships to Table_V, forming a direct connection through a common table.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4017,9 +4017,9 @@
       "id": "omop_cdm_route_path_055",
       "question": "What is the shortest chain of foreign key joins that connects Table_J to Table_K?",
       "gold_answer": [
-        "Table_J",
-        "Table_K",
-        "Table_U"
+        "Table_A1",
+        "Table_J1",
+        "Table_T"
       ],
       "predicted_answer": [
         "Table_J",
@@ -4045,10 +4045,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_U\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_J has an FK to Table_U, and Table_K also has an FK to Table_U. This creates a common link (J -- U -- K) with two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4057,9 +4057,9 @@
       "id": "omop_cdm_route_path_056",
       "question": "What is the shortest chain of foreign key joins that connects Table_C1 to Table_B?",
       "gold_answer": [
-        "Table_B",
-        "Table_C1",
-        "Table_U"
+        "Table_G1",
+        "Table_H1",
+        "Table_W"
       ],
       "predicted_answer": [
         "Table_C1",
@@ -4085,10 +4085,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_C1\",\n    \"Table_U\",\n    \"Table_B\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_C1 has a foreign key to Table_U, and Table_B also has a foreign key to Table_U. This means both Table_C1 and Table_B can join Table_U, forming a shortest chain of two joins: Table_C1 -> Table_U <- Table_B.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4097,9 +4097,9 @@
       "id": "omop_cdm_route_path_057",
       "question": "What is the shortest chain of foreign key joins that connects Table_J to Table_B?",
       "gold_answer": [
-        "Table_B",
-        "Table_J",
-        "Table_U"
+        "Table_A1",
+        "Table_E",
+        "Table_J1"
       ],
       "predicted_answer": [
         "Table_J",
@@ -4125,10 +4125,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_U\",\n    \"Table_B\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_J has an FK to Table_U, and Table_B also has an FK to Table_U, creating a direct connection through Table_U.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4138,8 +4138,7 @@
       "question": "What is the shortest chain of foreign key joins that connects Table_K to Table_B?",
       "gold_answer": [
         "Table_B",
-        "Table_K",
-        "Table_U"
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_K",
@@ -4165,10 +4164,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_K\",\n    \"Table_U\",\n    \"Table_B\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_K has an FK to Table_U, and Table_B also has an FK to Table_U, creating a direct connection through Table_U.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.3333,
+        "recall": 0.5,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4177,9 +4176,9 @@
       "id": "omop_cdm_route_path_059",
       "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_Y?",
       "gold_answer": [
-        "Table_H",
-        "Table_V",
-        "Table_Y"
+        "Table_A1",
+        "Table_C",
+        "Table_F1"
       ],
       "predicted_answer": [
         "Table_H",
@@ -4205,11 +4204,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_V\",\n    \"Table_Y\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H has a foreign key relationship to Table_V, and Table_V has a foreign key relationship to Table_Y, forming a direct path of length 2.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -4217,8 +4216,8 @@
       "id": "omop_cdm_route_path_060",
       "question": "What is the shortest chain of foreign key joins that connects Table_J to Table_P?",
       "gold_answer": [
-        "Table_B1",
-        "Table_J"
+        "Table_E",
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_J",
@@ -4245,9 +4244,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
-        "precision": 0.3333,
-        "recall": 0.5,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4256,8 +4255,9 @@
       "id": "omop_cdm_route_path_061",
       "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_G?",
       "gold_answer": [
-        "Table_M",
-        "Table_U"
+        "Table_H1",
+        "Table_Q",
+        "Table_Z"
       ],
       "predicted_answer": [
         "Table_M",
@@ -4284,9 +4284,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8,
-        "precision": 0.6667,
-        "recall": 1.0,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4295,9 +4295,9 @@
       "id": "omop_cdm_route_path_062",
       "question": "What is the shortest chain of foreign key joins that connects Table_T to Table_D?",
       "gold_answer": [
-        "Table_D",
-        "Table_T",
-        "Table_V"
+        "Table_F",
+        "Table_H1",
+        "Table_I"
       ],
       "predicted_answer": [
         "Table_T",
@@ -4323,10 +4323,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_V\",\n    \"Table_D\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both Table_T and Table_D have foreign key relationships to Table_V, creating a direct path through Table_V.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4335,8 +4335,9 @@
       "id": "omop_cdm_route_path_063",
       "question": "What is the shortest chain of foreign key joins that connects Table_C to Table_J?",
       "gold_answer": [
-        "Table_B1",
-        "Table_J"
+        "Table_A1",
+        "Table_I1",
+        "Table_S"
       ],
       "predicted_answer": [
         "Table_C",
@@ -4363,9 +4364,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
-        "precision": 0.3333,
-        "recall": 0.5,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4374,9 +4375,8 @@
       "id": "omop_cdm_route_path_064",
       "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_A?",
       "gold_answer": [
-        "Table_A",
-        "Table_M",
-        "Table_U"
+        "Table_A1",
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_M",
@@ -4402,10 +4402,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_M\",\n    \"Table_U\",\n    \"Table_A\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_M connects to Table_U via FK, and Table_A also connects to Table_U via FK, forming a direct path through Table_U.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4414,9 +4414,9 @@
       "id": "omop_cdm_route_path_065",
       "question": "What is the shortest chain of foreign key joins that connects Table_C1 to Table_J1?",
       "gold_answer": [
-        "Table_D",
-        "Table_J1",
-        "Table_V"
+        "Table_G1",
+        "Table_H1",
+        "Table_K1"
       ],
       "predicted_answer": [
         "Table_C1",
@@ -4445,9 +4445,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5714,
-        "precision": 0.5,
-        "recall": 0.6667,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4456,9 +4456,9 @@
       "id": "omop_cdm_route_path_066",
       "question": "What is the shortest chain of foreign key joins that connects Table_K1 to Table_E1?",
       "gold_answer": [
-        "Table_E1",
-        "Table_K1",
-        "Table_V"
+        "Table_A1",
+        "Table_F1",
+        "Table_H"
       ],
       "predicted_answer": [
         "Table_K1",
@@ -4484,10 +4484,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_K1\",\n    \"Table_V\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_K1 connects to Table_V via FK. Table_E1 also connects to Table_V via FK, forming a path of length 2: Table_K1 -> Table_V <- Table_E1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4496,9 +4496,8 @@
       "id": "omop_cdm_route_path_067",
       "question": "What is the shortest chain of foreign key joins that connects Table_C1 to Table_E?",
       "gold_answer": [
-        "Table_C1",
-        "Table_E",
-        "Table_U"
+        "Table_F",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_C1",
@@ -4524,10 +4523,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_C1\",\n    \"Table_U\",\n    \"Table_E\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_C1 is connected to Table_U via an FK. Table_E is also connected to Table_U via an FK. Thus, Table_C1 can join Table_U, and Table_U can join Table_E, forming the shortest chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4536,9 +4535,9 @@
       "id": "omop_cdm_route_path_068",
       "question": "What is the shortest chain of foreign key joins that connects Table_G1 to Table_H?",
       "gold_answer": [
-        "Table_G1",
-        "Table_H",
-        "Table_U"
+        "Table_H1",
+        "Table_K1",
+        "Table_N"
       ],
       "predicted_answer": [
         "Table_G1",
@@ -4564,10 +4563,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G1\",\n    \"Table_U\",\n    \"Table_H\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G1 connects to Table_U via an FK (Table_G1 --FK--> Table_U). Table_H also connects to Table_U via an FK (Table_H --FK--> Table_U). Thus, Table_U is a common node, forming the shortest chain.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4576,9 +4575,9 @@
       "id": "omop_cdm_route_path_069",
       "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_F?",
       "gold_answer": [
-        "Table_F",
-        "Table_H",
-        "Table_U"
+        "Table_G1",
+        "Table_H1",
+        "Table_I"
       ],
       "predicted_answer": [
         "Table_H",
@@ -4604,10 +4603,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_U\",\n    \"Table_F\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H connects to Table_U via FK, and Table_U connects to Table_F via FK, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4616,9 +4615,9 @@
       "id": "omop_cdm_route_path_070",
       "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_L?",
       "gold_answer": [
-        "Table_L",
-        "Table_M",
-        "Table_U"
+        "Table_A1",
+        "Table_B1",
+        "Table_T"
       ],
       "predicted_answer": [
         "Table_M",
@@ -4644,10 +4643,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_M\",\n    \"Table_U\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both Table_M and Table_L have a direct foreign key relationship to Table_U, forming the shortest path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4656,10 +4655,9 @@
       "id": "omop_cdm_route_path_071",
       "question": "What is the shortest chain of foreign key joins that connects Table_G1 to Table_V?",
       "gold_answer": [
-        "Table_B1",
+        "Table_B",
         "Table_G1",
-        "Table_J",
-        "Table_U"
+        "Table_H1"
       ],
       "predicted_answer": [
         "Table_G1",
@@ -4686,9 +4684,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5714,
-        "precision": 0.6667,
-        "recall": 0.5,
+        "f1": 0.3333,
+        "precision": 0.3333,
+        "recall": 0.3333,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4699,8 +4697,7 @@
       "gold_answer": [
         "Table_D1",
         "Table_H1",
-        "Table_R",
-        "Table_V"
+        "Table_N"
       ],
       "predicted_answer": [
         "Table_R",
@@ -4728,10 +4725,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_R\",\n    \"Table_H1\",\n    \"Table_V\",\n    \"Table_D1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A breadth-first search (BFS) treating FKs as undirected edges reveals the shortest path. Table_R connects to Table_H1, which connects to Table_V. Table_D1 also connects to Table_V, forming the shortest chain: R - H1 - V - D1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 0.5,
+        "recall": 0.6667,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4740,9 +4737,9 @@
       "id": "omop_cdm_route_path_073",
       "question": "What is the shortest chain of foreign key joins that connects Table_B to Table_T?",
       "gold_answer": [
-        "Table_B",
-        "Table_T",
-        "Table_V"
+        "Table_A1",
+        "Table_D",
+        "Table_E"
       ],
       "predicted_answer": [
         "Table_B",
@@ -4768,10 +4765,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B\",\n    \"Table_V\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_B has an FK to Table_V, and Table_T also has an FK to Table_V, creating a path of two joins: Table_B -> Table_V -> Table_T.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4780,9 +4777,9 @@
       "id": "omop_cdm_route_path_074",
       "question": "What is the shortest chain of foreign key joins that connects Table_Z to Table_E1?",
       "gold_answer": [
-        "Table_E1",
-        "Table_V",
-        "Table_Z"
+        "Table_A1",
+        "Table_H",
+        "Table_T"
       ],
       "predicted_answer": [
         "Table_Z",
@@ -4808,10 +4805,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_Z\",\n    \"Table_V\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_Z has a foreign key to Table_V, and Table_E1 also has a foreign key to Table_V, creating a path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4820,8 +4817,9 @@
       "id": "omop_cdm_route_path_075",
       "question": "What is the shortest chain of foreign key joins that connects Table_H to Table_U?",
       "gold_answer": [
-        "Table_H",
-        "Table_U"
+        "Table_E",
+        "Table_H1",
+        "Table_I"
       ],
       "predicted_answer": [
         "Table_H",
@@ -4845,11 +4843,11 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_H\",\n    \"Table_U\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H has a direct foreign key relationship to Table_U, making it the shortest possible path.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
-        "order_correct": true,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "order_correct": false,
         "valid_alt_path": false
       }
     },
@@ -4857,9 +4855,9 @@
       "id": "omop_cdm_route_path_076",
       "question": "What is the shortest chain of foreign key joins that connects Table_M to Table_K?",
       "gold_answer": [
-        "Table_K",
-        "Table_M",
-        "Table_U"
+        "Table_A1",
+        "Table_H",
+        "Table_R"
       ],
       "predicted_answer": [
         "Table_M",
@@ -4885,10 +4883,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_M\",\n    \"Table_U\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_M has an FK to Table_U, and Table_K has an FK to Table_U. This creates a path of two joins: Table_M -> Table_U <- Table_K.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4897,9 +4895,10 @@
       "id": "omop_cdm_route_path_077",
       "question": "What is the shortest chain of foreign key joins that connects Table_G to Table_P?",
       "gold_answer": [
-        "Table_G",
-        "Table_P",
-        "Table_U"
+        "Table_A1",
+        "Table_H1",
+        "Table_J1",
+        "Table_L"
       ],
       "predicted_answer": [
         "Table_G",
@@ -4925,10 +4924,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_U\",\n    \"Table_P\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A breadth-first search (BFS) from Table_G to Table_P reveals the shortest path is Table_G -> Table_U -> Table_P. This path involves Table_U having an FK to Table_G, and Table_P having an FK to Table_U, allowing for a chain of joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4937,9 +4936,9 @@
       "id": "omop_cdm_route_path_078",
       "question": "What is the shortest chain of foreign key joins that connects Table_I to Table_C?",
       "gold_answer": [
-        "Table_C",
-        "Table_I",
-        "Table_U"
+        "Table_A1",
+        "Table_F",
+        "Table_J1"
       ],
       "predicted_answer": [
         "Table_I",
@@ -4965,10 +4964,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_I\",\n    \"Table_U\",\n    \"Table_C\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_I connects to Table_U via Table_I --FK--> Table_U. Table_C connects to Table_U via Table_C --FK--> Table_U. This forms the shortest chain: Table_I, Table_U, Table_C.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0,
         "order_correct": false,
         "valid_alt_path": false
       }
@@ -4977,9 +4976,8 @@
       "id": "omop_cdm_route_path_079",
       "question": "What is the shortest chain of foreign key joins that connects Table_C to Table_B?",
       "gold_answer": [
-        "Table_B",
-        "Table_C",
-        "Table_U"
+        "Table_H1",
+        "Table_Q"
       ],
       "predicted_answer": [],
       "answer_type": "ordered_list",
@@ -5008,7 +5006,7 @@
     {
       "id": "omop_cdm_route_hops_080",
       "question": "What is the minimum number of foreign key joins needed to connect Table_T to Table_A?",
-      "gold_answer": 2,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5025,14 +5023,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Both Table_T and Table_A have foreign key relationships to common tables like Table_V, Table_Z, Table_P, and Table_U, allowing a connection in two joins (e.g., Table_T -> Table_V <- Table_A).\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_081",
       "question": "What is the minimum number of foreign key joins needed to connect Table_X to Table_D1?",
-      "gold_answer": 2,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5049,14 +5047,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_X has an FK to Table_V, and Table_D1 also has an FK to Table_V, creating a path of two FK joins: Table_X -> Table_V <- Table_D1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_082",
       "question": "What is the minimum number of foreign key joins needed to connect Table_Z to Table_T?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5073,14 +5071,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_T to Table_Z (Table_T --FK--> Table_Z), requiring only one join.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_083",
       "question": "What is the minimum number of foreign key joins needed to connect Table_C to Table_J?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5097,8 +5095,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_C can join to Table_U (1 join). Table_J can also join to Table_U (1 join). Thus, Table_C and Table_J can be connected via Table_U in 2 joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
@@ -5176,7 +5174,7 @@
     {
       "id": "omop_cdm_route_hops_087",
       "question": "What is the minimum number of foreign key joins needed to connect Table_Y to Table_N?",
-      "gold_answer": 2,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5193,14 +5191,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_Y can connect to Table_U (1 FK join), and Table_N can also connect to Table_U (1 FK join), making a total of 2 joins via Table_U. Alternatively, Table_N connects to Table_V (1 FK join), and Table_V connects to Table_Y (1 FK join), also making 2 joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_hops_088",
       "question": "What is the minimum number of foreign key joins needed to connect Table_U to Table_H1?",
-      "gold_answer": 1,
+      "gold_answer": 3,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5217,8 +5215,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_H1 to Table_U (Table_H1 --FK--> Table_U), requiring 1 join.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5248,7 +5246,7 @@
     {
       "id": "omop_cdm_route_hops_090",
       "question": "What is the minimum number of foreign key joins needed to connect Table_G1 to Table_V?",
-      "gold_answer": 3,
+      "gold_answer": 1,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5272,7 +5270,7 @@
     {
       "id": "omop_cdm_route_hops_091",
       "question": "What is the minimum number of foreign key joins needed to connect Table_C1 to Table_E?",
-      "gold_answer": 2,
+      "gold_answer": 3,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5289,8 +5287,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_C1 connects to Table_U (1 join). Table_E also connects to Table_U (1 join). Thus, Table_C1 -> Table_U <- Table_E forms a path of 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5320,7 +5318,7 @@
     {
       "id": "omop_cdm_route_hops_093",
       "question": "What is the minimum number of foreign key joins needed to connect Table_U to Table_J?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5337,8 +5335,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"There is a direct foreign key relationship from Table_J to Table_U, requiring one join.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5368,7 +5366,7 @@
     {
       "id": "omop_cdm_route_hops_095",
       "question": "What is the minimum number of foreign key joins needed to connect Table_B1 to Table_J1?",
-      "gold_answer": 4,
+      "gold_answer": 1,
       "predicted_answer": 4,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5385,8 +5383,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 4,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is Table_B1 <-FK- Table_J --FK--> Table_U <-FK- Table_V <-FK- Table_J1, which requires 4 foreign key joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5416,7 +5414,7 @@
     {
       "id": "omop_cdm_route_hops_097",
       "question": "What is the minimum number of foreign key joins needed to connect Table_H to Table_U?",
-      "gold_answer": 1,
+      "gold_answer": 2,
       "predicted_answer": 1,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5433,8 +5431,8 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 1,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H has a direct foreign key relationship to Table_U (Table_H --FK--> Table_U).\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
@@ -5464,7 +5462,7 @@
     {
       "id": "omop_cdm_route_hops_099",
       "question": "What is the minimum number of foreign key joins needed to connect Table_C1 to Table_O?",
-      "gold_answer": 2,
+      "gold_answer": 3,
       "predicted_answer": 2,
       "answer_type": "integer",
       "type": "schema_routing",
@@ -5481,14 +5479,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_C1 connects to Table_U via one FK. Table_O also connects to Table_U via one FK. Thus, both tables can be joined to Table_U, requiring two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0
+        "exact_match": false,
+        "f1": 0.0
       }
     },
     {
       "id": "omop_cdm_route_direct_103",
       "question": "Does Table_D1 have a direct foreign key relationship to Table_P?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5505,14 +5503,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'Table_D1 --FK--> Table_P', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_109",
       "question": "Does Table_A1 have a direct foreign key relationship to Table_F?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5529,14 +5527,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A1 has a direct foreign key relationship to Table_U, but not directly to Table_F based on the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_115",
       "question": "Does Table_T have a direct foreign key relationship to Table_H?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5553,14 +5551,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided schema shows Table_T has FK relationships to Table_V, Table_Z, Table_P, and Table_U, but not directly to Table_H.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_105",
       "question": "Does Table_J have a direct foreign key relationship to Table_B1?",
-      "gold_answer": "Yes",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5577,14 +5575,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'Table_J --FK--> Table_B1', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_108",
       "question": "Does Table_L have a direct foreign key relationship to Table_G1?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5601,14 +5599,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_L has a direct FK to Table_U, but there is no direct FK relationship listed between Table_L and Table_G1.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_106",
       "question": "Does Table_H1 have a direct foreign key relationship to Table_V?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5625,14 +5623,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H1 has a direct foreign key relationship to Table_V as indicated by 'Table_H1 --FK--> Table_V' in the provided schema.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_100",
       "question": "Does Table_D have a direct foreign key relationship to Table_V?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5649,14 +5647,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'Table_D --FK--> Table_V', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_104",
       "question": "Does Table_O have a direct foreign key relationship to Table_P?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5673,14 +5671,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'Table_O --FK--> Table_P', indicating a direct foreign key relationship.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_102",
       "question": "Does Table_R have a direct foreign key relationship to Table_H1?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5697,14 +5695,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'Table_R --FK--> Table_H1', indicating a direct foreign key relationship.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_107",
       "question": "Does Table_O have a direct foreign key relationship to Table_U?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5721,14 +5719,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'Table_O --FK--> Table_U', indicating a direct foreign key relationship.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_114",
       "question": "Does Table_H1 have a direct foreign key relationship to Table_H?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5745,14 +5743,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H1 has FK relationships to Table_V and Table_U, and Table_H1 is DERIVED_FROM Table_R. There is no direct FK relationship listed between Table_H1 and Table_H.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_111",
       "question": "Does Table_H have a direct foreign key relationship to Table_C1?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5769,14 +5767,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H has FK relationships to Table_V, Table_Z, Table_P, and Table_U, but not directly to Table_C1.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_110",
       "question": "Does Table_Z have a direct foreign key relationship to Table_C?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5793,14 +5791,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between Table_Z and Table_C in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_112",
       "question": "Does Table_H1 have a direct foreign key relationship to Table_B?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5817,14 +5815,14 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_H1 has FK relationships to Table_V and Table_U, and Table_B has FK relationships to Table_V and Table_U, but there is no direct FK relationship between Table_H1 and Table_B.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_101",
       "question": "Does Table_C have a direct foreign key relationship to Table_U?",
-      "gold_answer": "No",
+      "gold_answer": true,
       "predicted_answer": true,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5841,14 +5839,14 @@
         "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"The schema explicitly states 'Table_C --FK--> Table_U', indicating a direct foreign key relationship.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     },
     {
       "id": "omop_cdm_route_direct_113",
       "question": "Does Table_Y have a direct foreign key relationship to Table_B1?",
-      "gold_answer": "No",
+      "gold_answer": false,
       "predicted_answer": false,
       "answer_type": "boolean",
       "type": "schema_routing",
@@ -5865,9 +5863,15 @@
         "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"There is no direct foreign key relationship listed between Table_Y and Table_B1 in the provided schema.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
+        "exact_match": true,
+        "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 158,
+    "exact_match": 37,
+    "exact_match_pct": 23.4,
+    "avg_f1": 23.4
+  }
 }

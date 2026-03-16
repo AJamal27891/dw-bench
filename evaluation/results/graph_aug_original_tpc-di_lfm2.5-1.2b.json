@@ -1718,7 +1718,8 @@
         "DimTrade",
         "FactHoldings",
         "FactMarketHistory",
-        "FactWatches"
+        "FactWatches",
+        "Financial"
       ],
       "predicted_answer": [
         "DimAccount",
@@ -1833,7 +1834,6 @@
         "FactMarketHistory",
         "FactWatches",
         "Financial",
-        "SRC.CashTransaction",
         "SRC.CustomerMgmt",
         "SRC.DailyMarket",
         "SRC.Date",
@@ -1875,9 +1875,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.25,
+        "f1": 0.2581,
         "precision": 1.0,
-        "recall": 0.1429
+        "recall": 0.1481
       }
     },
     {
@@ -1895,7 +1895,6 @@
         "FactCashBalances",
         "FactHoldings",
         "FactMarketHistory",
-        "FactWatches",
         "Financial",
         "SRC.CashTransaction",
         "SRC.CustomerMgmt",
@@ -1939,9 +1938,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.25,
+        "f1": 0.2581,
         "precision": 1.0,
-        "recall": 0.1429
+        "recall": 0.1481
       }
     },
     {
@@ -1968,7 +1967,6 @@
         "SRC.FINWIRE_CMP",
         "SRC.FINWIRE_FIN",
         "SRC.FINWIRE_SEC",
-        "SRC.HR",
         "SRC.HoldingHistory",
         "SRC.TaxRate",
         "SRC.Time",
@@ -2003,17 +2001,16 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.25,
+        "f1": 0.2581,
         "precision": 1.0,
-        "recall": 0.1429
+        "recall": 0.1481
       }
     },
     {
       "id": "tpc-di_silo_member_004",
       "question": "Which tables are in the same connected component (data silo) as SRC.Industry?",
       "gold_answer": [
-        "Industry",
-        "SRC.Industry"
+        "Industry"
       ],
       "predicted_answer": [
         "DimAccount",
@@ -2051,7 +2048,6 @@
       "id": "tpc-di_silo_member_005",
       "question": "Which tables are in the same connected component (data silo) as Industry?",
       "gold_answer": [
-        "Industry",
         "SRC.Industry"
       ],
       "predicted_answer": [
@@ -2089,7 +2085,6 @@
       "id": "tpc-di_silo_member_006",
       "question": "Which tables are in the same connected component (data silo) as SRC.StatusType?",
       "gold_answer": [
-        "SRC.StatusType",
         "StatusType"
       ],
       "predicted_answer": [
@@ -2128,8 +2123,7 @@
       "id": "tpc-di_silo_member_007",
       "question": "Which tables are in the same connected component (data silo) as StatusType?",
       "gold_answer": [
-        "SRC.StatusType",
-        "StatusType"
+        "SRC.StatusType"
       ],
       "predicted_answer": [
         "DimAccount",
@@ -2167,8 +2161,7 @@
       "id": "tpc-di_silo_member_008",
       "question": "Which tables are in the same connected component (data silo) as TradeType?",
       "gold_answer": [
-        "SRC.TradeType",
-        "TradeType"
+        "SRC.TradeType"
       ],
       "predicted_answer": [
         "DimAccount",
@@ -2203,7 +2196,6 @@
       "id": "tpc-di_silo_member_009",
       "question": "Which tables are in the same connected component (data silo) as SRC.TradeType?",
       "gold_answer": [
-        "SRC.TradeType",
         "TradeType"
       ],
       "predicted_answer": [
@@ -2255,8 +2247,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "Yes, through the chain: SRC.CustomerMgmt \u2192 DimAccount \u2192 DimBroker \u2192 DimTrade",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: SRC.CustomerMgmt \u2192 DimAccount \u2192 DimBroker \u2192 DimTrade\"\n}"
+        "answer_str": "Yes, through the chain: SRC.CustomerMgmt → DimAccount → DimBroker → DimTrade",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: SRC.CustomerMgmt → DimAccount → DimBroker → DimTrade\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -2618,7 +2610,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2653,7 +2646,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2680,15 +2674,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimTime \u2192 DimTrade",
-        "_raw_text": "{\n  \"answer_list\": [\"DimTime\", \"DimTrade\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimTime \u2192 DimTrade\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimTime → DimTrade",
+        "_raw_text": "{\n  \"answer_list\": [\"DimTime\", \"DimTrade\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimTime → DimTrade\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2723,7 +2718,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2750,15 +2746,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: DimDate \u2192 FactWatches",
-        "_raw_text": "{\n  \"answer_list\": [\"DimDate\", \"FactWatches\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: DimDate \u2192 FactWatches\"\n}\nReasoning: The query asks for the shortest chain connecting DimDate to FactWatches via foreign keys. The direct FK relationship is through DimDate \u2192 FactWatches, which is a single hop.\"\n}"
+        "answer_str": "The shortest path involves two hops: DimDate → FactWatches",
+        "_raw_text": "{\n  \"answer_list\": [\"DimDate\", \"FactWatches\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: DimDate → FactWatches\"\n}\nReasoning: The query asks for the shortest chain connecting DimDate to FactWatches via foreign keys. The direct FK relationship is through DimDate → FactWatches, which is a single hop.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2793,7 +2790,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2820,15 +2818,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "DimCustomer \u2192 DimAccount",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCustomer\", \"DimAccount\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"DimCustomer \u2192 DimAccount\"\n}\nReasoning: The query asks for the shortest chain of foreign key joins connecting DimCustomer to DimAccount, which involves traversing through the derived relationships.\"\n}"
+        "answer_str": "DimCustomer → DimAccount",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCustomer\", \"DimAccount\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"DimCustomer → DimAccount\"\n}\nReasoning: The query asks for the shortest chain of foreign key joins connecting DimCustomer to DimAccount, which involves traversing through the derived relationships.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2863,7 +2862,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2890,15 +2890,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimCustomer",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimCustomer\"\n}"
+        "answer_str": "The shortest chain involves DimAccount → DimBroker → DimCustomer",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount → DimBroker → DimCustomer\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2931,7 +2932,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2966,7 +2968,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2993,15 +2996,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimCompany \u2192 FactHoldings",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactHoldings\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimCompany \u2192 FactHoldings\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimCompany → FactHoldings",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactHoldings\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimCompany → FactHoldings\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3028,15 +3032,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCompany \u2192 DimTrade",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimTrade\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany \u2192 DimTrade\"\n}"
+        "answer_str": "The shortest chain involves DimCompany → DimTrade",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimTrade\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany → DimTrade\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3063,15 +3068,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCompany \u2192 FactMarketHistory",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany \u2192 FactMarketHistory\"\n}"
+        "answer_str": "The shortest chain involves DimCompany → FactMarketHistory",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany → FactMarketHistory\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3104,7 +3110,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3139,7 +3146,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3174,7 +3182,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3201,15 +3210,16 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCompany \u2192 DimSecurity",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimSecurity\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany \u2192 DimSecurity\"\n}"
+        "answer_str": "The shortest chain involves DimCompany → DimSecurity",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimSecurity\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany → DimSecurity\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3236,15 +3246,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimTrade.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimTrade.\"\n}\n"
+        "answer_str": "The shortest chain involves DimAccount → DimBroker → DimTrade.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount → DimBroker → DimTrade.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3279,7 +3290,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3306,15 +3318,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves Financial \u2192 DimCompany \u2192 DimCompany.",
-        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"DimCompany\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial \u2192 DimCompany \u2192 DimCompany.\"\n}"
+        "answer_str": "The shortest chain involves Financial → DimCompany → DimCompany.",
+        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"DimCompany\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial → DimCompany → DimCompany.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3341,15 +3354,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimTime \u2192 FactHoldings through intermediate tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimTime\", \"FactHoldings\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimTime \u2192 FactHoldings through intermediate tables.\"\n}\nReasoning: The query asks for the shortest chain connecting DimTime to FactHoldings via foreign key relationships. Analyzing the schema reveals a direct path through FactMarketHistory and DimCompany, but the explicit path described in the context is DimTime \u2192 FactHoldings, which is one hop. However, based on derived relationships, it may require multiple steps. The answer aligns with the provided lineage.\"\n}"
+        "answer_str": "The shortest chain involves DimTime → FactHoldings through intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimTime\", \"FactHoldings\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimTime → FactHoldings through intermediate tables.\"\n}\nReasoning: The query asks for the shortest chain connecting DimTime to FactHoldings via foreign key relationships. Analyzing the schema reveals a direct path through FactMarketHistory and DimCompany, but the explicit path described in the context is DimTime → FactHoldings, which is one hop. However, based on derived relationships, it may require multiple steps. The answer aligns with the provided lineage.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3376,15 +3390,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimDate \u2192 FactMarketHistory \u2192 DimCompany \u2192 DimCustomer \u2192 DimAccount.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimDate\", \"FactHoldings\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimDate \u2192 FactMarketHistory \u2192 DimCompany \u2192 DimCustomer \u2192 DimAccount.\"\n}\nReasoning: The schema shows a direct path through FactMarketHistory and DimCompany linking to DimCustomer, which connects to DimAccount. This is the minimal sequence based on foreign key relationships.\n}"
+        "answer_str": "The shortest chain involves two hops: DimDate → FactMarketHistory → DimCompany → DimCustomer → DimAccount.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimDate\", \"FactHoldings\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimDate → FactMarketHistory → DimCompany → DimCustomer → DimAccount.\"\n}\nReasoning: The schema shows a direct path through FactMarketHistory and DimCompany linking to DimCustomer, which connects to DimAccount. This is the minimal sequence based on foreign key relationships.\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3419,7 +3434,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3446,15 +3462,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves FactWatches \u2192 DimCustomer",
-        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"DimCustomer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves FactWatches \u2192 DimCustomer\"\n}"
+        "answer_str": "The shortest chain involves FactWatches → DimCustomer",
+        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"DimCustomer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves FactWatches → DimCustomer\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3481,15 +3498,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCustomer \u2192 DimAccount \u2192 DimBroker \u2192 DimTrade.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCustomer \u2192 DimAccount \u2192 DimBroker \u2192 DimTrade.\"\n}\n"
+        "answer_str": "The shortest chain involves DimCustomer → DimAccount → DimBroker → DimTrade.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCustomer → DimAccount → DimBroker → DimTrade.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3517,15 +3535,16 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimSecurity \u2192 DimTime and then DimTime \u2192 DimSecurity.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimSecurity\", \"DimTime\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimSecurity \u2192 DimTime and then DimTime \u2192 DimSecurity.\"\n}\nReasoning: The task requires identifying the minimal sequence of foreign key relationships linking DimTime to DimSecurity through other tables. By tracing the derived paths, the most concise route is two steps: Security \u2192 Time \u2192 Company (indirect), but directly from the schema it's two hops via Time and Security.\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimSecurity → DimTime and then DimTime → DimSecurity.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimSecurity\", \"DimTime\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimSecurity → DimTime and then DimTime → DimSecurity.\"\n}\nReasoning: The task requires identifying the minimal sequence of foreign key relationships linking DimTime to DimSecurity through other tables. By tracing the derived paths, the most concise route is two steps: Security → Time → Company (indirect), but directly from the schema it's two hops via Time and Security.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3553,15 +3572,16 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimBroker \u2192 DimCustomer",
-        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"DimCustomer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimBroker \u2192 DimCustomer\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimBroker → DimCustomer",
+        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"DimCustomer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimBroker → DimCustomer\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3589,15 +3609,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimAccount \u2192 DimTime and then DimTime \u2192 FactHoldings \u2192 DimAccount.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimTime\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimAccount \u2192 DimTime and then DimTime \u2192 FactHoldings \u2192 DimAccount.\"\n}\nReasoning: The schema shows a direct FK relationship from DimAccount to DimTime, and another from DimTime back to FactHoldings. To connect DimTime to DimAccount, we traverse through these intermediate tables in two steps.\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimAccount → DimTime and then DimTime → FactHoldings → DimAccount.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimTime\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimAccount → DimTime and then DimTime → FactHoldings → DimAccount.\"\n}\nReasoning: The schema shows a direct FK relationship from DimAccount to DimTime, and another from DimTime back to FactHoldings. To connect DimTime to DimAccount, we traverse through these intermediate tables in two steps.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3626,15 +3647,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves Financial \u2192 DimCompany \u2192 DimAccount with intermediate steps.",
-        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"DimAccount\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial \u2192 DimCompany \u2192 DimAccount with intermediate steps.\"\n}\nReasoning: The query asks for the shortest path connecting Financial to DimAccount through foreign key relationships, which requires traversing two levels of joins.\"\n}"
+        "answer_str": "The shortest chain involves Financial → DimCompany → DimAccount with intermediate steps.",
+        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"DimAccount\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial → DimCompany → DimAccount with intermediate steps.\"\n}\nReasoning: The query asks for the shortest path connecting Financial to DimAccount through foreign key relationships, which requires traversing two levels of joins.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3663,15 +3685,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimBroker \u2192 DimAccount \u2192 DimCustomer \u2192 FactWatches.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"FactWatches\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimBroker \u2192 DimAccount \u2192 DimCustomer \u2192 FactWatches.\"\n}\nReasoning: The query traces the foreign key relationships from DimBroker through DimAccount, then to DimCustomer, and finally to FactWatches, forming a 3-hop path.\"\n}"
+        "answer_str": "The shortest chain involves DimBroker → DimAccount → DimCustomer → FactWatches.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"FactWatches\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimBroker → DimAccount → DimCustomer → FactWatches.\"\n}\nReasoning: The query traces the foreign key relationships from DimBroker through DimAccount, then to DimCustomer, and finally to FactWatches, forming a 3-hop path.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3700,15 +3723,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves three hops: DimTime \u2192 FactHoldings \u2192 DimCompany \u2192 Financial.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimTime\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves three hops: DimTime \u2192 FactHoldings \u2192 DimCompany \u2192 Financial.\"\n}\nReasoning: The schema defines a direct FK relationship from DimTime to Financial, and through intermediate tables like FactHoldings and DimCompany, the connection is established. This path requires exactly three joins.\"\n}"
+        "answer_str": "The shortest chain involves three hops: DimTime → FactHoldings → DimCompany → Financial.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimTime\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves three hops: DimTime → FactHoldings → DimCompany → Financial.\"\n}\nReasoning: The schema defines a direct FK relationship from DimTime to Financial, and through intermediate tables like FactHoldings and DimCompany, the connection is established. This path requires exactly three joins.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3744,7 +3768,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3772,15 +3797,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimCompany \u2192 DimCustomer",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimCustomer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimCompany \u2192 DimCustomer\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimCompany → DimCustomer",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimCustomer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimCompany → DimCustomer\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3808,15 +3834,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimDate \u2192 DimTime.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimDate \u2192 DimTime.\"\n}\nReasoning: The schema shows a direct FK path from DimAccount through DimBroker to DimDate, then to DimTime. No shorter path exists based on the given relationships.\"\n}"
+        "answer_str": "The shortest chain involves DimAccount → DimBroker → DimDate → DimTime.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount → DimBroker → DimDate → DimTime.\"\n}\nReasoning: The schema shows a direct FK path from DimAccount through DimBroker to DimDate, then to DimTime. No shorter path exists based on the given relationships.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3853,7 +3880,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3882,15 +3910,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimAccount \u2192 DimCustomer \u2192 SRC.CustomerMgmt \u2192 FactHoldings \u2192 FactMarketHistory.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount \u2192 DimCustomer \u2192 SRC.CustomerMgmt \u2192 FactHoldings \u2192 FactMarketHistory.\"\n}\nReasoning: The schema shows a direct path from Account to Customer through Management, then to Holdings and finally to Market History. No shorter path exists based on the given relationships.\"\n}"
+        "answer_str": "The shortest chain involves DimAccount → DimCustomer → SRC.CustomerMgmt → FactHoldings → FactMarketHistory.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount → DimCustomer → SRC.CustomerMgmt → FactHoldings → FactMarketHistory.\"\n}\nReasoning: The schema shows a direct path from Account to Customer through Management, then to Holdings and finally to Market History. No shorter path exists based on the given relationships.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3926,7 +3955,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3954,15 +3984,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCustomer \u2192 DimAccount \u2192 DimBroker \u2192 DimTime.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCustomer \u2192 DimAccount \u2192 DimBroker \u2192 DimTime.\"\n}\nReasoning: The task specifies finding the shortest chain of foreign key joins between DimCustomer and DimTime, which requires traversing through at least two intermediate tables (DimAccount and DimBroker).\nAnswer: DimAccount \u2192 DimBroker \u2192 DimTime"
+        "answer_str": "The shortest chain involves DimCustomer → DimAccount → DimBroker → DimTime.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCustomer → DimAccount → DimBroker → DimTime.\"\n}\nReasoning: The task specifies finding the shortest chain of foreign key joins between DimCustomer and DimTime, which requires traversing through at least two intermediate tables (DimAccount and DimBroker).\nAnswer: DimAccount → DimBroker → DimTime"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3991,15 +4022,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves 3 hops: DimTime \u2192 FactHoldings \u2192 DimAccount \u2192 FactCashBalances.",
-        "_raw_text": "{\n  \"answer_list\": [\"FactCashBalances\", \"DimTime\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves 3 hops: DimTime \u2192 FactHoldings \u2192 DimAccount \u2192 FactCashBalances.\"\n}\n"
+        "answer_str": "The shortest chain involves 3 hops: DimTime → FactHoldings → DimAccount → FactCashBalances.",
+        "_raw_text": "{\n  \"answer_list\": [\"FactCashBalances\", \"DimTime\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves 3 hops: DimTime → FactHoldings → DimAccount → FactCashBalances.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4029,15 +4061,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves FactHoldings \u2192 DimCompany \u2192 Financial with 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"FactHoldings\", \"DimCompany\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves FactHoldings \u2192 DimCompany \u2192 Financial with 2 hops.\"\n}\n"
+        "answer_str": "The shortest chain involves FactHoldings → DimCompany → Financial with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"FactHoldings\", \"DimCompany\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves FactHoldings → DimCompany → Financial with 2 hops.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4065,15 +4098,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimCustomer.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimCustomer.\"\n}\n"
+        "answer_str": "The shortest chain involves DimAccount → DimBroker → DimCustomer.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount → DimBroker → DimCustomer.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4101,15 +4135,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: FactMarketHistory \u2192 DimCompany \u2192 Financial.",
-        "_raw_text": "{\n  \"answer_list\": [\"FactMarketHistory\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: FactMarketHistory \u2192 DimCompany \u2192 Financial.\"\n}"
+        "answer_str": "The shortest chain involves two hops: FactMarketHistory → DimCompany → Financial.",
+        "_raw_text": "{\n  \"answer_list\": [\"FactMarketHistory\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: FactMarketHistory → DimCompany → Financial.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4138,15 +4173,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves 3 hops: FactMarketHistory \u2192 DimCustomer \u2192 FactWatches \u2192 DimSecurity \u2192 FactMarketHistory",
-        "_raw_text": "{\n  \"answer_list\": [\"FactMarketHistory\", \"DimCustomer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves 3 hops: FactMarketHistory \u2192 DimCustomer \u2192 FactWatches \u2192 DimSecurity \u2192 FactMarketHistory\"\n}"
+        "answer_str": "The shortest chain involves 3 hops: FactMarketHistory → DimCustomer → FactWatches → DimSecurity → FactMarketHistory",
+        "_raw_text": "{\n  \"answer_list\": [\"FactMarketHistory\", \"DimCustomer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves 3 hops: FactMarketHistory → DimCustomer → FactWatches → DimSecurity → FactMarketHistory\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4180,7 +4216,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4208,15 +4245,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimAccount \u2192 DimCustomer \u2192 FactWatches.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"FactWatches\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimAccount \u2192 DimCustomer \u2192 FactWatches.\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimAccount → DimCustomer → FactWatches.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"FactWatches\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimAccount → DimCustomer → FactWatches.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4252,7 +4290,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4289,7 +4328,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4325,7 +4365,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4354,15 +4395,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimBroker \u2192 DimTrade \u2192 DimCompany \u2192 Financial.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimBroker \u2192 DimTrade \u2192 DimCompany \u2192 Financial.\"\n}"
+        "answer_str": "The shortest chain involves DimBroker → DimTrade → DimCompany → Financial.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimBroker → DimTrade → DimCompany → Financial.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4390,15 +4432,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: FactCashBalances \u2192 DimDate \u2192 FactMarketHistory.",
-        "_raw_text": "{\n  \"answer_list\": [\"FactCashBalances\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: FactCashBalances \u2192 DimDate \u2192 FactMarketHistory.\"\n}"
+        "answer_str": "The shortest chain involves two hops: FactCashBalances → DimDate → FactMarketHistory.",
+        "_raw_text": "{\n  \"answer_list\": [\"FactCashBalances\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: FactCashBalances → DimDate → FactMarketHistory.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4426,15 +4469,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimAccount \u2192 DimDate and then DimDate \u2192 FactCashBalances.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimDate\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimAccount \u2192 DimDate and then DimDate \u2192 FactCashBalances.\"\n}\nReasoning: The query asks for the shortest path connecting DimDate to DimAccount through foreign key relationships. Analyzing the schema reveals that DimAccount references DimDate via a derived relationship, and both are linked to FactCashBalances. The minimal chain requires two steps: Account \u2192 Date \u2192 Cash Balances.\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimAccount → DimDate and then DimDate → FactCashBalances.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimDate\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimAccount → DimDate and then DimDate → FactCashBalances.\"\n}\nReasoning: The query asks for the shortest path connecting DimDate to DimAccount through foreign key relationships. Analyzing the schema reveals that DimAccount references DimDate via a derived relationship, and both are linked to FactCashBalances. The minimal chain requires two steps: Account → Date → Cash Balances.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4464,15 +4508,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves Financial \u2192 DimCustomer \u2192 FactHoldings \u2192 DimCompany \u2192 FactCashBalances.",
-        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"FactCashBalances\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial \u2192 DimCustomer \u2192 FactHoldings \u2192 DimCompany \u2192 FactCashBalances.\"\n}\nReasoning: The schema shows a direct path from Financial to FactCashBalances through customer holdings and company links, requiring four joins.\"\n}"
+        "answer_str": "The shortest chain involves Financial → DimCustomer → FactHoldings → DimCompany → FactCashBalances.",
+        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"FactCashBalances\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial → DimCustomer → FactHoldings → DimCompany → FactCashBalances.\"\n}\nReasoning: The schema shows a direct path from Financial to FactCashBalances through customer holdings and company links, requiring four joins.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4500,15 +4545,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimBroker \u2192 DimTrade \u2192 DimDate.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"DimDate\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimBroker \u2192 DimTrade \u2192 DimDate.\"\n}\nReasoning: The query asks for the shortest chain connecting DimBroker to DimDate through foreign key relationships. Analyzing the schema reveals a direct path via DimBroker \u2192 DimTrade \u2192 DimDate with two hops, which is minimal.\"\n}"
+        "answer_str": "The shortest chain involves DimBroker → DimTrade → DimDate.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"DimDate\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimBroker → DimTrade → DimDate.\"\n}\nReasoning: The query asks for the shortest chain connecting DimBroker to DimDate through foreign key relationships. Analyzing the schema reveals a direct path via DimBroker → DimTrade → DimDate with two hops, which is minimal.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4544,7 +4590,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4580,7 +4627,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4616,7 +4664,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4644,15 +4693,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCompany \u2192 FactMarketHistory \u2192 DimDate.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany \u2192 FactMarketHistory \u2192 DimDate.\"\n}\n"
+        "answer_str": "The shortest chain involves DimCompany → FactMarketHistory → DimDate.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactMarketHistory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany → FactMarketHistory → DimDate.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4687,7 +4737,8 @@
         "f1": 0.4,
         "precision": 1.0,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4715,15 +4766,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimAccount \u2192 DimBroker via DimTrade.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount \u2192 DimBroker via DimTrade.\"\n}"
+        "answer_str": "The shortest chain involves DimAccount → DimBroker via DimTrade.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount → DimBroker via DimTrade.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4751,15 +4803,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: Customer \u2192 Security",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCustomer\", \"DimSecurity\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: Customer \u2192 Security\"\n}"
+        "answer_str": "The shortest chain involves two hops: Customer → Security",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCustomer\", \"DimSecurity\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: Customer → Security\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4787,15 +4840,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves two hops: DimBroker \u2192 DimSecurity",
-        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"DimSecurity\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimBroker \u2192 DimSecurity\"\n}"
+        "answer_str": "The shortest chain involves two hops: DimBroker → DimSecurity",
+        "_raw_text": "{\n  \"answer_list\": [\"DimBroker\", \"DimSecurity\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves two hops: DimBroker → DimSecurity\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4831,7 +4885,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4869,7 +4924,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4897,15 +4953,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCompany \u2192 FactWatches \u2192 DimSecurity \u2192 FactWatches.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactWatches\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany \u2192 FactWatches \u2192 DimSecurity \u2192 FactWatches.\"\n}"
+        "answer_str": "The shortest chain involves DimCompany → FactWatches → DimSecurity → FactWatches.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"FactWatches\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany → FactWatches → DimSecurity → FactWatches.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4934,15 +4991,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves four foreign key joins: DimCompany \u2192 FactMarketHistory \u2192 DimDate \u2192 FactCashBalances.",
-        "_raw_text": "{\n  \"answer_list\": [\"FactCashBalances\", \"DimCompany\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves four foreign key joins: DimCompany \u2192 FactMarketHistory \u2192 DimDate \u2192 FactCashBalances.\"\n}\n"
+        "answer_str": "The shortest chain involves four foreign key joins: DimCompany → FactMarketHistory → DimDate → FactCashBalances.",
+        "_raw_text": "{\n  \"answer_list\": [\"FactCashBalances\", \"DimCompany\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves four foreign key joins: DimCompany → FactMarketHistory → DimDate → FactCashBalances.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4971,15 +5029,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimDate \u2192 FactMarketHistory \u2192 DimCompany \u2192 Financial.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimDate\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimDate \u2192 FactMarketHistory \u2192 DimCompany \u2192 Financial.\"\n}\nReasoning: The schema shows a direct FK path from DimDate through FactMarketHistory to DimCompany, and then to Financial. No shorter path exists based on the defined relationships.\n}"
+        "answer_str": "The shortest chain involves DimDate → FactMarketHistory → DimCompany → Financial.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimDate\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimDate → FactMarketHistory → DimCompany → Financial.\"\n}\nReasoning: The schema shows a direct FK path from DimDate through FactMarketHistory to DimCompany, and then to Financial. No shorter path exists based on the defined relationships.\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5015,7 +5074,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5044,15 +5104,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves Financial \u2192 DimCustomer via FactHoldings \u2192 DimCompany \u2192 Financial.",
-        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"DimCustomer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial \u2192 DimCustomer via FactHoldings \u2192 DimCompany \u2192 Financial.\"\n}"
+        "answer_str": "The shortest chain involves Financial → DimCustomer via FactHoldings → DimCompany → Financial.",
+        "_raw_text": "{\n  \"answer_list\": [\"Financial\", \"DimCustomer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves Financial → DimCustomer via FactHoldings → DimCompany → Financial.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5088,7 +5149,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5124,7 +5186,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5152,15 +5215,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimCompany.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount \u2192 DimBroker \u2192 DimCompany.\"\n}"
+        "answer_str": "The shortest chain involves DimAccount → DimBroker → DimCompany.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimAccount\", \"DimBroker\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimAccount → DimBroker → DimCompany.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5190,14 +5254,15 @@
         "answer_int": 5,
         "answer_bool": true,
         "answer_str": "3 hops",
-        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The query asks for the shortest chain of foreign key joins connecting FactWatches to Financial. By tracing the derived relationships, we see FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 DimCustomer \u2192 DimAccount \u2192 Financial, which is 4 links. However, the direct path via SRC.Date and SRC.Time (indirect) or through TaxRate (indirect) gives a shorter chain. The exact shortest path is determined by analyzing derived FK relationships.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The query asks for the shortest chain of foreign key joins connecting FactWatches to Financial. By tracing the derived relationships, we see FactWatches → DimSecurity → DimCompany → DimCustomer → DimAccount → Financial, which is 4 links. However, the direct path via SRC.Date and SRC.Time (indirect) or through TaxRate (indirect) gives a shorter chain. The exact shortest path is determined by analyzing derived FK relationships.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5225,15 +5290,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves DimCompany \u2192 DimTime \u2192 FactHoldings \u2192 DimTime",
-        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimTime\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany \u2192 DimTime \u2192 FactHoldings \u2192 DimTime\"\n}\nReasoning: The schema shows a direct path from DimCompany through FactHoldings to DimTime, which connects back to DimCompany. This forms the minimal foreign key dependency chain.\"\n}"
+        "answer_str": "The shortest chain involves DimCompany → DimTime → FactHoldings → DimTime",
+        "_raw_text": "{\n  \"answer_list\": [\"DimCompany\", \"DimTime\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves DimCompany → DimTime → FactHoldings → DimTime\"\n}\nReasoning: The schema shows a direct path from DimCompany through FactHoldings to DimTime, which connects back to DimCompany. This forms the minimal foreign key dependency chain.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5269,7 +5335,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5297,15 +5364,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves security \u2192 company \u2192 financial.",
-        "_raw_text": "{\n  \"answer_list\": [\"DimSecurity\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves security \u2192 company \u2192 financial.\"\n}\nReasoning: The schema shows a direct FK relationship from DimSecurity to Financial through the company table, forming a two-hop path.\"\n}"
+        "answer_str": "The shortest chain involves security → company → financial.",
+        "_raw_text": "{\n  \"answer_list\": [\"DimSecurity\", \"Financial\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves security → company → financial.\"\n}\nReasoning: The schema shows a direct FK relationship from DimSecurity to Financial through the company table, forming a two-hop path.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5327,7 +5395,7 @@
         "answer_int": 3,
         "answer_bool": true,
         "answer_str": "3 hops",
-        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"Financial\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The query asks for the minimum number of foreign key joins between FactWatches and Financial. Based on the lineage relationships, we trace through the derived FK paths: FactWatches \u2192 DimSecurity \u2192 DimCompany \u2192 DimSecurity (or similar) \u2192 DimCustomer \u2192 DimAccount \u2192 DimFinancial, which requires 3 hops.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"FactWatches\", \"Financial\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"3 hops\"\n}\nReasoning: The query asks for the minimum number of foreign key joins between FactWatches and Financial. Based on the lineage relationships, we trace through the derived FK paths: FactWatches → DimSecurity → DimCompany → DimSecurity (or similar) → DimCustomer → DimAccount → DimFinancial, which requires 3 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -6231,5 +6299,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 181,
+    "exact_match": 54,
+    "exact_match_pct": 29.8,
+    "avg_f1": 53.0
+  }
 }

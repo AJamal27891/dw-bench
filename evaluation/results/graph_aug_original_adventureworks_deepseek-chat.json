@@ -4546,7 +4546,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate \u2192 DW.dbo.FactSalesQuota with 1 hop.",
+      "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate → DW.dbo.FactSalesQuota with 1 hop.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4556,8 +4556,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate \u2192 DW.dbo.FactSalesQuota with 1 hop.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimDate\", \"DW.dbo.FactSalesQuota\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as DW.dbo.DimDate \u2192 DW.dbo.FactSalesQuota with 1 hop.\"\n}"
+        "reasoning": "The context explicitly lists the shortest path as DW.dbo.DimDate → DW.dbo.FactSalesQuota with 1 hop.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimDate\", \"DW.dbo.FactSalesQuota\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as DW.dbo.DimDate → DW.dbo.FactSalesQuota with 1 hop.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5250,7 +5250,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory with 2 hops.",
+      "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument → OLTP.Production.Product → OLTP.Production.ProductListPriceHistory with 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5261,8 +5261,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory with 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.ProductDocument\", \"OLTP.Production.Product\", \"OLTP.Production.ProductListPriceHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as OLTP.Production.ProductDocument \u2192 OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory with 2 hops.\"\n}"
+        "reasoning": "The context explicitly lists the shortest path as OLTP.Production.ProductDocument → OLTP.Production.Product → OLTP.Production.ProductListPriceHistory with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.ProductDocument\", \"OLTP.Production.Product\", \"OLTP.Production.ProductListPriceHistory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly lists the shortest path as OLTP.Production.ProductDocument → OLTP.Production.Product → OLTP.Production.ProductListPriceHistory with 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5418,7 +5418,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory \u2192 DW.dbo.FactInternetSales \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
+      "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory → DW.dbo.FactInternetSales → DW.dbo.DimDate → DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5430,8 +5430,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory \u2192 DW.dbo.FactInternetSales \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactInternetSales\", \"DW.dbo.DimSalesTerritory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory \u2192 DW.dbo.FactInternetSales \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.\"\n}"
+        "reasoning": "The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory → DW.dbo.FactInternetSales → DW.dbo.DimDate → DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactInternetSales\", \"DW.dbo.DimSalesTerritory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from DW.dbo.FactCurrencyRate to DW.dbo.DimSalesTerritory is given in the context as DW.dbo.DimSalesTerritory → DW.dbo.FactInternetSales → DW.dbo.DimDate → DW.dbo.FactCurrencyRate, which when reversed matches the question's direction.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5821,7 +5821,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactSurveyResponse with 2 hops.",
+      "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate → DW.dbo.DimDate → DW.dbo.FactSurveyResponse with 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5832,8 +5832,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactSurveyResponse with 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactSurveyResponse\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactSurveyResponse with 2 hops.\"\n}"
+        "reasoning": "The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate → DW.dbo.DimDate → DW.dbo.FactSurveyResponse with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDate\", \"DW.dbo.FactSurveyResponse\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.FactCurrencyRate → DW.dbo.DimDate → DW.dbo.FactSurveyResponse with 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5901,7 +5901,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory \u2192 OLTP.HumanResources.Employee \u2192 OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
+      "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory → OLTP.HumanResources.Employee → OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5912,8 +5912,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory \u2192 OLTP.HumanResources.Employee \u2192 OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.Employee\", \"OLTP.Purchasing.PurchaseOrderHeader\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory \u2192 OLTP.HumanResources.Employee \u2192 OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.\"\n}"
+        "reasoning": "The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory → OLTP.HumanResources.Employee → OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.Employee\", \"OLTP.Purchasing.PurchaseOrderHeader\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path is given in the context as OLTP.HumanResources.EmployeeDepartmentHistory → OLTP.HumanResources.Employee → OLTP.Purchasing.PurchaseOrderHeader, which is 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -7446,7 +7446,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales.",
+      "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -7457,8 +7457,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales.",
-        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimOrganization\", \"DW.dbo.DimCurrency\", \"DW.dbo.FactResellerSales\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.DimOrganization \u2192 DW.dbo.DimCurrency \u2192 DW.dbo.FactResellerSales.\"\n}"
+        "reasoning": "The context explicitly provides the shortest path as DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales.",
+        "_raw_text": "{\n  \"answer_list\": [\"DW.dbo.DimOrganization\", \"DW.dbo.DimCurrency\", \"DW.dbo.FactResellerSales\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as DW.dbo.DimOrganization → DW.dbo.DimCurrency → DW.dbo.FactResellerSales.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -7757,7 +7757,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.WorkOrder with 2 hops.",
+      "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory → OLTP.Production.Product → OLTP.Production.WorkOrder with 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -7768,8 +7768,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.WorkOrder with 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.TransactionHistory\", \"OLTP.Production.Product\", \"OLTP.Production.WorkOrder\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as OLTP.Production.TransactionHistory \u2192 OLTP.Production.Product \u2192 OLTP.Production.WorkOrder with 2 hops.\"\n}"
+        "reasoning": "The context explicitly provides the shortest path as OLTP.Production.TransactionHistory → OLTP.Production.Product → OLTP.Production.WorkOrder with 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.TransactionHistory\", \"OLTP.Production.Product\", \"OLTP.Production.WorkOrder\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly provides the shortest path as OLTP.Production.TransactionHistory → OLTP.Production.Product → OLTP.Production.WorkOrder with 2 hops.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -8697,5 +8697,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 200,
+    "exact_match": 148,
+    "exact_match_pct": 74.0,
+    "avg_f1": 88.3
+  }
 }

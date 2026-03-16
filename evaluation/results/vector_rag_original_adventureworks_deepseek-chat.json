@@ -10273,7 +10273,7 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "Path: ProductDescription \u2192 ProductModelProductDescriptionCulture \u2192 ProductModel \u2192 Product \u2192 ProductDocument \u2192 Document \u2192 Employee \u2192 EmployeeDepartmentHistory, requiring 3 FK joins (ProductModelProductDescriptionCulture, ProductDocument, Document).",
+      "reasoning": "Path: ProductDescription → ProductModelProductDescriptionCulture → ProductModel → Product → ProductDocument → Document → Employee → EmployeeDepartmentHistory, requiring 3 FK joins (ProductModelProductDescriptionCulture, ProductDocument, Document).",
       "api_failure": false,
       "retrieved_tables": [
         "OLTP.Production.Document",
@@ -10297,8 +10297,8 @@
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "Path: ProductDescription \u2192 ProductModelProductDescriptionCulture \u2192 ProductModel \u2192 Product \u2192 ProductDocument \u2192 Document \u2192 Employee \u2192 EmployeeDepartmentHistory, requiring 3 FK joins (ProductModelProductDescriptionCulture, ProductDocument, Document).",
-        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": 3,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"Path: ProductDescription \u2192 ProductModelProductDescriptionCulture \u2192 ProductModel \u2192 Product \u2192 ProductDocument \u2192 Document \u2192 Employee \u2192 EmployeeDepartmentHistory, requiring 3 FK joins (ProductModelProductDescriptionCulture, ProductDocument, Document).\"\n}"
+        "reasoning": "Path: ProductDescription → ProductModelProductDescriptionCulture → ProductModel → Product → ProductDocument → Document → Employee → EmployeeDepartmentHistory, requiring 3 FK joins (ProductModelProductDescriptionCulture, ProductDocument, Document).",
+        "_raw_text": "{\n    \"answer_list\": null,\n    \"answer_int\": 3,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"Path: ProductDescription → ProductModelProductDescriptionCulture → ProductModel → Product → ProductDocument → Document → Employee → EmployeeDepartmentHistory, requiring 3 FK joins (ProductModelProductDescriptionCulture, ProductDocument, Document).\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -11535,5 +11535,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 200,
+    "exact_match": 134,
+    "exact_match_pct": 67.0,
+    "avg_f1": 80.6
+  }
 }

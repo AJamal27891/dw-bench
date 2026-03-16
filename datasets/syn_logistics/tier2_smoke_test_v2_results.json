@@ -1,0 +1,309 @@
+[
+  {
+    "model": "gemini",
+    "subtype": "row_provenance",
+    "answer_type": "list",
+    "gold": [
+      "stg_compensation_normalized:row_3235",
+      "stg_employees_cleaned:row_3786"
+    ],
+    "va_pred": [
+      "stg_compensation_normalized",
+      "stg_employees_cleaned"
+    ],
+    "va_em": 0,
+    "va_f1": 0,
+    "va_raw": "```json\n{\n  \"answer_list\": [\n    \"stg_compensation_normalized\",\n    \"stg_employees_cleaned\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The `fact_payroll` table is directly derived from `stg_compensation_normalized` and `stg_employees_cleaned` based on the provided schema relationships.\"\n}\n```",
+    "ga_pred": [
+      "stg_compensation_normalized: rows [3235]",
+      "stg_employees_cleaned: rows [3786]"
+    ],
+    "ga_em": 1,
+    "ga_f1": 1.0,
+    "ga_raw": "{\n  \"answer_list\": [\n    \"stg_compensation_normalized: rows [3235]\",\n    \"stg_employees_cleaned: rows [3786]\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The ROW LINEAGE section directly specifies the contributing rows from upstream tables for fact_payroll row_1652.\"\n}",
+    "tu_pred": [
+      "stg_compensation_normalized:row_3235",
+      "stg_employees_cleaned:row_3786"
+    ],
+    "tu_em": 1,
+    "tu_f1": 1.0,
+    "tu_raw": "{\"answer_list\": [{\"table\": \"stg_compensation_normalized\", \"row_id\": \"row_3235\"}, {\"table\": \"stg_employees_cleaned\", \"row_id\": \"row_3786\"}], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The trace_row_lineage tool was used to find the direct backward lineage for fact_payroll row_1652, identifying the contributing rows from stg_compensation_normalized and stg_employees_cleaned.\"}"
+  },
+  {
+    "model": "gemini",
+    "subtype": "value_origin",
+    "answer_type": "list",
+    "gold": [
+      "raw_bank_feeds",
+      "raw_cart_sessions",
+      "raw_freight_invoices",
+      "raw_ledger_entries",
+      "raw_payment_events",
+      "raw_purchase_orders",
+      "raw_tax_filings",
+      "raw_warehouse_inventory"
+    ],
+    "va_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "va_em": 0,
+    "va_f1": 0.5455,
+    "va_raw": "```json\n{\n  \"answer_list\": [\n    \"raw_ledger_entries\",\n    \"raw_bank_feeds\",\n    \"raw_tax_filings\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"dim_account is derived from stg_ledger_reconciled and stg_bank_matched. Tracing these back leads to raw_ledger_entries, raw_bank_feeds, and raw_tax_filings.\"\n}\n```",
+    "ga_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "ga_em": 0,
+    "ga_f1": 0.5455,
+    "ga_raw": "```json\n{\n  \"answer_list\": [\n    \"raw_ledger_entries\",\n    \"raw_bank_feeds\",\n    \"raw_tax_filings\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"dim_account row_429 originates from stg_ledger_reconciled and stg_bank_matched. Tracing these staging tables back to their raw sources reveals raw_ledger_entries, raw_bank_feeds, and raw_tax_filings.\"\n}\n```",
+    "tu_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "tu_em": 0,
+    "tu_f1": 0.5455,
+    "tu_raw": "{\"answer_list\": [\"raw_ledger_entries\", \"raw_bank_feeds\", \"raw_tax_filings\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"I traced the backward lineage of dim_account row_429. This led to stg_ledger_reconciled and stg_bank_matched. Further tracing of stg_ledger_reconciled revealed raw_ledger_entries as a source. Further tracing of stg_bank_matched revealed raw_bank_feeds and raw_tax_filings as sources. dim_carrier is not a raw source table, so it is excluded.\"}"
+  },
+  {
+    "model": "gemini",
+    "subtype": "cascade_count",
+    "answer_type": "integer",
+    "gold": 1,
+    "va_pred": null,
+    "va_em": 0,
+    "va_f1": 0.0,
+    "va_raw": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided schema context does not contain information about row counts or the cardinality of relationships, which are necessary to determine the number of affected downstream rows.\"\n}\n```",
+    "ga_pred": null,
+    "ga_em": 0,
+    "ga_f1": 0.0,
+    "ga_raw": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"Lineage chain information is not provided in the context, so the number of affected downstream rows cannot be determined.\",\n  \"reasoning\": \"The context does not include lineage chain details, which are necessary to trace downstream dependencies and calculate affected rows.\"\n}\n```",
+    "tu_pred": 1,
+    "tu_em": 1,
+    "tu_f1": 1.0,
+    "tu_raw": "{\"answer_list\": null, \"answer_int\": 1, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"The `count_downstream` tool was called with the specified table and row ID. The tool returned a `total_downstream` count of 1, indicating that only one row across all tables is affected by the deletion of `raw_bank_feeds:row_6291`.\"}"
+  },
+  {
+    "model": "gemini",
+    "subtype": "value_propagation",
+    "answer_type": "boolean",
+    "gold": true,
+    "va_pred": true,
+    "va_em": 1,
+    "va_f1": 1.0,
+    "va_raw": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": null,\n  \"reasoning\": \"Data from raw_warehouse_inventory propagates to stg_inventory_snapshot, which then propagates to dim_carrier, and finally to mart_inventory_turnover.\"\n}\n```",
+    "ga_pred": false,
+    "ga_em": 0,
+    "ga_f1": 0.0,
+    "ga_raw": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided LINEAGE CHAINS show that mart_inventory_turnover depends on dim_carrier and fact_shipment, and dim_carrier depends on stg_inventory_snapshot. However, the lineage does not specify the sources for stg_inventory_snapshot, thus a direct propagation from raw_warehouse_inventory cannot be confirmed from the given context.\"\n}\n```",
+    "tu_pred": false,
+    "tu_em": 0,
+    "tu_f1": 0.0,
+    "tu_raw": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"I traced the forward lineage of a sample row ('0') from the 'raw_warehouse_inventory' table. The tool result indicated that there are no downstream rows derived from this row (total: 0). This implies that data from 'raw_warehouse_inventory' does not propagate to any downstream tables, including 'mart_inventory_turnover'.\"}"
+  },
+  {
+    "model": "gemini",
+    "subtype": "cross_silo_reachability",
+    "answer_type": "boolean",
+    "gold": false,
+    "va_pred": false,
+    "va_em": 1,
+    "va_f1": 1.0,
+    "va_raw": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided schema shows distinct data flows for logistics and healthcare silos, with no relationships connecting raw tables from the logistics silo to mart tables in the healthcare silo.\"\n}",
+    "ga_pred": false,
+    "ga_em": 1,
+    "ga_f1": 1.0,
+    "ga_raw": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"Tracing the lineage of healthcare mart tables (mart_readmission_risk, mart_treatment_outcomes) shows their dependencies are exclusively within the healthcare silo's staging and raw tables.\"\n}",
+    "tu_pred": false,
+    "tu_em": 1,
+    "tu_f1": 1.0,
+    "tu_raw": "{\"answer_list\": null, \"answer_int\": null, \"answer_bool\": false, \"answer_str\": null, \"reasoning\": \"I traced the backward lineage from 'mart_readmission_risk' (a healthcare silo mart table). The lineage led back through 'dim_patient', 'stg_patients_validated', and 'raw_patient_intake'. All tables encountered in this trace belong to the healthcare silo. No raw tables from the logistics silo ('raw_purchase_orders', 'raw_shipment_tracking', 'raw_supplier_catalog', 'raw_warehouse_inventory', 'raw_frei"
+  },
+  {
+    "model": "gemini",
+    "subtype": "shared_source",
+    "answer_type": "list",
+    "gold": [
+      "raw_employee_records",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "va_pred": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "va_em": 0,
+    "va_f1": 0.8571,
+    "va_raw": "```json\n{\n  \"answer_list\": [\n    \"raw_shipment_tracking\",\n    \"raw_supplier_catalog\",\n    \"raw_warehouse_inventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tracing dependencies, `mart_delivery_performance` is derived from `dim_supplier` and `dim_product`. `mart_procurement_cost` is derived from `dim_product` and `dim_warehouse`. Identifying the raw sources for these dimensions and finding the intersection reveals the common raw tables.\"\n}\n```",
+    "ga_pred": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog"
+    ],
+    "ga_em": 0,
+    "ga_f1": 0.6667,
+    "ga_raw": "```json\n{\n  \"answer_list\": [\n    \"raw_shipment_tracking\",\n    \"raw_supplier_catalog\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tracing the lineage, both mart_delivery_performance and mart_procurement_cost depend on dim_product, which in turn uses stg_shipments_validated and stg_suppliers_deduped. These staging tables originate from raw_shipment_tracking and raw_supplier_catalog respectively.\"\n}\n```",
+    "tu_pred": [
+      "raw_freight_invoices"
+    ],
+    "tu_em": 0,
+    "tu_f1": 0,
+    "tu_raw": "{\"answer_list\": [\"raw_freight_invoices\"], \"answer_int\": null, \"answer_bool\": null, \"answer_str\": null, \"reasoning\": \"To determine which raw source tables feed into both 'mart_delivery_performance' and 'mart_procurement_cost', I inferred the data flow based on the provided schema layers (raw \u2192 staging \u2192 core (dim/fact) \u2192 mart) and logical naming conventions, as no direct table-level lineage tool is available. \\n\\n1.  **Lineage for `mart_delivery_performance`:**\\n    *   `mart_delivery_performance"
+  },
+  {
+    "model": "deepseek",
+    "subtype": "row_provenance",
+    "answer_type": "list",
+    "gold": [
+      "stg_compensation_normalized:row_3235",
+      "stg_employees_cleaned:row_3786"
+    ],
+    "va_pred": [],
+    "va_em": 0,
+    "va_f1": 0.0,
+    "va_raw": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The question asks about specific row-level data (row_1652), but the context only provides schema-level information (tables and relationships), not row-level details.\"\n}",
+    "ga_pred": [
+      "stg_compensation_normalized: rows [3235]",
+      "stg_employees_cleaned: rows [3786]"
+    ],
+    "ga_em": 1,
+    "ga_f1": 1.0,
+    "ga_raw": "{\n  \"answer_list\": [\"stg_compensation_normalized: rows [3235]\", \"stg_employees_cleaned: rows [3786]\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context specifies that fact_payroll row_1652 is directly sourced from stg_compensation_normalized row 3235 and stg_employees_cleaned row 3786.\"\n}",
+    "tu_pred": [
+      "stg_compensation_normalized:row_3235",
+      "stg_employees_cleaned:row_3786"
+    ],
+    "tu_em": 1,
+    "tu_f1": 1.0,
+    "tu_raw": "{\n    \"answer_list\": [\n        {\"table\": \"stg_compensation_normalized\", \"rows\": [3235]},\n        {\"table\": \"stg_employees_cleaned\", \"rows\": [3786]}\n    ],\n    \"answer_int\": null,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"The trace_row_lineage tool with direction='backward' directly identified the source rows that contributed to fact_payroll row_1652. The result shows two source tables with specific row IDs.\"\n}"
+  },
+  {
+    "model": "deepseek",
+    "subtype": "value_origin",
+    "answer_type": "list",
+    "gold": [
+      "raw_bank_feeds",
+      "raw_cart_sessions",
+      "raw_freight_invoices",
+      "raw_ledger_entries",
+      "raw_payment_events",
+      "raw_purchase_orders",
+      "raw_tax_filings",
+      "raw_warehouse_inventory"
+    ],
+    "va_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "va_em": 0,
+    "va_f1": 0.5455,
+    "va_raw": "{\n  \"answer_list\": [\"raw_ledger_entries\", \"raw_bank_feeds\", \"raw_tax_filings\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"dim_account is derived from stg_ledger_reconciled and stg_bank_matched, which in turn originate from raw_ledger_entries, raw_bank_feeds, and raw_tax_filings based on the relationships provided.\"\n}",
+    "ga_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "ga_em": 0,
+    "ga_f1": 0.5455,
+    "ga_raw": "{\n  \"answer_list\": [\"raw_ledger_entries\", \"raw_bank_feeds\", \"raw_tax_filings\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"ROW LINEAGE shows dim_account row_429 comes from stg_ledger_reconciled and stg_bank_matched, and LINEAGE CHAINS indicate these staging tables source from raw_ledger_entries, raw_bank_feeds, and raw_tax_filings.\"\n}",
+    "tu_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "tu_em": 0,
+    "tu_f1": 0.5455,
+    "tu_raw": "{\n    \"answer_list\": [\"raw_ledger_entries\", \"raw_bank_feeds\", \"raw_tax_filings\"],\n    \"answer_int\": null,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"The question asks which raw source tables dim_account row_429 originates from. Using trace_row_lineage backward from dim_account row_429, we found it originates from stg_ledger_reconciled and stg_bank_matched. Tracing further backward from those staging tables, we found raw source tables: raw_ledger_entries (from stg_ledger_r"
+  },
+  {
+    "model": "deepseek",
+    "subtype": "cascade_count",
+    "answer_type": "integer",
+    "gold": 1,
+    "va_pred": null,
+    "va_em": 0,
+    "va_f1": 0.0,
+    "va_raw": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"Cannot determine from schema alone\",\n  \"reasoning\": \"The schema provides table relationships but not row-level dependencies or counts, so the exact number of affected downstream rows cannot be calculated.\"\n}",
+    "ga_pred": 9250,
+    "ga_em": 0,
+    "ga_f1": 0.0,
+    "ga_raw": "{\n    \"answer_list\": null,\n    \"answer_int\": 9250,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"The context shows raw_bank_feeds has 9250 rows total, and deleting one row would affect all downstream rows from that table.\"\n}",
+    "tu_pred": 1,
+    "tu_em": 1,
+    "tu_f1": 1.0,
+    "tu_raw": "{\n    \"answer_list\": null,\n    \"answer_int\": 1,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"The count_downstream tool was called for raw_bank_feeds row_6291, which returned a total of 1 downstream row across all tables (specifically in stg_bank_matched).\"\n}"
+  },
+  {
+    "model": "deepseek",
+    "subtype": "value_propagation",
+    "answer_type": "boolean",
+    "gold": true,
+    "va_pred": true,
+    "va_em": 1,
+    "va_f1": 1.0,
+    "va_raw": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": true,\n    \"answer_str\": null,\n    \"reasoning\": \"raw_warehouse_inventory connects to stg_inventory_snapshot, which connects to dim_warehouse and dim_carrier, both connecting to mart_inventory_turnover via derived_from relationships.\"\n}",
+    "ga_pred": false,
+    "ga_em": 0,
+    "ga_f1": 0.0,
+    "ga_raw": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": false,\n    \"answer_str\": null,\n    \"reasoning\": \"The lineage chain shows mart_inventory_turnover sources from dim_carrier and fact_shipment, which come from stg_freight_reconciled and stg_orders_cleaned/stg_inventory_snapshot, with no connection to raw_warehouse_inventory.\"\n}",
+    "tu_pred": false,
+    "tu_em": 0,
+    "tu_f1": 0.0,
+    "tu_raw": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"I traced backward lineage from mart_inventory_turnover through fact_shipment and its sources (stg_orders_cleaned, stg_freight_reconciled, raw_purchase_orders, raw_freight_invoices, stg_payments_validated). I also checked the list of tables. The lineage path shows no connection to raw_warehouse_inventory. The mart_inventory_turnover appears to be sourced from fact_shipment and dim_carrier,"
+  },
+  {
+    "model": "deepseek",
+    "subtype": "cross_silo_reachability",
+    "answer_type": "boolean",
+    "gold": false,
+    "va_pred": false,
+    "va_em": 1,
+    "va_f1": 1.0,
+    "va_raw": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The logistics silo includes raw tables like raw_purchase_orders, and the healthcare silo includes mart tables like mart_readmission_risk, but there are no relationships connecting these across silos in the provided schema.\"\n}",
+    "ga_pred": false,
+    "ga_em": 1,
+    "ga_f1": 1.0,
+    "ga_raw": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The lineage overview shows no connections between logistics raw tables and healthcare mart tables; all flows are within silos or to their own marts.\"\n}",
+    "tu_pred": false,
+    "tu_em": 1,
+    "tu_f1": 1.0,
+    "tu_raw": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": false,\n    \"answer_str\": null,\n    \"reasoning\": \"I traced the lineage of a healthcare mart table (mart_readmission_risk) backward through its sources. The lineage flows through healthcare-specific tables only: mart_readmission_risk \u2192 dim_patient/dim_provider \u2192 stg_patients_validated/stg_labs_standardized \u2192 raw_patient_intake. All these tables belong to the healthcare silo. No logistics silo raw tables (raw_purchase_orders, raw"
+  },
+  {
+    "model": "deepseek",
+    "subtype": "shared_source",
+    "answer_type": "list",
+    "gold": [
+      "raw_employee_records",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "va_pred": [
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "va_em": 0,
+    "va_f1": 0.6667,
+    "va_raw": "{\n  \"answer_list\": [\"raw_purchase_orders\", \"raw_shipment_tracking\", \"raw_supplier_catalog\", \"raw_warehouse_inventory\", \"raw_freight_invoices\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"These raw tables have derived paths to both mart_delivery_performance and mart_procurement_cost via intermediate tables in the relationships.\"\n}",
+    "ga_pred": [],
+    "ga_em": 0,
+    "ga_f1": 0.0,
+    "ga_raw": "{\n    \"answer_list\": null,\n    \"answer_int\": null,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"No raw tables feed into both marts based on the lineage chains provided; the chains only show staging and dimension tables as sources.\"\n}",
+    "tu_pred": [
+      "raw_purchase_orders",
+      "raw_shipment_tracking"
+    ],
+    "tu_em": 0,
+    "tu_f1": 0.3333,
+    "tu_raw": "{\n    \"answer_list\": [\"raw_purchase_orders\", \"raw_shipment_tracking\"],\n    \"answer_int\": null,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"To find raw source tables feeding into both mart_delivery_performance and mart_procurement_cost, I traced lineage backward from each mart table. mart_delivery_performance sources from dim_supplier and dim_product. mart_procurement_cost sources from dim_product and dim_warehouse. The common intermediate table is dim_product. Tracing dim_"
+  }
+]

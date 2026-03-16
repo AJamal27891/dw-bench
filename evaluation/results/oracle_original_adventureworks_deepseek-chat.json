@@ -5095,7 +5095,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "hard",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly provides the shortest foreign key path from DW.dbo.DimProduct to DW.dbo.DimAccount as an ordered list of tables: DW.dbo.DimProduct \u2192 DW.dbo.FactResellerSales \u2192 DW.dbo.DimDate \u2192 DW.dbo.FactFinance \u2192 DW.dbo.DimAccount.\",\n    \"answer\": [\"DW.dbo.DimProduct\", \"DW.dbo.FactResellerSales\", \"DW.dbo.DimDate\", \"DW.dbo.FactFinance\", \"DW.dbo.DimAccount\"]\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly provides the shortest foreign key path from DW.dbo.DimProduct to DW.dbo.DimAccount as an ordered list of tables: DW.dbo.DimProduct → DW.dbo.FactResellerSales → DW.dbo.DimDate → DW.dbo.FactFinance → DW.dbo.DimAccount.\",\n    \"answer\": [\"DW.dbo.DimProduct\", \"DW.dbo.FactResellerSales\", \"DW.dbo.DimDate\", \"DW.dbo.FactFinance\", \"DW.dbo.DimAccount\"]\n}",
       "scores": {
         "exact_match": true,
         "f1": 1.0,
@@ -5742,5 +5742,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 200,
+    "exact_match": 195,
+    "exact_match_pct": 97.5,
+    "avg_f1": 97.8
+  }
 }

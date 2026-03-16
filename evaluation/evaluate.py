@@ -154,6 +154,28 @@ def run_evaluation(baseline_name: str, dataset: str, obfuscated: bool,
                                      api_base=api_base, model=model,
                                      obfuscated=obfuscated,
                                      qa_file=qa_file)
+    elif baseline_name == 'flat_text_v2':
+        from baselines.flat_text import run_flat_text
+        if qa_file is None:
+            qa_file = 'qa_pairs_tier2.json'
+        raw_results = run_flat_text(ds_dir, api_key,
+                                    api_base=api_base, model=model,
+                                    obfuscated=False,
+                                    qa_file=qa_file)
+    elif baseline_name == 'graph_aug_v2':
+        from baselines.graph_aug_v2 import run_graph_aug_v2
+        if qa_file is None:
+            qa_file = 'qa_pairs_tier2.json'
+        raw_results = run_graph_aug_v2(ds_dir, api_key,
+                                       api_base=api_base, model=model,
+                                       qa_file=qa_file)
+    elif baseline_name == 'tool_use_v2':
+        from baselines.tool_use_v2 import run_tool_use_v2
+        if qa_file is None:
+            qa_file = 'qa_pairs_tier2.json'
+        raw_results = run_tool_use_v2(ds_dir, api_key,
+                                      api_base=api_base, model=model,
+                                      qa_file=qa_file)
     else:
         raise ValueError(f"Unknown baseline: {baseline_name}")
 
@@ -232,7 +254,9 @@ def main():
     parser = argparse.ArgumentParser(
         description='DW-Bench Evaluation Harness')
     parser.add_argument('--baseline', type=str, required=True,
-                        choices=['flat_text', 'vector_rag', 'graph_aug', 'gnn_llm', 'oracle', 'tool_use'])
+                        choices=['flat_text', 'vector_rag', 'graph_aug', 'gnn_llm',
+                                 'oracle', 'tool_use', 'react_code',
+                                 'flat_text_v2', 'graph_aug_v2', 'tool_use_v2'])
     parser.add_argument('--dataset', type=str, default='all',
                         choices=['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics', 'all'])
     parser.add_argument('--obfuscated', action='store_true',

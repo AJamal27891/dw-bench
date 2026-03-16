@@ -1771,7 +1771,11 @@
       "gold_answer": [
         "DW.dbo.DimEmployee",
         "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSalesQuota"
+        "DW.dbo.FactSalesQuota",
+        "OLTP.Sales.SalesOrderHeader",
+        "OLTP.Sales.SalesPersonQuotaHistory",
+        "OLTP.Sales.SalesTerritoryHistory",
+        "OLTP.Sales.Store"
       ],
       "predicted_answer": [
         "DW.dbo.Sales",
@@ -1809,7 +1813,14 @@
         "DW.dbo.FactInternetSales",
         "DW.dbo.FactResellerSales",
         "DW.dbo.FactSalesQuota",
-        "DW.dbo.FactSurveyResponse"
+        "DW.dbo.FactSurveyResponse",
+        "OLTP.HumanResources.Employee",
+        "OLTP.Person.BusinessEntityContact",
+        "OLTP.Person.EmailAddress",
+        "OLTP.Person.Password",
+        "OLTP.Person.PersonPhone",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.PersonCreditCard"
       ],
       "predicted_answer": [
         "DW.dbo.Person",
@@ -1842,11 +1853,9 @@
       "id": "adventureworks_lineage_combined_047",
       "question": "If OLTP.Sales.SalesTerritory changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimEmployee",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimSalesTerritory",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.DimSalesReason",
+        "DW.dbo.FactInternetSalesReason",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
       ],
       "predicted_answer": [
         "DW.dbo.DimSalesTerritory",
@@ -1872,20 +1881,25 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5,
-        "precision": 0.6667,
-        "recall": 0.4
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_combined_048",
       "question": "If OLTP.Production.Product changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimProduct",
+        "DW.dbo.DimEmployee",
+        "DW.dbo.DimGeography",
+        "DW.dbo.DimSalesTerritory",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactProductInventory",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.FactResellerSales",
+        "OLTP.Person.StateProvince",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderHeader",
+        "OLTP.Sales.SalesPerson",
+        "OLTP.Sales.SalesTerritoryHistory"
       ],
       "predicted_answer": [
         "DW.dbo.DimProduct",
@@ -1913,9 +1927,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.2222,
-        "precision": 0.25,
-        "recall": 0.2
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -1923,11 +1937,23 @@
       "question": "If OLTP.Production.ProductCategory changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
         "DW.dbo.DimProduct",
-        "DW.dbo.DimProductCategory",
-        "DW.dbo.DimProductSubcategory",
         "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
         "DW.dbo.FactProductInventory",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.FactResellerSales",
+        "OLTP.Production.BillOfMaterials",
+        "OLTP.Production.ProductCostHistory",
+        "OLTP.Production.ProductDocument",
+        "OLTP.Production.ProductInventory",
+        "OLTP.Production.ProductListPriceHistory",
+        "OLTP.Production.ProductProductPhoto",
+        "OLTP.Production.ProductReview",
+        "OLTP.Production.TransactionHistory",
+        "OLTP.Production.WorkOrder",
+        "OLTP.Purchasing.ProductVendor",
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Sales.ShoppingCartItem",
+        "OLTP.Sales.SpecialOfferProduct"
       ],
       "predicted_answer": [
         "DW.dbo.Product",
@@ -1960,9 +1986,13 @@
       "id": "adventureworks_lineage_combined_050",
       "question": "If OLTP.Sales.SpecialOffer changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimPromotion",
+        "DW.dbo.DimProduct",
+        "DW.dbo.DimProductCategory",
+        "DW.dbo.DimProductSubcategory",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.FactProductInventory",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Production.ProductSubcategory"
       ],
       "predicted_answer": [
         "DW.dbo.DimCurrency",
@@ -1995,11 +2025,10 @@
       "id": "adventureworks_lineage_combined_051",
       "question": "If OLTP.Person.Address changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimReseller",
+        "DW.dbo.DimPromotion",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactSurveyResponse"
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SpecialOfferProduct"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2023,19 +2052,22 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5714,
-        "precision": 1.0,
-        "recall": 0.4
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_combined_052",
       "question": "If OLTP.Production.ProductModel changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimProduct",
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimGeography",
+        "DW.dbo.DimReseller",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactProductInventory",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.FactSurveyResponse",
+        "OLTP.Person.BusinessEntityAddress",
+        "OLTP.Sales.SalesOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.Product",
@@ -2070,9 +2102,13 @@
       "id": "adventureworks_lineage_combined_053",
       "question": "If OLTP.Person.StateProvince changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimReseller"
+        "DW.dbo.DimProduct",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactProductInventory",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Production.Product",
+        "OLTP.Production.ProductModelIllustration",
+        "OLTP.Production.ProductModelProductDescriptionCulture"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2096,17 +2132,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8,
-        "precision": 1.0,
-        "recall": 0.6667
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_combined_054",
       "question": "If OLTP.Sales.Store changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimGeography",
         "DW.dbo.DimReseller",
-        "DW.dbo.FactResellerSales"
+        "OLTP.Person.Address",
+        "OLTP.Sales.SalesTaxRate"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2130,20 +2169,18 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0,
-        "precision": 0.0,
-        "recall": 0.0
+        "f1": 0.2857,
+        "precision": 0.5,
+        "recall": 0.2
       }
     },
     {
       "id": "adventureworks_lineage_combined_055",
       "question": "If OLTP.Production.ProductSubcategory changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimProduct",
-        "DW.dbo.DimProductSubcategory",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactProductInventory",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.DimReseller",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.Customer"
       ],
       "predicted_answer": [
         "DW.dbo.Product",
@@ -2176,9 +2213,12 @@
       "id": "adventureworks_lineage_combined_056",
       "question": "If OLTP.Person.BusinessEntityAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
+        "DW.dbo.DimProduct",
+        "DW.dbo.DimProductSubcategory",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactSurveyResponse"
+        "DW.dbo.FactProductInventory",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Production.Product"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2204,9 +2244,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.3333,
-        "precision": 0.3333,
-        "recall": 0.3333
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -2214,8 +2254,8 @@
       "question": "If OLTP.Person.CountryRegion changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
         "DW.dbo.DimCustomer",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimReseller"
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactSurveyResponse"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2239,20 +2279,18 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8,
-        "precision": 1.0,
-        "recall": 0.6667
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333
       }
     },
     {
       "id": "adventureworks_lineage_combined_058",
       "question": "If OLTP.Sales.Currency changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCurrency",
-        "DW.dbo.DimOrganization",
-        "DW.dbo.FactCurrencyRate",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.ProductVendor",
+        "OLTP.Purchasing.PurchaseOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.DimCurrency",
@@ -2276,9 +2314,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.2857,
-        "precision": 0.5,
-        "recall": 0.2
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -2286,11 +2324,11 @@
       "question": "If OLTP.Sales.Customer changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
         "DW.dbo.DimCustomer",
+        "DW.dbo.DimGeography",
         "DW.dbo.DimReseller",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSurveyResponse"
+        "OLTP.Person.StateProvince",
+        "OLTP.Sales.CountryRegionCurrency",
+        "OLTP.Sales.SalesTerritory"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2327,8 +2365,13 @@
       "id": "adventureworks_lineage_combined_060",
       "question": "If OLTP.HumanResources.Department changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimDepartmentGroup",
-        "DW.dbo.FactFinance"
+        "DW.dbo.DimCurrency",
+        "DW.dbo.DimOrganization",
+        "DW.dbo.FactCurrencyRate",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.CountryRegionCurrency",
+        "OLTP.Sales.CurrencyRate"
       ],
       "predicted_answer": [
         "DW.dbo.DimAccount",
@@ -2354,18 +2397,17 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0,
-        "precision": 0.0,
-        "recall": 0.0
+        "f1": 0.2,
+        "precision": 0.3333,
+        "recall": 0.1429
       }
     },
     {
       "id": "adventureworks_lineage_combined_061",
       "question": "If OLTP.Sales.SalesOrderDetail changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.PurchaseOrderDetail"
       ],
       "predicted_answer": [
         "DW.dbo.Sales",
@@ -2400,9 +2442,8 @@
       "id": "adventureworks_lineage_combined_062",
       "question": "If OLTP.Person.EmailAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactSurveyResponse"
+        "DW.dbo.FactCurrencyRate",
+        "OLTP.Sales.SalesOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2428,18 +2469,22 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.3333,
-        "precision": 0.3333,
-        "recall": 0.3333
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_combined_063",
       "question": "If OLTP.HumanResources.Employee changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimEmployee",
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimReseller",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
         "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSalesQuota"
+        "DW.dbo.FactSurveyResponse",
+        "OLTP.Sales.SalesOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2463,18 +2508,18 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
+        "f1": 0.2222,
         "precision": 0.5,
-        "recall": 0.3333
+        "recall": 0.1429
       }
     },
     {
       "id": "adventureworks_lineage_combined_064",
       "question": "If OLTP.Sales.SalesOrderHeader changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.DimDepartmentGroup",
+        "DW.dbo.FactFinance",
+        "OLTP.HumanResources.EmployeeDepartmentHistory"
       ],
       "predicted_answer": [
         "DW.dbo.DimSalesOrderHeader",
@@ -2498,9 +2543,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
-        "precision": 0.5,
-        "recall": 0.3333
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -2694,10 +2739,11 @@
       "id": "adventureworks_lineage_multisrc_069",
       "question": "DW.dbo.FactInternetSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactInternetSales.",
       "gold_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
+        "OLTP.Person.Address",
+        "OLTP.Person.BusinessEntityAddress",
+        "OLTP.Person.EmailAddress",
+        "OLTP.Person.Person",
+        "OLTP.Sales.Customer"
       ],
       "predicted_answer": [
         "DW.dbo.DimAccount",
@@ -2774,9 +2820,9 @@
       "id": "adventureworks_lineage_multisrc_070",
       "question": "DW.dbo.FactProductInventory integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactProductInventory.",
       "gold_answer": [
-        "OLTP.Purchasing.PurchaseOrderDetail",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Purchasing.Vendor"
+        "OLTP.HumanResources.Employee",
+        "OLTP.Person.Person",
+        "OLTP.Sales.SalesPerson"
       ],
       "predicted_answer": [
         "DW.dbo.DimAccount",
@@ -2831,10 +2877,9 @@
       "id": "adventureworks_lineage_multisrc_071",
       "question": "DW.dbo.FactResellerSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactResellerSales.",
       "gold_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
+        "OLTP.Person.Address",
+        "OLTP.Person.CountryRegion",
+        "OLTP.Person.StateProvince"
       ],
       "predicted_answer": [
         "DW.dbo.DimAccount",
@@ -2923,7 +2968,6 @@
         "DW.dbo.DimPromotion",
         "DW.dbo.DimReseller",
         "DW.dbo.DimSalesReason",
-        "DW.dbo.DimSalesTerritory",
         "DW.dbo.DimScenario",
         "DW.dbo.FactCallCenter",
         "DW.dbo.FactCurrencyRate",
@@ -3032,9 +3076,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.1224,
+        "f1": 0.1237,
         "precision": 1.0,
-        "recall": 0.0652
+        "recall": 0.0659
       }
     },
     {
@@ -3083,7 +3127,6 @@
         "OLTP.Person.Password",
         "OLTP.Person.Person",
         "OLTP.Person.PersonPhone",
-        "OLTP.Person.PhoneNumberType",
         "OLTP.Person.StateProvince",
         "OLTP.Production.BillOfMaterials",
         "OLTP.Production.Culture",
@@ -3156,9 +3199,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.0426,
+        "f1": 0.043,
         "precision": 1.0,
-        "recall": 0.0217
+        "recall": 0.022
       }
     },
     {
@@ -3212,7 +3255,6 @@
         "OLTP.Production.BillOfMaterials",
         "OLTP.Production.Culture",
         "OLTP.Production.Document",
-        "OLTP.Production.Illustration",
         "OLTP.Production.Location",
         "OLTP.Production.Product",
         "OLTP.Production.ProductCategory",
@@ -3280,9 +3322,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.0426,
+        "f1": 0.043,
         "precision": 1.0,
-        "recall": 0.0217
+        "recall": 0.022
       }
     },
     {
@@ -3732,7 +3774,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3765,7 +3808,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3800,7 +3844,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3837,7 +3882,8 @@
         "f1": 0.8,
         "precision": 0.6667,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3874,7 +3920,8 @@
         "f1": 0.8,
         "precision": 0.6667,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3909,7 +3956,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3944,7 +3992,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3979,7 +4028,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4012,7 +4062,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4039,15 +4090,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "OLTP.Production.Product \u2192 OLTP.Production.ProductProductPhoto",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.Product\", \"OLTP.Production.ProductProductPhoto\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"OLTP.Production.Product \u2192 OLTP.Production.ProductProductPhoto\"\n}"
+        "answer_str": "OLTP.Production.Product → OLTP.Production.ProductProductPhoto",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.Product\", \"OLTP.Production.ProductProductPhoto\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"OLTP.Production.Product → OLTP.Production.ProductProductPhoto\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4082,7 +4134,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4117,7 +4170,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4150,7 +4204,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4184,7 +4239,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4220,7 +4276,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4256,7 +4313,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4295,7 +4353,8 @@
         "f1": 0.5714,
         "precision": 0.6667,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4336,7 +4395,8 @@
         "f1": 0.8571,
         "precision": 1.0,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4372,7 +4432,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4409,7 +4470,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4443,7 +4505,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4478,7 +4541,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4514,7 +4578,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4549,7 +4614,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4585,7 +4651,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4622,7 +4689,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4661,7 +4729,8 @@
         "f1": 0.5714,
         "precision": 0.6667,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4696,7 +4765,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4737,7 +4807,8 @@
         "f1": 0.8571,
         "precision": 1.0,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4771,7 +4842,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4808,7 +4880,8 @@
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4844,7 +4917,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4879,7 +4953,8 @@
         "f1": 0.4,
         "precision": 1.0,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4915,7 +4990,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4951,7 +5027,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4987,7 +5064,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5025,7 +5103,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5061,7 +5140,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5097,7 +5177,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5134,7 +5215,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5170,7 +5252,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5206,7 +5289,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5245,7 +5329,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5284,7 +5369,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5324,7 +5410,8 @@
         "f1": 0.4444,
         "precision": 1.0,
         "recall": 0.2857,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5357,15 +5444,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory \u2192 OLTP.Person.Person, with 3 foreign key joins.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.Product\", \"OLTP.Production.ProductListPriceHistory\", \"OLTP.Person.Person\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves OLTP.Production.Product \u2192 OLTP.Production.ProductListPriceHistory \u2192 OLTP.Person.Person, with 3 foreign key joins.\"\n}"
+        "answer_str": "The shortest chain involves OLTP.Production.Product → OLTP.Production.ProductListPriceHistory → OLTP.Person.Person, with 3 foreign key joins.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.Product\", \"OLTP.Production.ProductListPriceHistory\", \"OLTP.Person.Person\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves OLTP.Production.Product → OLTP.Production.ProductListPriceHistory → OLTP.Person.Person, with 3 foreign key joins.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5401,7 +5489,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5439,7 +5528,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5484,7 +5574,8 @@
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5524,7 +5615,8 @@
         "f1": 0.75,
         "precision": 1.0,
         "recall": 0.6,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5564,7 +5656,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5606,7 +5699,8 @@
         "f1": 0.6,
         "precision": 1.0,
         "recall": 0.4286,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5636,15 +5730,16 @@
         ],
         "answer_int": null,
         "answer_bool": true,
-        "answer_str": "The shortest path involves OLTP.Production.BillOfMaterials \u2192 OLTP.Production.DimCurrency \u2192 OLTP.Sales.Currency",
-        "_raw_text": "{\n  \"answer_list\": [\"5\"],\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves OLTP.Production.BillOfMaterials \u2192 OLTP.Production.DimCurrency \u2192 OLTP.Sales.Currency\"\n}"
+        "answer_str": "The shortest path involves OLTP.Production.BillOfMaterials → OLTP.Production.DimCurrency → OLTP.Sales.Currency",
+        "_raw_text": "{\n  \"answer_list\": [\"5\"],\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves OLTP.Production.BillOfMaterials → OLTP.Production.DimCurrency → OLTP.Sales.Currency\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5680,7 +5775,8 @@
         "f1": 0.3333,
         "precision": 1.0,
         "recall": 0.2,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5716,7 +5812,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5748,15 +5845,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves OLTP.Sales.SalesPersonQuotaHistory \u2192 OLTP.DimEmployee \u2192 DW.dbo.FactResellerSales \u2192 OLTP.Production.WorkOrder",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesPersonQuotaHistory\", \"OLTP.Production.WorkOrder\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves OLTP.Sales.SalesPersonQuotaHistory \u2192 OLTP.DimEmployee \u2192 DW.dbo.FactResellerSales \u2192 OLTP.Production.WorkOrder\"\n}"
+        "answer_str": "The shortest chain involves OLTP.Sales.SalesPersonQuotaHistory → OLTP.DimEmployee → DW.dbo.FactResellerSales → OLTP.Production.WorkOrder",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesPersonQuotaHistory\", \"OLTP.Production.WorkOrder\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves OLTP.Sales.SalesPersonQuotaHistory → OLTP.DimEmployee → DW.dbo.FactResellerSales → OLTP.Production.WorkOrder\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4444,
         "precision": 1.0,
         "recall": 0.2857,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5792,7 +5890,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5832,7 +5931,8 @@
         "f1": 0.4444,
         "precision": 1.0,
         "recall": 0.2857,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5870,7 +5970,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5917,7 +6018,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5956,7 +6058,8 @@
         "f1": 0.25,
         "precision": 0.5,
         "recall": 0.1667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5994,15 +6097,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves ProductModelIllustration \u2192 Production.ProductModel \u2192 ProductModel \u2192 FactResellerSales \u2192 Sales.CurrencyRate.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.ProductModelIllustration\", \"OLTP.Production.ProductModel\", \"OLTP.Production.ProductModelIllustration\", \"DW.dbo.FactResellerSales\", \"DW.dbo.DimCurrency\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves ProductModelIllustration \u2192 Production.ProductModel \u2192 ProductModel \u2192 FactResellerSales \u2192 Sales.CurrencyRate.\"\n}"
+        "answer_str": "The shortest chain involves ProductModelIllustration → Production.ProductModel → ProductModel → FactResellerSales → Sales.CurrencyRate.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.ProductModelIllustration\", \"OLTP.Production.ProductModel\", \"OLTP.Production.ProductModelIllustration\", \"DW.dbo.FactResellerSales\", \"DW.dbo.DimCurrency\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves ProductModelIllustration → Production.ProductModel → ProductModel → FactResellerSales → Sales.CurrencyRate.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.3636,
         "precision": 0.5,
         "recall": 0.2857,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6039,7 +6143,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6079,7 +6184,8 @@
         "f1": 0.5,
         "precision": 0.6667,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6117,7 +6223,8 @@
         "f1": 0.25,
         "precision": 1.0,
         "recall": 0.1429,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6156,7 +6263,8 @@
         "f1": 0.5,
         "precision": 1.0,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6197,7 +6305,8 @@
         "f1": 0.4,
         "precision": 1.0,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6235,7 +6344,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6273,7 +6383,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6309,7 +6420,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6346,7 +6458,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6378,15 +6491,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves three foreign key joins: HumanResources.DimOrganization \u2192 DimCurrency \u2192 FactResellerSales.",
-        "_raw_text": "{\n  \"answer_list\": [\"OLTP.HumanResources.DimOrganization\", \"DW.dbo.DimOrganization\", \"DW.dbo.DimCurrency\", \"DW.dbo.DimReseller\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves three foreign key joins: HumanResources.DimOrganization \u2192 DimCurrency \u2192 FactResellerSales.\"\n}"
+        "answer_str": "The shortest chain involves three foreign key joins: HumanResources.DimOrganization → DimCurrency → FactResellerSales.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.HumanResources.DimOrganization\", \"DW.dbo.DimOrganization\", \"DW.dbo.DimCurrency\", \"DW.dbo.DimReseller\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves three foreign key joins: HumanResources.DimOrganization → DimCurrency → FactResellerSales.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 0.5,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6422,7 +6536,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6459,7 +6574,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6503,7 +6619,8 @@
         "f1": 0.8889,
         "precision": 1.0,
         "recall": 0.8,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6540,7 +6657,8 @@
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6578,7 +6696,8 @@
         "f1": 0.2857,
         "precision": 0.5,
         "recall": 0.2,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6607,15 +6726,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "OLTP.Sales.SalesPerson \u2192 OLTP.Production.ProductInventory \u2192 OLTP.Production.Product",
-        "_raw_text": "{\n  \"answer_list\": [\"3\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"OLTP.Sales.SalesPerson \u2192 OLTP.Production.ProductInventory \u2192 OLTP.Production.Product\"\n}"
+        "answer_str": "OLTP.Sales.SalesPerson → OLTP.Production.ProductInventory → OLTP.Production.Product",
+        "_raw_text": "{\n  \"answer_list\": [\"3\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"OLTP.Sales.SalesPerson → OLTP.Production.ProductInventory → OLTP.Production.Product\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6651,7 +6771,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6682,15 +6803,16 @@
         ],
         "answer_int": null,
         "answer_bool": true,
-        "answer_str": "The shortest path involves OLTP.Sales.SalesTerritory \u2192 OLTP.Production.Culture through intermediate tables: Sales.Store, Person.BusinessEntityAddress, and Product.",
-        "_raw_text": "{\n  \"answer_list\": [\"5\"],\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves OLTP.Sales.SalesTerritory \u2192 OLTP.Production.Culture through intermediate tables: Sales.Store, Person.BusinessEntityAddress, and Product.\"\n}\n"
+        "answer_str": "The shortest path involves OLTP.Sales.SalesTerritory → OLTP.Production.Culture through intermediate tables: Sales.Store, Person.BusinessEntityAddress, and Product.",
+        "_raw_text": "{\n  \"answer_list\": [\"5\"],\n  \"answer_int\": null,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves OLTP.Sales.SalesTerritory → OLTP.Production.Culture through intermediate tables: Sales.Store, Person.BusinessEntityAddress, and Product.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7566,5 +7688,11 @@
         "f1": 0.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 204,
+    "exact_match": 24,
+    "exact_match_pct": 11.8,
+    "avg_f1": 29.0
+  }
 }

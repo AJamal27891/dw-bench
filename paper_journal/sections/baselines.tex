@@ -1,0 +1,68 @@
+% ============================================================================
+% 4. BASELINES — Journal version (expanded with implementation details)
+% ============================================================================
+\section{Baseline Implementations}
+\label{sec:baselines}
+
+We implement six baselines spanning the spectrum from static text injection
+to interactive tool-augmented reasoning.  All baselines are zero-shot and
+use identical question prompts; only the context injection method varies.
+
+\subsection{Flat Text (FT)}
+
+The entire schema is serialized as a text document listing all tables,
+columns, data types, foreign key relationships, and lineage edges.  This
+context is prepended to the question, simulating a developer who has
+loaded the complete DDL documentation into a long-context LLM.  No
+retrieval or filtering is applied.
+
+\subsection{Vector-RAG (VR)}
+
+Schema elements (tables, edges, documentation) are embedded using
+Sentence-BERT~\cite{reimers2019sentencebert} and indexed in a FAISS vector
+store.  At query time, the $k=15$ most relevant chunks are retrieved and
+injected as context.  This tests whether dense retrieval can identify the
+relevant structural fragments for topology questions.
+
+\subsection{Graph-Augmented (GA)}
+
+The question is first parsed to identify mentioned table names.  A 3-hop
+BFS neighborhood is extracted from the schema graph centered on these
+anchor tables, and the subgraph (with FK and lineage edges) is serialized
+as structured context.  This provides the LLM with local topology
+information without requiring full schema memorization.
+
+\subsection{Tool-Use (TU)}
+
+The LLM is given access to purpose-built graph query tools:
+\texttt{get\_neighbors(table, edge\_type)},
+\texttt{shortest\_path(src, dst)},
+\texttt{get\_connected\_component(table)},
+\texttt{get\_lineage\_chain(table, direction)}, and
+\texttt{list\_tables()}.  The LLM can make up to 3 sequential tool calls
+per question, interleaving reasoning with graph algorithm execution.
+This tests whether interactive graph access can overcome the limitations
+of static context injection.
+
+\subsection{ReAct-Code (RC)}
+
+The LLM generates and executes Python code using NetworkX directly on the
+schema graph object.  This provides maximum flexibility---the LLM can
+implement arbitrary graph algorithms---but requires the model to write
+correct code, handle edge cases, and parse output.
+
+\subsection{Oracle}
+
+The gold-standard algorithmic output is injected directly into the prompt.
+For a \texttt{join\_path} question, the Oracle context includes the exact
+shortest path; for \texttt{combined\_impact}, it includes the complete set
+of affected tables.  Oracle scores establish the upper bound achievable by
+each model, isolating language understanding from graph retrieval.
+
+\subsection{Tier-2 Baselines}
+
+For Tier-2 value-level questions, we implement three adapted baselines:
+\textbf{FT$_{v2}$} (schema DDL context only),
+\textbf{GA$_{v2}$} (schema + lineage summaries + value samples), and
+\textbf{TU$_{v2}$} (interactive lineage/data query tools including
+row-level access).

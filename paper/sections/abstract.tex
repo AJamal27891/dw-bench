@@ -3,35 +3,30 @@ Large Language Models (LLMs) have demonstrated remarkable capabilities on
 text-to-SQL benchmarks such as Spider and BIRD. However, these benchmarks
 evaluate \emph{query generation}, not \emph{structural understanding} of
 database schemas. We introduce \textbf{DW-Bench}, the first benchmark
-specifically designed to evaluate LLMs on \emph{graph topology reasoning}
-over data warehouse schemas. DW-Bench contains \textbf{1,042 questions}
-across \textbf{5 datasets} (4 real-world: AdventureWorks, TPC-DS, TPC-DI,
-OMOP~CDM; 1 synthetic: Syn-Logistics) spanning \textbf{262 tables},
-\textbf{13 question subtypes}, and \textbf{3 difficulty levels}. Questions
-require reasoning about foreign key paths, data lineage chains, transitive
-impact analysis, and connected component detection---tasks that demand
-graph traversal rather than SQL generation.
+designed to evaluate LLMs on \emph{graph topology reasoning} over data
+warehouse schemas, organized in two tiers: \textbf{Tier~1}
+(schema-level, 1,046~questions across 13~subtypes) tests structural
+reasoning over foreign key paths, lineage chains, and component
+detection; \textbf{Tier~2} (value-level, 433~questions across
+8~subtypes) tests row-level provenance tracing and forward impact
+analysis. DW-Bench spans \textbf{5~datasets} (4~real-world, 1~synthetic)
+with \textbf{262~tables} and \textbf{3~difficulty levels}.
 
-We evaluate four baselines---\emph{Oracle}, \emph{Flat Text},
-\emph{Vector-RAG}, and \emph{Graph-Augmented}---plus a \emph{Tool-Use}
-baseline, using two frontier models: Gemini~2.5 Flash~\cite{gemini2024}
-and DeepSeek-V3~\cite{deepseek2024v3}. Gemini achieves strong performance
-on structural subtypes (\texttt{hop\_count}: 98--100\% EM,
-\texttt{count}: 100\% EM), demonstrating that frontier models
-\emph{can} perform schema topology reasoning when the schema fits in
-context. However, the \textbf{model-dependent gap} is striking:
-DeepSeek-V3 scores only 48\% on \texttt{hop\_count} (FT) and 27\% on
-\texttt{count} (VR), revealing that structural reasoning capability
-varies dramatically across architectures. On \texttt{combined\_impact}
-($n{=}34$), \emph{all} baselines score $\leq$26.5\% while the Oracle
-achieves 100\%, identifying a genuine frontier for multi-hop structural
-reasoning.
+We evaluate six baselines spanning the text-to-agentic spectrum:
+Flat~Text, Vector-RAG, Graph-Augmented, Tool-Use, ReAct-Code, and
+Oracle, using two frontier models: Gemini~2.5 Flash and DeepSeek-V3.
+\textbf{Tool-Use dominates} Tier~1 with 91\% micro-EM, outperforming
+all static baselines (69--81\%) by 10--22 percentage points. However,
+a \textbf{hard-task ceiling persists}: even Tool-Use plateaus at
+$\sim$60\% on hard questions while Oracle achieves 99\%, with
+\texttt{combined\_impact} at only 12\% EM. Tier~2 reveals that tools
+are \textbf{literally required} for value-level questions
+(\texttt{cascade\_count}: 100\% vs.\ 0\% without tools) yet
+\textbf{insufficient} overall (59\% EM), with multi-hop tracing (27\%)
+and shared-source detection (23\%) remaining unsolved---precisely the
+structural reasoning gap that learned graph representations (GNNs)
+are designed to fill.
 
-Micro-averaging creates a \textbf{Triviality Illusion}: easy subtypes
-inflate scores, masking failures on hard structural tasks that
-macro-averaging reveals. DW-Bench includes an obfuscation protocol
-replacing table names with random identifiers, showing DeepSeek suffers
-up to \textbf{30\%} penalty while Gemini shows differential effects.
 The benchmark, all results, and evaluation code are publicly available at
 \url{https://github.com/AJamal27891/dw-bench}.
 \end{abstract}

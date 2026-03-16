@@ -5,6 +5,7 @@ Supports:
   - Set F1 (precision, recall, f1) for list answers
   - Ordered list match for join paths (with alternative path validation)
 """
+import re
 
 
 def exact_match(predicted, gold) -> bool:
@@ -42,6 +43,28 @@ def exact_match(predicted, gold) -> bool:
     return predicted == gold
 
 
+def normalize_row_ref(ref: str) -> str:
+    """Normalize table:row_N variants to canonical form.
+
+    Handles:
+      'table: rows [N]'  → 'table:row_N'
+      'table row_N'      → 'table:row_N'
+      'table:row_N'      → 'table:row_N' (already canonical)
+    """
+    if not isinstance(ref, str):
+        return str(ref)
+    ref = ref.strip()
+    # Handle "table: rows [N]" or "table: row [N]" → "table:row_N"
+    match = re.search(r'(\w+)[\s:]+rows?\s*[\[\(]?(\d+)', ref)
+    if match:
+        return f"{match.group(1)}:row_{match.group(2)}"
+    # Handle "table row_N" → "table:row_N"
+    match = re.search(r'(\w+)\s+row_(\d+)', ref)
+    if match:
+        return f"{match.group(1)}:row_{match.group(2)}"
+    return ref
+
+
 def set_f1(predicted: list, gold: list) -> dict:
     """Set-based F1 score for list answers.
 
@@ -55,8 +78,8 @@ def set_f1(predicted: list, gold: list) -> dict:
     if not isinstance(gold, list):
         gold = []
 
-    pred_set = set(predicted)
-    gold_set = set(gold)
+    pred_set = {normalize_row_ref(p) for p in predicted}
+    gold_set = {normalize_row_ref(g) for g in gold}
 
     if not gold_set:
         return {"precision": 1.0, "recall": 1.0, "f1": 1.0, "exact": True}

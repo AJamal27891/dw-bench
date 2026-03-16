@@ -1349,7 +1349,7 @@
       "type": "lineage_impact",
       "subtype": "combined_impact",
       "difficulty": "hard",
-      "reasoning": "Starting with Table_G1, we follow the shortest path Table_G1 → Table_T → Table_G. Then, we recursively find tables that have FK dependencies on or are derived from any affected table. This includes Table_A, Table_F1, Table_B1, Table_N (FK on Table_T), Table_C, Table_W (derived from Table_G), Table_H (derived from Table_A), Table_U (derived from Table_F1), Table_C1 (derived from Table_B1), and Table_K (derived from Table_N).",
+      "reasoning": "Starting with Table_G1, we follow the shortest path Table_G1 \u2192 Table_T \u2192 Table_G. Then, we recursively find tables that have FK dependencies on or are derived from any affected table. This includes Table_A, Table_F1, Table_B1, Table_N (FK on Table_T), Table_C, Table_W (derived from Table_G), Table_H (derived from Table_A), Table_U (derived from Table_F1), Table_C1 (derived from Table_B1), and Table_K (derived from Table_N).",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -1370,8 +1370,8 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "Starting with Table_G1, we follow the shortest path Table_G1 → Table_T → Table_G. Then, we recursively find tables that have FK dependencies on or are derived from any affected table. This includes Table_A, Table_F1, Table_B1, Table_N (FK on Table_T), Table_C, Table_W (derived from Table_G), Table_H (derived from Table_A), Table_U (derived from Table_F1), Table_C1 (derived from Table_B1), and Table_K (derived from Table_N).",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G1\",\n    \"Table_T\",\n    \"Table_G\",\n    \"Table_A\",\n    \"Table_F1\",\n    \"Table_B1\",\n    \"Table_N\",\n    \"Table_C\",\n    \"Table_W\",\n    \"Table_H\",\n    \"Table_U\",\n    \"Table_C1\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Starting with Table_G1, we follow the shortest path Table_G1 → Table_T → Table_G. Then, we recursively find tables that have FK dependencies on or are derived from any affected table. This includes Table_A, Table_F1, Table_B1, Table_N (FK on Table_T), Table_C, Table_W (derived from Table_G), Table_H (derived from Table_A), Table_U (derived from Table_F1), Table_C1 (derived from Table_B1), and Table_K (derived from Table_N).\"\n}\n```"
+        "reasoning": "Starting with Table_G1, we follow the shortest path Table_G1 \u2192 Table_T \u2192 Table_G. Then, we recursively find tables that have FK dependencies on or are derived from any affected table. This includes Table_A, Table_F1, Table_B1, Table_N (FK on Table_T), Table_C, Table_W (derived from Table_G), Table_H (derived from Table_A), Table_U (derived from Table_F1), Table_C1 (derived from Table_B1), and Table_K (derived from Table_N).",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G1\",\n    \"Table_T\",\n    \"Table_G\",\n    \"Table_A\",\n    \"Table_F1\",\n    \"Table_B1\",\n    \"Table_N\",\n    \"Table_C\",\n    \"Table_W\",\n    \"Table_H\",\n    \"Table_U\",\n    \"Table_C1\",\n    \"Table_K\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Starting with Table_G1, we follow the shortest path Table_G1 \u2192 Table_T \u2192 Table_G. Then, we recursively find tables that have FK dependencies on or are derived from any affected table. This includes Table_A, Table_F1, Table_B1, Table_N (FK on Table_T), Table_C, Table_W (derived from Table_G), Table_H (derived from Table_A), Table_U (derived from Table_F1), Table_C1 (derived from Table_B1), and Table_K (derived from Table_N).\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
@@ -2245,15 +2245,15 @@
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "reasoning": "The context explicitly states 'Table_O → Table_I: no path exists' and no foreign key relationships are listed between them.",
+      "reasoning": "The context explicitly states 'Table_O \u2192 Table_I: no path exists' and no foreign key relationships are listed between them.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": false,
         "answer_str": null,
-        "reasoning": "The context explicitly states 'Table_O → Table_I: no path exists' and no foreign key relationships are listed between them.",
-        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states 'Table_O → Table_I: no path exists' and no foreign key relationships are listed between them.\"\n}"
+        "reasoning": "The context explicitly states 'Table_O \u2192 Table_I: no path exists' and no foreign key relationships are listed between them.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": false,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states 'Table_O \u2192 Table_I: no path exists' and no foreign key relationships are listed between them.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -2508,7 +2508,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The provided shortest path directly states 'Table_S → Table_N (1 hops)', indicating a direct foreign key relationship where Table_N references Table_S.",
+      "reasoning": "The provided shortest path directly states 'Table_S \u2192 Table_N (1 hops)', indicating a direct foreign key relationship where Table_N references Table_S.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2518,15 +2518,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The provided shortest path directly states 'Table_S → Table_N (1 hops)', indicating a direct foreign key relationship where Table_N references Table_S.",
-        "_raw_text": "{\n  \"answer_list\": [\"Table_S\", \"Table_N\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path directly states 'Table_S → Table_N (1 hops)', indicating a direct foreign key relationship where Table_N references Table_S.\"\n}"
+        "reasoning": "The provided shortest path directly states 'Table_S \u2192 Table_N (1 hops)', indicating a direct foreign key relationship where Table_N references Table_S.",
+        "_raw_text": "{\n  \"answer_list\": [\"Table_S\", \"Table_N\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path directly states 'Table_S \u2192 Table_N (1 hops)', indicating a direct foreign key relationship where Table_N references Table_S.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2562,7 +2563,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2580,7 +2582,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "Table_G has a foreign key relationship to Table_B, meaning a direct join exists from Table_B to Table_G. The shortest path is explicitly stated as Table_B → Table_G (1 hop).",
+      "reasoning": "Table_G has a foreign key relationship to Table_B, meaning a direct join exists from Table_B to Table_G. The shortest path is explicitly stated as Table_B \u2192 Table_G (1 hop).",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -2590,15 +2592,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "Table_G has a foreign key relationship to Table_B, meaning a direct join exists from Table_B to Table_G. The shortest path is explicitly stated as Table_B → Table_G (1 hop).",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B\",\n    \"Table_G\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G has a foreign key relationship to Table_B, meaning a direct join exists from Table_B to Table_G. The shortest path is explicitly stated as Table_B → Table_G (1 hop).\"\n}\n```"
+        "reasoning": "Table_G has a foreign key relationship to Table_B, meaning a direct join exists from Table_B to Table_G. The shortest path is explicitly stated as Table_B \u2192 Table_G (1 hop).",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B\",\n    \"Table_G\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G has a foreign key relationship to Table_B, meaning a direct join exists from Table_B to Table_G. The shortest path is explicitly stated as Table_B \u2192 Table_G (1 hop).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2634,7 +2637,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2664,7 +2668,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2694,7 +2699,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2730,7 +2736,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2766,7 +2773,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2802,7 +2810,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2838,7 +2847,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2874,7 +2884,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2904,7 +2915,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2940,7 +2952,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2976,7 +2989,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3012,7 +3026,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3048,7 +3063,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3084,7 +3100,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3102,7 +3119,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from Table_L to Table_S as 'Table_L → Table_S'.",
+      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from Table_L to Table_S as 'Table_L \u2192 Table_S'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3112,15 +3129,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from Table_L to Table_S as 'Table_L → Table_S'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_L\",\n    \"Table_S\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from Table_L to Table_S as 'Table_L → Table_S'.\"\n}\n```"
+        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from Table_L to Table_S as 'Table_L \u2192 Table_S'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_L\",\n    \"Table_S\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section explicitly states a 1-hop path from Table_L to Table_S as 'Table_L \u2192 Table_S'.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3156,7 +3174,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3192,7 +3211,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3228,7 +3248,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3246,7 +3267,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path section explicitly states a 1-hop path from Table_B to Table_F1: 'Table_B → Table_F1 (1 hops)'.",
+      "reasoning": "The shortest path section explicitly states a 1-hop path from Table_B to Table_F1: 'Table_B \u2192 Table_F1 (1 hops)'.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3256,15 +3277,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path section explicitly states a 1-hop path from Table_B to Table_F1: 'Table_B → Table_F1 (1 hops)'.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path section explicitly states a 1-hop path from Table_B to Table_F1: 'Table_B → Table_F1 (1 hops)'.\"\n}\n```"
+        "reasoning": "The shortest path section explicitly states a 1-hop path from Table_B to Table_F1: 'Table_B \u2192 Table_F1 (1 hops)'.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path section explicitly states a 1-hop path from Table_B to Table_F1: 'Table_B \u2192 Table_F1 (1 hops)'.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3282,7 +3304,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The context explicitly states the shortest path from Table_T to Table_F1 is 'Table_T → Table_F1 (1 hops)', which represents a direct foreign key join where Table_F1 references Table_T.",
+      "reasoning": "The context explicitly states the shortest path from Table_T to Table_F1 is 'Table_T \u2192 Table_F1 (1 hops)', which represents a direct foreign key join where Table_F1 references Table_T.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3292,15 +3314,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The context explicitly states the shortest path from Table_T to Table_F1 is 'Table_T → Table_F1 (1 hops)', which represents a direct foreign key join where Table_F1 references Table_T.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states the shortest path from Table_T to Table_F1 is 'Table_T → Table_F1 (1 hops)', which represents a direct foreign key join where Table_F1 references Table_T.\"\n}\n```"
+        "reasoning": "The context explicitly states the shortest path from Table_T to Table_F1 is 'Table_T \u2192 Table_F1 (1 hops)', which represents a direct foreign key join where Table_F1 references Table_T.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_T\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context explicitly states the shortest path from Table_T to Table_F1 is 'Table_T \u2192 Table_F1 (1 hops)', which represents a direct foreign key join where Table_F1 references Table_T.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3330,7 +3353,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3366,7 +3390,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3402,7 +3427,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3441,7 +3467,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3461,7 +3488,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "Table_G has foreign keys referencing both Table_J and Table_E1, forming a 2-hop chain. The context explicitly lists 'Table_J → Table_G → Table_E1' as a shortest path.",
+      "reasoning": "Table_G has foreign keys referencing both Table_J and Table_E1, forming a 2-hop chain. The context explicitly lists 'Table_J \u2192 Table_G \u2192 Table_E1' as a shortest path.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3472,15 +3499,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "Table_G has foreign keys referencing both Table_J and Table_E1, forming a 2-hop chain. The context explicitly lists 'Table_J → Table_G → Table_E1' as a shortest path.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_G\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G has foreign keys referencing both Table_J and Table_E1, forming a 2-hop chain. The context explicitly lists 'Table_J → Table_G → Table_E1' as a shortest path.\"\n}\n```"
+        "reasoning": "Table_G has foreign keys referencing both Table_J and Table_E1, forming a 2-hop chain. The context explicitly lists 'Table_J \u2192 Table_G \u2192 Table_E1' as a shortest path.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_G\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G has foreign keys referencing both Table_J and Table_E1, forming a 2-hop chain. The context explicitly lists 'Table_J \u2192 Table_G \u2192 Table_E1' as a shortest path.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3511,7 +3539,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3533,7 +3562,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_Q to Table_A1 is given as Table_Q → Table_F1 → Table_L → Table_A1. Reversing this path provides the shortest chain from Table_A1 to Table_Q.",
+      "reasoning": "The shortest path from Table_Q to Table_A1 is given as Table_Q \u2192 Table_F1 \u2192 Table_L \u2192 Table_A1. Reversing this path provides the shortest chain from Table_A1 to Table_Q.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3545,15 +3574,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_Q to Table_A1 is given as Table_Q → Table_F1 → Table_L → Table_A1. Reversing this path provides the shortest chain from Table_A1 to Table_Q.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A1\",\n    \"Table_L\",\n    \"Table_F1\",\n    \"Table_Q\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_Q to Table_A1 is given as Table_Q → Table_F1 → Table_L → Table_A1. Reversing this path provides the shortest chain from Table_A1 to Table_Q.\"\n}\n```"
+        "reasoning": "The shortest path from Table_Q to Table_A1 is given as Table_Q \u2192 Table_F1 \u2192 Table_L \u2192 Table_A1. Reversing this path provides the shortest chain from Table_A1 to Table_Q.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A1\",\n    \"Table_L\",\n    \"Table_F1\",\n    \"Table_Q\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_Q to Table_A1 is given as Table_Q \u2192 Table_F1 \u2192 Table_L \u2192 Table_A1. Reversing this path provides the shortest chain from Table_A1 to Table_Q.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3595,7 +3625,8 @@
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3637,7 +3668,8 @@
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3657,7 +3689,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_J and Table_F1 is explicitly given as Table_J → Table_Q → Table_F1 in the 'Shortest Paths Between Mentioned Tables' section.",
+      "reasoning": "The shortest path between Table_J and Table_F1 is explicitly given as Table_J \u2192 Table_Q \u2192 Table_F1 in the 'Shortest Paths Between Mentioned Tables' section.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3668,15 +3700,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_J and Table_F1 is explicitly given as Table_J → Table_Q → Table_F1 in the 'Shortest Paths Between Mentioned Tables' section.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_Q\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_J and Table_F1 is explicitly given as Table_J → Table_Q → Table_F1 in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
+        "reasoning": "The shortest path between Table_J and Table_F1 is explicitly given as Table_J \u2192 Table_Q \u2192 Table_F1 in the 'Shortest Paths Between Mentioned Tables' section.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_Q\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_J and Table_F1 is explicitly given as Table_J \u2192 Table_Q \u2192 Table_F1 in the 'Shortest Paths Between Mentioned Tables' section.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3707,7 +3740,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3746,7 +3780,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3778,7 +3813,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3820,7 +3856,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3859,7 +3896,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3898,7 +3936,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3930,7 +3969,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3950,7 +3990,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_F1 and Table_A1 is explicitly given as Table_F1 → Table_L → Table_A1.",
+      "reasoning": "The shortest path between Table_F1 and Table_A1 is explicitly given as Table_F1 \u2192 Table_L \u2192 Table_A1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -3961,15 +4001,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_F1 and Table_A1 is explicitly given as Table_F1 → Table_L → Table_A1.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F1\",\n    \"Table_L\",\n    \"Table_A1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F1 and Table_A1 is explicitly given as Table_F1 → Table_L → Table_A1.\"\n}\n```"
+        "reasoning": "The shortest path between Table_F1 and Table_A1 is explicitly given as Table_F1 \u2192 Table_L \u2192 Table_A1.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_F1\",\n    \"Table_L\",\n    \"Table_A1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_F1 and Table_A1 is explicitly given as Table_F1 \u2192 Table_L \u2192 Table_A1.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3989,7 +4030,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_E1 and Table_T is explicitly given as Table_E1 → Table_F1 → Table_T, which consists of foreign key relationships.",
+      "reasoning": "The shortest path between Table_E1 and Table_T is explicitly given as Table_E1 \u2192 Table_F1 \u2192 Table_T, which consists of foreign key relationships.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4000,15 +4041,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_E1 and Table_T is explicitly given as Table_E1 → Table_F1 → Table_T, which consists of foreign key relationships.",
-        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_E1\",\n    \"Table_F1\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_E1 and Table_T is explicitly given as Table_E1 → Table_F1 → Table_T, which consists of foreign key relationships.\"\n}"
+        "reasoning": "The shortest path between Table_E1 and Table_T is explicitly given as Table_E1 \u2192 Table_F1 \u2192 Table_T, which consists of foreign key relationships.",
+        "_raw_text": "{\n  \"answer_list\": [\n    \"Table_E1\",\n    \"Table_F1\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_E1 and Table_T is explicitly given as Table_E1 \u2192 Table_F1 \u2192 Table_T, which consists of foreign key relationships.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4039,7 +4081,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4061,7 +4104,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_E1 to Table_B1 is given as Table_E1 → Table_F1 → Table_T → Table_B1 (3 hops). Reversing this path and verifying FK relationships (Table_B1 --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_E1) forms a valid chain of foreign key joins.",
+      "reasoning": "The shortest path from Table_E1 to Table_B1 is given as Table_E1 \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1 (3 hops). Reversing this path and verifying FK relationships (Table_B1 --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_E1) forms a valid chain of foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4073,15 +4116,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_E1 to Table_B1 is given as Table_E1 → Table_F1 → Table_T → Table_B1 (3 hops). Reversing this path and verifying FK relationships (Table_B1 --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_E1) forms a valid chain of foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B1\",\n    \"Table_T\",\n    \"Table_F1\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_B1 is given as Table_E1 → Table_F1 → Table_T → Table_B1 (3 hops). Reversing this path and verifying FK relationships (Table_B1 --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_E1) forms a valid chain of foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from Table_E1 to Table_B1 is given as Table_E1 \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1 (3 hops). Reversing this path and verifying FK relationships (Table_B1 --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_E1) forms a valid chain of foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B1\",\n    \"Table_T\",\n    \"Table_F1\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_B1 is given as Table_E1 \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1 (3 hops). Reversing this path and verifying FK relationships (Table_B1 --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_E1) forms a valid chain of foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4120,7 +4164,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4136,22 +4181,23 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The 'FK Relationships' section lists 'Table_Q --FK--> Table_E1' and 'Table_N --FK--> Table_E1'. This means Table_Q references Table_E1, and Table_N references Table_E1. However, there is no listed foreign key relationship from Table_E1 to Table_N, which would be required to form a chain 'Table_Q -> Table_E1 -> Table_N'. The 'Shortest Paths' section provides a path 'Table_Q → Table_E1 → Table_N', but this path is not fully supported by the explicit foreign key relationships provided for the second hop.",
+      "reasoning": "The 'FK Relationships' section lists 'Table_Q --FK--> Table_E1' and 'Table_N --FK--> Table_E1'. This means Table_Q references Table_E1, and Table_N references Table_E1. However, there is no listed foreign key relationship from Table_E1 to Table_N, which would be required to form a chain 'Table_Q -> Table_E1 -> Table_N'. The 'Shortest Paths' section provides a path 'Table_Q \u2192 Table_E1 \u2192 Table_N', but this path is not fully supported by the explicit foreign key relationships provided for the second hop.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": null,
         "answer_str": "no path",
-        "reasoning": "The 'FK Relationships' section lists 'Table_Q --FK--> Table_E1' and 'Table_N --FK--> Table_E1'. This means Table_Q references Table_E1, and Table_N references Table_E1. However, there is no listed foreign key relationship from Table_E1 to Table_N, which would be required to form a chain 'Table_Q -> Table_E1 -> Table_N'. The 'Shortest Paths' section provides a path 'Table_Q → Table_E1 → Table_N', but this path is not fully supported by the explicit foreign key relationships provided for the second hop.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The 'FK Relationships' section lists 'Table_Q --FK--> Table_E1' and 'Table_N --FK--> Table_E1'. This means Table_Q references Table_E1, and Table_N references Table_E1. However, there is no listed foreign key relationship from Table_E1 to Table_N, which would be required to form a chain 'Table_Q -> Table_E1 -> Table_N'. The 'Shortest Paths' section provides a path 'Table_Q → Table_E1 → Table_N', but this path is not fully supported by the explicit foreign key relationships provided for the second hop.\"\n}\n```"
+        "reasoning": "The 'FK Relationships' section lists 'Table_Q --FK--> Table_E1' and 'Table_N --FK--> Table_E1'. This means Table_Q references Table_E1, and Table_N references Table_E1. However, there is no listed foreign key relationship from Table_E1 to Table_N, which would be required to form a chain 'Table_Q -> Table_E1 -> Table_N'. The 'Shortest Paths' section provides a path 'Table_Q \u2192 Table_E1 \u2192 Table_N', but this path is not fully supported by the explicit foreign key relationships provided for the second hop.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"The 'FK Relationships' section lists 'Table_Q --FK--> Table_E1' and 'Table_N --FK--> Table_E1'. This means Table_Q references Table_E1, and Table_N references Table_E1. However, there is no listed foreign key relationship from Table_E1 to Table_N, which would be required to form a chain 'Table_Q -> Table_E1 -> Table_N'. The 'Shortest Paths' section provides a path 'Table_Q \u2192 Table_E1 \u2192 Table_N', but this path is not fully supported by the explicit foreign key relationships provided for the second hop.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4171,7 +4217,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_G and Table_B1 is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section as Table_G → Table_T → Table_B1.",
+      "reasoning": "The shortest path between Table_G and Table_B1 is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section as Table_G \u2192 Table_T \u2192 Table_B1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4182,15 +4228,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_G and Table_B1 is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section as Table_G → Table_T → Table_B1.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_T\",\n    \"Table_B1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_G and Table_B1 is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section as Table_G → Table_T → Table_B1.\"\n}\n```"
+        "reasoning": "The shortest path between Table_G and Table_B1 is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section as Table_G \u2192 Table_T \u2192 Table_B1.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_T\",\n    \"Table_B1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_G and Table_B1 is explicitly provided in the 'Shortest Paths Between Mentioned Tables' section as Table_G \u2192 Table_T \u2192 Table_B1.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4222,7 +4269,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4253,7 +4301,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4295,7 +4344,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4334,7 +4384,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4373,7 +4424,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4406,7 +4458,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4426,7 +4479,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_J and Table_T is explicitly provided in the context as Table_J → Table_G → Table_T.",
+      "reasoning": "The shortest path between Table_J and Table_T is explicitly provided in the context as Table_J \u2192 Table_G \u2192 Table_T.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4437,15 +4490,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_J and Table_T is explicitly provided in the context as Table_J → Table_G → Table_T.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_G\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_J and Table_T is explicitly provided in the context as Table_J → Table_G → Table_T.\"\n}\n```"
+        "reasoning": "The shortest path between Table_J and Table_T is explicitly provided in the context as Table_J \u2192 Table_G \u2192 Table_T.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_J\",\n    \"Table_G\",\n    \"Table_T\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_J and Table_T is explicitly provided in the context as Table_J \u2192 Table_G \u2192 Table_T.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4465,7 +4519,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path from Table_F1 to Table_B1 is Table_F1 → Table_T → Table_B1. Reversing this gives the path from Table_B1 to Table_F1.",
+      "reasoning": "The shortest path from Table_F1 to Table_B1 is Table_F1 \u2192 Table_T \u2192 Table_B1. Reversing this gives the path from Table_B1 to Table_F1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4476,15 +4530,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_F1 to Table_B1 is Table_F1 → Table_T → Table_B1. Reversing this gives the path from Table_B1 to Table_F1.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B1\",\n    \"Table_T\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_F1 to Table_B1 is Table_F1 → Table_T → Table_B1. Reversing this gives the path from Table_B1 to Table_F1.\"\n}\n```"
+        "reasoning": "The shortest path from Table_F1 to Table_B1 is Table_F1 \u2192 Table_T \u2192 Table_B1. Reversing this gives the path from Table_B1 to Table_F1.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_B1\",\n    \"Table_T\",\n    \"Table_F1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_F1 to Table_B1 is Table_F1 \u2192 Table_T \u2192 Table_B1. Reversing this gives the path from Table_B1 to Table_F1.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4523,7 +4578,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4554,7 +4610,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4593,7 +4650,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4625,7 +4683,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4664,7 +4723,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4684,7 +4744,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_E1 and Table_S is explicitly given as Table_E1 → Table_F1 → Table_S, which involves foreign key joins.",
+      "reasoning": "The shortest path between Table_E1 and Table_S is explicitly given as Table_E1 \u2192 Table_F1 \u2192 Table_S, which involves foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4695,15 +4755,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_E1 and Table_S is explicitly given as Table_E1 → Table_F1 → Table_S, which involves foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_E1\",\n    \"Table_F1\",\n    \"Table_S\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_E1 and Table_S is explicitly given as Table_E1 → Table_F1 → Table_S, which involves foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path between Table_E1 and Table_S is explicitly given as Table_E1 \u2192 Table_F1 \u2192 Table_S, which involves foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_E1\",\n    \"Table_F1\",\n    \"Table_S\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_E1 and Table_S is explicitly given as Table_E1 \u2192 Table_F1 \u2192 Table_S, which involves foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4742,7 +4803,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4762,7 +4824,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_A and Table_N is explicitly given as Table_A → Table_T → Table_N (2 hops). This path represents a chain of foreign key joins: Table_A has an FK to Table_T, and Table_N has an FK to Table_T, allowing joins between Table_A and Table_T, and Table_T and Table_N.",
+      "reasoning": "The shortest path between Table_A and Table_N is explicitly given as Table_A \u2192 Table_T \u2192 Table_N (2 hops). This path represents a chain of foreign key joins: Table_A has an FK to Table_T, and Table_N has an FK to Table_T, allowing joins between Table_A and Table_T, and Table_T and Table_N.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4773,15 +4835,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_A and Table_N is explicitly given as Table_A → Table_T → Table_N (2 hops). This path represents a chain of foreign key joins: Table_A has an FK to Table_T, and Table_N has an FK to Table_T, allowing joins between Table_A and Table_T, and Table_T and Table_N.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_N\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_A and Table_N is explicitly given as Table_A → Table_T → Table_N (2 hops). This path represents a chain of foreign key joins: Table_A has an FK to Table_T, and Table_N has an FK to Table_T, allowing joins between Table_A and Table_T, and Table_T and Table_N.\"\n}\n```"
+        "reasoning": "The shortest path between Table_A and Table_N is explicitly given as Table_A \u2192 Table_T \u2192 Table_N (2 hops). This path represents a chain of foreign key joins: Table_A has an FK to Table_T, and Table_N has an FK to Table_T, allowing joins between Table_A and Table_T, and Table_T and Table_N.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_N\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_A and Table_N is explicitly given as Table_A \u2192 Table_T \u2192 Table_N (2 hops). This path represents a chain of foreign key joins: Table_A has an FK to Table_T, and Table_N has an FK to Table_T, allowing joins between Table_A and Table_T, and Table_T and Table_N.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4797,22 +4860,23 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "A chain of foreign key joins implies a directed path where each step is an FK from the source to the target table. Traversing the FK relationships from Table_A, no path leads to Table_F1. The provided shortest path 'Table_A → Table_T → Table_F1' is not a chain of FK joins because Table_T does not have an FK to Table_F1 (Table_F1 has an FK to Table_T).",
+      "reasoning": "A chain of foreign key joins implies a directed path where each step is an FK from the source to the target table. Traversing the FK relationships from Table_A, no path leads to Table_F1. The provided shortest path 'Table_A \u2192 Table_T \u2192 Table_F1' is not a chain of FK joins because Table_T does not have an FK to Table_F1 (Table_F1 has an FK to Table_T).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": null,
         "answer_str": "no path",
-        "reasoning": "A chain of foreign key joins implies a directed path where each step is an FK from the source to the target table. Traversing the FK relationships from Table_A, no path leads to Table_F1. The provided shortest path 'Table_A → Table_T → Table_F1' is not a chain of FK joins because Table_T does not have an FK to Table_F1 (Table_F1 has an FK to Table_T).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"A chain of foreign key joins implies a directed path where each step is an FK from the source to the target table. Traversing the FK relationships from Table_A, no path leads to Table_F1. The provided shortest path 'Table_A → Table_T → Table_F1' is not a chain of FK joins because Table_T does not have an FK to Table_F1 (Table_F1 has an FK to Table_T).\"\n}\n```"
+        "reasoning": "A chain of foreign key joins implies a directed path where each step is an FK from the source to the target table. Traversing the FK relationships from Table_A, no path leads to Table_F1. The provided shortest path 'Table_A \u2192 Table_T \u2192 Table_F1' is not a chain of FK joins because Table_T does not have an FK to Table_F1 (Table_F1 has an FK to Table_T).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"A chain of foreign key joins implies a directed path where each step is an FK from the source to the target table. Traversing the FK relationships from Table_A, no path leads to Table_F1. The provided shortest path 'Table_A \u2192 Table_T \u2192 Table_F1' is not a chain of FK joins because Table_T does not have an FK to Table_F1 (Table_F1 has an FK to Table_T).\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4851,7 +4915,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4873,7 +4938,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path between Table_A and Table_L is provided as Table_L → Table_F1 → Table_T → Table_A (3 hops). Reversing this path gives Table_A → Table_T → Table_F1 → Table_L, and each step represents a foreign key relationship (Table_A --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_L).",
+      "reasoning": "The shortest path between Table_A and Table_L is provided as Table_L \u2192 Table_F1 \u2192 Table_T \u2192 Table_A (3 hops). Reversing this path gives Table_A \u2192 Table_T \u2192 Table_F1 \u2192 Table_L, and each step represents a foreign key relationship (Table_A --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_L).",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -4885,15 +4950,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_A and Table_L is provided as Table_L → Table_F1 → Table_T → Table_A (3 hops). Reversing this path gives Table_A → Table_T → Table_F1 → Table_L, and each step represents a foreign key relationship (Table_A --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_L).",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_F1\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_A and Table_L is provided as Table_L → Table_F1 → Table_T → Table_A (3 hops). Reversing this path gives Table_A → Table_T → Table_F1 → Table_L, and each step represents a foreign key relationship (Table_A --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_L).\"\n}\n```"
+        "reasoning": "The shortest path between Table_A and Table_L is provided as Table_L \u2192 Table_F1 \u2192 Table_T \u2192 Table_A (3 hops). Reversing this path gives Table_A \u2192 Table_T \u2192 Table_F1 \u2192 Table_L, and each step represents a foreign key relationship (Table_A --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_L).",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A\",\n    \"Table_T\",\n    \"Table_F1\",\n    \"Table_L\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_A and Table_L is provided as Table_L \u2192 Table_F1 \u2192 Table_T \u2192 Table_A (3 hops). Reversing this path gives Table_A \u2192 Table_T \u2192 Table_F1 \u2192 Table_L, and each step represents a foreign key relationship (Table_A --FK--> Table_T, Table_F1 --FK--> Table_T, Table_F1 --FK--> Table_L).\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4935,7 +5001,8 @@
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4966,7 +5033,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4988,7 +5056,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_A1 to Table_E1 using foreign key joins (allowing traversal in either direction for a join) is Table_A1 → Table_L → Table_F1 → Table_E1. This path is derived from the provided shortest path from Table_E1 to Table_A1, reversed, and verified against FK relationships.",
+      "reasoning": "The shortest path from Table_A1 to Table_E1 using foreign key joins (allowing traversal in either direction for a join) is Table_A1 \u2192 Table_L \u2192 Table_F1 \u2192 Table_E1. This path is derived from the provided shortest path from Table_E1 to Table_A1, reversed, and verified against FK relationships.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5000,15 +5068,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_A1 to Table_E1 using foreign key joins (allowing traversal in either direction for a join) is Table_A1 → Table_L → Table_F1 → Table_E1. This path is derived from the provided shortest path from Table_E1 to Table_A1, reversed, and verified against FK relationships.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A1\",\n    \"Table_L\",\n    \"Table_F1\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_A1 to Table_E1 using foreign key joins (allowing traversal in either direction for a join) is Table_A1 → Table_L → Table_F1 → Table_E1. This path is derived from the provided shortest path from Table_E1 to Table_A1, reversed, and verified against FK relationships.\"\n}\n```"
+        "reasoning": "The shortest path from Table_A1 to Table_E1 using foreign key joins (allowing traversal in either direction for a join) is Table_A1 \u2192 Table_L \u2192 Table_F1 \u2192 Table_E1. This path is derived from the provided shortest path from Table_E1 to Table_A1, reversed, and verified against FK relationships.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_A1\",\n    \"Table_L\",\n    \"Table_F1\",\n    \"Table_E1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_A1 to Table_E1 using foreign key joins (allowing traversal in either direction for a join) is Table_A1 \u2192 Table_L \u2192 Table_F1 \u2192 Table_E1. This path is derived from the provided shortest path from Table_E1 to Table_A1, reversed, and verified against FK relationships.\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5028,7 +5097,7 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "The shortest path between Table_G and Table_A1 is provided in the 'Shortest Paths Between Mentioned Tables' section, which is Table_G → Table_L → Table_A1.",
+      "reasoning": "The shortest path between Table_G and Table_A1 is provided in the 'Shortest Paths Between Mentioned Tables' section, which is Table_G \u2192 Table_L \u2192 Table_A1.",
       "api_failure": false,
       "raw_response": {
         "answer_list": [
@@ -5039,15 +5108,16 @@
         "answer_int": null,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path between Table_G and Table_A1 is provided in the 'Shortest Paths Between Mentioned Tables' section, which is Table_G → Table_L → Table_A1.",
-        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_L\",\n    \"Table_A1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_G and Table_A1 is provided in the 'Shortest Paths Between Mentioned Tables' section, which is Table_G → Table_L → Table_A1.\"\n}\n```"
+        "reasoning": "The shortest path between Table_G and Table_A1 is provided in the 'Shortest Paths Between Mentioned Tables' section, which is Table_G \u2192 Table_L \u2192 Table_A1.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_G\",\n    \"Table_L\",\n    \"Table_A1\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path between Table_G and Table_A1 is provided in the 'Shortest Paths Between Mentioned Tables' section, which is Table_G \u2192 Table_L \u2192 Table_A1.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5063,22 +5133,23 @@
       "type": "schema_routing",
       "subtype": "join_path",
       "difficulty": "easy",
-      "reasoning": "Based on the 'FK Relationships (relevant tables)' section, Table_N has foreign keys to Table_E1, Table_S, and Table_T. However, none of these tables (Table_E1, Table_S, Table_T) have listed outgoing foreign keys that would lead to Table_B1, nor does Table_B1 have any incoming foreign keys from them. The provided shortest path 'Table_B1 → Table_T → Table_N' is from B1 to N, and its reverse 'Table_N → Table_T → Table_B1' is not supported by the explicit FK relationships (specifically, Table_T does not have an FK to Table_B1).",
+      "reasoning": "Based on the 'FK Relationships (relevant tables)' section, Table_N has foreign keys to Table_E1, Table_S, and Table_T. However, none of these tables (Table_E1, Table_S, Table_T) have listed outgoing foreign keys that would lead to Table_B1, nor does Table_B1 have any incoming foreign keys from them. The provided shortest path 'Table_B1 \u2192 Table_T \u2192 Table_N' is from B1 to N, and its reverse 'Table_N \u2192 Table_T \u2192 Table_B1' is not supported by the explicit FK relationships (specifically, Table_T does not have an FK to Table_B1).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": null,
         "answer_bool": null,
         "answer_str": "no path",
-        "reasoning": "Based on the 'FK Relationships (relevant tables)' section, Table_N has foreign keys to Table_E1, Table_S, and Table_T. However, none of these tables (Table_E1, Table_S, Table_T) have listed outgoing foreign keys that would lead to Table_B1, nor does Table_B1 have any incoming foreign keys from them. The provided shortest path 'Table_B1 → Table_T → Table_N' is from B1 to N, and its reverse 'Table_N → Table_T → Table_B1' is not supported by the explicit FK relationships (specifically, Table_T does not have an FK to Table_B1).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Based on the 'FK Relationships (relevant tables)' section, Table_N has foreign keys to Table_E1, Table_S, and Table_T. However, none of these tables (Table_E1, Table_S, Table_T) have listed outgoing foreign keys that would lead to Table_B1, nor does Table_B1 have any incoming foreign keys from them. The provided shortest path 'Table_B1 → Table_T → Table_N' is from B1 to N, and its reverse 'Table_N → Table_T → Table_B1' is not supported by the explicit FK relationships (specifically, Table_T does not have an FK to Table_B1).\"\n}\n```"
+        "reasoning": "Based on the 'FK Relationships (relevant tables)' section, Table_N has foreign keys to Table_E1, Table_S, and Table_T. However, none of these tables (Table_E1, Table_S, Table_T) have listed outgoing foreign keys that would lead to Table_B1, nor does Table_B1 have any incoming foreign keys from them. The provided shortest path 'Table_B1 \u2192 Table_T \u2192 Table_N' is from B1 to N, and its reverse 'Table_N \u2192 Table_T \u2192 Table_B1' is not supported by the explicit FK relationships (specifically, Table_T does not have an FK to Table_B1).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": \"no path\",\n  \"reasoning\": \"Based on the 'FK Relationships (relevant tables)' section, Table_N has foreign keys to Table_E1, Table_S, and Table_T. However, none of these tables (Table_E1, Table_S, Table_T) have listed outgoing foreign keys that would lead to Table_B1, nor does Table_B1 have any incoming foreign keys from them. The provided shortest path 'Table_B1 \u2192 Table_T \u2192 Table_N' is from B1 to N, and its reverse 'Table_N \u2192 Table_T \u2192 Table_B1' is not supported by the explicit FK relationships (specifically, Table_T does not have an FK to Table_B1).\"\n}\n```"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5117,7 +5188,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5159,7 +5231,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5190,7 +5263,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5229,7 +5303,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5268,7 +5343,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5280,15 +5356,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_N to Table_A1 is Table_N → Table_S → Table_L → Table_A1, which involves 3 hops (foreign key joins).",
+      "reasoning": "The shortest path from Table_N to Table_A1 is Table_N \u2192 Table_S \u2192 Table_L \u2192 Table_A1, which involves 3 hops (foreign key joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_N to Table_A1 is Table_N → Table_S → Table_L → Table_A1, which involves 3 hops (foreign key joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_N to Table_A1 is Table_N → Table_S → Table_L → Table_A1, which involves 3 hops (foreign key joins).\"\n}\n```"
+        "reasoning": "The shortest path from Table_N to Table_A1 is Table_N \u2192 Table_S \u2192 Table_L \u2192 Table_A1, which involves 3 hops (foreign key joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_N to Table_A1 is Table_N \u2192 Table_S \u2192 Table_L \u2192 Table_A1, which involves 3 hops (foreign key joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5304,15 +5380,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_Q to Table_B using foreign key joins is Table_Q → Table_F1 → Table_B, which involves 2 hops.",
+      "reasoning": "The shortest path from Table_Q to Table_B using foreign key joins is Table_Q \u2192 Table_F1 \u2192 Table_B, which involves 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_Q to Table_B using foreign key joins is Table_Q → Table_F1 → Table_B, which involves 2 hops.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_Q to Table_B using foreign key joins is Table_Q → Table_F1 → Table_B, which involves 2 hops.\"\n}\n```"
+        "reasoning": "The shortest path from Table_Q to Table_B using foreign key joins is Table_Q \u2192 Table_F1 \u2192 Table_B, which involves 2 hops.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_Q to Table_B using foreign key joins is Table_Q \u2192 Table_F1 \u2192 Table_B, which involves 2 hops.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5376,15 +5452,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_E1 to Table_L is Table_E1 → Table_F1 → Table_L, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from Table_E1 to Table_L is Table_E1 \u2192 Table_F1 \u2192 Table_L, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_E1 to Table_L is Table_E1 → Table_F1 → Table_L, which involves 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_L is Table_E1 → Table_F1 → Table_L, which involves 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path from Table_E1 to Table_L is Table_E1 \u2192 Table_F1 \u2192 Table_L, which involves 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_L is Table_E1 \u2192 Table_F1 \u2192 Table_L, which involves 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5400,15 +5476,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_B1 to Table_N is Table_B1 → Table_T → Table_N, which involves 2 foreign key joins.",
+      "reasoning": "The shortest path from Table_B1 to Table_N is Table_B1 \u2192 Table_T \u2192 Table_N, which involves 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_B1 to Table_N is Table_B1 → Table_T → Table_N, which involves 2 foreign key joins.",
-        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_B1 to Table_N is Table_B1 → Table_T → Table_N, which involves 2 foreign key joins.\"\n}"
+        "reasoning": "The shortest path from Table_B1 to Table_N is Table_B1 \u2192 Table_T \u2192 Table_N, which involves 2 foreign key joins.",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_B1 to Table_N is Table_B1 \u2192 Table_T \u2192 Table_N, which involves 2 foreign key joins.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5424,15 +5500,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided is Table_J → Table_G → Table_T, which involves 2 hops, each representing a foreign key join.",
+      "reasoning": "The shortest path provided is Table_J \u2192 Table_G \u2192 Table_T, which involves 2 hops, each representing a foreign key join.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided is Table_J → Table_G → Table_T, which involves 2 hops, each representing a foreign key join.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is Table_J → Table_G → Table_T, which involves 2 hops, each representing a foreign key join.\"\n}\n```"
+        "reasoning": "The shortest path provided is Table_J \u2192 Table_G \u2192 Table_T, which involves 2 hops, each representing a foreign key join.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is Table_J \u2192 Table_G \u2192 Table_T, which involves 2 hops, each representing a foreign key join.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5448,15 +5524,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided explicitly states 'Table_G → Table_T → Table_A (2 hops)', indicating two foreign key relationships are traversed.",
+      "reasoning": "The shortest path provided explicitly states 'Table_G \u2192 Table_T \u2192 Table_A (2 hops)', indicating two foreign key relationships are traversed.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided explicitly states 'Table_G → Table_T → Table_A (2 hops)', indicating two foreign key relationships are traversed.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided explicitly states 'Table_G → Table_T → Table_A (2 hops)', indicating two foreign key relationships are traversed.\"\n}\n```"
+        "reasoning": "The shortest path provided explicitly states 'Table_G \u2192 Table_T \u2192 Table_A (2 hops)', indicating two foreign key relationships are traversed.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided explicitly states 'Table_G \u2192 Table_T \u2192 Table_A (2 hops)', indicating two foreign key relationships are traversed.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5520,15 +5596,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_B1 to Table_A1 is Table_B1 → Table_L → Table_A1, which involves 2 hops.",
+      "reasoning": "The shortest path from Table_B1 to Table_A1 is Table_B1 \u2192 Table_L \u2192 Table_A1, which involves 2 hops.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_B1 to Table_A1 is Table_B1 → Table_L → Table_A1, which involves 2 hops.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_B1 to Table_A1 is Table_B1 → Table_L → Table_A1, which involves 2 hops.\"\n}\n```"
+        "reasoning": "The shortest path from Table_B1 to Table_A1 is Table_B1 \u2192 Table_L \u2192 Table_A1, which involves 2 hops.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_B1 to Table_A1 is Table_B1 \u2192 Table_L \u2192 Table_A1, which involves 2 hops.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5544,15 +5620,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section indicates that 'Table_Q → Table_A1' is 3 hops. This implies 3 foreign key joins are needed to connect these tables. Tracing the FK relationships from Table_A1 to Table_Q confirms a path of 3 joins: Table_A1 --FK--> Table_L, Table_F1 --FK--> Table_L, and Table_F1 --FK--> Table_Q.",
+      "reasoning": "The 'Shortest Paths Between Mentioned Tables' section indicates that 'Table_Q \u2192 Table_A1' is 3 hops. This implies 3 foreign key joins are needed to connect these tables. Tracing the FK relationships from Table_A1 to Table_Q confirms a path of 3 joins: Table_A1 --FK--> Table_L, Table_F1 --FK--> Table_L, and Table_F1 --FK--> Table_Q.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section indicates that 'Table_Q → Table_A1' is 3 hops. This implies 3 foreign key joins are needed to connect these tables. Tracing the FK relationships from Table_A1 to Table_Q confirms a path of 3 joins: Table_A1 --FK--> Table_L, Table_F1 --FK--> Table_L, and Table_F1 --FK--> Table_Q.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section indicates that 'Table_Q → Table_A1' is 3 hops. This implies 3 foreign key joins are needed to connect these tables. Tracing the FK relationships from Table_A1 to Table_Q confirms a path of 3 joins: Table_A1 --FK--> Table_L, Table_F1 --FK--> Table_L, and Table_F1 --FK--> Table_Q.\"\n}\n```"
+        "reasoning": "The 'Shortest Paths Between Mentioned Tables' section indicates that 'Table_Q \u2192 Table_A1' is 3 hops. This implies 3 foreign key joins are needed to connect these tables. Tracing the FK relationships from Table_A1 to Table_Q confirms a path of 3 joins: Table_A1 --FK--> Table_L, Table_F1 --FK--> Table_L, and Table_F1 --FK--> Table_Q.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The 'Shortest Paths Between Mentioned Tables' section indicates that 'Table_Q \u2192 Table_A1' is 3 hops. This implies 3 foreign key joins are needed to connect these tables. Tracing the FK relationships from Table_A1 to Table_Q confirms a path of 3 joins: Table_A1 --FK--> Table_L, Table_F1 --FK--> Table_L, and Table_F1 --FK--> Table_Q.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5568,15 +5644,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided explicitly states 'Table_G → Table_T → Table_F1 (2 hops)', indicating 2 foreign key joins.",
+      "reasoning": "The shortest path provided explicitly states 'Table_G \u2192 Table_T \u2192 Table_F1 (2 hops)', indicating 2 foreign key joins.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided explicitly states 'Table_G → Table_T → Table_F1 (2 hops)', indicating 2 foreign key joins.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided explicitly states 'Table_G → Table_T → Table_F1 (2 hops)', indicating 2 foreign key joins.\"\n}\n```"
+        "reasoning": "The shortest path provided explicitly states 'Table_G \u2192 Table_T \u2192 Table_F1 (2 hops)', indicating 2 foreign key joins.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided explicitly states 'Table_G \u2192 Table_T \u2192 Table_F1 (2 hops)', indicating 2 foreign key joins.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5592,15 +5668,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_Q to Table_B1 is Table_Q → Table_F1 → Table_T → Table_B1, which involves 3 hops (foreign key joins).",
+      "reasoning": "The shortest path from Table_Q to Table_B1 is Table_Q \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1, which involves 3 hops (foreign key joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_Q to Table_B1 is Table_Q → Table_F1 → Table_T → Table_B1, which involves 3 hops (foreign key joins).",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_Q to Table_B1 is Table_Q → Table_F1 → Table_T → Table_B1, which involves 3 hops (foreign key joins).\"\n}\n```"
+        "reasoning": "The shortest path from Table_Q to Table_B1 is Table_Q \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1, which involves 3 hops (foreign key joins).",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_Q to Table_B1 is Table_Q \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1, which involves 3 hops (foreign key joins).\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5616,15 +5692,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path provided is 'Table_G → Table_L → Table_A1 (2 hops)'. Each hop represents a foreign key join.",
+      "reasoning": "The shortest path provided is 'Table_G \u2192 Table_L \u2192 Table_A1 (2 hops)'. Each hop represents a foreign key join.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path provided is 'Table_G → Table_L → Table_A1 (2 hops)'. Each hop represents a foreign key join.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is 'Table_G → Table_L → Table_A1 (2 hops)'. Each hop represents a foreign key join.\"\n}\n```"
+        "reasoning": "The shortest path provided is 'Table_G \u2192 Table_L \u2192 Table_A1 (2 hops)'. Each hop represents a foreign key join.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path provided is 'Table_G \u2192 Table_L \u2192 Table_A1 (2 hops)'. Each hop represents a foreign key join.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5688,15 +5764,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The provided shortest path from Table_S to Table_A is 'Table_S → Table_F1 → Table_T → Table_A', which consists of 3 hops. Each hop corresponds to a foreign key relationship: Table_F1 --FK--> Table_S, Table_F1 --FK--> Table_T, and Table_A --FK--> Table_T. Therefore, 3 foreign key joins are needed.",
+      "reasoning": "The provided shortest path from Table_S to Table_A is 'Table_S \u2192 Table_F1 \u2192 Table_T \u2192 Table_A', which consists of 3 hops. Each hop corresponds to a foreign key relationship: Table_F1 --FK--> Table_S, Table_F1 --FK--> Table_T, and Table_A --FK--> Table_T. Therefore, 3 foreign key joins are needed.",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The provided shortest path from Table_S to Table_A is 'Table_S → Table_F1 → Table_T → Table_A', which consists of 3 hops. Each hop corresponds to a foreign key relationship: Table_F1 --FK--> Table_S, Table_F1 --FK--> Table_T, and Table_A --FK--> Table_T. Therefore, 3 foreign key joins are needed.",
-        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path from Table_S to Table_A is 'Table_S → Table_F1 → Table_T → Table_A', which consists of 3 hops. Each hop corresponds to a foreign key relationship: Table_F1 --FK--> Table_S, Table_F1 --FK--> Table_T, and Table_A --FK--> Table_T. Therefore, 3 foreign key joins are needed.\"\n}\n```"
+        "reasoning": "The provided shortest path from Table_S to Table_A is 'Table_S \u2192 Table_F1 \u2192 Table_T \u2192 Table_A', which consists of 3 hops. Each hop corresponds to a foreign key relationship: Table_F1 --FK--> Table_S, Table_F1 --FK--> Table_T, and Table_A --FK--> Table_T. Therefore, 3 foreign key joins are needed.",
+        "_raw_text": "```json\n{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided shortest path from Table_S to Table_A is 'Table_S \u2192 Table_F1 \u2192 Table_T \u2192 Table_A', which consists of 3 hops. Each hop corresponds to a foreign key relationship: Table_F1 --FK--> Table_S, Table_F1 --FK--> Table_T, and Table_A --FK--> Table_T. Therefore, 3 foreign key joins are needed.\"\n}\n```"
       },
       "scores": {
         "exact_match": true,
@@ -5712,15 +5788,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_E1 to Table_T is 'Table_E1 → Table_F1 → Table_T', which involves 2 hops (foreign key joins).",
+      "reasoning": "The shortest path from Table_E1 to Table_T is 'Table_E1 \u2192 Table_F1 \u2192 Table_T', which involves 2 hops (foreign key joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 2,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_E1 to Table_T is 'Table_E1 → Table_F1 → Table_T', which involves 2 hops (foreign key joins).",
-        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_T is 'Table_E1 → Table_F1 → Table_T', which involves 2 hops (foreign key joins).\"\n}"
+        "reasoning": "The shortest path from Table_E1 to Table_T is 'Table_E1 \u2192 Table_F1 \u2192 Table_T', which involves 2 hops (foreign key joins).",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 2,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_T is 'Table_E1 \u2192 Table_F1 \u2192 Table_T', which involves 2 hops (foreign key joins).\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -5736,15 +5812,15 @@
       "type": "schema_routing",
       "subtype": "hop_count",
       "difficulty": "medium",
-      "reasoning": "The shortest path from Table_E1 to Table_B1 is 'Table_E1 → Table_F1 → Table_T → Table_B1', which involves 3 hops (foreign key joins).",
+      "reasoning": "The shortest path from Table_E1 to Table_B1 is 'Table_E1 \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1', which involves 3 hops (foreign key joins).",
       "api_failure": false,
       "raw_response": {
         "answer_list": null,
         "answer_int": 3,
         "answer_bool": null,
         "answer_str": null,
-        "reasoning": "The shortest path from Table_E1 to Table_B1 is 'Table_E1 → Table_F1 → Table_T → Table_B1', which involves 3 hops (foreign key joins).",
-        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_B1 is 'Table_E1 → Table_F1 → Table_T → Table_B1', which involves 3 hops (foreign key joins).\"\n}"
+        "reasoning": "The shortest path from Table_E1 to Table_B1 is 'Table_E1 \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1', which involves 3 hops (foreign key joins).",
+        "_raw_text": "{\n  \"answer_list\": null,\n  \"answer_int\": 3,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path from Table_E1 to Table_B1 is 'Table_E1 \u2192 Table_F1 \u2192 Table_T \u2192 Table_B1', which involves 3 hops (foreign key joins).\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -6135,5 +6211,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 181,
+    "exact_match": 44,
+    "exact_match_pct": 24.3,
+    "avg_f1": 24.3
+  }
 }

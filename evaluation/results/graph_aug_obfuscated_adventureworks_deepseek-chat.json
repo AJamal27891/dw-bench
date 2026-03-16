@@ -8802,12 +8802,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_B\", \"Table_V2\", \"Table_L1\", \"Table_Z2\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context provides a shortest path from Table_B to Table_Z2 as Table_B \u2192 Table_V2 \u2192 Table_L1 \u2192 Table_Z2 with 3 hops.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -12379,5 +12379,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 200,
+    "exact_match": 43,
+    "exact_match_pct": 21.5,
+    "avg_f1": 21.5
+  }
 }

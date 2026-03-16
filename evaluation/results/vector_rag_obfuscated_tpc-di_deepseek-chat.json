@@ -5401,12 +5401,12 @@
         "_raw_text": "{\n    \"answer_list\": [\"Table_B\", \"Table_F1\", \"Table_Q\"],\n    \"answer_int\": null,\n    \"answer_bool\": null,\n    \"answer_str\": null,\n    \"reasoning\": \"Table_B connects to Table_F1 via FK relationship, and Table_F1 connects to Table_Q via FK relationship, forming a 2-step chain.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -5461,12 +5461,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_A1\", \"Table_L\", \"Table_F1\", \"Table_Q\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"From Table_A1, FK to Table_L, then FK to Table_F1, then FK to Table_Q, forming the shortest path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -7446,12 +7446,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_A\", \"Table_Q\", \"Table_F1\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A has a foreign key to Table_Q, and Table_Q has a foreign key to Table_F1, forming a direct two-step path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.6667,
+        "recall": 0.6667,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -7563,12 +7563,12 @@
         "_raw_text": "{\n  \"answer_list\": [\"Table_A\", \"Table_Q\", \"Table_G\", \"Table_L\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_A connects to Table_Q via FK, Table_Q to Table_G via FK, and Table_G to Table_L via FK, forming the shortest path.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0,
+        "exact_match": false,
+        "f1": 0.75,
+        "precision": 0.75,
+        "recall": 0.75,
         "order_correct": false,
-        "valid_alt_path": true
+        "valid_alt_path": false
       }
     },
     {
@@ -9608,5 +9608,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 181,
+    "exact_match": 37,
+    "exact_match_pct": 20.4,
+    "avg_f1": 20.4
+  }
 }

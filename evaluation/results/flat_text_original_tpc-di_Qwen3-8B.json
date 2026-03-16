@@ -1705,7 +1705,8 @@
         "DimTrade",
         "FactHoldings",
         "FactMarketHistory",
-        "FactWatches"
+        "FactWatches",
+        "Financial"
       ],
       "predicted_answer": [
         "DimAccount",
@@ -1749,8 +1750,8 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5556,
-        "precision": 0.3846,
+        "f1": 0.6316,
+        "precision": 0.4615,
         "recall": 1.0
       }
     },
@@ -1830,7 +1831,6 @@
         "FactMarketHistory",
         "FactWatches",
         "Financial",
-        "SRC.CashTransaction",
         "SRC.CustomerMgmt",
         "SRC.DailyMarket",
         "SRC.Date",
@@ -1880,7 +1880,6 @@
         "FactCashBalances",
         "FactHoldings",
         "FactMarketHistory",
-        "FactWatches",
         "Financial",
         "SRC.CashTransaction",
         "SRC.CustomerMgmt",
@@ -1941,7 +1940,6 @@
         "SRC.FINWIRE_CMP",
         "SRC.FINWIRE_FIN",
         "SRC.FINWIRE_SEC",
-        "SRC.HR",
         "SRC.HoldingHistory",
         "SRC.TaxRate",
         "SRC.Time",
@@ -1970,17 +1968,16 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.1333,
-        "precision": 1.0,
-        "recall": 0.0714
+        "f1": 0.069,
+        "precision": 0.5,
+        "recall": 0.037
       }
     },
     {
       "id": "tpc-di_silo_member_004",
       "question": "Which tables are in the same connected component (data silo) as SRC.Industry?",
       "gold_answer": [
-        "Industry",
-        "SRC.Industry"
+        "Industry"
       ],
       "predicted_answer": [
         "Industry",
@@ -2001,9 +1998,9 @@
         "_raw_text": "{\n\n\n  \"answer_list\": [\"SRC.Industry\", \"Industry\"],\n  \"reasoning\": \"SRC.Industry is connected to Industry via the DERIVED_FROM relationship, placing them in the same component.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.5,
         "recall": 1.0
       }
     },
@@ -2011,7 +2008,6 @@
       "id": "tpc-di_silo_member_005",
       "question": "Which tables are in the same connected component (data silo) as Industry?",
       "gold_answer": [
-        "Industry",
         "SRC.Industry"
       ],
       "predicted_answer": [
@@ -2108,8 +2104,8 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.1212,
-        "precision": 0.0645,
+        "f1": 0.0625,
+        "precision": 0.0323,
         "recall": 1.0
       }
     },
@@ -2117,7 +2113,6 @@
       "id": "tpc-di_silo_member_006",
       "question": "Which tables are in the same connected component (data silo) as SRC.StatusType?",
       "gold_answer": [
-        "SRC.StatusType",
         "StatusType"
       ],
       "predicted_answer": [
@@ -2139,9 +2134,9 @@
         "_raw_text": "{\n\n\n  \"answer_list\": [\"SRC.StatusType\", \"StatusType\"],\n  \"reasoning\": \"SRC.StatusType is directly connected to StatusType via a derived_from relationship, and both are in the same data silo.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.5,
         "recall": 1.0
       }
     },
@@ -2149,8 +2144,7 @@
       "id": "tpc-di_silo_member_007",
       "question": "Which tables are in the same connected component (data silo) as StatusType?",
       "gold_answer": [
-        "SRC.StatusType",
-        "StatusType"
+        "SRC.StatusType"
       ],
       "predicted_answer": [
         "SRC.StatusType",
@@ -2171,9 +2165,9 @@
         "_raw_text": "{\n\n\n  \"answer_list\": [\"StatusType\", \"SRC.StatusType\"],\n  \"reasoning\": \"StatusType and SRC.StatusType are directly connected via a derived_from relationship, placing them in the same connected component.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.5,
         "recall": 1.0
       }
     },
@@ -2181,8 +2175,7 @@
       "id": "tpc-di_silo_member_008",
       "question": "Which tables are in the same connected component (data silo) as TradeType?",
       "gold_answer": [
-        "SRC.TradeType",
-        "TradeType"
+        "SRC.TradeType"
       ],
       "predicted_answer": [
         "DimAccount",
@@ -2270,8 +2263,8 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.1143,
-        "precision": 0.0606,
+        "f1": 0.0588,
+        "precision": 0.0303,
         "recall": 1.0
       }
     },
@@ -2279,7 +2272,6 @@
       "id": "tpc-di_silo_member_009",
       "question": "Which tables are in the same connected component (data silo) as SRC.TradeType?",
       "gold_answer": [
-        "SRC.TradeType",
         "TradeType"
       ],
       "predicted_answer": [
@@ -2301,9 +2293,9 @@
         "_raw_text": "{\n\n\n  \"answer_list\": [\"SRC.TradeType\", \"TradeType\"],\n  \"reasoning\": \"SRC.TradeType is directly connected to TradeType via a derived from relationship. TradeType is a table in the schema, so they are in the same connected component.\"\n}"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.5,
         "recall": 1.0
       }
     },
@@ -2660,7 +2652,8 @@
         "f1": 0.6667,
         "precision": 0.5,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2693,7 +2686,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2726,7 +2720,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2759,7 +2754,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2792,7 +2788,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2825,7 +2822,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2858,7 +2856,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2893,7 +2892,8 @@
         "f1": 0.8,
         "precision": 0.6667,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2926,7 +2926,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2959,7 +2960,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -2992,7 +2994,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3029,7 +3032,8 @@
         "f1": 0.6667,
         "precision": 0.5,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3062,7 +3066,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3097,7 +3102,8 @@
         "f1": 0.8,
         "precision": 0.6667,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3130,7 +3136,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3163,7 +3170,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3196,7 +3204,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3229,7 +3238,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3262,7 +3272,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3295,7 +3306,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3328,7 +3340,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3365,7 +3378,8 @@
         "f1": 0.6667,
         "precision": 0.5,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3398,7 +3412,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3433,7 +3448,8 @@
         "f1": 0.8,
         "precision": 0.6667,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3466,7 +3482,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3499,7 +3516,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3535,7 +3553,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3567,11 +3586,12 @@
         "_raw_text": "{\n\n\n  \"answer_list\": [\"DimBroker\", \"DimAccount\", \"DimCustomer\"],\n  \"reasoning\": \"DimBroker is connected to DimAccount via DimAccount --FK--> DimBroker. Then DimAccount is connected to DimCustomer via DimAccount --FK--> DimCustomer.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.6667,
-        "precision": 0.6667,
-        "recall": 0.6667,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -3607,7 +3627,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3648,7 +3669,8 @@
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3685,7 +3707,8 @@
         "f1": 0.8571,
         "precision": 1.0,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3726,7 +3749,8 @@
         "f1": 0.8889,
         "precision": 0.8,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3764,7 +3788,8 @@
         "f1": 0.8571,
         "precision": 0.75,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3804,7 +3829,8 @@
         "f1": 0.8571,
         "precision": 0.75,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3838,7 +3864,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3883,7 +3910,8 @@
         "f1": 0.6667,
         "precision": 0.6,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3920,7 +3948,8 @@
         "f1": 0.8571,
         "precision": 1.0,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3956,7 +3985,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3992,7 +4022,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4029,7 +4060,8 @@
         "f1": 0.5714,
         "precision": 0.6667,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4069,7 +4101,8 @@
         "f1": 0.8571,
         "precision": 0.75,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4105,7 +4138,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4143,7 +4177,8 @@
         "f1": 0.8571,
         "precision": 0.75,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4186,7 +4221,8 @@
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4222,7 +4258,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4258,7 +4295,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4296,7 +4334,8 @@
         "f1": 0.8571,
         "precision": 0.75,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4333,7 +4372,8 @@
         "f1": 0.5714,
         "precision": 0.6667,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4365,11 +4405,12 @@
         "_raw_text": "{\n\n\n  \"answer_list\": [\"DimTrade\", \"DimAccount\", \"FactHoldings\"],\n  \"reasoning\": \"DimTrade has a foreign key to DimAccount, which has a foreign key to FactHoldings.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.6667,
-        "precision": 0.6667,
-        "recall": 0.6667,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -4422,7 +4463,8 @@
         "f1": 0.4615,
         "precision": 0.3333,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4462,7 +4504,8 @@
         "f1": 0.5,
         "precision": 0.4,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4498,7 +4541,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4540,7 +4584,8 @@
         "f1": 0.6,
         "precision": 0.6,
         "recall": 0.6,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4576,7 +4621,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4610,7 +4656,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4646,7 +4693,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4680,7 +4728,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4716,7 +4765,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4757,7 +4807,8 @@
         "f1": 0.75,
         "precision": 0.75,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4793,7 +4844,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4833,7 +4885,8 @@
         "f1": 0.75,
         "precision": 0.6,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4871,7 +4924,8 @@
         "f1": 0.5714,
         "precision": 0.5,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4921,7 +4975,8 @@
         "f1": 0.6,
         "precision": 0.4286,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4957,7 +5012,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4993,7 +5049,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5034,7 +5091,8 @@
         "f1": 0.6667,
         "precision": 0.6,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5075,7 +5133,8 @@
         "f1": 0.8889,
         "precision": 0.8,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5113,7 +5172,8 @@
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5156,7 +5216,8 @@
         "f1": 0.6667,
         "precision": 0.6,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5192,7 +5253,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5226,7 +5288,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5266,7 +5329,8 @@
         "f1": 0.8571,
         "precision": 0.75,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5305,7 +5369,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5341,7 +5406,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5379,7 +5445,8 @@
         "f1": 0.8571,
         "precision": 0.75,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5415,7 +5482,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6174,5 +6242,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 181,
+    "exact_match": 95,
+    "exact_match_pct": 52.5,
+    "avg_f1": 73.9
+  }
 }

@@ -1,0 +1,225 @@
+[
+  {
+    "model": "gemini",
+    "subtype": "row_provenance",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": [
+      "stg_compensation_normalized",
+      "stg_employees_cleaned"
+    ],
+    "ga_pred": [
+      "stg_compensation_normalized: rows [3235]",
+      "stg_employees_cleaned: rows [3786]"
+    ],
+    "tu_pred": [
+      "stg_compensation_normalized row_3235",
+      "stg_employees_cleaned row_3786"
+    ],
+    "gold": [
+      "stg_compensation_normalized:row_3235",
+      "stg_employees_cleaned:row_3786"
+    ]
+  },
+  {
+    "model": "gemini",
+    "subtype": "value_origin",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "ga_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "tu_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "gold": [
+      "raw_bank_feeds",
+      "raw_cart_sessions",
+      "raw_freight_invoices",
+      "raw_ledger_entries",
+      "raw_payment_events",
+      "raw_purchase_orders",
+      "raw_tax_filings",
+      "raw_warehouse_inventory"
+    ]
+  },
+  {
+    "model": "gemini",
+    "subtype": "cascade_count",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 1,
+    "va_pred": null,
+    "ga_pred": null,
+    "tu_pred": 1,
+    "gold": 1
+  },
+  {
+    "model": "gemini",
+    "subtype": "value_propagation",
+    "va_em": 1,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": true,
+    "ga_pred": false,
+    "tu_pred": false,
+    "gold": true
+  },
+  {
+    "model": "gemini",
+    "subtype": "cross_silo_reachability",
+    "va_em": 1,
+    "ga_em": 1,
+    "tu_em": 1,
+    "va_pred": false,
+    "ga_pred": false,
+    "tu_pred": false,
+    "gold": false
+  },
+  {
+    "model": "gemini",
+    "subtype": "shared_source",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "ga_pred": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog"
+    ],
+    "tu_pred": [
+      "raw_freight_invoices"
+    ],
+    "gold": [
+      "raw_employee_records",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ]
+  },
+  {
+    "model": "deepseek",
+    "subtype": "row_provenance",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": [],
+    "ga_pred": [
+      "stg_compensation_normalized: rows [3235]",
+      "stg_employees_cleaned: rows [3786]"
+    ],
+    "tu_pred": null,
+    "gold": [
+      "stg_compensation_normalized:row_3235",
+      "stg_employees_cleaned:row_3786"
+    ]
+  },
+  {
+    "model": "deepseek",
+    "subtype": "value_origin",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "ga_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "tu_pred": [
+      "raw_bank_feeds",
+      "raw_ledger_entries",
+      "raw_tax_filings"
+    ],
+    "gold": [
+      "raw_bank_feeds",
+      "raw_cart_sessions",
+      "raw_freight_invoices",
+      "raw_ledger_entries",
+      "raw_payment_events",
+      "raw_purchase_orders",
+      "raw_tax_filings",
+      "raw_warehouse_inventory"
+    ]
+  },
+  {
+    "model": "deepseek",
+    "subtype": "cascade_count",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 1,
+    "va_pred": null,
+    "ga_pred": null,
+    "tu_pred": 1,
+    "gold": 1
+  },
+  {
+    "model": "deepseek",
+    "subtype": "value_propagation",
+    "va_em": 1,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": true,
+    "ga_pred": false,
+    "tu_pred": false,
+    "gold": true
+  },
+  {
+    "model": "deepseek",
+    "subtype": "cross_silo_reachability",
+    "va_em": 1,
+    "ga_em": 1,
+    "tu_em": 1,
+    "va_pred": false,
+    "ga_pred": false,
+    "tu_pred": false,
+    "gold": false
+  },
+  {
+    "model": "deepseek",
+    "subtype": "shared_source",
+    "va_em": 0,
+    "ga_em": 0,
+    "tu_em": 0,
+    "va_pred": [
+      "raw_freight_invoices",
+      "raw_purchase_orders",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ],
+    "ga_pred": [
+      "raw_shipment_tracking",
+      "raw_supplier_catalog"
+    ],
+    "tu_pred": [
+      "raw_purchase_orders",
+      "raw_shipment_tracking"
+    ],
+    "gold": [
+      "raw_employee_records",
+      "raw_shipment_tracking",
+      "raw_supplier_catalog",
+      "raw_warehouse_inventory"
+    ]
+  }
+]

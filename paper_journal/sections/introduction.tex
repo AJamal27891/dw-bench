@@ -1,0 +1,89 @@
+% ============================================================================
+% 1. INTRODUCTION — Journal version (expanded)
+% ============================================================================
+\section{Introduction}
+\label{sec:introduction}
+
+The rapid advancement of Large Language Models (LLMs) has transformed
+database interaction, with state-of-the-art models achieving
+human-competitive accuracy on text-to-SQL benchmarks such as
+Spider~\cite{yu2018spider}, BIRD~\cite{li2023bird}, and
+Spider~2.0~\cite{lei2024spider2}.  These benchmarks evaluate whether an LLM
+can translate a natural language question into a SQL query against a given
+schema.  However, SQL generation represents only one facet of database
+understanding.
+
+Data warehouse environments require a fundamentally different class of
+reasoning: understanding the \emph{graph topology} of schema relationships.
+A data engineer maintaining an enterprise warehouse must routinely answer
+structural questions such as:
+
+\begin{itemize}
+  \item \emph{``If the \texttt{Person} table changes, which downstream
+    tables are affected through data lineage?''} --- impact analysis
+    requiring forward lineage traversal composed with reverse FK propagation.
+  \item \emph{``Which tables form disconnected silos in our schema graph?''}
+    --- connectivity analysis requiring weakly connected component detection.
+  \item \emph{``What is the shortest FK path between two tables?''} ---
+    routing requiring Dijkstra or BFS over the FK subgraph.
+  \item \emph{``How many downstream rows are affected if we delete
+    records from a staging table?''} --- value-level impact analysis
+    requiring interactive access to row-level lineage data.
+\end{itemize}
+
+These tasks require \textbf{graph traversal}---BFS, connected component
+detection, multi-hop path finding---not SQL generation.  Yet no existing
+benchmark evaluates LLMs on these capabilities.  Existing graph reasoning
+benchmarks (NLGraph~\cite{wang2023nlgraph}, GraphArena~\cite{grapharena2024},
+GraCoRe~\cite{gracore2024}) use synthetic or generic graphs and do not
+capture the domain-specific challenges of data warehouse schemas with
+\emph{heterogeneous edge types} (foreign key vs.\ lineage) and
+\emph{mixed-layer topologies} (OLTP source tables connected to DW
+destination tables via derived-from edges).
+
+\subsection{Contributions}
+
+We make the following contributions:
+
+\begin{enumerate}
+  \item \textbf{DW-Bench}: A two-tier benchmark of 1,046 schema-level and
+    433 value-level automatically-generated questions across 5 data warehouse
+    schemas (4 real-world, 1 synthetic), organized into 3 categories
+    (lineage impact, schema routing, silo detection), 13 Tier-1 subtypes,
+    8 Tier-2 subtypes, and 3 difficulty levels.
+
+  \item \textbf{Six baselines} spanning the text-only to agentic spectrum
+    (Flat Text, Vector-RAG, Graph-Augmented, Tool-Use, ReAct-Code, and
+    Oracle), evaluated with two frontier models (Gemini~2.5 Flash,
+    DeepSeek-V3), providing a comprehensive analysis of how different
+    context injection strategies affect graph topology reasoning.
+
+  \item \textbf{A two-tier evaluation framework}: Tier~1 tests schema-level
+    topology reasoning (FK paths, lineage chains, components), while Tier~2
+    tests value-level provenance tracing and impact analysis that requires
+    interactive data access beyond context window limits.
+
+  \item \textbf{An obfuscation protocol} that randomizes table names,
+    enabling controlled evaluation of memorization versus genuine topology
+    understanding, revealing that tool-based approaches are nearly
+    obfuscation-invariant while static approaches lose 15--32\% EM.
+
+  \item \textbf{Syn-Logistics}: A synthetic dataset with $n\geq20$ per
+    subtype, addressing statistical power limitations of the real-world
+    corpus and enabling reliable per-subtype analysis.
+
+  \item \textbf{Open-source release} of all datasets, evaluation code,
+    baseline implementations, and per-question results to enable
+    community-driven analysis and benchmarking.
+\end{enumerate}
+
+\subsection{Paper Organization}
+
+The rest of this paper is organized as follows.
+Section~\ref{sec:related} reviews related work on LLM benchmarks,
+graph reasoning, and data lineage.
+Section~\ref{sec:benchmark} describes the DW-Bench benchmark design.
+Section~\ref{sec:baselines} details the baseline implementations.
+Section~\ref{sec:experiments} presents experimental results.
+Section~\ref{sec:discussion} discusses implications and limitations.
+Section~\ref{sec:conclusion} concludes with future directions.

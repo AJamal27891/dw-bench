@@ -1,72 +1,34 @@
 % ============================================================================
-% 4. BASELINES
+% 4. BASELINES (trimmed)
 % ============================================================================
 \section{Baselines}
+\label{sec:baselines}
 
-We implement four baselines spanning the text-to-graph-augmented spectrum,
-plus an agentic Tool-Use baseline:
+We implement six baselines with identical question prompts; only the
+context injection varies. All use zero-shot prompting.
 
-\paragraph{Flat Text (FT).}
-The complete schema is serialized as a text document listing all tables,
-FK relationships, and lineage edges. This forms the strongest
-``memorize everything'' baseline, as the LLM receives the complete graph.
+\textbf{Flat Text (FT)}~serializes the entire schema (tables, columns,
+FK edges, lineage) as plain text, simulating a developer loading full
+DDL into a long-context LLM.
 
-\paragraph{Vector RAG (VR).}
-Tables are chunked with their local FK and lineage edges, embedded using
-Sentence-BERT~\cite{reimers2019sentencebert}, and retrieved via cosine
-similarity ($k=15$). A global lineage summary is appended to provide
-cross-chunk edge visibility.
+\textbf{Vector-RAG (VR)}~embeds schema elements with
+Sentence-BERT~\cite{reimers2019sentencebert}, retrieves $k{=}15$ chunks
+via FAISS, and injects them as context.
 
-\paragraph{Graph-Augmented (GA).}
-Starting from the tables referenced in the question, a 3-hop BFS
-over the schema graph extracts the local subgraph neighborhood. The
-extracted context includes: (i)~the list of tables within the BFS
-frontier, (ii)~FK edges between extracted tables, (iii)~lineage
-edges (\texttt{derived\_from}) between extracted tables, and
-(iv)~per-table column lists. Crucially, GA does \emph{not} inject
-algorithm outputs (shortest paths, component IDs, or hop distances)
-into the context---the LLM must infer these from the raw subgraph.
-This design ensures that GA tests \emph{structural reasoning} over
-graph context rather than \emph{answer copy-paste} from precomputed
-results. A learned graph encoder (e.g., GNN) represents future work.
+\textbf{Graph-Augmented (GA)}~extracts a 3-hop BFS neighborhood from
+the schema graph centered on mentioned table names, providing local
+topology as structured context.
 
-\paragraph{Tool-Use (TU).}
-An agentic baseline providing the LLM with 9 graph algorithm tools:
-\texttt{shortest\_path}, \texttt{connected\_components},
-\texttt{check\_fk\_adjacency}, \texttt{get\_lineage\_forward/reverse},
-\texttt{transitive\_lineage}, \texttt{get\_component\_of},
-\texttt{get\_fk\_neighbors}, and \texttt{list\_tables}. The LLM
-receives a schema summary (table list + edge types) and tool
-definitions, then engages in a multi-turn conversation (up to 3 tool
-calls per question) implemented via function calling. This baseline
-is closest in spirit to graph-grounded agent systems such as
-ToG~\cite{sun2024tog} and GraphCoT~\cite{jin2024graphcot}, adapted
-for schema topology reasoning.
+\textbf{Tool-Use (TU)}~provides purpose-built graph tools:
+\texttt{get\_neighbors}, \texttt{shortest\_path},
+\texttt{get\_connected\_component}, \texttt{get\_lineage\_chain},
+and \texttt{list\_tables}. Up to 3 sequential tool calls per question.
 
-All baselines are evaluated with two frontier models: Gemini~2.5 Flash
-(closed-weight) and DeepSeek-V3 (open-weight, 671B MoE). We use greedy
-decoding ($\tau{=}0.0$) with a single deterministic pass to eliminate
-sampling variance. Responses use a structured JSON format with reasoning
-and answer fields. Note that while our PyG \texttt{HeteroData} graphs
-store 6 node-level structural features (in-degree, out-degree, PageRank,
-betweenness centrality, etc.), \emph{none of these features are used by
-any current baseline at inference time}. They are provided for future work
-on learned graph encoders (e.g., GNNs).
+\textbf{ReAct-Code (RC)}~generates and executes Python/NetworkX code
+directly on the schema graph, providing maximum algorithmic flexibility.
 
-\paragraph{Oracle.}
-Injects gold graph algorithm outputs (the correct shortest path, connected
-component membership, lineage traversal result, etc.) directly into the
-prompt. Oracle scores represent the upper bound achievable by each
-model---any remaining errors reflect decoding or format issues, not
-retrieval or reasoning failures.
+\textbf{Oracle}~injects gold algorithmic output into the prompt,
+establishing the upper bound.
 
-\paragraph{List canonicalization and tie handling.}
-Unordered list answers are lowercased and sorted before comparison;
-exact match requires identical sorted sets. For shortest-path questions,
-multiple valid routes may exist (e.g., two equally short FK paths).
-Our scoring function validates the \emph{predicted path} against the
-FK adjacency matrix: if the predicted sequence of tables corresponds
-to a valid path of the same length as the gold answer, it is marked
-correct even if it differs from the gold path. This ensures EM is
-robust to tie-breaking variability. Boolean and integer answers are
-type-cast before comparison.
+For \textbf{Tier~2}, we adapt three baselines: FT$_{v2}$ (DDL-only),
+GA$_{v2}$ (schema + value samples), TU$_{v2}$ (interactive data tools).

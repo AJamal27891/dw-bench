@@ -119,7 +119,6 @@
         "customer_address",
         "customer_demographics",
         "date_dim",
-        "household_demographics",
         "income_band",
         "inventory",
         "item",
@@ -167,9 +166,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4,
-        "precision": 1.0,
-        "recall": 0.25
+        "f1": 0.3448,
+        "precision": 0.8333,
+        "recall": 0.2174
       }
     },
     {
@@ -180,7 +179,6 @@
         "catalog_page",
         "catalog_returns",
         "catalog_sales",
-        "customer",
         "customer_address",
         "customer_demographics",
         "date_dim",
@@ -227,9 +225,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.2857,
-        "precision": 1.0,
-        "recall": 0.1667
+        "f1": 0.2222,
+        "precision": 0.75,
+        "recall": 0.1304
       }
     },
     {
@@ -255,7 +253,6 @@
         "store_returns",
         "store_sales",
         "time_dim",
-        "warehouse",
         "web_page",
         "web_returns",
         "web_sales",
@@ -281,9 +278,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.08,
-        "precision": 1.0,
-        "recall": 0.0417
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -304,8 +301,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "Yes, through the chain: inventory \u2192 item \u2192 catalog_returns \u2192 call_center",
-        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"call_center\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: inventory \u2192 item \u2192 catalog_returns \u2192 call_center\"\n}"
+        "answer_str": "Yes, through the chain: inventory → item → catalog_returns → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"call_center\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: inventory → item → catalog_returns → call_center\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -330,8 +327,8 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "Yes, through the chain: warehouse \u2192 store \u2192 inventory \u2192 item \u2192 customer_demographics \u2192 household_demographics \u2192 income_band.",
-        "_raw_text": "{\n  \"answer_list\": [\"warehouse\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: warehouse \u2192 store \u2192 inventory \u2192 item \u2192 customer_demographics \u2192 household_demographics \u2192 income_band.\"\n}\nReasoning: The schema shows multiple foreign key relationships connecting warehouse to various entities, and income_band references items via inventory, creating a potential path through intermediate tables.\"\n}"
+        "answer_str": "Yes, through the chain: warehouse → store → inventory → item → customer_demographics → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"warehouse\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through the chain: warehouse → store → inventory → item → customer_demographics → household_demographics → income_band.\"\n}\nReasoning: The schema shows multiple foreign key relationships connecting warehouse to various entities, and income_band references items via inventory, creating a potential path through intermediate tables.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -382,8 +379,8 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "Yes, through catalog_returns \u2192 call_center",
-        "_raw_text": "{\n  \"answer_list\": [\"date_dim\", \"call_center\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through catalog_returns \u2192 call_center\"\n}"
+        "answer_str": "Yes, through catalog_returns → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"date_dim\", \"call_center\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, through catalog_returns → call_center\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -518,14 +515,15 @@
       "api_failure": false,
       "raw_response": {
         "reason": "The query asks for the minimal chain connecting promotion to store_sales, which requires traversing through store_sales and promotion with direct links.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales \u2192 promotion.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting promotion to store_sales, which requires traversing through store_sales and promotion with direct links.\"\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → promotion.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting promotion to store_sales, which requires traversing through store_sales and promotion with direct links.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -552,15 +550,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: store_sales \u2192 store",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"store_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_sales \u2192 store\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking 'store' to 'store_sales'. Direct links exist, but combining store_sales with store through intermediate tables yields a single path.\"\n}"
+        "answer_str": "The shortest path involves two hops: store_sales → store",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"store_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_sales → store\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking 'store' to 'store_sales'. Direct links exist, but combining store_sales with store through intermediate tables yields a single path.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -587,15 +586,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_sales \u2192 customer and then customer \u2192 customer_demographics, totaling 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales \u2192 customer and then customer \u2192 customer_demographics, totaling 2 hops.\"\n}\nReasoning: The task requires identifying the minimal sequence of foreign key relationships linking catalog_sales to customer_demographics. By tracing the paths, we see two direct connections: through catalog_sales to customer, and then from customer to customer_demographics. No shorter path exists.\"\n}"
+        "answer_str": "The shortest chain involves catalog_sales → customer and then customer → customer_demographics, totaling 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer and then customer → customer_demographics, totaling 2 hops.\"\n}\nReasoning: The task requires identifying the minimal sequence of foreign key relationships linking catalog_sales to customer_demographics. By tracing the paths, we see two direct connections: through catalog_sales to customer, and then from customer to customer_demographics. No shorter path exists.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -630,7 +630,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -657,15 +658,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store_sales \u2192 time_dim via store.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"time_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales \u2192 time_dim via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting store_sales to time_dim, which requires traversing through store and time_dim tables.\"\n}\n"
+        "answer_str": "The shortest path involves store_sales → time_dim via store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"time_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → time_dim via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting store_sales to time_dim, which requires traversing through store and time_dim tables.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -692,15 +694,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path connects web_returns \u2192 customer via a single join.",
-        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects web_returns \u2192 customer via a single join.\"\n}\nReasoning: The query asks for the minimal chain linking customer to web_returns, which directly references customer through web_returns. No intermediate tables are needed beyond the immediate relationship.\"\n}"
+        "answer_str": "The shortest path connects web_returns → customer via a single join.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects web_returns → customer via a single join.\"\n}\nReasoning: The query asks for the minimal chain linking customer to web_returns, which directly references customer through web_returns. No intermediate tables are needed beyond the immediate relationship.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -727,15 +730,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_sales \u2192 household_demographics through the intermediate tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"household_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales \u2192 household_demographics through the intermediate tables.\"\n}\nReasoning: The query seeks the minimal number of foreign key relationships needed to link catalog_sales with household_demographics, which requires traversing from sales data back to demographics via related tables.\"\n}"
+        "answer_str": "The shortest chain involves catalog_sales → household_demographics through the intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"household_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → household_demographics through the intermediate tables.\"\n}\nReasoning: The query seeks the minimal number of foreign key relationships needed to link catalog_sales with household_demographics, which requires traversing from sales data back to demographics via related tables.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -762,15 +766,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path connects web_sales \u2192 customer",
-        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects web_sales \u2192 customer\"\n}"
+        "answer_str": "The shortest path connects web_sales → customer",
+        "_raw_text": "{\n  \"answer_list\": [\"web_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects web_sales → customer\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -805,7 +810,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -840,7 +846,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -867,15 +874,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: store_returns \u2192 item via store.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"item\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns \u2192 item via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal number of foreign key relationships connecting store_returns to item, which is two hops.\"\n}\n"
+        "answer_str": "The shortest path involves two hops: store_returns → item via store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"item\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → item via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal number of foreign key relationships connecting store_returns to item, which is two hops.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -902,15 +910,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves calling_center \u2192 catalog_sales",
-        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"catalog_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves calling_center \u2192 catalog_sales\"\n}"
+        "answer_str": "The shortest chain involves calling_center → catalog_sales",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"catalog_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves calling_center → catalog_sales\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -937,15 +946,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store_returns \u2192 store \u2192 reason.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"reason\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns \u2192 store \u2192 reason.\"\n}\nReasoning: The query asks for the shortest chain connecting store_returns to reason, which requires traversing through store and then to reason. This is a 2-hop path.\nAnswer: store_returns \u2192 store \u2192 reason"
+        "answer_str": "The shortest path involves store_returns → store → reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"reason\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns → store → reason.\"\n}\nReasoning: The query asks for the shortest chain connecting store_returns to reason, which requires traversing through store and then to reason. This is a 2-hop path.\nAnswer: store_returns → store → reason"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -972,15 +982,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_returns \u2192 household_demographics through the intermediate tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_returns \u2192 household_demographics through the intermediate tables.\"\n}"
+        "answer_str": "The shortest chain involves catalog_returns → household_demographics through the intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_returns → household_demographics through the intermediate tables.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1007,15 +1018,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_sales \u2192 customer through catalog_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales \u2192 customer through catalog_returns.\"\n}\nReasoning: The query asks for the minimal foreign key path connecting catalog_sales to customer, which requires traversing catalog_returns as an intermediate table.\"\n}"
+        "answer_str": "The shortest chain involves catalog_sales → customer through catalog_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer through catalog_returns.\"\n}\nReasoning: The query asks for the minimal foreign key path connecting catalog_sales to customer, which requires traversing catalog_returns as an intermediate table.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1050,7 +1062,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1085,7 +1098,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1120,7 +1134,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1155,7 +1170,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1182,15 +1198,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store_sales \u2192 customer \u2192 store",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales \u2192 customer \u2192 store\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking customer_demographics to store_sales, focusing on direct and indirect paths through related tables.\"\n}"
+        "answer_str": "The shortest path involves store_sales → customer → store",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → customer → store\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking customer_demographics to store_sales, focusing on direct and indirect paths through related tables.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1217,15 +1234,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store_returns \u2192 date_dim via store.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"date_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns \u2192 date_dim via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting store_returns to date_dim, which requires traversing through store as an intermediate table.\"\n}\n"
+        "answer_str": "The shortest path involves store_returns → date_dim via store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"date_dim\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns → date_dim via store.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain connecting store_returns to date_dim, which requires traversing through store as an intermediate table.\"\n}\n"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1260,7 +1278,8 @@
         "f1": 0.5,
         "precision": 0.5,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1287,15 +1306,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain is direct: customer \u2192 customer_demographics",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain is direct: customer \u2192 customer_demographics\"\n}"
+        "answer_str": "The shortest chain is direct: customer → customer_demographics",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_demographics\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain is direct: customer → customer_demographics\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1322,15 +1342,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: store_returns \u2192 household_demographics \u2192 store.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns \u2192 household_demographics \u2192 store.\"\n}"
+        "answer_str": "The shortest path involves two hops: store_returns → household_demographics → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → household_demographics → store.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1359,15 +1380,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_sales \u2192 customer \u2192 customer_address.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer\", \"customer_address\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales \u2192 customer \u2192 customer_address.\"\n}\n"
+        "answer_str": "The shortest chain involves catalog_sales → customer → customer_address.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"customer\", \"customer_address\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer → customer_address.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 0.6667,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1402,7 +1424,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -1433,15 +1456,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_returns \u2192 web_sales \u2192 web_sales \u2192 web_site (3 hops).",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"web_sales\", \"web_site\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_returns \u2192 web_sales \u2192 web_sales \u2192 web_site (3 hops).\"\n}"
+        "answer_str": "The shortest chain involves catalog_returns → web_sales → web_sales → web_site (3 hops).",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"web_sales\", \"web_site\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_returns → web_sales → web_sales → web_site (3 hops).\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8571,
         "precision": 1.0,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1478,7 +1502,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1506,15 +1531,16 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: date_dim \u2192 ship_mode and then ship_mode \u2192 catalog_returns \u2192 ship_mode.",
-        "_raw_text": "{\n  \"answer_list\": [\"date_dim\", \"ship_mode\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: date_dim \u2192 ship_mode and then ship_mode \u2192 catalog_returns \u2192 ship_mode.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking ship_mode to date_dim, identifying direct and indirect paths through catalog_returns and item tables as necessary.\"\n}"
+        "answer_str": "The shortest path involves two hops: date_dim → ship_mode and then ship_mode → catalog_returns → ship_mode.",
+        "_raw_text": "{\n  \"answer_list\": [\"date_dim\", \"ship_mode\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: date_dim → ship_mode and then ship_mode → catalog_returns → ship_mode.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking ship_mode to date_dim, identifying direct and indirect paths through catalog_returns and item tables as necessary.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1542,15 +1568,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "ship_mode \u2192 catalog_sales \u2192 call_center",
-        "_raw_text": "{\n  \"answer_list\": [\"ship_mode\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"ship_mode \u2192 catalog_sales \u2192 call_center\"\n}"
+        "answer_str": "ship_mode → catalog_sales → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"ship_mode\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"ship_mode → catalog_sales → call_center\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1579,15 +1606,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store \u2192 promotion via store_sales \u2192 promotion.",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"promotion\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store \u2192 promotion via store_sales \u2192 promotion.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking promotion to store_returns, identifying intermediaries like store and promotion as key connectors.\n}"
+        "answer_str": "The shortest path involves store → promotion via store_sales → promotion.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"promotion\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store → promotion via store_sales → promotion.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking promotion to store_returns, identifying intermediaries like store and promotion as key connectors.\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1615,15 +1643,16 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: store_sales \u2192 store \u2192 store_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_sales \u2192 store \u2192 store_returns.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking store_sales to store_returns, which requires traversing through store and then back to store_returns via store.\"\n}"
+        "answer_str": "The shortest path involves two hops: store_sales → store → store_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_sales → store → store_returns.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking store_sales to store_returns, which requires traversing through store and then back to store_returns via store.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1652,15 +1681,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store \u2192 catalog_page via customer and catalog_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store \u2192 catalog_page via customer and catalog_returns.\"\n}\n"
+        "answer_str": "The shortest path involves store → catalog_page via customer and catalog_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store → catalog_page via customer and catalog_returns.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1692,15 +1722,16 @@
         ],
         "answer_int": 4,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves household_demographics \u2192 ship_mode \u2192 web_sales \u2192 ship_mode",
-        "_raw_text": "{\n  \"answer_list\": [\"household_demographics\", \"ship_mode\", \"web_sales\", \"ship_mode\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves household_demographics \u2192 ship_mode \u2192 web_sales \u2192 ship_mode\"\n}"
+        "answer_str": "The shortest chain involves household_demographics → ship_mode → web_sales → ship_mode",
+        "_raw_text": "{\n  \"answer_list\": [\"household_demographics\", \"ship_mode\", \"web_sales\", \"ship_mode\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves household_demographics → ship_mode → web_sales → ship_mode\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 0.6667,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1729,14 +1760,15 @@
         "answer_int": 5,
         "answer_bool": true,
         "answer_str": "The shortest path connects customer through web_returns and then to reason.",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_returns\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects customer through web_returns and then to reason.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain linking reason to customer via foreign keys, specifically identifying two hops: customer \u2192 web_returns \u2192 reason.\"\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_returns\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects customer through web_returns and then to reason.\"\n}\n{\n  \"reason\": \"The query asks for the minimal chain linking reason to customer via foreign keys, specifically identifying two hops: customer → web_returns → reason.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1764,15 +1796,16 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: store_returns \u2192 catalog_sales \u2192 store.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"catalog_sales\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns \u2192 catalog_sales \u2192 store.\"\n}"
+        "answer_str": "The shortest path involves two hops: store_returns → catalog_sales → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"catalog_sales\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → catalog_sales → store.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1800,15 +1833,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_sales \u2192 customer \u2192 web_returns \u2192 customer_address \u2192 catalog_page, but the direct path is catalog_sales \u2192 web_returns.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"web_returns\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales \u2192 customer \u2192 web_returns \u2192 customer_address \u2192 catalog_page, but the direct path is catalog_sales \u2192 web_returns.\"\n}\nReasoning: The query seeks the minimal number of foreign key relationships needed to link web_returns back to catalog_sales. By tracing the paths, the most direct route uses catalog_sales as an intermediary before reaching web_returns.\"\n}"
+        "answer_str": "The shortest chain involves catalog_sales → customer → web_returns → customer_address → catalog_page, but the direct path is catalog_sales → web_returns.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"web_returns\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → customer → web_returns → customer_address → catalog_page, but the direct path is catalog_sales → web_returns.\"\n}\nReasoning: The query seeks the minimal number of foreign key relationships needed to link web_returns back to catalog_sales. By tracing the paths, the most direct route uses catalog_sales as an intermediary before reaching web_returns.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1836,15 +1870,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves time_dim \u2192 item through intermediate tables.",
-        "_raw_text": "{\n  \"answer_list\": [\"time_dim\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves time_dim \u2192 item through intermediate tables.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking time_dim to item, focusing on direct and indirect joins based on schema structure.\n}"
+        "answer_str": "The shortest path involves time_dim → item through intermediate tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"time_dim\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves time_dim → item through intermediate tables.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking time_dim to item, focusing on direct and indirect joins based on schema structure.\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1872,15 +1907,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store_returns \u2192 store \u2192 household_demographics \u2192 income_band.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns \u2192 store \u2192 household_demographics \u2192 income_band.\"\n}"
+        "answer_str": "The shortest path involves store_returns → store → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_returns → store → household_demographics → income_band.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1916,7 +1952,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1944,15 +1981,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: customer \u2192 web_page",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: customer \u2192 web_page\"\n}"
+        "answer_str": "The shortest path involves two hops: customer → web_page",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: customer → web_page\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -1981,14 +2019,15 @@
         "answer_int": 2,
         "answer_bool": true,
         "answer_str": "The shortest path goes through time_dim and then to customer.",
-        "_raw_text": "{\n  \"answer_list\": [\"time_dim\", \"customer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through time_dim and then to customer.\"\n}\n{\"reason\": \"The query requires traversing two foreign key relationships: time_dim \u2192 customer and customer \u2192 customer_demographics.\"}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"time_dim\", \"customer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through time_dim and then to customer.\"\n}\n{\"reason\": \"The query requires traversing two foreign key relationships: time_dim → customer and customer → customer_demographics.\"}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2017,15 +2056,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves three hops: income_band \u2192 call_center \u2192 household_demographics \u2192 catalog_returns \u2192 call_center.",
-        "_raw_text": "{\n  \"answer_list\": [\"income_band\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: income_band \u2192 call_center \u2192 household_demographics \u2192 catalog_returns \u2192 call_center.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking call_center to income_band, which requires traversing through intermediate tables in a chain of three steps.\n}"
+        "answer_str": "The shortest path involves three hops: income_band → call_center → household_demographics → catalog_returns → call_center.",
+        "_raw_text": "{\n  \"answer_list\": [\"income_band\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: income_band → call_center → household_demographics → catalog_returns → call_center.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking call_center to income_band, which requires traversing through intermediate tables in a chain of three steps.\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2054,15 +2094,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store_sales \u2192 store \u2192 catalog_page \u2192 catalog_returns \u2192 catalog_page.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales \u2192 store \u2192 catalog_page \u2192 catalog_returns \u2192 catalog_page.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking catalog_page to store_sales through intermediary tables. Analyzing the schema reveals a direct chain via store and catalog connections.\"\n}"
+        "answer_str": "The shortest path involves store_sales → store → catalog_page → catalog_returns → catalog_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → store → catalog_page → catalog_returns → catalog_page.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking catalog_page to store_sales through intermediary tables. Analyzing the schema reveals a direct chain via store and catalog connections.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2091,15 +2132,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves inventory \u2192 promotion \u2192 item \u2192 web_sales \u2192 promotion (3 hops).",
-        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"promotion\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory \u2192 promotion \u2192 item \u2192 web_sales \u2192 promotion (3 hops).\"\n}"
+        "answer_str": "The shortest chain involves inventory → promotion → item → web_sales → promotion (3 hops).",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"promotion\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory → promotion → item → web_sales → promotion (3 hops).\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2129,15 +2171,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves customer \u2192 web_sales \u2192 warehouse.",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_sales\", \"warehouse\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves customer \u2192 web_sales \u2192 warehouse.\"\n}\nReasoning: The schema shows a direct foreign key relationship from customer_demographics to warehouse through web_sales and then warehouse to inventory. This forms a chain of two joins.\"\n}"
+        "answer_str": "The shortest path involves customer → web_sales → warehouse.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_sales\", \"warehouse\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves customer → web_sales → warehouse.\"\n}\nReasoning: The schema shows a direct foreign key relationship from customer_demographics to warehouse through web_sales and then warehouse to inventory. This forms a chain of two joins.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.3333,
         "precision": 0.3333,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2166,15 +2209,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves 3 hops: store_sales \u2192 store \u2192 call_center",
-        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"store_sales\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 3 hops: store_sales \u2192 store \u2192 call_center\"\n}"
+        "answer_str": "The shortest path involves 3 hops: store_sales → store → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"store_sales\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 3 hops: store_sales → store → call_center\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2202,15 +2246,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: item \u2192 catalog_returns \u2192 catalog_page",
-        "_raw_text": "{\n  \"answer_list\": [\"item\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: item \u2192 catalog_returns \u2192 catalog_page\"\n}"
+        "answer_str": "The shortest path involves two hops: item → catalog_returns → catalog_page",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"catalog_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: item → catalog_returns → catalog_page\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2248,7 +2293,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2276,15 +2322,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "item \u2192 web_page via web_returns \u2192 web_page (2 hops)",
-        "_raw_text": "{\n  \"answer_list\": [\"item\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"item \u2192 web_page via web_returns \u2192 web_page (2 hops)\"\n}\nReasoning: The schema shows a direct path from item to web_page through intermediate tables like web_returns and web_page, forming the shortest chain.\"\n}"
+        "answer_str": "item → web_page via web_returns → web_page (2 hops)",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"item → web_page via web_returns → web_page (2 hops)\"\n}\nReasoning: The schema shows a direct path from item to web_page through intermediate tables like web_returns and web_page, forming the shortest chain.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2313,15 +2360,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves 4 hops: store \u2192 store_returns \u2192 customer \u2192 web_returns \u2192 web_page.",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store \u2192 store_returns \u2192 customer \u2192 web_returns \u2192 web_page.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking store_returns to web_page, following the defined schema connections.\"\n}"
+        "answer_str": "The shortest path involves 4 hops: store → store_returns → customer → web_returns → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → store_returns → customer → web_returns → web_page.\"\n}\nReasoning: The query seeks the minimal sequence of foreign key relationships linking store_returns to web_page, following the defined schema connections.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2350,15 +2398,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "web_returns \u2192 call_center",
-        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"call_center\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_returns \u2192 call_center\"\n}"
+        "answer_str": "web_returns → call_center",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"call_center\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"web_returns → call_center\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2396,7 +2445,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2434,7 +2484,8 @@
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2464,15 +2515,16 @@
         ],
         "answer_int": 4,
         "answer_bool": true,
-        "answer_str": "The shortest path involves 4 hops: call_center \u2192 web_page",
-        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: call_center \u2192 web_page\"\n}"
+        "answer_str": "The shortest path involves 4 hops: call_center → web_page",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: call_center → web_page\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2502,15 +2554,16 @@
         ],
         "answer_int": 4,
         "answer_bool": true,
-        "answer_str": "The shortest path involves 4 hops: store \u2192 web_page \u2192 store_returns \u2192 customer \u2192 web_returns \u2192 web_page.",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store \u2192 web_page \u2192 store_returns \u2192 customer \u2192 web_returns \u2192 web_page.\"\n}"
+        "answer_str": "The shortest path involves 4 hops: store → web_page → store_returns → customer → web_returns → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → web_page → store_returns → customer → web_returns → web_page.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2546,15 +2599,16 @@
         ],
         "answer_int": 4,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves inventory \u2192 item \u2192 web_returns \u2192 household_demographics \u2192 income_band.",
-        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\", \"web_returns\", \"household_demographics\", \"income_band\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory \u2192 item \u2192 web_returns \u2192 household_demographics \u2192 income_band.\"\n}"
+        "answer_str": "The shortest chain involves inventory → item → web_returns → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\", \"web_returns\", \"household_demographics\", \"income_band\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves inventory → item → web_returns → household_demographics → income_band.\"\n}"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.6,
-        "precision": 0.6,
-        "recall": 0.6,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -2584,15 +2638,16 @@
         ],
         "answer_int": 4,
         "answer_bool": true,
-        "answer_str": "The shortest path involves 4 hops: store \u2192 store_returns \u2192 customer \u2192 web_sales \u2192 warehouse.",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"warehouse\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store \u2192 store_returns \u2192 customer \u2192 web_sales \u2192 warehouse.\"\n}\nReasoning: The schema shows a clear chain connecting store to warehouse through intermediate tables like store_returns, customer, and web_sales. Counting the foreign key relationships confirms four steps.\"\n}"
+        "answer_str": "The shortest path involves 4 hops: store → store_returns → customer → web_sales → warehouse.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"warehouse\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → store_returns → customer → web_sales → warehouse.\"\n}\nReasoning: The schema shows a clear chain connecting store to warehouse through intermediate tables like store_returns, customer, and web_sales. Counting the foreign key relationships confirms four steps.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2622,15 +2677,16 @@
         ],
         "answer_int": 4,
         "answer_bool": true,
-        "answer_str": "The shortest path involves 4 hops: store \u2192 store_returns \u2192 customer \u2192 web_sales \u2192 web_site.",
-        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_site\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store \u2192 store_returns \u2192 customer \u2192 web_sales \u2192 web_site.\"\n}"
+        "answer_str": "The shortest path involves 4 hops: store → store_returns → customer → web_sales → web_site.",
+        "_raw_text": "{\n  \"answer_list\": [\"store\", \"web_site\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves 4 hops: store → store_returns → customer → web_sales → web_site.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 1.0,
         "recall": 0.4,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2667,7 +2723,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2696,15 +2753,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves inventory \u2192 item \u2192 web_returns \u2192 time_dim.",
-        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves inventory \u2192 item \u2192 web_returns \u2192 time_dim.\"\n}\n{ \"reasoning\": \"The query asks for the shortest chain connecting time_dim to inventory through related tables.\" }\n}"
+        "answer_str": "The shortest path involves inventory → item → web_returns → time_dim.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"item\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves inventory → item → web_returns → time_dim.\"\n}\n{ \"reasoning\": \"The query asks for the shortest chain connecting time_dim to inventory through related tables.\" }\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.3333,
         "precision": 0.5,
         "recall": 0.25,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2735,15 +2793,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The shortest path involves three hops: inventory \u2192 item \u2192 web_sales \u2192 web_site.",
-        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"web_sales\", \"web_site\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: inventory \u2192 item \u2192 web_sales \u2192 web_site.\"\n}"
+        "answer_str": "The shortest path involves three hops: inventory → item → web_sales → web_site.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"web_sales\", \"web_site\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: inventory → item → web_sales → web_site.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8571,
         "precision": 1.0,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2771,15 +2830,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves customer \u2192 store_returns \u2192 store",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"store\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves customer \u2192 store_returns \u2192 store\"\n}\nReasoning: The query asks for the shortest path connecting 'store' and 'customer' through foreign keys, which requires traversing two hops: customer to its returns and then returns to the store.\"\n}"
+        "answer_str": "The shortest chain involves customer → store_returns → store",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"store\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves customer → store_returns → store\"\n}\nReasoning: The query asks for the shortest path connecting 'store' and 'customer' through foreign keys, which requires traversing two hops: customer to its returns and then returns to the store.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2807,15 +2867,16 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: store_returns \u2192 web_sales \u2192 store.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"web_sales\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns \u2192 web_sales \u2192 store.\"\n}"
+        "answer_str": "The shortest path involves two hops: store_returns → web_sales → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_returns\", \"web_sales\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: store_returns → web_sales → store.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2851,7 +2912,8 @@
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2880,14 +2942,15 @@
         "answer_int": 1,
         "answer_bool": true,
         "answer_str": "The shortest path goes through customer and then to customer_address.",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_address\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through customer and then to customer_address.\"\n}\nReasoning: The query asks for the minimal chain connecting web_site to customer_address via foreign keys, which involves two steps: customer \u2192 customer_address.\n}\n"
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"customer_address\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path goes through customer and then to customer_address.\"\n}\nReasoning: The query asks for the minimal chain connecting web_site to customer_address via foreign keys, which involves two steps: customer → customer_address.\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2923,7 +2986,8 @@
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2950,15 +3014,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves catalog_sales \u2192 promotion",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales \u2192 promotion\"\n}\nReasoning: The query seeks the minimal path linking promotion to catalog_sales through their foreign key relationships.\nAnswer list contains the relevant table names in order."
+        "answer_str": "The shortest chain involves catalog_sales → promotion",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_sales\", \"promotion\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves catalog_sales → promotion\"\n}\nReasoning: The query seeks the minimal path linking promotion to catalog_sales through their foreign key relationships.\nAnswer list contains the relevant table names in order."
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -2986,15 +3051,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path connects item \u2192 web_returns \u2192 customer in 2 hops.",
-        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects item \u2192 web_returns \u2192 customer in 2 hops.\"\n}\nReasoning: The schema shows a direct relationship from item to customer through web_returns, forming the minimal chain needed.\"\n}"
+        "answer_str": "The shortest path connects item → web_returns → customer in 2 hops.",
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path connects item → web_returns → customer in 2 hops.\"\n}\nReasoning: The schema shows a direct relationship from item to customer through web_returns, forming the minimal chain needed.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3022,15 +3088,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: web_returns \u2192 household_demographics \u2192 income_band.",
-        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: web_returns \u2192 household_demographics \u2192 income_band.\"\n}\nReasoning: The query seeks the minimal foreign key chain linking income_band to web_returns via intermediate tables. Analyzing the schema reveals that web_returns must go through household_demographics and then into income_band, forming a two-step path.\"\n}"
+        "answer_str": "The shortest path involves two hops: web_returns → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"web_returns\", \"household_demographics\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: web_returns → household_demographics → income_band.\"\n}\nReasoning: The query seeks the minimal foreign key chain linking income_band to web_returns via intermediate tables. Analyzing the schema reveals that web_returns must go through household_demographics and then into income_band, forming a two-step path.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.8,
         "precision": 1.0,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3061,15 +3128,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The shortest path involves store_sales \u2192 store \u2192 store_returns \u2192 reason.",
-        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store\", \"store_returns\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales \u2192 store \u2192 store_returns \u2192 reason.\"\n}\nReasoning: The query asks for the shortest chain connecting store_sales to reason, which requires traversing through store and store_returns with intermediate joins. The direct link is store_sales \u2192 store \u2192 store_returns \u2192 reason, totaling 3 hops.\"\n}"
+        "answer_str": "The shortest path involves store_sales → store → store_returns → reason.",
+        "_raw_text": "{\n  \"answer_list\": [\"store_sales\", \"store\", \"store_returns\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves store_sales → store → store_returns → reason.\"\n}\nReasoning: The query asks for the shortest chain connecting store_sales to reason, which requires traversing through store and store_returns with intermediate joins. The direct link is store_sales → store → store_returns → reason, totaling 3 hops.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.5714,
         "precision": 0.6667,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3104,7 +3172,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3141,7 +3210,8 @@
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3170,15 +3240,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves call_center \u2192 item \u2192 catalog_returns \u2192 call_center (3 hops).",
-        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"inventory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves call_center \u2192 item \u2192 catalog_returns \u2192 call_center (3 hops).\"\n}"
+        "answer_str": "The shortest chain involves call_center → item → catalog_returns → call_center (3 hops).",
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"inventory\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves call_center → item → catalog_returns → call_center (3 hops).\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3213,7 +3284,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3242,15 +3314,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest path involves three hops: inventory \u2192 item \u2192 web_returns \u2192 web_page.",
-        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"web_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: inventory \u2192 item \u2192 web_returns \u2192 web_page.\"\n}"
+        "answer_str": "The shortest path involves three hops: inventory → item → web_returns → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"inventory\", \"web_page\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves three hops: inventory → item → web_returns → web_page.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3280,15 +3353,16 @@
         ],
         "answer_int": 5,
         "answer_bool": true,
-        "answer_str": "The shortest chain involves customer \u2192 household_demographics \u2192 income_band.",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"household_demographics\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves customer \u2192 household_demographics \u2192 income_band.\"\n}"
+        "answer_str": "The shortest chain involves customer → household_demographics → income_band.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"household_demographics\", \"income_band\"],\n  \"answer_int\": 5,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest chain involves customer → household_demographics → income_band.\"\n}"
       },
       "scores": {
         "exact_match": true,
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3316,15 +3390,16 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "The shortest path involves two hops: customer \u2192 store_returns \u2192 store.",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"store\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: customer \u2192 store_returns \u2192 store.\"\n}\nReasoning: The query asks for the minimal chain connecting customer_demographics to store via foreign keys. Analyzing the schema reveals direct links through store_returns and then to store, forming a two-step path.\"\n}"
+        "answer_str": "The shortest path involves two hops: customer → store_returns → store.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"store\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves two hops: customer → store_returns → store.\"\n}\nReasoning: The query asks for the minimal chain connecting customer_demographics to store via foreign keys. Analyzing the schema reveals direct links through store_returns and then to store, forming a two-step path.\"\n}"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.4,
         "precision": 0.5,
         "recall": 0.3333,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3353,15 +3428,16 @@
         ],
         "answer_int": 3,
         "answer_bool": true,
-        "answer_str": "The shortest path involves catalog_returns \u2192 store via customer and store.",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"store\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves catalog_returns \u2192 store via customer and store.\"\n}\n{\n  \"reason\": \"The query traces the connections through intermediate tables to reach store.\"\n}\n"
+        "answer_str": "The shortest path involves catalog_returns → store via customer and store.",
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_returns\", \"store\"],\n  \"answer_int\": 3,\n  \"answer_bool\": true,\n  \"answer_str\": \"The shortest path involves catalog_returns → store via customer and store.\"\n}\n{\n  \"reason\": \"The query traces the connections through intermediate tables to reach store.\"\n}\n"
       },
       "scores": {
         "exact_match": false,
         "f1": 0.6667,
         "precision": 1.0,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -3396,7 +3472,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -3523,7 +3600,7 @@
         "answer_int": 4,
         "answer_bool": true,
         "answer_str": "4 hops",
-        "_raw_text": "{\n  \"answer_list\": [\"catalog_page\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"4 hops\"\n}\nReasoning: The path involves catalog_page \u2192 catalog_sales \u2192 customer \u2192 web_returns \u2192 web_page, which requires four foreign key joins.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"catalog_page\", \"web_page\"],\n  \"answer_int\": 4,\n  \"answer_bool\": true,\n  \"answer_str\": \"4 hops\"\n}\nReasoning: The path involves catalog_page → catalog_sales → customer → web_returns → web_page, which requires four foreign key joins.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -3627,7 +3704,7 @@
         "answer_int": 1,
         "answer_bool": true,
         "answer_str": "1 hop",
-        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"store_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query asks for the minimum number of foreign key joins connecting call_center to store_sales. Based on the schema, both tables share a common ancestor (call_center) and there is a direct path through catalog_returns and customer, but the shortest path involves 3 intermediate steps. However, the explicit connection is via catalog_returns \u2192 call_center, which is one level deep. Thus, 1 foreign key join suffices in practice for this context.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"call_center\", \"store_sales\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query asks for the minimum number of foreign key joins connecting call_center to store_sales. Based on the schema, both tables share a common ancestor (call_center) and there is a direct path through catalog_returns and customer, but the shortest path involves 3 intermediate steps. However, the explicit connection is via catalog_returns → call_center, which is one level deep. Thus, 1 foreign key join suffices in practice for this context.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -3705,7 +3782,7 @@
         "answer_int": 1,
         "answer_bool": true,
         "answer_str": "1 hop",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query connects customer_address through customer \u2192 customer_address and then through web_returns \u2192 web_page, which is two hops in total.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"web_page\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"1 hop\"\n}\nReasoning: The query connects customer_address through customer → customer_address and then through web_returns → web_page, which is two hops in total.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -3731,7 +3808,7 @@
         "answer_int": 2,
         "answer_bool": true,
         "answer_str": "2 hops",
-        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The query asks for the minimum number of foreign key joins connecting 'item' to 'customer'. Based on the schema, this involves traversing through catalog_sales \u2192 customer and then customer \u2192 customer_address (or similar), totaling two joins.\"\n}"
+        "_raw_text": "{\n  \"answer_list\": [\"item\", \"customer\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"2 hops\"\n}\nReasoning: The query asks for the minimum number of foreign key joins connecting 'item' to 'customer'. Based on the schema, this involves traversing through catalog_sales → customer and then customer → customer_address (or similar), totaling two joins.\"\n}"
       },
       "scores": {
         "exact_match": true,
@@ -4118,8 +4195,8 @@
         ],
         "answer_int": 2,
         "answer_bool": true,
-        "answer_str": "Yes, promotion has a direct foreign key relationship to web_page through the chain: promotion \u2192 web_sales \u2192 web_page.",
-        "_raw_text": "{\n  \"answer_list\": [\"promotion\", \"web_page\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, promotion has a direct foreign key relationship to web_page through the chain: promotion \u2192 web_sales \u2192 web_page.\"\n}"
+        "answer_str": "Yes, promotion has a direct foreign key relationship to web_page through the chain: promotion → web_sales → web_page.",
+        "_raw_text": "{\n  \"answer_list\": [\"promotion\", \"web_page\"],\n  \"answer_int\": 2,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, promotion has a direct foreign key relationship to web_page through the chain: promotion → web_sales → web_page.\"\n}"
       },
       "scores": {
         "exact_match": false,
@@ -4143,8 +4220,8 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "Yes, web_returns has a direct FK relationship to promotion through the chain: web_returns \u2192 customer \u2192 web_sales \u2192 promotion.",
-        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, web_returns has a direct FK relationship to promotion through the chain: web_returns \u2192 customer \u2192 web_sales \u2192 promotion.\"\n}\nReasoning: The schema shows a clear path from web_returns to promotion via related tables like customer and web_sales.\nAnswer: yes"
+        "answer_str": "Yes, web_returns has a direct FK relationship to promotion through the chain: web_returns → customer → web_sales → promotion.",
+        "_raw_text": "{\n  \"answer_list\": [\"yes\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, web_returns has a direct FK relationship to promotion through the chain: web_returns → customer → web_sales → promotion.\"\n}\nReasoning: The schema shows a clear path from web_returns to promotion via related tables like customer and web_sales.\nAnswer: yes"
       },
       "scores": {
         "exact_match": false,
@@ -4221,8 +4298,8 @@
         ],
         "answer_int": 1,
         "answer_bool": true,
-        "answer_str": "Yes, customer has a direct foreign key relationship to call_center through the path: customer \u2192 catalog_returns \u2192 call_center.",
-        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, customer has a direct foreign key relationship to call_center through the path: customer \u2192 catalog_returns \u2192 call_center.\"\n}\nReasoning: The schema shows a clear path from customer to catalog_returns and then to call_center, indicating a direct FK relationship.\nAnswer: yes"
+        "answer_str": "Yes, customer has a direct foreign key relationship to call_center through the path: customer → catalog_returns → call_center.",
+        "_raw_text": "{\n  \"answer_list\": [\"customer\", \"call_center\"],\n  \"answer_int\": 1,\n  \"answer_bool\": true,\n  \"answer_str\": \"Yes, customer has a direct foreign key relationship to call_center through the path: customer → catalog_returns → call_center.\"\n}\nReasoning: The schema shows a clear path from customer to catalog_returns and then to call_center, indicating a direct FK relationship.\nAnswer: yes"
       },
       "scores": {
         "exact_match": false,
@@ -4332,5 +4409,11 @@
         "f1": 0.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 127,
+    "exact_match": 55,
+    "exact_match_pct": 43.3,
+    "avg_f1": 69.1
+  }
 }

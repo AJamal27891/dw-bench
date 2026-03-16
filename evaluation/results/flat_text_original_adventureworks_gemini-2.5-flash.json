@@ -1813,16 +1813,9 @@
       "id": "adventureworks_lineage_combined_047",
       "question": "If OLTP.Sales.SalesTerritory changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimEmployee",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimSalesTerritory",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactResellerSales",
-        "OLTP.Person.StateProvince",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderHeader",
-        "OLTP.Sales.SalesPerson",
-        "OLTP.Sales.SalesTerritoryHistory"
+        "DW.dbo.DimSalesReason",
+        "DW.dbo.FactInternetSalesReason",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
       ],
       "predicted_answer": [
         "OLTP.HumanResources.Employee",
@@ -1894,33 +1887,25 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.2703,
-        "precision": 0.1852,
-        "recall": 0.5
+        "f1": 0.0667,
+        "precision": 0.037,
+        "recall": 0.3333
       }
     },
     {
       "id": "adventureworks_lineage_combined_048",
       "question": "If OLTP.Production.Product changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimProduct",
+        "DW.dbo.DimEmployee",
+        "DW.dbo.DimGeography",
+        "DW.dbo.DimSalesTerritory",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactProductInventory",
         "DW.dbo.FactResellerSales",
-        "OLTP.Production.BillOfMaterials",
-        "OLTP.Production.ProductCostHistory",
-        "OLTP.Production.ProductDocument",
-        "OLTP.Production.ProductInventory",
-        "OLTP.Production.ProductListPriceHistory",
-        "OLTP.Production.ProductProductPhoto",
-        "OLTP.Production.ProductReview",
-        "OLTP.Production.TransactionHistory",
-        "OLTP.Production.WorkOrder",
-        "OLTP.Purchasing.ProductVendor",
-        "OLTP.Purchasing.PurchaseOrderDetail",
-        "OLTP.Sales.ShoppingCartItem",
-        "OLTP.Sales.SpecialOfferProduct"
+        "OLTP.Person.StateProvince",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderHeader",
+        "OLTP.Sales.SalesPerson",
+        "OLTP.Sales.SalesTerritoryHistory"
       ],
       "predicted_answer": [
         "DW.dbo.DimProduct",
@@ -1983,9 +1968,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.9231,
-        "precision": 0.8571,
-        "recall": 1.0
+        "f1": 0.129,
+        "precision": 0.0952,
+        "recall": 0.2
       }
     },
     {
@@ -1993,12 +1978,23 @@
       "question": "If OLTP.Production.ProductCategory changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
         "DW.dbo.DimProduct",
-        "DW.dbo.DimProductCategory",
-        "DW.dbo.DimProductSubcategory",
         "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
         "DW.dbo.FactProductInventory",
         "DW.dbo.FactResellerSales",
-        "OLTP.Production.ProductSubcategory"
+        "OLTP.Production.BillOfMaterials",
+        "OLTP.Production.ProductCostHistory",
+        "OLTP.Production.ProductDocument",
+        "OLTP.Production.ProductInventory",
+        "OLTP.Production.ProductListPriceHistory",
+        "OLTP.Production.ProductProductPhoto",
+        "OLTP.Production.ProductReview",
+        "OLTP.Production.TransactionHistory",
+        "OLTP.Production.WorkOrder",
+        "OLTP.Purchasing.ProductVendor",
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Sales.ShoppingCartItem",
+        "OLTP.Sales.SpecialOfferProduct"
       ],
       "predicted_answer": [
         "DW.dbo.DimProduct",
@@ -2070,19 +2066,22 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.1765,
-        "precision": 0.1111,
-        "recall": 0.4286
+        "f1": 0.6222,
+        "precision": 0.5185,
+        "recall": 0.7778
       }
     },
     {
       "id": "adventureworks_lineage_combined_050",
       "question": "If OLTP.Sales.SpecialOffer changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimPromotion",
+        "DW.dbo.DimProduct",
+        "DW.dbo.DimProductCategory",
+        "DW.dbo.DimProductSubcategory",
         "DW.dbo.FactInternetSales",
+        "DW.dbo.FactProductInventory",
         "DW.dbo.FactResellerSales",
-        "OLTP.Sales.SpecialOfferProduct"
+        "OLTP.Production.ProductSubcategory"
       ],
       "predicted_answer": [
         "DW.dbo.DimPromotion",
@@ -2117,22 +2116,19 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.7273,
-        "precision": 0.5714,
-        "recall": 1.0
+        "f1": 0.2857,
+        "precision": 0.2857,
+        "recall": 0.2857
       }
     },
     {
       "id": "adventureworks_lineage_combined_051",
       "question": "If OLTP.Person.Address changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimReseller",
+        "DW.dbo.DimPromotion",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactSurveyResponse",
-        "OLTP.Person.BusinessEntityAddress",
-        "OLTP.Sales.SalesOrderHeader"
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SpecialOfferProduct"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2173,22 +2169,22 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8235,
-        "precision": 0.7,
-        "recall": 1.0
+        "f1": 0.1429,
+        "precision": 0.1,
+        "recall": 0.25
       }
     },
     {
       "id": "adventureworks_lineage_combined_052",
       "question": "If OLTP.Production.ProductModel changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimProduct",
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimGeography",
+        "DW.dbo.DimReseller",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactProductInventory",
-        "DW.dbo.FactResellerSales",
-        "OLTP.Production.Product",
-        "OLTP.Production.ProductModelIllustration",
-        "OLTP.Production.ProductModelProductDescriptionCulture"
+        "DW.dbo.FactSurveyResponse",
+        "OLTP.Person.BusinessEntityAddress",
+        "OLTP.Sales.SalesOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.DimProduct",
@@ -2257,20 +2253,22 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4516,
-        "precision": 0.2917,
-        "recall": 1.0
+        "f1": 0.0645,
+        "precision": 0.0417,
+        "recall": 0.1429
       }
     },
     {
       "id": "adventureworks_lineage_combined_053",
       "question": "If OLTP.Person.StateProvince changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimReseller",
-        "OLTP.Person.Address",
-        "OLTP.Sales.SalesTaxRate"
+        "DW.dbo.DimProduct",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactProductInventory",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Production.Product",
+        "OLTP.Production.ProductModelIllustration",
+        "OLTP.Production.ProductModelProductDescriptionCulture"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2344,18 +2342,20 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.303,
-        "precision": 0.1786,
-        "recall": 1.0
+        "f1": 0.1143,
+        "precision": 0.0714,
+        "recall": 0.2857
       }
     },
     {
       "id": "adventureworks_lineage_combined_054",
       "question": "If OLTP.Sales.Store changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimGeography",
         "DW.dbo.DimReseller",
-        "DW.dbo.FactResellerSales",
-        "OLTP.Sales.Customer"
+        "OLTP.Person.Address",
+        "OLTP.Sales.SalesTaxRate"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2398,21 +2398,18 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.4286,
-        "precision": 0.2727,
-        "recall": 1.0
+        "f1": 0.25,
+        "precision": 0.1818,
+        "recall": 0.4
       }
     },
     {
       "id": "adventureworks_lineage_combined_055",
       "question": "If OLTP.Production.ProductSubcategory changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimProduct",
-        "DW.dbo.DimProductSubcategory",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactProductInventory",
+        "DW.dbo.DimReseller",
         "DW.dbo.FactResellerSales",
-        "OLTP.Production.Product"
+        "OLTP.Sales.Customer"
       ],
       "predicted_answer": [
         "DW.dbo.DimProduct",
@@ -2483,18 +2480,21 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.3871,
-        "precision": 0.24,
-        "recall": 1.0
+        "f1": 0.0714,
+        "precision": 0.04,
+        "recall": 0.3333
       }
     },
     {
       "id": "adventureworks_lineage_combined_056",
       "question": "If OLTP.Person.BusinessEntityAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
+        "DW.dbo.DimProduct",
+        "DW.dbo.DimProductSubcategory",
         "DW.dbo.FactInternetSales",
-        "DW.dbo.FactSurveyResponse"
+        "DW.dbo.FactProductInventory",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Production.Product"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2525,9 +2525,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.6,
-        "recall": 1.0
+        "f1": 0.1818,
+        "precision": 0.2,
+        "recall": 0.1667
       }
     },
     {
@@ -2535,11 +2535,8 @@
       "question": "If OLTP.Person.CountryRegion changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
         "DW.dbo.DimCustomer",
-        "DW.dbo.DimGeography",
-        "DW.dbo.DimReseller",
-        "OLTP.Person.StateProvince",
-        "OLTP.Sales.CountryRegionCurrency",
-        "OLTP.Sales.SalesTerritory"
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactSurveyResponse"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2611,8 +2608,8 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.3636,
-        "precision": 0.2222,
+        "f1": 0.2,
+        "precision": 0.1111,
         "recall": 1.0
       }
     },
@@ -2620,13 +2617,9 @@
       "id": "adventureworks_lineage_combined_058",
       "question": "If OLTP.Sales.Currency changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCurrency",
-        "DW.dbo.DimOrganization",
-        "DW.dbo.FactCurrencyRate",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactResellerSales",
-        "OLTP.Sales.CountryRegionCurrency",
-        "OLTP.Sales.CurrencyRate"
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.ProductVendor",
+        "OLTP.Purchasing.PurchaseOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.DimCurrency",
@@ -2673,9 +2666,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.7,
-        "precision": 0.5385,
-        "recall": 1.0
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -2683,12 +2676,11 @@
       "question": "If OLTP.Sales.Customer changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
         "DW.dbo.DimCustomer",
+        "DW.dbo.DimGeography",
         "DW.dbo.DimReseller",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSurveyResponse",
-        "OLTP.Sales.SalesOrderHeader"
+        "OLTP.Person.StateProvince",
+        "OLTP.Sales.CountryRegionCurrency",
+        "OLTP.Sales.SalesTerritory"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2729,18 +2721,22 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.8235,
-        "precision": 0.7,
-        "recall": 1.0
+        "f1": 0.25,
+        "precision": 0.2,
+        "recall": 0.3333
       }
     },
     {
       "id": "adventureworks_lineage_combined_060",
       "question": "If OLTP.HumanResources.Department changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimDepartmentGroup",
-        "DW.dbo.FactFinance",
-        "OLTP.HumanResources.EmployeeDepartmentHistory"
+        "DW.dbo.DimCurrency",
+        "DW.dbo.DimOrganization",
+        "DW.dbo.FactCurrencyRate",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.CountryRegionCurrency",
+        "OLTP.Sales.CurrencyRate"
       ],
       "predicted_answer": [
         "DW.dbo.DimDepartmentGroup",
@@ -2766,19 +2762,18 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.HumanResources.EmployeeDepartmentHistory\",\n    \"DW.dbo.DimDepartmentGroup\",\n    \"DW.dbo.FactFinance\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"OLTP.HumanResources.EmployeeDepartmentHistory has an FK to OLTP.HumanResources.Department. DW.dbo.DimDepartmentGroup is derived from OLTP.HumanResources.Department. DW.dbo.FactFinance has an FK to DW.dbo.DimDepartmentGroup.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_combined_061",
       "question": "If OLTP.Sales.SalesOrderDetail changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales"
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.PurchaseOrderDetail"
       ],
       "predicted_answer": [
         "DW.dbo.FactInternetSales",
@@ -2804,19 +2799,18 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.FactResellerSales\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.FactInternetSalesReason\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"DW.dbo.FactResellerSales and DW.dbo.FactInternetSales are directly derived from OLTP.Sales.SalesOrderDetail. DW.dbo.FactInternetSalesReason has a foreign key dependency on DW.dbo.FactInternetSales.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_combined_062",
       "question": "If OLTP.Person.EmailAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimCustomer",
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactSurveyResponse"
+        "DW.dbo.FactCurrencyRate",
+        "OLTP.Sales.SalesOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2847,24 +2841,22 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.6,
-        "recall": 1.0
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_combined_063",
       "question": "If OLTP.HumanResources.Employee changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.DimEmployee",
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimReseller",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
         "DW.dbo.FactResellerSales",
-        "DW.dbo.FactSalesQuota",
-        "OLTP.HumanResources.EmployeeDepartmentHistory",
-        "OLTP.HumanResources.EmployeePayHistory",
-        "OLTP.HumanResources.JobCandidate",
-        "OLTP.Production.Document",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Sales.SalesPerson"
+        "DW.dbo.FactSurveyResponse",
+        "OLTP.Sales.SalesOrderHeader"
       ],
       "predicted_answer": [
         "DW.dbo.DimCustomer",
@@ -2935,8 +2927,8 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.5294,
-        "precision": 0.36,
+        "f1": 0.4375,
+        "precision": 0.28,
         "recall": 1.0
       }
     },
@@ -2944,11 +2936,9 @@
       "id": "adventureworks_lineage_combined_064",
       "question": "If OLTP.Sales.SalesOrderHeader changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
       "gold_answer": [
-        "DW.dbo.FactInternetSales",
-        "DW.dbo.FactInternetSalesReason",
-        "DW.dbo.FactResellerSales",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeaderSalesReason"
+        "DW.dbo.DimDepartmentGroup",
+        "DW.dbo.FactFinance",
+        "OLTP.HumanResources.EmployeeDepartmentHistory"
       ],
       "predicted_answer": [
         "DW.dbo.FactInternetSales",
@@ -2981,9 +2971,9 @@
       },
       "scores": {
         "exact_match": false,
-        "f1": 0.9091,
-        "precision": 0.8333,
-        "recall": 1.0
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -3151,10 +3141,11 @@
       "id": "adventureworks_lineage_multisrc_069",
       "question": "DW.dbo.FactInternetSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactInternetSales.",
       "gold_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
+        "OLTP.Person.Address",
+        "OLTP.Person.BusinessEntityAddress",
+        "OLTP.Person.EmailAddress",
+        "OLTP.Person.Person",
+        "OLTP.Sales.Customer"
       ],
       "predicted_answer": [
         "OLTP.Production.Product",
@@ -3182,19 +3173,19 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Sales.SalesOrderHeader\",\n    \"OLTP.Sales.SalesOrderDetail\",\n    \"OLTP.Sales.Customer\",\n    \"OLTP.Production.Product\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The `DERIVED_FROM` relationships explicitly show which OLTP tables feed into `DW.dbo.FactInternetSales`.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0.2222,
+        "precision": 0.25,
+        "recall": 0.2
       }
     },
     {
       "id": "adventureworks_lineage_multisrc_070",
       "question": "DW.dbo.FactProductInventory integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactProductInventory.",
       "gold_answer": [
-        "OLTP.Purchasing.PurchaseOrderDetail",
-        "OLTP.Purchasing.PurchaseOrderHeader",
-        "OLTP.Purchasing.Vendor"
+        "OLTP.HumanResources.Employee",
+        "OLTP.Person.Person",
+        "OLTP.Sales.SalesPerson"
       ],
       "predicted_answer": [
         "OLTP.Purchasing.PurchaseOrderDetail",
@@ -3220,20 +3211,19 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Purchasing.PurchaseOrderDetail\",\n    \"OLTP.Purchasing.PurchaseOrderHeader\",\n    \"OLTP.Purchasing.Vendor\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided schema explicitly lists three OLTP tables as sources for DW.dbo.FactProductInventory via 'DERIVED_FROM' relationships.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
       "id": "adventureworks_lineage_multisrc_071",
       "question": "DW.dbo.FactResellerSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactResellerSales.",
       "gold_answer": [
-        "OLTP.Production.Product",
-        "OLTP.Sales.Customer",
-        "OLTP.Sales.SalesOrderDetail",
-        "OLTP.Sales.SalesOrderHeader"
+        "OLTP.Person.Address",
+        "OLTP.Person.CountryRegion",
+        "OLTP.Person.StateProvince"
       ],
       "predicted_answer": [
         "OLTP.Production.Product",
@@ -3261,10 +3251,10 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Sales.SalesOrderHeader\",\n    \"OLTP.Sales.SalesOrderDetail\",\n    \"OLTP.Sales.Customer\",\n    \"OLTP.Production.Product\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The provided schema explicitly lists four OLTP tables as sources for DW.dbo.FactResellerSales via 'DERIVED_FROM' relationships.\"\n}\n```"
       },
       "scores": {
-        "exact_match": true,
-        "f1": 1.0,
-        "precision": 1.0,
-        "recall": 1.0
+        "exact_match": false,
+        "f1": 0,
+        "precision": 0.0,
+        "recall": 0.0
       }
     },
     {
@@ -4410,7 +4400,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4446,7 +4437,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4482,7 +4474,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4518,7 +4511,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4554,7 +4548,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4590,7 +4585,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4626,7 +4622,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4662,7 +4659,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4698,7 +4696,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4734,7 +4733,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4770,7 +4770,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4806,7 +4807,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4842,7 +4844,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -4878,7 +4881,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4917,7 +4921,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4956,7 +4961,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -4998,7 +5004,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5040,7 +5047,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5079,7 +5087,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5121,7 +5130,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5162,7 +5172,8 @@
         "f1": 0.5714,
         "precision": 0.5,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5200,11 +5211,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.DimCustomer\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.DimDate\",\n    \"DW.dbo.FactSalesQuota\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The shortest path involves joining DW.dbo.DimCustomer to DW.dbo.FactInternetSales, then to DW.dbo.DimDate, and finally to DW.dbo.FactSalesQuota, using foreign key relationships.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.75,
-        "recall": 0.75,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -5243,7 +5255,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5285,7 +5298,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5320,11 +5334,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.DimPromotion\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.DimCurrency\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"DW.dbo.DimPromotion is connected to DW.dbo.FactInternetSales, which is then connected to DW.dbo.DimCurrency via foreign key relationships.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.6667,
-        "precision": 0.6667,
-        "recall": 0.6667,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -5366,7 +5381,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5404,11 +5420,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.FactCurrencyRate\",\n    \"DW.dbo.DimCurrency\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.DimSalesTerritory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A path exists from DW.dbo.FactCurrencyRate to DW.dbo.DimCurrency, then to DW.dbo.FactInternetSales (via DimCurrency), and finally to DW.dbo.DimSalesTerritory.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.75,
-        "recall": 0.75,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -5452,7 +5469,8 @@
         "f1": 0.6667,
         "precision": 0.6,
         "recall": 0.75,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -5494,7 +5512,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5533,7 +5552,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5575,7 +5595,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5614,7 +5635,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5656,7 +5678,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5695,7 +5718,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5734,7 +5758,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5769,11 +5794,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.DimProduct\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.DimDate\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"DW.dbo.FactInternetSales has foreign key relationships to both DW.dbo.DimProduct and DW.dbo.DimDate, forming a direct path of two joins.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.6667,
-        "precision": 0.6667,
-        "recall": 0.6667,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -5812,7 +5838,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5851,7 +5878,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5890,7 +5918,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5932,7 +5961,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -5977,7 +6007,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6022,7 +6053,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6078,7 +6110,8 @@
         "f1": 0.4706,
         "precision": 0.4444,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6134,7 +6167,8 @@
         "f1": 0.4706,
         "precision": 0.4444,
         "recall": 0.5,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6185,7 +6219,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6233,7 +6268,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6278,7 +6314,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6313,7 +6350,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6363,11 +6401,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Production.ProductProductPhoto\",\n    \"OLTP.Production.Product\",\n    \"OLTP.Sales.SpecialOfferProduct\",\n    \"OLTP.Sales.SalesOrderDetail\",\n    \"OLTP.Sales.SalesOrderHeader\",\n    \"OLTP.Sales.CurrencyRate\",\n    \"OLTP.Sales.Currency\",\n    \"OLTP.Sales.CountryRegionCurrency\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path was found by traversing foreign key relationships from OLTP.Production.ProductProductPhoto to OLTP.Sales.CountryRegionCurrency via OLTP.Production.Product, OLTP.Sales.SpecialOfferProduct, OLTP.Sales.SalesOrderDetail, OLTP.Sales.SalesOrderHeader, OLTP.Sales.CurrencyRate, and OLTP.Sales.Currency.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.75,
-        "recall": 0.75,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -6412,7 +6451,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6469,7 +6509,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6524,7 +6565,8 @@
         "f1": 0.625,
         "precision": 0.5556,
         "recall": 0.7143,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6575,7 +6617,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6620,7 +6663,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6665,7 +6709,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6712,11 +6757,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Sales.SalesPersonQuotaHistory\",\n    \"OLTP.Sales.SalesPerson\",\n    \"OLTP.Sales.SalesOrderHeader\",\n    \"OLTP.Sales.SalesOrderDetail\",\n    \"OLTP.Sales.SpecialOfferProduct\",\n    \"OLTP.Production.Product\",\n    \"OLTP.Production.WorkOrder\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Traced foreign key relationships from OLTP.Sales.SalesPersonQuotaHistory to OLTP.Production.WorkOrder, finding a path of 6 joins through sales and product tables.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.5714,
-        "precision": 0.5714,
-        "recall": 0.5714,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -6761,7 +6807,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6812,7 +6859,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6857,7 +6905,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6911,7 +6960,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -6945,7 +6995,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -6996,7 +7047,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7046,7 +7098,8 @@
         "f1": 0.6154,
         "precision": 0.5714,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7091,7 +7144,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7142,7 +7196,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7190,7 +7245,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7240,11 +7296,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Production.ProductDescription\",\n    \"OLTP.Production.ProductModelProductDescriptionCulture\",\n    \"OLTP.Production.ProductModel\",\n    \"OLTP.Production.Product\",\n    \"OLTP.Production.ProductDocument\",\n    \"OLTP.Production.Document\",\n    \"OLTP.HumanResources.Employee\",\n    \"OLTP.HumanResources.EmployeeDepartmentHistory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Traced foreign key relationships from OLTP.Production.ProductDescription through ProductModelProductDescriptionCulture, ProductModel, Product, ProductDocument, Document, Employee, to OLTP.HumanResources.EmployeeDepartmentHistory.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.75,
-        "recall": 0.75,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -7297,7 +7354,8 @@
         "f1": 0.6667,
         "precision": 0.625,
         "recall": 0.7143,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7348,7 +7406,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7387,7 +7446,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7435,7 +7495,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7476,7 +7537,8 @@
         "f1": 0.5714,
         "precision": 0.5,
         "recall": 0.6667,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7521,7 +7583,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7563,7 +7626,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7608,7 +7672,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7646,11 +7711,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.DimCustomer\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.DimDate\",\n    \"DW.dbo.FactProductInventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path of 3 foreign key joins connects DW.dbo.DimCustomer to DW.dbo.FactProductInventory via DW.dbo.FactInternetSales and DW.dbo.DimDate.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.75,
-        "precision": 0.75,
-        "recall": 0.75,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -7691,11 +7757,12 @@
         "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"DW.dbo.DimProduct\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.DimDate\",\n    \"DW.dbo.FactFinance\",\n    \"DW.dbo.DimAccount\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"A shortest path analysis reveals that DW.dbo.DimProduct connects to DW.dbo.FactInternetSales, which then connects to DW.dbo.DimDate. From DimDate, a connection exists to DW.dbo.FactFinance, which finally connects to DW.dbo.DimAccount.\"\n}\n```"
       },
       "scores": {
-        "exact_match": false,
-        "f1": 0.8,
-        "precision": 0.8,
-        "recall": 0.8,
-        "order_correct": false
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": false,
+        "valid_alt_path": true
       }
     },
     {
@@ -7729,7 +7796,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -7768,7 +7836,8 @@
         "f1": 1.0,
         "precision": 1.0,
         "recall": 1.0,
-        "order_correct": true
+        "order_correct": true,
+        "valid_alt_path": false
       }
     },
     {
@@ -7824,7 +7893,8 @@
         "f1": 0.5882,
         "precision": 0.5556,
         "recall": 0.625,
-        "order_correct": false
+        "order_correct": false,
+        "valid_alt_path": false
       }
     },
     {
@@ -8695,5 +8765,11 @@
         "f1": 1.0
       }
     }
-  ]
+  ],
+  "summary": {
+    "total": 204,
+    "exact_match": 159,
+    "exact_match_pct": 77.9,
+    "avg_f1": 83.9
+  }
 }

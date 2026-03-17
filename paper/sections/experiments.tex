@@ -24,24 +24,22 @@ formats not captured by the scorer).
 \textbf{Bold}~=~best non-oracle.}
 \label{tab:main-results}
 \small
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{llccccc}
+\begin{tabular}{@{}llccccc@{}}
 \toprule
 Model & & FT & VR & GA & TU & RC \\
 \midrule
-Gemini & Micro & 76.8{\scriptsize$\pm$2.4} & 73.2{\scriptsize$\pm$2.6}
-  & 75.7{\scriptsize$\pm$2.5} & \textbf{89.3}{\scriptsize$\pm$1.9}
-  & 81.4{\scriptsize$\pm$2.4} \\
+Gemini & Micro & 76.8{\tiny$\pm$2.4} & 73.2{\tiny$\pm$2.6}
+  & 75.7{\tiny$\pm$2.5} & \textbf{89.3}{\tiny$\pm$1.9}
+  & 81.4{\tiny$\pm$2.4} \\
 \midrule
-DeepSeek & Micro & 69.7{\scriptsize$\pm$2.8} & 71.2{\scriptsize$\pm$2.8}
-  & 77.0{\scriptsize$\pm$2.6} & \textbf{90.4}{\scriptsize$\pm$1.7}
-  & 79.4{\scriptsize$\pm$2.4} \\
+DeepSeek & Micro & 69.7{\tiny$\pm$2.8} & 71.2{\tiny$\pm$2.8}
+  & 77.0{\tiny$\pm$2.6} & \textbf{90.4}{\tiny$\pm$1.7}
+  & 79.4{\tiny$\pm$2.4} \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle}}
   & \multicolumn{5}{c}{97.0$\pm$1.0 / 97.2$\pm$1.0} \\
 \bottomrule
 \end{tabular}
-}
 \end{table}
 
 \paragraph{Finding~1: Tool-Use dominates.}
@@ -64,18 +62,18 @@ TU by $>$9pp (see Figure~\ref{fig:triviality} in Appendix).
 but plateaus on hard questions alongside static baselines.}
 \label{tab:difficulty}
 \small
-\begin{tabular}{llccccc}
+\begin{tabular}{@{}llccccc@{}}
 \toprule
-Model & Difficulty & FT & VR & GA & TU & RC \\
+Model & Diff. & FT & VR & GA & TU & RC \\
 \midrule
 \multirow{3}{*}{Gem.}
   & Easy    & 82.7 & 82.5 & 82.2 & \textbf{99.6} & 90.4 \\
-  & Medium  & 78.9 & 73.0 & 76.3 & \textbf{90.3} & 78.7 \\
+  & Med.    & 78.9 & 73.0 & 76.3 & \textbf{90.3} & 78.7 \\
   & Hard    & 56.7 & 47.4 & 56.7 & 59.9 & \textbf{60.9} \\
 \midrule
 \multirow{3}{*}{DS}
   & Easy    & 82.7 & 84.4 & 87.1 & \textbf{98.0} & 95.8 \\
-  & Medium  & 65.3 & 65.3 & 76.0 & \textbf{97.0} & 79.8 \\
+  & Med.    & 65.3 & 65.3 & 76.0 & \textbf{97.0} & 79.8 \\
   & Hard    & 39.7 & 43.3 & 50.0 & \textbf{60.4} & 54.7 \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle Hard}}
@@ -127,8 +125,7 @@ confirming that \emph{learned structural representations} may be needed.
 \caption{Obfuscation penalty (4 datasets). TU is nearly invariant.}
 \label{tab:obfuscation}
 \small
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{llccccc}
+\begin{tabular}{@{}llccccc@{}}
 \toprule
 Model & & FT & VR & GA & TU & RC \\
 \midrule
@@ -141,7 +138,6 @@ Model & & FT & VR & GA & TU & RC \\
   & $\Delta$ & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & $+$0.6 \\
 \bottomrule
 \end{tabular}
-}
 \end{table}
 
 TU shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\%

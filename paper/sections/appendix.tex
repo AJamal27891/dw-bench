@@ -155,46 +155,46 @@ cascade count) but fails on exhaustive enumeration (membership) and
 multi-hop composition (combined impact, provenance tracing).}
 \label{tab:examples}
 \small
-\begin{tabular}{p{0.11\linewidth}p{0.38\linewidth}p{0.22\linewidth}p{0.20\linewidth}}
+\begin{tabular}{@{}p{0.10\linewidth}p{0.35\linewidth}p{0.24\linewidth}p{0.22\linewidth}@{}}
 \toprule
 \textbf{Subtype} & \textbf{Question} & \textbf{Gold} & \textbf{TU Pred.} \\
 \midrule
 \texttt{direct\_fk} \newline \textit{Easy} &
-Is there a direct FK between \texttt{DW.DimProduct} and
-\texttt{DW.FactInternetSales}? &
+Is there a direct FK between \texttt{DimProduct} and
+\texttt{FactInternetSales}? &
 yes &
 yes \cmark \\
 \midrule
 \texttt{join\_path} \newline \textit{Medium} &
-What is the shortest FK path from \texttt{DW.DimCustomer} to
-\texttt{DW.DimProduct}? &
+Shortest FK path from \texttt{DimCustomer} to
+\texttt{DimProduct}? &
 {[}DimCustomer, FactInternet\-Sales, DimProduct{]} &
 {[}DimCustomer, FactInternet\-Sales, DimProduct{]} \cmark \\
 \midrule
 \texttt{membership} \newline \textit{Hard} &
-Which connected component contains \texttt{DW.DimCurrency}? List all
-tables in that component. &
-{[}DimCurrency, FactCurrency\-Rate, DimDate, ...{]} (12 tables) &
+Which component contains \texttt{DimCurrency}? List all
+tables. &
+{[}DimCurrency, FactCurrency\-Rate, DimDate, \ldots{]} (12) &
 {[}DimCurrency{]} \xmark \\
 \midrule
 \texttt{combined\_\newline impact} \newline \textit{Hard} &
-Which tables are transitively affected (via lineage and FK) if
-\texttt{raw\_purchase\_ orders} is modified? &
-{[}stg\_purchase\_ orders, dim\_supplier, ...{]} (8 tables) &
-{[}stg\_purchase\_ orders{]} \xmark \\
+Which tables are transitively affected (lineage+FK) if
+\texttt{raw\_purchase\_orders} is modified? &
+{[}stg\_purchase\_orders, dim\_supplier, \ldots{]} (8) &
+{[}stg\_purchase\_orders{]} \xmark \\
 \midrule
 \texttt{cascade\_\newline count} \newline \textit{Tier~2} &
-How many downstream rows would be affected if we delete the row with
+How many downstream rows affected if we delete
 \texttt{shipment\_id=SH042} from \texttt{raw\_shipments}? &
 147 &
 147 \cmark \\
 \midrule
 \texttt{multi\_hop\newline \_trace} \newline \textit{Tier~2} &
-Trace the full provenance chain of \texttt{order\_id=ORD-2891} in
-\texttt{mart\_profit\_analysis} back to its raw source tables. &
+Trace provenance of \texttt{order\_id=ORD-2891} in
+\texttt{mart\_profit\_analysis} to raw sources. &
 {[}raw\_purchase\_orders $\to$ stg\_orders $\to$ dim\_product $\to$
-mart\_profit\_ analysis{]} &
-{[}raw\_purchase\\_ orders, mart\_profit\_ analysis{]} \xmark \\
+mart\_profit\_analysis{]} &
+{[}raw\_purchase\_orders, mart\_profit\_analysis{]} \xmark \\
 \bottomrule
 \end{tabular}
 \end{table}

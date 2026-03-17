@@ -8,24 +8,23 @@
 % TABLE 1: Dataset Overview
 \begin{table}[t]
 \centering
-\caption{DW-Bench dataset statistics. ``Silos'' = number of disconnected
+\caption{DW-Bench dataset statistics. ``Silos'' = disconnected
 components in the combined FK+lineage graph.}
 \label{tab:datasets}
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{lcccccc}
+\small
+\begin{tabular}{@{}lcccccc@{}}
 \toprule
-Dataset & Domain & Tables & FK Edges & Lineage & Questions & Silos \\
+Dataset & Domain & Tbl & FK & Lin. & Qs & Silos \\
 \midrule
-AdventureWorks & Retail/HR   & 102 & 136 & 39 & 208 & 11 \\
-TPC-DS         & Analytics   &  24 &  70 &  0 & 127 &  1 \\
-TPC-DI         & ETL         &  35 &  29 & 21 & 181 &  2 \\
-OMOP CDM       & Healthcare  &  37 &  74 & 21 & 158 &  3 \\
-Syn-Logistics  & Supply Chain&  64 &  96 & 35 & 372 &  5 \\
+AdventureWorks & Retail   & 102 & 136 & 39 & 208 & 11 \\
+TPC-DS         & Analytics&  24 &  70 &  0 & 127 &  1 \\
+TPC-DI         & ETL      &  35 &  29 & 21 & 181 &  2 \\
+OMOP CDM       & Health   &  37 &  74 & 21 & 158 &  3 \\
+Syn-Logistics  & Supply   &  64 &  96 & 35 & 372 &  5 \\
 \midrule
-\textbf{Total} &             & \textbf{262} & \textbf{405} & \textbf{116} & \textbf{1,046} & --- \\
+\textbf{Total} &          & \textbf{262} & \textbf{405} & \textbf{116} & \textbf{1046} & --- \\
 \bottomrule
 \end{tabular}
-}
 \end{table}
 
 We select five datasets representing diverse data warehouse topologies:
@@ -93,29 +92,28 @@ answers are provably correct. We define three categories with 13 subtypes:
 reasoning hops and edge types required.}
 \label{tab:taxonomy}
 \small
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{llclr}
+\begin{tabular}{@{}llclr@{}}
 \toprule
-Category & Subtype & Difficulty & Description & \#Qs \\
+Category & Subtype & Diff. & Description & \#Qs \\
 \midrule
-\multirow{5}{*}{\rotatebox{90}{\small Lineage}} 
+\multirow{5}{*}{\rotatebox{90}{\small Lin.}} 
   & forward         & Easy & Direct lineage targets   & 72 \\
-  & reverse         & Easy & Source tables for a DW table & 71 \\
+  & reverse         & Easy & Source tables for DW table & 71 \\
   & transitive      & Hard & Multi-hop lineage chains  & 33 \\
   & combined\_impact & Hard & Lineage + FK dependents  & 69 \\
-  & multi\_source   & Medium & Tables with 3+ sources   & 49 \\
+  & multi\_source   & Med. & Tables with 3+ sources   & 49 \\
 \midrule
-\multirow{3}{*}{\rotatebox{90}{\small Route}}
+\multirow{3}{*}{\rotatebox{90}{\small Rt.}}
   & direct\_fk      & Easy & FK adjacency check       & 100 \\
-  & join\_path      & Medium & FK shortest path         & 342 \\
-  & hop\_count      & Medium & Path length              & 124 \\
+  & join\_path      & Med. & FK shortest path         & 342 \\
+  & hop\_count      & Med. & Path length              & 124 \\
 \midrule
 \multirow{5}{*}{\rotatebox{90}{\small Silo}}
   & count           & Easy & Number of components     & 30 \\
-  & membership      & Hard & Which component contains X? & 38 \\
-  & isolation       & Medium & Is table X isolated?     & 60 \\
-  & connected       & Medium & Are X and Y connected?   & 29 \\
-  & full\_enumeration & Hard & List all tables in a silo & 29 \\
+  & membership      & Hard & Which component has X?   & 38 \\
+  & isolation       & Med. & Is table X isolated?     & 60 \\
+  & connected       & Med. & Are X and Y connected?   & 29 \\
+  & full\_enum.     & Hard & List all tables in silo  & 29 \\
 \bottomrule
 \end{tabular}
 }

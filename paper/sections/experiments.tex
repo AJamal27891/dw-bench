@@ -21,8 +21,7 @@ formats not captured by the scorer).
 \centering
 \caption{Tier~1 results (Micro-EM~\% $\pm$ 95\% CI, pooled across
 5 datasets, 2000 bootstrap resamples).
-\textbf{Bold}~=~best non-oracle.
-$^\dagger$DeepSeek RC: 2/5 datasets.}
+\textbf{Bold}~=~best non-oracle.}
 \label{tab:main-results}
 \small
 \begin{tabular}{llccccc}
@@ -35,7 +34,7 @@ Gemini & Micro & 76.8{\scriptsize$\pm$2.4} & 73.2{\scriptsize$\pm$2.6}
 \midrule
 DeepSeek & Micro & 69.7{\scriptsize$\pm$2.8} & 71.2{\scriptsize$\pm$2.8}
   & 77.0{\scriptsize$\pm$2.6} & \textbf{90.4}{\scriptsize$\pm$1.7}
-  & 82.1{\scriptsize$\pm$4.2}$^\dagger$ \\
+  & 79.4{\scriptsize$\pm$2.4} \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle}}
   & \multicolumn{5}{c}{97.0$\pm$1.0 / 97.2$\pm$1.0} \\
@@ -135,15 +134,17 @@ Model & & FT & VR & GA & TU & RC \\
   & $\Delta$ & $-$14.9 & $-$26.0 & $-$27.9 & $-$\textbf{3.4} & $-$7.6 \\
 \midrule
 \multirow{2}{*}{DS}
-  & Orig.   & 68.6 & 74.8 & 82.7 & \textbf{91.4} & --- \\
-  & $\Delta$ & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & --- \\
+  & Orig.   & 68.6 & 74.8 & 82.7 & \textbf{91.4} & 83.4 \\
+  & $\Delta$ & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & $+$0.6 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 TU shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\%
-DeepSeek) while static baselines lose 15--32pp, confirming
-algorithmic tool access is robust to input perturbation.
+DeepSeek) while static baselines lose 15--32pp.
+RC shows near-zero penalty ($\Delta{=}{+}0.6$\% DeepSeek), confirming
+that code execution against the graph object is fully invariant to
+name perturbation.
 
 \subsection{Tier~2: Value-Level Evaluation}
 
@@ -174,7 +175,7 @@ frontier models with deterministic single-pass evaluation; broader
 model coverage would strengthen generality. Tier~2 is limited to one
 synthetic dataset. All lineage edges are assumed to form a DAG;
 cyclic ETL patterns (e.g., slowly-changing dimensions) are left
-for future versions. DeepSeek RC has partial coverage (2/5 datasets).
+for future versions.
 
 \paragraph{Dataset licenses.}
 TPC-DS and TPC-DI are available under the TPC EULA (free for

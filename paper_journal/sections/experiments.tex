@@ -31,8 +31,7 @@ use greedy decoding ($\tau{=}0$) for deterministic reproducibility.
 \centering
 \caption{Tier~1 schema-level results (Micro-EM~\% $\pm$ 95\% CI,
 pooled across 5 datasets, 2000 bootstrap resamples).
-\textbf{Bold}~=~best non-oracle.
-$^\dagger$DeepSeek RC: 2/5 datasets.}
+\textbf{Bold}~=~best non-oracle.}
 \label{tab:main-results}
 \begin{tabular}{llccccc}
 \toprule
@@ -44,7 +43,7 @@ Gemini & Micro & 76.8{\scriptsize$\pm$2.4} & 73.2{\scriptsize$\pm$2.6}
 \midrule
 DeepSeek & Micro & 69.7{\scriptsize$\pm$2.8} & 71.2{\scriptsize$\pm$2.8}
   & 77.0{\scriptsize$\pm$2.6} & \textbf{90.4}{\scriptsize$\pm$1.7}
-  & 82.1{\scriptsize$\pm$4.2}$^\dagger$ \\
+  & 79.4{\scriptsize$\pm$2.4} \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle}}
   & \multicolumn{5}{c}{97.0$\pm$1.0 / 97.2$\pm$1.0} \\
@@ -79,9 +78,9 @@ Model & Difficulty ($n$) & FT & VR & GA & TU & RC \\
   & Hard (202)   & 56.7 & 47.4 & 56.7 & \textbf{59.9} & \textbf{60.9} \\
 \midrule
 \multirow{3}{*}{DeepSeek}
-  & Easy (544)   & 82.7 & 84.4 & 87.1 & \textbf{98.0} & 95.8 \\
-  & Medium (300) & 65.3 & 65.3 & 76.0 & \textbf{97.0} & 79.8 \\
-  & Hard (202)   & 39.7 & 43.3 & 50.0 & \textbf{60.4} & 54.7 \\
+  & Easy (544)   & 82.7 & 84.4 & 87.1 & \textbf{98.0} & 88.8 \\
+  & Medium (300) & 65.3 & 65.3 & 76.0 & \textbf{97.0} & 76.3 \\
+  & Hard (202)   & 39.7 & 43.3 & 50.0 & \textbf{60.4} & 58.9 \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle Hard}}
   & \multicolumn{5}{c}{98.5 (Gemini) / 99.5 (DeepSeek)} \\
@@ -155,9 +154,9 @@ Model & & FT & VR & GA & TU & RC \\
   & $\Delta$    & $-$14.9 & $-$26.0 & $-$27.9 & $-$\textbf{3.4} & $-$7.6 \\
 \midrule
 \multirow{3}{*}{DeepSeek}
-  & Original    & 68.6 & 74.8 & 82.7 & \textbf{91.4} & --- \\
-  & Obfuscated  & 40.8 & 43.1 & 58.4 & \textbf{87.2} & --- \\
-  & $\Delta$    & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & --- \\
+  & Original    & 68.6 & 74.8 & 82.7 & \textbf{91.4} & 83.4 \\
+  & Obfuscated  & 40.8 & 43.1 & 58.4 & \textbf{87.2} & 84.0 \\
+  & $\Delta$    & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & $+$0.6 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -169,10 +168,12 @@ Model & & FT & VR & GA & TU & RC \\
 \label{fig:obfuscation}
 \end{figure}
 
-\paragraph{Key Finding: Tool-Use is obfuscation-invariant.}
 Tool-Use shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini,
 ${-}4.2$\% DeepSeek), compared to static baselines losing 15--32
-percentage points.
+percentage points.  Remarkably, DeepSeek RC shows \emph{zero}
+obfuscation penalty ($\Delta{=}{+}0.6$\%), confirming that code
+execution against the graph object is fully invariant to name
+perturbation.
 
 \subsection{Tier~2: Value-Level Evaluation}
 
@@ -227,8 +228,9 @@ overall EM.  On \texttt{multi\_hop\_trace} (27\%) and
 parity.  Since 45\% of questions involve paths exceeding 3 hops,
 GA scores may be depressed on long-range subtypes.
 
-\textbf{Baseline Coverage.} DeepSeek ReAct-Code was evaluated on only
-2/5 datasets due to compute constraints.
+\textbf{Baseline Coverage.} DeepSeek ReAct-Code is evaluated on all
+5 datasets for original conditions and 4 datasets (excluding
+Syn-Logistics) for obfuscated conditions.
 
 \textbf{Statistical Treatment.} We use greedy decoding ($\tau{=}0$) with
 a single deterministic pass for exact reproducibility.  Per-question

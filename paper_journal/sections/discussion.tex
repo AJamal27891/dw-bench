@@ -114,9 +114,11 @@ algorithmic difficulty.
 \paragraph{Formal specification of \texttt{combined\_impact}.}
 This subtype computes the set of tables affected by a change to a source
 table through \emph{both} lineage and FK paths:
-$\textit{Impact}(t) = \textit{Downstream}_{\textit{lineage}}(t)
-\cup \bigcup_{t' \in \textit{Downstream}_{\textit{lineage}}(t)}
-\textit{Reachable}_{\textit{FK}}(t')$,
+\[
+\textit{Impact}(t) = \textit{Down}_{\textit{lin}}(t)
+\;\cup\; \bigcup_{t' \in \textit{Down}_{\textit{lin}}(t)}
+\textit{Reach}_{\textit{FK}}(t'),
+\]
 where downstream lineage is transitive closure over \texttt{derived\_from}
 edges and FK reachability is BFS over \texttt{fk\_to} edges.  The
 composition of two distinct traversals is what makes this subtype hard:
@@ -162,8 +164,10 @@ would strengthen generality.  Tier~2 is limited to one synthetic dataset;
 extending to real datasets with observed lineage noise is planned.
 All lineage edges are assumed to form DAGs; cyclic ETL patterns
 (e.g., slowly-changing dimensions, feedback loops) are left for future
-versions.  A GNN-enhanced baseline that uses precomputed graph embeddings
-to assist retrieval is a natural next step; our companion DW-GNN
-project explores this direction explicitly.
+versions.  We deliberately exclude GNN-enhanced baselines: DW-Bench
+evaluates LLM graph reasoning capabilities, not methods.  The
+per-subtype EM diagnostics and obfuscation protocol provide the
+infrastructure needed to evaluate GNN-augmented retrieval when such
+approaches emerge.
 Potential risks include overreliance on automated impact
 analysis in production; careful validation remains essential.

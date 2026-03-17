@@ -171,7 +171,7 @@ for i in range(len(subtypes)):
         ax.text(j, i, f'{v:.0f}', ha='center', va='center',
                 fontsize=7, fontweight='bold', color=color)
 
-ax.set_title('Tier 1: EM (%) by Subtype (Gemini)', fontweight='bold', pad=10)
+ax.set_title('Tier 1: EM (%) by Subtype', fontweight='bold', pad=10)
 cbar = plt.colorbar(im, ax=ax, shrink=0.7, pad=0.02)
 cbar.ax.set_ylabel('Exact Match (%)', fontsize=9)
 cbar.ax.tick_params(labelsize=8)

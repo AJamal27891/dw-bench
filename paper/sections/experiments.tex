@@ -24,6 +24,7 @@ formats not captured by the scorer).
 \textbf{Bold}~=~best non-oracle.}
 \label{tab:main-results}
 \small
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{llccccc}
 \toprule
 Model & & FT & VR & GA & TU & RC \\
@@ -40,6 +41,7 @@ DeepSeek & Micro & 69.7{\scriptsize$\pm$2.8} & 71.2{\scriptsize$\pm$2.8}
   & \multicolumn{5}{c}{97.0$\pm$1.0 / 97.2$\pm$1.0} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \paragraph{Finding~1: Tool-Use dominates.}
@@ -104,7 +106,7 @@ questions while Oracle (dashed) achieves $\geq$97\%.}
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.73\linewidth]{figures/subtype_heatmap.pdf}
-\caption{Gap to Oracle (Oracle~EM~$-$~Baseline~EM) by subtype (Gemini).
+\caption{Gap to Oracle (Oracle~EM~$-$~Baseline~EM) by subtype.
 Darker~=~larger gap. \texttt{combined\_impact} and \texttt{membership}
 show the largest gaps across all baselines, identifying compositional
 reasoning as the core bottleneck.}
@@ -125,6 +127,7 @@ confirming that \emph{learned structural representations} may be needed.
 \caption{Obfuscation penalty (4 datasets). TU is nearly invariant.}
 \label{tab:obfuscation}
 \small
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{llccccc}
 \toprule
 Model & & FT & VR & GA & TU & RC \\
@@ -138,6 +141,7 @@ Model & & FT & VR & GA & TU & RC \\
   & $\Delta$ & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & $+$0.6 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 TU shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\%
@@ -175,10 +179,9 @@ to 100\% EM reflects formatting only (list ordering, path ties), not
 reasoning; a fully non-LLM pipeline trivially achieves~100\%.
 
 \textbf{\texttt{combined\_impact} specification.}
-$\textit{Impact}(t) = \textit{Down}_{\textit{lin}}(t)
-\cup \bigcup_{t' \in \textit{Down}_{\textit{lin}}(t)}
-\textit{Reach}_{\textit{FK}}(t')$---lineage transitive closure then
-FK BFS.  This two-phase composition drives the 12\% TU ceiling.
+Impact is the union of lineage-downstream tables and their FK-reachable
+neighbors: lineage transitive closure then FK BFS.
+This two-phase composition drives the 12\% TU ceiling.
 
 \textbf{GA obfuscation penalty.}
 The large GA $\Delta$ ($-$27.9\%) reflects two compounding factors:
@@ -204,8 +207,10 @@ frontier models with deterministic single-pass evaluation; broader
 model coverage would strengthen generality. Tier~2 is limited to one
 synthetic dataset. All lineage edges are assumed to form a DAG;
 cyclic ETL patterns (e.g., slowly-changing dimensions) are left
-for future versions.  A GNN-enhanced baseline is a natural next step;
-our companion DW-GNN project explores this direction.
+for future versions.  We deliberately exclude GNN-enhanced baselines:
+DW-Bench evaluates LLM graph reasoning, not methods; the per-subtype
+diagnostics provide infrastructure for evaluating GNN-augmented
+approaches as they emerge.
 
 \paragraph{Dataset licenses.}
 TPC-DS and TPC-DI are available under the TPC EULA (free for

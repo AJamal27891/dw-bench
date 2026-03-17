@@ -27,7 +27,7 @@ only 3--4\% while static baselines lose 15--32\%.}
 
 \begin{table}[H]
 \centering
-\caption{Tier~2 value-level results (EM~\%, Gemini, Syn-Logistics).}
+\caption{Tier~2 value-level results (EM~\%, Syn-Logistics).}
 \label{tab:tier2}
 \small
 \begin{tabular}{llccc}
@@ -51,7 +51,7 @@ shared\_source          & 35  & \textbf{37} & 26  & 23 \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
-\caption{Tier~2 EM by subtype (Gemini). \texttt{cascade\_count} and
+\caption{Tier~2 EM by subtype. \texttt{cascade\_count} and
 \texttt{row\_provenance} require tools (100\%/92\% vs.\ 0\%).}
 \label{fig:tier2}
 \end{figure}
@@ -62,7 +62,7 @@ shared\_source          & 35  & \textbf{37} & 26  & 23 \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.pdf}
-\caption{EM by gold path length (Gemini). Static baselines collapse
+\caption{EM by gold path length. Static baselines collapse
 beyond 3~hops; Tool-Use degrades more gracefully.}
 \label{fig:hop_decay}
 \end{figure}

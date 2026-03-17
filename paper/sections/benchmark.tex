@@ -11,6 +11,7 @@
 \caption{DW-Bench dataset statistics. ``Silos'' = number of disconnected
 components in the combined FK+lineage graph.}
 \label{tab:datasets}
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccccc}
 \toprule
 Dataset & Domain & Tables & FK Edges & Lineage & Questions & Silos \\
@@ -24,6 +25,7 @@ Syn-Logistics  & Supply Chain&  64 &  96 & 35 & 372 &  5 \\
 \textbf{Total} &             & \textbf{262} & \textbf{405} & \textbf{116} & \textbf{1,046} & --- \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 We select five datasets representing diverse data warehouse topologies:
@@ -91,6 +93,7 @@ answers are provably correct. We define three categories with 13 subtypes:
 reasoning hops and edge types required.}
 \label{tab:taxonomy}
 \small
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{llclr}
 \toprule
 Category & Subtype & Difficulty & Description & \#Qs \\
@@ -115,6 +118,7 @@ Category & Subtype & Difficulty & Description & \#Qs \\
   & full\_enumeration & Hard & List all tables in a silo & 29 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \subsection{Obfuscation Protocol}

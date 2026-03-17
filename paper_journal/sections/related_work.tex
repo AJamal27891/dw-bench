@@ -15,6 +15,9 @@ with notebook-based SQL generation.  BEAVER~\cite{beaver2024} focuses
 on enterprise-specific patterns.  While these benchmarks evaluate SQL
 \emph{generation}, DW-Bench evaluates schema \emph{understanding}---the
 structural topology reasoning that precedes and informs query construction.
+Recent table reasoning benchmarks like ToRR~\cite{torr2024} evaluate
+logical operations over cell and row content; DW-Bench is complementary,
+targeting topology over schemas rather than cell-level reasoning.
 
 \subsection{Graph Reasoning with LLMs}
 
@@ -56,7 +59,10 @@ studied extensively in the database systems community.  While lineage
 systems focus on \emph{computing} provenance, DW-Bench evaluates whether
 LLMs can \emph{reason about} lineage relationships expressed as graph
 topology---a complementary capability relevant to LLM-assisted data
-engineering workflows.
+engineering workflows.  Related schema inference work includes
+LLM-FK~\cite{llmfk2024}, which evaluates LLMs on FK discovery---a
+single-hop structural task complementary to DW-Bench's multi-hop
+topology reasoning.
 
 \subsection{Retrieval-Augmented Generation}
 
@@ -64,5 +70,8 @@ RAG~\cite{lewis2020rag} has become the standard approach for grounding
 LLMs in external knowledge.  Vector-RAG uses dense retrieval
 (Sentence-BERT~\cite{reimers2019sentencebert}) to inject relevant
 schema fragments.  Graph-Augmented generation extends RAG by structuring
-retrieved context as BFS neighborhoods from the schema graph.  DW-Bench
-provides controlled comparisons across these paradigms.
+retrieved context as BFS neighborhoods from the schema graph.
+Microsoft's GraphRAG~\cite{graphrag2024} builds hierarchical community
+summaries for global questions; emerging RL-tuned retrieval
+orchestrators extend this pattern with reward-based subgraph selection.
+DW-Bench provides controlled comparisons across these paradigms.

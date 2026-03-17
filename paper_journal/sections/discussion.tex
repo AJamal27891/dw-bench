@@ -89,14 +89,67 @@ context injection.
 Our baselines intentionally span the static-to-agentic spectrum rather
 than exhaustively covering the agentic design space.  More sophisticated
 approaches---planning-based agents with dynamic loop budgets (e.g.,
-ToG-style multi-agent planners~\cite{sun2024tog}), hierarchical GraphRAG
-with iterative subgraph expansion, or modular query decomposition
-pipelines---may partially close the gap on compositional subtypes.
-However, the convergence of TU (3~calls) and RC (5~code rounds) at
+ToG-style multi-agent planners~\cite{sun2024tog}), hierarchical
+GraphRAG~\cite{graphrag2024} with iterative subgraph expansion, or modular
+query decomposition pipelines---may partially close the gap on compositional
+subtypes.  However, the convergence of TU (3~calls) and RC (5~code rounds) at
 similar hard-question ceilings suggests that the bottleneck is the
 LLM's compositional reasoning capacity rather than the tool interface.
 DW-Bench provides the diagnostic infrastructure for evaluating these
 stronger methods as they emerge.
+
+\subsection{The Oracle as Classical Solver Proxy}
+
+A natural question is whether a non-LLM classical solver should be
+included as a baseline.  Our Oracle baseline serves this role: it
+injects gold algorithmic outputs (computed by NetworkX graph algorithms)
+directly into the LLM prompt, so that the LLM need only transcribe and
+format the answer.  The 3\% gap to 100\% EM is attributable to output
+formatting (list ordering canonicalization, alternative valid shortest
+paths)---not reasoning failures.  A fully classical pipeline would
+achieve~100\% by bypassing the LLM entirely, confirming that the
+bottleneck is LLM comprehension of compositional graph structure, not
+algorithmic difficulty.
+
+\paragraph{Formal specification of \texttt{combined\_impact}.}
+This subtype computes the set of tables affected by a change to a source
+table through \emph{both} lineage and FK paths:
+$\textit{Impact}(t) = \textit{Downstream}_{\textit{lineage}}(t)
+\cup \bigcup_{t' \in \textit{Downstream}_{\textit{lineage}}(t)}
+\textit{Reachable}_{\textit{FK}}(t')$,
+where downstream lineage is transitive closure over \texttt{derived\_from}
+edges and FK reachability is BFS over \texttt{fk\_to} edges.  The
+composition of two distinct traversals is what makes this subtype hard:
+TU achieves only 12\% EM despite having both \texttt{get\_lineage\_chain}
+and \texttt{shortest\_path} tools available.
+
+\subsection{GA Obfuscation Penalty Analysis}
+
+The large GA obfuscation penalty ($\Delta{=}{-}27.9$\% Gemini,
+${-}24.3$\% DeepSeek) may appear surprising given that BFS anchor tables
+remain present after obfuscation.  We attribute this to two compounding
+factors: (1)~the LLM loses semantic priors about table roles when
+names like \texttt{DimCustomer} become \texttt{Table\_K}, making it
+harder to interpret the 3-hop BFS neighborhood; and (2)~45\% of
+questions require paths exceeding 3 hops, so GA already has incomplete
+context---obfuscation compounds this by removing the semantic cues that
+help LLMs \emph{infer} structure beyond the retrieved fragment.
+In contrast, TU ($\Delta{=}{-}3.4$\%) and RC ($\Delta{=}{+}0.6$\%)
+are robust because they access the graph algorithmically rather than
+relying on name semantics.
+
+\subsection{Tool Tautology and API Design}
+
+The reviewer correctly observes that TU's high scores on easy subtypes
+partly reflect ``API selection skill'' rather than deep reasoning---e.g.,
+answering \texttt{hop\_count} by calling \texttt{shortest\_path} is
+structurally straightforward.  We view this as a feature, not a limitation:
+TU's near-perfect easy scores \emph{isolate} the hard-task failures as
+genuine reasoning gaps.  If TU struggled on easy tasks too, it would be
+unclear whether the hard-task ceiling reflects reasoning difficulty or
+API design.  The fact that TU solves easy tasks trivially but fails on
+\texttt{combined\_impact} (12\%) and \texttt{membership} (32\%)
+demonstrates that the gap is compositional reasoning, not tool availability.
 
 \subsection{Limitations}
 
@@ -105,8 +158,12 @@ each paradigm receives context natural to its architecture (full schema
 for FT, retrieved chunks for VR, BFS subgraph for GA, tool results
 for TU).  45\% of questions exceed the GA 3-hop radius.  We evaluate
 two frontier models; broader model coverage (GPT-4, open-weight LLMs)
-would strengthen generality.  Tier~2 is limited to one synthetic dataset.
+would strengthen generality.  Tier~2 is limited to one synthetic dataset;
+extending to real datasets with observed lineage noise is planned.
 All lineage edges are assumed to form DAGs; cyclic ETL patterns
 (e.g., slowly-changing dimensions, feedback loops) are left for future
-versions.  Potential risks include overreliance on automated impact
+versions.  A GNN-enhanced baseline that uses precomputed graph embeddings
+to assist retrieval is a natural next step; our companion DW-GNN
+project explores this direction explicitly.
+Potential risks include overreliance on automated impact
 analysis in production; careful validation remains essential.

@@ -189,38 +189,48 @@ Syn-Logistics (Table~\ref{tab:tier2}).
 \label{fig:tier2}
 \end{figure}
 
-% TABLE 7: Tier 2
+% TABLE 7: Tier 2 (both models)
 \begin{table}[t]
 \centering
-\caption{Tier~2 value-level results (EM~\%, Gemini).}
+\caption{Tier~2 value-level results (EM~\%).  Both models confirm the
+tools-essential-yet-insufficient pattern.}
 \label{tab:tier2}
 \small
-\begin{tabular}{llccc}
+\begin{tabular}{llcccccc}
 \toprule
-Subtype & $n$ & FT$_{v2}$ & GA$_{v2}$ & TU$_{v2}$ \\
+ & & \multicolumn{3}{c}{Gemini} & \multicolumn{3}{c}{DeepSeek} \\
+\cmidrule(lr){3-5} \cmidrule(lr){6-8}
+Subtype & $n$ & FT & GA & TU & FT & GA & TU \\
 \midrule
-cascade\_count          & 58  & 0   & 0   & \textbf{100} \\
-row\_provenance         & 84  & 0   & 8   & \textbf{92} \\
-row\_impact             & 56  & 27  & 27  & \textbf{38} \\
-value\_origin           & 60  & 48  & 53  & 52 \\
-multi\_hop\_trace       & 60  & 30  & 30  & 27 \\
-value\_propagation      & 40  & \textbf{85} & 75  & 62 \\
-cross\_silo\_reach.     & 40  & 58  & 58  & 52 \\
-shared\_source          & 35  & \textbf{37} & 26  & 23 \\
+cascade\_count      & 58  & 0   & 0   & \textbf{100} & 0   & 0   & \textbf{100} \\
+row\_provenance     & 84  & 0   & 8   & \textbf{92}  & 0   & 7   & 11 \\
+row\_impact         & 56  & 27  & 27  & \textbf{38}  & 25  & 25  & \textbf{59} \\
+value\_origin       & 60  & 48  & 53  & 52           & 25  & 42  & \textbf{52} \\
+multi\_hop\_trace   & 60  & 30  & 30  & 27           & 27  & 30  & 27 \\
+value\_propagation  & 40  & \textbf{85} & 75  & 62   & \textbf{85} & 80  & 70 \\
+cross\_silo\_reach. & 40  & 58  & 58  & 52           & \textbf{60} & 58  & \textbf{65} \\
+shared\_source      & 35  & \textbf{37} & 26  & 23   & 26  & 20  & 20 \\
 \midrule
-\textbf{Overall}        & 433 & 30  & 31  & \textbf{59} \\
+\textbf{Overall}    & 433 & 30  & 31  & \textbf{59}  & 26  & 29  & \textbf{48} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Key Finding~5: Tools are essential for value-level questions.}
-\texttt{cascade\_count} (100\% vs.\ 0\%) and \texttt{row\_provenance}
-(92\% vs.\ 0--8\%) are structurally impossible without data query tools.
+\texttt{cascade\_count} achieves 100\% with tools versus 0\% without,
+for \emph{both} models---confirming this is a structural necessity,
+not a model-specific artifact.
 
 \paragraph{Key Finding~6: Tools are necessary but insufficient.}
 Despite solving data-access subtypes, Tool-Use achieves only 59\%
-overall EM.  On \texttt{multi\_hop\_trace} (27\%) and
-\texttt{shared\_source} (23\%), tools provide no advantage.
+overall EM (Gemini) and 48\% (DeepSeek).  On \texttt{multi\_hop\_trace}
+(27\% both models) and \texttt{shared\_source} (23\%/20\%), tools
+provide no advantage.  DeepSeek's lower TU score (48\% vs.\ 59\%)
+is driven primarily by \texttt{row\_provenance} (11\% vs.\ 92\%):
+DeepSeek identifies the correct source \emph{tables} but returns
+wrong \emph{row IDs}, indicating a failure in parsing tool output
+rather than in tool selection---a model-specific instruction-following
+gap on structured row-level results.
 
 \subsection{Limitations}
 

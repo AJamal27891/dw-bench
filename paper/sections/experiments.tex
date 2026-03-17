@@ -150,11 +150,14 @@ name perturbation.
 
 Tier~2 tests value-level questions requiring interactive row-level data
 access (433~questions, 8~subtypes, Syn-Logistics).
-TU$_{v2}$ achieves 59\% overall EM versus 30--31\% for static baselines.
-The key insight: tools are \textbf{essential} (\texttt{cascade\_count}:
-100\% vs.\ 0\%) yet \textbf{insufficient} (\texttt{multi\_hop\_trace}:
-27\%, \texttt{shared\_source}: 23\%). Full results in
-Table~\ref{tab:tier2} and Figure~\ref{fig:tier2} (Appendix).
+TU$_{v2}$ achieves 59\% EM (Gemini) and 48\% (DeepSeek) versus 26--31\%
+for static baselines.  Both models confirm the same pattern: tools are
+\textbf{essential} (\texttt{cascade\_count}: 100\% vs.\ 0\%, both
+models) yet \textbf{insufficient} (\texttt{multi\_hop\_trace}: 27\%
+both models).  DeepSeek's lower TU score is driven by
+\texttt{row\_provenance} (11\% vs.\ 92\%)---it identifies correct
+source tables but fails to parse structured row-level tool output.
+Full results in Appendix.
 
 \subsection{Discussion}
 

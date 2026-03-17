@@ -101,15 +101,16 @@ questions while Oracle (dashed) achieves $\geq$97\%.}
 
 \subsection{Per-Subtype Analysis}
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.73\linewidth]{figures/subtype_heatmap.pdf}
-\caption{Gap to Oracle (Oracle~EM~$-$~Baseline~EM) by subtype.
-Darker~=~larger gap. \texttt{combined\_impact} and \texttt{membership}
-show the largest gaps across all baselines, identifying compositional
-reasoning as the core bottleneck.}
+\includegraphics[width=0.85\textwidth]{figures/subtype_heatmap.pdf}
+\caption{Tier~1 EM~(\%) by subtype for both models.
+\texttt{combined\_impact} and \texttt{membership} show near-zero
+performance across all baselines, identifying compositional
+reasoning as the core bottleneck. DeepSeek shows higher TU scores
+(82\% membership) but still fails on combined\_impact (13\%).}
 \label{fig:heatmap}
-\end{figure}
+\end{figure*}
 
 \paragraph{Finding~4: Retrieval-limited vs.\ reasoning-limited.}
 TU achieves $\geq$93\% on lookup subtypes (\texttt{hop\_count},
@@ -167,6 +168,15 @@ subtypes (solved by tools) and \textbf{reasoning-limited} subtypes
 unsolved by both TU and GA largely overlap: their union improves EM by
 only 6pp, suggesting the bottleneck is compositional structural reasoning
 itself---the capability that GNN encoders are designed to provide.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/oracle_gap.pdf}
+\caption{The Reasoning Gap: Oracle~EM minus best non-oracle baseline
+EM, per subtype. \texttt{combined\_impact} retains an 85+\% gap for
+both models; 7 of 13 subtypes are effectively solved (gap~$<$~3\%).}
+\label{fig:oracle-gap}
+\end{figure}
 
 \textbf{Oracle as classical solver proxy.}
 Our Oracle injects gold graph-algorithm outputs (NetworkX) into the

@@ -136,50 +136,56 @@ print('✓ difficulty_comparison.pdf')
 
 
 # ════════════════════════════════════════════════════════════════════
-# Figure 2: Subtype Heatmap (Gemini, all 5 baselines)
+# Figure 2: Subtype Heatmap — DUAL PANEL (Gemini + DeepSeek)
 # ════════════════════════════════════════════════════════════════════
-fig, ax = plt.subplots(figsize=(4.5, 5.5))
+fig, axes_hm = plt.subplots(1, 2, figsize=(9.5, 5.5), sharey=True)
 
 bl_pairs = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
             ('tool_use', 'TU'), ('react_code', 'RC')]
+
+# Build data for both models
 all_subtypes = set()
-data_map = {}
-for bl, bl_short in bl_pairs:
-    results = load_all(bl, 'original', 'gemini-2.5-flash', DS_ALL)
-    if results:
-        st = by_subtype(results)
-        data_map[bl_short] = st
-        all_subtypes.update(st.keys())
+data_maps = {}  # key: (model_tag, bl_short)
+for model_tag in ['gemini-2.5-flash', 'deepseek-chat']:
+    for bl, bl_short in bl_pairs:
+        results = load_all(bl, 'original', model_tag, DS_ALL)
+        if results:
+            st = by_subtype(results)
+            data_maps[(model_tag, bl_short)] = st
+            all_subtypes.update(st.keys())
 
-subtypes = sorted(all_subtypes, key=lambda s: data_map.get('TU', {}).get(s, 0))
-bl_names = [bl for _, bl in bl_pairs if bl in data_map]
+# Sort by Gemini TU score (hardest at top)
+gemini_tu = data_maps.get(('gemini-2.5-flash', 'TU'), {})
+subtypes = sorted(all_subtypes, key=lambda s: gemini_tu.get(s, 0))
+bl_names = [bl for _, bl in bl_pairs if ('gemini-2.5-flash', bl) in data_maps]
 
-matrix = np.array([[data_map.get(bl, {}).get(s, 0) for bl in bl_names]
-                    for s in subtypes])
+for ax, (model_tag, model_title) in zip(axes_hm,
+        [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
+         ('deepseek-chat', 'DeepSeek-V3')]):
+    matrix = np.array([[data_maps.get((model_tag, bl), {}).get(s, 0)
+                        for bl in bl_names] for s in subtypes])
+    im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=0, vmax=100)
+    ax.set_xticks(range(len(bl_names)))
+    ax.set_xticklabels(bl_names, fontsize=9, fontweight='bold')
+    ax.set_yticks(range(len(subtypes)))
+    if ax == axes_hm[0]:
+        ax.set_yticklabels([s.replace('_', ' ') for s in subtypes], fontsize=8)
+    ax.set_title(model_title, fontweight='bold', pad=10)
+    for i in range(len(subtypes)):
+        for j in range(len(bl_names)):
+            v = matrix[i, j]
+            color = 'white' if v < 35 or v > 75 else 'black'
+            ax.text(j, i, f'{v:.0f}', ha='center', va='center',
+                    fontsize=7, fontweight='bold', color=color)
 
-im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=0, vmax=100)
-
-ax.set_xticks(range(len(bl_names)))
-ax.set_xticklabels(bl_names, fontsize=9, fontweight='bold')
-ax.set_yticks(range(len(subtypes)))
-ax.set_yticklabels([s.replace('_', '\\_') for s in subtypes], fontsize=8)
-
-for i in range(len(subtypes)):
-    for j in range(len(bl_names)):
-        v = matrix[i, j]
-        color = 'white' if v < 35 or v > 75 else 'black'
-        ax.text(j, i, f'{v:.0f}', ha='center', va='center',
-                fontsize=7, fontweight='bold', color=color)
-
-ax.set_title('Tier 1: EM (%) by Subtype', fontweight='bold', pad=10)
-cbar = plt.colorbar(im, ax=ax, shrink=0.7, pad=0.02)
+cbar = plt.colorbar(im, ax=axes_hm, shrink=0.7, pad=0.02)
 cbar.ax.set_ylabel('Exact Match (%)', fontsize=9)
 cbar.ax.tick_params(labelsize=8)
 plt.tight_layout()
 plt.savefig(OUT / 'subtype_heatmap.pdf')
 plt.savefig(OUT / 'subtype_heatmap.png')
 plt.close()
-print('✓ subtype_heatmap.pdf')
+print('✓ subtype_heatmap.pdf (dual-panel)')
 
 
 # ════════════════════════════════════════════════════════════════════
@@ -252,8 +258,13 @@ for tag, tag_label in [('gemini-2.5-flash', 'Gemini'), ('deepseek-chat', 'DeepSe
             labels.append(f'{tag_label}\n{bl_short}')
             penalties.append(delta)
 
-colors = ['#CC6677' if p < -20 else '#DDCC77' if p < -10 else '#117733'
-          for p in penalties]
+# Use baseline-consistent Tol colors (not threshold-based)
+bar_colors = []
+for tag_label, (bl, bl_short) in [(tl, b) for tl in ['Gemini', 'DeepSeek']
+                                   for b in all_bls]:
+    if f'{tag_label}\n{bl_short}' in labels:
+        bar_colors.append(COLORS[bl_short])
+colors = bar_colors
 bars = ax.bar(range(len(labels)), penalties, color=colors,
               edgecolor='white', linewidth=0.3)
 
@@ -340,5 +351,72 @@ plt.close()
 print('✓ tier2_subtype.pdf (both models)')
 
 
-print('\n✅ All 5 figures generated with publication-quality styling!')
+# ════════════════════════════════════════════════════════════════════
+# Figure A: Oracle Gap — The Reasoning Gap (BOTH models)
+# ════════════════════════════════════════════════════════════════════
+fig, ax = plt.subplots(figsize=(6.5, 5.5))
 
+# Compute Oracle EM per subtype (use Gemini oracle as reference)
+oracle_results = load_all('oracle', 'original', 'gemini-2.5-flash', DS_ALL)
+oracle_by_st = by_subtype(oracle_results) if oracle_results else {}
+
+gap_data = []  # (subtype, model, gap)
+for model_tag, model_label in [('gemini-2.5-flash', 'Gemini'),
+                                ('deepseek-chat', 'DeepSeek')]:
+    # Find best non-oracle baseline per subtype
+    best_per_st = {}
+    for bl, bl_short in bl_pairs:
+        results = load_all(bl, 'original', model_tag, DS_ALL)
+        if results:
+            st = by_subtype(results)
+            for s, v in st.items():
+                if s not in best_per_st or v > best_per_st[s]:
+                    best_per_st[s] = v
+    for s in sorted(all_subtypes):
+        oracle_v = oracle_by_st.get(s, 100)
+        best_v = best_per_st.get(s, 0)
+        gap_data.append((s, model_label, oracle_v - best_v))
+
+# Sort by average gap (hardest at top)
+from collections import defaultdict as dd2
+avg_gap = {}
+for s, m, g in gap_data:
+    avg_gap.setdefault(s, []).append(g)
+avg_gap = {s: np.mean(v) for s, v in avg_gap.items()}
+subtypes_sorted = sorted(avg_gap.keys(), key=lambda s: avg_gap[s], reverse=True)
+
+y = np.arange(len(subtypes_sorted))
+h = 0.35
+
+for i, (model_label, color) in enumerate([('Gemini', '#332288'),
+                                           ('DeepSeek', '#CC6677')]):
+    vals = []
+    for s in subtypes_sorted:
+        for st, m, g in gap_data:
+            if st == s and m == model_label:
+                vals.append(g)
+                break
+    offset = (i - 0.5) * h
+    hbars = ax.barh(y + offset, vals, h, label=model_label, color=color,
+                    edgecolor='white', linewidth=0.3)
+    for j, v in enumerate(vals):
+        if v > 2:
+            ax.text(v + 1, y[j] + offset, f'{v:.0f}%',
+                    ha='left', va='center', fontsize=7, fontweight='bold')
+
+ax.set_yticks(y)
+ax.set_yticklabels([s.replace('_', ' ') for s in subtypes_sorted], fontsize=8)
+ax.set_xlabel('Gap to Oracle (%)', fontsize=10)
+ax.set_title('The Reasoning Gap: Oracle vs. Best Baseline', fontweight='bold', pad=10)
+ax.set_xlim(0, 105)
+ax.legend(fontsize=9, frameon=False, loc='lower right')
+ax.grid(axis='x', alpha=0.2, linewidth=0.4)
+ax.invert_yaxis()  # Hardest at top
+plt.tight_layout()
+plt.savefig(OUT / 'oracle_gap.pdf')
+plt.savefig(OUT / 'oracle_gap.png')
+plt.close()
+print('✓ oracle_gap.pdf (both models)')
+
+
+print('\n✅ All 6 figures generated with publication-quality styling!')

@@ -107,10 +107,11 @@ of Oracle on long paths.}
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.85\linewidth]{figures/subtype_heatmap.pdf}
-\caption{Gap to Oracle (Oracle~EM~$-$~Baseline~EM) by subtype.
-Darker~=~larger gap. \texttt{combined\_impact} and \texttt{membership}
-show the largest gaps across all baselines.}
+\includegraphics[width=0.95\linewidth]{figures/subtype_heatmap.pdf}
+\caption{Tier~1 EM~(\%) by subtype for both models.
+\texttt{combined\_impact} and \texttt{membership} show near-zero
+performance across all baselines, identifying compositional
+reasoning as the core bottleneck.}
 \label{fig:heatmap}
 \end{figure}
 
@@ -231,6 +232,15 @@ DeepSeek identifies the correct source \emph{tables} but returns
 wrong \emph{row IDs}, indicating a failure in parsing tool output
 rather than in tool selection---a model-specific instruction-following
 gap on structured row-level results.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/oracle_gap.pdf}
+\caption{The Reasoning Gap: Oracle~EM minus best non-oracle baseline
+EM, per subtype. \texttt{combined\_impact} retains an 85+\% gap for
+both models; 7 of 13 subtypes are effectively solved (gap~$<$~3\%).}
+\label{fig:oracle-gap}
+\end{figure}
 
 \subsection{Limitations}
 

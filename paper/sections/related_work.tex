@@ -8,14 +8,16 @@ Spider~\cite{yu2018spider} introduced cross-database text-to-SQL evaluation
 with 10,181 questions across 200 databases. BIRD~\cite{li2023bird} extended
 this with noisy real-world schemas. Spider~2.0~\cite{lei2024spider2} further
 increased difficulty with enterprise-scale schemas. ScienceBenchmark
-evaluates SQL generation on scientific databases. All focus exclusively on
-\emph{query generation}, not structural understanding.
+evaluates SQL generation on scientific databases.
+ToRR~\cite{torr2024} evaluates table reasoning robustness on cell/row
+logic---complementary to DW-Bench's topology focus. All target
+\emph{query generation or cell reasoning}, not structural understanding.
 
 \paragraph{Schema Understanding.}
 BEAVER~\cite{beaver2024} evaluates LLMs on database knowledge including
 schema matching and entity resolution, but does not evaluate graph topology
-reasoning. SchemaDB benchmarks schema-related tasks but again focuses on
-metadata understanding rather than graph algorithms.
+reasoning.  LLM-FK~\cite{llmfk2024} evaluates FK discovery---a single-hop
+structural task complementary to DW-Bench's multi-hop topology reasoning.
 
 \paragraph{Graph Reasoning in LLMs.}
 Recent work has explored LLM capabilities on graph tasks.
@@ -35,11 +37,12 @@ GDS Agent) as promising directions for general graph traversal. However,
 in alignment with foundational dataset methodologies (e.g., Spider, BIRD),
 DW-Bench deliberately evaluates standardized, zero-shot baselines (Flat
 Text, standard Vector-RAG) to establish the empirical lower-bound of LLM
-structural reasoning. By formalizing the evaluation target and providing
+structural reasoning. Hierarchical GraphRAG~\cite{graphrag2024} and
+emerging RL-tuned retrieval orchestrators represent natural next steps.
+By formalizing the evaluation target and providing
 the exact Oracle upper-bound (98\%+ EM), we isolate the topological
 retrieval bottleneck; closing this gap with composite, multi-agent
-frameworks is explicitly left as a critical direction for future community
-research.
+frameworks is explicitly left as future work.
 
 \paragraph{Positioning.}
 DW-Bench uniquely combines: (1) \emph{real-world} schemas from industry

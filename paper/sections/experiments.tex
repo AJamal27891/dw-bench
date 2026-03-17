@@ -168,6 +168,32 @@ unsolved by both TU and GA largely overlap: their union improves EM by
 only 6pp, suggesting the bottleneck is compositional structural reasoning
 itself---the capability that GNN encoders are designed to provide.
 
+\textbf{Oracle as classical solver proxy.}
+Our Oracle injects gold graph-algorithm outputs (NetworkX) into the
+prompt, so the LLM need only transcribe the answer.  The 3\% gap
+to 100\% EM reflects formatting only (list ordering, path ties), not
+reasoning; a fully non-LLM pipeline trivially achieves~100\%.
+
+\textbf{\texttt{combined\_impact} specification.}
+$\textit{Impact}(t) = \textit{Down}_{\textit{lin}}(t)
+\cup \bigcup_{t' \in \textit{Down}_{\textit{lin}}(t)}
+\textit{Reach}_{\textit{FK}}(t')$---lineage transitive closure then
+FK BFS.  This two-phase composition drives the 12\% TU ceiling.
+
+\textbf{GA obfuscation penalty.}
+The large GA $\Delta$ ($-$27.9\%) reflects two compounding factors:
+(1)~loss of semantic priors (\texttt{DimCustomer}$\to$\texttt{Table\_K})
+and (2)~45\% of questions exceed the 3-hop radius, so obfuscation
+removes the cues that help LLMs infer structure beyond the retrieved
+fragment.
+
+\textbf{Tool tautology.}
+TU's near-perfect easy scores are by design: they \emph{isolate}
+hard-task failures as genuine reasoning gaps.  TU solves easy tasks
+trivially but fails on \texttt{combined\_impact} (12\%) and
+\texttt{membership} (32\%), confirming the bottleneck is compositional
+reasoning, not tool availability.
+
 \subsection{Limitations}
 
 We do not enforce token-budget parity across baselines by design:
@@ -178,7 +204,8 @@ frontier models with deterministic single-pass evaluation; broader
 model coverage would strengthen generality. Tier~2 is limited to one
 synthetic dataset. All lineage edges are assumed to form a DAG;
 cyclic ETL patterns (e.g., slowly-changing dimensions) are left
-for future versions.
+for future versions.  A GNN-enhanced baseline is a natural next step;
+our companion DW-GNN project explores this direction.
 
 \paragraph{Dataset licenses.}
 TPC-DS and TPC-DI are available under the TPC EULA (free for

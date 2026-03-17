@@ -282,24 +282,14 @@ print('✓ obfuscation_penalty.pdf')
 
 
 # ════════════════════════════════════════════════════════════════════
-# Figure 5 (NEW): Tier 2 — Value-Level Results by Subtype
+# Figure 5: Tier 2 — Value-Level Results by Subtype (BOTH models)
 # ════════════════════════════════════════════════════════════════════
-fig, ax = plt.subplots(figsize=(6.5, 3.8))
+fig, axes = plt.subplots(1, 2, figsize=(6.5, 3.8), sharey=True)
 
-t2_bls = [('flat_text_v2', 'FT$_{v2}$', COLORS['FT_v2']),
-          ('graph_aug_v2', 'GA$_{v2}$', COLORS['GA_v2']),
-          ('tool_use_v2', 'TU$_{v2}$', COLORS['TU_v2'])]
+t2_bls = [('flat_text_v2', 'FT', COLORS['FT_v2']),
+          ('graph_aug_v2', 'GA', COLORS['GA_v2']),
+          ('tool_use_v2', 'TU', COLORS['TU_v2'])]
 
-# Load Gemini Tier 2 data
-t2_data = {}
-for bl, label, color in t2_bls:
-    f = rd / f'{bl}_original_syn_logistics_gemini-2.5-flash.json'
-    if f.exists():
-        results = json.load(open(f, encoding='utf-8'))['results']
-        st = by_subtype(results)
-        t2_data[label] = st
-
-# Order subtypes for visual impact (show dramatic contrasts)
 subtype_order = ['cascade_count', 'row_provenance', 'row_impact',
                  'value_origin', 'multi_hop_trace',
                  'value_propagation', 'cross_silo_reachability', 'shared_source']
@@ -307,41 +297,48 @@ subtype_labels = ['cascade\ncount', 'row\nprov.', 'row\nimpact',
                   'value\norigin', 'multi-hop\ntrace',
                   'value\nprop.', 'cross-silo\nreach.', 'shared\nsource']
 
-x = np.arange(len(subtype_order))
-w = 0.25
-n = len(t2_bls)
+for ax, (tag, title) in zip(axes, [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
+                                     ('deepseek-chat', 'DeepSeek-V3')]):
+    t2_data = {}
+    for bl, label, color in t2_bls:
+        f = rd / f'{bl}_original_syn_logistics_{tag}.json'
+        if f.exists():
+            results = json.load(open(f, encoding='utf-8'))['results']
+            st = by_subtype(results)
+            t2_data[label] = st
 
-for i, (bl, label, color) in enumerate(t2_bls):
-    vals = [t2_data.get(label, {}).get(s, 0) for s in subtype_order]
-    offset = (i - n/2 + 0.5) * w
-    bars = ax.bar(x + offset, vals, w, label=label, color=color,
-                  edgecolor='white', linewidth=0.3)
-    # Annotate dramatic values
-    for j, v in enumerate(vals):
-        if v >= 90 or (v == 0 and subtype_order[j] in ['cascade_count', 'row_provenance']):
-            ax.text(x[j] + offset, v + 1.5, f'{v:.0f}',
-                    ha='center', va='bottom', fontsize=5.5, fontweight='bold')
+    x = np.arange(len(subtype_order))
+    w = 0.25
+    n = len(t2_bls)
 
-ax.set_ylabel('Exact Match (%)')
-ax.set_title('Tier 2: Value-Level Results by Subtype (Gemini)', fontweight='bold')
-ax.set_xticks(x)
-ax.set_xticklabels(subtype_labels, fontsize=7)
-ax.set_ylim(0, 112)
-ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
-ax.legend(fontsize=8, frameon=False, loc='upper right', ncol=3)
-ax.grid(axis='y', alpha=0.2, linewidth=0.4)
+    for i, (bl, label, color) in enumerate(t2_bls):
+        vals = [t2_data.get(label, {}).get(s, 0) for s in subtype_order]
+        offset = (i - n/2 + 0.5) * w
+        bars = ax.bar(x + offset, vals, w, label=label, color=color,
+                      edgecolor='white', linewidth=0.3)
+        for j, v in enumerate(vals):
+            if v >= 90 or (v == 0 and subtype_order[j] in ['cascade_count', 'row_provenance']):
+                ax.text(x[j] + offset, v + 1.5, f'{v:.0f}',
+                        ha='center', va='bottom', fontsize=5.5, fontweight='bold')
 
-# Annotate the "tools essential" region
-ax.annotate('Tools essential', xy=(0.5, 55), fontsize=7, ha='center',
-            fontstyle='italic', color='#882255',
-            bbox=dict(boxstyle='round,pad=0.2', facecolor='#FCEEF5',
-                      edgecolor='#882255', linewidth=0.5))
+    ax.set_xlabel('')
+    if ax == axes[0]:
+        ax.set_ylabel('Exact Match (%)')
+    ax.set_title(title, fontweight='bold')
+    ax.set_xticks(x)
+    ax.set_xticklabels(subtype_labels, fontsize=6)
+    ax.set_ylim(0, 112)
+    ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
+    ax.grid(axis='y', alpha=0.2, linewidth=0.4)
 
+axes[1].legend(fontsize=8, frameon=False, loc='upper right', ncol=3)
+fig.suptitle('Tier 2: Value-Level Results by Subtype', fontweight='bold', y=1.02)
 plt.tight_layout()
 plt.savefig(OUT / 'tier2_subtype.pdf')
 plt.savefig(OUT / 'tier2_subtype.png')
 plt.close()
-print('✓ tier2_subtype.pdf (NEW)')
+print('✓ tier2_subtype.pdf (both models)')
 
 
 print('\n✅ All 5 figures generated with publication-quality styling!')
+

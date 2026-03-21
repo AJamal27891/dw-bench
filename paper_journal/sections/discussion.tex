@@ -63,7 +63,10 @@ This points toward hybrid architectures combining:
     that can capture multi-hop topology patterns beyond what prompt-based
     reasoning can achieve.
   \item \textbf{Compositional reasoning modules} that decompose complex
-    graph queries into sequences of simpler operations.
+    graph queries into sequences of simpler operations, following recent
+    work on query-dependent GNN encoders, inference-scaled graph agents,
+    and task-adaptive controllers that route between parallel and
+    sequential reasoning strategies.
 \end{enumerate}
 
 \subsection{Obfuscation and Memorization}
@@ -75,6 +78,9 @@ reliance on memorized schema name associations.  Tool-Use's near-invariance
 algorithmic graph access is robust to input perturbation---a desirable
 property for production deployment where schemas are diverse and
 evolving.
+Obfuscation replaces table names only; column names are preserved,
+as all baselines operate on schema-level graph topology where
+column semantics play no role.
 
 \subsection{Model Differences}
 

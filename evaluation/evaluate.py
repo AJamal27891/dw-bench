@@ -264,17 +264,18 @@ def main():
     parser.add_argument('--extended', action='store_true',
                         help='Use extended hard/medium Q&A set')
     parser.add_argument('--api-key', type=str,
-                        default=os.environ.get('GROQ_API_KEY', ''),
-                        help='API key (not needed for local LLM)')
+                        default=os.environ.get('GOOGLE_API_KEY',
+                                os.environ.get('DEEPSEEK_API_KEY', '')),
+                        help='API key (reads GOOGLE_API_KEY or DEEPSEEK_API_KEY from env)')
     parser.add_argument('--api-base', type=str,
-                        default='https://api.groq.com/openai/v1',
-                        help='API base URL (e.g. http://127.0.0.1:1234/v1)')
+                        default='',
+                        help='API base URL (e.g. https://generativelanguage.googleapis.com/v1beta/openai)')
     parser.add_argument('--model', type=str,
-                        default='llama-3.3-70b-versatile',
-                        help='Model name')
+                        default='',
+                        help='Model name (e.g., gemini-2.5-flash, deepseek-chat)')
     args = parser.parse_args()
 
-    datasets = (['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm']
+    datasets = (['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics']
                 if args.dataset == 'all' else [args.dataset])
 
     all_results = []

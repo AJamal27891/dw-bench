@@ -143,6 +143,9 @@ Model & & FT & VR & GA & TU & RC \\
 
 TU shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\%
 DeepSeek) while static baselines lose 15--32pp.
+Obfuscation replaces table names only; column names are preserved,
+as all baselines operate on schema-level graph topology where
+column semantics play no role.
 RC shows near-zero penalty ($\Delta{=}{+}0.6$\% DeepSeek), confirming
 that code execution against the graph object is fully invariant to
 name perturbation.
@@ -188,6 +191,9 @@ reasoning; a fully non-LLM pipeline trivially achieves~100\%.
 Impact is the union of lineage-downstream tables and their FK-reachable
 neighbors: lineage transitive closure then FK BFS.
 This two-phase composition drives the 12\% TU ceiling.
+RC receives 5 code-execution rounds (vs.\ TU's 3 tool calls) yet scores
+0\% (Gemini) on this subtype, ruling out tool budget
+as the primary bottleneck; the failure is compositional planning.
 
 \textbf{GA obfuscation penalty.}
 The large GA $\Delta$ ($-$27.9\%) reflects two compounding factors:
@@ -202,21 +208,21 @@ hard-task failures as genuine reasoning gaps.  TU solves easy tasks
 trivially but fails on \texttt{combined\_impact} (12\%) and
 \texttt{membership} (32\%), confirming the bottleneck is compositional
 reasoning, not tool availability.
+Hybrid architectures that pair tool access with learned graph
+representations (e.g., query-dependent GNN encoders, task-adaptive
+controllers, or inference-scaled graph agents) are the natural next step
+for closing this gap.
 
-\subsection{Limitations}
+We evaluate two frontier LLMs with deterministic single-pass
+evaluation; broader model coverage (e.g., reasoning-optimized variants)
+would strengthen generality claims.  Tier~2 covers one synthetic
+dataset; extending to all five schemas is future work.
 
-We do not enforce token-budget parity across baselines by design:
-each paradigm receives context natural to its architecture (full schema
-for FT, retrieved chunks for VR, BFS subgraph for GA, tool results
-for TU). 45\% of questions exceed the GA 3-hop radius. We use two
-frontier models with deterministic single-pass evaluation; broader
-model coverage would strengthen generality. Tier~2 is limited to one
-synthetic dataset. All lineage edges are assumed to form a DAG;
-cyclic ETL patterns (e.g., slowly-changing dimensions) are left
-for future versions.  We deliberately exclude GNN-enhanced baselines:
-DW-Bench evaluates LLM graph reasoning, not methods; the per-subtype
-diagnostics provide infrastructure for evaluating GNN-augmented
-approaches as they emerge.
+\paragraph{Responsible use.}
+This benchmark is intended for scientific evaluation of LLM
+capabilities and limitations.  Researchers should not apply automated
+agentic tools or sandboxed code execution to unauthorized or
+production environments without appropriate safeguards.
 
 \paragraph{Dataset licenses.}
 TPC-DS and TPC-DI are available under the TPC EULA (free for

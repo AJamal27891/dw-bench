@@ -1,0 +1,125 @@
+[
+  {
+    "id": "adventureworks_lineage_combined_065",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "combined_impact",
+    "question": "If OLTP.Sales.SalesOrderDetail changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+    "answer": [
+      "DW.dbo.FactInternetSales",
+      "DW.dbo.FactInternetSalesReason",
+      "DW.dbo.FactResellerSales"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "adventureworks_lineage_combined_066",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "combined_impact",
+    "question": "If OLTP.Person.EmailAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+    "answer": [
+      "DW.dbo.DimCustomer",
+      "DW.dbo.FactInternetSales",
+      "DW.dbo.FactSurveyResponse"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "adventureworks_lineage_combined_067",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "combined_impact",
+    "question": "If OLTP.HumanResources.Employee changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+    "answer": [
+      "DW.dbo.DimEmployee",
+      "DW.dbo.FactResellerSales",
+      "DW.dbo.FactSalesQuota",
+      "OLTP.HumanResources.EmployeeDepartmentHistory",
+      "OLTP.HumanResources.EmployeePayHistory",
+      "OLTP.HumanResources.JobCandidate",
+      "OLTP.Production.Document",
+      "OLTP.Purchasing.PurchaseOrderHeader",
+      "OLTP.Sales.SalesPerson"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "adventureworks_lineage_combined_068",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "combined_impact",
+    "question": "If OLTP.Sales.SalesOrderHeader changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+    "answer": [
+      "DW.dbo.FactInternetSales",
+      "DW.dbo.FactInternetSalesReason",
+      "DW.dbo.FactResellerSales",
+      "OLTP.Sales.SalesOrderDetail",
+      "OLTP.Sales.SalesOrderHeaderSalesReason"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "adventureworks_lineage_multisrc_072",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "multi_source",
+    "question": "DW.dbo.DimProduct integrates data from multiple sources. List ALL source tables that feed into DW.dbo.DimProduct.",
+    "answer": [
+      "OLTP.Production.Product",
+      "OLTP.Production.ProductCategory",
+      "OLTP.Production.ProductModel",
+      "OLTP.Production.ProductSubcategory"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "adventureworks_lineage_multisrc_073",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "multi_source",
+    "question": "DW.dbo.FactInternetSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactInternetSales.",
+    "answer": [
+      "OLTP.Production.Product",
+      "OLTP.Sales.Customer",
+      "OLTP.Sales.SalesOrderDetail",
+      "OLTP.Sales.SalesOrderHeader"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "adventureworks_lineage_multisrc_074",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "multi_source",
+    "question": "DW.dbo.FactProductInventory integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactProductInventory.",
+    "answer": [
+      "OLTP.Purchasing.PurchaseOrderDetail",
+      "OLTP.Purchasing.PurchaseOrderHeader",
+      "OLTP.Purchasing.Vendor"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  },
+  {
+    "id": "adventureworks_lineage_multisrc_075",
+    "dataset": "adventureworks",
+    "type": "lineage_impact",
+    "subtype": "multi_source",
+    "question": "DW.dbo.FactResellerSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactResellerSales.",
+    "answer": [
+      "OLTP.Production.Product",
+      "OLTP.Sales.Customer",
+      "OLTP.Sales.SalesOrderDetail",
+      "OLTP.Sales.SalesOrderHeader"
+    ],
+    "answer_type": "list",
+    "difficulty": "hard"
+  }
+]

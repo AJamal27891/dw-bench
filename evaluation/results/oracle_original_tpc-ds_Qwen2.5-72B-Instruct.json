@@ -1,0 +1,3162 @@
+{
+  "baseline": "oracle",
+  "dataset": "tpc-ds",
+  "obfuscated": false,
+  "model": "Qwen/Qwen2.5-72B-Instruct",
+  "model_tag": "Qwen2.5-72B-Instruct",
+  "metrics": {
+    "total": 127,
+    "micro_em": 1.0,
+    "micro_f1": 1.0,
+    "macro_em": 1.0,
+    "macro_f1": 1.0,
+    "exact_match": 1.0,
+    "avg_f1": 1.0,
+    "by_type": {
+      "silo_detection": {
+        "total": 11,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "schema_routing": {
+        "total": 116,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "total": 72,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "medium": {
+        "total": 47,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "hard": {
+        "total": 8,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    },
+    "by_subtype": {
+      "count": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "membership": {
+        "total": 3,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "isolation": {
+        "total": 5,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "connected": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "full_enumeration": {
+        "total": 1,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "join_path": {
+        "total": 80,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "hop_count": {
+        "total": 20,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      },
+      "direct_fk": {
+        "total": 16,
+        "exact_match": 1.0,
+        "avg_f1": 1.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "tpc-ds_silo_count_000",
+      "question": "How many disconnected data silos (connected components) exist in this schema?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "silo_detection",
+      "subtype": "count",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_001",
+      "question": "Which tables are in the same connected component (data silo) as household_demographics?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_002",
+      "question": "Which tables are in the same connected component (data silo) as customer?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_member_003",
+      "question": "Which tables are in the same connected component (data silo) as warehouse?",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "membership",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_004",
+      "question": "Are inventory and call_center connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_008",
+      "question": "Are warehouse and income_band connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_006",
+      "question": "Are date_dim and customer_demographics connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_007",
+      "question": "Are date_dim and call_center connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_isolated_005",
+      "question": "Are store_sales and catalog_sales connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "isolation",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_connected_009",
+      "question": "Are customer_address and customer connected through any chain of foreign key relationships?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "silo_detection",
+      "subtype": "connected",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_silo_enumerate_010",
+      "question": "List ALL tables that belong to the largest connected component in this schema.",
+      "gold_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_page",
+        "catalog_returns",
+        "catalog_sales",
+        "customer",
+        "customer_address",
+        "customer_demographics",
+        "date_dim",
+        "household_demographics",
+        "income_band",
+        "inventory",
+        "item",
+        "promotion",
+        "reason",
+        "ship_mode",
+        "store",
+        "store_returns",
+        "store_sales",
+        "time_dim",
+        "warehouse",
+        "web_page",
+        "web_returns",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "list",
+      "type": "silo_detection",
+      "subtype": "full_enumeration",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_page\", \"catalog_returns\", \"catalog_sales\", \"customer\", \"customer_address\", \"customer_demographics\", \"date_dim\", \"household_demographics\", \"income_band\", \"inventory\", \"item\", \"promotion\", \"reason\", \"ship_mode\", \"store\", \"store_returns\", \"store_sales\", \"time_dim\", \"warehouse\", \"web_page\", \"web_returns\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_000",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to store_sales?",
+      "gold_answer": [
+        "promotion",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "promotion",
+        "store_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"promotion\", \"store_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_001",
+      "question": "What is the shortest chain of foreign key joins that connects store to store_sales?",
+      "gold_answer": [
+        "store",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "store",
+        "store_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store\", \"store_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_002",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer_demographics?",
+      "gold_answer": [
+        "catalog_sales",
+        "customer_demographics"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "customer_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_sales\", \"customer_demographics\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_003",
+      "question": "What is the shortest chain of foreign key joins that connects customer to household_demographics?",
+      "gold_answer": [
+        "customer",
+        "household_demographics"
+      ],
+      "predicted_answer": [
+        "customer",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer\", \"household_demographics\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_004",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to time_dim?",
+      "gold_answer": [
+        "store_sales",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "time_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store_sales\", \"time_dim\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_005",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_returns?",
+      "gold_answer": [
+        "customer",
+        "web_returns"
+      ],
+      "predicted_answer": [
+        "customer",
+        "web_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer\", \"web_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_006",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to household_demographics?",
+      "gold_answer": [
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_sales\", \"household_demographics\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_007",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_sales?",
+      "gold_answer": [
+        "customer",
+        "web_sales"
+      ],
+      "predicted_answer": [
+        "customer",
+        "web_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer\", \"web_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_008",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to time_dim?",
+      "gold_answer": [
+        "catalog_returns",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "time_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_returns\", \"time_dim\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_009",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to call_center?",
+      "gold_answer": [
+        "catalog_returns",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_returns\", \"call_center\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_010",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to item?",
+      "gold_answer": [
+        "store_returns",
+        "item"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store_returns\", \"item\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_011",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to catalog_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_012",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to reason?",
+      "gold_answer": [
+        "store_returns",
+        "reason"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "reason"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store_returns\", \"reason\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_013",
+      "question": "What is the shortest chain of foreign key joins that connects household_demographics to catalog_returns?",
+      "gold_answer": [
+        "household_demographics",
+        "catalog_returns"
+      ],
+      "predicted_answer": [
+        "household_demographics",
+        "catalog_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"household_demographics\", \"catalog_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_014",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to customer?",
+      "gold_answer": [
+        "catalog_sales",
+        "customer"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_sales\", \"customer\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_015",
+      "question": "What is the shortest chain of foreign key joins that connects warehouse to inventory?",
+      "gold_answer": [
+        "warehouse",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "warehouse",
+        "inventory"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"warehouse\", \"inventory\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_016",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to date_dim?",
+      "gold_answer": [
+        "web_sales",
+        "date_dim"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "date_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"web_sales\", \"date_dim\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_017",
+      "question": "What is the shortest chain of foreign key joins that connects reason to catalog_returns?",
+      "gold_answer": [
+        "reason",
+        "catalog_returns"
+      ],
+      "predicted_answer": [
+        "reason",
+        "catalog_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"reason\", \"catalog_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_018",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to customer_address?",
+      "gold_answer": [
+        "web_sales",
+        "customer_address"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"web_sales\", \"customer_address\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_019",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store_sales?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "customer_demographics",
+        "store_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer_demographics\", \"store_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_020",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to date_dim?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "date_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store_returns\", \"date_dim\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_021",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to store_returns?",
+      "gold_answer": [
+        "customer_address",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "customer_address",
+        "store_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer_address\", \"store_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_022",
+      "question": "What is the shortest chain of foreign key joins that connects customer to customer_demographics?",
+      "gold_answer": [
+        "customer",
+        "customer_demographics"
+      ],
+      "predicted_answer": [
+        "customer",
+        "customer_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer\", \"customer_demographics\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_023",
+      "question": "What is the shortest chain of foreign key joins that connects household_demographics to store_returns?",
+      "gold_answer": [
+        "household_demographics",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "household_demographics",
+        "store_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"household_demographics\", \"store_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_024",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to catalog_sales?",
+      "gold_answer": [
+        "customer_address",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "customer_address",
+        "catalog_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer_address\", \"catalog_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_025",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to warehouse?",
+      "gold_answer": [
+        "web_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"web_sales\", \"warehouse\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_026",
+      "question": "What is the shortest chain of foreign key joins that connects web_site to catalog_returns?",
+      "gold_answer": [
+        "web_site",
+        "web_sales",
+        "date_dim",
+        "catalog_returns"
+      ],
+      "predicted_answer": [
+        "web_site",
+        "web_sales",
+        "date_dim",
+        "catalog_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"web_site\", \"web_sales\", \"date_dim\", \"catalog_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_027",
+      "question": "What is the shortest chain of foreign key joins that connects item to income_band?",
+      "gold_answer": [
+        "item",
+        "store_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "item",
+        "store_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"item\", \"store_sales\", \"household_demographics\", \"income_band\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_028",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to date_dim?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "date_dim"
+      ],
+      "predicted_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "date_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"ship_mode\", \"catalog_sales\", \"date_dim\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_029",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to call_center?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"ship_mode\", \"catalog_sales\", \"call_center\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_030",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to store_returns?",
+      "gold_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"promotion\", \"store_sales\", \"date_dim\", \"store_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_031",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to store_returns?",
+      "gold_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store_sales\", \"date_dim\", \"store_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_032",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to catalog_page?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim",
+        "catalog_sales",
+        "catalog_page"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "date_dim",
+        "catalog_sales",
+        "catalog_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"store_returns\", \"date_dim\", \"catalog_sales\", \"catalog_page\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_033",
+      "question": "What is the shortest chain of foreign key joins that connects ship_mode to household_demographics?",
+      "gold_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "predicted_answer": [
+        "ship_mode",
+        "catalog_sales",
+        "household_demographics"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"ship_mode\", \"catalog_sales\", \"household_demographics\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_034",
+      "question": "What is the shortest chain of foreign key joins that connects reason to customer?",
+      "gold_answer": [
+        "reason",
+        "store_returns",
+        "customer"
+      ],
+      "predicted_answer": [
+        "reason",
+        "store_returns",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"reason\", \"store_returns\", \"customer\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_035",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_sales to store_returns?",
+      "gold_answer": [
+        "catalog_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "catalog_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_sales\", \"date_dim\", \"store_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_036",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to catalog_sales?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"web_returns\", \"date_dim\", \"catalog_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_037",
+      "question": "What is the shortest chain of foreign key joins that connects time_dim to item?",
+      "gold_answer": [
+        "time_dim",
+        "store_sales",
+        "item"
+      ],
+      "predicted_answer": [
+        "time_dim",
+        "store_sales",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"time_dim\", \"store_sales\", \"item\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_038",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to income_band?",
+      "gold_answer": [
+        "store_returns",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "household_demographics",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store_returns\", \"household_demographics\", \"income_band\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_039",
+      "question": "What is the shortest chain of foreign key joins that connects reason to customer_address?",
+      "gold_answer": [
+        "reason",
+        "store_returns",
+        "customer_address"
+      ],
+      "predicted_answer": [
+        "reason",
+        "store_returns",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"reason\", \"store_returns\", \"customer_address\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_040",
+      "question": "What is the shortest chain of foreign key joins that connects customer to web_page?",
+      "gold_answer": [
+        "customer",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "customer",
+        "web_sales",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer\", \"web_sales\", \"web_page\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_041",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to time_dim?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "customer_demographics",
+        "store_sales",
+        "time_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer_demographics\", \"store_sales\", \"time_dim\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_042",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to income_band?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_sales\", \"household_demographics\", \"income_band\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_043",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to store_sales?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"catalog_page\", \"catalog_sales\", \"date_dim\", \"store_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_044",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to inventory?",
+      "gold_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "promotion",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"promotion\", \"store_sales\", \"date_dim\", \"inventory\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_045",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to warehouse?",
+      "gold_answer": [
+        "customer_demographics",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "customer_demographics",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer_demographics\", \"catalog_sales\", \"warehouse\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_046",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to store_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "store_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_sales\", \"date_dim\", \"store_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_047",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to item?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "item"
+      ],
+      "predicted_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_page\", \"catalog_sales\", \"item\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_048",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to web_sales?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "web_sales"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "web_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_sales\", \"date_dim\", \"web_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_049",
+      "question": "What is the shortest chain of foreign key joins that connects item to web_page?",
+      "gold_answer": [
+        "item",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "item",
+        "web_sales",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"item\", \"web_sales\", \"web_page\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_050",
+      "question": "What is the shortest chain of foreign key joins that connects store_returns to web_page?",
+      "gold_answer": [
+        "store_returns",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "store_returns",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"store_returns\", \"date_dim\", \"web_sales\", \"web_page\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_051",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to call_center?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"web_returns\", \"date_dim\", \"catalog_sales\", \"call_center\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_052",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_site?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"catalog_page\", \"catalog_sales\", \"date_dim\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_053",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_page to web_page?",
+      "gold_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "catalog_page",
+        "catalog_sales",
+        "date_dim",
+        "web_sales",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"catalog_page\", \"catalog_sales\", \"date_dim\", \"web_sales\", \"web_page\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_054",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to call_center?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "predicted_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales",
+        "call_center"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"web_page\", \"web_sales\", \"date_dim\", \"catalog_sales\", \"call_center\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_055",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to store?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"web_page\", \"web_sales\", \"date_dim\", \"store_sales\", \"store\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_056",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to income_band?",
+      "gold_answer": [
+        "inventory",
+        "warehouse",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "warehouse",
+        "catalog_sales",
+        "household_demographics",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"inventory\", \"warehouse\", \"catalog_sales\", \"household_demographics\", \"income_band\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_057",
+      "question": "What is the shortest chain of foreign key joins that connects store to warehouse?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "catalog_sales",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"store\", \"store_sales\", \"date_dim\", \"catalog_sales\", \"warehouse\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_058",
+      "question": "What is the shortest chain of foreign key joins that connects store to web_site?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "store",
+        "store_sales",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "hard",
+      "raw_response": "{\"answer\": [\"store\", \"store_sales\", \"date_dim\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_059",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to web_site?",
+      "gold_answer": [
+        "web_returns",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "date_dim",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"web_returns\", \"date_dim\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_060",
+      "question": "What is the shortest chain of foreign key joins that connects time_dim to inventory?",
+      "gold_answer": [
+        "time_dim",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "time_dim",
+        "store_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"time_dim\", \"store_sales\", \"date_dim\", \"inventory\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_061",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to web_site?",
+      "gold_answer": [
+        "inventory",
+        "warehouse",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "warehouse",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"inventory\", \"warehouse\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_062",
+      "question": "What is the shortest chain of foreign key joins that connects store to customer?",
+      "gold_answer": [
+        "store",
+        "store_sales",
+        "customer"
+      ],
+      "predicted_answer": [
+        "store",
+        "store_sales",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"store\", \"store_sales\", \"customer\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_063",
+      "question": "What is the shortest chain of foreign key joins that connects web_sales to store_returns?",
+      "gold_answer": [
+        "web_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "predicted_answer": [
+        "web_sales",
+        "date_dim",
+        "store_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"web_sales\", \"date_dim\", \"store_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_064",
+      "question": "What is the shortest chain of foreign key joins that connects customer_address to web_page?",
+      "gold_answer": [
+        "customer_address",
+        "web_sales",
+        "web_page"
+      ],
+      "predicted_answer": [
+        "customer_address",
+        "web_sales",
+        "web_page"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer_address\", \"web_sales\", \"web_page\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_065",
+      "question": "What is the shortest chain of foreign key joins that connects web_site to customer_address?",
+      "gold_answer": [
+        "web_site",
+        "web_sales",
+        "customer_address"
+      ],
+      "predicted_answer": [
+        "web_site",
+        "web_sales",
+        "customer_address"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"web_site\", \"web_sales\", \"customer_address\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_066",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to web_site?",
+      "gold_answer": [
+        "promotion",
+        "web_sales",
+        "web_site"
+      ],
+      "predicted_answer": [
+        "promotion",
+        "web_sales",
+        "web_site"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"promotion\", \"web_sales\", \"web_site\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_067",
+      "question": "What is the shortest chain of foreign key joins that connects promotion to catalog_sales?",
+      "gold_answer": [
+        "promotion",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "promotion",
+        "catalog_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"promotion\", \"catalog_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_068",
+      "question": "What is the shortest chain of foreign key joins that connects item to customer?",
+      "gold_answer": [
+        "item",
+        "store_sales",
+        "customer"
+      ],
+      "predicted_answer": [
+        "item",
+        "store_sales",
+        "customer"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"item\", \"store_sales\", \"customer\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_069",
+      "question": "What is the shortest chain of foreign key joins that connects income_band to web_returns?",
+      "gold_answer": [
+        "income_band",
+        "household_demographics",
+        "web_returns"
+      ],
+      "predicted_answer": [
+        "income_band",
+        "household_demographics",
+        "web_returns"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"income_band\", \"household_demographics\", \"web_returns\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_070",
+      "question": "What is the shortest chain of foreign key joins that connects store_sales to reason?",
+      "gold_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns",
+        "reason"
+      ],
+      "predicted_answer": [
+        "store_sales",
+        "date_dim",
+        "store_returns",
+        "reason"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"store_sales\", \"date_dim\", \"store_returns\", \"reason\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_071",
+      "question": "What is the shortest chain of foreign key joins that connects inventory to item?",
+      "gold_answer": [
+        "inventory",
+        "item"
+      ],
+      "predicted_answer": [
+        "inventory",
+        "item"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"inventory\", \"item\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_072",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to catalog_sales?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "predicted_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "catalog_sales"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"web_page\", \"web_sales\", \"date_dim\", \"catalog_sales\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_073",
+      "question": "What is the shortest chain of foreign key joins that connects call_center to inventory?",
+      "gold_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "call_center",
+        "catalog_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"call_center\", \"catalog_sales\", \"date_dim\", \"inventory\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_074",
+      "question": "What is the shortest chain of foreign key joins that connects web_returns to time_dim?",
+      "gold_answer": [
+        "web_returns",
+        "time_dim"
+      ],
+      "predicted_answer": [
+        "web_returns",
+        "time_dim"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"web_returns\", \"time_dim\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_075",
+      "question": "What is the shortest chain of foreign key joins that connects web_page to inventory?",
+      "gold_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "predicted_answer": [
+        "web_page",
+        "web_sales",
+        "date_dim",
+        "inventory"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"web_page\", \"web_sales\", \"date_dim\", \"inventory\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_076",
+      "question": "What is the shortest chain of foreign key joins that connects customer to income_band?",
+      "gold_answer": [
+        "customer",
+        "household_demographics",
+        "income_band"
+      ],
+      "predicted_answer": [
+        "customer",
+        "household_demographics",
+        "income_band"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer\", \"household_demographics\", \"income_band\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_077",
+      "question": "What is the shortest chain of foreign key joins that connects customer_demographics to store?",
+      "gold_answer": [
+        "customer_demographics",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [
+        "customer_demographics",
+        "store_sales",
+        "store"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"customer_demographics\", \"store_sales\", \"store\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_078",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to store?",
+      "gold_answer": [
+        "catalog_returns",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "date_dim",
+        "store_sales",
+        "store"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": [\"catalog_returns\", \"date_dim\", \"store_sales\", \"store\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_path_079",
+      "question": "What is the shortest chain of foreign key joins that connects catalog_returns to warehouse?",
+      "gold_answer": [
+        "catalog_returns",
+        "warehouse"
+      ],
+      "predicted_answer": [
+        "catalog_returns",
+        "warehouse"
+      ],
+      "answer_type": "ordered_list",
+      "type": "schema_routing",
+      "subtype": "join_path",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": [\"catalog_returns\", \"warehouse\"]}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "order_correct": true,
+        "valid_alt_path": false
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_080",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to store?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 3}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_081",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_demographics to warehouse?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 2}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_082",
+      "question": "What is the minimum number of foreign key joins needed to connect promotion to store_returns?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 3}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_083",
+      "question": "What is the minimum number of foreign key joins needed to connect call_center to inventory?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 3}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_084",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_page to web_page?",
+      "gold_answer": 4,
+      "predicted_answer": 4,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 4}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_085",
+      "question": "What is the minimum number of foreign key joins needed to connect household_demographics to store_returns?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_086",
+      "question": "What is the minimum number of foreign key joins needed to connect store_returns to item?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_087",
+      "question": "What is the minimum number of foreign key joins needed to connect promotion to catalog_sales?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_088",
+      "question": "What is the minimum number of foreign key joins needed to connect call_center to store_sales?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 3}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_089",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_returns to time_dim?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_090",
+      "question": "What is the minimum number of foreign key joins needed to connect web_page to catalog_sales?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 3}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_091",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_address to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 2}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_092",
+      "question": "What is the minimum number of foreign key joins needed to connect item to customer?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 2}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_093",
+      "question": "What is the minimum number of foreign key joins needed to connect catalog_sales to customer_demographics?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_094",
+      "question": "What is the minimum number of foreign key joins needed to connect item to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 2}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_095",
+      "question": "What is the minimum number of foreign key joins needed to connect time_dim to inventory?",
+      "gold_answer": 3,
+      "predicted_answer": 3,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 3}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_096",
+      "question": "What is the minimum number of foreign key joins needed to connect customer to web_returns?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_097",
+      "question": "What is the minimum number of foreign key joins needed to connect customer to web_page?",
+      "gold_answer": 2,
+      "predicted_answer": 2,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 2}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_098",
+      "question": "What is the minimum number of foreign key joins needed to connect customer_address to catalog_sales?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_hops_099",
+      "question": "What is the minimum number of foreign key joins needed to connect web_returns to time_dim?",
+      "gold_answer": 1,
+      "predicted_answer": 1,
+      "answer_type": "integer",
+      "type": "schema_routing",
+      "subtype": "hop_count",
+      "difficulty": "medium",
+      "raw_response": "{\"answer\": 1}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_109",
+      "question": "Does income_band have a direct foreign key relationship to item?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_104",
+      "question": "Does web_sales have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_101",
+      "question": "Does store_sales have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_106",
+      "question": "Does store_returns have a direct foreign key relationship to customer_address?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_103",
+      "question": "Does store_sales have a direct foreign key relationship to promotion?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_105",
+      "question": "Does catalog_returns have a direct foreign key relationship to date_dim?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_100",
+      "question": "Does catalog_returns have a direct foreign key relationship to item?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_108",
+      "question": "Does promotion have a direct foreign key relationship to web_page?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_112",
+      "question": "Does web_returns have a direct foreign key relationship to promotion?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_111",
+      "question": "Does customer have a direct foreign key relationship to inventory?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_107",
+      "question": "Does web_sales have a direct foreign key relationship to promotion?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_114",
+      "question": "Does customer have a direct foreign key relationship to call_center?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_102",
+      "question": "Does web_sales have a direct foreign key relationship to customer?",
+      "gold_answer": true,
+      "predicted_answer": true,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": true}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_115",
+      "question": "Does promotion have a direct foreign key relationship to web_sales?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_113",
+      "question": "Does store_returns have a direct foreign key relationship to ship_mode?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    },
+    {
+      "id": "tpc-ds_route_direct_110",
+      "question": "Does income_band have a direct foreign key relationship to catalog_page?",
+      "gold_answer": false,
+      "predicted_answer": false,
+      "answer_type": "boolean",
+      "type": "schema_routing",
+      "subtype": "direct_fk",
+      "difficulty": "easy",
+      "raw_response": "{\"answer\": false}",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0
+      }
+    }
+  ]
+}

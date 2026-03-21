@@ -29,8 +29,9 @@ import argparse
 import time
 
 
-BASELINES = ['flat_text', 'vector_rag', 'graph_aug', 'oracle']
-DATASETS = ['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm']
+BASELINES = ['flat_text', 'vector_rag', 'graph_aug', 'tool_use', 'react_code', 'oracle']
+DATASETS = ['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics']
+T2_BASELINES = ['flat_text_v2', 'graph_aug_v2', 'tool_use_v2', 'react_code_v2']
 CONDITIONS = ['original', 'obfuscated', 'extended']
 
 
@@ -66,16 +67,45 @@ def main():
                         help='Model name (e.g., gemini-2.5-flash)')
     parser.add_argument('--api-key', default='',
                         help='API key (optional for local models)')
-    parser.add_argument('--baseline', choices=BASELINES, default=None,
-                        help='Run a single baseline (default: all)')
+    parser.add_argument('--baseline', choices=BASELINES + T2_BASELINES,
+                        default=None,
+                        help='Run a single baseline (default: all Tier 1)')
     parser.add_argument('--dataset', choices=DATASETS + ['all'], default='all',
-                        help='Run a single dataset (default: all)')
+                        help='Run a single dataset (default: all 5)')
     parser.add_argument('--condition', choices=CONDITIONS + ['all'],
                         default='original',
                         help='Evaluation condition (default: original)')
+    parser.add_argument('--tier', choices=['1', '2'], default='1',
+                        help='Tier 1 (schema-level) or Tier 2 (value-level)')
+    parser.add_argument('--verify', action='store_true',
+                        help='Run 5-question Oracle sample to verify pipeline')
     args = parser.parse_args()
 
-    baselines = [args.baseline] if args.baseline else BASELINES
+    # Resolve API key from env if not provided
+    if not args.api_key:
+        for env_var in ['GOOGLE_API_KEY', 'DEEPSEEK_API_KEY', 'OPENAI_API_KEY']:
+            val = os.environ.get(env_var, '')
+            if val:
+                args.api_key = val
+                break
+
+    # --verify: quick pipeline check
+    if args.verify:
+        print("\n  Running verification (Oracle on tpc-ds, original)...")
+        ok, elapsed = run_evaluation(
+            'oracle', 'tpc-ds', 'original',
+            args.api_base, args.model, args.api_key)
+        if ok:
+            print(f"  ✓ Pipeline verified in {elapsed:.0f}s")
+            print("  Run 'python view_results.py' to see results.")
+        else:
+            print(f"  ✗ Verification failed after {elapsed:.0f}s")
+        return
+
+    if args.tier == '2':
+        baselines = [args.baseline] if args.baseline else T2_BASELINES
+    else:
+        baselines = [args.baseline] if args.baseline else BASELINES
     datasets = DATASETS if args.dataset == 'all' else [args.dataset]
     conditions = CONDITIONS if args.condition == 'all' else [args.condition]
 

@@ -241,6 +241,20 @@ python integrity_check.py
 }
 ```
 
+For the extended journal version:
+
+```bibtex
+@article{ahmed2026dwbench_journal,
+  title     = {DW-Bench: A Two-Tier Benchmark for Graph Topology Reasoning
+               over Data Warehouse Schemas},
+  author    = {Ahmed, Ahmed G.A.H.},
+  journal   = {Journal of Big Data},
+  publisher = {Springer},
+  year      = {2026},
+  url       = {https://github.com/AJamal27891/dw-bench}
+}
+```
+
 ---
 
 ## License

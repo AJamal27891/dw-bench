@@ -86,16 +86,21 @@ def macro_em(results):
     return np.mean(list(st.values())) if st else 0
 
 
+MODELS = [
+    ('gemini-2.5-flash', 'Gemini 2.5 Flash'),
+    ('deepseek-chat', 'DeepSeek-V3'),
+    ('Qwen2.5-72B-Instruct', 'Qwen2.5-72B'),
+]
+
 # ════════════════════════════════════════════════════════════════════
-# Figure 1: Difficulty by Baseline (side-by-side panels)
+# Figure 1: Difficulty by Baseline (3-panel)
 # ════════════════════════════════════════════════════════════════════
-fig, axes = plt.subplots(1, 2, figsize=(6.5, 3.0), sharey=True)
+fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.0), sharey=True)
 
 bls = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
        ('tool_use', 'TU'), ('react_code', 'RC')]
 
-for ax, (tag, title) in zip(axes, [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
-                                     ('deepseek-chat', 'DeepSeek-V3')]):
+for ax, (tag, title) in zip(axes, MODELS):
     diffs = ['easy', 'medium', 'hard']
     x = np.arange(len(diffs))
     w = 0.14
@@ -110,11 +115,12 @@ for ax, (tag, title) in zip(axes, [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
         ax.bar(x + offset, vals, w, label=bl_short,
                color=COLORS[bl_short], edgecolor='white', linewidth=0.3)
 
-    # Oracle dashed line
+    # Oracle dashed line (actual per-model data)
     oracle = by_difficulty(load_all('oracle', 'original', tag, DS_ALL))
-    oracle_vals = [oracle.get(d, 0) for d in diffs]
-    ax.plot(x, oracle_vals, 's--', markersize=4, label='Oracle',
-            color=COLORS['Oracle'], linewidth=1.2)
+    if oracle:
+        oracle_vals = [oracle.get(d, 0) for d in diffs]
+        ax.plot(x, oracle_vals, 's--', markersize=4, label='Oracle',
+                color=COLORS['Oracle'], linewidth=1.2)
 
     ax.set_xlabel('Difficulty')
     if ax == axes[0]:
@@ -126,27 +132,28 @@ for ax, (tag, title) in zip(axes, [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
     ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
     ax.grid(axis='y', alpha=0.2, linewidth=0.4)
 
-axes[1].legend(bbox_to_anchor=(1.02, 1), loc='upper left',
+axes[-1].legend(bbox_to_anchor=(1.02, 1), loc='upper left',
                frameon=False, fontsize=8)
 plt.tight_layout()
 plt.savefig(OUT / 'difficulty_comparison.pdf')
 plt.savefig(OUT / 'difficulty_comparison.png')
 plt.close()
-print('✓ difficulty_comparison.pdf')
+print('[OK] difficulty_comparison.pdf (3 models)')
 
 
 # ════════════════════════════════════════════════════════════════════
-# Figure 2: Subtype Heatmap — DUAL PANEL (Gemini + DeepSeek)
+# Figure 2: Subtype Heatmap — 3-panel (Gemini + DeepSeek + Qwen)
 # ════════════════════════════════════════════════════════════════════
-fig, axes_hm = plt.subplots(1, 2, figsize=(9.5, 5.5), sharey=True)
+fig, axes_hm = plt.subplots(1, 3, figsize=(13.0, 5.5), sharey=True,
+                             gridspec_kw={'width_ratios': [1, 1, 1]})
 
 bl_pairs = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
             ('tool_use', 'TU'), ('react_code', 'RC')]
 
-# Build data for both models
+# Build data for all models
 all_subtypes = set()
 data_maps = {}  # key: (model_tag, bl_short)
-for model_tag in ['gemini-2.5-flash', 'deepseek-chat']:
+for model_tag, _ in MODELS:
     for bl, bl_short in bl_pairs:
         results = load_all(bl, 'original', model_tag, DS_ALL)
         if results:
@@ -159,9 +166,8 @@ gemini_tu = data_maps.get(('gemini-2.5-flash', 'TU'), {})
 subtypes = sorted(all_subtypes, key=lambda s: gemini_tu.get(s, 0))
 bl_names = [bl for _, bl in bl_pairs if ('gemini-2.5-flash', bl) in data_maps]
 
-for ax, (model_tag, model_title) in zip(axes_hm,
-        [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
-         ('deepseek-chat', 'DeepSeek-V3')]):
+im = None
+for ax, (model_tag, model_title) in zip(axes_hm, MODELS):
     matrix = np.array([[data_maps.get((model_tag, bl), {}).get(s, 0)
                         for bl in bl_names] for s in subtypes])
     im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=0, vmax=100)
@@ -178,20 +184,21 @@ for ax, (model_tag, model_title) in zip(axes_hm,
             ax.text(j, i, f'{v:.0f}', ha='center', va='center',
                     fontsize=7, fontweight='bold', color=color)
 
-cbar = plt.colorbar(im, ax=axes_hm, shrink=0.7, pad=0.02)
+fig.subplots_adjust(right=0.92)
+cbar_ax = fig.add_axes([0.94, 0.15, 0.015, 0.7])
+cbar = fig.colorbar(im, cax=cbar_ax)
 cbar.ax.set_ylabel('Exact Match (%)', fontsize=9)
 cbar.ax.tick_params(labelsize=8)
-plt.tight_layout()
-plt.savefig(OUT / 'subtype_heatmap.pdf')
-plt.savefig(OUT / 'subtype_heatmap.png')
+plt.savefig(OUT / 'subtype_heatmap.pdf', bbox_inches='tight')
+plt.savefig(OUT / 'subtype_heatmap.png', bbox_inches='tight')
 plt.close()
-print('✓ subtype_heatmap.pdf (dual-panel)')
+print('[OK] subtype_heatmap.pdf (3-panel)')
 
 
 # ════════════════════════════════════════════════════════════════════
 # Figure 3: Micro vs Macro EM — Triviality Illusion
 # ════════════════════════════════════════════════════════════════════
-fig, ax = plt.subplots(figsize=(6.5, 3.2))
+fig, ax = plt.subplots(figsize=(9.5, 3.2))
 
 all_bls = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
            ('tool_use', 'TU'), ('react_code', 'RC')]
@@ -200,11 +207,11 @@ models_list = []
 micro_vals = []
 macro_vals = []
 
-for tag, tag_label in [('gemini-2.5-flash', 'Gemini'), ('deepseek-chat', 'DeepSeek')]:
+for tag, tag_label in MODELS:
     for bl, bl_short in all_bls:
         results = load_all(bl, 'original', tag, DS_ALL)
         if results:
-            models_list.append(f'{tag_label}\n{bl_short}')
+            models_list.append(f'{tag_label.split()[0]}\n{bl_short}')
             micro_vals.append(micro_em(results))
             macro_vals.append(macro_em(results))
 
@@ -238,32 +245,28 @@ plt.tight_layout()
 plt.savefig(OUT / 'triviality_illusion.pdf')
 plt.savefig(OUT / 'triviality_illusion.png')
 plt.close()
-print('✓ triviality_illusion.pdf')
+print('[OK] triviality_illusion.pdf')
 
 
 # ════════════════════════════════════════════════════════════════════
 # Figure 4: Obfuscation Penalty (grouped bars)
 # ════════════════════════════════════════════════════════════════════
-fig, ax = plt.subplots(figsize=(6.5, 3.0))
+fig, ax = plt.subplots(figsize=(9.5, 3.0))
 
 labels = []
 penalties = []
+bar_colors = []
 
-for tag, tag_label in [('gemini-2.5-flash', 'Gemini'), ('deepseek-chat', 'DeepSeek')]:
+for tag, tag_label in MODELS:
     for bl, bl_short in all_bls:
         orig = load_all(bl, 'original', tag, DS)
         obf = load_all(bl, 'obfuscated', tag, DS)
         if orig and obf:
             delta = micro_em(obf) - micro_em(orig)
-            labels.append(f'{tag_label}\n{bl_short}')
+            labels.append(f'{tag_label.split()[0]}\n{bl_short}')
             penalties.append(delta)
+            bar_colors.append(COLORS[bl_short])
 
-# Use baseline-consistent Tol colors (not threshold-based)
-bar_colors = []
-for tag_label, (bl, bl_short) in [(tl, b) for tl in ['Gemini', 'DeepSeek']
-                                   for b in all_bls]:
-    if f'{tag_label}\n{bl_short}' in labels:
-        bar_colors.append(COLORS[bl_short])
 colors = bar_colors
 bars = ax.bar(range(len(labels)), penalties, color=colors,
               edgecolor='white', linewidth=0.3)
@@ -289,13 +292,13 @@ plt.tight_layout()
 plt.savefig(OUT / 'obfuscation_penalty.pdf')
 plt.savefig(OUT / 'obfuscation_penalty.png')
 plt.close()
-print('✓ obfuscation_penalty.pdf')
+print('[OK] obfuscation_penalty.pdf')
 
 
 # ════════════════════════════════════════════════════════════════════
-# Figure 5: Tier 2 — Value-Level Results by Subtype (BOTH models)
+# Figure 5: Tier 2 — Value-Level Results by Subtype (3 models)
 # ════════════════════════════════════════════════════════════════════
-fig, axes = plt.subplots(1, 2, figsize=(6.5, 3.8), sharey=True)
+fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.8), sharey=True)
 
 t2_bls = [('flat_text_v2', 'FT', COLORS['FT_v2']),
           ('graph_aug_v2', 'GA', COLORS['GA_v2']),
@@ -308,15 +311,21 @@ subtype_labels = ['cascade\ncount', 'row\nprov.', 'row\nimpact',
                   'value\norigin', 'multi-hop\ntrace',
                   'value\nprop.', 'cross-silo\nreach.', 'shared\nsource']
 
-for ax, (tag, title) in zip(axes, [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
-                                     ('deepseek-chat', 'DeepSeek-V3')]):
+for ax, (tag, title) in zip(axes, MODELS):
     t2_data = {}
     for bl, label, color in t2_bls:
-        f = rd / f'{bl}_original_syn_logistics_{tag}.json'
-        if f.exists():
-            results = json.load(open(f, encoding='utf-8'))['results']
-            st = by_subtype(results)
-            t2_data[label] = st
+        # Try syn_logistics first, then adventureworks
+        for ds in ['syn_logistics', 'adventureworks']:
+            f = rd / f'{bl}_original_{ds}_{tag}.json'
+            if f.exists():
+                results = json.load(open(f, encoding='utf-8'))['results']
+                st = by_subtype(results)
+                if label in t2_data:
+                    # Merge subtypes
+                    for s, v in st.items():
+                        t2_data[label][s] = v
+                else:
+                    t2_data[label] = st
 
     x = np.arange(len(subtype_order))
     w = 0.25
@@ -342,28 +351,28 @@ for ax, (tag, title) in zip(axes, [('gemini-2.5-flash', 'Gemini 2.5 Flash'),
     ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
     ax.grid(axis='y', alpha=0.2, linewidth=0.4)
 
-axes[1].legend(fontsize=8, frameon=False, loc='upper right', ncol=3)
+axes[-1].legend(fontsize=8, frameon=False, loc='upper right', ncol=3)
 fig.suptitle('Tier 2: Value-Level Results by Subtype', fontweight='bold', y=1.02)
 plt.tight_layout()
 plt.savefig(OUT / 'tier2_subtype.pdf')
 plt.savefig(OUT / 'tier2_subtype.png')
 plt.close()
-print('✓ tier2_subtype.pdf (both models)')
+print('[OK] tier2_subtype.pdf (3 models)')
 
 
 # ════════════════════════════════════════════════════════════════════
-# Figure A: Oracle Gap — The Reasoning Gap (BOTH models)
+# Figure A: Oracle Gap — The Reasoning Gap (3 models)
 # ════════════════════════════════════════════════════════════════════
-fig, ax = plt.subplots(figsize=(6.5, 5.5))
+fig, axes_og = plt.subplots(1, 3, figsize=(10.0, 4.5), sharey=True)
 
-# Compute Oracle EM per subtype (use Gemini oracle as reference)
-oracle_results = load_all('oracle', 'original', 'gemini-2.5-flash', DS_ALL)
-oracle_by_st = by_subtype(oracle_results) if oracle_results else {}
+model_colors = ['#332288', '#CC6677', '#DDCC77']
 
-gap_data = []  # (subtype, model, gap)
-for model_tag, model_label in [('gemini-2.5-flash', 'Gemini'),
-                                ('deepseek-chat', 'DeepSeek')]:
-    # Find best non-oracle baseline per subtype
+for ax, (model_tag, model_label), mcolor in zip(axes_og, MODELS, model_colors):
+    # Oracle per subtype for this model
+    oracle_r = load_all('oracle', 'original', model_tag, DS_ALL)
+    oracle_st = by_subtype(oracle_r) if oracle_r else {}
+
+    # Best non-oracle baseline per subtype
     best_per_st = {}
     for bl, bl_short in bl_pairs:
         results = load_all(bl, 'original', model_tag, DS_ALL)
@@ -372,51 +381,53 @@ for model_tag, model_label in [('gemini-2.5-flash', 'Gemini'),
             for s, v in st.items():
                 if s not in best_per_st or v > best_per_st[s]:
                     best_per_st[s] = v
-    for s in sorted(all_subtypes):
-        oracle_v = oracle_by_st.get(s, 100)
+
+    # Compute gaps
+    gaps = {}
+    for s in all_subtypes:
+        oracle_v = oracle_st.get(s, 100)
         best_v = best_per_st.get(s, 0)
-        gap_data.append((s, model_label, oracle_v - best_v))
+        gaps[s] = oracle_v - best_v
 
-# Sort by average gap (hardest at top)
-from collections import defaultdict as dd2
-avg_gap = {}
-for s, m, g in gap_data:
-    avg_gap.setdefault(s, []).append(g)
-avg_gap = {s: np.mean(v) for s, v in avg_gap.items()}
-subtypes_sorted = sorted(avg_gap.keys(), key=lambda s: avg_gap[s], reverse=True)
+    subtypes_sorted_og = sorted(gaps.keys(), key=lambda s: gaps[s], reverse=True)
+    # Only show subtypes with gap > 0
+    subtypes_show = [s for s in subtypes_sorted_og if gaps[s] > 0]
+    if not subtypes_show:
+        subtypes_show = subtypes_sorted_og[:4]
 
-y = np.arange(len(subtypes_sorted))
-h = 0.35
+    y_og = np.arange(len(subtypes_show))
+    vals = [gaps[s] for s in subtypes_show]
 
-for i, (model_label, color) in enumerate([('Gemini', '#332288'),
-                                           ('DeepSeek', '#CC6677')]):
-    vals = []
-    for s in subtypes_sorted:
-        for st, m, g in gap_data:
-            if st == s and m == model_label:
-                vals.append(g)
-                break
-    offset = (i - 0.5) * h
-    hbars = ax.barh(y + offset, vals, h, label=model_label, color=color,
-                    edgecolor='white', linewidth=0.3)
-    for j, v in enumerate(vals):
-        if v > 2:
-            ax.text(v + 1, y[j] + offset, f'{v:.0f}%',
-                    ha='left', va='center', fontsize=7, fontweight='bold')
+    bars = ax.barh(y_og, vals, 0.6, color=mcolor, edgecolor='white', linewidth=0.3)
+    # Best baseline dot
+    for j, s in enumerate(subtypes_show):
+        bv = best_per_st.get(s, 0)
+        ov = oracle_st.get(s, 100)
+        ax.plot(bv, j, 'o', color='#332288', markersize=4, zorder=5)
+        ax.plot(ov, j, 'D', color='#117733', markersize=4, zorder=5)
+        ax.plot([bv, ov], [j, j], '-', color=mcolor, linewidth=1.5, alpha=0.5)
+        ax.text(ov + 1, j, f'{gaps[s]:.0f}pp', ha='left', va='center',
+                fontsize=7, fontweight='bold', color='#882255')
 
-ax.set_yticks(y)
-ax.set_yticklabels([s.replace('_', ' ') for s in subtypes_sorted], fontsize=8)
-ax.set_xlabel('Gap to Oracle (%)', fontsize=10)
-ax.set_title('The Reasoning Gap: Oracle vs. Best Baseline', fontweight='bold', pad=10)
-ax.set_xlim(0, 105)
-ax.legend(fontsize=9, frameon=False, loc='lower right')
-ax.grid(axis='x', alpha=0.2, linewidth=0.4)
-ax.invert_yaxis()  # Hardest at top
+    ax.set_yticks(y_og)
+    if ax == axes_og[0]:
+        ax.set_yticklabels([s.replace('_', ' ') for s in subtypes_show], fontsize=8)
+    ax.set_xlabel('Exact Match (%)', fontsize=9)
+    ax.set_title(model_label, fontweight='bold')
+    ax.set_xlim(0, 110)
+    ax.grid(axis='x', alpha=0.2, linewidth=0.4)
+    ax.invert_yaxis()
+
+    if ax == axes_og[-1]:
+        ax.plot([], [], 'o', color='#332288', markersize=4, label='Best Baseline')
+        ax.plot([], [], 'D', color='#117733', markersize=4, label='Oracle')
+        ax.legend(fontsize=8, frameon=False, loc='lower right')
+
 plt.tight_layout()
 plt.savefig(OUT / 'oracle_gap.pdf')
 plt.savefig(OUT / 'oracle_gap.png')
 plt.close()
-print('✓ oracle_gap.pdf (both models)')
+print('[OK] oracle_gap.pdf (3 models)')
 
 
-print('\n✅ All 6 figures generated with publication-quality styling!')
+print('\nAll 6 figures generated with 3-model layout!')

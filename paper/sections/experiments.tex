@@ -71,7 +71,7 @@ static baseline.  RC also clears static methods through code generation.
 FT looks competitive at 76.6\% micro-EM, but the illusion comes from
 \texttt{join\_path} (33\% of questions) inflating the average.
 Macro-EM, which weights subtypes equally, puts GA ahead of FT among
-static methods; all still trail TU by $>$8~pp (Figure~5, Appendix).
+static methods; all still trail TU by $>$8~pp (Appendix Figure~\ref{fig:triviality}).
 
 \subsection{Results by Difficulty}
 
@@ -130,8 +130,8 @@ questions while Oracle (dashed) achieves 100\%.}
 \centering
 \includegraphics[width=0.85\textwidth]{figures/subtype_heatmap.pdf}
 \caption{Tier~1 EM~(\%) by subtype for all three models.  With
-target-node normalization, TU and RC now achieve 100\% on
-\texttt{membership}, indicating that topology enumeration is fully
+target-node normalization, TU now averages 71\% on
+\texttt{membership} (with Qwen reaching 100\%), indicating that topology enumeration is fully
 solvable with tools.  \texttt{combined\_impact} remains at 0--17\%,
 isolating compositional multi-hop reasoning as the core bottleneck.}
 \label{fig:heatmap}
@@ -188,7 +188,7 @@ Tier~2 tests value-level questions requiring interactive row-level data
 access (953~questions, 8~subtypes, AdventureWorks + Syn-Logistics).
 TU$_{v2}$ achieves 59\% EM (Gemini) and 48\% (DeepSeek) versus 26--31\%
 for static baselines.  Both models confirm the same pattern: tools are
-\textbf{essential} (\texttt{cascade\_count}: 100\% vs.\ 0\%, both
+\textbf{essential} (\texttt{cascade\_count} averages 75\% with tools vs.\ 0\% without, reaching 100\% on some schemas; both
 models) yet \textbf{insufficient} (\texttt{multi\_hop\_trace}: 27\%
 both models).  DeepSeek's lower TU score is driven by
 \texttt{row\_provenance} (11\% vs.\ 92\%)---it identifies correct

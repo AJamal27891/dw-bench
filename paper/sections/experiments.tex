@@ -216,10 +216,10 @@ itself---the capability that GNN encoders are designed to provide.
 \centering
 \includegraphics[width=\linewidth]{figures/oracle_gap.pdf}
 \caption{Unsolved subtypes: Oracle~EM minus best non-oracle
-baseline.  \texttt{combined\_impact} retains$>$83~pp gap;
+baseline.  \texttt{combined\_impact} retains $>$87~pp gap;
 \texttt{count}, \texttt{full\_enumeration}, and \texttt{transitive}
 show 5--25~pp gaps.  The remaining 9 of 13 subtypes are solved
-($<$pp).}
+($<$5~pp).}
 \label{fig:oracle-gap}
 \end{figure}
 
@@ -240,10 +240,11 @@ infer structure beyond the retrieved fragment.
 
 \textbf{Tool tautology.}
 TU achieving near-perfect scores on easy subtypes is by design: it
-isolates hard failures as genuine reasoning problems.  TU hits 100\% on
-\texttt{membership} but still only 12--13\% on
-\texttt{combined\_impact}.  The ceiling is not tool availability; it is
-compositional multi-step reasoning.
+isolates hard failures as genuine reasoning problems.  After
+target-node normalization, TU hits 100\% on \texttt{membership}
+(with Qwen's label-agnostic matching driving this result) but still
+only 12--13\% on \texttt{combined\_impact}.  The ceiling is not
+tool availability; it is compositional multi-step reasoning.
 
 \subsection{Limitations}
 

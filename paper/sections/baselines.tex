@@ -22,8 +22,10 @@ tables mentioned in the question.  For global questions with no anchor
 tables (``how many components?''), supply the full graph instead.
 
 \textbf{Tool-Use (TU).}  Hand the model nine graph algorithm tools:
-\texttt{get\_neighbors}, \texttt{shortest\_path},
-\texttt{get\_connected\_component}, \texttt{get\_lineage\_chain},
+\texttt{shortest\_path}, \texttt{connected\_components},
+\texttt{get\_component\_of}, \texttt{get\_fk\_neighbors},
+\texttt{get\_lineage\_forward}, \texttt{get\_lineage\_reverse},
+\texttt{transitive\_lineage}, \texttt{check\_fk\_adjacency},
 \texttt{list\_tables}.  Up to 3 calls per question.
 
 \textbf{ReAct-Code (RC).}  The model writes and runs Python/NetworkX code

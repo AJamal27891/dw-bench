@@ -27,7 +27,9 @@ only 3--4\% while static baselines lose 9--32\%.}
 
 \begin{table}[H]
 \centering
-\caption{Tier~2 value-level results (EM~\%, Syn-Logistics).}
+\caption{Tier~2 value-level results (EM~\%, Syn-Logistics;
+Gemini and DeepSeek only; Qwen results appear in Figure~\ref{fig:tier2}
+but are omitted here for space).}
 \label{tab:tier2}
 \small
 \begin{tabular}{llccc}
@@ -133,7 +135,12 @@ alphabetically before comparison; order does not matter.
 Vector-RAG uses \texttt{all-MiniLM-L6-v2}~\cite{reimers2019sentencebert}
 embeddings with FAISS exact search and $k{=}15$ retrieved chunks.
 Graph-Augmented uses 3-hop BFS neighborhoods from mentioned tables.
-Tool-Use provides 9 graph algorithm tools with up to 3 calls per question.
+Tool-Use provides 9 graph algorithm tools (\texttt{shortest\_path},
+\texttt{connected\_components}, \texttt{get\_component\_of},
+\texttt{get\_fk\_neighbors}, \texttt{get\_lineage\_forward},
+\texttt{get\_lineage\_reverse}, \texttt{transitive\_lineage},
+\texttt{check\_fk\_adjacency}, \texttt{list\_tables}) with
+up to 3 calls per question.
 ReAct-Code provides a Python REPL with NetworkX and allows up to 5 code
 execution rounds per question.
 

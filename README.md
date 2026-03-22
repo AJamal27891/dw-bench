@@ -6,7 +6,7 @@
 [![Questions](https://img.shields.io/badge/Tier%201-1%2C046%20questions-blueviolet)]()
 [![Questions](https://img.shields.io/badge/Tier%202-953%20questions-blueviolet)]()
 
-**DW-Bench** is the first benchmark for evaluating whether Large Language Models can reason about the *graph topology* of data warehouse schemas — foreign key paths, data lineage chains, connected components, and row-level provenance — rather than generating SQL.
+**DW-Bench** is the first benchmark for evaluating whether Large Language Models can reason about the *graph topology* of data warehouse schemas — foreign key paths, data lineage chains, connected components, and row-level provenance — rather than generating SQL. It includes 1,046 schema-level and 953 value-level questions across 5 datasets, evaluated with 6 baselines and 3 frontier models (Gemini 2.5 Flash, DeepSeek-V3, Qwen2.5-72B).
 
 ---
 
@@ -14,14 +14,14 @@
 
 ### Tier 1: Schema-Level Reasoning (1,046 questions, 5 datasets)
 
-| Baseline | Gemini 2.5 Flash | DeepSeek-V3 |
-|:---|:---:|:---:|
-| Flat Text (FT) | 76.8 ± 2.4 | 69.7 ± 2.8 |
-| Vector-RAG (VR) | 73.2 ± 2.6 | 71.2 ± 2.8 |
-| Graph-Aug (GA) | 75.7 ± 2.5 | 77.0 ± 2.6 |
-| **Tool-Use (TU)** | **89.3 ± 1.9** | **90.4 ± 1.7** |
-| ReAct-Code (RC) | 81.4 ± 2.4 | 79.4 ± 2.4 |
-| Oracle | 97.0 ± 1.0 | 97.2 ± 1.0 |
+| Baseline | Gemini 2.5 Flash | DeepSeek-V3 | Qwen2.5-72B |
+|:---|:---:|:---:|:---:|
+| Flat Text (FT) | 79.5 ± 2.3 | 70.4 ± 2.8 | 63.2 ± 3.0 |
+| Vector-RAG (VR) | 73.7 ± 2.7 | 71.6 ± 2.7 | 69.5 ± 2.8 |
+| Graph-Aug (GA) | 77.0 ± 2.5 | 78.4 ± 2.6 | 62.8 ± 3.4 |
+| **Tool-Use (TU)** | **91.8 ± 1.7** | **91.1 ± 1.7** | 77.5 ± 3.2 |
+| ReAct-Code (RC) | 83.0 ± 2.3 | 83.1 ± 2.2 | **82.5 ± 2.6** |
+| Oracle | 99.7 | 99.9 | 100.0 |
 
 > Micro-EM (%) with 95% bootstrap CIs (2000 resamples).
 
@@ -31,19 +31,19 @@
   <img src="paper/figures/difficulty_comparison.png" width="90%" alt="EM by difficulty level">
 </p>
 
-**EM by difficulty level** across three models (Gemini, DeepSeek-V3, Qwen2.5-72B). All baselines plateau on hard questions (~40-60%) while Oracle (dashed) achieves ≥97%.
+**EM by difficulty level** across three models (Gemini, DeepSeek-V3, Qwen2.5-72B). All baselines plateau on hard questions (~40-60%) while Oracle (dashed) achieves 100%.
 
 <p align="center">
   <img src="paper/figures/subtype_heatmap.png" width="90%" alt="Per-subtype heatmap">
 </p>
 
-**Per-subtype EM heatmap** (darker red = lower). `combined_impact` (top row) is universally hard (2-17% EM); `membership` shows model-dependent gaps.
+**Per-subtype EM heatmap** (darker red = lower). `combined_impact` (top row) is universally hard (0-17% EM); `membership` is now fully solvable with target-node normalization (TU/RC hit 100%).
 
 <p align="center">
   <img src="paper/figures/oracle_gap.png" width="90%" alt="Oracle gap by subtype">
 </p>
 
-**Unsolved subtypes** (Oracle minus best baseline). `combined_impact` retains an 83-88 pp gap across all three models; 9 of 13 subtypes are effectively solved.
+**Unsolved subtypes** (Oracle minus best baseline). `combined_impact` retains an 83+ pp gap across all three models; 9 of 13 subtypes are effectively solved.
 
 ### Obfuscation (Contamination Control)
 

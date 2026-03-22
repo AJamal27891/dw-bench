@@ -1,38 +1,41 @@
 % ============================================================================
-% 4. BASELINES (trimmed)
+% 4. BASELINES
 % ============================================================================
 \section{Baselines}
 \label{sec:baselines}
 
-We implement six baselines with identical question prompts; only the
-context injection varies. All use zero-shot prompting.
+Six baselines, same prompt, different context injection.  All zero-shot.
+Each paradigm receives context natural to its architecture rather than
+enforcing token-budget parity, since the goal is to compare
+\emph{paradigms}, not token counts.
 
-\textbf{Flat Text (FT)}~serializes the entire schema (tables, columns,
-FK edges, lineage) as plain text, simulating a developer loading full
-DDL into a long-context LLM.
+\textbf{Flat Text (FT).}  Dump the whole schema (tables, columns, FKs,
+lineage) as plain text.  This mirrors what a developer does when pasting
+DDL into a long-context model.
 
-\textbf{Vector-RAG (VR)}~embeds schema elements with
-Sentence-BERT~\cite{reimers2019sentencebert}, retrieves $k{=}15$ chunks
-via FAISS, and injects them as context.
+\textbf{Vector-RAG (VR).}  Embed schema elements with
+Sentence-BERT~\cite{reimers2019sentencebert}, retrieve $k{=}15$ chunks via
+FAISS~\cite{faiss2019}, inject as context.
 
-\textbf{Graph-Augmented (GA)}~extracts a 3-hop BFS neighborhood from
-the schema graph centered on mentioned table names, providing local
-topology as structured context. For global questions lacking anchor
-tables (e.g., component count), the full graph is provided.
+\textbf{Graph-Augmented (GA).}  Extract a 3-hop BFS neighborhood around the
+tables mentioned in the question.  For global questions with no anchor
+tables (``how many components?''), supply the full graph instead.
 
-\textbf{Tool-Use (TU)}~provides purpose-built graph tools:
-\texttt{get\_\-neighbors}, \texttt{shortest\_\-path},
-\texttt{get\_\-connected\_\-component},
-\texttt{get\_\-lineage\_\-chain},
-and \texttt{list\_\-tables}. Up to 3 sequential tool calls per question.
+\textbf{Tool-Use (TU).}  Hand the model five graph tools:
+\texttt{get\_neighbors}, \texttt{shortest\_path},
+\texttt{get\_connected\_component}, \texttt{get\_lineage\_chain},
+\texttt{list\_tables}.  Up to 3 calls per question.
 
-\textbf{ReAct-Code (RC)}~generates and executes Python/NetworkX code in
-a sandboxed REPL with up to 5 execution rounds, serving as an implicit
-budget ablation against TU's 3-call limit. RC
-directly on the schema graph, providing maximum algorithmic flexibility.
+\textbf{ReAct-Code (RC).}  The model writes and runs Python/NetworkX code
+in a sandboxed REPL, up to 5 rounds.  More flexible than TU and serves as
+a budget ablation (5 code rounds vs.\ TU's 3 tool calls).
 
-\textbf{Oracle}~injects gold algorithmic output into the prompt,
-establishing the upper bound.
+\textbf{Oracle.}  Gold algorithmic output injected into the prompt.  This
+establishes the performance ceiling.
 
-For \textbf{Tier~2}, we adapt three baselines: FT$_{v2}$ (DDL-only),
-GA$_{v2}$ (schema + value samples), TU$_{v2}$ (interactive data tools).
+For \textbf{Tier~2} we adapt four baselines: FT$_{v2}$ (DDL-only),
+GA$_{v2}$ (schema + value samples), TU$_{v2}$ (interactive data tools),
+and RC$_{v2}$ (free-form Python with value data access).  RC$_{v2}$
+matches TU$_{v2}$ on synthetic data (53\%) but trails up to 20~pp on
+complex real-world schemas, consistent with structured tool APIs scaling
+better to real-world ETL complexity.

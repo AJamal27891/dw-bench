@@ -1,32 +1,33 @@
 \begin{abstract}
-Large Language Models (LLMs) have demonstrated remarkable capabilities on
-text-to-SQL benchmarks such as Spider and BIRD. However, these benchmarks
-evaluate \emph{query generation}, not \emph{structural understanding} of
-database schemas. We introduce \textbf{DW-Bench}, the first benchmark
-designed to evaluate LLMs on \emph{graph topology reasoning} over data
-warehouse schemas, organized in two tiers: \textbf{Tier~1}
-(schema-level, 1,046~questions across 13~subtypes) tests structural
-reasoning over foreign key paths, lineage chains, and component
-detection; \textbf{Tier~2} (value-level, 433~questions across
-8~subtypes) tests row-level provenance tracing and forward impact
-analysis. DW-Bench spans \textbf{5~datasets} (4~real-world, 1~synthetic)
-with \textbf{262~tables} and \textbf{3~difficulty levels}.
+Text-to-SQL benchmarks test whether a model can write the right query.
+They do not test whether it understands the schema it queries.
+A data warehouse schema is a graph: tables linked by foreign keys,
+rows anchored to source records through ETL lineage.
+Tracing that structure (finding join paths, detecting disconnected silos,
+propagating impact through lineage chains) is routine data engineering,
+but no existing benchmark measures it.
 
-We evaluate six baselines spanning the text-to-agentic spectrum:
-Flat~Text, Vector-RAG, Graph-Augmented, Tool-Use, ReAct-Code, and
-Oracle, using two frontier models: Gemini~2.5 Flash and DeepSeek-V3.
-\textbf{Tool-Use dominates} Tier~1 with 91\% micro-EM, outperforming
-all static baselines (69--81\%) by 10--22 percentage points. However,
-a \textbf{hard-task ceiling persists}: even Tool-Use plateaus at
-$\sim$60\% on hard questions while Oracle achieves 99\%, with
-\texttt{combined\_impact} at only 12\% EM. Tier~2 reveals that tools
-are \textbf{literally required} for value-level questions
-(\texttt{cascade\_count}: 100\% vs.\ 0\% without tools) yet
-\textbf{insufficient} overall (59\% EM), with multi-hop tracing (27\%)
-and shared-source detection (23\%) remaining unsolved---precisely the
-structural reasoning gap that learned graph representations (GNNs)
-are designed to fill.
+We present \textbf{DW-Bench}, a benchmark for graph topology reasoning
+over data warehouse schemas.  The schema-level split contains
+1,046~questions (13~subtypes, three difficulty levels, five datasets,
+262~tables).  A separate value-level split adds 953~provenance questions
+that require interactive row-level data access, a regime where
+context-window approaches cannot compete.  We run six baselines,
+from flat context injection to tool-calling and code execution,
+against Gemini~2.5 Flash, DeepSeek-V3, and Qwen2.5-72B.
 
-The benchmark, all results, and evaluation code are publicly available at
+Tool-augmented baselines reach 87--92\% micro-EM; static methods
+top out at 63--81\%.  The gap narrows on easy subtypes and widens
+on hard ones: no method exceeds 61\% while the oracle clears
+$\geq$99.7\%.  That gap is a reasoning problem.
+On value-level questions, tools flip \texttt{cascade\_count} from
+0\% to 100\%, but \texttt{row\_impact} stays at 16--17\% on real-world
+schemas.  Tool-use on real-world lineage outperforms the synthetic
+split because standard ETL patterns align with the tool API, whereas
+the synthetic schema was designed to maximize structural difficulty.
+Obfuscating table names drops static baselines 9--32~pp; tool-use
+loses under 4~pp.
+
+Code, data, and per-question results:
 \url{https://github.com/AJamal27891/dw-bench}.
 \end{abstract}

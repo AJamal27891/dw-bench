@@ -47,20 +47,13 @@ Model)~\cite{ohdsi2019omop} is a healthcare standard with 37 tables, 74
 FK edges, and 21 lineage edges across 3 connected components (clinical
 data, vocabulary tables, and metadata).
 
-\textbf{Syn-Logistics}~is a synthetic supply-chain data warehouse with 64
-tables modeled across 5 connected components (carrier, procurement,
-healthcare, finance, HR). It was specifically designed to address the
-statistical power limitation of the real-world corpus: every subtype has
-$n\geq20$ questions, enabling reliable per-subtype conclusions. The
-schema uses a Domain Dictionary of realistic table names to prevent
-semantic collapse under obfuscation.
+\textbf{Syn-Logistics}~is our own synthetic supply-chain schema: 64
+tables, 5 connected components (carrier, procurement, healthcare, finance,
+HR).  We built it to fix a statistical-power problem in the real-world
+corpus: every subtype gets $n \geq 20$ questions.  Table names come from
+a domain dictionary so obfuscation does not collapse semantics.
 
 \subsection{Schema Graph Representation}
-
-% FIGURE 2: Example schema graph
-% [FIGURE 2 PLACEHOLDER: A subgraph of AdventureWorks showing
-% both FK (solid blue) and lineage (dashed orange) edges,
-% with OLTP layer on left and DW layer on right]
 
 Each dataset is represented as a heterogeneous graph $G = (V, E_{fk} \cup
 E_{lin})$ using PyTorch Geometric~\cite{fey2019pyg}
@@ -84,6 +77,16 @@ Questions are generated deterministically from the graph structure using
 standard graph algorithms (BFS, Dijkstra, connected component detection)
 implemented with NetworkX~\cite{networkx2008}, ensuring ground-truth
 answers are provably correct. We define three categories with 13 subtypes:
+
+\paragraph{Difficulty assignment.}
+Difficulty labels are assigned a priori based on structural complexity,
+following the precedent of Spider~\cite{yu2018spider} (which uses SQL AST
+depth) and BIRD~\cite{li2023bird}.  Easy subtypes require a single graph
+lookup (one hop, one edge type).  Medium subtypes require multi-hop
+traversal within a single edge type.  Hard subtypes require either
+multi-hop transitive closure or composition across both FK and lineage
+edge types.  These labels are fixed properties of the question structure,
+independent of any model's empirical performance.
 
 % TABLE 2: Question Taxonomy
 \begin{table}[t]

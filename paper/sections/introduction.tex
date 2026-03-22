@@ -3,57 +3,46 @@
 % ============================================================================
 \section{Introduction}
 
-% FIGURE 1: The Gap Statement
-% [FIGURE 1 PLACEHOLDER: Side-by-side comparison showing:
-% Left: Spider/BIRD task (text-to-SQL) - LLMs excel
-% Right: DW-Bench task (graph topology) - LLMs struggle]
+Text-to-SQL has made rapid progress: state-of-the-art LLMs now approach or
+match human-level accuracy on Spider~\cite{yu2018spider},
+BIRD~\cite{li2023bird}, and Spider~2.0~\cite{lei2024spider2}, all of which
+measure a model's capacity to translate a natural-language question into a SQL
+query.
 
-The rapid advancement of Large Language Models (LLMs) has transformed
-database interaction, with state-of-the-art models achieving
-human-competitive accuracy on text-to-SQL benchmarks such as
-Spider~\cite{yu2018spider}, BIRD~\cite{li2023bird}, and
-Spider~2.0~\cite{lei2024spider2}. These benchmarks evaluate whether an LLM
-can translate a natural language question into a SQL query against a given
-schema.
-
-However, SQL generation represents only one facet of database understanding.
-Data warehouse environments require a fundamentally different class of
-reasoning: understanding the \emph{graph topology} of schema
-relationships. A data engineer maintaining an enterprise warehouse must
-routinely answer questions such as:
+Data warehouses, on the other hand, present a different kind of problem.
+A data engineer maintaining an enterprise warehouse does not primarily write
+SQL.  Instead, they trace graph structure: lineage edges, FK paths,
+disconnected schema silos.  Common questions include:
 
 \begin{itemize}
-  \item \emph{``If the \texttt{Person} table changes, which downstream
-    tables are affected through data lineage?''} (impact analysis)
+  \item \emph{``If the \texttt{Person} table changes, which downstream tables
+    are affected through data lineage?''} (impact analysis)
   \item \emph{``Which tables form disconnected silos in our schema graph?''}
     (connectivity analysis)
   \item \emph{``What is the shortest FK path between two tables?''}
     (routing)
 \end{itemize}
 
-These tasks require \textbf{graph traversal}---BFS, connected component
-detection, multi-hop path finding---not SQL generation. Yet no existing
-benchmark evaluates LLMs on these capabilities.
+Answering these questions demands BFS, connected-component detection, and
+multi-hop path enumeration.  No existing benchmark assesses LLMs on any of
+these capabilities.
 
-\paragraph{Contributions.} We make the following contributions:
+\paragraph{Contributions.}
 \begin{enumerate}
-  \item \textbf{DW-Bench}: A two-tier benchmark of 1,046 schema-level and
-    433 value-level questions across 5 data warehouse schemas
-    (4 real-world, 1 synthetic), organized into 3 categories
-    (lineage impact, schema routing, silo detection), 13 subtypes,
-    and 3 difficulty levels.
-  \item \textbf{Six baselines} spanning the text-only to agentic
-    spectrum (Flat Text, Vector-RAG, Graph-Augmented, Tool-Use,
-    ReAct-Code, Oracle), evaluated with two frontier models
-    (Gemini~2.5 Flash, DeepSeek-V3).
+  \item \textbf{DW-Bench}: 1,046 schema-level and 953 value-level questions
+    across 5 data warehouse schemas (4 real-world, 1 synthetic), covering
+    3 categories (lineage impact, schema routing, silo detection),
+    13 subtypes, and 3 difficulty levels.
+  \item \textbf{Six baselines} (Flat Text, Vector-RAG, Graph-Augmented,
+    Tool-Use, ReAct-Code, Oracle), tested with Gemini~2.5 Flash,
+    DeepSeek-V3, and Qwen2.5-72B.
   \item \textbf{An obfuscation protocol} that randomizes table names,
-    enabling controlled evaluation of memorization versus genuine
-    topology understanding.
-  \item \textbf{Syn-Logistics}: A synthetic dataset with $n\geq20$ per
-    subtype, addressing statistical power limitations and revealing a
-    \emph{model-dependent structural gap}: Gemini achieves 98--100\% on
-    \texttt{hop\_count}/\texttt{count} while DeepSeek scores as low as
+    enabling controlled evaluation of memorization versus genuine topology
+    understanding.
+  \item \textbf{Syn-Logistics}: A synthetic dataset with $n \geq 20$ per
+    subtype.  It exposes a model-dependent structural gap: Gemini scores
+    93--100\% on \texttt{hop\_count}/\texttt{count}, while DeepSeek drops to
     27--48\% on the same subtypes.
-  \item \textbf{Open-source release} of all datasets, evaluation code,
-    and baseline implementations.
+  \item \textbf{Open-source release} of all datasets, evaluation code, and
+    baseline implementations.
 \end{enumerate}

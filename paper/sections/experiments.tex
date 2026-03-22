@@ -133,7 +133,10 @@ questions while Oracle (dashed) achieves 100\%.}
 target-node normalization, TU now averages 71\% on
 \texttt{membership} (with Qwen reaching 100\%), indicating that topology enumeration is fully
 solvable with tools.  \texttt{combined\_impact} remains at 0--17\%,
-isolating compositional multi-hop reasoning as the core bottleneck.}
+isolating compositional multi-hop reasoning as the core bottleneck.
+\texttt{full\_enumeration} scores 100\% for FT/GA because these
+questions are answered from the full schema context that Flat Text
+and Graph-Augmented inject by default for global graph queries.}
 \label{fig:heatmap}
 \end{figure*}
 
@@ -186,14 +189,19 @@ name perturbation.
 
 Tier~2 tests value-level questions requiring interactive row-level data
 access (953~questions, 8~subtypes, AdventureWorks + Syn-Logistics).
+The three remaining Tier~1 datasets (TPC-DS, TPC-DI, OMOP) are
+schema-only releases with no row-level data;~value-level evaluation
+is impossible on them by construction, making AdventureWorks and
+Syn-Logistics the only applicable datasets for Tier~2.
 TU$_{v2}$ achieves 59\% EM (Gemini) and 48\% (DeepSeek) versus 26--31\%
 for static baselines.  Both models confirm the same pattern: tools are
-\textbf{essential} (\texttt{cascade\_count} averages 75\% with tools vs.\ 0\% without, reaching 100\% on some schemas; both
-models) yet \textbf{insufficient} (\texttt{multi\_hop\_trace}: 27\%
+\textbf{essential} (\texttt{cascade\_count} averages 75\% with tools
+vs.\ 0\% without across both datasets, reaching 100\% on Syn-Logistics;
+both models) yet \textbf{insufficient} (\texttt{multi\_hop\_trace}: 27\%
 both models).  DeepSeek's lower TU score is driven by
 \texttt{row\_provenance} (11\% vs.\ 92\%)---it identifies correct
 source tables but fails to parse structured row-level tool output.
-Full results in Appendix.
+Full per-subtype results in Appendix.
 
 \subsection{Discussion}
 

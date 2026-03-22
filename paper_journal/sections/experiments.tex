@@ -120,7 +120,9 @@ of Oracle on long paths.}
 \caption{Tier~1 EM~(\%) by subtype for both models.
 \texttt{combined\_impact} and \texttt{membership} show near-zero
 performance across all baselines, identifying compositional
-reasoning as the core bottleneck.}
+reasoning as the core bottleneck.
+\texttt{full\_enumeration} achieves 100\% for FT/GA because global
+queries receive the full schema as context by design.}
 \label{fig:heatmap}
 \end{figure}
 
@@ -193,8 +195,12 @@ perturbation.
 \subsection{Tier~2: Value-Level Evaluation}
 
 Tier~2 extends evaluation to value-level questions requiring interactive
-data access.  We evaluate on 433 questions across 8 subtypes on
-Syn-Logistics (Table~\ref{tab:tier2}).
+data access.  The three remaining Tier~1 datasets (TPC-DS, TPC-DI, OMOP)
+are schema-only releases containing no row-level data; value-level
+evaluation is impossible on them by construction.  We therefore evaluate
+on the two datasets that provide actual row data: AdventureWorks
+(real-world, 520~questions) and Syn-Logistics (synthetic,
+433~questions), covering 8~subtypes (Table~\ref{tab:tier2}).
 
 \begin{figure}[t]
 \centering

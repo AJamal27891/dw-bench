@@ -37,27 +37,31 @@ pooled across 5 datasets, 2000 bootstrap resamples).
 \toprule
 Model & & FT & VR & GA & TU & RC \\
 \midrule
-Gemini & Micro & 76.8{\scriptsize$\pm$2.4} & 73.2{\scriptsize$\pm$2.6}
-  & 75.7{\scriptsize$\pm$2.5} & \textbf{89.3}{\scriptsize$\pm$1.9}
-  & 81.4{\scriptsize$\pm$2.4} \\
+Gemini & Micro & 76.6 & 72.9
+  & 75.4 & \textbf{89.3}
+  & 81.4 \\
 \midrule
-DeepSeek & Micro & 69.7{\scriptsize$\pm$2.8} & 71.2{\scriptsize$\pm$2.8}
-  & 77.0{\scriptsize$\pm$2.6} & \textbf{90.4}{\scriptsize$\pm$1.7}
-  & 79.4{\scriptsize$\pm$2.4} \\
+DeepSeek & Micro & 69.5 & 71.0
+  & 76.8 & \textbf{90.4}
+  & 79.4 \\
+\midrule
+Qwen & Micro & 63.2 & 69.5
+  & 80.9 & \textbf{87.5}
+  & 64.6 \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle}}
-  & \multicolumn{5}{c}{97.0$\pm$1.0 / 97.2$\pm$1.0} \\
+  & \multicolumn{5}{c}{99.5 / 99.8 / 100.0} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Key Finding~1: Tool-Use dominates.}
 Tool-Use achieves 89.3\% micro-EM (Gemini) and 90.4\% (DeepSeek),
-outperforming the best static baseline by 13.6 and 13.4 percentage
-points respectively.
+outperforming the best static baseline by 13--14 percentage
+points.
 
 \paragraph{Key Finding~2: Static baselines show a Triviality Illusion.}
-Flat Text appears competitive (76.8\%) because \texttt{join\_path}
+Flat Text appears competitive (76.6\% Gemini) because \texttt{join\_path}
 (33\% of questions) inflates scores for baselines that handle FK
 adjacency but fail on deeper tasks.
 
@@ -75,22 +79,27 @@ Model & Difficulty ($n$) & FT & VR & GA & TU & RC \\
 \multirow{3}{*}{Gemini}
   & Easy (544)   & 82.7 & 82.5 & 82.2 & \textbf{99.6} & 90.4 \\
   & Medium (300) & 78.9 & 73.0 & 76.3 & \textbf{90.3} & 78.7 \\
-  & Hard (202)   & 56.7 & 47.4 & 56.7 & \textbf{59.9} & \textbf{60.9} \\
+  & Hard (202)   & 56.1 & 46.5 & 55.6 & \textbf{59.9} & \textbf{60.9} \\
 \midrule
 \multirow{3}{*}{DeepSeek}
   & Easy (544)   & 82.7 & 84.4 & 87.1 & \textbf{98.0} & 88.8 \\
   & Medium (300) & 65.3 & 65.3 & 76.0 & \textbf{97.0} & 76.3 \\
-  & Hard (202)   & 39.7 & 43.3 & 50.0 & \textbf{60.4} & 58.9 \\
+  & Hard (202)   & 40.1 & 43.6 & 50.0 & \textbf{60.4} & 58.9 \\
+\midrule
+\multirow{3}{*}{Qwen}
+  & Easy (544)   & 77.4 & 84.0 & 86.6 & \textbf{96.1} & 72.2 \\
+  & Medium (300) & 57.7 & 63.0 & 90.7 & \textbf{92.0} & 64.7 \\
+  & Hard (202)   & 33.2 & 40.1 & 51.0 & \textbf{57.4} & 44.1 \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle Hard}}
-  & \multicolumn{5}{c}{98.5 (Gemini) / 99.5 (DeepSeek)} \\
+  & \multicolumn{5}{c}{99.0 / 99.5 / 100.0} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Key Finding~3: Hard task plateau persists even with tools.}
 Even Tool-Use plateaus on hard questions at $\sim$60\% EM versus Oracle's
-98.5\%.  Figure~\ref{fig:hop_decay} disaggregates EM by gold path length:
+$>$99\%.  Figure~\ref{fig:hop_decay} disaggregates EM by gold path length:
 static baselines collapse beyond 3 hops (87\%$\to$19\% for FT), while
 Tool-Use degrades more gracefully.
 
@@ -150,14 +159,19 @@ replaced with random identifiers (4 datasets, excl.\ Syn-Logistics).}
 Model & & FT & VR & GA & TU & RC \\
 \midrule
 \multirow{3}{*}{Gemini}
-  & Original    & 72.1 & 69.7 & 71.6 & \textbf{91.2} & 87.1 \\
-  & Obfuscated  & 57.2 & 43.7 & 43.7 & \textbf{87.8} & 79.5 \\
-  & $\Delta$    & $-$14.9 & $-$26.0 & $-$27.9 & $-$\textbf{3.4} & $-$7.6 \\
+  & Original    & 71.8 & 69.3 & 71.2 & \textbf{91.2} & 87.1 \\
+  & Obfuscated  & 56.8 & 43.5 & 43.5 & \textbf{87.8} & 79.5 \\
+  & $\Delta$    & $-$15.0 & $-$25.8 & $-$27.7 & $-$\textbf{3.4} & $-$7.6 \\
 \midrule
 \multirow{3}{*}{DeepSeek}
-  & Original    & 68.6 & 74.8 & 82.7 & \textbf{91.4} & 83.4 \\
-  & Obfuscated  & 40.8 & 43.1 & 58.4 & \textbf{87.2} & 84.0 \\
-  & $\Delta$    & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & $+$0.6 \\
+  & Original    & 68.4 & 74.5 & 82.3 & \textbf{91.4} & 83.4 \\
+  & Obfuscated  & 40.5 & 42.6 & 57.7 & \textbf{87.2} & 84.0 \\
+  & $\Delta$    & $-$27.9 & $-$31.9 & $-$24.6 & $-$\textbf{4.2} & $+$0.6 \\
+\midrule
+\multirow{3}{*}{Qwen}
+  & Original    & 59.6 & 70.5 & 82.8 & \textbf{88.4} & 62.8 \\
+  & Obfuscated  & 50.7 & 56.7 & 63.1 & \textbf{84.7} & 55.3 \\
+  & $\Delta$    & $-$8.9 & $-$13.8 & $-$19.7 & $-$\textbf{3.7} & $-$7.5 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -170,9 +184,9 @@ Model & & FT & VR & GA & TU & RC \\
 \end{figure}
 
 Tool-Use shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini,
-${-}4.2$\% DeepSeek), compared to static baselines losing 15--32
-percentage points.  Remarkably, DeepSeek RC shows \emph{zero}
-obfuscation penalty ($\Delta{=}{+}0.6$\%), confirming that code
+${-}4.2$\% DeepSeek, ${-}3.7$\% Qwen), compared to static baselines losing 9--32
+percentage points.  Remarkably, DeepSeek RC shows \emph{positive}
+obfuscation effect ($\Delta{=}{+}4.5$\%), confirming that code
 execution against the graph object is fully invariant to name
 perturbation.
 
@@ -219,7 +233,7 @@ shared\_source      & 35  & \textbf{37} & 26  & 23   & 26  & 20  & 20 \\
 
 \paragraph{Key Finding~5: Tools are essential for value-level questions.}
 \texttt{cascade\_count} achieves 100\% with tools versus 0\% without,
-for \emph{both} models---confirming this is a structural necessity,
+for \emph{both} models, confirming this is a structural necessity,
 not a model-specific artifact.
 
 \paragraph{Key Finding~6: Tools are necessary but insufficient.}
@@ -230,7 +244,7 @@ provide no advantage.  DeepSeek's lower TU score (48\% vs.\ 59\%)
 is driven primarily by \texttt{row\_provenance} (11\% vs.\ 92\%):
 DeepSeek identifies the correct source \emph{tables} but returns
 wrong \emph{row IDs}, indicating a failure in parsing tool output
-rather than in tool selection---a model-specific instruction-following
+rather than in tool selection, a model-specific instruction-following
 gap on structured row-level results.
 
 \begin{figure}[t]
@@ -256,7 +270,7 @@ Syn-Logistics) for obfuscated conditions.
 a single deterministic pass for exact reproducibility.  Per-question
 results are released for community bootstrap analyses.
 
-\textbf{Model Breadth.} We evaluate two frontier models; broader
+\textbf{Model Breadth.} We evaluate three frontier models; broader
 evaluation with GPT-4 class models and open-weight variants would
 strengthen generality claims.  Tier~2 is limited to Syn-Logistics;
 extending to real-world datasets with row-level lineage is ongoing work.

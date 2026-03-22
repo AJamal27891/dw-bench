@@ -376,18 +376,23 @@
       "gold_answer": [
         "concept"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "concept"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "reverse",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence, which is the output of the graph algorithm, is empty. This indicates that no source tables were found from which 'device_exposure' is derived.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables from which 'device_exposure' is derived.\",\n  \"answer\": [\n    \"concept\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "concept"
+      ]
     },
     {
       "id": "omop_cdm_lineage_rev_012",
@@ -675,7 +680,8 @@
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0
-      }
+      },
+      "model_answer": null
     },
     {
       "id": "omop_cdm_lineage_combined_024",
@@ -1117,16 +1123,17 @@
       "id": "omop_cdm_silo_isolated_005",
       "question": "Are source_to_concept_map and metadata connected through any chain of foreign key relationships?",
       "gold_answer": false,
-      "predicted_answer": true,
+      "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states 'Isolation check result: False', which indicates that the two tables, source_to_concept_map and metadata, are indeed connected through a chain of foreign key relationships. If they were isolated, the result would be True.\",\n  \"answer\": true\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states that 'source_to_concept_map' and 'metadata' are NOT connected and belong to different disconnected silos, concluding with 'The answer to the question is: no'.\",\n  \"answer\": false\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0
+      },
+      "model_answer": false
     },
     {
       "id": "omop_cdm_silo_isolated_006",
@@ -1162,16 +1169,17 @@
       "id": "omop_cdm_silo_isolated_007",
       "question": "Are observation_period and metadata connected through any chain of foreign key relationships?",
       "gold_answer": false,
-      "predicted_answer": true,
+      "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence states 'Isolation check result: False'. This indicates that the two tables, observation_period and metadata, are not isolated from each other, meaning they are connected through foreign key relationships.\",\n  \"answer\": true\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle explicitly states that the tables 'observation_period' and 'metadata' are NOT connected and belong to different disconnected silos, directly answering the question with 'no'.\",\n  \"answer\": false\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0
+      },
+      "model_answer": false
     },
     {
       "id": "omop_cdm_silo_isolated_010",

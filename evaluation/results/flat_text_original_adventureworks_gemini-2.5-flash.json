@@ -8764,6 +8764,166 @@
         "exact_match": true,
         "f1": 1.0
       }
+    },
+    {
+      "id": "adventureworks_lineage_combined_047",
+      "question": "If OLTP.Sales.SalesReason changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.DimSalesReason",
+        "DW.dbo.FactInternetSalesReason",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
+      ],
+      "predicted_answer": [
+        "DW.dbo.DimSalesReason",
+        "DW.dbo.FactInternetSalesReason",
+        "OLTP.Sales.SalesOrderHeaderSalesReason",
+        "OLTP.Sales.SalesReason"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "The listed tables are directly affected by foreign key dependencies on OLTP.Sales.SalesReason, or are derived from it. No further indirect dependencies were found.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Sales.SalesReason",
+          "OLTP.Sales.SalesOrderHeaderSalesReason",
+          "DW.dbo.FactInternetSalesReason",
+          "DW.dbo.DimSalesReason"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The listed tables are directly affected by foreign key dependencies on OLTP.Sales.SalesReason, or are derived from it. No further indirect dependencies were found.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Sales.SalesReason\",\n    \"OLTP.Sales.SalesOrderHeaderSalesReason\",\n    \"DW.dbo.FactInternetSalesReason\",\n    \"DW.dbo.DimSalesReason\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The listed tables are directly affected by foreign key dependencies on OLTP.Sales.SalesReason, or are derived from it. No further indirect dependencies were found.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8571,
+        "precision": 0.75,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_058",
+      "question": "If OLTP.Purchasing.Vendor changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.ProductVendor",
+        "OLTP.Purchasing.PurchaseOrderHeader"
+      ],
+      "predicted_answer": [
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.ProductVendor",
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Purchasing.PurchaseOrderHeader"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Tables with FK dependencies on OLTP.Purchasing.Vendor are OLTP.Purchasing.ProductVendor and OLTP.Purchasing.PurchaseOrderHeader. OLTP.Purchasing.PurchaseOrderDetail has an FK dependency on OLTP.Purchasing.PurchaseOrderHeader. DW.dbo.FactProductInventory is derived from OLTP.Purchasing.Vendor, OLTP.Purchasing.PurchaseOrderHeader, and OLTP.Purchasing.PurchaseOrderDetail.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Purchasing.ProductVendor",
+          "OLTP.Purchasing.PurchaseOrderHeader",
+          "DW.dbo.FactProductInventory",
+          "OLTP.Purchasing.PurchaseOrderDetail"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Tables with FK dependencies on OLTP.Purchasing.Vendor are OLTP.Purchasing.ProductVendor and OLTP.Purchasing.PurchaseOrderHeader. OLTP.Purchasing.PurchaseOrderDetail has an FK dependency on OLTP.Purchasing.PurchaseOrderHeader. DW.dbo.FactProductInventory is derived from OLTP.Purchasing.Vendor, OLTP.Purchasing.PurchaseOrderHeader, and OLTP.Purchasing.PurchaseOrderDetail.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Purchasing.ProductVendor\",\n    \"OLTP.Purchasing.PurchaseOrderHeader\",\n    \"DW.dbo.FactProductInventory\",\n    \"OLTP.Purchasing.PurchaseOrderDetail\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tables with FK dependencies on OLTP.Purchasing.Vendor are OLTP.Purchasing.ProductVendor and OLTP.Purchasing.PurchaseOrderHeader. OLTP.Purchasing.PurchaseOrderDetail has an FK dependency on OLTP.Purchasing.PurchaseOrderHeader. DW.dbo.FactProductInventory is derived from OLTP.Purchasing.Vendor, OLTP.Purchasing.PurchaseOrderHeader, and OLTP.Purchasing.PurchaseOrderDetail.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.8571,
+        "precision": 0.75,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_061",
+      "question": "If OLTP.Purchasing.PurchaseOrderHeader changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.PurchaseOrderDetail"
+      ],
+      "predicted_answer": [
+        "DW.dbo.FactProductInventory",
+        "OLTP.Purchasing.PurchaseOrderDetail"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "OLTP.Purchasing.PurchaseOrderDetail has a foreign key to OLTP.Purchasing.PurchaseOrderHeader. DW.dbo.FactProductInventory is derived from OLTP.Purchasing.PurchaseOrderHeader and OLTP.Purchasing.PurchaseOrderDetail.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Purchasing.PurchaseOrderDetail",
+          "DW.dbo.FactProductInventory"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "OLTP.Purchasing.PurchaseOrderDetail has a foreign key to OLTP.Purchasing.PurchaseOrderHeader. DW.dbo.FactProductInventory is derived from OLTP.Purchasing.PurchaseOrderHeader and OLTP.Purchasing.PurchaseOrderDetail.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Purchasing.PurchaseOrderDetail\",\n    \"DW.dbo.FactProductInventory\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"OLTP.Purchasing.PurchaseOrderDetail has a foreign key to OLTP.Purchasing.PurchaseOrderHeader. DW.dbo.FactProductInventory is derived from OLTP.Purchasing.PurchaseOrderHeader and OLTP.Purchasing.PurchaseOrderDetail.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_062",
+      "question": "If OLTP.Sales.CurrencyRate changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.FactCurrencyRate",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "predicted_answer": [
+        "DW.dbo.FactCurrencyRate",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Tracing dependencies from OLTP.Sales.CurrencyRate: OLTP.Sales.SalesOrderHeader has an FK to it, and DW.dbo.FactCurrencyRate is derived from it. Further tracing these tables reveals additional FK and DERIVED_FROM dependencies, leading to the final list of affected tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Sales.SalesOrderHeader",
+          "DW.dbo.FactCurrencyRate",
+          "OLTP.Sales.SalesOrderDetail",
+          "OLTP.Sales.SalesOrderHeaderSalesReason",
+          "DW.dbo.FactResellerSales",
+          "DW.dbo.FactInternetSales",
+          "DW.dbo.FactInternetSalesReason"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Tracing dependencies from OLTP.Sales.CurrencyRate: OLTP.Sales.SalesOrderHeader has an FK to it, and DW.dbo.FactCurrencyRate is derived from it. Further tracing these tables reveals additional FK and DERIVED_FROM dependencies, leading to the final list of affected tables.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"OLTP.Sales.SalesOrderHeader\",\n    \"DW.dbo.FactCurrencyRate\",\n    \"OLTP.Sales.SalesOrderDetail\",\n    \"OLTP.Sales.SalesOrderHeaderSalesReason\",\n    \"DW.dbo.FactResellerSales\",\n    \"DW.dbo.FactInternetSales\",\n    \"DW.dbo.FactInternetSalesReason\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tracing dependencies from OLTP.Sales.CurrencyRate: OLTP.Sales.SalesOrderHeader has an FK to it, and DW.dbo.FactCurrencyRate is derived from it. Further tracing these tables reveals additional FK and DERIVED_FROM dependencies, leading to the final list of affected tables.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4444,
+        "precision": 0.2857,
+        "recall": 1.0
+      }
     }
   ],
   "summary": {

@@ -10,7 +10,7 @@ human-competitive accuracy on text-to-SQL benchmarks such as
 Spider~\cite{yu2018spider}, BIRD~\cite{li2023bird}, and
 Spider~2.0~\cite{lei2024spider2}.  These benchmarks evaluate whether an LLM
 can translate a natural language question into a SQL query against a given
-schema.  However, SQL generation represents only one facet of database
+schema.  Yet SQL generation represents only one facet of database
 understanding.
 
 Data warehouse environments require a fundamentally different class of
@@ -54,8 +54,8 @@ We make the following contributions:
 
   \item \textbf{Six baselines} spanning the text-only to agentic spectrum
     (Flat Text, Vector-RAG, Graph-Augmented, Tool-Use, ReAct-Code, and
-    Oracle), evaluated with two frontier models (Gemini~2.5 Flash,
-    DeepSeek-V3), providing a comprehensive analysis of how different
+    Oracle), evaluated with three frontier models (Gemini~2.5 Flash,
+    DeepSeek-V3, and Qwen2.5-72B), providing a systematic analysis of how different
     context injection strategies affect graph topology reasoning.
 
   \item \textbf{A two-tier evaluation framework}: Tier~1 tests schema-level
@@ -66,7 +66,7 @@ We make the following contributions:
   \item \textbf{An obfuscation protocol} that randomizes table names,
     enabling controlled evaluation of memorization versus genuine topology
     understanding, revealing that tool-based approaches are nearly
-    obfuscation-invariant while static approaches lose 15--32\% EM.
+    obfuscation-invariant while static approaches lose 9--32\% EM.
 
   \item \textbf{Syn-Logistics}: A synthetic dataset with $n\geq20$ per
     subtype, addressing statistical power limitations of the real-world

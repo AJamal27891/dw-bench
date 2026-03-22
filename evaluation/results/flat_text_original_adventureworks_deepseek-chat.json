@@ -10185,6 +10185,475 @@
         "exact_match": true,
         "f1": 1.0
       }
+    },
+    {
+      "id": "adventureworks_lineage_combined_065",
+      "question": "If OLTP.Sales.SalesOrderDetail changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales"
+      ],
+      "predicted_answer": [
+        "DW.dbo.DimCurrency",
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimDate",
+        "DW.dbo.DimProduct",
+        "DW.dbo.DimPromotion",
+        "DW.dbo.DimSalesReason",
+        "DW.dbo.DimSalesTerritory",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SalesOrderHeader",
+        "OLTP.Sales.SpecialOfferProduct"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "OLTP.Sales.SalesOrderDetail has direct FK to OLTP.Sales.SalesOrderHeader and OLTP.Sales.SpecialOfferProduct, and DERIVED_FROM relationships to DW tables, affecting those and their dependent tables via data lineage.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Sales.SalesOrderHeader",
+          "OLTP.Sales.SpecialOfferProduct",
+          "DW.dbo.FactResellerSales",
+          "DW.dbo.FactInternetSales",
+          "DW.dbo.FactInternetSalesReason",
+          "DW.dbo.DimProduct",
+          "DW.dbo.DimCurrency",
+          "DW.dbo.DimCustomer",
+          "DW.dbo.DimDate",
+          "DW.dbo.DimPromotion",
+          "DW.dbo.DimSalesTerritory",
+          "DW.dbo.DimSalesReason"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "OLTP.Sales.SalesOrderDetail has direct FK to OLTP.Sales.SalesOrderHeader and OLTP.Sales.SpecialOfferProduct, and DERIVED_FROM relationships to DW tables, affecting those and their dependent tables via data lineage.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SpecialOfferProduct\", \"DW.dbo.FactResellerSales\", \"DW.dbo.FactInternetSales\", \"DW.dbo.FactInternetSalesReason\", \"DW.dbo.DimProduct\", \"DW.dbo.DimCurrency\", \"DW.dbo.DimCustomer\", \"DW.dbo.DimDate\", \"DW.dbo.DimPromotion\", \"DW.dbo.DimSalesTerritory\", \"DW.dbo.DimSalesReason\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"OLTP.Sales.SalesOrderDetail has direct FK to OLTP.Sales.SalesOrderHeader and OLTP.Sales.SpecialOfferProduct, and DERIVED_FROM relationships to DW tables, affecting those and their dependent tables via data lineage.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.25,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_066",
+      "question": "If OLTP.Person.EmailAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.DimCustomer",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactSurveyResponse"
+      ],
+      "predicted_answer": [
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimEmployee",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactResellerSales",
+        "DW.dbo.FactSurveyResponse",
+        "OLTP.Person.Person"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "OLTP.Person.EmailAddress has a foreign key to OLTP.Person.Person, which connects to DW.dbo.DimCustomer and DW.dbo.DimEmployee via DERIVED_FROM, and these affect fact tables through foreign keys.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Person.Person",
+          "DW.dbo.DimCustomer",
+          "DW.dbo.DimEmployee",
+          "DW.dbo.FactInternetSales",
+          "DW.dbo.FactResellerSales",
+          "DW.dbo.FactSurveyResponse"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "OLTP.Person.EmailAddress has a foreign key to OLTP.Person.Person, which connects to DW.dbo.DimCustomer and DW.dbo.DimEmployee via DERIVED_FROM, and these affect fact tables through foreign keys.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Person.Person\", \"DW.dbo.DimCustomer\", \"DW.dbo.DimEmployee\", \"DW.dbo.FactInternetSales\", \"DW.dbo.FactResellerSales\", \"DW.dbo.FactSurveyResponse\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"OLTP.Person.EmailAddress has a foreign key to OLTP.Person.Person, which connects to DW.dbo.DimCustomer and DW.dbo.DimEmployee via DERIVED_FROM, and these affect fact tables through foreign keys.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_067",
+      "question": "If OLTP.HumanResources.Employee changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.DimEmployee",
+        "DW.dbo.FactResellerSales",
+        "DW.dbo.FactSalesQuota",
+        "OLTP.HumanResources.EmployeeDepartmentHistory",
+        "OLTP.HumanResources.EmployeePayHistory",
+        "OLTP.HumanResources.JobCandidate",
+        "OLTP.Production.Document",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Sales.SalesPerson"
+      ],
+      "predicted_answer": [
+        "DW.dbo.DimCurrency",
+        "DW.dbo.DimCustomer",
+        "DW.dbo.DimDepartmentGroup",
+        "DW.dbo.DimEmployee",
+        "DW.dbo.DimGeography",
+        "DW.dbo.DimProduct",
+        "DW.dbo.DimProductCategory",
+        "DW.dbo.DimProductSubcategory",
+        "DW.dbo.DimPromotion",
+        "DW.dbo.DimSalesReason",
+        "DW.dbo.DimSalesTerritory",
+        "DW.dbo.FactCurrencyRate",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales",
+        "DW.dbo.FactSalesQuota",
+        "OLTP.HumanResources.EmployeeDepartmentHistory",
+        "OLTP.HumanResources.EmployeePayHistory",
+        "OLTP.HumanResources.JobCandidate",
+        "OLTP.Person.Address",
+        "OLTP.Person.CountryRegion",
+        "OLTP.Person.EmailAddress",
+        "OLTP.Person.Password",
+        "OLTP.Person.Person",
+        "OLTP.Person.PersonPhone",
+        "OLTP.Person.StateProvince",
+        "OLTP.Production.BillOfMaterials",
+        "OLTP.Production.Document",
+        "OLTP.Production.ProductCostHistory",
+        "OLTP.Production.ProductDocument",
+        "OLTP.Production.ProductInventory",
+        "OLTP.Production.ProductListPriceHistory",
+        "OLTP.Production.ProductProductPhoto",
+        "OLTP.Production.ProductReview",
+        "OLTP.Production.TransactionHistory",
+        "OLTP.Production.WorkOrder",
+        "OLTP.Production.WorkOrderRouting",
+        "OLTP.Purchasing.ProductVendor",
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Sales.CreditCard",
+        "OLTP.Sales.Currency",
+        "OLTP.Sales.CurrencyRate",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.PersonCreditCard",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader",
+        "OLTP.Sales.SalesOrderHeaderSalesReason",
+        "OLTP.Sales.SalesPerson",
+        "OLTP.Sales.SalesPersonQuotaHistory",
+        "OLTP.Sales.SalesReason",
+        "OLTP.Sales.SalesTaxRate",
+        "OLTP.Sales.SalesTerritory",
+        "OLTP.Sales.SalesTerritoryHistory",
+        "OLTP.Sales.SpecialOffer",
+        "OLTP.Sales.SpecialOfferProduct",
+        "OLTP.Sales.Store"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Tables affected include direct FK dependencies on Employee, indirect dependencies via Person and other tables, and data lineage through derived relationships to DW tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.HumanResources.EmployeePayHistory",
+          "OLTP.HumanResources.EmployeeDepartmentHistory",
+          "OLTP.HumanResources.JobCandidate",
+          "OLTP.Production.Document",
+          "OLTP.Purchasing.PurchaseOrderHeader",
+          "OLTP.Sales.SalesPerson",
+          "OLTP.Person.Person",
+          "OLTP.Sales.Customer",
+          "OLTP.Person.EmailAddress",
+          "OLTP.Person.Password",
+          "OLTP.Sales.PersonCreditCard",
+          "OLTP.Person.PersonPhone",
+          "OLTP.Sales.SalesTerritoryHistory",
+          "OLTP.Sales.Store",
+          "OLTP.Sales.SalesOrderHeader",
+          "OLTP.Sales.SalesPersonQuotaHistory",
+          "OLTP.Sales.SalesOrderDetail",
+          "OLTP.Sales.SalesOrderHeaderSalesReason",
+          "OLTP.Sales.SpecialOfferProduct",
+          "OLTP.Production.TransactionHistory",
+          "OLTP.Production.WorkOrder",
+          "OLTP.Production.BillOfMaterials",
+          "OLTP.Production.ProductCostHistory",
+          "OLTP.Production.ProductDocument",
+          "OLTP.Production.ProductInventory",
+          "OLTP.Production.ProductListPriceHistory",
+          "OLTP.Production.ProductProductPhoto",
+          "OLTP.Production.ProductReview",
+          "OLTP.Purchasing.ProductVendor",
+          "OLTP.Purchasing.PurchaseOrderDetail",
+          "OLTP.Production.WorkOrderRouting",
+          "OLTP.Sales.CreditCard",
+          "OLTP.Sales.CurrencyRate",
+          "OLTP.Sales.SalesTaxRate",
+          "OLTP.Person.Address",
+          "OLTP.Person.StateProvince",
+          "OLTP.Person.CountryRegion",
+          "OLTP.Sales.SalesTerritory",
+          "OLTP.Sales.Currency",
+          "OLTP.Sales.SpecialOffer",
+          "OLTP.Sales.SalesReason",
+          "DW.dbo.DimEmployee",
+          "DW.dbo.FactResellerSales",
+          "DW.dbo.FactSalesQuota",
+          "DW.dbo.FactInternetSales",
+          "DW.dbo.FactInternetSalesReason",
+          "DW.dbo.DimSalesTerritory",
+          "DW.dbo.DimGeography",
+          "DW.dbo.DimCustomer",
+          "DW.dbo.DimProduct",
+          "DW.dbo.DimPromotion",
+          "DW.dbo.DimCurrency",
+          "DW.dbo.DimSalesReason",
+          "DW.dbo.FactCurrencyRate",
+          "DW.dbo.DimDepartmentGroup",
+          "DW.dbo.DimProductCategory",
+          "DW.dbo.DimProductSubcategory"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Tables affected include direct FK dependencies on Employee, indirect dependencies via Person and other tables, and data lineage through derived relationships to DW tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.HumanResources.EmployeePayHistory\", \"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.JobCandidate\", \"OLTP.Production.Document\", \"OLTP.Purchasing.PurchaseOrderHeader\", \"OLTP.Sales.SalesPerson\", \"OLTP.Person.Person\", \"OLTP.Sales.Customer\", \"OLTP.Person.EmailAddress\", \"OLTP.Person.Password\", \"OLTP.Sales.PersonCreditCard\", \"OLTP.Person.PersonPhone\", \"OLTP.Sales.SalesTerritoryHistory\", \"OLTP.Sales.Store\", \"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SalesPersonQuotaHistory\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.SalesOrderHeaderSalesReason\", \"OLTP.Sales.SpecialOfferProduct\", \"OLTP.Production.TransactionHistory\", \"OLTP.Production.WorkOrder\", \"OLTP.Production.BillOfMaterials\", \"OLTP.Production.ProductCostHistory\", \"OLTP.Production.ProductDocument\", \"OLTP.Production.ProductInventory\", \"OLTP.Production.ProductListPriceHistory\", \"OLTP.Production.ProductProductPhoto\", \"OLTP.Production.ProductReview\", \"OLTP.Purchasing.ProductVendor\", \"OLTP.Purchasing.PurchaseOrderDetail\", \"OLTP.Production.WorkOrderRouting\", \"OLTP.Sales.CreditCard\", \"OLTP.Sales.CurrencyRate\", \"OLTP.Sales.SalesTaxRate\", \"OLTP.Person.Address\", \"OLTP.Person.StateProvince\", \"OLTP.Person.CountryRegion\", \"OLTP.Sales.SalesTerritory\", \"OLTP.Sales.Currency\", \"OLTP.Sales.SpecialOffer\", \"OLTP.Sales.SalesReason\", \"DW.dbo.DimEmployee\", \"DW.dbo.FactResellerSales\", \"DW.dbo.FactSalesQuota\", \"DW.dbo.FactInternetSales\", \"DW.dbo.FactInternetSalesReason\", \"DW.dbo.DimSalesTerritory\", \"DW.dbo.DimGeography\", \"DW.dbo.DimCustomer\", \"DW.dbo.DimProduct\", \"DW.dbo.DimPromotion\", \"DW.dbo.DimCurrency\", \"DW.dbo.DimSalesReason\", \"DW.dbo.FactCurrencyRate\", \"DW.dbo.DimDepartmentGroup\", \"DW.dbo.DimProductCategory\", \"DW.dbo.DimProductSubcategory\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tables affected include direct FK dependencies on Employee, indirect dependencies via Person and other tables, and data lineage through derived relationships to DW tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.2727,
+        "precision": 0.1579,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_068",
+      "question": "If OLTP.Sales.SalesOrderHeader changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
+      ],
+      "predicted_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Person.Address",
+        "OLTP.Purchasing.ShipMethod",
+        "OLTP.Sales.CreditCard",
+        "OLTP.Sales.CurrencyRate",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeaderSalesReason",
+        "OLTP.Sales.SalesPerson",
+        "OLTP.Sales.SalesTerritory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Tables with direct FK dependencies on SalesOrderHeader are listed, and derived tables from DW are affected via data lineage.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Sales.SalesOrderDetail",
+          "OLTP.Sales.SalesOrderHeaderSalesReason",
+          "DW.dbo.FactResellerSales",
+          "DW.dbo.FactInternetSales",
+          "OLTP.Sales.SalesPerson",
+          "OLTP.Sales.SalesTerritory",
+          "OLTP.Purchasing.ShipMethod",
+          "OLTP.Person.Address",
+          "OLTP.Sales.CreditCard",
+          "OLTP.Sales.CurrencyRate",
+          "OLTP.Sales.Customer"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Tables with direct FK dependencies on SalesOrderHeader are listed, and derived tables from DW are affected via data lineage.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.SalesOrderHeaderSalesReason\", \"DW.dbo.FactResellerSales\", \"DW.dbo.FactInternetSales\", \"OLTP.Sales.SalesPerson\", \"OLTP.Sales.SalesTerritory\", \"OLTP.Purchasing.ShipMethod\", \"OLTP.Person.Address\", \"OLTP.Sales.CreditCard\", \"OLTP.Sales.CurrencyRate\", \"OLTP.Sales.Customer\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Tables with direct FK dependencies on SalesOrderHeader are listed, and derived tables from DW are affected via data lineage.\"\n}"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5,
+        "precision": 0.3636,
+        "recall": 0.8
+      }
+    },
+    {
+      "id": "adventureworks_lineage_multisrc_072",
+      "question": "DW.dbo.DimProduct integrates data from multiple sources. List ALL source tables that feed into DW.dbo.DimProduct.",
+      "gold_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Production.ProductCategory",
+        "OLTP.Production.ProductModel",
+        "OLTP.Production.ProductSubcategory"
+      ],
+      "predicted_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Production.ProductCategory",
+        "OLTP.Production.ProductModel",
+        "OLTP.Production.ProductSubcategory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "reasoning": "The context lists DERIVED_FROM relationships from OLTP tables to DW.dbo.DimProduct, indicating these are the source tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Production.Product",
+          "OLTP.Production.ProductSubcategory",
+          "OLTP.Production.ProductCategory",
+          "OLTP.Production.ProductModel"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context lists DERIVED_FROM relationships from OLTP tables to DW.dbo.DimProduct, indicating these are the source tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Production.Product\", \"OLTP.Production.ProductSubcategory\", \"OLTP.Production.ProductCategory\", \"OLTP.Production.ProductModel\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context lists DERIVED_FROM relationships from OLTP tables to DW.dbo.DimProduct, indicating these are the source tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_multisrc_073",
+      "question": "DW.dbo.FactInternetSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactInternetSales.",
+      "gold_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "predicted_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "reasoning": "The context lists DERIVED_FROM relationships from these OLTP tables to DW.dbo.FactInternetSales, indicating they are source tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Sales.SalesOrderHeader",
+          "OLTP.Sales.SalesOrderDetail",
+          "OLTP.Sales.Customer",
+          "OLTP.Production.Product"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The context lists DERIVED_FROM relationships from these OLTP tables to DW.dbo.FactInternetSales, indicating they are source tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.Customer\", \"OLTP.Production.Product\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The context lists DERIVED_FROM relationships from these OLTP tables to DW.dbo.FactInternetSales, indicating they are source tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_multisrc_074",
+      "question": "DW.dbo.FactProductInventory integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactProductInventory.",
+      "gold_answer": [
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Purchasing.Vendor"
+      ],
+      "predicted_answer": [
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Purchasing.Vendor"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "reasoning": "The relationships list shows three DERIVED_FROM edges from OLTP tables to DW.dbo.FactProductInventory, indicating these are the source tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Purchasing.PurchaseOrderDetail",
+          "OLTP.Purchasing.PurchaseOrderHeader",
+          "OLTP.Purchasing.Vendor"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The relationships list shows three DERIVED_FROM edges from OLTP tables to DW.dbo.FactProductInventory, indicating these are the source tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Purchasing.PurchaseOrderDetail\", \"OLTP.Purchasing.PurchaseOrderHeader\", \"OLTP.Purchasing.Vendor\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The relationships list shows three DERIVED_FROM edges from OLTP tables to DW.dbo.FactProductInventory, indicating these are the source tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "id": "adventureworks_lineage_multisrc_075",
+      "question": "DW.dbo.FactResellerSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactResellerSales.",
+      "gold_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "predicted_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "reasoning": "The relationships list shows four DERIVED_FROM edges from OLTP tables to DW.dbo.FactResellerSales, indicating these are the source tables.",
+      "api_failure": false,
+      "raw_response": {
+        "answer_list": [
+          "OLTP.Sales.SalesOrderHeader",
+          "OLTP.Sales.SalesOrderDetail",
+          "OLTP.Sales.Customer",
+          "OLTP.Production.Product"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "The relationships list shows four DERIVED_FROM edges from OLTP tables to DW.dbo.FactResellerSales, indicating these are the source tables.",
+        "_raw_text": "{\n  \"answer_list\": [\"OLTP.Sales.SalesOrderHeader\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.Customer\", \"OLTP.Production.Product\"],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"The relationships list shows four DERIVED_FROM edges from OLTP tables to DW.dbo.FactResellerSales, indicating these are the source tables.\"\n}"
+      },
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
     }
   ],
   "summary": {

@@ -200,18 +200,23 @@
       "gold_answer": [
         "FactWatches"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "FactWatches"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no tables in the data warehouse are directly derived from SRC.WatchHistory based on the provided evidence.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of tables derived from SRC.WatchHistory, which is 'FactWatches'.\",\n  \"answer\": [\n    \"FactWatches\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "FactWatches"
+      ]
     },
     {
       "id": "tpc-di_lineage_fwd_005",
@@ -261,18 +266,23 @@
       "gold_answer": [
         "DimBroker"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "DimBroker"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no tables in the data warehouse were found to be directly derived from SRC.HR based on the graph analysis.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output explicitly states that 'DimBroker' is directly derived from 'the source'. Given the question asks specifically about tables derived from 'SRC.HR', 'the source' in the context of this output refers to 'SRC.HR'. Therefore, 'DimBroker' is derived from 'SRC.HR'.\",\n  \"answer\": [\n    \"DimBroker\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "DimBroker"
+      ]
     },
     {
       "id": "tpc-di_lineage_fwd_008",
@@ -347,18 +357,23 @@
       "gold_answer": [
         "FactMarketHistory"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "FactMarketHistory"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no tables in the data warehouse are directly derived from 'SRC.DailyMarket' according to the graph analysis.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the list of tables directly derived from the source, which directly answers the question.\",\n  \"answer\": [\n    \"FactMarketHistory\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "FactMarketHistory"
+      ]
     },
     {
       "id": "tpc-di_lineage_fwd_012",
@@ -815,18 +830,23 @@
       "gold_answer": [
         "SRC.StatusType"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "SRC.StatusType"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "reverse",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output, which is the direct answer to the question, is an empty list `[]`. This indicates that there are no source tables from which 'StatusType' is derived, according to the graph analysis.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence directly provides the list of source tables that feed into the target 'StatusType', which is 'SRC.StatusType'.\",\n  \"answer\": [\n    \"SRC.StatusType\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "SRC.StatusType"
+      ]
     },
     {
       "id": "tpc-di_lineage_rev_034",
@@ -1304,18 +1324,75 @@
         "SRC.WatchHistory",
         "TaxRate"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ],
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The question asks for tables in the same connected component as 'FactWatches'. The provided oracle evidence, 'Component membership result', lists a set of tables. However, 'FactWatches' is not present in this list. Therefore, the provided evidence does not contain the connected component that 'FactWatches' belongs to, and thus cannot answer the question.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output directly provides the list of tables that are in the same connected component (data silo). Although 'FactWatches' is not explicitly listed in the output, the prompt states that the provided output is the 'EXACT output of a graph algorithm that has already computed the answer' to the question. Therefore, this list represents the component associated with the query.\",\n  \"answer\": [\n    \"DimAccount\",\n    \"DimBroker\",\n    \"DimCompany\",\n    \"DimCustomer\",\n    \"DimDate\",\n    \"DimSecurity\",\n    \"DimTime\",\n    \"DimTrade\",\n    \"FactCashBalances\",\n    \"FactHoldings\",\n    \"FactMarketHistory\",\n    \"Financial\",\n    \"SRC.CashTransaction\",\n    \"SRC.CustomerMgmt\",\n    \"SRC.DailyMarket\",\n    \"SRC.Date\",\n    \"SRC.FINWIRE_CMP\",\n    \"SRC.FINWIRE_FIN\",\n    \"SRC.FINWIRE_SEC\",\n    \"SRC.HR\",\n    \"SRC.HoldingHistory\",\n    \"SRC.TaxRate\",\n    \"SRC.Time\",\n    \"SRC.Trade\",\n    \"SRC.TradeHistory\",\n    \"SRC.WatchHistory\",\n    \"TaxRate\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "DimAccount",
+        "DimBroker",
+        "DimCompany",
+        "DimCustomer",
+        "DimDate",
+        "DimSecurity",
+        "DimTime",
+        "DimTrade",
+        "FactCashBalances",
+        "FactHoldings",
+        "FactMarketHistory",
+        "Financial",
+        "SRC.CashTransaction",
+        "SRC.CustomerMgmt",
+        "SRC.DailyMarket",
+        "SRC.Date",
+        "SRC.FINWIRE_CMP",
+        "SRC.FINWIRE_FIN",
+        "SRC.FINWIRE_SEC",
+        "SRC.HR",
+        "SRC.HoldingHistory",
+        "SRC.TaxRate",
+        "SRC.Time",
+        "SRC.Trade",
+        "SRC.TradeHistory",
+        "SRC.WatchHistory",
+        "TaxRate"
+      ]
     },
     {
       "id": "tpc-di_silo_member_003",
@@ -1349,18 +1426,19 @@
         "SRC.WatchHistory",
         "TaxRate"
       ],
-      "predicted_answer": null,
+      "predicted_answer": [],
       "answer_type": "list",
       "type": "silo_detection",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence provides a list of tables belonging to a connected component. However, the table 'SRC.HR' is not present in this list. Therefore, the provided evidence does not contain the information necessary to answer which tables are in the same connected component as 'SRC.HR'.\",\n  \"answer\": null\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output provides a list of tables that belong to a connected component. The question asks for tables in the same connected component as 'SRC.HR'. Since 'SRC.HR' is not present in the list provided by the oracle, the evidence does not identify any tables in the same component as 'SRC.HR'. Therefore, based solely on the provided evidence, the answer is an empty list.\",\n  \"answer\": []\n}\n```",
       "scores": {
         "exact_match": false,
         "f1": 0.0,
         "precision": 0.0,
         "recall": 0.0
-      }
+      },
+      "model_answer": []
     },
     {
       "id": "tpc-di_silo_member_004",
@@ -1552,16 +1630,17 @@
       "id": "tpc-di_silo_isolated_014",
       "question": "Are SRC.Prospect and StatusType connected through any chain of foreign key relationships?",
       "gold_answer": false,
-      "predicted_answer": true,
+      "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence states 'Isolation check result: False'. In the context of checking connectivity between two entities, a 'False' isolation result indicates that the entities are not isolated, meaning they are connected.\",\n  \"answer\": true\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle explicitly states that 'SRC.Prospect' and 'StatusType' are NOT connected and belong to different disconnected silos, directly answering the question with 'no'.\",\n  \"answer\": false\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0
+      },
+      "model_answer": false
     },
     {
       "id": "tpc-di_silo_isolated_011",

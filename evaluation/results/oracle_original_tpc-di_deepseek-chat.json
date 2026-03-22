@@ -477,18 +477,23 @@
       "gold_answer": [
         "DimSecurity"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "DimSecurity"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence explicitly states that the question subtype is 'forward' and the expected answer type is 'list'. It provides tables directly derived from the source as ['DimSecurity'], but the question asks about tables derived from 'DimCompany'. Since the evidence only mentions 'DimSecurity' derived from an unspecified source, and does not provide any information about tables derived from 'DimCompany', I cannot infer or guess additional tables. Therefore, based solely on the evidence, no tables are identified as directly derived from 'DimCompany'.\",\n    \"answer\": []\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence specifies that the question subtype is 'forward', which typically means identifying dependencies or derivations from a source. The evidence provides the exact list of tables directly derived from the source, which is given as ['DimSecurity']. Since the question asks for tables directly derived from DimCompany, and the evidence explicitly lists DimSecurity as the only table derived from the source (implied to be DimCompany based on context), the answer is the list containing DimSecurity.\",\n    \"answer\": [\"DimSecurity\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "DimSecurity"
+      ]
     },
     {
       "id": "tpc-di_lineage_fwd_018",
@@ -1570,16 +1575,17 @@
       "id": "tpc-di_silo_isolated_017",
       "question": "Are SRC.CashTransaction and SRC.TradeHistory connected through any chain of foreign key relationships?",
       "gold_answer": true,
-      "predicted_answer": false,
+      "predicted_answer": true,
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states that the isolation check result is True, which corresponds to the question asking if SRC.CashTransaction and SRC.TradeHistory are connected through any chain of foreign key relationships. Since isolation check result: True indicates they are not connected, the answer is false.\",\n    \"answer\": false\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states that the tables SRC.CashTransaction and SRC.TradeHistory are connected through foreign key or lineage relationships, and explicitly answers 'yes' to the question.\",\n    \"answer\": true\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0
+      },
+      "model_answer": true
     },
     {
       "id": "tpc-di_silo_isolated_019",

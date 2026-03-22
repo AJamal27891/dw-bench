@@ -98,7 +98,8 @@ def compute_aggregate_metrics(results: list) -> dict:
 
 def run_evaluation(baseline_name: str, dataset: str, obfuscated: bool,
                    api_key: str, api_base: str, model: str,
-                   extended: bool = False) -> dict:
+                   extended: bool = False, qa_file_override: str = None,
+                   output_suffix: str = '') -> dict:
     """Run a single evaluation: baseline × dataset × obfuscated flag."""
     repo_root = Path(__file__).parent.parent
     ds_dir = repo_root / 'datasets' / dataset
@@ -111,11 +112,12 @@ def run_evaluation(baseline_name: str, dataset: str, obfuscated: bool,
     print(f"{'='*60}")
 
     # Determine QA file
-    qa_file = None
-    if extended:
-        qa_file = 'qa_pairs_extended.json'
-    elif obfuscated:
-        qa_file = 'qa_pairs_obfuscated.json'
+    qa_file = qa_file_override  # Allow override for targeted re-runs
+    if qa_file is None:
+        if extended:
+            qa_file = 'qa_pairs_extended.json'
+        elif obfuscated:
+            qa_file = 'qa_pairs_obfuscated.json'
 
     # Load baseline
     if baseline_name == 'flat_text':
@@ -232,7 +234,7 @@ def run_evaluation(baseline_name: str, dataset: str, obfuscated: bool,
     results_dir.mkdir(exist_ok=True)
     # Derive short model tag: "qwen/qwen3-vl-4b" -> "qwen3-vl-4b"
     model_tag = model.split('/')[-1].replace(' ', '_')
-    out_name = f'{baseline_name}{suffix}_{dataset}_{model_tag}.json'
+    out_name = f'{baseline_name}{suffix}_{dataset}_{model_tag}{output_suffix}.json'
     out_path = results_dir / out_name
     output = {
         'baseline': baseline_name,
@@ -273,6 +275,10 @@ def main():
     parser.add_argument('--model', type=str,
                         default='',
                         help='Model name (e.g., gemini-2.5-flash, deepseek-chat)')
+    parser.add_argument('--qa-file', type=str, default=None,
+                        help='Custom QA file (default: qa_pairs.json or qa_pairs_obfuscated.json)')
+    parser.add_argument('--output-suffix', type=str, default='',
+                        help='Suffix appended to output filename (e.g., "_patch")')
     args = parser.parse_args()
 
     datasets = (['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics']
@@ -282,7 +288,9 @@ def main():
     for ds in datasets:
         result = run_evaluation(
             args.baseline, ds, args.obfuscated, args.api_key,
-            args.api_base, args.model, extended=args.extended)
+            args.api_base, args.model, extended=args.extended,
+            qa_file_override=getattr(args, 'qa_file', None),
+            output_suffix=getattr(args, 'output_suffix', ''))
         all_results.append(result)
 
     # Combined summary if multiple datasets

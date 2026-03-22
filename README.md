@@ -16,14 +16,14 @@
 
 | Baseline | Gemini 2.5 Flash | DeepSeek-V3 | Qwen2.5-72B |
 |:---|:---:|:---:|:---:|
-| Flat Text (FT) | 79.5 ± 2.3 | 70.4 ± 2.8 | 63.2 ± 3.0 |
-| Vector-RAG (VR) | 73.7 ± 2.7 | 71.6 ± 2.7 | 69.5 ± 2.8 |
-| Graph-Aug (GA) | 77.0 ± 2.5 | 78.4 ± 2.6 | 62.8 ± 3.4 |
-| **Tool-Use (TU)** | **91.8 ± 1.7** | **91.1 ± 1.7** | 77.5 ± 3.2 |
-| ReAct-Code (RC) | 83.0 ± 2.3 | 83.1 ± 2.2 | **82.5 ± 2.6** |
-| Oracle | 99.7 | 99.9 | 100.0 |
+| Flat Text (FT) | 76.6 | 69.5 | 63.2 |
+| Vector-RAG (VR) | 72.9 | 71.0 | 69.5 |
+| Graph-Aug (GA) | 75.4 | 76.8 | 80.9 |
+| **Tool-Use (TU)** | **89.3** | **90.4** | 87.5 |
+| ReAct-Code (RC) | 81.4 | 79.4 | 64.6 |
+| Oracle | 99.5 | 99.8 | 100.0 |
 
-> Micro-EM (%) with 95% bootstrap CIs (2000 resamples).
+> Micro-EM (%) across 1,046 questions (5 datasets).
 
 ### Key Figures
 
@@ -47,15 +47,15 @@
 
 ### Obfuscation (Contamination Control)
 
-| Baseline | Gemini Δ | DeepSeek Δ |
-|:---|:---:|:---:|
-| Flat Text | −14.9 | −27.8 |
-| Vector-RAG | −26.0 | −31.7 |
-| Graph-Aug | −27.9 | −24.3 |
-| **Tool-Use** | **−3.4** | **−4.2** |
-| ReAct-Code | −7.6 | +0.6 |
+| Baseline | Gemini Δ | DeepSeek Δ | Qwen Δ |
+|:---|:---:|:---:|:---:|
+| Flat Text | −15.0 | −27.9 | −8.9 |
+| Vector-RAG | −25.8 | −31.9 | −13.8 |
+| Graph-Aug | −27.7 | −24.6 | −19.7 |
+| **Tool-Use** | **−3.4** | **−4.2** | **−3.7** |
+| ReAct-Code | −7.6 | +0.6 | −7.5 |
 
-> Tool-Use is nearly obfuscation-invariant: tools operate on topology, not memorized names.
+> 4-dataset scope (excl. Syn-Logistics). Tool-Use is nearly obfuscation-invariant: tools operate on topology, not memorized names.
 
 ---
 
@@ -109,7 +109,8 @@ python run.py \
 
 ```bash
 python view_results.py              # Summary tables
-python integrity_check.py           # Validate result files
+python integrity_check.py           # Validate result files (Windows)
+python integrity_check_full.py      # Validate result files (Linux/macOS, rich output)
 ```
 
 > **Tip:** Set `GOOGLE_API_KEY` or `DEEPSEEK_API_KEY` in a `.env` file; `run.py` reads them automatically.
@@ -122,7 +123,8 @@ python integrity_check.py           # Validate result files
 dw-bench/
 ├── run.py                          # Unified evaluation runner
 ├── view_results.py                 # Results viewer
-├── integrity_check.py              # Result validator
+├── integrity_check.py              # Result validator (Windows-safe)
+├── integrity_check_full.py         # Result validator (Linux/macOS, rich output)
 ├── requirements.txt
 │
 ├── datasets/                       # Schema graphs + QA pairs

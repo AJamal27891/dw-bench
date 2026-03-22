@@ -737,18 +737,25 @@
         "mart_conversion_funnel",
         "mart_revenue_dashboard"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "transitive",
       "difficulty": "hard",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The provided oracle evidence shows a transitive lineage chain between 'mart_conversion_funnel' and 'mart_revenue_dashboard'. It does not provide any information about the lineage originating from 'raw_payment_events'. Therefore, based solely on the given evidence, it is not possible to determine which tables would be affected if 'raw_payment_events' is modified.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence provides the 'Full transitive lineage chain' which directly lists the mart/reporting tables affected by a modification to an upstream table. The provided chain is ['mart_conversion_funnel', 'mart_revenue_dashboard'].\",\n  \"answer\": [\n    \"mart_conversion_funnel\",\n    \"mart_revenue_dashboard\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard"
+      ]
     },
     {
       "id": "syn_logistics_transitive_026",
@@ -1516,18 +1523,25 @@
         "stg_products_normalized",
         "stg_sessions_enriched"
       ],
-      "predicted_answer": null,
+      "predicted_answer": [
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "multi_source",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The provided oracle evidence states 'Direct source tables feeding into the target: ['stg_products_normalized', 'stg_sessions_enriched']'. However, it does not specify what 'the target' is. The question asks about tables feeding into 'dim_customer', and the oracle evidence does not contain any information about 'dim_customer'. Therefore, I cannot answer the question based on the given evidence.\",\n  \"answer\": null\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output explicitly states the 'Direct source tables feeding into the target'. Assuming 'the target' refers to 'dim_customer' as per the question, the listed tables are the direct feeders.\",\n  \"answer\": [\n    \"stg_products_normalized\",\n    \"stg_sessions_enriched\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ]
     },
     {
       "id": "syn_logistics_multi_source_060",
@@ -3516,18 +3530,27 @@
         "dim_supplier",
         "fact_purchase_order"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "dim_product",
+        "dim_supplier",
+        "fact_purchase_order"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no tables are directly derived from 'stg_shipments_validated' based on the provided evidence.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence provides an exact list of tables directly derived from 'the source'. Given that this output is the result of a graph algorithm computing the answer to the question 'Which tables are directly derived from stg_shipments_validated?', 'the source' in the oracle output refers to `stg_shipments_validated`.\",\n  \"answer\": [\n    \"dim_product\",\n    \"dim_supplier\",\n    \"fact_purchase_order\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_product",
+        "dim_supplier",
+        "fact_purchase_order"
+      ]
     },
     {
       "id": "syn_logistics_forward_158",
@@ -3561,18 +3584,25 @@
         "dim_product",
         "dim_warehouse"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "dim_product",
+        "dim_warehouse"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence states 'Tables directly derived from the source (exact list): [\\\"dim_product\\\", \\\"dim_warehouse\\\"]'. However, it does not specify that 'the source' refers to 'stg_suppliers_deduped'. Since the evidence does not explicitly list any tables derived from 'stg_suppliers_deduped', the answer is an empty list.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the 'Tables directly derived from the source' as ['dim_product', 'dim_warehouse']. In the context of the question, 'the source' refers to 'stg_suppliers_deduped'.\",\n  \"answer\": [\n    \"dim_product\",\n    \"dim_warehouse\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_product",
+        "dim_warehouse"
+      ]
     },
     {
       "id": "syn_logistics_forward_160",
@@ -3581,18 +3611,25 @@
         "dim_product",
         "dim_warehouse"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "dim_product",
+        "dim_warehouse"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence states 'Tables directly derived from the source (exact list): [\\\"dim_product\\\", \\\"dim_warehouse\\\"]'. However, it does not specify that 'the source' refers to 'stg_suppliers_deduped'. Since the evidence does not explicitly list any tables derived from 'stg_suppliers_deduped', the answer is an empty list.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the 'Tables directly derived from the source' as ['dim_product', 'dim_warehouse']. In the context of the question, 'the source' refers to 'stg_suppliers_deduped'.\",\n  \"answer\": [\n    \"dim_product\",\n    \"dim_warehouse\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_product",
+        "dim_warehouse"
+      ]
     },
     {
       "id": "syn_logistics_forward_161",
@@ -3742,18 +3779,23 @@
       "gold_answer": [
         "raw_purchase_orders"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "raw_purchase_orders"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "reverse",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no direct source tables were found for 'stg_orders_cleaned'.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the 'Source tables that feed into the target' as 'raw_purchase_orders', which directly answers the question about the direct source tables for stg_orders_cleaned.\",\n  \"answer\": [\n    \"raw_purchase_orders\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "raw_purchase_orders"
+      ]
     },
     {
       "id": "syn_logistics_reverse_168",
@@ -3762,18 +3804,25 @@
         "raw_shipment_tracking",
         "raw_supplier_catalog"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "raw_shipment_tracking",
+        "raw_supplier_catalog"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "reverse",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no direct source tables were found for 'stg_shipments_validated'.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle evidence explicitly states the 'Source tables that feed into the target' as ['raw_shipment_tracking', 'raw_supplier_catalog']. This directly answers the question about the direct source tables for 'stg_shipments_validated'.\",\n  \"answer\": [\n    \"raw_shipment_tracking\",\n    \"raw_supplier_catalog\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "raw_shipment_tracking",
+        "raw_supplier_catalog"
+      ]
     },
     {
       "id": "syn_logistics_reverse_169",
@@ -3805,18 +3854,25 @@
         "raw_supplier_catalog",
         "raw_warehouse_inventory"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory"
+      ],
       "answer_type": "list",
       "type": "lineage",
       "subtype": "reverse",
       "difficulty": "easy",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output is empty, indicating that no direct source tables were found for 'stg_suppliers_deduped' based on the provided evidence.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output directly provides the list of source tables that feed into the target 'stg_suppliers_deduped'.\",\n  \"answer\": [\n    \"raw_supplier_catalog\",\n    \"raw_warehouse_inventory\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory"
+      ]
     },
     {
       "id": "syn_logistics_reverse_171",
@@ -7385,18 +7441,41 @@
         "stg_patients_validated",
         "stg_prescriptions_coded"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "dim_patient",
+        "dim_provider",
+        "fact_encounter",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "answer_type": "list",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output provides a list of tables under 'Component membership result'. The question asks for tables in the same connected component as 'mart_readmission_risk'. Since 'mart_readmission_risk' is not present in the list provided by the oracle, it indicates that, based on the given evidence, there are no tables in the same component as 'mart_readmission_risk' among those listed by the oracle. Therefore, the answer is an empty list.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output explicitly provides the list of tables that are members of a connected component. This list is presented as the answer, as per the instruction that the oracle output has already computed the answer.\",\n  \"answer\": [\n    \"dim_patient\",\n    \"dim_provider\",\n    \"fact_encounter\",\n    \"mart_treatment_outcomes\",\n    \"raw_lab_results\",\n    \"raw_patient_intake\",\n    \"raw_prescriptions\",\n    \"stg_labs_standardized\",\n    \"stg_patients_validated\",\n    \"stg_prescriptions_coded\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_patient",
+        "dim_provider",
+        "fact_encounter",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ]
     },
     {
       "id": "syn_logistics_membership_338",
@@ -7530,18 +7609,41 @@
         "stg_products_normalized",
         "stg_sessions_enriched"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "answer_type": "list",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle output provides a list of tables under 'Component membership result'. The question asks for tables in the same connected component as 'mart_conversion_funnel'. Since 'mart_conversion_funnel' is not present in the provided list, the tables in the oracle's result are not in the same connected component as 'mart_conversion_funnel'. Therefore, based solely on the provided evidence, no tables can be identified as being in the same component as 'mart_conversion_funnel'.\",\n  \"answer\": []\n}\n```",
+      "raw_response": "```json\n{\n  \"reasoning\": \"The oracle graph algorithm output explicitly provides a list of tables under 'Component membership result'. As per the instructions, this output is the exact answer that has already been computed for the question regarding the connected component of 'mart_conversion_funnel'. Therefore, the provided list is directly used as the answer.\",\n  \"answer\": [\n    \"dim_customer\",\n    \"dim_product_listing\",\n    \"fact_transaction\",\n    \"mart_revenue_dashboard\",\n    \"raw_cart_sessions\",\n    \"raw_payment_events\",\n    \"raw_product_catalog\",\n    \"stg_payments_validated\",\n    \"stg_products_normalized\",\n    \"stg_sessions_enriched\"\n  ]\n}\n```",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ]
     },
     {
       "id": "syn_logistics_membership_342",

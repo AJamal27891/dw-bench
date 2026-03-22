@@ -6895,7 +6895,7 @@
     },
     {
       "id": "syn_logistics_membership_326",
-      "question": "Which data silo does dim_carrier belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_carrier?",
       "gold_answer": [
         "dim_product",
         "dim_supplier",
@@ -6917,20 +6917,63 @@
         "stg_shipments_validated",
         "stg_suppliers_deduped"
       ],
-      "predicted_answer": "logistics",
+      "predicted_answer": [
+        "dim_product",
+        "dim_supplier",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states 'Component membership result: logistics', which indicates that the component (dim_carrier) belongs to the data silo named 'logistics'.\",\n    \"answer\": \"logistics\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables in the same connected component as dim_carrier, which includes all tables in that data silo. Since dim_carrier is not explicitly listed, it is inferred to be part of this component, and the answer is the complete list from the evidence.\",\n    \"answer\": [\"dim_product\", \"dim_supplier\", \"dim_warehouse\", \"fact_purchase_order\", \"fact_shipment\", \"mart_delivery_performance\", \"mart_inventory_turnover\", \"mart_procurement_cost\", \"mart_supplier_scorecard\", \"raw_freight_invoices\", \"raw_purchase_orders\", \"raw_shipment_tracking\", \"raw_supplier_catalog\", \"raw_warehouse_inventory\", \"stg_freight_reconciled\", \"stg_inventory_snapshot\", \"stg_orders_cleaned\", \"stg_shipments_validated\", \"stg_suppliers_deduped\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_product",
+        "dim_supplier",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ]
     },
     {
       "id": "syn_logistics_membership_327",
-      "question": "Which data silo does dim_product belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_product?",
       "gold_answer": [
         "dim_carrier",
         "dim_supplier",
@@ -6952,20 +6995,63 @@
         "stg_shipments_validated",
         "stg_suppliers_deduped"
       ],
-      "predicted_answer": "logistics",
+      "predicted_answer": [
+        "dim_carrier",
+        "dim_supplier",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n  \"reasoning\": \"The oracle evidence directly states that the component membership result for dim_product is 'logistics', indicating it belongs to the logistics data silo.\",\n  \"answer\": \"logistics\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as dim_product, as indicated by the 'Component membership result' field. Since the question subtype is 'membership' and asks for tables in the same component as dim_product, the evidence directly answers this by listing all tables in that component, which includes dim_product itself.\",\n    \"answer\": [\"dim_carrier\", \"dim_supplier\", \"dim_warehouse\", \"fact_purchase_order\", \"fact_shipment\", \"mart_delivery_performance\", \"mart_inventory_turnover\", \"mart_procurement_cost\", \"mart_supplier_scorecard\", \"raw_freight_invoices\", \"raw_purchase_orders\", \"raw_shipment_tracking\", \"raw_supplier_catalog\", \"raw_warehouse_inventory\", \"stg_freight_reconciled\", \"stg_inventory_snapshot\", \"stg_orders_cleaned\", \"stg_shipments_validated\", \"stg_suppliers_deduped\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_carrier",
+        "dim_supplier",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ]
     },
     {
       "id": "syn_logistics_membership_328",
-      "question": "Which data silo does dim_supplier belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_supplier?",
       "gold_answer": [
         "dim_carrier",
         "dim_product",
@@ -6987,20 +7073,63 @@
         "stg_shipments_validated",
         "stg_suppliers_deduped"
       ],
-      "predicted_answer": "logistics",
+      "predicted_answer": [
+        "dim_carrier",
+        "dim_product",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states that the component membership result for dim_supplier is 'logistics', which answers the question about which data silo it belongs to.\",\n    \"answer\": \"logistics\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of all tables in the same connected component as dim_supplier, which is identified by the question subtype 'membership' and the component membership result. Since dim_supplier is not explicitly listed in the evidence, it is inferred to be part of this component, and the answer includes all tables from the evidence list.\",\n    \"answer\": [\"dim_carrier\", \"dim_product\", \"dim_warehouse\", \"fact_purchase_order\", \"fact_shipment\", \"mart_delivery_performance\", \"mart_inventory_turnover\", \"mart_procurement_cost\", \"mart_supplier_scorecard\", \"raw_freight_invoices\", \"raw_purchase_orders\", \"raw_shipment_tracking\", \"raw_supplier_catalog\", \"raw_warehouse_inventory\", \"stg_freight_reconciled\", \"stg_inventory_snapshot\", \"stg_orders_cleaned\", \"stg_shipments_validated\", \"stg_suppliers_deduped\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_carrier",
+        "dim_product",
+        "dim_warehouse",
+        "fact_purchase_order",
+        "fact_shipment",
+        "mart_delivery_performance",
+        "mart_inventory_turnover",
+        "mart_procurement_cost",
+        "mart_supplier_scorecard",
+        "raw_freight_invoices",
+        "raw_purchase_orders",
+        "raw_shipment_tracking",
+        "raw_supplier_catalog",
+        "raw_warehouse_inventory",
+        "stg_freight_reconciled",
+        "stg_inventory_snapshot",
+        "stg_orders_cleaned",
+        "stg_shipments_validated",
+        "stg_suppliers_deduped"
+      ]
     },
     {
       "id": "syn_logistics_membership_329",
-      "question": "Which data silo does dim_warehouse belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_warehouse?",
       "gold_answer": [
         "dim_carrier",
         "dim_product",
@@ -7035,7 +7164,7 @@
     },
     {
       "id": "syn_logistics_membership_330",
-      "question": "Which data silo does dim_department belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_department?",
       "gold_answer": [
         "dim_employee",
         "fact_payroll",
@@ -7048,20 +7177,45 @@
         "stg_departments_mapped",
         "stg_employees_cleaned"
       ],
-      "predicted_answer": "hr",
+      "predicted_answer": [
+        "dim_employee",
+        "fact_payroll",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly provides the membership result 'hr' for the component dim_department, which answers the question about which data silo it belongs to.\",\n    \"answer\": \"hr\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as dim_department, as indicated by the 'Component membership result' field. Since the question asks for tables in the same component as dim_department, and dim_department is not explicitly listed in the evidence, it is inferred that the provided list includes all tables in that component, including dim_department itself. Therefore, the answer is the given list.\",\n    \"answer\": [\"dim_employee\", \"fact_payroll\", \"mart_attrition_analysis\", \"mart_headcount_report\", \"raw_compensation_data\", \"raw_department_hierarchy\", \"raw_employee_records\", \"stg_compensation_normalized\", \"stg_departments_mapped\", \"stg_employees_cleaned\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_employee",
+        "fact_payroll",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ]
     },
     {
       "id": "syn_logistics_membership_331",
-      "question": "Which data silo does dim_employee belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_employee?",
       "gold_answer": [
         "dim_department",
         "fact_payroll",
@@ -7074,20 +7228,45 @@
         "stg_departments_mapped",
         "stg_employees_cleaned"
       ],
-      "predicted_answer": "hr",
+      "predicted_answer": [
+        "dim_department",
+        "fact_payroll",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates a membership result of 'hr' for the component membership query, which directly answers the question about which data silo the dim_employee belongs to.\",\n    \"answer\": \"hr\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as dim_employee, as indicated by the 'Component membership result' for a membership subtype question. Since the question asks for tables in the same component as dim_employee, and dim_employee is not explicitly listed in the evidence, it is inferred that dim_employee is the reference table for this component, and the evidence lists all other tables in that component.\",\n    \"answer\": [\"dim_department\", \"fact_payroll\", \"mart_attrition_analysis\", \"mart_headcount_report\", \"raw_compensation_data\", \"raw_department_hierarchy\", \"raw_employee_records\", \"stg_compensation_normalized\", \"stg_departments_mapped\", \"stg_employees_cleaned\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_department",
+        "fact_payroll",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ]
     },
     {
       "id": "syn_logistics_membership_332",
-      "question": "Which data silo does fact_payroll belong to?",
+      "question": "Which tables are in the same connected component (data silo) as fact_payroll?",
       "gold_answer": [
         "dim_department",
         "dim_employee",
@@ -7100,20 +7279,45 @@
         "stg_departments_mapped",
         "stg_employees_cleaned"
       ],
-      "predicted_answer": "hr",
+      "predicted_answer": [
+        "dim_department",
+        "dim_employee",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly provides the component membership result as 'hr', indicating that fact_payroll belongs to the HR data silo.\",\n    \"answer\": \"hr\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component (data silo) as fact_payroll, as indicated by the component membership result. Since the question subtype is 'membership' and asks for tables in the same component as fact_payroll, the evidence directly answers this by listing all tables in that component, which includes fact_payroll implicitly.\",\n    \"answer\": [\"dim_department\", \"dim_employee\", \"mart_attrition_analysis\", \"mart_headcount_report\", \"raw_compensation_data\", \"raw_department_hierarchy\", \"raw_employee_records\", \"stg_compensation_normalized\", \"stg_departments_mapped\", \"stg_employees_cleaned\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_department",
+        "dim_employee",
+        "mart_attrition_analysis",
+        "mart_headcount_report",
+        "raw_compensation_data",
+        "raw_department_hierarchy",
+        "raw_employee_records",
+        "stg_compensation_normalized",
+        "stg_departments_mapped",
+        "stg_employees_cleaned"
+      ]
     },
     {
       "id": "syn_logistics_membership_333",
-      "question": "Which data silo does mart_attrition_analysis belong to?",
+      "question": "Which tables are in the same connected component (data silo) as mart_attrition_analysis?",
       "gold_answer": [
         "dim_department",
         "dim_employee",
@@ -7139,7 +7343,7 @@
     },
     {
       "id": "syn_logistics_membership_334",
-      "question": "Which data silo does dim_patient belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_patient?",
       "gold_answer": [
         "dim_provider",
         "fact_encounter",
@@ -7152,20 +7356,45 @@
         "stg_patients_validated",
         "stg_prescriptions_coded"
       ],
-      "predicted_answer": "healthcare",
+      "predicted_answer": [
+        "dim_provider",
+        "fact_encounter",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states that the component membership result for dim_patient is 'healthcare', which answers the question about which data silo it belongs to.\",\n    \"answer\": \"healthcare\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides the component membership result, which lists all tables in the same connected component as dim_patient. Since the question asks for tables in the same component as dim_patient, and dim_patient is not explicitly listed in the evidence, it must be the reference point for the membership. The evidence directly gives the list of tables in that component.\",\n    \"answer\": [\"dim_provider\", \"fact_encounter\", \"mart_readmission_risk\", \"mart_treatment_outcomes\", \"raw_lab_results\", \"raw_patient_intake\", \"raw_prescriptions\", \"stg_labs_standardized\", \"stg_patients_validated\", \"stg_prescriptions_coded\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_provider",
+        "fact_encounter",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ]
     },
     {
       "id": "syn_logistics_membership_335",
-      "question": "Which data silo does dim_provider belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_provider?",
       "gold_answer": [
         "dim_patient",
         "fact_encounter",
@@ -7178,20 +7407,45 @@
         "stg_patients_validated",
         "stg_prescriptions_coded"
       ],
-      "predicted_answer": "healthcare",
+      "predicted_answer": [
+        "dim_patient",
+        "fact_encounter",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states the component membership result as 'healthcare', which answers the question about which data silo dim_provider belongs to.\",\n    \"answer\": \"healthcare\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as the table in question. Since the question asks for tables in the same component as 'dim_provider', and the evidence lists the component membership result, this list directly answers the question.\",\n    \"answer\": [\"dim_patient\", \"fact_encounter\", \"mart_readmission_risk\", \"mart_treatment_outcomes\", \"raw_lab_results\", \"raw_patient_intake\", \"raw_prescriptions\", \"stg_labs_standardized\", \"stg_patients_validated\", \"stg_prescriptions_coded\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_patient",
+        "fact_encounter",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ]
     },
     {
       "id": "syn_logistics_membership_336",
-      "question": "Which data silo does fact_encounter belong to?",
+      "question": "Which tables are in the same connected component (data silo) as fact_encounter?",
       "gold_answer": [
         "dim_patient",
         "dim_provider",
@@ -7204,20 +7458,45 @@
         "stg_patients_validated",
         "stg_prescriptions_coded"
       ],
-      "predicted_answer": "healthcare",
+      "predicted_answer": [
+        "dim_patient",
+        "dim_provider",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states the component membership result as 'healthcare', which answers the question about which data silo fact_encounter belongs to.\",\n    \"answer\": \"healthcare\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as fact_encounter, as indicated by the 'Component membership result' output from the graph algorithm for the membership subtype question.\",\n    \"answer\": [\"dim_patient\", \"dim_provider\", \"mart_readmission_risk\", \"mart_treatment_outcomes\", \"raw_lab_results\", \"raw_patient_intake\", \"raw_prescriptions\", \"stg_labs_standardized\", \"stg_patients_validated\", \"stg_prescriptions_coded\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_patient",
+        "dim_provider",
+        "mart_readmission_risk",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ]
     },
     {
       "id": "syn_logistics_membership_337",
-      "question": "Which data silo does mart_readmission_risk belong to?",
+      "question": "Which tables are in the same connected component (data silo) as mart_readmission_risk?",
       "gold_answer": [
         "dim_patient",
         "dim_provider",
@@ -7230,20 +7509,45 @@
         "stg_patients_validated",
         "stg_prescriptions_coded"
       ],
-      "predicted_answer": "healthcare",
+      "predicted_answer": [
+        "dim_patient",
+        "dim_provider",
+        "fact_encounter",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states the component membership result as 'healthcare', which answers the question about which data silo mart_readmission_risk belongs to.\",\n    \"answer\": \"healthcare\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as 'mart_readmission_risk', as indicated by the question subtype 'membership' and the component membership result. The list includes all tables in that data silo.\",\n    \"answer\": [\"dim_patient\", \"dim_provider\", \"fact_encounter\", \"mart_treatment_outcomes\", \"raw_lab_results\", \"raw_patient_intake\", \"raw_prescriptions\", \"stg_labs_standardized\", \"stg_patients_validated\", \"stg_prescriptions_coded\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_patient",
+        "dim_provider",
+        "fact_encounter",
+        "mart_treatment_outcomes",
+        "raw_lab_results",
+        "raw_patient_intake",
+        "raw_prescriptions",
+        "stg_labs_standardized",
+        "stg_patients_validated",
+        "stg_prescriptions_coded"
+      ]
     },
     {
       "id": "syn_logistics_membership_338",
-      "question": "Which data silo does dim_customer belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_customer?",
       "gold_answer": [
         "dim_product_listing",
         "fact_transaction",
@@ -7256,20 +7560,45 @@
         "stg_products_normalized",
         "stg_sessions_enriched"
       ],
-      "predicted_answer": "ecommerce",
+      "predicted_answer": [
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates a membership result of 'ecommerce' for the component, and the question asks which data silo 'dim_customer' belongs to, implying it is a component within a data silo. Therefore, based on the evidence, dim_customer belongs to the ecommerce data silo.\",\n    \"answer\": \"ecommerce\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as dim_customer, as indicated by the 'Component membership result' for a membership subtype question. Since the question asks for tables in the same component as dim_customer, and dim_customer is not explicitly listed in the evidence, it is inferred that the provided list includes all tables in that component, with dim_customer being implicitly part of it. Therefore, the answer is the given list.\",\n    \"answer\": [\"dim_product_listing\", \"fact_transaction\", \"mart_conversion_funnel\", \"mart_revenue_dashboard\", \"raw_cart_sessions\", \"raw_payment_events\", \"raw_product_catalog\", \"stg_payments_validated\", \"stg_products_normalized\", \"stg_sessions_enriched\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ]
     },
     {
       "id": "syn_logistics_membership_339",
-      "question": "Which data silo does dim_product_listing belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_product_listing?",
       "gold_answer": [
         "dim_customer",
         "fact_transaction",
@@ -7282,20 +7611,45 @@
         "stg_products_normalized",
         "stg_sessions_enriched"
       ],
-      "predicted_answer": "ecommerce",
+      "predicted_answer": [
+        "dim_customer",
+        "fact_transaction",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates a membership result of 'ecommerce' for the component, which directly answers the question about which data silo dim_product_listing belongs to.\",\n    \"answer\": \"ecommerce\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as dim_product_listing, as indicated by the 'Component membership result' field. Since the question subtype is 'membership' and asks for tables in the same component as dim_product_listing, the provided list directly answers the question.\",\n    \"answer\": [\"dim_customer\", \"fact_transaction\", \"mart_conversion_funnel\", \"mart_revenue_dashboard\", \"raw_cart_sessions\", \"raw_payment_events\", \"raw_product_catalog\", \"stg_payments_validated\", \"stg_products_normalized\", \"stg_sessions_enriched\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_customer",
+        "fact_transaction",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ]
     },
     {
       "id": "syn_logistics_membership_340",
-      "question": "Which data silo does fact_transaction belong to?",
+      "question": "Which tables are in the same connected component (data silo) as fact_transaction?",
       "gold_answer": [
         "dim_customer",
         "dim_product_listing",
@@ -7308,20 +7662,45 @@
         "stg_products_normalized",
         "stg_sessions_enriched"
       ],
-      "predicted_answer": "ecommerce",
+      "predicted_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates a membership result of 'ecommerce' for the component, and the question asks which data silo the 'fact_transaction' belongs to, implying a membership relationship. Therefore, the answer is directly provided by the evidence.\",\n    \"answer\": \"ecommerce\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides the component membership result, which lists all tables in the same connected component as fact_transaction. Since the question asks for tables in the same data silo as fact_transaction, the evidence directly answers this by listing all members of that component.\",\n    \"answer\": [\"dim_customer\", \"dim_product_listing\", \"mart_conversion_funnel\", \"mart_revenue_dashboard\", \"raw_cart_sessions\", \"raw_payment_events\", \"raw_product_catalog\", \"stg_payments_validated\", \"stg_products_normalized\", \"stg_sessions_enriched\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "mart_conversion_funnel",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ]
     },
     {
       "id": "syn_logistics_membership_341",
-      "question": "Which data silo does mart_conversion_funnel belong to?",
+      "question": "Which tables are in the same connected component (data silo) as mart_conversion_funnel?",
       "gold_answer": [
         "dim_customer",
         "dim_product_listing",
@@ -7334,20 +7713,45 @@
         "stg_products_normalized",
         "stg_sessions_enriched"
       ],
-      "predicted_answer": "ecommerce",
+      "predicted_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates a membership result of 'ecommerce' for the component, and the question asks which data silo 'mart_conversion_funnel' belongs to, implying it is a component within that silo.\",\n    \"answer\": \"ecommerce\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables in the same connected component as 'mart_conversion_funnel', which is not explicitly listed but implied to be part of this component. The evidence directly states 'Component membership result' with the given list, answering the question about tables in the same data silo.\",\n    \"answer\": [\"dim_customer\", \"dim_product_listing\", \"fact_transaction\", \"mart_revenue_dashboard\", \"raw_cart_sessions\", \"raw_payment_events\", \"raw_product_catalog\", \"stg_payments_validated\", \"stg_products_normalized\", \"stg_sessions_enriched\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_customer",
+        "dim_product_listing",
+        "fact_transaction",
+        "mart_revenue_dashboard",
+        "raw_cart_sessions",
+        "raw_payment_events",
+        "raw_product_catalog",
+        "stg_payments_validated",
+        "stg_products_normalized",
+        "stg_sessions_enriched"
+      ]
     },
     {
       "id": "syn_logistics_membership_342",
-      "question": "Which data silo does dim_account belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_account?",
       "gold_answer": [
         "dim_cost_center",
         "fact_journal_entry",
@@ -7360,20 +7764,45 @@
         "stg_ledger_reconciled",
         "stg_tax_validated"
       ],
-      "predicted_answer": "finance",
+      "predicted_answer": [
+        "dim_cost_center",
+        "fact_journal_entry",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states 'Component membership result: finance', which indicates that the component 'dim_account' belongs to the data silo named 'finance'.\",\n    \"answer\": \"finance\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as dim_account, as indicated by the 'Component membership result' for a membership subtype question. The list includes all tables in that data silo, and since dim_account is not explicitly listed, it must be implicitly included as part of the component being described.\",\n    \"answer\": [\"dim_cost_center\", \"fact_journal_entry\", \"mart_cash_flow_statement\", \"mart_trial_balance\", \"raw_bank_feeds\", \"raw_ledger_entries\", \"raw_tax_filings\", \"stg_bank_matched\", \"stg_ledger_reconciled\", \"stg_tax_validated\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_cost_center",
+        "fact_journal_entry",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ]
     },
     {
       "id": "syn_logistics_membership_343",
-      "question": "Which data silo does dim_cost_center belong to?",
+      "question": "Which tables are in the same connected component (data silo) as dim_cost_center?",
       "gold_answer": [
         "dim_account",
         "fact_journal_entry",
@@ -7386,20 +7815,45 @@
         "stg_ledger_reconciled",
         "stg_tax_validated"
       ],
-      "predicted_answer": "finance",
+      "predicted_answer": [
+        "dim_account",
+        "fact_journal_entry",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states that the component membership result for dim_cost_center is 'finance', which answers the question about which data silo it belongs to.\",\n    \"answer\": \"finance\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides the component membership result, which lists all tables in the same connected component as the queried table. Since the question asks for tables in the same component as 'dim_cost_center', and the evidence shows the complete list for that component, the answer is directly taken from the evidence.\",\n    \"answer\": [\"dim_account\", \"fact_journal_entry\", \"mart_cash_flow_statement\", \"mart_trial_balance\", \"raw_bank_feeds\", \"raw_ledger_entries\", \"raw_tax_filings\", \"stg_bank_matched\", \"stg_ledger_reconciled\", \"stg_tax_validated\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_account",
+        "fact_journal_entry",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ]
     },
     {
       "id": "syn_logistics_membership_344",
-      "question": "Which data silo does fact_journal_entry belong to?",
+      "question": "Which tables are in the same connected component (data silo) as fact_journal_entry?",
       "gold_answer": [
         "dim_account",
         "dim_cost_center",
@@ -7412,20 +7866,45 @@
         "stg_ledger_reconciled",
         "stg_tax_validated"
       ],
-      "predicted_answer": "finance",
+      "predicted_answer": [
+        "dim_account",
+        "dim_cost_center",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states the component membership result as 'finance', which answers the question about which data silo fact_journal_entry belongs to.\",\n    \"answer\": \"finance\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component (data silo) as fact_journal_entry, as indicated by the 'Component membership result' field. Since the question asks for tables in the same component as fact_journal_entry, and the evidence directly lists these tables, I can use this list as the answer.\",\n    \"answer\": [\"dim_account\", \"dim_cost_center\", \"mart_cash_flow_statement\", \"mart_trial_balance\", \"raw_bank_feeds\", \"raw_ledger_entries\", \"raw_tax_filings\", \"stg_bank_matched\", \"stg_ledger_reconciled\", \"stg_tax_validated\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_account",
+        "dim_cost_center",
+        "mart_cash_flow_statement",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ]
     },
     {
       "id": "syn_logistics_membership_345",
-      "question": "Which data silo does mart_cash_flow_statement belong to?",
+      "question": "Which tables are in the same connected component (data silo) as mart_cash_flow_statement?",
       "gold_answer": [
         "dim_account",
         "dim_cost_center",
@@ -7438,16 +7917,41 @@
         "stg_ledger_reconciled",
         "stg_tax_validated"
       ],
-      "predicted_answer": "finance",
+      "predicted_answer": [
+        "dim_account",
+        "dim_cost_center",
+        "fact_journal_entry",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ],
       "answer_type": "string",
       "type": "silo",
       "subtype": "membership",
       "difficulty": "medium",
-      "raw_response": "{\n  \"reasoning\": \"The oracle evidence directly states the component membership result as 'finance', which answers the question about which data silo mart_cash_flow_statement belongs to.\",\n  \"answer\": \"finance\"\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables that are in the same connected component as 'mart_cash_flow_statement', based on the graph algorithm output for the membership subtype question. The list includes all tables in that component, and since 'mart_cash_flow_statement' is not explicitly listed, it is inferred to be part of this component as per the question context.\",\n    \"answer\": [\"dim_account\", \"dim_cost_center\", \"fact_journal_entry\", \"mart_trial_balance\", \"raw_bank_feeds\", \"raw_ledger_entries\", \"raw_tax_filings\", \"stg_bank_matched\", \"stg_ledger_reconciled\", \"stg_tax_validated\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "dim_account",
+        "dim_cost_center",
+        "fact_journal_entry",
+        "mart_trial_balance",
+        "raw_bank_feeds",
+        "raw_ledger_entries",
+        "raw_tax_filings",
+        "stg_bank_matched",
+        "stg_ledger_reconciled",
+        "stg_tax_validated"
+      ]
     },
     {
       "id": "syn_logistics_join_path_346",

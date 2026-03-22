@@ -11580,6 +11580,228 @@
         "exact_match": true,
         "f1": 1.0
       }
+    },
+    {
+      "id": "adventureworks_lineage_combined_047",
+      "question": "If Table_D changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "Table_G",
+        "Table_O3",
+        "Table_U3"
+      ],
+      "predicted_answer": [
+        "Table_D",
+        "Table_G"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Table_G has a foreign key dependency on Table_D. No other tables are directly or indirectly derived from Table_D, nor do they have foreign key dependencies on Table_D or Table_G.",
+      "api_failure": false,
+      "retrieved_tables": [
+        "Table_D",
+        "Table_X2",
+        "Table_D2",
+        "Table_O3",
+        "Table_I1",
+        "Table_X3",
+        "Table_E1",
+        "Table_B",
+        "Table_Z",
+        "Table_U3",
+        "Table_M2",
+        "Table_L3",
+        "Table_P2",
+        "Table_C1",
+        "Table_E3"
+      ],
+      "raw_response": {
+        "answer_list": [
+          "Table_D",
+          "Table_G"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Table_G has a foreign key dependency on Table_D. No other tables are directly or indirectly derived from Table_D, nor do they have foreign key dependencies on Table_D or Table_G.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_D\",\n    \"Table_G\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_G has a foreign key dependency on Table_D. No other tables are directly or indirectly derived from Table_D, nor do they have foreign key dependencies on Table_D or Table_G.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_058",
+      "question": "If Table_D2 changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "Table_I1",
+        "Table_K1",
+        "Table_X2"
+      ],
+      "predicted_answer": [
+        "Table_D2",
+        "Table_I1",
+        "Table_K1",
+        "Table_O"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Starting with Table_D2, we identify tables that either have a foreign key dependency on it (Table_I1, Table_K1) or are derived from it (none). We then recursively apply this to the newly identified tables. Table_O has a foreign key dependency on Table_I1. No further dependencies or lineage relationships are found for Table_K1 or Table_O.",
+      "api_failure": false,
+      "retrieved_tables": [
+        "Table_X2",
+        "Table_D2",
+        "Table_I1",
+        "Table_L2",
+        "Table_V2",
+        "Table_P2",
+        "Table_B",
+        "Table_E1",
+        "Table_D",
+        "Table_Z2",
+        "Table_E3",
+        "Table_B2",
+        "Table_X3",
+        "Table_G2",
+        "Table_Z"
+      ],
+      "raw_response": {
+        "answer_list": [
+          "Table_D2",
+          "Table_I1",
+          "Table_K1",
+          "Table_O"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Starting with Table_D2, we identify tables that either have a foreign key dependency on it (Table_I1, Table_K1) or are derived from it (none). We then recursively apply this to the newly identified tables. Table_O has a foreign key dependency on Table_I1. No further dependencies or lineage relationships are found for Table_K1 or Table_O.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_D2\",\n    \"Table_I1\",\n    \"Table_K1\",\n    \"Table_O\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Starting with Table_D2, we identify tables that either have a foreign key dependency on it (Table_I1, Table_K1) or are derived from it (none). We then recursively apply this to the newly identified tables. Table_O has a foreign key dependency on Table_I1. No further dependencies or lineage relationships are found for Table_K1 or Table_O.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.5714,
+        "precision": 0.5,
+        "recall": 0.6667
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_061",
+      "question": "If Table_I1 changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "Table_O",
+        "Table_X2"
+      ],
+      "predicted_answer": [
+        "Table_O"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Table_O is affected because it has a foreign key dependency on Table_I1 (`Table_O --FK--> Table_I1`). No other tables are directly or indirectly derived from Table_I1, nor do they have FK dependencies on Table_O.",
+      "api_failure": false,
+      "retrieved_tables": [
+        "Table_E1",
+        "Table_I1",
+        "Table_X2",
+        "Table_X3",
+        "Table_V2",
+        "Table_Z",
+        "Table_O1",
+        "Table_M2",
+        "Table_V1",
+        "Table_Z2",
+        "Table_X1",
+        "Table_L2",
+        "Table_O",
+        "Table_B",
+        "Table_Z1"
+      ],
+      "raw_response": {
+        "answer_list": [
+          "Table_O"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Table_O is affected because it has a foreign key dependency on Table_I1 (`Table_O --FK--> Table_I1`). No other tables are directly or indirectly derived from Table_I1, nor do they have FK dependencies on Table_O.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_O\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Table_O is affected because it has a foreign key dependency on Table_I1 (`Table_O --FK--> Table_I1`). No other tables are directly or indirectly derived from Table_I1, nor do they have FK dependencies on Table_O.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.6667,
+        "precision": 1.0,
+        "recall": 0.5
+      }
+    },
+    {
+      "id": "adventureworks_lineage_combined_062",
+      "question": "If Table_X1 changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "Table_N3",
+        "Table_Z2"
+      ],
+      "predicted_answer": [
+        "Table_C1",
+        "Table_I",
+        "Table_M2",
+        "Table_N3",
+        "Table_O",
+        "Table_S",
+        "Table_Z"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "reasoning": "Starting from Table_X1, we identify tables that either have a foreign key to Table_X1 (Table_N3) or are derived from Table_X1. We then recursively find tables derived from or having foreign keys to these newly affected tables until no new tables are found.",
+      "api_failure": false,
+      "retrieved_tables": [
+        "Table_X2",
+        "Table_X3",
+        "Table_I1",
+        "Table_X1",
+        "Table_Z2",
+        "Table_E1",
+        "Table_P2",
+        "Table_M2",
+        "Table_Z",
+        "Table_D2",
+        "Table_O",
+        "Table_V2",
+        "Table_O1",
+        "Table_B2",
+        "Table_Z1"
+      ],
+      "raw_response": {
+        "answer_list": [
+          "Table_N3",
+          "Table_Z",
+          "Table_M2",
+          "Table_I",
+          "Table_C1",
+          "Table_S",
+          "Table_O"
+        ],
+        "answer_int": null,
+        "answer_bool": null,
+        "answer_str": null,
+        "reasoning": "Starting from Table_X1, we identify tables that either have a foreign key to Table_X1 (Table_N3) or are derived from Table_X1. We then recursively find tables derived from or having foreign keys to these newly affected tables until no new tables are found.",
+        "_raw_text": "```json\n{\n  \"answer_list\": [\n    \"Table_N3\",\n    \"Table_Z\",\n    \"Table_M2\",\n    \"Table_I\",\n    \"Table_C1\",\n    \"Table_S\",\n    \"Table_O\"\n  ],\n  \"answer_int\": null,\n  \"answer_bool\": null,\n  \"answer_str\": null,\n  \"reasoning\": \"Starting from Table_X1, we identify tables that either have a foreign key to Table_X1 (Table_N3) or are derived from Table_X1. We then recursively find tables derived from or having foreign keys to these newly affected tables until no new tables are found.\"\n}\n```"
+      },
+      "scores": {
+        "exact_match": false,
+        "f1": 0.2222,
+        "precision": 0.1429,
+        "recall": 0.5
+      }
     }
   ],
   "summary": {

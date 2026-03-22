@@ -16,7 +16,7 @@ membership), we apply \textbf{target-node normalization} (stripping the
 queried table from both prediction and gold prior to scoring) ensuring
 models are not penalized for harmless self-inclusion.
 An \textbf{Oracle} baseline injects gold algorithmic outputs, establishing
-an upper bound ($\geq$99.7\% EM across all three models; the residual gap
+an upper bound ($\geq$99.5\% EM across all three models; the residual gap
 reflects minor formatting, not reasoning failures).
 
 \subsection{Tier~1: Main Results}
@@ -34,41 +34,41 @@ reflects minor formatting, not reasoning failures).
 Model & & FT & VR & GA & TU & RC \\
 \midrule
 \multirow{2}{*}{Gem.}
-  & Micro & 79.5{\tiny$\pm$2.3} & 73.7{\tiny$\pm$2.7}
-  & 77.0{\tiny$\pm$2.5} & \textbf{91.8}{\tiny$\pm$1.7}
-  & 83.0{\tiny$\pm$2.3} \\
-  & Macro & 83.5{\tiny$\pm$2.6} & 73.9{\tiny$\pm$3.4}
-  & 80.3{\tiny$\pm$3.1} & \textbf{91.8}{\tiny$\pm$1.7}
-  & 77.6{\tiny$\pm$3.4} \\
+  & Micro & 76.6 & 72.9
+  & 75.4 & \textbf{89.3}
+  & 81.4 \\
+  & Macro & 77.0 & 72.4
+  & 77.1 & \textbf{86.6}
+  & 69.9 \\
 \midrule
 \multirow{2}{*}{DS}
-  & Micro & 70.4{\tiny$\pm$2.8} & 71.6{\tiny$\pm$2.7}
-  & 78.4{\tiny$\pm$2.6} & \textbf{91.1}{\tiny$\pm$1.7}
-  & 83.1{\tiny$\pm$2.2} \\
-  & Macro & 70.1{\tiny$\pm$3.0} & 63.6{\tiny$\pm$3.2}
-  & 72.5{\tiny$\pm$3.0} & \textbf{89.8}{\tiny$\pm$2.1}
-  & 79.3{\tiny$\pm$2.7} \\
+  & Micro & 69.5 & 71.0
+  & 76.8 & \textbf{90.4}
+  & 79.4 \\
+  & Macro & 68.2 & 62.4
+  & 69.5 & \textbf{88.4}
+  & 71.6 \\
 \midrule
 \multirow{2}{*}{Qw.}
-  & Micro & 63.2{\tiny$\pm$3.0} & 69.5{\tiny$\pm$2.8}
-  & 62.8{\tiny$\pm$3.4} & 77.5{\tiny$\pm$3.2}
-  & \textbf{82.5}{\tiny$\pm$2.6} \\
-  & Macro & 64.8{\tiny$\pm$3.2} & 62.8{\tiny$\pm$3.4}
-  & 77.5{\tiny$\pm$3.2} & \textbf{82.5}{\tiny$\pm$2.6}
-  & 62.2{\tiny$\pm$3.4} \\
+  & Micro & 63.2 & 69.5
+  & 80.9 & \textbf{87.5}
+  & 64.6 \\
+  & Macro & 64.8 & 62.8
+  & 77.5 & \textbf{82.5}
+  & 62.2 \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle}}
-  & \multicolumn{5}{c}{99.7 / 99.9 / 100.0} \\
+  & \multicolumn{5}{c}{99.5 / 99.8 / 100.0} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Finding~1: Agentic baselines dominate.}
-TU tops Tier~1 at 87--92\% micro-EM, roughly 7--12~pp ahead of the best
+TU tops Tier~1 at 87--90\% micro-EM, roughly 7--14~pp ahead of the best
 static baseline.  RC also clears static methods through code generation.
 
 \paragraph{Finding~2: Triviality Illusion.}
-FT looks competitive at 79.5\% micro-EM, but the illusion comes from
+FT looks competitive at 76.6\% micro-EM, but the illusion comes from
 \texttt{join\_path} (33\% of questions) inflating the average.
 Macro-EM, which weights subtypes equally, puts GA ahead of FT among
 static methods; all still trail TU by $>$8~pp (Figure~5, Appendix).
@@ -88,33 +88,33 @@ Model & Diff. & FT & VR & GA & TU & RC \\
 \midrule
 \multirow{3}{*}{Gem.}
   & Easy    & 82.7 & 82.5 & 82.2 & \textbf{99.6} & 90.4 \\
-  & Med.    & 89.8 & 75.3 & 81.6 & \textbf{99.6} & 91.3 \\
-  & Hard    & 56.7 & 47.4 & 56.7 & 59.9 & \textbf{60.9} \\
+  & Med.    & 78.9 & 73.0 & 76.3 & \textbf{90.3} & 78.7 \\
+  & Hard    & 56.1 & 46.5 & 55.6 & 59.9 & \textbf{60.9} \\
 \midrule
 \multirow{3}{*}{DS}
   & Easy    & 82.7 & 84.4 & 87.1 & \textbf{98.0} & 88.8 \\
-  & Med.    & 68.3 & 67.3 & 81.3 & \textbf{99.3} & 89.0 \\
-  & Hard    & 39.7 & 43.3 & 50.0 & \textbf{60.4} & 58.9 \\
+  & Med.    & 65.3 & 65.3 & 76.0 & \textbf{97.0} & 76.3 \\
+  & Hard    & 40.1 & 43.6 & 50.0 & \textbf{60.4} & 58.9 \\
 \midrule
 \multirow{3}{*}{Qw.}
   & Easy    & 77.4 & 84.0 & 86.6 & \textbf{96.1} & 72.2 \\
-  & Med.    & 57.7 & 63.0 & 90.7 & \textbf{72.0} & 64.7 \\
-  & Hard    & 33.2 & 40.1 & 51.0 & \textbf{57.0} & 44.1 \\
+  & Med.    & 57.7 & 63.0 & 90.7 & \textbf{92.0} & 64.7 \\
+  & Hard    & 33.2 & 40.1 & 51.0 & \textbf{57.4} & 44.1 \\
 \midrule
 \multicolumn{2}{l}{\textit{Oracle Hard}}
-  & \multicolumn{5}{c}{100.0 / 100.0 / 100.0} \\
+  & \multicolumn{5}{c}{99.0 / 99.5 / 100.0} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{Easy/Medium inversion.}
-Gemini FT scores 89.8\% on Medium but only 82.7\% on Easy.  This occurs
-because Medium is dominated by \texttt{join\_path} (342 of 544 Medium
-questions), which has high FT accuracy since short FK paths are often
-present in the flat schema text.  Easy includes subtypes like
-\texttt{count} (number of connected components) that require global
-graph access unavailable to FT.  The inversion reflects subtype
-composition, not a flaw in difficulty labels.
+\paragraph{Easy/Medium patterns.}
+Gemini FT scores 78.9\% on Medium versus 82.7\% on Easy.  Medium is
+dominated by \texttt{join\_path} (342 of 544 Medium questions), which has
+high FT accuracy since short FK paths are often present in the flat
+schema text.  Easy includes subtypes like \texttt{count} (number of
+connected components) that require global graph access unavailable to FT.
+The distribution reflects subtype composition, not a flaw in difficulty
+labels.
 
 \begin{figure}[t]
 \centering
@@ -159,23 +159,27 @@ than interaction budget.
 Model & & FT & VR & GA & TU & RC \\
 \midrule
 \multirow{2}{*}{Gem.}
-  & Orig.   & 72.1 & 69.7 & 71.6 & \textbf{91.2} & 87.1 \\
-  & $\Delta$ & $-$14.9 & $-$26.0 & $-$27.9 & $-$\textbf{3.4} & $-$7.6 \\
+  & Orig.   & 71.8 & 69.3 & 71.2 & \textbf{91.2} & 87.1 \\
+  & $\Delta$ & $-$15.0 & $-$25.8 & $-$27.7 & $-$\textbf{3.4} & $-$7.6 \\
 \midrule
 \multirow{2}{*}{DS}
-  & Orig.   & 68.6 & 74.8 & 82.7 & \textbf{91.4} & 83.4 \\
-  & $\Delta$ & $-$27.8 & $-$31.7 & $-$24.3 & $-$\textbf{4.2} & $+$0.6 \\
+  & Orig.   & 68.4 & 74.5 & 82.3 & \textbf{91.4} & 83.4 \\
+  & $\Delta$ & $-$27.9 & $-$31.9 & $-$24.6 & $-$\textbf{4.2} & $+$0.6 \\
+\midrule
+\multirow{2}{*}{Qw.}
+  & Orig.   & 59.6 & 70.5 & 82.8 & \textbf{88.4} & 62.8 \\
+  & $\Delta$ & $-$8.9 & $-$13.8 & $-$19.7 & $-$\textbf{3.7} & $-$7.5 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 TU shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\%
-DeepSeek) while static baselines lose 15--32pp.
+DeepSeek, ${-}3.7$\% Qwen) while static baselines lose 9--32pp.
 Obfuscation replaces table names only; column names are preserved,
 as all baselines operate on schema-level graph topology where
 column semantics play no role.
-RC shows near-zero penalty ($\Delta{=}{+}0.6$\% DeepSeek), confirming
-that code execution against the graph object is fully invariant to
+RC shows near-zero penalty for DeepSeek ($\Delta{=}{+}0.6$\%), confirming
+that code execution against the graph object is largely invariant to
 name perturbation.
 
 \subsection{Tier~2: Value-Level Evaluation}

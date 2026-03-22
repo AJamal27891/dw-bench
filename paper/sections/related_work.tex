@@ -8,14 +8,14 @@ Spider~\cite{yu2018spider} set the template: 10,181 questions across
 200 databases. BIRD~\cite{li2023bird} introduced noisy schemas;
 Spider~2.0~\cite{lei2024spider2} scaled to enterprise schemas.
 ScienceBenchmark targets scientific databases.
-RobUT~\cite{torr2024} probes cell/row logic.  All of these test
+RobuT~\cite{zhao2023robust} probes cell/row logic.  All of these test
 \emph{query generation or cell reasoning}, none test structural
 understanding.
 
 \paragraph{Schema Understanding.}
 BEAVER~\cite{beaver2024} evaluates LLMs on database knowledge including
 schema matching and entity resolution, but does not evaluate graph topology
-reasoning.  LLM-FK~\cite{llmfk2024} evaluates FK discovery, a single-hop
+reasoning.  LLM-FK~\cite{tang2026llmfk} evaluates FK discovery, a single-hop
 structural task complementary to DW-Bench's multi-hop topology reasoning.
 
 \paragraph{Graph Reasoning in LLMs.}
@@ -37,7 +37,7 @@ do not specifically target schema topology.
 DW-Bench does not compare against these advanced graph-agent frameworks;
 following the precedent of Spider and BIRD, we evaluate standardized,
 zero-shot baselines to establish a \emph{lower bound}.  These methods
-are natural next steps: the Oracle upper bound ($\geq$99.7\% EM) quantifies
+are natural next steps: the Oracle upper bound ($\geq$99.5\% EM) quantifies
 exactly how much room remains for hybrid architectures combining tools with
 learned graph representations.
 

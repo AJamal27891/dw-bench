@@ -15,7 +15,7 @@ with notebook-based SQL generation.  BEAVER~\cite{beaver2024} focuses
 on enterprise-specific patterns.  While these benchmarks evaluate SQL
 \emph{generation}, DW-Bench evaluates schema \emph{understanding}---the
 structural topology reasoning that precedes and informs query construction.
-Recent table reasoning benchmarks like ToRR~\cite{torr2024} evaluate
+Recent table reasoning benchmarks like RobuT~\cite{zhao2023robust} evaluate
 logical operations over cell and row content; DW-Bench is complementary,
 targeting topology over schemas rather than cell-level reasoning.
 
@@ -60,7 +60,7 @@ systems focus on \emph{computing} provenance, DW-Bench evaluates whether
 LLMs can \emph{reason about} lineage relationships expressed as graph
 topology---a complementary capability relevant to LLM-assisted data
 engineering workflows.  Related schema inference work includes
-LLM-FK~\cite{llmfk2024}, which evaluates LLMs on FK discovery---a
+LLM-FK~\cite{tang2026llmfk}, which evaluates LLMs on FK discovery---a
 single-hop structural task complementary to DW-Bench's multi-hop
 topology reasoning.
 

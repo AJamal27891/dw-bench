@@ -6,7 +6,7 @@
 \label{app:decoding}
 
 \subsection{Models}
-We evaluate two frontier-class LLMs:
+We evaluate three frontier-class LLMs:
 \begin{itemize}[nosep]
 \item \textbf{Gemini~2.5~Flash} (Google, closed-weight, accessed via the
 Generative Language API). A multimodal model optimized for speed and
@@ -14,8 +14,11 @@ accuracy at scale.
 \item \textbf{DeepSeek-V3} (DeepSeek, 671B parameter Mixture-of-Experts,
 MIT licensed, accessed via API). An open-weight model competitive with
 closed-source alternatives.
+\item \textbf{Qwen2.5-72B} (Qwen Team, 72B dense model,
+Apache-2.0, accessed via API). An open-weight model with strong
+reasoning capabilities.
 \end{itemize}
-Both models use greedy decoding ($\tau{=}0$, $p{=}1.0$) with a single
+All three models use greedy decoding ($\tau{=}0$, $p{=}1.0$) with a single
 deterministic pass per question for exact reproducibility. No few-shot
 examples or chain-of-thought prompting is used.
 
@@ -131,7 +134,7 @@ documentation mapping OLTP source tables to DW dimension/fact tables (39~edges).
 defining staging$\to$dimension$\to$fact transformation flows (21~edges).
 \item \textbf{OMOP CDM}: Derived from OHDSI ETL convention guides mapping
 source vocabularies and clinical tables to standardized CDM tables (21~edges).
-\item \textbf{Syn-Logistics}: Defined by construction---three parallel
+\item \textbf{Syn-Logistics}: Defined by construction: three parallel
 4-hop chains (raw$\to$staging$\to$dimension$\to$mart) per connected
 component (35~edges). All lineage edges are validated by verifying that
 the source table's schema semantically feeds the target table's schema.

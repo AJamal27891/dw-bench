@@ -16,10 +16,10 @@ context-window approaches cannot compete.  We run six baselines,
 from flat context injection to tool-calling and code execution,
 against Gemini~2.5 Flash, DeepSeek-V3, and Qwen2.5-72B.
 
-Tool-augmented baselines reach 87--92\% micro-EM; static methods
+Tool-augmented baselines reach 87--90\% micro-EM; static methods
 top out at 63--81\%.  The gap narrows on easy subtypes and widens
 on hard ones: no method exceeds 61\% while the oracle clears
-$\geq$99.7\%.  That gap is a reasoning problem.
+$\geq$99.5\%.  That gap is a reasoning problem.
 On value-level questions, tools flip \texttt{cascade\_count} from
 0\% to 100\%, but \texttt{row\_impact} stays at 16--17\% on real-world
 schemas.  Tool-use on real-world lineage outperforms the synthetic

@@ -338,18 +338,23 @@
       "gold_answer": [
         "DW.dbo.DimProduct"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "DW.dbo.DimProduct"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates that for the question subtype 'forward' and expected answer type 'list', the tables directly derived from the source are provided. The source mentioned in the evidence is 'DW.dbo.DimProduct', but the question asks about tables derived from 'OLTP.Production.ProductModel'. Since the evidence only lists tables derived from 'DW.dbo.DimProduct' and does not mention 'OLTP.Production.ProductModel', no tables are identified as directly derived from the specified source.\",\n    \"answer\": []\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence specifies that the question subtype is 'forward', meaning it asks for tables derived from a given source. The evidence provides the exact list of tables directly derived from the source, which is ['DW.dbo.DimProduct']. Since the question asks for tables derived from 'OLTP.Production.ProductModel', and the evidence lists the tables derived from that source, the answer is directly taken from the evidence.\",\n    \"answer\": [\"DW.dbo.DimProduct\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "DW.dbo.DimProduct"
+      ]
     },
     {
       "id": "adventureworks_lineage_fwd_011",
@@ -443,18 +448,23 @@
       "gold_answer": [
         "DW.dbo.FactProductInventory"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "DW.dbo.FactProductInventory"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates that the question subtype is 'forward', meaning it asks for tables derived from a given source. The expected answer type is 'list', and the evidence specifies that for the source 'DW.dbo.FactProductInventory', the directly derived tables are listed. However, the question asks about tables derived from 'OLTP.Purchasing.Vendor', but the evidence only provides information for 'DW.dbo.FactProductInventory'. Since no evidence is given for 'OLTP.Purchasing.Vendor', I cannot determine any derived tables from it.\",\n    \"answer\": []\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence shows that the question subtype is 'forward', meaning we need to identify tables derived from the source table 'OLTP.Purchasing.Vendor'. The evidence provides an exact list of tables directly derived from this source, which is ['DW.dbo.FactProductInventory']. This directly answers the question.\",\n    \"answer\": [\"DW.dbo.FactProductInventory\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "DW.dbo.FactProductInventory"
+      ]
     },
     {
       "id": "adventureworks_lineage_fwd_016",
@@ -525,18 +535,23 @@
       "gold_answer": [
         "DW.dbo.FactProductInventory"
       ],
-      "predicted_answer": [],
+      "predicted_answer": [
+        "DW.dbo.FactProductInventory"
+      ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "forward",
       "difficulty": "easy",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence indicates that the question subtype is 'forward', meaning we are looking for tables directly derived from the source table. The evidence explicitly states that for the source table 'DW.dbo.FactProductInventory', the directly derived tables are listed. However, the question asks about 'OLTP.Purchasing.PurchaseOrderHeader', but the evidence only provides information for 'DW.dbo.FactProductInventory'. Since no evidence is provided for the specified source table, I cannot determine any derived tables from it.\",\n    \"answer\": []\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence specifies that the question subtype is 'forward' and the expected answer type is 'list'. It provides the exact list of tables directly derived from the source as ['DW.dbo.FactProductInventory']. Since the question asks for tables directly derived from OLTP.Purchasing.PurchaseOrderHeader, and the evidence explicitly states this list, I use it directly as the answer.\",\n    \"answer\": [\"DW.dbo.FactProductInventory\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0,
-        "precision": 0.0,
-        "recall": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "DW.dbo.FactProductInventory"
+      ]
     },
     {
       "id": "adventureworks_lineage_fwd_020",
@@ -1203,20 +1218,25 @@
       ],
       "predicted_answer": [
         "DW.dbo.DimSalesReason",
-        "DW.dbo.FactInternetSalesSalesReason",
+        "DW.dbo.FactInternetSalesReason",
         "OLTP.Sales.SalesOrderHeaderSalesReason"
       ],
       "answer_type": "list",
       "type": "lineage_impact",
       "subtype": "combined_impact",
       "difficulty": "hard",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly lists all tables affected by changes to OLTP.Sales.SalesReason, including those through data lineage and foreign key dependencies, as specified in the question. The evidence provides the exact answer in the expected list format.\",\n    \"answer\": [\"DW.dbo.DimSalesReason\", \"DW.dbo.FactInternetSalesSalesReason\", \"OLTP.Sales.SalesOrderHeaderSalesReason\"]\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly lists all tables affected by changes to OLTP.Sales.SalesReason, including those through data lineage and foreign key dependencies, which matches the question's requirements.\",\n    \"answer\": [\"DW.dbo.DimSalesReason\", \"DW.dbo.FactInternetSalesReason\", \"OLTP.Sales.SalesOrderHeaderSalesReason\"]\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.6667,
-        "precision": 0.6667,
-        "recall": 0.6667
-      }
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "model_answer": [
+        "DW.dbo.DimSalesReason",
+        "DW.dbo.FactInternetSalesReason",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
+      ]
     },
     {
       "id": "adventureworks_lineage_combined_048",
@@ -2577,16 +2597,17 @@
       "id": "adventureworks_silo_isolated_004",
       "question": "Are OLTP.Production.TransactionHistoryArchive and DW.dbo.NewFactCurrencyRate connected through any chain of foreign key relationships?",
       "gold_answer": false,
-      "predicted_answer": true,
+      "predicted_answer": false,
       "answer_type": "boolean",
       "type": "silo_detection",
       "subtype": "isolation",
       "difficulty": "medium",
-      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly states that the isolation check result is False, indicating that the two tables are not isolated and therefore must be connected through some chain of foreign key relationships.\",\n    \"answer\": true\n}",
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence explicitly states that the tables are not connected and belong to different disconnected silos, directly answering the question about foreign key relationship connectivity with 'no'.\",\n    \"answer\": false\n}",
       "scores": {
-        "exact_match": false,
-        "f1": 0.0
-      }
+        "exact_match": true,
+        "f1": 1.0
+      },
+      "model_answer": false
     },
     {
       "id": "adventureworks_silo_connected_014",
@@ -5741,6 +5762,279 @@
         "exact_match": true,
         "f1": 1.0
       }
+    },
+    {
+      "question": "If OLTP.Sales.SalesOrderDetail changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales"
+      ],
+      "model_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly lists the tables affected by changes to OLTP.Sales.SalesOrderDetail, including both lineage and foreign key dependencies, which matches the question's requirement.\",\n    \"answer\": [\"DW.dbo.FactInternetSales\", \"DW.dbo.FactInternetSalesReason\", \"DW.dbo.FactResellerSales\"]\n}",
+      "id": "adventureworks_lineage_combined_065",
+      "predicted_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales"
+      ]
+    },
+    {
+      "question": "If OLTP.Person.EmailAddress changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.DimCustomer",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactSurveyResponse"
+      ],
+      "model_answer": [
+        "DW.dbo.DimCustomer",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactSurveyResponse"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly lists the tables affected by changes to OLTP.Person.EmailAddress, including both lineage and foreign key dependencies, which matches the question's requirement.\",\n    \"answer\": [\"DW.dbo.DimCustomer\", \"DW.dbo.FactInternetSales\", \"DW.dbo.FactSurveyResponse\"]\n}",
+      "id": "adventureworks_lineage_combined_066",
+      "predicted_answer": [
+        "DW.dbo.DimCustomer",
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactSurveyResponse"
+      ]
+    },
+    {
+      "question": "If OLTP.HumanResources.Employee changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.DimEmployee",
+        "DW.dbo.FactResellerSales",
+        "DW.dbo.FactSalesQuota",
+        "OLTP.HumanResources.EmployeeDepartmentHistory",
+        "OLTP.HumanResources.EmployeePayHistory",
+        "OLTP.HumanResources.JobCandidate",
+        "OLTP.Production.Document",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Sales.SalesPerson"
+      ],
+      "model_answer": [
+        "DW.dbo.DimEmployee",
+        "DW.dbo.FactResellerSales",
+        "DW.dbo.FactSalesQuota",
+        "OLTP.HumanResources.EmployeeDepartmentHistory",
+        "OLTP.HumanResources.EmployeePayHistory",
+        "OLTP.HumanResources.JobCandidate",
+        "OLTP.Production.Document",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Sales.SalesPerson"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables affected when OLTP.HumanResources.Employee changes, including both direct/indirect data lineage and foreign key dependencies. This list directly answers the question.\",\n    \"answer\": [\"DW.dbo.DimEmployee\", \"DW.dbo.FactResellerSales\", \"DW.dbo.FactSalesQuota\", \"OLTP.HumanResources.EmployeeDepartmentHistory\", \"OLTP.HumanResources.EmployeePayHistory\", \"OLTP.HumanResources.JobCandidate\", \"OLTP.Production.Document\", \"OLTP.Purchasing.PurchaseOrderHeader\", \"OLTP.Sales.SalesPerson\"]\n}",
+      "id": "adventureworks_lineage_combined_067",
+      "predicted_answer": [
+        "DW.dbo.DimEmployee",
+        "DW.dbo.FactResellerSales",
+        "DW.dbo.FactSalesQuota",
+        "OLTP.HumanResources.EmployeeDepartmentHistory",
+        "OLTP.HumanResources.EmployeePayHistory",
+        "OLTP.HumanResources.JobCandidate",
+        "OLTP.Production.Document",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Sales.SalesPerson"
+      ]
+    },
+    {
+      "question": "If OLTP.Sales.SalesOrderHeader changes, which tables are affected either through direct/indirect data lineage OR because they have a foreign key dependency on an affected table?",
+      "gold_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
+      ],
+      "model_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "combined_impact",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence provides a list of tables affected by changes to OLTP.Sales.SalesOrderHeader, considering both data lineage and foreign key dependencies. The evidence directly lists these tables, so the answer is simply that list.\",\n    \"answer\": [\"DW.dbo.FactInternetSales\", \"DW.dbo.FactInternetSalesReason\", \"DW.dbo.FactResellerSales\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.SalesOrderHeaderSalesReason\"]\n}",
+      "id": "adventureworks_lineage_combined_068",
+      "predicted_answer": [
+        "DW.dbo.FactInternetSales",
+        "DW.dbo.FactInternetSalesReason",
+        "DW.dbo.FactResellerSales",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeaderSalesReason"
+      ]
+    },
+    {
+      "question": "DW.dbo.DimProduct integrates data from multiple sources. List ALL source tables that feed into DW.dbo.DimProduct.",
+      "gold_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Production.ProductCategory",
+        "OLTP.Production.ProductModel",
+        "OLTP.Production.ProductSubcategory"
+      ],
+      "model_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Production.ProductCategory",
+        "OLTP.Production.ProductModel",
+        "OLTP.Production.ProductSubcategory"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly specifies the source tables that feed into DW.dbo.DimProduct as ['OLTP.Production.Product', 'OLTP.Production.ProductCategory', 'OLTP.Production.ProductModel', 'OLTP.Production.ProductSubcategory'], which matches the expected answer type of list.\",\n    \"answer\": [\"OLTP.Production.Product\", \"OLTP.Production.ProductCategory\", \"OLTP.Production.ProductModel\", \"OLTP.Production.ProductSubcategory\"]\n}",
+      "id": "adventureworks_lineage_multisrc_072",
+      "predicted_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Production.ProductCategory",
+        "OLTP.Production.ProductModel",
+        "OLTP.Production.ProductSubcategory"
+      ]
+    },
+    {
+      "question": "DW.dbo.FactInternetSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactInternetSales.",
+      "gold_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "model_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly specifies the source tables that feed into DW.dbo.FactInternetSales as ['OLTP.Production.Product', 'OLTP.Sales.Customer', 'OLTP.Sales.SalesOrderDetail', 'OLTP.Sales.SalesOrderHeader'], which matches the expected answer type of list.\",\n    \"answer\": [\"OLTP.Production.Product\", \"OLTP.Sales.Customer\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.SalesOrderHeader\"]\n}",
+      "id": "adventureworks_lineage_multisrc_073",
+      "predicted_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ]
+    },
+    {
+      "question": "DW.dbo.FactProductInventory integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactProductInventory.",
+      "gold_answer": [
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Purchasing.Vendor"
+      ],
+      "model_answer": [
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Purchasing.Vendor"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly specifies the source tables as ['OLTP.Purchasing.PurchaseOrderDetail', 'OLTP.Purchasing.PurchaseOrderHeader', 'OLTP.Purchasing.Vendor'], which matches the expected answer type of list for the multi-source question about DW.dbo.FactProductInventory.\",\n    \"answer\": [\"OLTP.Purchasing.PurchaseOrderDetail\", \"OLTP.Purchasing.PurchaseOrderHeader\", \"OLTP.Purchasing.Vendor\"]\n}",
+      "id": "adventureworks_lineage_multisrc_074",
+      "predicted_answer": [
+        "OLTP.Purchasing.PurchaseOrderDetail",
+        "OLTP.Purchasing.PurchaseOrderHeader",
+        "OLTP.Purchasing.Vendor"
+      ]
+    },
+    {
+      "question": "DW.dbo.FactResellerSales integrates data from multiple sources. List ALL source tables that feed into DW.dbo.FactResellerSales.",
+      "gold_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "model_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ],
+      "answer_type": "list",
+      "type": "lineage_impact",
+      "subtype": "multi_source",
+      "difficulty": "hard",
+      "scores": {
+        "exact_match": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "raw_response": "{\n    \"reasoning\": \"The oracle evidence directly provides the list of source tables that feed into DW.dbo.FactResellerSales, as specified in the 'Direct source tables feeding into the target' field.\",\n    \"answer\": [\"OLTP.Production.Product\", \"OLTP.Sales.Customer\", \"OLTP.Sales.SalesOrderDetail\", \"OLTP.Sales.SalesOrderHeader\"]\n}",
+      "id": "adventureworks_lineage_multisrc_075",
+      "predicted_answer": [
+        "OLTP.Production.Product",
+        "OLTP.Sales.Customer",
+        "OLTP.Sales.SalesOrderDetail",
+        "OLTP.Sales.SalesOrderHeader"
+      ]
     }
   ],
   "summary": {

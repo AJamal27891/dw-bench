@@ -6,12 +6,14 @@
 
 The rapid advancement of Large Language Models (LLMs) has transformed
 database interaction, with state-of-the-art models achieving
-human-competitive accuracy on text-to-SQL benchmarks such as
-Spider~\cite{yu2018spider}, BIRD~\cite{li2023bird}, and
-Spider~2.0~\cite{lei2024spider2}.  These benchmarks evaluate whether an LLM
-can translate a natural language question into a SQL query against a given
-schema.  Yet SQL generation represents only one facet of database
-understanding.
+human-competitive accuracy on standard text-to-SQL benchmarks such as
+Spider~\cite{yu2018spider} and BIRD~\cite{li2023bird}.  However, as
+newer benchmarks like Spider~2.0~\cite{lei2024spider2} demonstrate,
+enterprise-scale SQL workflows with complex multi-step reasoning remain
+largely unsolved (best models achieve $\sim$17--21\% on Spider~2.0).  These
+benchmarks evaluate whether an LLM can translate a natural language question
+into a SQL query against a given schema.  Yet SQL generation represents
+only one facet of database understanding.
 
 Data warehouse environments require a fundamentally different class of
 reasoning: understanding the \emph{graph topology} of schema relationships.

@@ -53,10 +53,48 @@ shared\_source          & 35  & \textbf{37} & 26  & 23 \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
-\caption{Tier~2 EM by subtype. \texttt{cascade\_count} and
-\texttt{row\_provenance} require tools (100\%/92\% vs.\ 0\%).}
+\caption{Tier~2 EM by subtype for all three models (Gemini, DeepSeek, Qwen).
+\texttt{cascade\_count} and
+\texttt{row\_provenance} require tools (100\%/92\% vs.\ 0\%).
+Note: \texttt{row\_provenance} shows 92\% TU for Gemini but only 11\%
+for DeepSeek, which parses tool output differently;
+Table~\ref{tab:tier2} reports Gemini+DeepSeek columns separately.}
 \label{fig:tier2}
 \end{figure}
+
+\section{\texttt{combined\_impact}: Formal Specification}
+\label{app:combined-impact}
+
+The \texttt{combined\_impact} subtype captures the set of tables
+transitively affected when a source table is modified, propagating
+first through lineage then through FK dependencies.
+
+\begin{algorithm}[H]
+\caption{\texttt{combined\_impact}($G$, $t$)}
+\label{alg:combined-impact}
+\begin{algorithmic}[1]
+\Require Hetero-graph $G=(V,E_{fk}\cup E_{lin})$; source table $t\in V$
+\Ensure Set of affected tables $A\subseteq V$
+\State $L \gets \textsc{LineageClosure}(G, t)$
+  \Comment{Directed BFS over $E_{lin}$ from $t$}
+\State $A \gets L$
+\For{each $u \in L$}
+  \State $F_u \gets \textsc{FkBFS}(G, u)$
+    \Comment{Undirected BFS over $E_{fk}$ from $u$}
+  \State $A \gets A \cup F_u$
+\EndFor
+\State $A \gets A \setminus \{t\}$ \Comment{Exclude source table itself}
+\State \Return $A$
+\end{algorithmic}
+\end{algorithm}
+
+\noindent
+\textbf{Corner cases.} (1)~Lineage DAGs contain no cycles by
+construction; future datasets with relaxed constraints should detect
+and skip back-edges.  (2)~Duplicates during union are naturally
+eliminated by set semantics.  (3)~FK BFS treats edges as undirected
+(bidirectional), consistent with the connectivity definition for all
+Silo-category questions.
 
 \section{Hop-Distance Analysis}
 \label{app:hop-distance}

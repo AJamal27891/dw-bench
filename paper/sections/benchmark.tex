@@ -67,6 +67,12 @@ upstream source, with no cycles or self-references. All traversal
 algorithms respect edge typing: FK queries use only \texttt{fk\_to}
 edges, lineage queries use only \texttt{derived\_from}, and
 \texttt{combined\_impact} queries compose both types sequentially.
+FK edges are treated as \textbf{directed} (parent$\to$child) for
+path and hop-count queries (\texttt{join\_path}, \texttt{hop\_count},
+\texttt{direct\_fk}) and as \textbf{undirected} for connectivity
+queries (\texttt{membership}, \texttt{connected}, \texttt{isolation},
+\texttt{count}, \texttt{full\_enum}).  Lineage edges are always
+directed (upstream$\to$downstream).
 For path-based questions, we validate alternative valid shortest paths
 against the FK adjacency matrix, ensuring EM is robust to tie-breaking.
 

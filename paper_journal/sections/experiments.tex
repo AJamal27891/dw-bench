@@ -118,9 +118,11 @@ of Oracle on long paths.}
 \centering
 \includegraphics[width=0.95\linewidth]{figures/subtype_heatmap.pdf}
 \caption{Tier~1 EM~(\%) by subtype for both models.
-\texttt{combined\_impact} and \texttt{membership} show near-zero
-performance across all baselines, identifying compositional
-reasoning as the core bottleneck.
+With target-node normalization, Tool-Use averages 71\% on
+\texttt{membership} (with Qwen reaching 100\%), showing topology
+enumeration is solvable with tools.
+\texttt{combined\_impact} remains at 0--17\% across all baselines,
+isolating compositional multi-hop reasoning as the core bottleneck.
 \texttt{full\_enumeration} achieves 100\% for FT/GA because global
 queries receive the full schema as context by design.}
 \label{fig:heatmap}

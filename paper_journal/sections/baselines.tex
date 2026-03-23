@@ -20,7 +20,7 @@ retrieval or filtering is applied.
 
 Schema elements (tables, edges, documentation) are embedded using
 Sentence-BERT~\cite{reimers2019sentencebert} and indexed in a FAISS vector
-store.  At query time, the $k=15$ most relevant chunks are retrieved and
+store~\cite{johnson2019faiss}.  At query time, the $k=15$ most relevant chunks are retrieved and
 injected as context.  This tests whether dense retrieval can identify the
 relevant structural fragments for topology questions.
 

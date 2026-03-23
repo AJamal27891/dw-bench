@@ -71,16 +71,18 @@ released for community bootstrap and stratification analyses. Greedy
 decoding ensures deterministic reproducibility without requiring
 multiple runs or confidence intervals over random seeds.
 
+\FloatBarrier
 \section{Hop-Distance Analysis}
 \label{app:hop-distance}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.pdf}
-\caption{EM by gold path length (Gemini). Static baselines collapse beyond
+\caption{EM by gold path length (Gemini, representative). Static baselines collapse beyond
 3~hops while Tool-Use degrades more gracefully, confirming that interactive
-graph access is essential for multi-hop reasoning.}
-\label{fig:hop_decay}
+graph access is essential for multi-hop reasoning. DeepSeek and Qwen
+show the same qualitative pattern.}
+\label{fig:hop_decay_app}
 \end{figure}
 
 \begin{table}[h!]
@@ -113,6 +115,7 @@ reverse          & 20 &  0 &   0\% & 100\% \\
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \section{Dataset Construction Details}
 \label{app:datasets}
 
@@ -143,6 +146,7 @@ the source table's schema semantically feeds the target table's schema.
 \section{Example Questions and Predictions}
 \label{app:examples}
 
+\FloatBarrier
 \begin{table}[h!]
 \centering
 \caption{Representative questions across difficulty levels and categories,
@@ -150,8 +154,8 @@ with gold answers and Tool-Use (TU) predictions.
 \cmark~=~correct, \xmark~=~incorrect. Tool-Use succeeds on lookup-style
 questions but fails on exhaustive enumeration and multi-hop composition.}
 \label{tab:examples}
-\small
-\begin{tabular}{p{0.12\linewidth}p{0.36\linewidth}p{0.22\linewidth}p{0.20\linewidth}}
+\scriptsize
+\begin{tabular}{p{0.12\linewidth}p{0.35\linewidth}p{0.22\linewidth}p{0.22\linewidth}}
 \toprule
 \textbf{Subtype} & \textbf{Question} & \textbf{Gold} & \textbf{TU Pred.} \\
 \midrule

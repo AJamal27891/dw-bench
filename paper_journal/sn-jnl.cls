@@ -1320,7 +1320,7 @@
    \ifnum0=`{\fi}}
 \let\cline\cmidrule
 
-%\usepackage[figuresright]{rotating}% disabled: xcolor compat on TL2025
+\usepackage[figuresright]{rotating}%
 \usepackage{threeparttable}
 
 \let\tableorg\table%

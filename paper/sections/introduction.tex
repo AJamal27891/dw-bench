@@ -4,10 +4,11 @@
 \section{Introduction}
 
 Text-to-SQL has made rapid progress: state-of-the-art LLMs now approach or
-match human-level accuracy on Spider~\cite{yu2018spider},
-BIRD~\cite{li2023bird}, and Spider~2.0~\cite{lei2024spider2}, all of which
-measure a model's capacity to translate a natural-language question into a SQL
-query.
+match human-level accuracy on Spider~\cite{yu2018spider} and
+BIRD~\cite{li2023bird}, which measure a model's capacity to translate a
+natural-language question into a SQL query.  However, even the latest
+benchmarks like Spider~2.0~\cite{lei2024spider2} show that enterprise-scale
+SQLworkflows remain largely unsolved (best models~$\sim$17--21\%).
 
 Data warehouses, on the other hand, present a different kind of problem.
 A data engineer maintaining an enterprise warehouse does not primarily write

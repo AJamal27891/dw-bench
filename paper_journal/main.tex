@@ -25,6 +25,12 @@ over Data Warehouse Schemas}
 \affil[2]{\orgname{Bah\c{c}e\c{s}ehir University}}
 \date{}
 
+% Restore the standard table environment that sn-jnl.cls overwrites.
+% sn-jnl wraps table in threeparttable+center (saved as tableorg).
+% Our tables use standard tabular without table notes, so we revert.
+\let\table\tableorg
+\let\endtable\endtableorg
+
 \begin{document}
 
 \maketitle

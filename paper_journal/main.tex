@@ -1,17 +1,18 @@
 \documentclass{sn-jnl}
 
-% Only packages NOT already loaded by sn-jnl.cls
-% (sn-jnl already loads: rotating, threeparttable, hyperref, breakurl,
-%  natbib, geometry, fontenc, amsthm, setspace, wrapfig, hypcap, xcolor)
 \usepackage{amsfonts}
 \usepackage{url}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{enumitem}
 \usepackage{pifont}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{nicefrac}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{threeparttable}
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
 
@@ -24,22 +25,6 @@ over Data Warehouse Schemas}
 \affil*[1]{\orgname{Innosol}}
 \affil[2]{\orgname{Bah\c{c}e\c{s}ehir University}}
 \date{}
-
-% xcolor3 / TeX Live 2025 compatibility shim:
-% \XC@ifxc was removed from xcolor 3.x but referenced by rotating.sty.
-% We define it as a 3-arg passthrough via AtBeginDocument so it fires
-% AFTER all package hooks are registered but BEFORE they are called.
-\makeatletter
-\AtBeginDocument{%
-  \providecommand*{\XC@ifxc}[3]{#2}%
-}
-\makeatother
-
-% Restore the standard table environment that sn-jnl.cls overwrites.
-% sn-jnl wraps table in threeparttable+center (saved as tableorg).
-% Our tables use standard tabular without table notes, so we revert.
-\let\table\tableorg
-\let\endtable\endtableorg
 
 \begin{document}
 

@@ -25,6 +25,19 @@ only 3--4\% while static baselines lose 9--32\%.}
 \section{Tier~2 Full Results}
 \label{app:tier2}
 
+\paragraph{Data access mechanism.}
+Tier~2 value-level tools operate over pre-materialized CSV snapshots
+of each schema's row data loaded into Pandas DataFrames at evaluation
+time.  There is no live database engine (no DuckDB, Postgres, or
+SQLite); all row-level queries are executed as Pandas operations with
+deterministic column ordering and no transaction isolation overhead.
+Tool outputs are returned as string-formatted CSV rows.
+This format explains DeepSeek's lower \texttt{row\_provenance} scores
+(11\% vs.\ Gemini's 92\%): DeepSeek reliably identifies the correct
+source tables but inconsistently parses the multiline CSV row output
+into the expected list format, yielding EM failures on otherwise
+correct retrievals.
+
 \begin{table}[H]
 \centering
 \caption{Tier~2 value-level results (EM~\%, Syn-Logistics;

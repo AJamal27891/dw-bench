@@ -61,8 +61,8 @@ Qwen & Micro & 63.2 & 69.5
   & 80.9 & \textbf{87.5}
   & 64.6 \\
 \midrule
-\multicolumn{2}{l}{\textit{Oracle}}
-  & \multicolumn{5}{c}{99.5 / 99.8 / 100.0} \\
+\textit{Oracle} & & \multicolumn{5}{c}{%
+  Gemini~99.5\% / DeepSeek~99.8\% / Qwen~100.0\%} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -223,8 +223,10 @@ ongoing work (see Limitations).
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
-\caption{Tier~2 value-level EM by subtype.
-\texttt{cascade\_count} and \texttt{row\_provenance} require tools.}
+\caption{Tier~2 value-level EM (\%) by subtype, showing Gemini
+and DeepSeek across baselines (FT, GA, TU).  Values represent
+results on the Syn-Logistics evaluation set ($n{=}433$); numerical
+results are tabulated per-subtype in Table~\ref{tab:tier2}.}
 \label{fig:tier2}
 \end{figure}
 

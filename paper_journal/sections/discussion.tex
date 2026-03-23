@@ -133,8 +133,8 @@ and \texttt{shortest\_path} tools available.
 
 \subsection{GA Obfuscation Penalty Analysis}
 
-The large GA obfuscation penalty ($\Delta{=}{-}32.0$\% Gemini,
-${-}19.1$\% DeepSeek, ${-}17.8$\% Qwen) may appear surprising given that BFS anchor tables
+The large GA obfuscation penalty ($\Delta{=}{-}27.7$\% Gemini,
+${-}24.6$\% DeepSeek, ${-}19.7$\% Qwen) may appear surprising given that BFS anchor tables
 remain present after obfuscation.  We attribute this to two compounding
 factors: (1)~the LLM loses semantic priors about table roles when
 names like \texttt{DimCustomer} become \texttt{Table\_K}, making it
@@ -156,7 +156,8 @@ TU's near-perfect easy scores \emph{isolate} the hard-task failures as
 genuine reasoning gaps.  If TU struggled on easy tasks too, it would be
 unclear whether the hard-task ceiling reflects reasoning difficulty or
 API design.  The fact that TU solves easy tasks trivially but fails on
-\texttt{combined\_impact} (12\%) and \texttt{membership} (32\%)
+\texttt{combined\_impact} (12\%) and \texttt{membership} (15\% raw,
+71\% after target-node normalization)
 demonstrates that the gap is compositional reasoning, not tool availability.
 
 \subsection{Limitations}

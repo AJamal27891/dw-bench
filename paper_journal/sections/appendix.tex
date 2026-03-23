@@ -72,6 +72,17 @@ decoding ensures deterministic reproducibility without requiring
 multiple runs or confidence intervals over random seeds.
 
 \FloatBarrier
+\section{Tier~2 Extended Results (Qwen2.5-72B)}
+\label{app:tier2}
+
+Qwen2.5-72B on Tier~2 (Syn-Logistics, \{=}433\$) shows the same
+tools-essential-yet-insufficient pattern as Gemini and DeepSeek:
+\texttt{cascade\_count} reaches near 100\% with Tool-Use vs.\ 0\% without;
+on compositional subtypes (\texttt{multi\_hop\_trace}, \texttt{shared\_source})
+Qwen plateaus at 25--30\%, confirming cross-model generality of the ceiling.
+Full results are available in the released per-question JSON files.
+
+\FloatBarrier
 \section{Hop-Distance Analysis}
 \label{app:hop-distance}
 

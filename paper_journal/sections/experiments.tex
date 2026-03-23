@@ -111,7 +111,8 @@ Model & Difficulty ($n$) & FT & VR & GA & TU & RC \\
 
 \paragraph{Key Finding~3: Hard task plateau persists even with tools.}
 Even Tool-Use plateaus on hard questions at $\sim$60\% EM versus Oracle's
-$>$99\%.  Figure~\ref{fig:hop_decay} disaggregates EM by gold path length:
+$>$99\%.  Figure~\ref{fig:hop_decay} disaggregates EM by gold path length
+(Gemini; DeepSeek and Qwen show the same qualitative pattern):
 static baselines collapse beyond 3 hops (87\%$\to$19\% for FT), while
 Tool-Use degrades more gracefully.
 
@@ -131,7 +132,7 @@ Appendix~\ref{app:hop-distance}.}
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.95\linewidth]{figures/subtype_heatmap.pdf}
-\caption{Tier~1 EM~(\%) by subtype for both models.
+\caption{Tier~1 EM~(\%) by subtype for all three models.
 With target-node normalization, Tool-Use averages 71\% on
 \texttt{membership} (with Qwen reaching 100\%), showing topology
 enumeration is solvable with tools.
@@ -282,7 +283,7 @@ gap on structured row-level results.
 \includegraphics[width=\linewidth]{figures/oracle_gap.pdf}
 \caption{The Reasoning Gap: Oracle~EM minus best non-oracle baseline
 EM, per subtype. \texttt{combined\_impact} retains an 85+\% gap for
-both models; 7 of 13 subtypes are effectively solved (gap~$<$~3\%).}
+all three models; 7 of 13 subtypes are effectively solved (gap~$<$~3\%).}
 \label{fig:oracle-gap}
 \end{figure}
 

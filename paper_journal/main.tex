@@ -26,10 +26,13 @@ over Data Warehouse Schemas}
 \date{}
 
 % xcolor3 / TeX Live 2025 compatibility shim:
-% rotating.sty references \XC@ifxc which was removed in xcolor 3.x.
-% Define it as a passthrough so compilation does not abort.
+% \XC@ifxc was removed from xcolor 3.x but referenced by rotating.sty.
+% We define it as a 3-arg passthrough via AtBeginDocument so it fires
+% AFTER all package hooks are registered but BEFORE they are called.
 \makeatletter
-\providecommand*{\XC@ifxc}[3]{#2}%
+\AtBeginDocument{%
+  \providecommand*{\XC@ifxc}[3]{#2}%
+}
 \makeatother
 
 % Restore the standard table environment that sn-jnl.cls overwrites.

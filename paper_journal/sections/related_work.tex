@@ -13,7 +13,7 @@ to 95 large databases with dirty values and external knowledge.
 Spider~2.0~\cite{lei2024spider2} targets real-world enterprise workflows
 with notebook-based SQL generation.  BEAVER~\cite{beaver2024} focuses
 on enterprise-specific patterns.  While these benchmarks evaluate SQL
-\emph{generation}, DW-Bench evaluates schema \emph{understanding}---the
+\emph{generation}, DW-Bench evaluates schema \emph{understanding}: the
 structural topology reasoning that precedes and informs query construction.
 Recent table reasoning benchmarks like RobuT~\cite{zhao2023robust} evaluate
 logical operations over cell and row content; DW-Bench is complementary,
@@ -61,8 +61,8 @@ relevant to our conclusions.  GraphLLM~\cite{graphllm2023} and
 GRIP~\cite{grip2024} demonstrate that learned structural adaptors
 and graph-enhanced representations can internalize multi-hop structure,
 reducing reliance on explicit tool orchestration.  These approaches
-align with our core finding that compositional reasoning---not tool
-availability---is the binding constraint: a GNN-style encoder that
+align with our core finding that compositional reasoning: not tool
+availability: is the binding constraint: a GNN-style encoder that
 pre-computes FK-path and lineage embeddings could supply the structural
 grounding missing from LLM context.  LEGO-GraphRAG~\cite{legographrag2024}
 further provides a modular lens on semantic-structural hybrid retrieval
@@ -76,9 +76,9 @@ Data lineage tracking is fundamental to data governance and has been
 studied extensively in the database systems community.  While lineage
 systems focus on \emph{computing} provenance, DW-Bench evaluates whether
 LLMs can \emph{reason about} lineage relationships expressed as graph
-topology---a complementary capability relevant to LLM-assisted data
+topology: a complementary capability relevant to LLM-assisted data
 engineering workflows.  Related schema inference work includes
-LLM-FK~\cite{tang2026llmfk}, which evaluates LLMs on FK discovery---a
+LLM-FK~\cite{tang2026llmfk}, which evaluates LLMs on FK discovery: a
 single-hop structural task complementary to DW-Bench's multi-hop
 topology reasoning.
 

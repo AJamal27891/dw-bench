@@ -10,7 +10,7 @@ Yet evaluating whether an LLM can \emph{generate} a SQL query against a schema
 is distinct from evaluating whether it \emph{understands} that schema's structure.
 As newer benchmarks like Spider~2.0~\cite{lei2024spider2} demonstrate,
 enterprise-scale SQL workflows with complex multi-step reasoning remain
-largely unsolved (best models achieve $\sim$17--21\% on Spider~2.0) ---
+largely unsolved (best models achieve $\sim$17--21\% on Spider~2.0):
 but even Spider~2.0 targets query generation, not structural topology reasoning.
 SQL generation represents only one facet of database understanding.
 
@@ -21,19 +21,19 @@ structural questions such as:
 
 \begin{itemize}
   \item \emph{``If the \texttt{Person} table changes, which downstream
-    tables are affected through data lineage?''} --- impact analysis
+    tables are affected through data lineage?''}: impact analysis
     requiring forward lineage traversal composed with reverse FK propagation.
   \item \emph{``Which tables form disconnected silos in our schema graph?''}
-    --- connectivity analysis requiring weakly connected component detection.
-  \item \emph{``What is the shortest FK path between two tables?''} ---
+   : connectivity analysis requiring weakly connected component detection.
+  \item \emph{``What is the shortest FK path between two tables?''}:
     routing requiring Dijkstra or BFS over the FK subgraph.
   \item \emph{``How many downstream rows are affected if we delete
-    records from a staging table?''} --- value-level impact analysis
+    records from a staging table?''}: value-level impact analysis
     requiring interactive access to row-level lineage data.
 \end{itemize}
 
-These tasks require \textbf{graph traversal}---BFS, connected component
-detection, multi-hop path finding---not SQL generation.  Yet no existing
+These tasks require \textbf{graph traversal}: BFS, connected component
+detection, multi-hop path finding: not SQL generation.  Yet no existing
 benchmark evaluates LLMs on these capabilities.  Existing graph reasoning
 benchmarks (NLGraph~\cite{wang2023nlgraph}, GraphArena~\cite{grapharena2024},
 GraCoRe~\cite{gracore2024}) use synthetic or generic graphs and do not

@@ -28,7 +28,7 @@ To avoid penalizing models for harmless self-inclusion or self-exclusion,
 we strip~$X$ from both the prediction and gold answer before computing EM.
 All \texttt{membership} scores in figures and tables use this normalization
 unless explicitly noted as raw.  Raw EM averages 15\% for TU;
-normalized EM averages 71\% (with Qwen reaching 100\%)---confirming
+normalized EM averages 71\% (with Qwen reaching 100\%): confirming
 that the model correctly identifies all \emph{other} members but
 inconsistently handles the self-reference of the queried node.
 

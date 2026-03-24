@@ -166,26 +166,27 @@ with gold answers and Tool-Use (TU) predictions.
 questions but fails on exhaustive enumeration and multi-hop composition.}
 \label{tab:examples}
 \scriptsize
-\begin{tabular}{p{0.12\linewidth}p{0.35\linewidth}p{0.22\linewidth}p{0.22\linewidth}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{0.16\linewidth}p{0.32\linewidth}p{0.22\linewidth}p{0.20\linewidth}}
 \toprule
 \textbf{Subtype} & \textbf{Question} & \textbf{Gold} & \textbf{TU Pred.} \\
 \midrule
 \texttt{direct\_fk} \newline \textit{Easy} &
 Is there a direct FK between \texttt{DW.DimProduct} and
-\texttt{DW.Fact\-Internet\-Sales}? &
+\texttt{DW.FactInternetSales}? &
 yes &
 yes \cmark \\
 \midrule
 \texttt{join\_path} \newline \textit{Medium} &
-What is the shortest FK path from \texttt{DW.Dim\-Customer} to
-\texttt{DW.Dim\-Product}? &
-{[}DimCustomer, Fact\-Internet\-Sales, DimProduct{]} &
-{[}DimCustomer, Fact\-Internet\-Sales, DimProduct{]} \cmark \\
+What is the shortest FK path from \texttt{DW.DimCustomer} to
+\texttt{DW.DimProduct}? &
+{[}DimCustomer, FactInternetSales, DimProduct{]} &
+{[}DimCustomer, FactInternetSales, DimProduct{]} \cmark \\
 \midrule
 \texttt{membership} \newline \textit{Hard} &
 Which connected component contains \texttt{DW.DimCurrency}? List all
 tables in that component. &
-{[}DimCurrency, Fact\-Currency\-Rate, DimDate, ...{]} (12~tables) &
+{[}DimCurrency, FactCurrencyRate, DimDate, ...{]} (12~tables) &
 {[}DimCurrency{]} \xmark \\
 \midrule
 \texttt{combined\_impact} \newline \textit{Hard} &
@@ -194,13 +195,13 @@ Which tables are transitively affected (via lineage and FK) if
 {[}stg\_purchase\_orders, dim\_supplier, ...{]} (8~tables) &
 {[}stg\_purchase\_orders{]} \xmark \\
 \midrule
-\texttt{cascade\_count} \newline \textit{Tier~2} &
+\texttt{cascade\_count} \newline \textit{Value-level} &
 How many downstream rows would be affected if we delete \texttt{shipment\_id=SH042}
 from \texttt{raw\_shipments}? &
 147 &
 147 \cmark \\
 \midrule
-\texttt{multi\_hop\_trace} \newline \textit{Tier~2} &
+\texttt{multi\_hop\_trace} \newline \textit{Value-level} &
 Trace the full provenance chain of \texttt{order\_id=ORD-2891} in
 \texttt{mart\_profit\_analysis}. &
 {[}raw\_purchase\_orders $\to$ stg\_orders $\to$ dim\_product $\to$

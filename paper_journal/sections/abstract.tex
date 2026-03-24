@@ -2,41 +2,41 @@
 % ABSTRACT — Journal of Big Data (expanded, max 350 words)
 % ============================================================================
 \begin{abstract}
-\noindent Graph topology reasoning over data warehouse schemas — understanding
-foreign key paths, lineage chains, connected components, and multi-hop impact
-propagation — is a capability that frontier LLMs demonstrably lack, yet one
-that data engineers rely on daily.  We introduce \textbf{DW-Bench}, the first
-benchmark specifically designed to measure this capability across the full
-spectrum of context injection strategies.
+\noindent A data engineer maintaining an enterprise warehouse encounters
+structural questions every day: which upstream tables break if this column
+changes, which tables share a lineage chain, whether two tables are even
+connected.  These questions are not about SQL syntax.  They are about
+graph topology, and answering them correctly requires traversing
+foreign-key paths, detecting connected components, and tracing
+multi-hop lineage chains across heterogeneous schema graphs.
 
-DW-Bench is organized in two tiers.  \textbf{Tier~1} (schema-level,
-1,046~questions across 13~subtypes and 3~difficulty levels) tests structural
-reasoning over foreign key paths, lineage chains, and connected component
-detection using five datasets (four real-world: AdventureWorks, TPC-DS,
-TPC-DI, OMOP~CDM) and one synthetic (Syn-Logistics) encompassing
-262~tables and 521~edges.  \textbf{Tier~2} (value-level, 433~questions
-across 8~subtypes) extends evaluation to row-level provenance tracing and
-forward impact analysis, requiring interactive data access beyond any
-context window.
+We ask a direct question: can frontier LLMs do this?  To find out, we
+built \textbf{DW-Bench}, a benchmark of 1,479 questions over five real
+and synthetic data warehouse schemas, spanning schema-structure reasoning
+and row-level provenance tracing.  Questions range from single-hop
+adjacency checks to multi-step impact propagation that no context window
+can contain.
 
-We evaluate six baselines spanning the text-only to agentic spectrum
-with three frontier LLMs (Gemini~2.5 Flash, DeepSeek-V3, Qwen2.5-72B).
-Four findings emerge: (1)~Tool-Use dominates schema-level reasoning
-with 89--90\% micro-EM versus 69--77\% for static baselines; (2)~static
-baselines exhibit a ``triviality illusion'' where easy subtypes inflate
-aggregate scores; (3)~even tool-augmented LLMs plateau at $\sim$60\% on
-hard compositional reasoning (versus $>$99\% Oracle), pointing to a
-fundamental representational bottleneck; and (4)~on Tier~2 value-level
-questions, tools are \emph{necessary} (up to 100\% vs.\ 0\% on
-data-dependent subtypes) but \emph{insufficient} for multi-hop structural
-reasoning (27\% on \texttt{multi\_hop\_trace}).
-An obfuscation protocol confirms that Tool-Use operates algorithmically
-($\Delta{\leq}{-}4$\%) while static baselines lose 9--32\% EM under name
-randomization, distinguishing genuine topology understanding from schema
-name memorization.
+We evaluated six baselines, from static schema injection to
+interactive tool-use, with three frontier models (Gemini~2.5 Flash,
+DeepSeek-V3, Qwen2.5-72B).  The answer to our question is nuanced.
+When LLMs can query the schema graph as an external tool, they handle
+routine lookup tasks very well, reaching 89--90\% accuracy overall.
+But hard compositional tasks, the ones that require combining lineage
+traversal with FK propagation across several hops, plateau at 60\%
+even with full tool access, while the algorithmic ceiling is above 99\%.
+The gap is not a matter of tool availability or context length.
+Budget ablation confirms it is a reasoning gap.
 
-All datasets, evaluation code, and baseline implementations are publicly
-released to support evaluation of future graph reasoning systems, hybrid
-retrieval architectures, and GNN-augmented LLM approaches on this class of
-structural tasks.
+A controlled obfuscation experiment confirms what is happening:
+tool-augmented baselines are robust to name randomization
+(accuracy drops below 4\%), while static text-injection baselines
+lose 9--32\% when table names are anonymized.  One group is reasoning
+about structure; the other is pattern-matching against schema names.
+
+All datasets, evaluation code, question generators, and baseline
+implementations are publicly available at
+\url{https://github.com/AJamal27891/dw-bench}, providing a reproducible
+foundation for measuring progress on structural reasoning in
+data-intensive systems.
 \end{abstract}

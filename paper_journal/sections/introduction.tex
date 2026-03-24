@@ -4,16 +4,15 @@
 \section{Introduction}
 \label{sec:introduction}
 
-The rapid advancement of Large Language Models (LLMs) has transformed
-database interaction, with state-of-the-art models achieving
-human-competitive accuracy on standard text-to-SQL benchmarks such as
-Spider~\cite{yu2018spider} and BIRD~\cite{li2023bird}.  However, as
-newer benchmarks like Spider~2.0~\cite{lei2024spider2} demonstrate,
+Text-to-SQL benchmarks like Spider~\cite{yu2018spider} and BIRD~\cite{li2023bird}
+have driven substantial progress in LLM-based database interaction.
+Yet evaluating whether an LLM can \emph{generate} a SQL query against a schema
+is distinct from evaluating whether it \emph{understands} that schema's structure.
+As newer benchmarks like Spider~2.0~\cite{lei2024spider2} demonstrate,
 enterprise-scale SQL workflows with complex multi-step reasoning remain
-largely unsolved (best models achieve $\sim$17--21\% on Spider~2.0).  These
-benchmarks evaluate whether an LLM can translate a natural language question
-into a SQL query against a given schema.  Yet SQL generation represents
-only one facet of database understanding.
+largely unsolved (best models achieve $\sim$17--21\% on Spider~2.0) ---
+but even Spider~2.0 targets query generation, not structural topology reasoning.
+SQL generation represents only one facet of database understanding.
 
 Data warehouse environments require a fundamentally different class of
 reasoning: understanding the \emph{graph topology} of schema relationships.
@@ -43,9 +42,7 @@ capture the domain-specific challenges of data warehouse schemas with
 \emph{mixed-layer topologies} (OLTP source tables connected to DW
 destination tables via derived-from edges).
 
-\subsection{Contributions}
-
-We make the following contributions:
+\paragraph{Contributions.} We make the following contributions:
 
 \begin{enumerate}
   \item \textbf{DW-Bench}: A two-tier benchmark of 1,046 schema-level and
@@ -79,13 +76,3 @@ We make the following contributions:
     community-driven analysis and benchmarking.
 \end{enumerate}
 
-\subsection{Paper Organization}
-
-The rest of this paper is organized as follows.
-Section~\ref{sec:related} reviews related work on LLM benchmarks,
-graph reasoning, and data lineage.
-Section~\ref{sec:benchmark} describes the DW-Bench benchmark design.
-Section~\ref{sec:baselines} details the baseline implementations.
-Section~\ref{sec:experiments} presents experimental results.
-Section~\ref{sec:discussion} discusses implications and limitations.
-Section~\ref{sec:conclusion} concludes with future directions.

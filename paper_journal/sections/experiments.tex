@@ -67,12 +67,12 @@ Qwen & Micro & 63.2 & 69.5
 \end{tabular}
 \end{table}
 
-\paragraph{Key Finding~1: Tool-Use dominates.}
+\paragraph{Tool-Use dominates schema-level reasoning.}
 Tool-Use achieves 89.3\% micro-EM (Gemini) and 90.4\% (DeepSeek),
 outperforming the best static baseline by 13--14 percentage
 points.
 
-\paragraph{Key Finding~2: Static baselines show a Triviality Illusion.}
+\paragraph{Static baselines exhibit a Triviality Illusion.}
 Flat Text appears competitive (76.6\% Gemini) because \texttt{join\_path}
 (33\% of questions) inflates scores for baselines that handle FK
 adjacency but fail on deeper tasks.
@@ -109,7 +109,7 @@ Model & Difficulty ($n$) & FT & VR & GA & TU & RC \\
 \end{tabular}
 \end{table}
 
-\paragraph{Key Finding~3: Hard task plateau persists even with tools.}
+\paragraph{Hard tasks reveal a compositional reasoning ceiling even with tools.}
 Even Tool-Use plateaus on hard questions at $\sim$60\% EM versus Oracle's
 $>$99\%.  Figure~\ref{fig:hop_decay} disaggregates EM by gold path length
 (Gemini; DeepSeek and Qwen show the same qualitative pattern):

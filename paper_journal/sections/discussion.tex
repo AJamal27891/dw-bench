@@ -148,14 +148,15 @@ relying on name semantics.
 
 \subsection{Tool Tautology and API Design}
 
-The reviewer correctly observes that TU's high scores on easy subtypes
-partly reflect ``API selection skill'' rather than deep reasoning, e.g.,
+One might observe that TU's strong scores on easy subtypes partly reflect
+``API selection skill'' rather than deep graph reasoning, e.g.,
 answering \texttt{hop\_count} by calling \texttt{shortest\_path} is
-structurally straightforward.  We view this as a feature, not a limitation:
-TU's near-perfect easy scores \emph{isolate} the hard-task failures as
-genuine reasoning gaps.  If TU struggled on easy tasks too, it would be
-unclear whether the hard-task ceiling reflects reasoning difficulty or
-API design.  The fact that TU solves easy tasks trivially but fails on
+structurally straightforward.  We view this as a \emph{feature} of our
+experimental design, not a confound: TU's near-perfect easy scores
+\emph{isolate} the hard-task failures as genuine reasoning gaps.
+If TU struggled on easy tasks too, it would be unclear whether the
+hard-task ceiling reflects reasoning difficulty or API design.
+The fact that TU solves easy tasks reliably but fails on
 \texttt{combined\_impact} (12\%) and \texttt{membership} (15\% raw,
 71\% after target-node normalization)
 demonstrates that the gap is compositional reasoning, not tool availability.

@@ -51,19 +51,24 @@ algorithms (BFS, component detection, lineage traversal) as callable
 tools, establishing a conservative upper bound on what tool-augmented
 approaches can achieve.  We show that even with perfect tool access,
 LLMs struggle with compositional multi-hop reasoning.
+Paths-over-Graphs (PoG)~\cite{pog2024} and GRRAF~\cite{grraf2024}
+represent agentic retrieval approaches that iteratively expand graph
+paths; our fixed 3-call budget ablates interaction depth, providing
+a controlled comparison point for such iterative strategies.
 
-Recent work on learned graph-LLM integration is directly relevant to
-our conclusions.  GraphLLM~\cite{graphllm2023} and GRIP~\cite{grip2024}
-demonstrate that learned structural adaptors and graph-enhanced
-representations can internalize multi-hop structure, reducing reliance
-on explicit tool orchestration.  These approaches align with our finding
-that compositional reasoning---not tool availability---is the binding
-constraint: a GNN-style encoder that pre-computes FK-path and lineage
-embeddings could supply the structural grounding missing from LLM
-context.  LEGO-GraphRAG~\cite{legographrag2024} further provides a
-modular lens on semantic-structural hybrid retrieval with explicit
-recall thresholds; our Graph-Augmented baseline uses a fixed 3-hop BFS
-radius which future work could replace with recall-guided extraction.
+The broader context of learned graph-LLM integration is directly
+relevant to our conclusions.  GraphLLM~\cite{graphllm2023} and
+GRIP~\cite{grip2024} demonstrate that learned structural adaptors
+and graph-enhanced representations can internalize multi-hop structure,
+reducing reliance on explicit tool orchestration.  These approaches
+align with our core finding that compositional reasoning---not tool
+availability---is the binding constraint: a GNN-style encoder that
+pre-computes FK-path and lineage embeddings could supply the structural
+grounding missing from LLM context.  LEGO-GraphRAG~\cite{legographrag2024}
+further provides a modular lens on semantic-structural hybrid retrieval
+with explicit recall thresholds; our Graph-Augmented baseline uses a
+fixed 3-hop BFS radius which future work could replace with
+recall-guided extraction.
 
 \subsection{Data Lineage and Provenance}
 

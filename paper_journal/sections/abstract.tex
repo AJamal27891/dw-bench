@@ -2,14 +2,12 @@
 % ABSTRACT — Journal of Big Data (expanded, max 350 words)
 % ============================================================================
 \begin{abstract}
-\noindent Large Language Models (LLMs) have achieved strong performance on text-to-SQL
-benchmarks, yet their ability to reason about the \emph{structural topology}
-of database schemas remains unexplored.  Data warehouse environments demand
-a fundamentally different class of reasoning: understanding foreign key paths,
-data lineage chains, connected components, and multi-hop impact propagation
-across heterogeneous schema graphs.  We introduce \textbf{DW-Bench}, the
-first benchmark designed to evaluate LLMs on graph topology reasoning over
-data warehouse schemas.
+\noindent Graph topology reasoning over data warehouse schemas — understanding
+foreign key paths, lineage chains, connected components, and multi-hop impact
+propagation — is a capability that frontier LLMs demonstrably lack, yet one
+that data engineers rely on daily.  We introduce \textbf{DW-Bench}, the first
+benchmark specifically designed to measure this capability across the full
+spectrum of context injection strategies.
 
 DW-Bench is organized in two tiers.  \textbf{Tier~1} (schema-level,
 1,046~questions across 13~subtypes and 3~difficulty levels) tests structural
@@ -21,22 +19,24 @@ across 8~subtypes) extends evaluation to row-level provenance tracing and
 forward impact analysis, requiring interactive data access beyond any
 context window.
 
-We evaluate six baselines spanning the text-only to agentic spectrum:
-Flat Text, Vector-RAG, Graph-Augmented, Tool-Use, ReAct-Code, and Oracle,
-with three frontier LLMs (Gemini~2.5 Flash, DeepSeek-V3, and Qwen2.5-72B).  Our results
-reveal four key insights: (1)~Tool-Use dominates schema-level reasoning
+We evaluate six baselines spanning the text-only to agentic spectrum
+with three frontier LLMs (Gemini~2.5 Flash, DeepSeek-V3, Qwen2.5-72B).
+Four findings emerge: (1)~Tool-Use dominates schema-level reasoning
 with 89--90\% micro-EM versus 69--77\% for static baselines; (2)~static
 baselines exhibit a ``triviality illusion'' where easy subtypes inflate
 aggregate scores; (3)~even tool-augmented LLMs plateau at $\sim$60\% on
-hard multi-hop compositional reasoning (versus $>$99\% Oracle), identifying
-a fundamental bottleneck; and (4)~on Tier~2 value-level questions, tools
-are \emph{necessary} (up to 100\% vs.\ 0\% on data-dependent subtypes) but
-\emph{insufficient} for complex multi-hop reasoning (27\% on
-\texttt{multi\_hop\_trace}), suggesting that learned structural
-representations (e.g., GNN encoders) may be needed to close the gap.
+hard compositional reasoning (versus $>$99\% Oracle), pointing to a
+fundamental representational bottleneck; and (4)~on Tier~2 value-level
+questions, tools are \emph{necessary} (up to 100\% vs.\ 0\% on
+data-dependent subtypes) but \emph{insufficient} for multi-hop structural
+reasoning (27\% on \texttt{multi\_hop\_trace}).
 An obfuscation protocol confirms that Tool-Use operates algorithmically
-($\Delta{\leq}{-}4$\%) while static baselines lose 9--32\% EM.
+($\Delta{\leq}{-}4$\%) while static baselines lose 9--32\% EM under name
+randomization, distinguishing genuine topology understanding from schema
+name memorization.
 
-All datasets, evaluation code, and baseline implementations are
-publicly released to catalyze research on hybrid graph reasoning systems.
+All datasets, evaluation code, and baseline implementations are publicly
+released to support evaluation of future graph reasoning systems, hybrid
+retrieval architectures, and GNN-augmented LLM approaches on this class of
+structural tasks.
 \end{abstract}

@@ -11,28 +11,32 @@ foreign-key paths, detecting connected components, and tracing
 multi-hop lineage chains across heterogeneous schema graphs.
 
 We ask a direct question: can frontier LLMs do this?  To find out, we
-built \textbf{DW-Bench}, a benchmark of 1,479 questions over five real
+built \textbf{DW-Bench}, a benchmark of 1{,}479 questions over five real
 and synthetic data warehouse schemas, spanning schema-structure reasoning
-and row-level provenance tracing.  Questions range from single-hop
-adjacency checks to multi-step impact propagation that no context window
-can contain.
+and row-level provenance tracing across 14 question subtypes.
 
-We evaluated six baselines, from static schema injection to
-interactive tool-use, with three frontier models (Gemini~2.5 Flash,
-DeepSeek-V3, Qwen2.5-72B).  The answer to our question is nuanced.
-When LLMs can query the schema graph as an external tool, they handle
-routine lookup tasks very well, reaching 89--90\% accuracy overall.
-But hard compositional tasks, the ones that require combining lineage
-traversal with FK propagation across several hops, plateau at 60\%
-even with full tool access, while the algorithmic ceiling is above 99\%.
-The gap is not a matter of tool availability or context length.
-Budget ablation confirms it is a reasoning gap.
+We evaluated six baselines, from static schema injection to interactive
+tool-use, against three frontier models (Gemini~2.5 Flash, DeepSeek-V3,
+Qwen2.5-72B).
+Tool-augmented baselines reach 89--90\% accuracy on schema-level
+questions, outperforming static methods by 13--14 percentage points.
+But static baselines exhibit a \textit{Triviality Illusion}: easy
+lookup subtypes dominate the question pool and inflate aggregate scores,
+masking systematic failures on compositional reasoning.
+Hard compositional tasks plateau at 60\% even with full tool access,
+while the Oracle clears 99\%.
+The hardest subtype, \texttt{combined\_impact} (requiring lineage
+traversal composed with FK propagation across multiple hops), reaches
+only 12\% exact match with the best tool-augmented baseline.
+Budget ablation confirms the bottleneck is a reasoning deficit,
+not a tool or context-length limitation.
 
-A controlled obfuscation experiment confirms what is happening:
+A controlled obfuscation experiment reveals what is happening:
 tool-augmented baselines are robust to name randomization
 (accuracy drops below 4\%), while static text-injection baselines
-lose 9--32\% when table names are anonymized.  One group is reasoning
-about structure; the other is pattern-matching against schema names.
+lose 9--32\% when table names are anonymized.
+One group is reasoning about structure; the other is pattern-matching
+against schema names.
 
 All datasets, evaluation code, question generators, and baseline
 implementations are publicly available at

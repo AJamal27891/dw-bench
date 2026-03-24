@@ -82,7 +82,25 @@ each \texttt{derived\_from} edge points from a downstream DW table to its
 upstream source, with no cycles or self-references.  All traversal
 algorithms respect edge typing: FK queries use only \texttt{fk\_to}
 edges, lineage queries use only \texttt{derived\_from}, and
-\texttt{combined\_impact} queries compose both types sequentially.
+\texttt{combined\_impact} queries compose both types in two phases.
+
+\begin{definition}[\texttt{combined\_impact} semantics]
+\label{def:combined_impact}
+Given a seed table $s$ and schema graph $G = (V, E_{\text{fk}}, E_{\text{lin}})$:
+\begin{enumerate}
+  \item Compute the \emph{lineage closure}: the set $L(s)$ of all tables
+    reachable from $s$ by following \texttt{derived\_from} edges in the
+    forward direction (i.e., downstream consumers of $s$'s output).
+  \item Compute the \emph{FK dependents}: for each $t \in L(s) \cup \{s\}$,
+    collect all tables that reference $t$ via at least one \texttt{fk\_to}
+    edge (i.e., tables that cannot be inserted without a valid row in $t$).
+  \item The answer is $L(s) \cup \bigcup_{t \in L(s) \cup \{s\}} \text{FK-deps}(t)$,
+    excluding $s$ itself.
+\end{enumerate}
+This sequential composition (lineage-then-FK) reflects the enterprise
+impact-analysis workflow: first propagate the data change through the ETL
+pipeline, then identify which downstream relational tables are invalidated.
+\end{definition}
 
 \subsection{Question Generation}
 \label{sec:qa-generation}

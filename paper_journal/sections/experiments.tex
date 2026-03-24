@@ -223,15 +223,6 @@ fully materialized row-level lineage in this study, covering 8~subtypes
 the benchmark corpus but requires full ETL data hydration; evaluation is
 ongoing work (see Limitations).
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
-\caption{Tier~2 value-level EM (\%) by subtype, showing Gemini
-and DeepSeek across baselines (FT, GA, TU).  Values represent
-results on the Syn-Logistics evaluation set ($n{=}433$); numerical
-results are tabulated per-subtype in Table~\ref{tab:tier2}.}
-\label{fig:tier2}
-\end{figure}
 
 % TABLE 7: Tier 2 (both models)
 \begin{table}[t]
@@ -262,12 +253,12 @@ shared\_source      & 35  & \textbf{37} & 26  & 23   & 26  & 20  & 20 \\
 \end{tabular}
 \end{table}
 
-\paragraph{Key Finding~5: Tools are essential for value-level questions.}
+\paragraph{Tools are structurally necessary for data-access subtypes.}
 \texttt{cascade\_count} achieves 100\% with tools versus 0\% without,
 for \emph{both} models, confirming this is a structural necessity,
 not a model-specific artifact.
 
-\paragraph{Key Finding~6: Tools are necessary but insufficient.}
+\paragraph{Tools are necessary but not sufficient for compositional value-level reasoning.}
 Despite solving data-access subtypes, Tool-Use achieves only 59\%
 overall EM (Gemini) and 48\% (DeepSeek).  On \texttt{multi\_hop\_trace}
 (27\% both models) and \texttt{shared\_source} (23\%/20\%), tools

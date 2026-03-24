@@ -48,6 +48,20 @@ orchestrate.
 
 \subsection{Implications for Hybrid Architectures}
 
+DW-Bench's per-subtype diagnostics identify complementary roles for
+retrieval, tool-use, and learned structural representations.
+The reasoning-limited subtypes (\texttt{combined\_impact}: 12\% EM with
+tools) point directly toward learned graph encoders as the missing
+inductive bias: a GNN trained on schema topology can pre-compute
+multi-hop structural features that prompt-based retrieval cannot
+reconstruct at inference time.
+A companion study~\cite{dwgnn} demonstrates this path concretely:
+a 575K-parameter heterogeneous GNN encoder with task-specific prediction
+heads achieves 79.7\% EM on \texttt{combined\_impact} in zero-shot
+evaluation on DW-Bench, confirming that the reasoning gap identified
+here is addressable through architectural specialization rather than
+larger or more capable LLMs.
+
 The complementarity analysis confirms that Tool-Use and Graph-Augmented
 fail on largely the \emph{same} questions: their union improves overall
 EM by only 6 percentage points, leaving 35\% of questions unsolved by

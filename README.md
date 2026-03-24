@@ -1,0 +1,269 @@
+# DW-Bench: Benchmarking LLMs on Data Warehouse Graph Topology Reasoning
+
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB.svg)](https://python.org)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/AJamal27891/dw-bench)
+[![Tier 1](https://img.shields.io/badge/Tier%201-1%2C046%20questions-blueviolet)](https://huggingface.co/datasets/AJamal27891/dw-bench)
+[![Tier 2](https://img.shields.io/badge/Tier%202-433%20evaluated-blueviolet)](https://huggingface.co/datasets/AJamal27891/dw-bench)
+[![Conference Paper](https://img.shields.io/badge/Paper-Conference%20Preprint-blue?logo=readthedocs)](https://github.com/AJamal27891/dw-bench/blob/main/paper/main.pdf)
+[![Journal Paper](https://img.shields.io/badge/Paper-Journal%20of%20Big%20Data-orange?logo=springer)](https://github.com/AJamal27891/dw-bench/blob/main/paper_journal/main.pdf)
+
+**DW-Bench** is the first benchmark for evaluating whether Large Language Models can reason about the *graph topology* of data warehouse schemas: foreign-key paths, data lineage chains, connected components, and row-level provenance. It comprises 1,479 questions total (1,046 schema-level Tier 1 + 433 evaluated value-level Tier 2) across 5 datasets, with 6 baselines evaluated against 3 frontier models (Gemini 2.5 Flash, DeepSeek-V3, Qwen2.5-72B).
+
+---
+
+## Main Results
+
+### Tier 1: Schema-Level Reasoning (1,046 questions, 5 datasets)
+
+| Baseline | Gemini 2.5 Flash | DeepSeek-V3 | Qwen2.5-72B |
+|:---|:---:|:---:|:---:|
+| Flat Text (FT) | 76.6 | 69.5 | 63.2 |
+| Vector-RAG (VR) | 72.9 | 71.0 | 69.5 |
+| Graph-Aug (GA) | 75.4 | 76.8 | 80.9 |
+| **Tool-Use (TU)** | **89.3** | **90.4** | 87.5 |
+| ReAct-Code (RC) | 81.4 | 79.4 | 64.6 |
+| Oracle | 99.5 | 99.8 | 100.0 |
+
+> Micro-EM (%) across 1,046 questions (5 datasets).
+
+### Key Figures
+
+<p align="center">
+  <img src="paper/figures/difficulty_comparison.png" width="90%" alt="EM by difficulty level">
+</p>
+
+**EM by difficulty level** across three models (Gemini, DeepSeek-V3, Qwen2.5-72B). All baselines plateau on hard questions (~40-60%) while Oracle (dashed) achieves 100%.
+
+<p align="center">
+  <img src="paper/figures/subtype_heatmap.png" width="90%" alt="Per-subtype heatmap">
+</p>
+
+**Per-subtype EM heatmap** (darker red = lower). `combined_impact` (top row) is universally hard (0-17% EM); `membership` is now fully solvable with target-node normalization (TU/RC hit 100%).
+
+<p align="center">
+  <img src="paper/figures/oracle_gap.png" width="90%" alt="Oracle gap by subtype">
+</p>
+
+**Unsolved subtypes** (Oracle minus best baseline). `combined_impact` retains an 83+ pp gap across all three models; 9 of 13 subtypes are effectively solved.
+
+### Obfuscation (Contamination Control)
+
+| Baseline | Gemini Δ | DeepSeek Δ | Qwen Δ |
+|:---|:---:|:---:|:---:|
+| Flat Text | −15.0 | −27.9 | −8.9 |
+| Vector-RAG | −25.8 | −31.9 | −13.8 |
+| Graph-Aug | −27.7 | −24.6 | −19.7 |
+| **Tool-Use** | **−3.4** | **−4.2** | **−3.7** |
+| ReAct-Code | −7.6 | +0.6 | −7.5 |
+
+> 4-dataset scope (excl. Syn-Logistics). Tool-Use is nearly obfuscation-invariant: tools operate on topology, not memorized names.
+
+---
+
+## Quick Start
+
+### 1. Install
+
+```bash
+git clone https://github.com/AJamal27891/dw-bench.git
+cd dw-bench
+pip install -r requirements.txt
+```
+
+### 2. Verify Pipeline
+
+```bash
+# Quick check: runs Oracle on TPC-DS (needs API endpoint)
+python run.py --api-base https://generativelanguage.googleapis.com/v1beta/openai \
+              --model gemini-2.5-flash --verify
+```
+
+### 3. Run Full Evaluation
+
+```bash
+# Tier 1: All baselines × all datasets (Gemini)
+python run.py \
+  --api-base https://generativelanguage.googleapis.com/v1beta/openai \
+  --model gemini-2.5-flash
+
+# Tier 1: Single baseline × single dataset
+python run.py --api-base ... --model ... --baseline tool_use --dataset tpc-ds
+
+# Tier 1: Obfuscated condition
+python run.py --api-base ... --model ... --condition obfuscated
+
+# Tier 2: Value-level evaluation
+python run.py --api-base ... --model ... --tier 2
+
+# DeepSeek
+python run.py \
+  --api-base https://api.deepseek.com/v1 \
+  --model deepseek-chat
+
+# Local model (LM Studio, Ollama, vLLM)
+python run.py \
+  --api-base http://localhost:1234/v1 \
+  --model your-model-name
+```
+
+### 4. View Results
+
+```bash
+python view_results.py              # Summary tables
+python integrity_check.py           # Validate result files (Windows)
+python integrity_check_full.py      # Validate result files (Linux/macOS, rich output)
+```
+
+> **Tip:** Set `GOOGLE_API_KEY` or `DEEPSEEK_API_KEY` in a `.env` file; `run.py` reads them automatically.
+
+---
+
+## Project Structure
+
+```
+dw-bench/
+├── run.py                          # Unified evaluation runner
+├── view_results.py                 # Results viewer
+├── integrity_check.py              # Result validator (Windows-safe)
+├── integrity_check_full.py         # Result validator (Linux/macOS, rich output)
+├── push_to_hf.py                   # Upload/download data from HuggingFace
+├── CITATION.cff
+├── requirements.txt
+│
+├── datasets/                       # Downloaded from HuggingFace (not in git)
+│   ├── adventureworks/             #   102 tables, 136 FK, 39 lineage
+│   ├── tpc-ds/                     #    24 tables, 70 FK
+│   ├── tpc-di/                     #    35 tables, 29 FK, 21 lineage
+│   ├── omop_cdm/                   #    37 tables, 74 FK, 21 lineage
+│   └── syn_logistics/              #    64 tables, 96 FK, 35 lineage
+│
+├── evaluation/                     # Evaluation pipeline
+│   ├── evaluate.py                 #   Main evaluation harness
+│   ├── metrics.py                  #   Scoring (EM, F1, path validation)
+│   ├── baselines/                  #   Baseline implementations
+│   │   ├── flat_text.py            #     Full schema as text
+│   │   ├── vector_rag.py           #     FAISS embedding retrieval
+│   │   ├── graph_aug.py            #     BFS graph neighborhoods
+│   │   ├── tool_use.py             #     Agentic graph tools (9 tools, 3 calls)
+│   │   ├── react_code.py           #     Python/NetworkX code gen (5 rounds)
+│   │   ├── oracle.py               #     Gold algorithmic output
+│   │   └── *_v2.py                 #     Tier 2 (value-level) variants
+│   └── results/                    #   Downloaded from HuggingFace (not in git)
+│
+├── scripts/                        # Data pipeline
+│   ├── generate_qa.py              #   Question generation
+│   ├── obfuscate_schema.py         #   Obfuscation protocol
+│   └── ...
+│
+├── paper/                          # Conference paper
+└── paper_journal/                  # Journal paper (Springer)
+```
+
+---
+
+## Benchmark Design
+
+### Datasets (262 tables, 521 edges)
+
+| Dataset | Domain | Tables | FK | Lineage | Tier 1 Qs | Tier 2 Qs | Silos |
+|:--|:--|:--:|:--:|:--:|:--:|:--:|:--:|
+| AdventureWorks | Retail/HR | 102 | 136 | 39 | 208 | 520 (generated) | 11 |
+| TPC-DS | Analytics | 24 | 70 | 0 | 127 | — | 1 |
+| TPC-DI | ETL | 35 | 29 | 21 | 181 | — | 2 |
+| OMOP CDM | Healthcare | 37 | 74 | 21 | 158 | — | 3 |
+| Syn-Logistics | Supply Chain | 64 | 96 | 35 | 372 | 433 (evaluated) | 5 |
+| **Total** | | **262** | **405** | **116** | **1,046** | **953 generated / 433 evaluated** | |
+
+> **Tier 2 note:** 953 value-level questions were generated in total (520 AdventureWorks + 433 Syn-Logistics). Only the 433 Syn-Logistics questions are evaluated in this study because AdventureWorks requires full ETL data hydration (ongoing work).
+
+### Question Taxonomy (13 subtypes, 3 difficulty levels)
+
+| Category | Subtype | Difficulty | Description |
+|:--|:--|:--|:--|
+| **Lineage** | `forward` | Easy | Direct lineage targets |
+| | `reverse` | Easy | Source tables for a DW table |
+| | `transitive` | Hard | Multi-hop lineage chains |
+| | `combined_impact` | Hard | Lineage + FK dependents |
+| | `multi_source` | Medium | Tables with 3+ sources |
+| **Route** | `direct_fk` | Easy | FK adjacency check |
+| | `join_path` | Medium | FK shortest path |
+| | `hop_count` | Medium | Path length |
+| **Silo** | `count` | Easy | Number of components |
+| | `membership` | Hard | Which component contains X? |
+| | `isolation` | Medium | Is table X isolated? |
+| | `connected` | Medium | Are X and Y connected? |
+| | `full_enumeration` | Hard | List all tables in silo |
+
+---
+
+## Six Baselines
+
+| Baseline | Context | Approach |
+|:--|:--|:--|
+| **Flat Text (FT)** | Full schema as text | Complete graph, maximal context |
+| **Vector RAG (VR)** | Top-k retrieved chunks | Sentence-BERT + FAISS (k=15) |
+| **Graph-Aug (GA)** | BFS neighborhood | 3-hop subgraph from mentioned tables |
+| **Tool-Use (TU)** | Schema + 9 graph tools | Agentic: multi-turn tool calling (3 calls) |
+| **ReAct-Code (RC)** | Schema + Python exec | Code generation on NetworkX graph (5 rounds) |
+| **Oracle** | Gold algorithmic output | Upper bound (perfect retrieval) |
+
+---
+
+## Evaluation Conditions
+
+- **Original** — Real table names (tests reasoning + memorization)
+- **Obfuscated** — Names replaced with `Table_A`, `Table_B`, ... (tests pure structural reasoning)
+- **Extended** — Hard + medium questions only (harder subset)
+
+---
+
+## Extending DW-Bench
+
+### Adding a New Model
+
+```bash
+python run.py --api-base YOUR_URL --model YOUR_MODEL --condition all
+python integrity_check.py
+```
+
+### Adding a New Dataset
+
+1. Create `datasets/your_dataset/schema_graph.pt` (PyG HeteroData)
+2. Run `python scripts/generate_qa.py --dataset your_dataset`
+3. Run `python scripts/obfuscate_schema.py --dataset your_dataset`
+4. Evaluate: `python run.py --api-base ... --model ... --dataset your_dataset`
+
+---
+
+## Citation
+
+```bibtex
+@misc{ahmed2026dwbench,
+  title     = {DW-Bench: Benchmarking LLMs on Data Warehouse Graph Topology Reasoning},
+  author    = {Ahmed, Ahmed G.A.H.},
+  year      = {2026},
+  url       = {https://github.com/AJamal27891/dw-bench},
+  note      = {Preprint. Under review.}
+}
+```
+
+For the extended journal version:
+
+```bibtex
+@article{ahmed2026dwbench_journal,
+  title     = {DW-Bench: A Benchmark for Graph Topology Reasoning
+               in Data Warehouse Schemas with Large Language Models},
+  author    = {Ahmed, Ahmed G.A.H.},
+  journal   = {Journal of Big Data},
+  publisher = {Springer},
+  year      = {2026},
+  url       = {https://github.com/AJamal27891/dw-bench}
+}
+```
+
+---
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.

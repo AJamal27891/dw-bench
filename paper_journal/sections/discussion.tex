@@ -1,0 +1,195 @@
+% ============================================================================
+% 6. DISCUSSION — Journal version (expanded)
+% ============================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Retrieval--Reasoning Decomposition}
+
+Our results reveal a clean decomposition of graph reasoning performance
+into two independent failure modes.
+
+\textbf{Retrieval-limited subtypes} (\texttt{hop\_count},
+\texttt{direct\_fk}, \texttt{isolation}, \texttt{connected}) achieve
+$\geq$93\% EM with Tool-Use because the answer requires only one or
+two graph lookups.  Static baselines fail on these subtypes
+\emph{not because the reasoning is complex}, but because the relevant
+graph fragment is missing from the injected context.  This is confirmed
+by the Oracle's near-perfect scores: once the correct information is
+available, both models can interpret it accurately.
+
+\textbf{Reasoning-limited subtypes} (\texttt{combined\_impact},
+\texttt{membership}, \texttt{transitive}) remain hard even with tools.
+Even with Tool-Use providing graph algorithm access,
+\texttt{combined\_impact} achieves only 12\% EM ($n=69$).  The LLM
+struggles to compose multiple tool outputs across phases, confirming
+a ceiling for prompt-based graph reasoning.  RC
+(5~code execution rounds) shows a similar ceiling to TU (3~tool calls),
+suggesting the bottleneck is compositional reasoning itself rather
+than interaction budget.
+
+\subsection{The Tool Necessity-Insufficiency Paradox}
+
+Tier~2 reveals a clear paradox: tools are simultaneously
+\emph{essential} and \emph{insufficient}.
+
+On data-dependent subtypes (e.g., \texttt{cascade\_count} reaches 100\% vs.\ 0\%;
+\texttt{row\_provenance} reaches 92\% vs.\ 0\% depending on the model), tools are the difference
+between perfect performance and complete failure.  These subtypes
+require traversing the 18MB row-level lineage map, far exceeding any
+context window.
+
+Yet on reasoning-intensive subtypes (\texttt{multi\_hop\_trace}: 27\%;
+\texttt{shared\_source}: 23\%), tools provide \emph{no} advantage over
+static baselines.  These subtypes require multi-hop graph traversal
+and set-theoretic reasoning (finding common ancestors of two mart
+tables), capabilities that tools provide but LLMs cannot effectively
+orchestrate.
+
+\subsection{Implications for Hybrid Architectures}
+
+DW-Bench's per-subtype diagnostics identify complementary roles for
+retrieval, tool-use, and learned structural representations.
+The reasoning-limited subtypes (\texttt{combined\_impact}: 12\% EM with
+tools) point directly toward learned graph encoders as the missing
+inductive bias: a GNN trained on schema topology can pre-compute
+multi-hop structural features that prompt-based retrieval cannot
+reconstruct at inference time.
+A companion study~\cite{dwgnn} demonstrates this path concretely:
+a 575K-parameter heterogeneous GNN encoder with task-specific prediction
+heads achieves 79.7\% EM on \texttt{combined\_impact} in zero-shot
+evaluation on DW-Bench, confirming that the reasoning gap identified
+here is addressable through architectural specialization rather than
+larger or more capable LLMs.
+
+The complementarity analysis confirms that Tool-Use and Graph-Augmented
+fail on largely the \emph{same} questions: their union improves overall
+EM by only 6 percentage points, leaving 35\% of questions unsolved by
+either approach.  This suggests that the bottleneck is not retrieval
+\emph{or} tool access, but the LLM's ability to perform compositional
+structural reasoning.
+
+This points toward hybrid architectures combining:
+\begin{enumerate}
+  \item \textbf{Tool-augmented retrieval} for data-access subtypes
+    where simple lookups suffice.
+  \item \textbf{Learned structural representations} (e.g., GNN encoders)
+    that can capture multi-hop topology patterns beyond what prompt-based
+    reasoning can achieve.
+  \item \textbf{Compositional reasoning modules} that decompose complex
+    graph queries into sequences of simpler operations, following recent
+    work on query-dependent GNN encoders, inference-scaled graph agents,
+    and task-adaptive controllers that route between parallel and
+    sequential reasoning strategies.
+\end{enumerate}
+
+\subsection{Obfuscation and Memorization}
+
+The obfuscation results provide a clean diagnostic for memorization.
+Static baselines lose 9--32\% EM under obfuscation, confirming partial
+reliance on memorized schema name associations.  Tool-Use's near-invariance
+($\Delta{\leq}{-}4$\%) demonstrates that
+algorithmic graph access is robust to input perturbation, a desirable
+property for production deployment where schemas are diverse and
+evolving.
+Obfuscation replaces table names only; column names are preserved,
+as all baselines operate on schema-level graph topology where
+column semantics play no role.
+
+\subsection{Model Differences}
+
+All three models show consistent patterns but differ in magnitude.
+DeepSeek-V3 benefits most from explicit graph context (GA outperforms
+FT by 7.3pp for DeepSeek vs.\ only $-$1.2pp for Gemini), while Qwen
+shows the largest GA lift (17.7pp), suggesting that models with less
+domain exposure rely more heavily on structured context injection.
+
+\subsection{Positioning Against Stronger Agentic Methods}
+
+Our baselines intentionally span the static-to-agentic spectrum rather
+than exhaustively covering the agentic design space.  More sophisticated
+approaches, including planning-based agents with dynamic loop budgets (e.g.,
+ToG-style multi-agent planners~\cite{sun2024tog}), hierarchical
+GraphRAG~\cite{graphrag2024} with iterative subgraph expansion, or modular
+query decomposition pipelines, may partially close the gap on compositional
+subtypes.  Yet the convergence of TU (3~calls) and RC (5~code rounds) at
+similar hard-question ceilings suggests that the bottleneck is the
+LLM's compositional reasoning capacity rather than the tool interface.
+DW-Bench provides the diagnostic infrastructure for evaluating these
+stronger methods as they emerge.
+
+\subsection{The Oracle as Classical Solver Proxy}
+
+A natural question is whether a non-LLM classical solver should be
+included as a baseline.  Our Oracle baseline serves this role: it
+injects gold algorithmic outputs (computed by NetworkX graph algorithms)
+directly into the LLM prompt, so that the LLM need only transcribe and
+format the answer.  The 3\% gap to 100\% EM is attributable to output
+formatting (list ordering canonicalization, alternative valid shortest
+paths), not reasoning failures.  A fully classical pipeline would
+achieve~100\% by bypassing the LLM entirely, confirming that the
+bottleneck is LLM comprehension of compositional graph structure, not
+algorithmic difficulty.
+
+\paragraph{Formal specification of \texttt{combined\_impact}.}
+This subtype computes the set of tables affected by a change to a source
+table through \emph{both} lineage and FK paths:
+\[
+\textit{Impact}(t) = \textit{Down}_{\textit{lin}}(t)
+\;\cup\; \bigcup_{t' \in \textit{Down}_{\textit{lin}}(t)}
+\textit{Reach}_{\textit{FK}}(t'),
+\]
+where downstream lineage is transitive closure over \texttt{derived\_from}
+edges and FK reachability is BFS over \texttt{fk\_to} edges.  The
+composition of two distinct traversals is what makes this subtype hard:
+TU achieves only 12\% EM despite having both \texttt{get\_lineage\_chain}
+and \texttt{shortest\_path} tools available.
+
+\subsection{GA Obfuscation Penalty Analysis}
+
+The large GA obfuscation penalty ($\Delta{=}{-}27.7$\% Gemini,
+${-}24.6$\% DeepSeek, ${-}19.7$\% Qwen) may appear surprising given that BFS anchor tables
+remain present after obfuscation.  We attribute this to two compounding
+factors: (1)~the LLM loses semantic priors about table roles when
+names like \texttt{DimCustomer} become \texttt{Table\_K}, making it
+harder to interpret the 3-hop BFS neighborhood; and (2)~45\% of
+questions require paths exceeding 3 hops, so GA already has incomplete
+context; obfuscation compounds this by removing the semantic cues that
+help LLMs \emph{infer} structure beyond the retrieved fragment.
+In contrast, TU ($\Delta{=}{-}3.4$\% Gemini) and RC ($\Delta{=}{-}7.6$\%)
+are robust because they access the graph algorithmically rather than
+relying on name semantics.
+
+\subsection{Tool Tautology and API Design}
+
+One might observe that TU's strong scores on easy subtypes partly reflect
+``API selection skill'' rather than deep graph reasoning, e.g.,
+answering \texttt{hop\_count} by calling \texttt{shortest\_path} is
+structurally straightforward.  We view this as a \emph{feature} of our
+experimental design, not a confound: TU's near-perfect easy scores
+\emph{isolate} the hard-task failures as genuine reasoning gaps.
+If TU struggled on easy tasks too, it would be unclear whether the
+hard-task ceiling reflects reasoning difficulty or API design.
+The fact that TU solves easy tasks reliably but fails on
+\texttt{combined\_impact} (12\%) and \texttt{membership} (15\% raw,
+71\% after target-node normalization)
+demonstrates that the gap is compositional reasoning, not tool availability.
+
+\subsection{Limitations}
+
+We do not enforce token-budget parity across baselines by design:
+each paradigm receives context natural to its architecture (full schema
+for FT, retrieved chunks for VR, BFS subgraph for GA, tool results
+for TU).  45\% of questions exceed the GA 3-hop radius.  We evaluate
+three frontier models; broader model coverage (GPT-4, open-weight LLMs)
+would strengthen generality.  Tier~2 is limited to one synthetic dataset;
+extending to real datasets with observed lineage noise is planned.
+All lineage edges are assumed to form DAGs; cyclic ETL patterns
+(e.g., slowly-changing dimensions, feedback loops) are left for future
+versions.  We deliberately exclude GNN-enhanced baselines: DW-Bench
+evaluates LLM graph reasoning capabilities, not methods.  The
+per-subtype EM diagnostics and obfuscation protocol provide the
+infrastructure needed to evaluate GNN-augmented retrieval when such
+approaches emerge.
+Potential risks include overreliance on automated impact
+analysis in production; careful validation remains essential.

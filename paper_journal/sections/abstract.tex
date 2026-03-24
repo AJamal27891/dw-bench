@@ -1,0 +1,46 @@
+% ============================================================================
+% ABSTRACT — Journal of Big Data (expanded, max 350 words)
+% ============================================================================
+\begin{abstract}
+\noindent A data engineer maintaining an enterprise warehouse encounters
+structural questions every day: which upstream tables break if this column
+changes, which tables share a lineage chain, whether two tables are even
+connected.  These questions are not about SQL syntax.  They are about
+graph topology, and answering them correctly requires traversing
+foreign-key paths, detecting connected components, and tracing
+multi-hop lineage chains across heterogeneous schema graphs.
+
+We ask a direct question: can frontier LLMs do this?  To find out, we
+built \textbf{DW-Bench}, a benchmark of 1{,}479 questions over five real
+and synthetic data warehouse schemas, spanning schema-structure reasoning
+and row-level provenance tracing across 14 question subtypes.
+
+We evaluated six baselines, from static schema injection to interactive
+tool-use, against three frontier models (Gemini~2.5 Flash, DeepSeek-V3,
+Qwen2.5-72B).
+Tool-augmented baselines reach 89--90\% accuracy on schema-level
+questions, outperforming static methods by 13--14 percentage points.
+But static baselines exhibit a \textit{Triviality Illusion}: easy
+lookup subtypes dominate the question pool and inflate aggregate scores,
+masking systematic failures on compositional reasoning.
+Hard compositional tasks plateau at 60\% even with full tool access,
+while the Oracle clears 99\%.
+The hardest subtype, \texttt{combined\_impact} (requiring lineage
+traversal composed with FK propagation across multiple hops), reaches
+only 12\% exact match with the best tool-augmented baseline.
+Budget ablation confirms the bottleneck is a reasoning deficit,
+not a tool or context-length limitation.
+
+A controlled obfuscation experiment reveals what is happening:
+tool-augmented baselines are robust to name randomization
+(accuracy drops below 4\%), while static text-injection baselines
+lose 9--32\% when table names are anonymized.
+One group is reasoning about structure; the other is pattern-matching
+against schema names.
+
+All datasets, evaluation code, question generators, and baseline
+implementations are publicly available at
+\url{https://github.com/AJamal27891/dw-bench}, providing a reproducible
+foundation for measuring progress on structural reasoning in
+data-intensive systems.
+\end{abstract}

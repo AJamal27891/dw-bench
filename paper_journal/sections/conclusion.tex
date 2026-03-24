@@ -1,0 +1,78 @@
+% ============================================================================
+% 7. CONCLUSION — Journal version (expanded with future work)
+% ============================================================================
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
+
+We presented DW-Bench, a two-tier benchmark for evaluating LLMs on graph
+topology reasoning over data warehouse schemas.  Across six baselines and
+three frontier models, four findings consistently emerge:
+
+\begin{enumerate}
+  \item \textbf{Tools dominate static contexts} for schema-level
+    reasoning (89--90\% vs.\ 69--77\% micro-EM), confirming that
+    interactive graph algorithm access is essential.  Static context
+    injection cannot substitute for on-demand traversal, regardless
+    of context length.
+
+  \item \textbf{Static baselines exhibit a Triviality Illusion}: easy
+    subtypes like \texttt{join\_path} inflate micro-EM scores, masking
+    failures on compositional reasoning.  Practitioner reporting should
+    always disaggregate by subtype difficulty.
+
+  \item \textbf{A hard-question ceiling persists} at $\sim$60\% EM even
+    with tools, compared to $>$99\% Oracle, identifying multi-hop
+    compositional reasoning as the core bottleneck.  Budget ablation
+    (ReAct-Code at 5 rounds) confirms the bottleneck is reasoning
+    capacity, not interaction budget.
+
+  \item \textbf{Tools are necessary but insufficient} for value-level
+    questions: essential for data-access subtypes (100\% vs.\ 0\%) but
+    provide no advantage on multi-hop structural reasoning (27\%).
+    This points toward learned structural representations: GNN
+    encoders or graph transformers: as the missing inductive bias.
+\end{enumerate}
+
+\subsection{Future Directions}
+
+\textbf{GNN-Augmented Baselines.}
+The reasoning-limited subtypes suggest that learned graph representations
+(GNN encoders, graph transformers) could provide the structural inductive
+bias that prompt-based approaches lack.  Training a GNN on schema graph
+features and injecting learned embeddings as context is a natural
+extension that DW-Bench provides the infrastructure to evaluate.
+
+\textbf{Agentic Methods.}
+Advanced agentic frameworks (ToG~\cite{sun2024tog},
+GraphCoT~\cite{jin2024graphcot}) that decompose complex queries into
+multi-step reasoning chains may close the gap on compositional subtypes
+like \texttt{combined\_impact}; DW-Bench's per-subtype diagnostics
+provide the necessary granularity to measure progress.
+
+\textbf{Broader Model and Dataset Coverage.}
+Extending evaluation to GPT-4 class models, open-weight LLMs (Llama,
+Mistral), and additional real-world schemas with row-level lineage would
+strengthen generality claims and enable Tier~2 evaluation beyond
+synthetic data.
+
+\textbf{Schema Evolution.}
+Real data warehouses change continuously.  Evaluating whether LLMs
+can reason about schema topology \emph{under perturbation} (table
+additions, FK modifications, lineage updates) would extend DW-Bench
+toward production-relevant settings.
+
+\subsection{Reproducibility}
+
+All datasets, generation scripts, evaluation code, baseline
+implementations, and per-question results are publicly available at
+\url{https://github.com/AJamal27891/dw-bench}.  Benchmark data will
+also be released on HuggingFace at
+\url{https://huggingface.co/datasets/AJamal27891/dw-bench}.
+Results are deterministically reproducible
+using greedy decoding with the specified model versions.
+
+\paragraph{Dataset licenses.}
+TPC-DS and TPC-DI are available under the TPC EULA (free for research).
+OMOP CDM uses the Apache~2.0 license.  AdventureWorks is released under
+the Microsoft Public License.  Syn-Logistics is our creation, released
+under MIT.

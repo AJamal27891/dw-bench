@@ -1,0 +1,139 @@
+% ============================================================================
+% 3. DW-BENCH DESIGN
+% ============================================================================
+\section{DW-Bench: Benchmark Design}
+
+\subsection{Datasets}
+
+% TABLE 1: Dataset Overview
+\begin{table}[t]
+\centering
+\caption{DW-Bench dataset statistics. ``Silos'' = disconnected
+components in the combined FK+lineage graph.}
+\label{tab:datasets}
+\small
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Dataset & Domain & Tbl & FK & Lin. & Qs & Silos \\
+\midrule
+AdventureWorks & Retail   & 102 & 136 & 39 & 208 & 11 \\
+TPC-DS         & Analytics&  24 &  70 &  0 & 127 &  1 \\
+TPC-DI         & ETL      &  35 &  29 & 21 & 181 &  2 \\
+OMOP CDM       & Health   &  37 &  74 & 21 & 158 &  3 \\
+Syn-Logistics  & Supply   &  64 &  96 & 35 & 372 &  5 \\
+\midrule
+\textbf{Total} &          & \textbf{262} & \textbf{405} & \textbf{116} & \textbf{1046} & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+We select five datasets representing diverse data warehouse topologies:
+
+\textbf{AdventureWorks}~is a Microsoft reference data warehouse with 102
+tables spanning OLTP and DW layers, connected by 136 FK edges and 39
+lineage (derived\_from) edges. Its dual-layer structure makes it ideal for
+lineage impact questions.
+
+\textbf{TPC-DS}~is the industry standard analytics benchmark with a star
+schema of 24 tables and 70 FK edges. Its single connected component and
+absence of lineage edges tests pure FK-based reasoning.
+
+\textbf{TPC-DI}~is the data integration benchmark with 35 tables modeling
+an ETL pipeline from staging to warehouse, with 21 lineage edges
+representing the transformation flow.
+
+\textbf{OMOP CDM}~(Observational Medical Outcomes Partnership Common Data
+Model)~\cite{ohdsi2019omop} is a healthcare standard with 37 tables, 74
+FK edges, and 21 lineage edges across 3 connected components (clinical
+data, vocabulary tables, and metadata).
+
+\textbf{Syn-Logistics}~is our own synthetic supply-chain schema: 64
+tables, 5 connected components (carrier, procurement, healthcare, finance,
+HR).  We built it to fix a statistical-power problem in the real-world
+corpus: every subtype gets $n \geq 20$ questions.  Table names come from
+a domain dictionary so obfuscation does not collapse semantics.
+
+\subsection{Schema Graph Representation}
+
+Each dataset is represented as a heterogeneous graph $G = (V, E_{fk} \cup
+E_{lin})$ using PyTorch Geometric~\cite{fey2019pyg}
+\texttt{HeteroData}. Nodes represent
+tables with 6 structural features: in-degree, out-degree, normalized
+degree, lineage degree, betweenness centrality, and PageRank. Edges are
+typed as either \texttt{fk\_to} (foreign key) or \texttt{derived\_from}
+(data lineage). Lineage edges form a strict DAG (directed acyclic graph):
+each \texttt{derived\_from} edge points from a downstream DW table to its
+upstream source, with no cycles or self-references. All traversal
+algorithms respect edge typing: FK queries use only \texttt{fk\_to}
+edges, lineage queries use only \texttt{derived\_from}, and
+\texttt{combined\_impact} queries compose both types sequentially.
+FK edges are treated as \textbf{directed} (parent$\to$child) for
+path and hop-count queries (\texttt{join\_path}, \texttt{hop\_count},
+\texttt{direct\_fk}) and as \textbf{undirected} for connectivity
+queries (\texttt{membership}, \texttt{connected}, \texttt{isolation},
+\texttt{count}, \texttt{full\_enum}).  Lineage edges are always
+directed (upstream$\to$downstream).
+For path-based questions, we validate alternative valid shortest paths
+against the FK adjacency matrix, ensuring EM is robust to tie-breaking.
+
+\subsection{Question Generation}
+\label{sec:qa-generation}
+
+Questions are generated deterministically from the graph structure using
+standard graph algorithms (BFS, Dijkstra, connected component detection)
+implemented with NetworkX~\cite{networkx2008}, ensuring ground-truth
+answers are provably correct. We define three categories with 13 subtypes:
+
+\paragraph{Difficulty assignment.}
+Difficulty labels are assigned a priori based on structural complexity,
+following the precedent of Spider~\cite{yu2018spider} (which uses SQL AST
+depth) and BIRD~\cite{li2023bird}.  Easy subtypes require a single graph
+lookup (one hop, one edge type).  Medium subtypes require multi-hop
+traversal within a single edge type.  Hard subtypes require either
+multi-hop transitive closure or composition across both FK and lineage
+edge types.  These labels are fixed properties of the question structure,
+independent of any model's empirical performance.
+
+% TABLE 2: Question Taxonomy
+\begin{table}[t]
+\centering
+\caption{Question taxonomy. Difficulty is assigned based on the number of
+reasoning hops and edge types required.}
+\label{tab:taxonomy}
+\small
+\begin{tabular}{@{}llclr@{}}
+\toprule
+Category & Subtype & Diff. & Description & \#Qs \\
+\midrule
+\multirow{5}{*}{\rotatebox{90}{\small Lin.}} 
+  & forward         & Easy & Direct lineage targets   & 72 \\
+  & reverse         & Easy & Source tables for DW table & 71 \\
+  & transitive      & Hard & Multi-hop lineage chains  & 33 \\
+  & combined\_impact & Hard & Lineage + FK dependents  & 69 \\
+  & multi\_source   & Med. & Tables with 3+ sources   & 49 \\
+\midrule
+\multirow{3}{*}{\rotatebox{90}{\small Rt.}}
+  & direct\_fk      & Easy & FK adjacency check       & 100 \\
+  & join\_path      & Med. & FK shortest path         & 342 \\
+  & hop\_count      & Med. & Path length              & 124 \\
+\midrule
+\multirow{5}{*}{\rotatebox{90}{\small Silo}}
+  & count           & Easy & Number of components     & 30 \\
+  & membership      & Hard & Which component has X?   & 38 \\
+  & isolation       & Med. & Is table X isolated?     & 60 \\
+  & connected       & Med. & Are X and Y connected?   & 29 \\
+  & full\_enum.     & Hard & List all tables in silo  & 29 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Obfuscation Protocol}
+
+To distinguish genuine topology reasoning from schema name memorization,
+we generate an \emph{obfuscated} variant for each dataset. Table names
+are replaced with random identifiers (\texttt{Table\_A},
+\texttt{Table\_B}, etc.) using a deterministic mapping. Questions and
+answers are updated accordingly with word-boundary-aware replacement to
+avoid corrupting natural language phrases (e.g., the word
+``relationship'' in ``foreign key relationship'' is preserved).

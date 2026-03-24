@@ -1,0 +1,33 @@
+\begin{abstract}
+Text-to-SQL benchmarks test whether a model can write the right query.
+They do not test whether it understands the schema it queries.
+A data warehouse schema is a graph: tables linked by foreign keys,
+rows anchored to source records through ETL lineage.
+Tracing that structure (finding join paths, detecting disconnected silos,
+propagating impact through lineage chains) is routine data engineering,
+but no existing benchmark measures it.
+
+We present \textbf{DW-Bench}, a benchmark for graph topology reasoning
+over data warehouse schemas.  The schema-level split contains
+1,046~questions (13~subtypes, three difficulty levels, five datasets,
+262~tables).  A separate value-level split adds 953~provenance questions
+that require interactive row-level data access, a regime where
+context-window approaches cannot compete.  We run six baselines,
+from flat context injection to tool-calling and code execution,
+against Gemini~2.5 Flash, DeepSeek-V3, and Qwen2.5-72B.
+
+Tool-augmented baselines reach 87--90\% micro-EM; static methods
+top out at 63--81\%.  The gap narrows on easy subtypes and widens
+on hard ones: no method exceeds 61\% while the oracle clears
+$\geq$99.5\%.  That gap is a reasoning problem.
+On value-level questions, tools flip \texttt{cascade\_count} from
+0\% to an average of 75\%, but \texttt{row\_impact} stays at 16--17\% on real-world
+schemas.  Tool-use on real-world lineage outperforms the synthetic
+split because standard ETL patterns align with the tool API, whereas
+the synthetic schema was designed to maximize structural difficulty.
+Obfuscating table names drops static baselines 9--32~pp; tool-use
+loses under 4~pp.
+
+Code, data, and per-question results:
+\url{https://github.com/AJamal27891/dw-bench}.
+\end{abstract}

@@ -1,0 +1,258 @@
+% ============================================================================
+% APPENDIX
+% ============================================================================
+\appendix
+
+\section{Supplementary Figures}
+\label{app:figures}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/triviality_illusion.pdf}
+\caption{The Triviality Illusion: Micro vs.\ Macro EM. Negative deltas
+reveal that easy subtypes inflate aggregate scores for static baselines.}
+\label{fig:triviality}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/obfuscation_penalty.pdf}
+\caption{Obfuscation penalty by baseline and model. Tool-Use loses
+only 3--4\% while static baselines lose 9--32\%.}
+\label{fig:obfuscation}
+\end{figure}
+
+\section{Tier~2 Full Results}
+\label{app:tier2}
+
+\paragraph{Data access mechanism.}
+Tier~2 value-level tools operate over pre-materialized CSV snapshots
+of each schema's row data loaded into Pandas DataFrames at evaluation
+time.  There is no live database engine (no DuckDB, Postgres, or
+SQLite); all row-level queries are executed as Pandas operations with
+deterministic column ordering and no transaction isolation overhead.
+Tool outputs are returned as string-formatted CSV rows.
+This format explains DeepSeek's lower \texttt{row\_provenance} scores
+(11\% vs.\ Gemini's 92\%): DeepSeek reliably identifies the correct
+source tables but inconsistently parses the multiline CSV row output
+into the expected list format, yielding EM failures on otherwise
+correct retrievals.
+
+\begin{table}[H]
+\centering
+\caption{Tier~2 value-level results (EM~\%, Syn-Logistics;
+Gemini and DeepSeek only; Qwen results appear in Figure~\ref{fig:tier2}
+but are omitted here for space).}
+\label{tab:tier2}
+\small
+\begin{tabular}{llccc}
+\toprule
+Subtype & $n$ & FT$_{v2}$ & GA$_{v2}$ & TU$_{v2}$ \\
+\midrule
+cascade\_count          & 58  & 0   & 0   & \textbf{100} \\
+row\_provenance         & 84  & 0   & 8   & \textbf{92} \\
+row\_impact             & 56  & 27  & 27  & \textbf{38} \\
+value\_origin           & 60  & 48  & \textbf{53} & 52 \\
+multi\_hop\_trace       & 60  & \textbf{30} & 30  & 27 \\
+value\_propagation      & 40  & \textbf{85} & 75  & 62 \\
+cross\_silo\_reach.     & 40  & \textbf{57} & 57  & 52 \\
+shared\_source          & 35  & \textbf{37} & 26  & 23 \\
+\midrule
+\textbf{Overall}        & 433 & 30  & 31  & \textbf{59} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
+\caption{Tier~2 EM by subtype for all three models (Gemini, DeepSeek, Qwen).
+\texttt{cascade\_count} and
+\texttt{row\_provenance} require tools (100\%/92\% vs.\ 0\%).
+Note: \texttt{row\_provenance} shows 92\% TU for Gemini but only 11\%
+for DeepSeek, which parses tool output differently;
+Table~\ref{tab:tier2} reports Gemini+DeepSeek columns separately.}
+\label{fig:tier2}
+\end{figure}
+
+\section{\texttt{combined\_impact}: Formal Specification}
+\label{app:combined-impact}
+
+The \texttt{combined\_impact} subtype captures the set of tables
+transitively affected when a source table is modified, propagating
+first through lineage then through FK dependencies.
+
+\begin{algorithm}[H]
+\caption{\texttt{combined\_impact}($G$, $t$)}
+\label{alg:combined-impact}
+\begin{algorithmic}[1]
+\Require Hetero-graph $G=(V,E_{fk}\cup E_{lin})$; source table $t\in V$
+\Ensure Set of affected tables $A\subseteq V$
+\State $L \gets \textsc{LineageClosure}(G, t)$
+  \Comment{Directed BFS over $E_{lin}$ from $t$}
+\State $A \gets L$
+\For{each $u \in L$}
+  \State $F_u \gets \textsc{FkBFS}(G, u)$
+    \Comment{Undirected BFS over $E_{fk}$ from $u$}
+  \State $A \gets A \cup F_u$
+\EndFor
+\State $A \gets A \setminus \{t\}$ \Comment{Exclude source table itself}
+\State \Return $A$
+\end{algorithmic}
+\end{algorithm}
+
+\noindent
+\textbf{Corner cases.} (1)~Lineage DAGs contain no cycles by
+construction; future datasets with relaxed constraints should detect
+and skip back-edges.  (2)~Duplicates during union are naturally
+eliminated by set semantics.  (3)~FK BFS treats edges as undirected
+(bidirectional), consistent with the connectivity definition for all
+Silo-category questions.
+
+\section{Hop-Distance Analysis}
+\label{app:hop-distance}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.pdf}
+\caption{EM by gold path length. Static baselines collapse
+beyond 3~hops; Tool-Use degrades more gracefully.}
+\label{fig:hop_decay}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Minimum evidence hops per subtype (Syn-Logistics).
+45.4\% of questions exceed the GA 3-hop BFS radius.}
+\label{tab:hop-distance}
+\small
+\begin{tabular}{lrrrc}
+\toprule
+Subtype & $n$ & Exceeds 3h & \% & GA EM \\
+\midrule
+count            & 26 & 26 & 100\% & 100\% \\
+membership       & 20 & 20 & 100\% & 0\% \\
+combined\_impact & 34 & 34 & 100\% & 0\% \\
+full\_enum       & 25 & 25 & 100\% & 100\% \\
+connected        & 25 & 25 & 100\% & 100\% \\
+isolation        & 25 & 25 & 100\% & 100\% \\
+transitive       & 29 &  4 &  14\% & 93\% \\
+hop\_count       & 44 &  5 &  11\% & 100\% \\
+direct\_fk       & 36 &  3 &   8\% & 100\% \\
+join\_path       & 26 &  2 &   8\% & 81\% \\
+multi\_source    & 42 &  0 &   0\% & 95\% \\
+forward          & 20 &  0 &   0\% & 100\% \\
+reverse          & 20 &  0 &   0\% & 100\% \\
+\midrule
+\textbf{Total}   & 372 & 169 & \textbf{45.4\%} & 83.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Dataset Details}
+\label{app:datasets}
+
+\paragraph{Syn-Logistics Design.}
+The Syn-Logistics dataset guarantees $n\geq20$ per subtype via three
+parallel 4-hop lineage chains across five components. Table names are drawn
+from realistic supply-chain terminology (64 tables, 96 FK, 35 lineage).
+
+\paragraph{Lineage Edge Curation.}
+\textbf{AW}: Microsoft reference docs (39 edges).
+\textbf{TPC-DS}: No lineage (pure FK).
+\textbf{TPC-DI}: Official spec ETL flows (21 edges).
+\textbf{OMOP}: OHDSI ETL conventions (21 edges).
+\textbf{Syn-Log}: By construction (35 edges).
+
+\section{Evaluation Details}
+\label{app:decoding}
+
+\paragraph{Models.}
+\textbf{Gemini~2.5~Flash} (Google, closed-weight, accessed via API) and
+\textbf{DeepSeek-V3} (DeepSeek, 671B MoE, MIT licensed, accessed via API).
+Both use greedy decoding ($\tau{=}0$, $p{=}1.0$) with a single
+deterministic pass per question for exact reproducibility.
+
+\paragraph{Scoring.}
+\emph{Exact Match (EM)}: predicted answer must exactly match the gold
+answer after canonicalization.
+\emph{Path validation}: for \texttt{join\_path}, alternative shortest
+paths of equal length are validated against the FK adjacency matrix.
+\emph{List canonicalization}: lists are lowercased and sorted
+alphabetically before comparison; order does not matter.
+\emph{F1}: token-level overlap between predicted and gold answer sets.
+
+\paragraph{Retrieval.}
+Vector-RAG uses \texttt{all-MiniLM-L6-v2}~\cite{reimers2019sentencebert}
+embeddings with FAISS exact search and $k{=}15$ retrieved chunks.
+Graph-Augmented uses 3-hop BFS neighborhoods from mentioned tables.
+Tool-Use provides 9 graph algorithm tools (\texttt{shortest\_path},
+\texttt{connected\_components}, \texttt{get\_component\_of},
+\texttt{get\_fk\_neighbors}, \texttt{get\_lineage\_forward},
+\texttt{get\_lineage\_reverse}, \texttt{transitive\_lineage},
+\texttt{check\_fk\_adjacency}, \texttt{list\_tables}) with
+up to 3 calls per question.
+ReAct-Code provides a Python REPL with NetworkX and allows up to 5 code
+execution rounds per question.
+
+\paragraph{Statistical treatment.}
+All figures include 95\% bootstrap confidence intervals computed via
+2,000 resamples over questions. Per-question results (JSON) are released
+for community bootstrap and stratification analyses.
+
+\section{Example Questions and Predictions}
+\label{app:examples}
+
+\begin{table}[H]
+\centering
+\caption{Representative questions across difficulty levels and
+categories, with gold answers and Tool-Use (TU) predictions.
+\cmark~=~correct, \xmark~=~incorrect.
+Tool-Use succeeds on lookup-style questions (direct FK, shortest path,
+cascade count) but fails on exhaustive enumeration (membership) and
+multi-hop composition (combined impact, provenance tracing).}
+\label{tab:examples}
+\small
+\begin{tabular}{@{}p{0.10\linewidth}p{0.35\linewidth}p{0.24\linewidth}p{0.22\linewidth}@{}}
+\toprule
+\textbf{Subtype} & \textbf{Question} & \textbf{Gold} & \textbf{TU Pred.} \\
+\midrule
+\texttt{direct\_fk} \newline \textit{Easy} &
+Is there a direct FK between \texttt{DimProduct} and
+\texttt{FactInternetSales}? &
+yes &
+yes \cmark \\
+\midrule
+\texttt{join\_path} \newline \textit{Medium} &
+Shortest FK path from \texttt{DimCustomer} to
+\texttt{DimProduct}? &
+{[}DimCustomer, FactInternet\-Sales, DimProduct{]} &
+{[}DimCustomer, FactInternet\-Sales, DimProduct{]} \cmark \\
+\midrule
+\texttt{membership} \newline \textit{Hard} &
+Which component contains \texttt{DimCurrency}? List all
+tables. &
+{[}DimCurrency, FactCurrency\-Rate, DimDate, \ldots{]} (12) &
+{[}DimCurrency{]} \xmark \\
+\midrule
+\texttt{combined\_\newline impact} \newline \textit{Hard} &
+Which tables are transitively affected (lineage+FK) if
+\texttt{raw\_purchase\_orders} is modified? &
+{[}stg\_purchase\_orders, dim\_supplier, \ldots{]} (8) &
+{[}stg\_purchase\_orders{]} \xmark \\
+\midrule
+\texttt{cascade\_\newline count} \newline \textit{Tier~2} &
+How many downstream rows affected if we delete
+\texttt{shipment\_id=SH042} from \texttt{raw\_shipments}? &
+147 &
+147 \cmark \\
+\midrule
+\texttt{multi\_hop\newline \_trace} \newline \textit{Tier~2} &
+Trace provenance of \texttt{order\_id=ORD-2891} in
+\texttt{mart\_profit\_analysis} to raw sources. &
+{[}raw\_purchase\_orders $\to$ stg\_orders $\to$ dim\_product $\to$
+mart\_profit\_analysis{]} &
+{[}raw\_purchase\_orders, mart\_profit\_analysis{]} \xmark \\
+\bottomrule
+\end{tabular}
+\end{table}

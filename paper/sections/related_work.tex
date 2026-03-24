@@ -1,0 +1,48 @@
+% ============================================================================
+% 2. RELATED WORK
+% ============================================================================
+\section{Related Work}
+
+\paragraph{Text-to-SQL Benchmarks.}
+Spider~\cite{yu2018spider} set the template: 10,181 questions across
+200 databases. BIRD~\cite{li2023bird} introduced noisy schemas;
+Spider~2.0~\cite{lei2024spider2} scaled to enterprise schemas.
+ScienceBenchmark targets scientific databases.
+RobuT~\cite{zhao2023robust} probes cell/row logic.  All of these test
+\emph{query generation or cell reasoning}, none test structural
+understanding.
+
+\paragraph{Schema Understanding.}
+BEAVER~\cite{beaver2024} evaluates LLMs on database knowledge including
+schema matching and entity resolution, but does not evaluate graph topology
+reasoning.  LLM-FK~\cite{tang2025llmfk} evaluates FK discovery, a single-hop
+structural task complementary to DW-Bench's multi-hop topology reasoning.
+
+\paragraph{Graph Reasoning in LLMs.}
+NLGraph~\cite{wang2023nlgraph} and GraphQA~\cite{fatemi2023talk} test LLMs
+on synthetic graph problems (connectivity, shortest path).
+GraCoRe~\cite{gracore2024} taxonomizes graph reasoning;
+GraphArena~\cite{grapharena2024} benchmarks graph algorithms at scale.
+None of these use real database schemas, and none mix FK with lineage
+edge types.
+
+\paragraph{Graph-Centric Agents and GNN Hybrids.}
+Think-on-Graph~\cite{tog2024} interleaves LLM reasoning with KG exploration;
+Graph Chain-of-Thought~\cite{gcot2024} augments prompts with graph-derived
+reasoning chains.  G-Retriever~\cite{gretriever2024} uses GNN encoders to
+retrieve graph context for LLM QA.  Retrieval-augmented
+generation~\cite{rag2020} and hierarchical
+GraphRAG~\cite{graphrag2024} address knowledge-intensive tasks but
+do not specifically target schema topology.
+DW-Bench does not compare against these advanced graph-agent frameworks;
+following the precedent of Spider and BIRD, we evaluate standardized,
+zero-shot baselines to establish a \emph{lower bound}.  These methods
+are natural next steps: the Oracle upper bound ($\geq$99.5\% EM) quantifies
+exactly how much room remains for hybrid architectures combining tools with
+learned graph representations.
+
+\paragraph{Positioning.}
+DW-Bench uniquely combines: (1) \emph{real-world} schemas from industry
+standards, (2) \emph{heterogeneous} edge types (FK + lineage), (3)
+\emph{practical} question types from data engineering workflows, and (4)
+\emph{obfuscation} for contamination control.

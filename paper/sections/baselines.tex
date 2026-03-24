@@ -1,0 +1,43 @@
+% ============================================================================
+% 4. BASELINES
+% ============================================================================
+\section{Baselines}
+\label{sec:baselines}
+
+Six baselines, same prompt, different context injection.  All zero-shot.
+Each paradigm receives context natural to its architecture rather than
+enforcing token-budget parity, since the goal is to compare
+\emph{paradigms}, not token counts.
+
+\textbf{Flat Text (FT).}  Dump the whole schema (tables, columns, FKs,
+lineage) as plain text.  This mirrors what a developer does when pasting
+DDL into a long-context model.
+
+\textbf{Vector-RAG (VR).}  Embed schema elements with
+Sentence-BERT~\cite{reimers2019sentencebert}, retrieve $k{=}15$ chunks via
+FAISS~\cite{faiss2019}, inject as context.
+
+\textbf{Graph-Augmented (GA).}  Extract a 3-hop BFS neighborhood around the
+tables mentioned in the question.  For global questions with no anchor
+tables (``how many components?''), supply the full graph instead.
+
+\textbf{Tool-Use (TU).}  Hand the model nine graph algorithm tools:
+\texttt{shortest\_path}, \texttt{connected\_components},
+\texttt{get\_component\_of}, \texttt{get\_fk\_neighbors},
+\texttt{get\_lineage\_forward}, \texttt{get\_lineage\_reverse},
+\texttt{transitive\_lineage}, \texttt{check\_fk\_adjacency},
+\texttt{list\_tables}.  Up to 3 calls per question.
+
+\textbf{ReAct-Code (RC).}  The model writes and runs Python/NetworkX code
+in a sandboxed REPL, up to 5 rounds.  More flexible than TU and serves as
+a budget ablation (5 code rounds vs.\ TU's 3 tool calls).
+
+\textbf{Oracle.}  Gold algorithmic output injected into the prompt.  This
+establishes the performance ceiling.
+
+For \textbf{Tier~2} we adapt four baselines: FT$_{v2}$ (DDL-only),
+GA$_{v2}$ (schema + value samples), TU$_{v2}$ (interactive data tools),
+and RC$_{v2}$ (free-form Python with value data access).  RC$_{v2}$
+matches TU$_{v2}$ on synthetic data (53\%) but trails up to 20~pp on
+complex real-world schemas, consistent with structured tool APIs scaling
+better to real-world ETL complexity.

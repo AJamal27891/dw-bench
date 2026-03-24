@@ -1,0 +1,170 @@
+% ============================================================================
+% 3. DW-BENCH DESIGN — Journal version (expanded with formal definitions)
+% ============================================================================
+\section{DW-Bench: Benchmark Design}
+\label{sec:benchmark}
+
+\subsection{Problem Formulation}
+
+We formalize the data warehouse schema reasoning task as follows.
+Given a heterogeneous schema graph $G = (V, E_{fk} \cup E_{lin})$
+where $V$ is the set of tables, $E_{fk}$ is the set of foreign key
+edges, and $E_{lin}$ is the set of data lineage (derived-from) edges,
+and a natural language question $q$ about the topology of $G$, the
+task is to produce an answer $a$ that matches the ground-truth answer
+$a^* = f(G, q)$ computed by the corresponding graph algorithm $f$.
+
+The ground-truth function $f$ is deterministic: for path queries,
+$f$ returns the shortest path via BFS; for component queries, $f$
+returns weakly connected components; for lineage queries, $f$ returns
+directed reachability results.  This determinism ensures evaluation
+integrity without human annotation.
+
+\subsection{Datasets}
+
+We select five datasets representing diverse data warehouse topologies:
+
+% TABLE 1: Dataset Overview
+\begin{table}[t]
+\centering
+\caption{DW-Bench dataset statistics. ``Silos'' = number of disconnected
+components in the combined FK+lineage graph.}
+\label{tab:datasets}
+\begin{tabular}{lcccccc}
+\toprule
+Dataset & Domain & Tables & FK & Lineage & Questions & Silos \\
+\midrule
+AdventureWorks & Retail/HR    & 102 & 136 & 39 & 208 & 11 \\
+TPC-DS         & Analytics    &  24 &  70 &  0 & 127 &  1 \\
+TPC-DI         & ETL          &  35 &  29 & 21 & 181 &  2 \\
+OMOP CDM       & Healthcare   &  37 &  74 & 21 & 158 &  3 \\
+Syn-Logistics  & Supply Chain &  64 &  96 & 35 & 372 &  5 \\
+\midrule
+\textbf{Total} &              & \textbf{262} & \textbf{405} & \textbf{116} & \textbf{1,046} &: \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{AdventureWorks}~is a Microsoft reference data warehouse with 102
+tables spanning OLTP and DW layers, connected by 136 FK edges and 39
+lineage (derived\_from) edges.  Its dual-layer structure with 11 connected
+components makes it ideal for lineage impact and silo detection questions.
+
+\textbf{TPC-DS}~\cite{tpcds2021} is the industry-standard analytics benchmark with a star
+schema of 24 tables and 70 FK edges.  Its single connected component and
+absence of lineage edges tests pure FK-based reasoning in a well-studied
+schema.
+
+\textbf{TPC-DI}~is the data integration benchmark with 35 tables modeling
+an ETL pipeline from staging to warehouse, with 21 lineage edges
+representing the transformation flow from source to target tables.
+
+\textbf{OMOP CDM}~(Observational Medical Outcomes Partnership Common Data
+Model)~\cite{ohdsi2019omop} is a healthcare standard with 37 tables, 74
+FK edges, and 21 lineage edges across 3 connected components (clinical
+data, vocabulary tables, and metadata).
+
+\textbf{Syn-Logistics}~is a synthetic supply-chain data warehouse with 64
+tables modeled across 5 connected components (carrier, procurement,
+healthcare, finance, HR).  It was specifically designed to address the
+statistical power limitation of the real-world corpus: every subtype has
+$n\geq20$ questions, enabling reliable per-subtype conclusions.
+
+\subsection{Schema Graph Representation}
+
+Each dataset is represented as a heterogeneous graph using PyTorch
+Geometric~\cite{fey2019pyg} \texttt{HeteroData}.  Nodes represent
+tables with 6 structural features: in-degree, out-degree, normalized
+degree, lineage degree, betweenness centrality, and PageRank.  Edges are
+typed as either \texttt{fk\_to} (foreign key) or \texttt{derived\_from}
+(data lineage).  Lineage edges form a strict DAG (directed acyclic graph):
+each \texttt{derived\_from} edge points from a downstream DW table to its
+upstream source, with no cycles or self-references.  All traversal
+algorithms respect edge typing: FK queries use only \texttt{fk\_to}
+edges, lineage queries use only \texttt{derived\_from}, and
+\texttt{combined\_impact} queries compose both types in two phases.
+
+\paragraph{Definition 1 (\texttt{combined\_impact} semantics).}
+\label{def:combined_impact}
+Given a seed table $s$ and schema graph $G = (V, E_{\text{fk}}, E_{\text{lin}})$,
+the \texttt{combined\_impact} answer is computed in two phases:
+(1)~\emph{Lineage closure}: compute the set $L(s)$ of all tables reachable
+from $s$ by following \texttt{derived\_from} edges forward (downstream
+consumers of $s$);
+(2)~\emph{FK dependents}: for each $t \in L(s) \cup \{s\}$, collect all tables
+referencing $t$ via at least one \texttt{fk\_to} edge.
+The answer is $L(s) \cup \bigcup_{t \in L(s) \cup \{s\}} \text{FK-deps}(t)$,
+excluding $s$ itself.
+This sequential composition (lineage then FK) reflects the enterprise
+impact-analysis workflow: propagate the data change through the ETL pipeline,
+then identify which downstream relational tables are invalidated.
+
+\subsection{Question Generation}
+\label{sec:qa-generation}
+
+Questions are generated deterministically from the graph structure using
+standard graph algorithms (BFS, Dijkstra, connected component detection)
+implemented with NetworkX~\cite{networkx2008}, ensuring ground-truth
+answers are provably correct.  We define three categories with 13 Tier-1
+subtypes:
+
+% TABLE 2: Question Taxonomy
+\begin{table}[t]
+\centering
+\caption{Question taxonomy.  Difficulty is assigned based on the number of
+reasoning hops and edge types required.}
+\label{tab:taxonomy}
+\small
+\begin{tabular}{llclr}
+\toprule
+Category & Subtype & Difficulty & Description & \#Qs \\
+\midrule
+\multirow{5}{*}{\rotatebox{90}{\small Lineage}}
+  & forward         & Easy & Direct lineage targets   & 72 \\
+  & reverse         & Easy & Source tables for a DW table & 71 \\
+  & transitive      & Hard & Multi-hop lineage chains  & 33 \\
+  & combined\_impact & Hard & Lineage + FK dependents  & 69 \\
+  & multi\_source   & Medium & Tables with 3+ sources   & 49 \\
+\midrule
+\multirow{3}{*}{\rotatebox{90}{\small Route}}
+  & direct\_fk      & Easy & FK adjacency check       & 100 \\
+  & join\_path      & Medium & FK shortest path         & 342 \\
+  & hop\_count      & Medium & Path length              & 124 \\
+\midrule
+\multirow{5}{*}{\rotatebox{90}{\small Silo}}
+  & count           & Easy & Number of components     & 30 \\
+  & membership      & Hard & Which component contains X? & 38 \\
+  & isolation       & Medium & Is table X isolated?     & 60 \\
+  & connected       & Medium & Are X and Y connected?   & 29 \\
+  & full\_enumeration & Hard & List all tables in a silo & 29 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For Tier~2, we define 8 value-level subtypes that require interactive
+access to row-level data: \texttt{cascade\_count},
+\texttt{row\_provenance}, \texttt{row\_impact}, \texttt{value\_origin},
+\texttt{multi\_hop\_trace}, \texttt{value\_propagation},
+\texttt{cross\_silo\_reachability}, and \texttt{shared\_source}.
+
+\subsection{Difficulty Assignment}
+
+Questions are assigned three difficulty levels:
+\begin{itemize}
+  \item \textbf{Easy}: single-hop queries (direct FK adjacency, forward/reverse
+    lineage) requiring only one edge traversal.
+  \item \textbf{Medium}: multi-hop queries within a single edge type
+    (FK shortest path, hop count, isolation check, component connectivity).
+  \item \textbf{Hard}: queries requiring composition of multiple edge types
+    or exhaustive enumeration (combined impact, transitive lineage,
+    membership, full enumeration).
+\end{itemize}
+
+\subsection{Obfuscation Protocol}
+
+To distinguish genuine topology reasoning from schema name memorization,
+we generate an \emph{obfuscated} variant for each dataset.  Table names
+are replaced with random identifiers (\texttt{Table\_A},
+\texttt{Table\_B}, etc.) using a deterministic mapping.  Questions and
+answers are updated accordingly with word-boundary-aware replacement to
+avoid corrupting natural language phrases.

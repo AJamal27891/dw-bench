@@ -1,0 +1,85 @@
+# ═══════════════════════════════════════════════════
+# DW-Bench — .gitignore
+# ═══════════════════════════════════════════════════
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- API keys / secrets ---
+.env
+.env.*
+
+# --- Internal session docs (keep local, never push) ---
+docs/
+
+# --- Large data files (→ HuggingFace) ---
+# Value-level data is too large for GitHub; will be pushed to HuggingFace
+datasets/*/value_schema_graph.pt
+datasets/*/value_data/
+datasets/*/lineage_map.json
+
+# --- LaTeX build artifacts ---
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.pdf
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.synctex.gz
+paper_journal/*.aux
+paper_journal/*.log
+paper_journal/*.out
+paper_journal/*.bbl
+paper_journal/*.blg
+paper_journal/*.pdf
+paper_journal/*.fdb_latexmk
+paper_journal/*.fls
+paper_journal/*.synctex.gz
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Temp ---
+*.tmp
+*.bak
+tmp_*.py
+
+# --- FAISS caches ---
+*.faiss
+*.index
+# --- Zip submission files (local only) ---
+*.zip
+
+# --- Springer template (copied from dw-bench, not needed in git) ---
+paper_journal/sn-article-template.tex
+paper_journal/sn-*.bst
+paper_journal/sn-jnl.cls
+# ---------------------------------------------------------------
+# DATA: Everything in datasets/ lives on HuggingFace, not GitHub.
+# https://huggingface.co/datasets/AJamal27891/dw-bench
+# ---------------------------------------------------------------
+datasets/
+
+# ---------------------------------------------------------------
+# RESULTS: Model evaluation outputs live on HuggingFace too.
+# ---------------------------------------------------------------
+evaluation/results/
+
+# ---------------------------------------------------------------
+# HF staging directory created by push_to_hf.py
+# ---------------------------------------------------------------
+_hf_staging/
+
+# --- Internal notes (keep local) ---
+paper/WRITING_NOTES.md

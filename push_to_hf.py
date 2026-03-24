@@ -143,104 +143,13 @@ def stage_data():
 
 
 def write_dataset_card():
-    """Create HuggingFace dataset card."""
-    card = """---
-language:
-- en
-license: mit
-task_categories:
-- question-answering
-tags:
-- data-warehouse
-- graph-reasoning
-- schema-understanding
-- benchmark
-- llm-evaluation
-- data-lineage
-pretty_name: DW-Bench
-size_categories:
-- 1K<n<10K
-dataset_info:
-  features:
-  - name: id
-    dtype: string
-  - name: question
-    dtype: string
-  - name: answer
-    dtype: string
-  - name: answer_type
-    dtype: string
-  - name: subtype
-    dtype: string
-  - name: difficulty
-    dtype: string
-  - name: dataset
-    dtype: string
-  splits:
-  - name: test
-    num_examples: 1046
-  - name: test_obfuscated
-    num_examples: 1046
-  - name: tier2
-    num_examples: 433
----
-
-# DW-Bench: Graph Topology Reasoning over Data Warehouse Schemas
-
-[![Paper](https://img.shields.io/badge/NeurIPS-2026-blue)](https://github.com/AJamal27891/dw-bench)
-[![Journal](https://img.shields.io/badge/J.%20Big%20Data-Springer-orange)](https://github.com/AJamal27891/dw-bench)
-
-## Overview
-
-**DW-Bench** is the first benchmark for evaluating LLMs on graph topology reasoning over data warehouse schemas.
-
-### Tier 1: Schema-Level (1,046 questions)
-- 13 subtypes across 3 categories (Lineage, Route, Silo)
-- 3 difficulty levels (Easy, Medium, Hard)
-- 5 datasets: AdventureWorks, TPC-DS, TPC-DI, OMOP CDM, Syn-Logistics
-
-### Tier 2: Value-Level (433 questions)
-- 8 subtypes requiring interactive row-level data access
-- Syn-Logistics dataset with full value-level lineage
-
-## Data Structure
-
-```
-dw-bench/
-├── tier1/
-│   ├── test.jsonl              # 1,046 Tier 1 questions
-│   ├── test_obfuscated.jsonl   # Obfuscated variant
-│   └── test_extended.jsonl     # Hard+Medium only
-├── tier2/
-│   └── v2.jsonl                # 433 Tier 2 questions
-├── schemas/                    # PyG HeteroData graphs
-├── lineage_data/               # Row-level lineage map
-└── value_data/                 # CSV tables for Tier 2
-```
-
-## Usage
-
-```python
-from datasets import load_dataset
-
-ds = load_dataset("AJamal27891/dw-bench", data_dir="tier1")
-print(ds["test"][0])
-```
-
-## Citation
-
-```bibtex
-@inproceedings{ahmed2026dwbench,
-  title={DW-Bench: Benchmarking LLMs on Data Warehouse Graph Topology Reasoning},
-  author={Ahmed, Ahmed G.A.H.},
-  booktitle={NeurIPS Datasets and Benchmarks},
-  year={2026}
-}
-```
-"""
-    with open(STAGING / "README.md", 'w', encoding='utf-8') as f:
-        f.write(card)
-    print("  Dataset card: README.md")
+    """Copy HF_DATASET_CARD.md to staging as README.md (the HF data card)."""
+    card_src = BASE / "HF_DATASET_CARD.md"
+    if card_src.exists():
+        shutil.copy2(card_src, STAGING / "README.md")
+        print(f"  Dataset card: HF_DATASET_CARD.md -> README.md")
+    else:
+        print("  WARNING: HF_DATASET_CARD.md not found, skipping card upload")
 
 
 def push_to_hub():

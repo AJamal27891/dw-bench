@@ -169,7 +169,7 @@ dw-bench/
 | TPC-DI | ETL | 35 | 29 | 21 | 181 | — | 2 |
 | OMOP CDM | Healthcare | 37 | 74 | 21 | 158 | — | 3 |
 | Syn-Logistics | Supply Chain | 64 | 96 | 35 | 372 | 433 | 5 |
-| **Total** | | **262** | **405** | **116** | **1,046** | **953** | |
+| **Total** | | **262** | **405** | **116** | **1,046** | **433 evaluated** | |
 
 ### Question Taxonomy (13 subtypes, 3 difficulty levels)
 
@@ -233,13 +233,12 @@ python integrity_check.py
 ## Citation
 
 ```bibtex
-@inproceedings{ahmed2026dwbench,
+@misc{ahmed2026dwbench,
   title     = {DW-Bench: Benchmarking LLMs on Data Warehouse Graph Topology Reasoning},
   author    = {Ahmed, Ahmed G.A.H.},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)
-               Datasets and Benchmarks Track},
   year      = {2026},
-  url       = {https://github.com/AJamal27891/dw-bench}
+  url       = {https://github.com/AJamal27891/dw-bench},
+  note      = {Preprint. Under review.}
 }
 ```
 
@@ -247,8 +246,8 @@ For the extended journal version:
 
 ```bibtex
 @article{ahmed2026dwbench_journal,
-  title     = {DW-Bench: A Two-Tier Benchmark for Graph Topology Reasoning
-               over Data Warehouse Schemas},
+  title     = {DW-Bench: A Benchmark for Graph Topology Reasoning
+               in Data Warehouse Schemas with Large Language Models},
   author    = {Ahmed, Ahmed G.A.H.},
   journal   = {Journal of Big Data},
   publisher = {Springer},

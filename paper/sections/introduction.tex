@@ -12,7 +12,7 @@ SQLworkflows remain largely unsolved (best models~$\sim$17--21\%).
 
 Data warehouses, on the other hand, present a different kind of problem.
 A data engineer maintaining an enterprise warehouse does not primarily write
-SQL.  Instead, they trace graph structure: lineage edges, FK paths,
+SQL.  Instead, they trace graph structure: lineage edges, foreign key (FK) paths,
 disconnected schema silos.  Common questions include:
 
 \begin{itemize}
@@ -24,13 +24,29 @@ disconnected schema silos.  Common questions include:
     (routing)
 \end{itemize}
 
-Answering these questions demands BFS, connected-component detection, and
-multi-hop path enumeration.  No existing benchmark assesses LLMs on any of
-these capabilities.
+Answering these questions demands breadth-first search (BFS), connected-component detection, and
+multi-hop path enumeration.  No existing benchmark assesses LLMs on these capabilities
+over real-world data warehouse schemas with heterogeneous
+edge semantics.
 
-\paragraph{Contributions.}
+Our evaluation reveals three principal findings:
+(i)~all models achieve near-perfect scores on single-hop
+structural queries but drop 30--40~percentage points on
+compositional multi-hop tasks, exposing a systematic
+\emph{structural reasoning ceiling};
+(ii)~Tool-Use prompting closes the gap on topology-enumeration
+subtypes but fails on compositional lineage-impact queries
+that require chaining multiple graph algorithms; and
+(iii)~obfuscating table names degrades performance by up to
+XX~pp on lineage tasks, confirming that models partially
+rely on lexical cues rather than genuine graph traversal.
+
+
+
+Our contributions are summarized as follows:
+
 \begin{enumerate}
-  \item \textbf{DW-Bench}: 1,046 schema-level and 953 value-level questions
+  \item \textbf{DW-Bench}: 1,046 schema-level questions
     across 5 data warehouse schemas (4 real-world, 1 synthetic), covering
     3 categories (lineage impact, schema routing, silo detection),
     13 subtypes, and 3 difficulty levels.

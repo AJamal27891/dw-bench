@@ -22,58 +22,7 @@ only 3--4\% while static baselines lose 9--32\%.}
 \label{fig:obfuscation}
 \end{figure}
 
-\section{Tier~2 Full Results}
-\label{app:tier2}
 
-\paragraph{Data access mechanism.}
-Tier~2 value-level tools operate over pre-materialized CSV snapshots
-of each schema's row data loaded into Pandas DataFrames at evaluation
-time.  There is no live database engine (no DuckDB, Postgres, or
-SQLite); all row-level queries are executed as Pandas operations with
-deterministic column ordering and no transaction isolation overhead.
-Tool outputs are returned as string-formatted CSV rows.
-This format explains DeepSeek's lower \texttt{row\_provenance} scores
-(11\% vs.\ Gemini's 92\%): DeepSeek reliably identifies the correct
-source tables but inconsistently parses the multiline CSV row output
-into the expected list format, yielding EM failures on otherwise
-correct retrievals.
-
-\begin{table}[H]
-\centering
-\caption{Tier~2 value-level results (EM~\%, Syn-Logistics;
-Gemini and DeepSeek only; Qwen results appear in Figure~\ref{fig:tier2}
-but are omitted here for space).}
-\label{tab:tier2}
-\small
-\begin{tabular}{llccc}
-\toprule
-Subtype & $n$ & FT$_{v2}$ & GA$_{v2}$ & TU$_{v2}$ \\
-\midrule
-cascade\_count          & 58  & 0   & 0   & \textbf{100} \\
-row\_provenance         & 84  & 0   & 8   & \textbf{92} \\
-row\_impact             & 56  & 27  & 27  & \textbf{38} \\
-value\_origin           & 60  & 48  & \textbf{53} & 52 \\
-multi\_hop\_trace       & 60  & \textbf{30} & 30  & 27 \\
-value\_propagation      & 40  & \textbf{85} & 75  & 62 \\
-cross\_silo\_reach.     & 40  & \textbf{57} & 57  & 52 \\
-shared\_source          & 35  & \textbf{37} & 26  & 23 \\
-\midrule
-\textbf{Overall}        & 433 & 30  & 31  & \textbf{59} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{figures/tier2_subtype.pdf}
-\caption{Tier~2 EM by subtype for all three models (Gemini, DeepSeek, Qwen).
-\texttt{cascade\_count} and
-\texttt{row\_provenance} require tools (100\%/92\% vs.\ 0\%).
-Note: \texttt{row\_provenance} shows 92\% TU for Gemini but only 11\%
-for DeepSeek, which parses tool output differently;
-Table~\ref{tab:tier2} reports Gemini+DeepSeek columns separately.}
-\label{fig:tier2}
-\end{figure}
 
 \section{\texttt{combined\_impact}: Formal Specification}
 \label{app:combined-impact}
@@ -208,9 +157,9 @@ for community bootstrap and stratification analyses.
 \caption{Representative questions across difficulty levels and
 categories, with gold answers and Tool-Use (TU) predictions.
 \cmark~=~correct, \xmark~=~incorrect.
-Tool-Use succeeds on lookup-style questions (direct FK, shortest path,
-cascade count) but fails on exhaustive enumeration (membership) and
-multi-hop composition (combined impact, provenance tracing).}
+Tool-Use succeeds on lookup-style questions (direct FK, shortest path)
+but fails on exhaustive enumeration (membership) and
+multi-hop composition (combined impact).}
 \label{tab:examples}
 \small
 \begin{tabular}{@{}p{0.10\linewidth}p{0.35\linewidth}p{0.24\linewidth}p{0.22\linewidth}@{}}
@@ -240,19 +189,6 @@ Which tables are transitively affected (lineage+FK) if
 \texttt{raw\_purchase\_orders} is modified? &
 {[}stg\_purchase\_orders, dim\_supplier, \ldots{]} (8) &
 {[}stg\_purchase\_orders{]} \xmark \\
-\midrule
-\texttt{cascade\_\newline count} \newline \textit{Tier~2} &
-How many downstream rows affected if we delete
-\texttt{shipment\_id=SH042} from \texttt{raw\_shipments}? &
-147 &
-147 \cmark \\
-\midrule
-\texttt{multi\_hop\newline \_trace} \newline \textit{Tier~2} &
-Trace provenance of \texttt{order\_id=ORD-2891} in
-\texttt{mart\_profit\_analysis} to raw sources. &
-{[}raw\_purchase\_orders $\to$ stg\_orders $\to$ dim\_product $\to$
-mart\_profit\_analysis{]} &
-{[}raw\_purchase\_orders, mart\_profit\_analysis{]} \xmark \\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -19,12 +19,14 @@ An \textbf{Oracle} baseline injects gold algorithmic outputs, establishing
 an upper bound ($\geq$99.5\% EM across all three models; the residual gap
 reflects minor formatting, not reasoning failures).
 
-\subsection{Tier~1: Main Results}
+\subsection{Main Results}
+
+Results are shown in Table \ref{tab:main-results} and the main findings are summarized below:
 
 % TABLE 3: Main Results (3 models, with 95% bootstrap CIs)
 \begin{table}[t]
 \centering
-\caption{Tier~1 results (EM~\% $\pm$ 95\% CI, pooled across
+\caption{Main results (EM~\% $\pm$ 95\% CI, pooled across
 5 datasets, 2000 bootstrap resamples).
 \textbf{Bold}~=~best non-oracle.}
 \label{tab:main-results}
@@ -64,7 +66,7 @@ Model & & FT & VR & GA & TU & RC \\
 \end{table}
 
 \paragraph{Finding~1: Agentic baselines dominate.}
-TU tops Tier~1 at 87--90\% micro-EM, roughly 7--14~pp ahead of the best
+TU tops the ranking at 87--90\% micro-EM, roughly 7--14~pp ahead of the best
 static baseline.  RC also clears static methods through code generation.
 
 \paragraph{Finding~2: Triviality Illusion.}
@@ -108,7 +110,7 @@ Model & Diff. & FT & VR & GA & TU & RC \\
 \end{table}
 
 \paragraph{Easy/Medium patterns.}
-Gemini FT scores 78.9\% on Medium versus 82.7\% on Easy.  Medium is
+As seen in Table \ref{tab:difficulty}, Gemini FT scores 78.9\% on Medium versus 82.7\% on Easy.  Medium is
 dominated by \texttt{join\_path} (342 of 544 Medium questions), which has
 high FT accuracy since short FK paths are often present in the flat
 schema text.  Easy includes subtypes like \texttt{count} (number of
@@ -116,20 +118,29 @@ connected components) that require global graph access unavailable to FT.
 The distribution reflects subtype composition, not a flaw in difficulty
 labels.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{figures/difficulty_comparison.pdf}
-\caption{EM by difficulty level. All baselines plateau on hard
-questions while Oracle (dashed) achieves 100\%.}
-\label{fig:difficulty}
-\end{figure}
+% \begin{figure}[t]
+% \centering
+% \includegraphics[width=\linewidth]{figures/difficulty_comparison.pdf}
+% \caption{EM by difficulty level. All baselines plateau on hard
+% questions while Oracle (dashed) achieves 100\%.}
+% \label{fig:difficulty}
+% \end{figure}
 
 \subsection{Per-Subtype Analysis}
+
+\paragraph{Finding~3: Hard-task ceiling.}
+The results based on subtype analysis is shown in Figure \ref{fig:heatmap}. All baselines plateau at $\sim$60\% on hard questions while Oracle
+achieves $>$98\%.  The \texttt{combined\_impact} subtype ($n=69$)
+averages only 12\% EM even with TU, identifying compositional
+graph reasoning as the fundamental bottleneck.
+RC (5~code rounds) shows a similar ceiling to TU (3~tool calls),
+suggesting the bottleneck is compositional reasoning itself rather
+than interaction budget.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/subtype_heatmap.pdf}
-\caption{Tier~1 EM~(\%) by subtype for all three models.  With
+\caption{EM~(\%) by subtype for all three models.  With
 target-node normalization, TU now averages 71\% on
 \texttt{membership} (with Qwen reaching 100\%), indicating that topology enumeration is fully
 solvable with tools.  \texttt{combined\_impact} remains at 0--17\%,
@@ -139,15 +150,6 @@ questions are answered from the full schema context that Flat Text
 and Graph-Augmented inject by default for global graph queries.}
 \label{fig:heatmap}
 \end{figure*}
-
-\paragraph{Finding~3: Hard-task ceiling.}
-All baselines plateau at $\sim$60\% on hard questions while Oracle
-achieves $>$98\%.  The \texttt{combined\_impact} subtype ($n=69$)
-averages only 12\% EM even with TU, identifying compositional
-graph reasoning as the fundamental bottleneck.
-RC (5~code rounds) shows a similar ceiling to TU (3~tool calls),
-suggesting the bottleneck is compositional reasoning itself rather
-than interaction budget.
 
 \subsection{Obfuscation}
 
@@ -176,7 +178,7 @@ Model & & FT & VR & GA & TU & RC \\
 \end{tabular}
 \end{table}
 
-TU shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\%
+As seen in Table \ref{tab:obfuscation}, TU shows minimal degradation ($\Delta{=}{-}3.4$\% Gemini, ${-}4.2$\%
 DeepSeek, ${-}3.7$\% Qwen) while static baselines lose 9--32pp.
 Obfuscation replaces table names only; column names are preserved,
 as all baselines operate on schema-level graph topology where
@@ -185,23 +187,6 @@ RC shows near-zero penalty for DeepSeek ($\Delta{=}{+}0.6$\%), confirming
 that code execution against the graph object is largely invariant to
 name perturbation.
 
-\subsection{Tier~2: Value-Level Evaluation}
-
-Tier~2 tests value-level questions requiring interactive row-level data
-access (953~questions, 8~subtypes, AdventureWorks + Syn-Logistics).
-The three remaining Tier~1 datasets (TPC-DS, TPC-DI, OMOP) are
-schema-only releases with no row-level data;~value-level evaluation
-is impossible on them by construction, making AdventureWorks and
-Syn-Logistics the only applicable datasets for Tier~2.
-TU$_{v2}$ achieves 59\% EM (Gemini) and 48\% (DeepSeek) versus 26--31\%
-for static baselines.  Both models confirm the same pattern: tools are
-\textbf{essential} (\texttt{cascade\_count} averages 75\% with tools
-vs.\ 0\% without across both datasets, reaching 100\% on Syn-Logistics;
-both models) yet \textbf{insufficient} (\texttt{multi\_hop\_trace}: 27\%
-both models).  DeepSeek's lower TU score is driven by
-\texttt{row\_provenance} (11\% vs.\ 92\%)---it identifies correct
-source tables but fails to parse structured row-level tool output.
-Full per-subtype results in Appendix.
 
 \subsection{Discussion}
 
@@ -209,7 +194,7 @@ Our results decompose graph reasoning into \textbf{retrieval-limited}
 subtypes (solved by tools) and \textbf{reasoning-limited} subtypes
 (unsolved even with tools). The $\sim$35\% of questions that remain
 unsolved by both TU and GA largely overlap: their union improves EM by
-only 6pp, suggesting the bottleneck is compositional structural reasoning
+only 6pp as seen in Figure \ref{fig:oracle-gap}, suggesting the bottleneck is compositional structural reasoning
 itself---the capability that GNN encoders are designed to provide.
 
 \begin{figure}[t]
@@ -227,31 +212,35 @@ show 5--25~pp gaps.  The remaining 9 of 13 subtypes are solved
 Impact is the union of lineage-downstream tables and their FK-reachable
 neighbors: lineage transitive closure then FK BFS.  This two-phase
 composition drives the 12\% TU ceiling.
-RC receives 5 code-execution rounds (vs.\ TU's 3 tool calls) yet scores
-0\% (Gemini) on this subtype, ruling out tool budget
-as the primary bottleneck; the failure is compositional planning.
+RC receives five code-execution rounds
+(compared with three tool calls for TU), yet Gemini still scores 0\%
+on this subtype. These findings suggest that the 
+tool budget is not the primary
+bottleneck. The main difficulty appears to lie in
+compositional planning.
 
 \textbf{GA obfuscation penalty.}
-The large GA $\Delta$ ($-$24 to $-$28~pp) reflects two compounding
-factors: (1)~loss of semantic priors
+The large GA $\Delta$ ($-$24 to $-$28~pp) likely reflects two compounding
+factors: (1)~loss of semantic cues
 (\texttt{DimCustomer}$\to$\texttt{Table\_K}) and (2)~45\% of questions
-exceed the 3-hop radius, so obfuscation removes the cues that help LLMs
-infer structure beyond the retrieved fragment.
+exceed the 3-hop retrieval radius. Obfuscation
+therefore removes the schema-name cues that otherwise help LLMs infer
+structure beyond the retrieved fragment.
 
 \textbf{Tool tautology.}
 TU achieving near-perfect scores on easy subtypes is by design: it
 isolates hard failures as genuine reasoning problems.  After
-target-node normalization, TU hits 100\% on \texttt{membership}
-(with Qwen's label-agnostic matching driving this result) but still
-only 12--13\% on \texttt{combined\_impact}.  The ceiling is not
-tool availability; it is compositional multi-step reasoning.
+target-node normalization, TU reaches 100\% on \texttt{membership}
+(largely due to Qwen's label-agnostic matching) but still
+only 12--13\% on \texttt{combined\_impact}.  The limiting
+factor therefore does not appear to be tool availability, but
+compositional multi-step reasoning.
 
 \subsection{Limitations}
 
 We evaluate three frontier LLMs with deterministic single-pass evaluation;
 broader model coverage (e.g., reasoning-optimized variants) would
-strengthen generality claims.  Tier~2 covers one synthetic and one
-real-world dataset; extending to all five schemas is future work.
+strengthen generality claims.
 
 \paragraph{Responsible use.}
 This benchmark is intended for scientific evaluation of LLM capabilities

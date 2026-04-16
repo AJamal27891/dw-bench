@@ -27,7 +27,7 @@ Syn-Logistics  & Supply   &  64 &  96 & 35 & 372 &  5 \\
 \end{tabular}
 \end{table}
 
-We select five datasets representing diverse data warehouse topologies:
+We select five datasets shown in Table~\ref{tab:datasets} representing diverse data warehouse topologies:
 
 \textbf{AdventureWorks}~is a Microsoft reference data warehouse with 102
 tables spanning OLTP and DW layers, connected by 136 FK edges and 39
@@ -56,9 +56,10 @@ a domain dictionary so obfuscation does not collapse semantics.
 \subsection{Schema Graph Representation}
 
 Each dataset is represented as a heterogeneous graph $G = (V, E_{fk} \cup
-E_{lin})$ using PyTorch Geometric~\cite{fey2019pyg}
-\texttt{HeteroData}. Nodes represent
-tables with 6 structural features: in-degree, out-degree, normalized
+E_{lin})$, where $V$ denotes the set of table nodes, $E_{fk}$ denotes the
+set of foreign-key edges, and $E_{lin}$ denotes the set of data-lineage
+edges, using PyTorch Geometric~\cite{fey2019pyg}
+\texttt{HeteroData}. Each node represents a table and is associated with six structural features: in-degree, out-degree, normalized
 degree, lineage degree, betweenness centrality, and PageRank. Edges are
 typed as either \texttt{fk\_to} (foreign key) or \texttt{derived\_from}
 (data lineage). Lineage edges form a strict DAG (directed acyclic graph):
@@ -71,8 +72,10 @@ FK edges are treated as \textbf{directed} (parent$\to$child) for
 path and hop-count queries (\texttt{join\_path}, \texttt{hop\_count},
 \texttt{direct\_fk}) and as \textbf{undirected} for connectivity
 queries (\texttt{membership}, \texttt{connected}, \texttt{isolation},
-\texttt{count}, \texttt{full\_enum}).  Lineage edges are always
-directed (upstream$\to$downstream).
+\texttt{count}, \texttt{full\_enum}).Lineage edges are always directed: each \texttt{derived\_from} edge
+points from the derived table to its source
+(downstream$\to$upstream in data-flow terms).
+
 For path-based questions, we validate alternative valid shortest paths
 against the FK adjacency matrix, ensuring EM is robust to tie-breaking.
 
@@ -80,9 +83,9 @@ against the FK adjacency matrix, ensuring EM is robust to tie-breaking.
 \label{sec:qa-generation}
 
 Questions are generated deterministically from the graph structure using
-standard graph algorithms (BFS, Dijkstra, connected component detection)
+standard graph algorithms (BFS, connected component detection)
 implemented with NetworkX~\cite{networkx2008}, ensuring ground-truth
-answers are provably correct. We define three categories with 13 subtypes:
+answers are provably correct. We define three categories with 13 subtypes as shown in Table~\ref{tab:taxonomy}. 
 
 \paragraph{Difficulty assignment.}
 Difficulty labels are assigned a priori based on structural complexity,
@@ -125,15 +128,19 @@ Category & Subtype & Diff. & Description & \#Qs \\
   & full\_enum.     & Hard & List all tables in silo  & 29 \\
 \bottomrule
 \end{tabular}
-}
 \end{table}
 
 \subsection{Obfuscation Protocol}
 
-To distinguish genuine topology reasoning from schema name memorization,
-we generate an \emph{obfuscated} variant for each dataset. Table names
+To distinguish genuine topology-based reasoning from reliance on
+surface lexical cues and schema-name memorization,
+we generate an \emph{obfuscated} variant for each dataset.  Table names
 are replaced with random identifiers (\texttt{Table\_A},
-\texttt{Table\_B}, etc.) using a deterministic mapping. Questions and
-answers are updated accordingly with word-boundary-aware replacement to
-avoid corrupting natural language phrases (e.g., the word
-``relationship'' in ``foreign key relationship'' is preserved).
+\texttt{Table\_B}, etc.) using a deterministic mapping.
+This prevents models from exploiting semantic signals in
+names such as \texttt{Customer} or \texttt{Invoice} to infer
+relationships without genuine structural reasoning.
+Questions and answers are updated accordingly with
+word-boundary-aware replacement to avoid corrupting natural
+language phrases (e.g., the word ``relationship'' in
+``foreign key relationship'' is preserved).

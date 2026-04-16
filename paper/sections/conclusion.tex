@@ -3,14 +3,15 @@
 % ============================================================================
 \section{Conclusion}
 
-DW-Bench tests whether LLMs can reason about the graph topology of data
-warehouse schemas.  We evaluate six baselines across five datasets using
-three models, yielding 1,046 schema-level and 953 value-level questions.
-Four findings stand out.
+DW-Bench tests whether LLMs can perform graph-topology reasoning over data
+warehouse schemas. We evaluate six baselines across five datasets with three LLMs, yielding 1,046 schema-level questions.
+Four findings are particularly notable.
 
 \textbf{(1)~Tool-use dominance.}  Give the LLM deterministic graph tools
 and it reaches 87--90\% micro-EM, beating the best static baseline by
-7--14~pp.  LLMs can orchestrate algorithms they cannot internally simulate.
+7--14~pp. This indicates that LLMs are better at
+orchestrating graph algorithms through tool use than at performing the
+same reasoning internally.
 
 \textbf{(2)~Triviality illusion.}  Easy lookup subtypes inflate micro-EM.
 Switch to macro-EM (equal subtype weight) and the ranking shifts: what
@@ -22,9 +23,10 @@ One subtype, \texttt{combined\_impact} (12\% EM with tools), accounts for
 most of the gap: it requires chaining lineage traversal with FK expansion,
 a compositional step that current baselines handle poorly.
 
-\textbf{(4)~Obfuscation invariance.}  Tool-Use barely moves under
-obfuscation ($\Delta \leq 4$~pp).  Static baselines drop 9--32~pp, consistent
-with tools operating on topology rather than memorized table names.
+\textbf{(4)~Obfuscation invariance.} Tool-Use is largely unaffected by
+obfuscation ($\Delta \leq 4$~pp), while static baselines decline by
+9--32~pp. This result is consistent with tool-based reasoning over graph
+topology rather than reliance on table-name cues.
 
 The natural next step is a \textbf{hybrid architecture}: pair interactive
 tools with learned graph representations (GNN encoders, graph-aware

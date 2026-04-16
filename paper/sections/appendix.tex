@@ -192,3 +192,35 @@ Which tables are transitively affected (lineage+FK) if
 \bottomrule
 \end{tabular}
 \end{table}
+
+\section{Partial Correctness (F1 Scores)}
+\label{app:f1-scores}
+
+For list-typed target answers (e.g., set enumeration tasks), Exact Match (EM) acts as a strict step-function. To better reflect partial correctness, we report the token-level F1 scores for the three primary enumeration subtypes: \texttt{membership}, \texttt{full\_enumeration}, and \texttt{combined\_impact} (Table~\ref{tab:f1-scores}). F1 scores demonstrate that models retrieve partially correct answers even when failing EM, though the compositional gap remains severe on \texttt{combined\_impact} (F1 peaks at 45.4\% vs.\ 100\% for Oracle).
+
+\begin{table}[H]
+\centering
+\caption{F1 scores (\%) for enumeration subtypes across models and baselines.}
+\label{tab:f1-scores}
+\small
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+Subtype & Model & FT & VR & GA & TU & RC \\
+\midrule
+\multirow{3}{*}{\texttt{membership}} 
+  & Gem. & 0.0 & 0.0 & 0.0 & 58.7 & 0.0 \\
+  & DS   & 0.0 & 0.0 & 9.4 & 90.1 & 0.0 \\
+  & Qw.  & 75.0 & 53.6 & 94.6 & \textbf{100.0} & \textbf{100.0} \\
+\midrule
+\multirow{3}{*}{\texttt{full\_enum}} 
+  & Gem. & \textbf{100.0} & 79.4 & \textbf{100.0} & 94.7 & 69.8 \\
+  & DS   & 90.5 & 70.0 & \textbf{91.2} & 90.4 & 77.2 \\
+  & Qw.  & 88.6 & 67.8 & \textbf{92.5} & 66.8 & 39.5 \\
+\midrule
+\multirow{3}{*}{\texttt{combined\_impact}} 
+  & Gem. & 17.6 & 11.2 & 11.1 & \textbf{32.9} & 4.3 \\
+  & DS   & 23.9 & 22.1 & 14.2 & \textbf{31.5} & 9.1 \\
+  & Qw.  & 20.8 & 19.3 & 15.0 & 44.8 & \textbf{45.4} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -72,9 +72,12 @@ FK edges are treated as \textbf{directed} (parent$\to$child) for
 path and hop-count queries (\texttt{join\_path}, \texttt{hop\_count},
 \texttt{direct\_fk}) and as \textbf{undirected} for connectivity
 queries (\texttt{membership}, \texttt{connected}, \texttt{isolation},
-\texttt{count}, \texttt{full\_enum}).Lineage edges are always directed: each \texttt{derived\_from} edge
-points from the derived table to its source
-(downstream$\to$upstream in data-flow terms).
+\texttt{count}, \texttt{full\_enum}).Lineage edges are always directed (downstream$\to$upstream),
+following the \texttt{derived\_from} convention defined above.
+Foreign keys are treated as bidirectional (undirected) explicitly for
+connectivity and silo-detection subtypes, as an FK implies an inherent
+structural relationship that can be traversed logically in either direction
+(e.g., from a parent lookup table to child fact rows, or vice versa).
 
 For path-based questions, we validate alternative valid shortest paths
 against the FK adjacency matrix, ensuring EM is robust to tie-breaking.

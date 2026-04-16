@@ -145,7 +145,7 @@ target-node normalization, TU now averages 71\% on
 \texttt{membership} (with Qwen reaching 100\%), indicating that topology enumeration is fully
 solvable with tools.  \texttt{combined\_impact} remains at 0--17\%,
 isolating compositional multi-hop reasoning as the core bottleneck.
-\texttt{full\_enumeration} scores 100\% for FT/GA because these
+\texttt{full\_enumeration} scores reach up to 100\% (Gemini) for FT/GA because these
 questions are answered from the full schema context that Flat Text
 and Graph-Augmented inject by default for global graph queries.}
 \label{fig:heatmap}
@@ -236,11 +236,19 @@ only 12--13\% on \texttt{combined\_impact}.  The limiting
 factor therefore does not appear to be tool availability, but
 compositional multi-step reasoning.
 
+\textbf{Graph baselines.}
+While our evaluation covers standard retrieval and tool-use paradigms, we do not evaluate graph-specific agent frameworks (e.g., G-Retriever, GraphRAG, Think-on-Graph) because they typically require task-specific training data or finetuning, which violates our strict zero-shot evaluation protocol. DW-Bench establishes a standardized foundational layer for future evaluation of these hybrid graph-reasoning architectures.
+
 \subsection{Limitations}
 
 We evaluate three frontier LLMs with deterministic single-pass evaluation;
 broader model coverage (e.g., reasoning-optimized variants) would
-strengthen generality claims.
+strengthen generality claims. Furthermore, our obfuscation protocol modifies
+only table names; restricting semantic leakage through column names or
+standardized suffixes (e.g., \texttt{\_id}) is a topic for future iterations.
+Lastly, questions currently follow deterministic templates. While this isolates
+structural reasoning, future work should evaluate linguistic robustness
+by incorporating paraphrase variations.
 
 \paragraph{Responsible use.}
 This benchmark is intended for scientific evaluation of LLM capabilities

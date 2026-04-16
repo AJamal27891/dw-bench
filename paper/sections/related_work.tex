@@ -26,7 +26,10 @@ reasoning chains.  G-Retriever~\cite{gretriever2024} uses GNN encoders to
 retrieve the graph context for LLM QA.  Retrieval-augmented
 generation~\cite{rag2020} (RAG) and hierarchical
 GraphRAG~\cite{graphrag2024} address knowledge-intensive tasks but
-do not specifically target schema topology.
+do not specifically target schema topology. Recent work on tool-based graph
+reasoning agents (e.g., GraphWalk) explicitly studies scale and iteration 
+budgets for compositional navigation, while structural-reward training frameworks
+(e.g., STRuCT-LLM) offer alternative methods to scaffold compositional reasoning.
 DW-Bench does not compare against these advanced graph-agent frameworks;
 following the precedent of Spider and BIRD, we evaluate standardized,
 zero-shot baselines to establish a \emph{lower bound}.  These methods

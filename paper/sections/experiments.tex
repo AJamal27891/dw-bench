@@ -248,7 +248,12 @@ only table names; restricting semantic leakage through column names or
 standardized suffixes (e.g., \texttt{\_id}) is a topic for future iterations.
 Lastly, questions currently follow deterministic templates. While this isolates
 structural reasoning, future work should evaluate linguistic robustness
-by incorporating paraphrase variations.
+by incorporating paraphrase variations. Additionally, we establish fixed
+iteration budgets (e.g., 3 calls for TU, 5 rounds for RC) and retrieval radii (3-hop)
+to establish baselines; extensive parametric scaling of inference compute is a topic
+for future study. Finally, while our lineage edges are derived from strict documentation
+standards, exploring LLM robustness against ambiguous or conflicting ETL provenance
+remains an open challenge.
 
 \paragraph{Responsible use.}
 This benchmark is intended for scientific evaluation of LLM capabilities

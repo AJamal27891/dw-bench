@@ -87,9 +87,9 @@ def macro_em(results):
 
 
 MODELS = [
-    ('gemini-2.5-flash', 'Gemini 2.5 Flash'),
-    ('deepseek-chat', 'DeepSeek-V3'),
-    ('Qwen2.5-72B-Instruct', 'Qwen2.5-72B'),
+    ('gemini-2.5-flash', 'Gemini 2.5 Flash', 'Gem.'),
+    ('deepseek-chat', 'DeepSeek-V3', 'DS'),
+    ('Qwen2.5-72B-Instruct', 'Qwen2.5-72B', 'Qw.'),
 ]
 
 # ════════════════════════════════════════════════════════════════════
@@ -100,7 +100,7 @@ fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.0), sharey=True)
 bls = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
        ('tool_use', 'TU'), ('react_code', 'RC')]
 
-for ax, (tag, title) in zip(axes, MODELS):
+for ax, (tag, title, short_title) in zip(axes, MODELS):
     diffs = ['easy', 'medium', 'hard']
     x = np.arange(len(diffs))
     w = 0.14
@@ -153,7 +153,7 @@ bl_pairs = [('flat_text', 'FT'), ('vector_rag', 'VR'), ('graph_aug', 'GA'),
 # Build data for all models
 all_subtypes = set()
 data_maps = {}  # key: (model_tag, bl_short)
-for model_tag, _ in MODELS:
+for model_tag, _, _ in MODELS:
     for bl, bl_short in bl_pairs:
         results = load_all(bl, 'original', model_tag, DS_ALL)
         if results:
@@ -167,7 +167,7 @@ subtypes = sorted(all_subtypes, key=lambda s: gemini_tu.get(s, 0))
 bl_names = [bl for _, bl in bl_pairs if ('gemini-2.5-flash', bl) in data_maps]
 
 im = None
-for ax, (model_tag, model_title) in zip(axes_hm, MODELS):
+for ax, (model_tag, model_title, _) in zip(axes_hm, MODELS):
     matrix = np.array([[data_maps.get((model_tag, bl), {}).get(s, 0)
                         for bl in bl_names] for s in subtypes])
     im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=0, vmax=100)
@@ -207,11 +207,11 @@ models_list = []
 micro_vals = []
 macro_vals = []
 
-for tag, tag_label in MODELS:
+for tag, tag_label, short_label in MODELS:
     for bl, bl_short in all_bls:
         results = load_all(bl, 'original', tag, DS_ALL)
         if results:
-            models_list.append(f'{tag_label.split()[0]}\n{bl_short}')
+            models_list.append(f'{short_label}\n{bl_short}')
             micro_vals.append(micro_em(results))
             macro_vals.append(macro_em(results))
 
@@ -238,7 +238,7 @@ ax.yaxis.set_major_locator(mticker.MultipleLocator(20))
 ax.legend(fontsize=9, frameon=False, loc='upper right')
 ax.grid(axis='y', alpha=0.2, linewidth=0.4)
 
-gem_count = sum(1 for m in models_list if 'Gemini' in m)
+gem_count = sum(1 for m in models_list if 'Gem.' in m)
 ax.axvline(gem_count - 0.5, color='gray', linestyle=':', alpha=0.5, linewidth=0.7)
 
 plt.tight_layout()
@@ -257,13 +257,13 @@ labels = []
 penalties = []
 bar_colors = []
 
-for tag, tag_label in MODELS:
+for tag, tag_label, short_label in MODELS:
     for bl, bl_short in all_bls:
         orig = load_all(bl, 'original', tag, DS)
         obf = load_all(bl, 'obfuscated', tag, DS)
         if orig and obf:
             delta = micro_em(obf) - micro_em(orig)
-            labels.append(f'{tag_label.split()[0]}\n{bl_short}')
+            labels.append(f'{short_label}\n{bl_short}')
             penalties.append(delta)
             bar_colors.append(COLORS[bl_short])
 
@@ -285,7 +285,7 @@ ax.axhline(0, color='black', linewidth=0.6)
 ax.set_ylim(min(penalties) - 5, 5)
 ax.grid(axis='y', alpha=0.2, linewidth=0.4)
 
-gem_count_obf = sum(1 for l in labels if 'Gemini' in l)
+gem_count_obf = sum(1 for l in labels if 'Gem.' in l)
 ax.axvline(gem_count_obf - 0.5, color='gray', linestyle=':', alpha=0.5, linewidth=0.7)
 
 plt.tight_layout()
@@ -311,7 +311,7 @@ subtype_labels = ['cascade\ncount', 'row\nprov.', 'row\nimpact',
                   'value\norigin', 'multi-hop\ntrace',
                   'value\nprop.', 'cross-silo\nreach.', 'shared\nsource']
 
-for ax, (tag, title) in zip(axes, MODELS):
+for ax, (tag, title, _) in zip(axes, MODELS):
     t2_data = {}
     for bl, label, color in t2_bls:
         # Try syn_logistics first, then adventureworks
@@ -367,7 +367,7 @@ fig, axes_og = plt.subplots(1, 3, figsize=(10.0, 4.5), sharey=True)
 
 model_colors = ['#332288', '#CC6677', '#DDCC77']
 
-for ax, (model_tag, model_label), mcolor in zip(axes_og, MODELS, model_colors):
+for ax, (model_tag, model_label, _), mcolor in zip(axes_og, MODELS, model_colors):
     # Oracle per subtype for this model
     oracle_r = load_all('oracle', 'original', model_tag, DS_ALL)
     oracle_st = by_subtype(oracle_r) if oracle_r else {}
@@ -398,7 +398,7 @@ for ax, (model_tag, model_label), mcolor in zip(axes_og, MODELS, model_colors):
     y_og = np.arange(len(subtypes_show))
     vals = [gaps[s] for s in subtypes_show]
 
-    bars = ax.barh(y_og, vals, 0.6, color=mcolor, edgecolor='white', linewidth=0.3)
+    bars = ax.barh(y_og, vals, 0.4, left=[best_per_st.get(s, 0) for s in subtypes_show], color=mcolor, alpha=0.3, edgecolor='white', linewidth=0.3)
     # Best baseline dot
     for j, s in enumerate(subtypes_show):
         bv = best_per_st.get(s, 0)

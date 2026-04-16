@@ -406,7 +406,7 @@ for ax, (model_tag, model_label, _), mcolor in zip(axes_og, MODELS, model_colors
         ax.plot(bv, j, 'o', color='#332288', markersize=4, zorder=5)
         ax.plot(ov, j, 'D', color='#117733', markersize=4, zorder=5)
         ax.plot([bv, ov], [j, j], '-', color=mcolor, linewidth=1.5, alpha=0.5)
-        ax.text(ov + 1, j, f'{gaps[s]:.0f}pp', ha='left', va='center',
+        ax.text(ov + 3.5, j, f'{gaps[s]:.0f}pp', ha='left', va='center',
                 fontsize=7, fontweight='bold', color='#882255')
 
     ax.set_yticks(y_og)
@@ -414,14 +414,14 @@ for ax, (model_tag, model_label, _), mcolor in zip(axes_og, MODELS, model_colors
         ax.set_yticklabels([s.replace('_', ' ') for s in subtypes_show], fontsize=8)
     ax.set_xlabel('Exact Match (%)', fontsize=9)
     ax.set_title(model_label, fontweight='bold')
-    ax.set_xlim(0, 110)
+    ax.set_xlim(0, 118)
     ax.grid(axis='x', alpha=0.2, linewidth=0.4)
     ax.invert_yaxis()
 
     if ax == axes_og[-1]:
         ax.plot([], [], 'o', color='#332288', markersize=4, label='Best Baseline')
         ax.plot([], [], 'D', color='#117733', markersize=4, label='Oracle')
-        ax.legend(fontsize=8, frameon=False, loc='lower right')
+        ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=8, frameon=False)
 
 plt.tight_layout()
 plt.savefig(OUT / 'oracle_gap.pdf')

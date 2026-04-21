@@ -367,6 +367,29 @@ fig, axes_og = plt.subplots(1, 3, figsize=(10.0, 4.5), sharey=True)
 
 model_colors = ['#332288', '#CC6677', '#DDCC77']
 
+# Compute global average gap to synchronize y-axis across all 3 panels
+global_gaps = defaultdict(list)
+for model_tag, _, _ in MODELS:
+    oracle_r = load_all('oracle', 'original', model_tag, DS_ALL)
+    oracle_st = by_subtype(oracle_r) if oracle_r else {}
+    best_per_st = {}
+    for bl, _ in bl_pairs:
+        results = load_all(bl, 'original', model_tag, DS_ALL)
+        if results:
+            st = by_subtype(results)
+            for s, v in st.items():
+                if s not in best_per_st or v > best_per_st[s]:
+                    best_per_st[s] = v
+    for s in all_subtypes:
+        global_gaps[s].append(oracle_st.get(s, 100) - best_per_st.get(s, 0))
+
+avg_gaps = {s: np.mean(v) for s, v in global_gaps.items()}
+subtypes_sorted_og = sorted(all_subtypes, key=lambda s: avg_gaps[s], reverse=True)
+global_subtypes_show = [s for s in subtypes_sorted_og if avg_gaps[s] > 0][:6]
+if not global_subtypes_show:
+    global_subtypes_show = subtypes_sorted_og[:6]
+y_og = np.arange(len(global_subtypes_show))
+
 for ax, (model_tag, model_label, _), mcolor in zip(axes_og, MODELS, model_colors):
     # Oracle per subtype for this model
     oracle_r = load_all('oracle', 'original', model_tag, DS_ALL)
@@ -382,25 +405,19 @@ for ax, (model_tag, model_label, _), mcolor in zip(axes_og, MODELS, model_colors
                 if s not in best_per_st or v > best_per_st[s]:
                     best_per_st[s] = v
 
-    # Compute gaps
+    # Compute gaps for this specific model exactly on the global subtypes
     gaps = {}
-    for s in all_subtypes:
+    vals = []
+    for s in global_subtypes_show:
         oracle_v = oracle_st.get(s, 100)
         best_v = best_per_st.get(s, 0)
-        gaps[s] = oracle_v - best_v
+        gap_val = oracle_v - best_v
+        gaps[s] = gap_val
+        vals.append(gap_val)
 
-    subtypes_sorted_og = sorted(gaps.keys(), key=lambda s: gaps[s], reverse=True)
-    # Only show subtypes with gap > 0
-    subtypes_show = [s for s in subtypes_sorted_og if gaps[s] > 0]
-    if not subtypes_show:
-        subtypes_show = subtypes_sorted_og[:4]
-
-    y_og = np.arange(len(subtypes_show))
-    vals = [gaps[s] for s in subtypes_show]
-
-    bars = ax.barh(y_og, vals, 0.4, left=[best_per_st.get(s, 0) for s in subtypes_show], color=mcolor, alpha=0.3, edgecolor='white', linewidth=0.3)
+    bars = ax.barh(y_og, vals, 0.4, left=[best_per_st.get(s, 0) for s in global_subtypes_show], color=mcolor, alpha=0.3, edgecolor='white', linewidth=0.3)
     # Best baseline dot
-    for j, s in enumerate(subtypes_show):
+    for j, s in enumerate(global_subtypes_show):
         bv = best_per_st.get(s, 0)
         ov = oracle_st.get(s, 100)
         ax.plot(bv, j, 'o', color='#332288', markersize=4, zorder=5)
@@ -411,7 +428,7 @@ for ax, (model_tag, model_label, _), mcolor in zip(axes_og, MODELS, model_colors
 
     ax.set_yticks(y_og)
     if ax == axes_og[0]:
-        ax.set_yticklabels([s.replace('_', ' ') for s in subtypes_show], fontsize=8)
+        ax.set_yticklabels([s.replace('_', ' ') for s in global_subtypes_show], fontsize=8)
     ax.set_xlabel('Exact Match (%)', fontsize=9)
     ax.set_title(model_label, fontweight='bold')
     ax.set_xlim(0, 118)

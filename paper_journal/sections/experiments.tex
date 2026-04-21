@@ -280,6 +280,15 @@ all three models; 7 of 13 subtypes are effectively solved (gap~$<$~3\%).}
 
 \subsection{Limitations}
 
+\textbf{Benchmark Security.} Recent studies \cite{berkeley2026benchmarks} have
+exposed critical vulnerabilities in AI agent evaluation pipelines, demonstrating
+that models can achieve perfect scores by exploiting environment flaws rather
+than solving the actual reasoning tasks. DW-Bench structurally mitigates semantic
+``reward hacking'' via its Obfuscation Protocol, and utilizes offline deterministic
+exact-match scoring to prevent test-suite manipulation. However, execution-based
+baselines (like React-Code) require rigorous sandboxing if deployed interactively
+to ensure agents cannot access local ground-truth files.
+
 \textbf{Context Parity.} Baselines do not enforce strict token-budget
 parity.  Since 45\% of questions involve paths exceeding 3 hops,
 GA scores may be depressed on long-range subtypes.

@@ -1,11 +1,7 @@
-% ============================================================================
-% 3. DW-BENCH DESIGN
-% ============================================================================
 \section{DW-Bench: Benchmark Design}
 
 \subsection{Datasets}
 
-% TABLE 1: Dataset Overview
 \begin{table}[t]
 \centering
 \caption{DW-Bench dataset statistics. ``Silos'' = disconnected
@@ -100,7 +96,6 @@ multi-hop transitive closure or composition across both FK and lineage
 edge types.  These labels are fixed properties of the question structure,
 independent of any model's empirical performance.
 
-% TABLE 2: Question Taxonomy
 \begin{table}[t]
 \centering
 \caption{Question taxonomy. Difficulty is assigned based on the number of
@@ -114,9 +109,9 @@ Category & Subtype & Diff. & Description & \#Qs \\
 \multirow{5}{*}{\rotatebox{90}{\small Lin.}} 
   & forward         & Easy & Direct lineage targets   & 72 \\
   & reverse         & Easy & Source tables for DW table & 71 \\
+  & multi\_source   & Med. & Tables with 3+ sources   & 49 \\
   & transitive      & Hard & Multi-hop lineage chains  & 33 \\
   & combined\_impact & Hard & Lineage + FK dependents  & 69 \\
-  & multi\_source   & Med. & Tables with 3+ sources   & 49 \\
 \midrule
 \multirow{3}{*}{\rotatebox{90}{\small Rt.}}
   & direct\_fk      & Easy & FK adjacency check       & 100 \\
@@ -125,9 +120,9 @@ Category & Subtype & Diff. & Description & \#Qs \\
 \midrule
 \multirow{5}{*}{\rotatebox{90}{\small Silo}}
   & count           & Easy & Number of components     & 30 \\
-  & membership      & Hard & Which component has X?   & 38 \\
   & isolation       & Med. & Is table X isolated?     & 60 \\
   & connected       & Med. & Are X and Y connected?   & 29 \\
+  & membership      & Hard & Which component has X?   & 38 \\
   & full\_enum.     & Hard & List all tables in silo  & 29 \\
 \bottomrule
 \end{tabular}

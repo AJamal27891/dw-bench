@@ -1,6 +1,3 @@
-% ============================================================================
-% 5. EXPERIMENTS
-% ============================================================================
 \section{Experiments}
 
 \subsection{Setup}
@@ -23,7 +20,6 @@ reflects minor formatting, not reasoning failures).
 
 Results are shown in Table \ref{tab:main-results} and the main findings are summarized below:
 
-% TABLE 3: Main Results (3 models, with 95% bootstrap CIs)
 \begin{table}[t]
 \centering
 \caption{Main results (EM~\% $\pm$ 95\% CI, pooled across
@@ -77,7 +73,6 @@ static methods; all still trail TU by $>$8~pp (Appendix Figure~\ref{fig:triviali
 
 \subsection{Results by Difficulty}
 
-% TABLE 4: By difficulty (3 models)
 \begin{table}[t]
 \centering
 \caption{EM (\%) by difficulty. TU achieves near-perfect easy scores
@@ -118,14 +113,6 @@ connected components) that require global graph access unavailable to FT.
 The distribution reflects subtype composition, not a flaw in difficulty
 labels.
 
-% \begin{figure}[t]
-% \centering
-% \includegraphics[width=\linewidth]{figures/difficulty_comparison.pdf}
-% \caption{EM by difficulty level. All baselines plateau on hard
-% questions while Oracle (dashed) achieves 100\%.}
-% \label{fig:difficulty}
-% \end{figure}
-
 \subsection{Per-Subtype Analysis}
 
 \paragraph{Finding~3: Hard-task ceiling.}
@@ -153,7 +140,6 @@ and Graph-Augmented inject by default for global graph queries.}
 
 \subsection{Obfuscation}
 
-% TABLE 5 (unchanged data)
 \begin{table}[t]
 \centering
 \caption{Obfuscation penalty (4 datasets). TU is nearly invariant.}
@@ -186,7 +172,6 @@ column semantics play no role.
 RC shows near-zero penalty for DeepSeek ($\Delta{=}{+}0.6$\%), confirming
 that code execution against the graph object is largely invariant to
 name perturbation.
-
 
 \subsection{Discussion}
 
@@ -227,6 +212,7 @@ exceed the 3-hop retrieval radius. Obfuscation
 therefore removes the schema-name cues that otherwise help LLMs infer
 structure beyond the retrieved fragment.
 
+\begin{sloppypar}
 \textbf{Tool tautology.}
 TU achieving near-perfect scores on easy subtypes is by design: it
 isolates hard failures as genuine reasoning problems.  After
@@ -235,9 +221,15 @@ target-node normalization, TU reaches 100\% on \texttt{membership}
 only 12--13\% on \texttt{combined\_impact}.  The limiting
 factor therefore does not appear to be tool availability, but
 compositional multi-step reasoning.
+\end{sloppypar}
 
 \textbf{Graph baselines.}
-While our evaluation covers standard retrieval and tool-use paradigms, we do not evaluate graph-specific agent frameworks (e.g., G-Retriever, GraphRAG, Think-on-Graph) because they typically require task-specific training data or finetuning, which violates our strict zero-shot evaluation protocol. DW-Bench establishes a standardized foundational layer for future evaluation of these hybrid graph-reasoning architectures.
+While our evaluation covers standard retrieval and tool-use paradigms, we
+do not evaluate graph-specific agent frameworks (e.g., G-Retriever,
+GraphRAG, Think-on-Graph) because they typically require task-specific
+training data or finetuning, which violates our strict zero-shot
+evaluation protocol. DW-Bench establishes a standardized foundational
+layer for future evaluation of these hybrid graph-reasoning architectures.
 
 \subsection{Limitations}
 

@@ -203,13 +203,13 @@ def main():
     )
     parser.add_argument(
         '--dataset', type=str, default='all',
-        choices=['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'all'],
+        choices=['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics', 'all'],
     )
     args = parser.parse_args()
 
     repo_root = Path(__file__).parent.parent
     datasets = (
-        ['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm']
+        ['adventureworks', 'tpc-ds', 'tpc-di', 'omop_cdm', 'syn_logistics']
         if args.dataset == 'all'
         else [args.dataset]
     )

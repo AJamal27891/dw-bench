@@ -1,6 +1,3 @@
-% ============================================================================
-% APPENDIX
-% ============================================================================
 \appendix
 
 \section{Supplementary Figures}
@@ -21,8 +18,6 @@ reveal that easy subtypes inflate aggregate scores for static baselines.}
 only 3--4\% while static baselines lose 9--32\%.}
 \label{fig:obfuscation}
 \end{figure}
-
-
 
 \section{\texttt{combined\_impact}: Formal Specification}
 \label{app:combined-impact}
@@ -63,7 +58,7 @@ Silo-category questions.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.pdf}
+\includegraphics[width=0.85\linewidth]{figures/hop_distance_decay.png}
 \caption{EM by gold path length. Static baselines collapse
 beyond 3~hops; Tool-Use degrades more gracefully.}
 \label{fig:hop_decay}
@@ -131,18 +126,25 @@ paths of equal length are validated against the FK adjacency matrix.
 alphabetically before comparison; order does not matter.
 \emph{F1}: token-level overlap between predicted and gold answer sets.
 
+\begin{sloppypar}
 \paragraph{Retrieval.}
 Vector-RAG uses \texttt{all-MiniLM-L6-v2}~\cite{reimers2019sentencebert}
 embeddings with FAISS exact search and $k{=}15$ retrieved chunks.
 Graph-Augmented uses 3-hop BFS neighborhoods from mentioned tables.
-Tool-Use provides 9 graph algorithm tools (\texttt{shortest\_path},
-\texttt{connected\_components}, \texttt{get\_component\_of},
-\texttt{get\_fk\_neighbors}, \texttt{get\_lineage\_forward},
-\texttt{get\_lineage\_reverse}, \texttt{transitive\_lineage},
-\texttt{check\_fk\_adjacency}, \texttt{list\_tables}) with
-up to 3 calls per question.
+Tool-Use provides 9 graph algorithm tools
+(\texttt{shortest\_path},
+\texttt{connected\_components},
+\texttt{get\_component\_of},
+\texttt{get\_fk\_neighbors},
+\texttt{get\_lineage\_forward},
+\texttt{get\_lineage\_reverse},
+\texttt{transitive\_lineage},
+\texttt{check\_fk\_adjacency},
+\texttt{list\_tables})
+with up to 3 calls per question.
 ReAct-Code provides a Python REPL with NetworkX and allows up to 5 code
 execution rounds per question.
+\end{sloppypar}
 
 \paragraph{Statistical treatment.}
 All figures include 95\% bootstrap confidence intervals computed via

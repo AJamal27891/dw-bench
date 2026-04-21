@@ -1,11 +1,10 @@
 # DW-Bench: Benchmarking LLMs on Data Warehouse Graph Topology Reasoning
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.9+-3776AB.svg)](https://python.org)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-Pending-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/AJamal27891/dw-bench)
-[![Tier 1](https://img.shields.io/badge/Tier%201-1%2C046%20questions-blueviolet)](https://huggingface.co/datasets/AJamal27891/dw-bench)
-[![Tier 2](https://img.shields.io/badge/Tier%202-433%20evaluated-blueviolet)](https://huggingface.co/datasets/AJamal27891/dw-bench)
-[![Conference Paper](https://img.shields.io/badge/Paper-Conference%20Preprint-blue?logo=readthedocs)](https://github.com/AJamal27891/dw-bench/blob/main/paper/main.pdf)
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB.svg)](https://python.org)
 [![Journal Paper](https://img.shields.io/badge/Paper-Journal%20of%20Big%20Data-orange?logo=springer)](https://github.com/AJamal27891/dw-bench/blob/main/paper_journal/main.pdf)
 
 **DW-Bench** is the first benchmark for evaluating whether Large Language Models can reason about the *graph topology* of data warehouse schemas: foreign-key paths, data lineage chains, connected components, and row-level provenance. It comprises 1,479 questions total (1,046 schema-level Tier 1 + 433 evaluated value-level Tier 2) across 5 datasets, with 6 baselines evaluated against 3 frontier models (Gemini 2.5 Flash, DeepSeek-V3, Qwen2.5-72B).
@@ -241,20 +240,20 @@ python integrity_check.py
 ```bibtex
 @misc{ahmed2026dwbench,
   title     = {DW-Bench: Benchmarking LLMs on Data Warehouse Graph Topology Reasoning},
-  author    = {Ahmed, Ahmed G.A.H.},
+  author    = {Ahmed, Ahmed G.A.H. and Sakar, C. Okan},
   year      = {2026},
   url       = {https://github.com/AJamal27891/dw-bench},
-  note      = {Preprint. Under review.}
+  note      = {NeurIPS 2026 Datasets and Benchmarks Track. arXiv preprint pending.}
 }
 ```
 
-For the extended journal version:
+For the extended journal edition:
 
 ```bibtex
 @article{ahmed2026dwbench_journal,
   title     = {DW-Bench: A Benchmark for Graph Topology Reasoning
                in Data Warehouse Schemas with Large Language Models},
-  author    = {Ahmed, Ahmed G.A.H.},
+  author    = {Ahmed, Ahmed G.A.H. and Sakar, C. Okan},
   journal   = {Journal of Big Data},
   publisher = {Springer},
   year      = {2026},

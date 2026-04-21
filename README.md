@@ -1,7 +1,7 @@
 # DW-Bench: Benchmarking LLMs on Data Warehouse Graph Topology Reasoning
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19676716.svg)](https://doi.org/10.5281/zenodo.19676716)
 [![arXiv](https://img.shields.io/badge/arXiv-Pending-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/AJamal27891/dw-bench)
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB.svg)](https://python.org)

@@ -81,9 +81,9 @@ def set_f1(predicted: list, gold: list) -> dict:
     pred_set = {normalize_row_ref(p) for p in predicted}
     gold_set = {normalize_row_ref(g) for g in gold}
 
-    if not gold_set:
+    if not gold_set and not pred_set:
         return {"precision": 1.0, "recall": 1.0, "f1": 1.0, "exact": True}
-    if not pred_set:
+    if not gold_set or not pred_set:
         return {"precision": 0.0, "recall": 0.0, "f1": 0.0, "exact": False}
 
     tp = len(pred_set & gold_set)
@@ -127,6 +127,8 @@ def ordered_list_match(predicted: list, gold: list,
     # Check if order matches exactly
     order_correct = (predicted == gold) if isinstance(predicted, list) else False
     f1_result["order_correct"] = order_correct
+    # Table overlap alone does not establish a correct join ordering.
+    f1_result["exact"] = order_correct
 
     # Check if prediction is a valid alternative shortest path
     valid_alt_path = False
